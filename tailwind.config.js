@@ -13,7 +13,13 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        "radial-gradient":
+          "radial-gradient(114.29% 42.52% at 103.66% 58.94%, #D0F8F1 0%, #D1F3FF 18.23%, #ECF8FF 51.28%, #E1FFFA 80.21%, #D0F2FF 93.23%)",
+      },
       colors: {
+        corduroy: "#4A5754",
+        anakiwa: "#F2FAFD",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

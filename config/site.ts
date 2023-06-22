@@ -9,10 +9,17 @@ export const siteConfig = {
       title: "Home",
       href: "/",
     },
+    {
+      title: "Project Library",
+      href: "/projects",
+    },
   ],
   links: {
     twitter: "https://twitter.com/privacyscaling",
     github: "https://github.com/privacy-scaling-explorations",
     docs: "https://ui.shadcn.com",
+    discord: "https://discord.com/invite/sF5CT5rzrR",
+    articles: "https://mirror.xyz/privacy-scaling-explorations.eth",
+    jobs: "https://jobs.lever.co/ethereumfoundation/?department=Ethereum%20Foundation&team=Privacy%20and%20Scaling%20Explorations",
   },
 }
