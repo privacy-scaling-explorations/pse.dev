@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
@@ -68,17 +68,21 @@
 
     --radius: 0.5rem;
   }
-}
+} */
 
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    /* @apply bg-background text-foreground; */
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  h1,h2,h3,h4,h5{
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     @apply font-display;
   }
 }
