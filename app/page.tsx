@@ -15,14 +15,14 @@ export default function IndexPage() {
     <section className="flex flex-col">
       <div className="flex w-full flex-col gap-5 bg-[#D0F2FF] px-[32px] py-5 md:flex-row md:px-20">
         <div className="flex w-full flex-col justify-center gap-5">
-          <h1 className="text-xl uppercase text-[#E3533A]">
+          <h6 className="font-sans text-lg uppercase tracking-[0.2625rem] text-orange">
             Privacy + Scaling Explorations
-          </h1>
+          </h6>
           <h1 className="text-4xl font-[700] md:text-7xl">
             Programmable cryptography for people like you
           </h1>
           <NextLink href={"/projects"} className="flex items-center gap-2">
-            <h1 className="border-b-2 border-[#E3533A] text-base uppercase">
+            <h1 className="border-b-2 border-orange text-base uppercase">
               Explore The Project Library
             </h1>
             <NextImage
@@ -47,7 +47,7 @@ export default function IndexPage() {
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon1} alt="pseicon1" height={16} width={16} />
-              <h1 className="text-base font-[700] uppercase tracking-[5px] text-[#E3533A]">
+              <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
                 Learn and Share
               </h1>
             </div>
@@ -61,7 +61,7 @@ export default function IndexPage() {
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
           >
-            <h1 className="border-b-2 border-[#E3533A] text-base font-[500] uppercase">
+            <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               Watch
             </h1>
             <NextImage
@@ -76,7 +76,7 @@ export default function IndexPage() {
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon1} alt="pseicon1" height={16} width={16} />
-              <h1 className="text-base font-[700] uppercase tracking-[5px] text-[#E3533A]">
+              <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
                 Learn and Share
               </h1>
             </div>
@@ -92,7 +92,7 @@ export default function IndexPage() {
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
           >
-            <h1 className="border-b-2 border-[#E3533A] text-base font-[500] uppercase">
+            <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               Atttend
             </h1>
             <NextImage
@@ -110,7 +110,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon2} alt="pseicon1" height={16} width={16} />
-              <h1 className="text-base font-[700] uppercase tracking-[5px] text-[#E3533A]">
+              <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
                 Event
               </h1>
             </div>
@@ -122,7 +122,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
           >
-            <h1 className="border-b-2 border-[#E3533A] text-base font-[500] uppercase">
+            <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               Attend
             </h1>
             <NextImage
@@ -140,7 +140,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon3} alt="pseicon1" height={16} width={16} />
-              <h1 className="text-base font-[700] uppercase tracking-[5px] text-[#E3533A]">
+              <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
                 Blog Post
               </h1>
             </div>
@@ -156,7 +156,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
           >
-            <h1 className="border-b-2 border-[#E3533A] text-base font-[500] uppercase">
+            <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               read
             </h1>
             <NextImage
@@ -172,7 +172,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
       <div className="flex flex-col gap-40 bg-radial-gradient px-[32px] py-40 lg:px-20">
         <div className="flex flex-col gap-10 text-center lg:flex-row">
           <div className="flex w-full items-start justify-start lg:w-[500px] lg:justify-center">
-            <h1 className="text-xl font-[700] uppercase text-[#E3533A]">
+            <h1 className="text-xl font-[700] uppercase text-orange">
               Who We Are
             </h1>
           </div>
@@ -186,7 +186,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
 
         <div className="flex flex-col gap-10 text-center lg:flex-row">
           <div className="flex w-full items-start justify-start lg:w-[500px] lg:justify-center">
-            <h1 className="text-xl font-[700] uppercase text-[#E3533A]">
+            <h1 className="text-xl font-[700] uppercase text-orange">
               What We Do
             </h1>
           </div>
@@ -249,7 +249,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
 
         <div className="flex flex-col gap-10 text-center lg:flex-row">
           <div className="flex w-full items-start  justify-start lg:w-[500px] lg:justify-center">
-            <h1 className="text-xl font-[700] uppercase text-[#E3533A]">
+            <h1 className="text-xl font-[700] uppercase text-orange">
               How To Plug In
             </h1>
           </div>
@@ -267,7 +267,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
               rel="noreferrer"
               className="flex items-center gap-2"
             >
-              <h1 className="border-b-2 border-[#E3533A] text-base font-[500] uppercase">
+              <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
                 Say Hi On Discord
               </h1>
               <NextImage

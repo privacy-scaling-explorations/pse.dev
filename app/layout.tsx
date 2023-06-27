@@ -3,7 +3,6 @@ import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
 import { fontDisplay, fontSans } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
@@ -34,15 +33,13 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
+      <html
+        lang="en"
+        className={`${fontSans.variable} ${fontDisplay.variable}`}
+        suppressHydrationWarning
+      >
         <head />
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable,
-            fontDisplay.variable
-          )}
-        >
+        <body className={"min-h-screen bg-background antialiased"}>
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader />
             <div className="flex-1">{children}</div>

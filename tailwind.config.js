@@ -19,6 +19,7 @@ module.exports = {
       },
       colors: {
         corduroy: "#4A5754",
+        orange: "#E1523A",
         anakiwa: "#F2FAFD",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
