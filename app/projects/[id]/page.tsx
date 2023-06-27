@@ -2,10 +2,10 @@
 
 import NextImage from "next/image"
 import { usePathname } from "next/navigation"
-import GithubVector from "@/public/githubblack-vector.png"
-import GlobalVector from "@/public/globeblack-vector.png"
+import GithubVector from "@/public/githubblack-vector.svg"
+import GlobalVector from "@/public/globeblack-vector.svg"
 import SkyNoMoonBg from "@/public/skynomoon.png"
-import TwitterVector from "@/public/twitterblack-vector.png"
+import TwitterVector from "@/public/twitterblack-vector.svg"
 
 import { projects } from "@/config/projects"
 import Breadcrumbs from "@/components/breadcrumbs"

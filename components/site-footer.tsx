@@ -1,10 +1,10 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
-import ArrowVector from "@/public/arrow-vector.png"
+import ArrowVector from "@/public/arrow-right-up-line.svg"
 import DiscordLogo from "@/public/discord-white.png"
 import EllipseLogo from "@/public/ellipse-white.png"
 import GithubLogo from "@/public/github-white.png"
-import PSELogo from "@/public/pselogo-footer.png"
+import PSELogo from "@/public/pselogo-footer.svg"
 import TwitterLogo from "@/public/twitter-white.png"
 
 import { siteConfig } from "@/config/site"
@@ -36,7 +36,7 @@ export function SiteFooter() {
           className="flex items-center gap-5 py-5"
         >
           JOBS
-          <NextImage src={ArrowVector} alt="logo" width={12} height={12} />
+          <NextImage src={ArrowVector} alt="arrowup" width={24} height={24} />
         </NextLink>
       </div>
       <div className="flex w-full flex-col items-center justify-center gap-5 bg-[#171C1B] py-[40px] text-sm">
@@ -46,7 +46,12 @@ export function SiteFooter() {
             target="_blank"
             rel="noreferrer"
           >
-            <NextImage src={TwitterLogo} alt="logo" width={24} height={24} />
+            <NextImage
+              src={TwitterLogo}
+              alt="twitterlogo"
+              width={24}
+              height={24}
+            />
           </NextLink>
 
           <NextLink
@@ -54,21 +59,36 @@ export function SiteFooter() {
             target="_blank"
             rel="noreferrer"
           >
-            <NextImage src={DiscordLogo} alt="logo" width={24} height={24} />
+            <NextImage
+              src={DiscordLogo}
+              alt="discordlogo"
+              width={24}
+              height={24}
+            />
           </NextLink>
           <NextLink
             href={siteConfig.links.github}
             target="_blank"
             rel="noreferrer"
           >
-            <NextImage src={GithubLogo} alt="logo" width={24} height={24} />
+            <NextImage
+              src={GithubLogo}
+              alt="githublogo"
+              width={24}
+              height={24}
+            />
           </NextLink>
           <NextLink
             href={siteConfig.links.articles}
             target="_blank"
             rel="noreferrer"
           >
-            <NextImage src={EllipseLogo} alt="logo" width={24} height={24} />
+            <NextImage
+              src={EllipseLogo}
+              alt="ellipelogo"
+              width={24}
+              height={24}
+            />
           </NextLink>
         </div>
         <div className="flex gap-5 text-white">

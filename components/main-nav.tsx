@@ -3,7 +3,7 @@
 import NextImage from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import PSELogo from "@/public/pselogo-header.png"
+import PSELogo from "@/public/pselogo-header.svg"
 
 import { NavItem } from "@/types/nav"
 

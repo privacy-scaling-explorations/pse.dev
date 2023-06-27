@@ -2,8 +2,8 @@
 
 import NextImage from "next/image"
 import { useRouter } from "next/navigation"
-import GithubVector from "@/public/github-vector.png"
-import GlobalVector from "@/public/globe-vector.png"
+import GithubVector from "@/public/github-vector.svg"
+import GlobalVector from "@/public/globe-vector.svg"
 import SkyNoMoonBg from "@/public/skynomoon.png"
 
 import { projects } from "@/config/projects"

@@ -6,9 +6,9 @@ import NextLink from "next/link"
 import ArrowVector from "@/public/arrow-white-vector.png"
 import CloseVector from "@/public/close-vector.png"
 import DiscordLogo from "@/public/discord-white.png"
-import EllipseLogo from "@/public/ellipse.png"
+import EllipseLogo from "@/public/ellipse-white.png"
 import GithubLogo from "@/public/github-white.png"
-import HeaderVector from "@/public/headermobile-vector-.png"
+import HeaderVector from "@/public/menu-line.svg"
 import TwitterLogo from "@/public/twitter-white.png"
 
 import { siteConfig } from "@/config/site"
@@ -23,8 +23,8 @@ export function SiteHeaderMobile() {
         alt="logo"
         className="cursor-pointer"
         onClick={() => setHeader(true)}
-        width={18}
-        height={16}
+        width={24}
+        height={24}
       />
       {header && (
         <div

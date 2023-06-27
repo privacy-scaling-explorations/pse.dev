@@ -1,11 +1,11 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
-import ArrowUpVector from "@/public/arrow-vector.png"
+import ArrowUpVector from "@/public/arrow-right-up-line.svg"
 import ArrowRightVector from "@/public/arrowright-vector.png"
 import PSELogoCircle from "@/public/pse-logo-circle.png"
-import PSEIcon1 from "@/public/pseicon-1.png"
-import PSEIcon2 from "@/public/pseicon-2.png"
-import PSEIcon3 from "@/public/pseicon-3.png"
+import PSEIcon1 from "@/public/pseicon-1.svg"
+import PSEIcon2 from "@/public/pseicon-2.svg"
+import PSEIcon3 from "@/public/pseicon-3.svg"
 import PSELogo from "@/public/pselogo-homepage.png"
 
 import { siteConfig } from "@/config/site"
@@ -67,8 +67,8 @@ export default function IndexPage() {
             <NextImage
               src={ArrowUpVector}
               alt="arrowup"
-              height={12}
-              width={12}
+              height={24}
+              width={24}
             />
           </NextLink>
         </div>
@@ -98,8 +98,8 @@ export default function IndexPage() {
             <NextImage
               src={ArrowUpVector}
               alt="arrowup"
-              height={12}
-              width={12}
+              height={24}
+              width={24}
             />
           </NextLink>
         </div>
@@ -109,7 +109,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
         >
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
-              <NextImage src={PSEIcon2} alt="pseicon1" height={16} width={10} />
+              <NextImage src={PSEIcon2} alt="pseicon1" height={16} width={16} />
               <h1 className="text-base font-[700] uppercase tracking-[5px] text-[#E3533A]">
                 Event
               </h1>
@@ -128,8 +128,8 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
             <NextImage
               src={ArrowUpVector}
               alt="arrowup"
-              height={12}
-              width={12}
+              height={24}
+              width={24}
             />
           </NextLink>
         </div>
@@ -162,8 +162,8 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
             <NextImage
               src={ArrowUpVector}
               alt="arrowup"
-              height={12}
-              width={12}
+              height={24}
+              width={24}
             />
           </NextLink>
         </div>
@@ -190,7 +190,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
               What We Do
             </h1>
           </div>
-          <div className="flex w-full items-start md:hidden lg:hidden">
+          <div className="flex w-full items-start justify-center md:hidden lg:hidden">
             <NextImage
               src={PSELogoCircle}
               alt="pselogocircle"
@@ -272,9 +272,9 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
               </h1>
               <NextImage
                 src={ArrowUpVector}
-                alt="arrowvector"
-                height={16}
-                width={16}
+                alt="arrowupvector"
+                height={24}
+                width={24}
               />
             </NextLink>
           </div>
