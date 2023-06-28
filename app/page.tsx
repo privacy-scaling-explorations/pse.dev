@@ -170,28 +170,24 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
       </div>
 
       <div className="flex flex-col gap-32 bg-radial-gradient px-[32px] py-24 lg:px-20">
-        <div className="flex flex-col gap-10 text-center lg:flex-row">
-          <div className="flex w-full items-start justify-start lg:w-[500px] lg:justify-center">
-            <h1 className="text-xl font-[700] uppercase text-orange">
-              Who We Are
-            </h1>
-          </div>
-          <div className="flex  w-full text-start lg:w-[600px]">
+        <section className="badge-start-trigger relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
+          <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
+            Who we are
+          </h2>
+          <div className="col-span-0 flex flex-col lg:col-span-1">
             <h1 className="text-3xl font-[700] text-black">
               PSE is a research lab building free tools that expand the world of
               cryptography.
             </h1>
           </div>
-        </div>
+        </section>
 
         <WhatWeDo />
 
-        <div className="flex flex-col gap-10 text-center lg:flex-row">
-          <div className="flex w-full items-start  justify-start lg:w-[500px] lg:justify-center">
-            <h1 className="text-xl font-[700] uppercase text-orange">
-              How To Plug In
-            </h1>
-          </div>
+        <section className="badge-start-trigger relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
+          <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
+            How To Plug In
+          </h2>
           <div className="flex w-full flex-col gap-10 text-start lg:w-[420px]">
             <h1 className="text-lg text-black">
               PSE is a growing team of developers, researchers, designers,
@@ -217,7 +213,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
               />
             </NextLink>
           </div>
-        </div>
+        </section>
       </div>
     </section>
   )

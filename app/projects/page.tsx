@@ -1,6 +1,7 @@
 "use client"
 
 import NextImage from "next/image"
+import NextLink from "next/link"
 import { useRouter } from "next/navigation"
 import GithubVector from "@/public/github-vector.svg"
 import GlobalVector from "@/public/globe-vector.svg"
@@ -38,31 +39,50 @@ export default function ProjectsPage() {
         <h1>Showing 24 projects</h1>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {projects.map((item, index) => {
+            const githubLink = item.links.find((links) => links?.github)?.github
+            const websiteLink = item.links.find(
+              (links) => links?.website
+            )?.website
             return (
               <div
                 key={index}
                 onClick={() => router.push(`/projects/${item.id}`)}
-                className="flex w-full cursor-pointer flex-col"
+                className="flex h-[420px] w-full cursor-pointer flex-col"
               >
                 <div className="h-[163px] w-full rounded-t-lg bg-[#A3DFF0]" />
-                <div className="flex flex-col gap-5 rounded-b-lg border-x border-b border-[#ccc] p-5">
+                <div className="flex h-full flex-col justify-between gap-5 rounded-b-lg border-x border-b border-[#ccc] p-5">
                   <h1 className="text-2xl font-bold text-black">{item.name}</h1>
-                  <p className="text-base text-black">{item.description}</p>
-                  <div className="flex items-center justify-start gap-2">
-                    <NextImage
-                      src={GithubVector}
-                      alt="githubVector"
-                      className="cursor-pointer"
-                      width={16}
-                      height={16}
-                    />
-                    <NextImage
-                      src={GlobalVector}
-                      className="cursor-pointer"
-                      alt="globalVector"
-                      width={16}
-                      height={16}
-                    />
+                  <p className="text-base text-black">{item.tldr}</p>
+                  <div
+                    className="mr-auto flex items-center justify-start gap-2"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <NextLink
+                      href={`${githubLink ? githubLink : ""}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <NextImage
+                        src={GithubVector}
+                        alt="githubVector"
+                        className="cursor-pointer"
+                        width={16}
+                        height={16}
+                      />
+                    </NextLink>
+                    <NextLink
+                      href={`${websiteLink ? websiteLink : ""}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <NextImage
+                        src={GlobalVector}
+                        className="cursor-pointer"
+                        alt="globalVector"
+                        width={16}
+                        height={16}
+                      />
+                    </NextLink>
                   </div>
                   <p className="text-xs text-black">updated 2 weeks ago</p>
                 </div>
