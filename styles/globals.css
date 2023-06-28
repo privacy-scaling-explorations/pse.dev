@@ -88,4 +88,8 @@
   h5, h6 {
     @apply font-display font-bold;
   }
+
+  #privacy, #scaling, #explorations{
+    @apply fill-gray-900;
+  }
 }
