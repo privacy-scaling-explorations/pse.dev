@@ -33,7 +33,7 @@ export default function IndexPage() {
             />
           </NextLink>
         </div>
-        <div className="m-auto flex h-[364px] w-full max-w-[280px] items-center justify-center md:h-full md:w-full">
+        <div className="m-auto flex h-[364px] w-full max-w-[280px] items-center justify-center md:h-full md:w-full lg:max-w-full">
           <NextImage
             src={PSELogo}
             alt="pselogo"
