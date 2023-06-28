@@ -43,7 +43,7 @@ export default function IndexPage() {
       </div>
 
       <div className="flex flex-col">
-        <div className="flex flex-col justify-between gap-5 border border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
+        <div className="flex flex-col justify-between gap-5 border-y border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon1} alt="pseicon1" height={16} width={16} />
@@ -72,7 +72,7 @@ export default function IndexPage() {
             />
           </NextLink>
         </div>
-        <div className="flex flex-col justify-between gap-5 border-x border-b border-black px-[32px] py-5  md:flex-row md:gap-0 lg:px-20">
+        <div className="flex flex-col justify-between gap-5 border-b border-black px-[32px] py-5  md:flex-row md:gap-0 lg:px-20">
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon1} alt="pseicon1" height={16} width={16} />
@@ -103,10 +103,7 @@ export default function IndexPage() {
             />
           </NextLink>
         </div>
-        <div
-          className="flex flex-col justify-between gap-5
-border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
-        >
+        <div className="flex flex-col justify-between gap-5 border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon2} alt="pseicon1" height={16} width={16} />
@@ -133,10 +130,7 @@ border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
             />
           </NextLink>
         </div>
-        <div
-          className="flex flex-col justify-between gap-5
-border-x border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20"
-        >
+        <div className="flex flex-col justify-between gap-5 border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon3} alt="pseicon1" height={16} width={16} />
