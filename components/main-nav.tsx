@@ -28,7 +28,9 @@ export function MainNav({ items }: MainNavProps) {
               className={`uppercase ${
                 item.disabled && "cursor-not-allowed"
               } flex items-center border-b-4 ${
-                item.href !== router ? "border-transparent" : "border-orange"
+                item.href !== router
+                  ? "border-transparent"
+                  : "border-orangeDark"
               } text-base font-medium transition-opacity duration-200 ease-in-out hover:opacity-70`}
             >
               {item.title}
