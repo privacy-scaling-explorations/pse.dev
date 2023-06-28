@@ -14,11 +14,11 @@ export default function IndexPage() {
   return (
     <section className="flex flex-col">
       <div className="flex w-full flex-col gap-5 bg-[#D0F2FF] px-[32px] py-5 md:flex-row md:px-20">
-        <div className="flex w-full flex-col justify-center gap-5">
-          <h6 className="font-sans text-lg uppercase tracking-[0.2625rem] text-orange">
+        <div className="flex w-auto flex-col justify-center gap-5">
+          <h6 className="font-sans text-lg uppercase tracking-[0.2625rem] text-orange lg:text-xl">
             Privacy + Scaling Explorations
           </h6>
-          <h1 className="text-4xl font-[700] md:text-7xl">
+          <h1 className="text-4xl font-[700] lg:text-7xl">
             Programmable cryptography for people like you
           </h1>
           <NextLink href={"/projects"} className="flex items-center gap-2">
@@ -33,7 +33,7 @@ export default function IndexPage() {
             />
           </NextLink>
         </div>
-        <div className="m-auto flex h-[364px] w-[280px] items-center justify-center md:h-full md:w-full">
+        <div className="m-auto flex h-[364px] w-full max-w-[280px] items-center justify-center md:h-full md:w-full">
           <NextImage
             src={PSELogo}
             alt="pselogo"
