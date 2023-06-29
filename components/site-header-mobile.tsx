@@ -3,15 +3,17 @@
 import { useState } from "react"
 import NextImage from "next/image"
 import NextLink from "next/link"
-import ArrowVector from "@/public/icons/arrowupwhite.webp"
-import CloseVector from "@/public/icons/closewhite.webp"
-import HeaderVector from "@/public/icons/menuburger.webp"
-import DiscordLogo from "@/public/socialmedias/discordwhite.webp"
-import GithubLogo from "@/public/socialmedias/githubwhite.webp"
-import EllipseLogo from "@/public/socialmedias/mirrorwhite.webp"
-import TwitterLogo from "@/public/socialmedias/twitterwhite.webp"
+import ArrowVector from "@/public/icons/arrow-right-up.svg"
+import CloseVector from "@/public/icons/close-fill.svg"
+import HeaderVector from "@/public/icons/menu-burger.svg"
 
 import { siteConfig } from "@/config/site"
+import {
+  Discord,
+  Github,
+  Mirror,
+  Twitter,
+} from "@/components/svgs/social-medias"
 
 export function SiteHeaderMobile() {
   const [header, setHeader] = useState(false)
@@ -40,8 +42,8 @@ export function SiteHeaderMobile() {
               alt="closeVector"
               className="cursor-pointer"
               onClick={() => setHeader(false)}
-              width={15}
-              height={15}
+              width={24}
+              height={24}
             />
           </div>
           <div className="flex w-full flex-col gap-5 px-[16px] text-base font-[500]">
@@ -66,7 +68,7 @@ export function SiteHeaderMobile() {
               className="flex items-center gap-5 border-b-2 border-white p-[16px] pt-0"
             >
               JOBS
-              <NextImage src={ArrowVector} alt="logo" width={12} height={12} />
+              <NextImage src={ArrowVector} alt="logo" width={24} height={24} />
             </NextLink>
           </div>
           <div className="flex h-full w-full flex-col items-center justify-end gap-5 py-[40px] text-sm">
@@ -76,12 +78,7 @@ export function SiteHeaderMobile() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <NextImage
-                  src={TwitterLogo}
-                  alt="logo"
-                  width={24}
-                  height={24}
-                />
+                <Twitter color="white" />{" "}
               </NextLink>
 
               <NextLink
@@ -89,31 +86,21 @@ export function SiteHeaderMobile() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <NextImage
-                  src={DiscordLogo}
-                  alt="logo"
-                  width={24}
-                  height={24}
-                />
+                <Discord color="white" />{" "}
               </NextLink>
               <NextLink
                 href={siteConfig.links.github}
                 target="_blank"
                 rel="noreferrer"
               >
-                <NextImage src={GithubLogo} alt="logo" width={24} height={24} />
+                <Github color="white" />{" "}
               </NextLink>
               <NextLink
                 href={siteConfig.links.articles}
                 target="_blank"
                 rel="noreferrer"
               >
-                <NextImage
-                  src={EllipseLogo}
-                  alt="logo"
-                  width={24}
-                  height={24}
-                />
+                <Mirror color="white" />{" "}
               </NextLink>
             </div>
             <div className="flex gap-5 text-white">

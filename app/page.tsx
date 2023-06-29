@@ -1,14 +1,14 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
 import PSELogo from "@/public/icons/archstar.webp"
-import ArrowRightVector from "@/public/icons/arrowrightblack.webp"
-import ArrowUpVector from "@/public/icons/arrowupblack.webp"
-import PSEIcon1 from "@/public/icons/pseicon1.webp"
-import PSEIcon2 from "@/public/icons/pseicon2.webp"
-import PSEIcon3 from "@/public/icons/pseicon3.webp"
+import ArrowRightVector from "@/public/icons/arrow-right.svg"
+import PSEIcon1 from "@/public/icons/pseicon1.svg"
+import PSEIcon2 from "@/public/icons/pseicon2.svg"
+import PSEIcon3 from "@/public/icons/pseicon3.svg"
 
 import { siteConfig } from "@/config/site"
 import WhatWeDo from "@/components/sections/WhatWeDo"
+import { ArrowRightUp } from "@/components/svgs/arrows"
 
 export default function IndexPage() {
   return (
@@ -28,8 +28,8 @@ export default function IndexPage() {
             <NextImage
               src={ArrowRightVector}
               alt="arrowvector"
-              height={16}
-              width={16}
+              height={24}
+              width={24}
             />
           </NextLink>
         </div>
@@ -64,12 +64,7 @@ export default function IndexPage() {
             <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               Watch
             </h1>
-            <NextImage
-              src={ArrowUpVector}
-              alt="arrowup"
-              height={12}
-              width={12}
-            />
+            <ArrowRightUp color="black" />
           </NextLink>
         </div>
         <div className="flex flex-col justify-between gap-5 border-b border-black px-[32px] py-5  md:flex-row md:gap-0 lg:px-20">
@@ -95,12 +90,7 @@ export default function IndexPage() {
             <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               Atttend
             </h1>
-            <NextImage
-              src={ArrowUpVector}
-              alt="arrowup"
-              height={12}
-              width={12}
-            />
+            <ArrowRightUp color="black" />
           </NextLink>
         </div>
         <div className="flex flex-col justify-between gap-5 border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
@@ -122,12 +112,7 @@ export default function IndexPage() {
             <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               Attend
             </h1>
-            <NextImage
-              src={ArrowUpVector}
-              alt="arrowup"
-              height={12}
-              width={12}
-            />
+            <ArrowRightUp color="black" />
           </NextLink>
         </div>
         <div className="flex flex-col justify-between gap-5 border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
@@ -153,17 +138,12 @@ export default function IndexPage() {
             <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               read
             </h1>
-            <NextImage
-              src={ArrowUpVector}
-              alt="arrowup"
-              height={12}
-              width={12}
-            />
+            <ArrowRightUp color="black" />
           </NextLink>
         </div>
       </div>
 
-      <div className="flex flex-col gap-32 bg-radial-gradient px-[32px] py-24 lg:px-20">
+      <div className="bg-radial-gradient flex flex-col gap-32 px-[32px] py-24 lg:px-20">
         <section className="badge-start-trigger relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
           <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
             Who we are
@@ -199,12 +179,7 @@ export default function IndexPage() {
               <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
                 Say Hi On Discord
               </h1>
-              <NextImage
-                src={ArrowUpVector}
-                alt="arrowupvector"
-                height={12}
-                width={12}
-              />
+              <ArrowRightUp color="black" />
             </NextLink>
           </div>
         </section>

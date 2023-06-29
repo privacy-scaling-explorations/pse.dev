@@ -65,7 +65,10 @@ const WhatWeDo = () => {
       </h2>
       <div className="order-3 flex max-w-xl flex-col gap-2 pt-6 lg:order-none lg:col-span-2 lg:mx-auto lg:gap-6">
         {content.map((item, index) => (
-          <article className={cn("pb-12 lg:px-6 lg:pb-24", item.className)} key={index}>
+          <article
+            className={cn("pb-12 lg:px-6 lg:pb-24", item.className)}
+            key={index}
+          >
             <h3 className="text-2xl xl:text-3xl">{item.title}</h3>
             <div className="p-2"></div>
             <p className="xl:text-lg">{item.description}</p>

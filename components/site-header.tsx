@@ -1,12 +1,13 @@
-import NextImage from "next/image"
 import Link from "next/link"
-import DiscordLogo from "@/public/socialmedias/discordblack.webp"
-import GithubLogo from "@/public/socialmedias/githubblack.webp"
-import MirrorLogo from "@/public/socialmedias/mirrorblack.webp"
-import TwitterLogo from "@/public/socialmedias/twitterblack.webp"
 
 import { siteConfig } from "@/config/site"
 import { MainNav } from "@/components/main-nav"
+import {
+  Discord,
+  Github,
+  Mirror,
+  Twitter,
+} from "@/components/svgs/social-medias"
 
 import { SiteHeaderMobile } from "./site-header-mobile"
 
@@ -23,38 +24,28 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
             >
-              <NextImage
-                src={TwitterLogo}
-                alt="twitter"
-                width={24}
-                height={24}
-              />
+              <Twitter color="black" />
             </Link>
             <Link
               href={siteConfig.links.discord}
               target="_blank"
               rel="noreferrer"
             >
-              <NextImage
-                src={DiscordLogo}
-                alt="discord"
-                width={24}
-                height={24}
-              />
+              <Discord color="black" />
             </Link>
             <Link
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
             >
-              <NextImage src={GithubLogo} alt="github" width={24} height={24} />
+              <Github color="black" />
             </Link>
             <Link
               href={siteConfig.links.articles}
               target="_blank"
               rel="noreferrer"
             >
-              <NextImage src={MirrorLogo} alt="mirror" width={24} height={24} />
+              <Mirror color="black" />
             </Link>
           </nav>
         </div>

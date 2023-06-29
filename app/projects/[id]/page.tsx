@@ -3,7 +3,6 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
 import { usePathname } from "next/navigation"
-import SkyNoMoonBg from "@/public/logos/skynomoon.png"
 import GithubVector from "@/public/socialmedias/githubprojectpage.webp"
 import GlobalVector from "@/public/socialmedias/globalprojectpage.webp"
 import TwitterVector from "@/public/socialmedias/twitterprojectpage.webp"
@@ -39,17 +38,7 @@ export default function ProjectDetailPage() {
 
   return (
     <section className="flex flex-col items-center">
-      <div className="relative flex h-auto w-full justify-center overflow-hidden md:h-[400px]">
-        <div className="absolute inset-0 z-[10] flex">
-          <div className="aspect-w-2 aspect-h-1">
-            <NextImage
-              src={SkyNoMoonBg}
-              alt="bg"
-              style={{ objectFit: "cover" }}
-              fill={true}
-            />
-          </div>
-        </div>
+      <div className="relative flex h-auto w-full justify-center overflow-hidden bg-second-gradient md:h-[400px]">
         <div className="z-[11] flex w-full flex-col justify-center gap-5 p-[24px] md:w-[664px] md:p-0">
           <Breadcrumbs path={breadcrumbs} />
           <h1 className="text-2xl font-[700] md:text-3xl">
@@ -115,7 +104,7 @@ export default function ProjectDetailPage() {
         {findProject.image ? (
           <div className="flex h-auto items-center justify-center">
             <NextImage
-              src={require(`@/public/projectslogo/${findProject.image}`)}
+              src={require(`@/public/projects-logo/${findProject.image}`)}
               alt="bg"
               width={664}
             />
