@@ -3,8 +3,8 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
 import { useRouter } from "next/navigation"
-import GithubVector from "@/public/socialmedias/githubgray.webp"
-import GlobalVector from "@/public/socialmedias/globalgray.webp"
+import GithubVector from "@/public/social-medias/github-fill.svg"
+import GlobalVector from "@/public/social-medias/global-line.svg"
 
 import { projects } from "@/config/projects"
 

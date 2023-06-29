@@ -3,9 +3,9 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
 import { usePathname } from "next/navigation"
-import GithubVector from "@/public/socialmedias/githubprojectpage.webp"
-import GlobalVector from "@/public/socialmedias/globalprojectpage.webp"
-import TwitterVector from "@/public/socialmedias/twitterprojectpage.webp"
+import GithubVector from "@/public/social-medias/github-fill.svg"
+import GlobalVector from "@/public/social-medias/global-line.svg"
+import TwitterVector from "@/public/social-medias/twitter-fill.svg"
 
 import { projects } from "@/config/projects"
 import Breadcrumbs from "@/components/breadcrumbs"
