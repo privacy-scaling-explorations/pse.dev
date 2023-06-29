@@ -52,11 +52,11 @@ export default function IndexPage() {
               </h1>
             </div>
             <h1 className="text-xl font-[500]">
-              Sangria: a Folding Scheme for PLONK
+              Diving into Plonk accumulation via aPlonk by Ralph Toledo
             </h1>
           </div>
           <NextLink
-            href={"https://www.youtube.com/watch?v=MounVPj6tjg"}
+            href={"https://www.youtube.com/live/hRXgf6T2yb8?feature=share"}
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
@@ -86,14 +86,14 @@ export default function IndexPage() {
           </div>
           <NextLink
             href={
-              "https://discord.com/invite/kuUkQNtS?event=1113461922847789176"
+              "https://www.youtube.com/live/jb6HDEtY4CI?feature=share"
             }
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
           >
             <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
-              Attend
+              Watch
             </h1>
             <NextImage
               src={ArrowUpVector}
@@ -111,10 +111,10 @@ export default function IndexPage() {
                 Event
               </h1>
             </div>
-            <h1 className="text-xl font-[500]">PSE @ETHCC</h1>
+            <h1 className="text-xl font-[500]">PSE @ETH Global Paris</h1>
           </div>
           <NextLink
-            href={"https://www.ethcc.io/"}
+            href={"https://ethglobal.com/events/paris2023"}
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
