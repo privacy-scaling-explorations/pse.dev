@@ -214,7 +214,7 @@ export const projects = [
 
   {
     id: 10,
-    image: "bandadalogo.webp",
+    image: "bandada.webp",
     name: "Bandada",
     tldr: "An open-source system for managing privacy-preserving groups of anonymous individuals.",
     description:

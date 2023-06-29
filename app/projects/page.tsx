@@ -37,13 +37,13 @@ export default function ProjectsPage() {
                 >
                   {project.image.length > 0 ? (
                     <Image
-                      src={require(`@/public/projects-logo/${project.image}`)}
+                      src={require(`@/public/project-banners/${project.image}`)}
                       alt={project.name}
                       className="h-[163px] w-full rounded-t-lg object-cover"
                     />
                   ) : (
                     <Image
-                      src={require(`@/public/projects-logo/fallback.webp`)}
+                      src={require(`@/public/project-banners/fallback.webp`)}
                       alt={project.name}
                       className="h-[163px] w-full rounded-t-lg object-cover"
                     />
