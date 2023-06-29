@@ -57,13 +57,13 @@ const WhatWeDo = () => {
 
   return (
     <section className="badge-start-trigger relative grid w-full grid-cols-1 gap-10 overflow-hidden md:grid-cols-2 lg:grid-cols-3 lg:gap-0">
-      <h2 className="hidden w-full justify-start text-xl uppercase text-orange lg:flex lg:justify-center">
+      <h6 className="hidden w-full justify-start text-xl uppercase text-orange lg:flex lg:justify-center">
         What we do
-      </h2>
+      </h6>
       <div className="flex flex-col gap-10">
-        <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:hidden lg:justify-center">
+        <h6 className="flex w-full justify-start text-xl uppercase text-orange lg:hidden lg:justify-center">
           What we do
-        </h2>
+        </h6>
 
         <div className="flex flex-col gap-6">
           <div className="mb-10 flex w-full items-start justify-center md:hidden lg:hidden">

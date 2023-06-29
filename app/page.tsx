@@ -22,7 +22,7 @@ export default function IndexPage() {
             Programmable cryptography for people like you
           </h1>
           <Link href={"/projects"} className="flex items-center gap-2">
-            <h1 className="border-b-2 border-orange text-base uppercase">
+            <h1 className="border-b-2 border-orange text-base font-medium uppercase">
               Explore The Project Library
             </h1>
             <Image
@@ -140,9 +140,9 @@ export default function IndexPage() {
 
       <div className="bg-radial-gradient flex flex-col gap-32 px-6 py-24 md:px-12">
         <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
-          <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
+          <h6 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
             Who we are
-          </h2>
+          </h6>
           <div className="col-span-0 flex flex-col lg:col-span-1">
             <h3 className="text-3xl font-[700] text-black">
               PSE is a research lab building free tools that expand the world of
@@ -154,9 +154,9 @@ export default function IndexPage() {
         <WhatWeDo />
 
         <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
-          <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
+          <h6 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
             How To Plug In
-          </h2>
+          </h6>
           <div className="col-span-0 flex flex-col lg:col-span-1">
             <p className="max-w-2xl xl:text-lg">
               PSE is a growing team of developers, researchers, designers,
