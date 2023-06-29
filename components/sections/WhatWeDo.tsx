@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect } from "react"
+import NextImage from "next/image"
+import PSELogoCircle from "@/public/pse-logo-circle.svg"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
