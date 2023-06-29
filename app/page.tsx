@@ -144,7 +144,7 @@ export default function IndexPage() {
             Who we are
           </h6>
           <div className="col-span-0 flex flex-col lg:col-span-1">
-            <h3 className="text-3xl font-[700]">
+            <h3 className="text-3xl font-bold">
               PSE is a research lab building free tools that expand the world of
               cryptography.
             </h3>
