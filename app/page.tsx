@@ -22,15 +22,17 @@ export default function IndexPage() {
             Programmable cryptography for people like you
           </h1>
           <Link href={"/projects"} className="flex items-center gap-2">
-            <h1 className="border-b-2 border-orange text-base uppercase">
-              Explore The Project Library
-            </h1>
-            <Image
-              src={ArrowRightVector}
-              alt="arrowvector"
-              height={24}
-              width={24}
-            />
+            <Link href={"/projects"} className="flex items-center gap-2">
+              <h1 className="border-b-2 border-orange text-base uppercase">
+                Explore The Project Library
+              </h1>
+              <Image
+                src={ArrowRightVector}
+                alt="arrowvector"
+                height={24}
+                width={24}
+              />
+            </Link>
           </Link>
         </div>
         <div className="m-auto flex h-[364px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[542px]">
@@ -138,42 +140,44 @@ export default function IndexPage() {
         </div>
       </div>
 
-      <div className="bg-radial-gradient flex flex-col gap-32 px-[32px] py-24 lg:px-20">
-        <section className="badge-start-trigger relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
-          <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
+      <div className="bg-radial-gradient flex flex-col gap-32 px-6 py-24 md:px-12">
+        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-4 lg:gap-0">
+          <h2 className="text-xl uppercase text-orange lg:order-none lg:text-center">
             Who we are
           </h2>
-          <div className="col-span-0 flex flex-col lg:col-span-1">
-            <h1 className="text-3xl font-[700] text-black">
+          <div className="lg:col-span-3 lg:pl-[140px]">
+            <h3 className="max-w-2xl text-3xl font-bold">
               PSE is a research lab building free tools that expand the world of
               cryptography.
-            </h1>
+            </h3>
           </div>
         </section>
 
         <WhatWeDo />
 
-        <section className="badge-start-trigger relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
-          <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
-            How To Plug In
+        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-4 lg:gap-0">
+          <h2 className="text-xl uppercase text-orange lg:order-none lg:text-center">
+            how to plug in
           </h2>
-          <div className="flex w-full flex-col gap-10 text-start lg:w-[420px]">
-            <h1 className="text-lg text-black">
+          <div className="lg:col-span-3 lg:pl-[140px]">
+            <p className="max-w-2xl xl:text-lg">
               PSE is a growing team of developers, researchers, designers,
               communicators, artists, and organizers. There are so many ways to
               get involved- you can try out our apps, build with our tools,
               contribute to projects, or join our team. We’d love to hear from
               you!
-            </h1>
+            </p>
+            <div className="p-3"></div>
             <Link
               href={siteConfig.links.discord}
               target="_blank"
               rel="noreferrer"
+              passHref
               className="flex items-center gap-2"
             >
-              <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
+              <div className="border-b-2 border-orange text-base font-[500] uppercase">
                 Say Hi On Discord
-              </h1>
+              </div>
               <ArrowRightUp color="black" />
             </Link>
           </div>
