@@ -47,13 +47,13 @@ export default function IndexPage() {
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon1} alt="pseicon1" height={16} width={16} />
-              <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
+              <p className="text-base font-[700] uppercase tracking-wide text-orange">
                 Learn and Share
-              </h1>
+              </p>
             </div>
-            <h1 className="text-xl font-[500]">
+            <p className="text-xl font-[500]">
               Diving into Plonk accumulation via aPlonk by Ralph Toledo
-            </h1>
+            </p>
           </div>
           <NextLink
             href={"https://www.youtube.com/live/hRXgf6T2yb8?feature=share"}
@@ -61,9 +61,9 @@ export default function IndexPage() {
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
           >
-            <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
+            <p className="border-b-2 border-orange text-base font-[500] uppercase">
               Watch
-            </h1>
+            </p>
             <ArrowRightUp color="black" />
           </NextLink>
         </div>
@@ -71,25 +71,23 @@ export default function IndexPage() {
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon1} alt="pseicon1" height={16} width={16} />
-              <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
+              <p className="text-base font-[700] uppercase tracking-wide text-orange">
                 Learn and Share
-              </h1>
+              </p>
             </div>
-            <h1 className="text-xl font-[500]">
+            <p className="text-xl font-[500]">
               Folding Circom Circuit: A ZKML Case Study - Dr. Cathie So
-            </h1>
+            </p>
           </div>
           <NextLink
-            href={
-              "https://www.youtube.com/live/jb6HDEtY4CI?feature=share"
-            }
+            href={"https://www.youtube.com/live/jb6HDEtY4CI?feature=share"}
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
           >
-            <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
+            <p className="border-b-2 border-orange text-base font-[500] uppercase">
               Watch
-            </h1>
+            </p>
             <ArrowRightUp color="black" />
           </NextLink>
         </div>
@@ -97,11 +95,11 @@ export default function IndexPage() {
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon2} alt="pseicon1" height={16} width={16} />
-              <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
+              <p className="text-base font-[700] uppercase tracking-wide text-orange">
                 Event
-              </h1>
+              </p>
             </div>
-            <h1 className="text-xl font-[500]">PSE @ETH Global Paris</h1>
+            <p className="text-xl font-[500]">PSE @ETH Global Paris</p>
           </div>
           <NextLink
             href={"https://ethglobal.com/events/paris2023"}
@@ -109,9 +107,9 @@ export default function IndexPage() {
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
           >
-            <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
+            <p className="border-b-2 border-orange text-base font-[500] uppercase">
               Attend
-            </h1>
+            </p>
             <ArrowRightUp color="black" />
           </NextLink>
         </div>
@@ -119,25 +117,26 @@ export default function IndexPage() {
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
               <NextImage src={PSEIcon3} alt="pseicon1" height={16} width={16} />
-              <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
+              <p className="text-base font-[700] uppercase tracking-wide text-orange">
                 Blog Post
-              </h1>
+              </p>
             </div>
-            <h1 className="text-xl font-[500]">
+            <p className="text-xl font-[500]">
               zkEVM Community Edition Part 3: Logic and Structure
-            </h1>
+            </p>
           </div>
           <NextLink
             href={
               "https://mirror.xyz/privacy-scaling-explorations.eth/shl8eMBiObd6_AUBikXZrjKD4fibI6xUZd7d9Yv5ezE"
             }
             target="_blank"
+            passHref
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
           >
-            <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
+            <a className="border-b-2 border-orange text-base font-[500] uppercase">
               read
-            </h1>
+            </a>
             <ArrowRightUp color="black" />
           </NextLink>
         </div>
