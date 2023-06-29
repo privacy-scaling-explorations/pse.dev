@@ -12,8 +12,8 @@ import { ArrowRightUp } from "@/components/svgs/arrows"
 
 export default function IndexPage() {
   return (
-    <section className="flex flex-col">
-      <div className="flex w-full flex-col justify-between gap-5 bg-[#D0F2FF] px-[32px] py-5 md:flex-row md:px-20">
+    <section className="flex flex-col bg-main-gradient">
+      <div className="flex w-full flex-col justify-between gap-5 px-[32px] py-5 md:flex-row md:px-20">
         <div className="flex w-full flex-col justify-center gap-5 md:w-[660px]">
           <h6 className="font-sans text-lg uppercase tracking-[0.2625rem] text-orange lg:text-xl">
             Privacy + Scaling Explorations
@@ -40,7 +40,7 @@ export default function IndexPage() {
         </div>
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col bg-white">
         <div className="flex flex-col justify-between gap-5 border-y border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
