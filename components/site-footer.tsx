@@ -1,11 +1,11 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
-import ArrowVector from "@/public/arrow-right-up-line.svg"
-import DiscordLogo from "@/public/discord-white.png"
-import EllipseLogo from "@/public/ellipse-white.png"
-import GithubLogo from "@/public/github-white.png"
-import PSELogo from "@/public/pselogo-footer.svg"
-import TwitterLogo from "@/public/twitter-white.png"
+import ArrowVector from "@/public/icons/arrowupblack.webp"
+import PSELogo from "@/public/logos/pselogo-footer.webp"
+import DiscordLogo from "@/public/socialmedias/discordwhite.webp"
+import GithubLogo from "@/public/socialmedias/githubwhite.webp"
+import MirrorLogo from "@/public/socialmedias/mirrorwhite.webp"
+import TwitterLogo from "@/public/socialmedias/twitterwhite.webp"
 
 import { siteConfig } from "@/config/site"
 
@@ -36,7 +36,7 @@ export function SiteFooter() {
           className="flex items-center gap-5 py-5"
         >
           JOBS
-          <NextImage src={ArrowVector} alt="arrowup" width={24} height={24} />
+          <NextImage src={ArrowVector} alt="arrowup" width={12} height={12} />
         </NextLink>
       </div>
       <div className="flex w-full flex-col items-center justify-center gap-5 bg-[#171C1B] py-[40px] text-sm">
@@ -84,8 +84,8 @@ export function SiteFooter() {
             rel="noreferrer"
           >
             <NextImage
-              src={EllipseLogo}
-              alt="ellipelogo"
+              src={MirrorLogo}
+              alt="mirrorLogo"
               width={24}
               height={24}
             />

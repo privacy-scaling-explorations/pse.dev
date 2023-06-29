@@ -3,9 +3,8 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
 import { useRouter } from "next/navigation"
-import GithubVector from "@/public/github-vector.svg"
-import GlobalVector from "@/public/globe-vector.svg"
-import SkyNoMoonBg from "@/public/skynomoon.png"
+import GithubVector from "@/public/socialmedias/githubgray.webp"
+import GlobalVector from "@/public/socialmedias/globalgray.webp"
 
 import { projects } from "@/config/projects"
 
@@ -16,14 +15,7 @@ export default function ProjectsPage() {
     <section className="flex flex-col items-center">
       <div className="relative flex h-[350px] w-full overflow-hidden md:h-[300px]">
         <div className="absolute inset-0 z-[10] flex">
-          <div className="aspect-w-2 aspect-h-1">
-            <NextImage
-              src={SkyNoMoonBg}
-              alt="bg"
-              style={{ objectFit: "cover" }}
-              fill={true}
-            />
-          </div>
+          <div className="aspect-w-2 aspect-h-1"></div>
         </div>
         <div className="z-[11] flex w-full flex-col justify-end gap-5 p-[24px] md:p-[32px] lg:p-[64px]">
           <h1 className="text-4xl font-[700] md:text-5xl md:font-[400]">
@@ -39,10 +31,6 @@ export default function ProjectsPage() {
         <h1>Showing 24 projects</h1>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {projects.map((item, index) => {
-            const githubLink = item.links.find((links) => links?.github)?.github
-            const websiteLink = item.links.find(
-              (links) => links?.website
-            )?.website
             return (
               <div
                 key={index}
@@ -58,7 +46,7 @@ export default function ProjectsPage() {
                     onClick={(e) => e.stopPropagation()}
                   >
                     <NextLink
-                      href={`${githubLink ? githubLink : ""}`}
+                      href={`${item.links.github}`}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -71,7 +59,7 @@ export default function ProjectsPage() {
                       />
                     </NextLink>
                     <NextLink
-                      href={`${websiteLink ? websiteLink : ""}`}
+                      href={`${item.links.website}`}
                       target="_blank"
                       rel="noreferrer"
                     >

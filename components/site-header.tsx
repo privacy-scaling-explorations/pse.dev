@@ -1,9 +1,9 @@
 import NextImage from "next/image"
 import Link from "next/link"
-import DiscordLogo from "@/public/discord.png"
-import EllipseLogo from "@/public/ellipse.png"
-import GithubLogo from "@/public/github.png"
-import TwitterLogo from "@/public/twitter.png"
+import DiscordLogo from "@/public/socialmedias/discordblack.webp"
+import GithubLogo from "@/public/socialmedias/githubblack.webp"
+import MirrorLogo from "@/public/socialmedias/mirrorblack.webp"
+import TwitterLogo from "@/public/socialmedias/twitterblack.webp"
 
 import { siteConfig } from "@/config/site"
 import { MainNav } from "@/components/main-nav"
@@ -23,28 +23,38 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
             >
-              <NextImage src={TwitterLogo} alt="logo" width={24} height={24} />
+              <NextImage
+                src={TwitterLogo}
+                alt="twitter"
+                width={24}
+                height={24}
+              />
             </Link>
             <Link
               href={siteConfig.links.discord}
               target="_blank"
               rel="noreferrer"
             >
-              <NextImage src={DiscordLogo} alt="logo" width={24} height={24} />
+              <NextImage
+                src={DiscordLogo}
+                alt="discord"
+                width={24}
+                height={24}
+              />
             </Link>
             <Link
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
             >
-              <NextImage src={GithubLogo} alt="logo" width={24} height={24} />
+              <NextImage src={GithubLogo} alt="github" width={24} height={24} />
             </Link>
             <Link
               href={siteConfig.links.articles}
               target="_blank"
               rel="noreferrer"
             >
-              <NextImage src={EllipseLogo} alt="logo" width={24} height={24} />
+              <NextImage src={MirrorLogo} alt="mirror" width={24} height={24} />
             </Link>
           </nav>
         </div>
