@@ -1,41 +1,43 @@
-import * as React from "react"
+"use client"
+
+import NextImage from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+import PSELogo from "@/public/logos/header-logo.svg"
 
 import { NavItem } from "@/types/nav"
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
 
 interface MainNavProps {
-  items?: NavItem[]
+  items: NavItem[]
 }
 
 export function MainNav({ items }: MainNavProps) {
+  const router = usePathname()
+
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center space-x-2">
-        <Icons.logo className="h-6 w-6" />
-        <span className="inline-block font-bold">{siteConfig.name}</span>
+        <NextImage src={PSELogo} alt="logo" width={32} height={32} />
       </Link>
-      {items?.length ? (
-        <nav className="flex gap-6">
-          {items?.map(
-            (item, index) =>
-              item.href && (
-                <Link
-                  key={index}
-                  href={item.href}
-                  className={cn(
-                    "flex items-center text-sm font-medium text-muted-foreground",
-                    item.disabled && "cursor-not-allowed opacity-80"
-                  )}
-                >
-                  {item.title}
-                </Link>
-              )
-          )}
-        </nav>
-      ) : null}
+      <nav className="hidden items-center gap-6 md:flex">
+        {items.map((item, index) => {
+          return (
+            <Link
+              key={index}
+              href={item.href}
+              className={`uppercase ${
+                item.disabled && "cursor-not-allowed"
+              } flex items-center border-b-4 ${
+                item.href !== router
+                  ? "border-transparent"
+                  : "border-orangeDark"
+              } text-base font-medium transition-opacity duration-200 ease-in-out hover:opacity-70`}
+            >
+              {item.title}
+            </Link>
+          )
+        })}
+      </nav>
     </div>
   )
 }
