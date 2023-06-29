@@ -93,7 +93,7 @@ export default function IndexPage() {
             className="flex items-center justify-start gap-5 md:justify-center"
           >
             <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
-              Atttend
+              Attend
             </h1>
             <NextImage
               src={ArrowUpVector}
