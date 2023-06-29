@@ -75,9 +75,11 @@ const WhatWeDo = () => {
               height={208}
             />
           </div>
-          <div className="mb-10 flex w-full items-start justify-center md:hidden lg:hidden"></div>
           {content.map((item, index) => (
-            <article className={cn("pb-24", item.className)} key={index}>
+            <article
+              className={cn("pb-12 last-of-type:pb-8 lg:pb-24", item.className)}
+              key={index}
+            >
               <h3 className="text-3xl">{item.title}</h3>
               <div className="p-2"></div>
               <p className="text-lg">{item.description}</p>
