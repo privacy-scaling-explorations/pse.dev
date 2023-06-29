@@ -1,13 +1,16 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
-import ArrowVector from "@/public/arrow-right-up-line.svg"
-import DiscordLogo from "@/public/discord-white.png"
-import EllipseLogo from "@/public/ellipse-white.png"
-import GithubLogo from "@/public/github-white.png"
-import PSELogo from "@/public/pselogo-footer.svg"
-import TwitterLogo from "@/public/twitter-white.png"
+import PSELogo from "@/public/logos/footer-logo.svg"
 
 import { siteConfig } from "@/config/site"
+import {
+  Discord,
+  Github,
+  Mirror,
+  Twitter,
+} from "@/components/svgs/social-medias"
+
+import { ArrowRightUp } from "./svgs/arrows"
 
 export function SiteFooter() {
   return (
@@ -36,7 +39,7 @@ export function SiteFooter() {
           className="flex items-center gap-5 py-5"
         >
           JOBS
-          <NextImage src={ArrowVector} alt="arrowup" width={24} height={24} />
+          <ArrowRightUp color="black" />
         </NextLink>
       </div>
       <div className="flex w-full flex-col items-center justify-center gap-5 bg-[#171C1B] py-[40px] text-sm">
@@ -46,12 +49,7 @@ export function SiteFooter() {
             target="_blank"
             rel="noreferrer"
           >
-            <NextImage
-              src={TwitterLogo}
-              alt="twitterlogo"
-              width={24}
-              height={24}
-            />
+            <Twitter color="white" />
           </NextLink>
 
           <NextLink
@@ -59,36 +57,21 @@ export function SiteFooter() {
             target="_blank"
             rel="noreferrer"
           >
-            <NextImage
-              src={DiscordLogo}
-              alt="discordlogo"
-              width={24}
-              height={24}
-            />
+            <Discord color="white" />
           </NextLink>
           <NextLink
             href={siteConfig.links.github}
             target="_blank"
             rel="noreferrer"
           >
-            <NextImage
-              src={GithubLogo}
-              alt="githublogo"
-              width={24}
-              height={24}
-            />
+            <Github color="white" />
           </NextLink>
           <NextLink
             href={siteConfig.links.articles}
             target="_blank"
             rel="noreferrer"
           >
-            <NextImage
-              src={EllipseLogo}
-              alt="ellipelogo"
-              width={24}
-              height={24}
-            />
+            <Mirror color="white" />
           </NextLink>
         </div>
         <div className="flex gap-5 text-white">
