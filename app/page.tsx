@@ -22,17 +22,15 @@ export default function IndexPage() {
             Programmable cryptography for people like you
           </h1>
           <Link href={"/projects"} className="flex items-center gap-2">
-            <Link href={"/projects"} className="flex items-center gap-2">
-              <h1 className="border-b-2 border-orange text-base uppercase">
-                Explore The Project Library
-              </h1>
-              <Image
-                src={ArrowRightVector}
-                alt="arrowvector"
-                height={24}
-                width={24}
-              />
-            </Link>
+            <h1 className="border-b-2 border-orange text-base uppercase">
+              Explore The Project Library
+            </h1>
+            <Image
+              src={ArrowRightVector}
+              alt="arrowvector"
+              height={24}
+              width={24}
+            />
           </Link>
         </div>
         <div className="m-auto flex h-[364px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[542px]">
@@ -141,12 +139,12 @@ export default function IndexPage() {
       </div>
 
       <div className="bg-radial-gradient flex flex-col gap-32 px-6 py-24 md:px-12">
-        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-4 lg:gap-0">
-          <h2 className="text-xl uppercase text-orange lg:order-none lg:text-center">
+        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
+          <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
             Who we are
           </h2>
-          <div className="lg:col-span-3 lg:pl-[140px]">
-            <h3 className="max-w-2xl text-3xl font-bold">
+          <div className="col-span-0 flex flex-col lg:col-span-1">
+            <h3 className="text-3xl font-[700] text-black">
               PSE is a research lab building free tools that expand the world of
               cryptography.
             </h3>
@@ -155,11 +153,11 @@ export default function IndexPage() {
 
         <WhatWeDo />
 
-        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-4 lg:gap-0">
-          <h2 className="text-xl uppercase text-orange lg:order-none lg:text-center">
-            how to plug in
+        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
+          <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
+            How To Plug In
           </h2>
-          <div className="lg:col-span-3 lg:pl-[140px]">
+          <div className="col-span-0 flex flex-col lg:col-span-1">
             <p className="max-w-2xl xl:text-lg">
               PSE is a growing team of developers, researchers, designers,
               communicators, artists, and organizers. There are so many ways to
