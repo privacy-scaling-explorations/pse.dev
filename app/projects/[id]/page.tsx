@@ -104,7 +104,7 @@ export default function ProjectDetailPage() {
         {findProject.image ? (
           <div className="flex h-auto items-center justify-center">
             <NextImage
-              src={require(`@/public/projects-logo/${findProject.image}`)}
+              src={require(`@/public/project-banners/${findProject.image}`)}
               alt="bg"
               width={664}
             />
