@@ -1,5 +1,5 @@
-import NextImage from "next/image"
-import NextLink from "next/link"
+import Image from "next/image"
+import Link from "next/link"
 import ArrowUpVector from "@/public/arrow-right-up-line.svg"
 import ArrowRightVector from "@/public/arrowright-vector.png"
 import PSEIcon1 from "@/public/pseicon-1.svg"
@@ -21,24 +21,20 @@ export default function IndexPage() {
           <h1 className="text-4xl font-[700] lg:text-7xl">
             Programmable cryptography for people like you
           </h1>
-          <NextLink href={"/projects"} className="flex items-center gap-2">
+          <Link href={"/projects"} className="flex items-center gap-2">
             <h1 className="border-b-2 border-orange text-base uppercase">
               Explore The Project Library
             </h1>
-            <NextImage
+            <Image
               src={ArrowRightVector}
               alt="arrowvector"
               height={16}
               width={16}
             />
-          </NextLink>
+          </Link>
         </div>
         <div className="m-auto flex h-[364px] w-full max-w-[280px] items-center justify-center md:h-full md:w-full lg:max-w-full">
-          <NextImage
-            src={PSELogo}
-            alt="pselogo"
-            style={{ objectFit: "fill" }}
-          />
+          <Image src={PSELogo} alt="pselogo" style={{ objectFit: "fill" }} />
         </div>
       </div>
 
@@ -46,7 +42,7 @@ export default function IndexPage() {
         <div className="flex flex-col justify-between gap-5 border-y border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
-              <NextImage src={PSEIcon1} alt="pseicon1" height={16} width={16} />
+              <Image src={PSEIcon1} alt="pseicon1" height={16} width={16} />
               <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
                 Learn and Share
               </h1>
@@ -55,7 +51,7 @@ export default function IndexPage() {
               Diving into Plonk accumulation via aPlonk by Ralph Toledo
             </h1>
           </div>
-          <NextLink
+          <Link
             href={"https://www.youtube.com/live/hRXgf6T2yb8?feature=share"}
             target="_blank"
             rel="noreferrer"
@@ -64,18 +60,13 @@ export default function IndexPage() {
             <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               Watch
             </h1>
-            <NextImage
-              src={ArrowUpVector}
-              alt="arrowup"
-              height={24}
-              width={24}
-            />
-          </NextLink>
+            <Image src={ArrowUpVector} alt="arrowup" height={24} width={24} />
+          </Link>
         </div>
         <div className="flex flex-col justify-between gap-5 border-b border-black px-[32px] py-5  md:flex-row md:gap-0 lg:px-20">
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
-              <NextImage src={PSEIcon1} alt="pseicon1" height={16} width={16} />
+              <Image src={PSEIcon1} alt="pseicon1" height={16} width={16} />
               <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
                 Learn and Share
               </h1>
@@ -84,10 +75,8 @@ export default function IndexPage() {
               Folding Circom Circuit: A ZKML Case Study - Dr. Cathie So
             </h1>
           </div>
-          <NextLink
-            href={
-              "https://www.youtube.com/live/jb6HDEtY4CI?feature=share"
-            }
+          <Link
+            href={"https://www.youtube.com/live/jb6HDEtY4CI?feature=share"}
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-start gap-5 md:justify-center"
@@ -95,25 +84,20 @@ export default function IndexPage() {
             <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               Watch
             </h1>
-            <NextImage
-              src={ArrowUpVector}
-              alt="arrowup"
-              height={24}
-              width={24}
-            />
-          </NextLink>
+            <Image src={ArrowUpVector} alt="arrowup" height={24} width={24} />
+          </Link>
         </div>
         <div className="flex flex-col justify-between gap-5 border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
-              <NextImage src={PSEIcon2} alt="pseicon1" height={16} width={16} />
+              <Image src={PSEIcon2} alt="pseicon1" height={16} width={16} />
               <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
                 Event
               </h1>
             </div>
             <h1 className="text-xl font-[500]">PSE @ETH Global Paris</h1>
           </div>
-          <NextLink
+          <Link
             href={"https://ethglobal.com/events/paris2023"}
             target="_blank"
             rel="noreferrer"
@@ -122,19 +106,14 @@ export default function IndexPage() {
             <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               Attend
             </h1>
-            <NextImage
-              src={ArrowUpVector}
-              alt="arrowup"
-              height={24}
-              width={24}
-            />
-          </NextLink>
+            <Image src={ArrowUpVector} alt="arrowup" height={24} width={24} />
+          </Link>
         </div>
         <div className="flex flex-col justify-between gap-5 border-b border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
-              <NextImage src={PSEIcon3} alt="pseicon1" height={16} width={16} />
-              <h1 className="text-base font-[700] uppercase tracking-[5px] text-orange">
+              <Image src={PSEIcon3} alt="pseicon1" height={16} width={16} />
+              <h1 className="text-base font-bold uppercase tracking-[5px] text-orange">
                 Blog Post
               </h1>
             </div>
@@ -142,7 +121,7 @@ export default function IndexPage() {
               zkEVM Community Edition Part 3: Logic and Structure
             </h1>
           </div>
-          <NextLink
+          <Link
             href={
               "https://mirror.xyz/privacy-scaling-explorations.eth/shl8eMBiObd6_AUBikXZrjKD4fibI6xUZd7d9Yv5ezE"
             }
@@ -153,59 +132,56 @@ export default function IndexPage() {
             <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
               read
             </h1>
-            <NextImage
-              src={ArrowUpVector}
-              alt="arrowup"
-              height={24}
-              width={24}
-            />
-          </NextLink>
+            <Image src={ArrowUpVector} alt="arrowup" height={24} width={24} />
+          </Link>
         </div>
       </div>
 
-      <div className="flex flex-col gap-32 bg-radial-gradient px-[32px] py-24 lg:px-20">
-        <section className="badge-start-trigger relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
-          <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
+      <div className="flex flex-col gap-32 bg-radial-gradient px-6 py-24 md:px-12">
+        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-4 lg:gap-0">
+          <h2 className="text-xl uppercase text-orange lg:order-none lg:text-center">
             Who we are
           </h2>
-          <div className="col-span-0 flex flex-col lg:col-span-1">
-            <h1 className="text-3xl font-[700] text-black">
+          <div className="lg:col-span-3 lg:pl-[140px]">
+            <h3 className="max-w-2xl text-3xl font-bold">
               PSE is a research lab building free tools that expand the world of
               cryptography.
-            </h1>
+            </h3>
           </div>
         </section>
 
         <WhatWeDo />
 
-        <section className="badge-start-trigger relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
-          <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
-            How To Plug In
+        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-4 lg:gap-0">
+          <h2 className="text-xl uppercase text-orange lg:order-none lg:text-center">
+            how to plug in
           </h2>
-          <div className="flex w-full flex-col gap-10 text-start lg:w-[420px]">
-            <h1 className="text-lg text-black">
+          <div className="lg:col-span-3 lg:pl-[140px]">
+            <p className="max-w-2xl xl:text-lg">
               PSE is a growing team of developers, researchers, designers,
               communicators, artists, and organizers. There are so many ways to
               get involved- you can try out our apps, build with our tools,
               contribute to projects, or join our team. We’d love to hear from
               you!
-            </h1>
-            <NextLink
+            </p>
+            <div className="p-3"></div>
+            <Link
               href={siteConfig.links.discord}
               target="_blank"
               rel="noreferrer"
+              passHref
               className="flex items-center gap-2"
             >
-              <h1 className="border-b-2 border-orange text-base font-[500] uppercase">
+              <div className="border-b-2 border-orange text-base font-[500] uppercase">
                 Say Hi On Discord
-              </h1>
-              <NextImage
+              </div>
+              <Image
                 src={ArrowUpVector}
                 alt="arrowupvector"
                 height={24}
                 width={24}
               />
-            </NextLink>
+            </Link>
           </div>
         </section>
       </div>
