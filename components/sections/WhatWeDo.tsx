@@ -1,11 +1,5 @@
 "use client"
 
-import { useEffect } from "react"
-import NextImage from "next/image"
-import PSELogoCircle from "@/public/pse-logo-circle.svg"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
 import { cn } from "@/lib/utils"
 
 const content = [
@@ -30,33 +24,33 @@ const content = [
 ]
 
 const WhatWeDo = () => {
-  useEffect(() => {
-    const mm = gsap.matchMedia()
+  // useEffect(() => {
+  //   const mm = gsap.matchMedia()
 
-    mm.add("(min-width: 1024px)", () => {
-      gsap.registerPlugin(ScrollTrigger)
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".badge-start-trigger",
-          start: "top center",
-          end: "+=550",
-          scrub: 1,
-          // markers: true,
-        },
-      })
+  //   mm.add("(min-width: 1024px)", () => {
+  //     gsap.registerPlugin(ScrollTrigger)
+  //     const tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: ".badge-start-trigger",
+  //         start: "top center",
+  //         end: "+=550",
+  //         scrub: 1,
+  //         // markers: true,
+  //       },
+  //     })
 
-      tl.from("#privacy", { fill: "#E1523A" }, "+=0.5")
-        .to(".badge-right", { y: 50, ease: "ease-out" }, "+=1")
-        .to("#privacy", { fill: "#111827", ease: "ease-out" }, "+=0.5")
-        .to(".badge-right", { y: 100, ease: "ease-out" })
-        .to("#scaling", { fill: "#E1523A", ease: "ease-in" })
-        .to(".badge-right", { y: 250, ease: "ease-out" }, "+=1")
-        .to(".badge-right", { y: 350, ease: "ease-out" })
-        .to("#scaling", { fill: "#111827", ease: "ease-out" })
-        .to("#explorations", { fill: "#E1523A", ease: "ease-in" })
-        .to(".badge-right", { y: 550, ease: "ease-out" })
-    })
-  }, [])
+  //     tl.from("#privacy", { fill: "#E1523A" }, "+=0.5")
+  //       .to(".badge-right", { y: 50, ease: "ease-out" }, "+=1")
+  //       .to("#privacy", { fill: "#111827", ease: "ease-out" }, "+=0.5")
+  //       .to(".badge-right", { y: 100, ease: "ease-out" })
+  //       .to("#scaling", { fill: "#E1523A", ease: "ease-in" })
+  //       .to(".badge-right", { y: 250, ease: "ease-out" }, "+=1")
+  //       .to(".badge-right", { y: 350, ease: "ease-out" })
+  //       .to("#scaling", { fill: "#111827", ease: "ease-out" })
+  //       .to("#explorations", { fill: "#E1523A", ease: "ease-in" })
+  //       .to(".badge-right", { y: 550, ease: "ease-out" })
+  //   })
+  // }, [])
 
   return (
     <section className="badge-start-trigger relative flex flex-col gap-4 lg:grid lg:grid-cols-4 lg:gap-0">
