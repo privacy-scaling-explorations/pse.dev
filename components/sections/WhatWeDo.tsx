@@ -31,62 +31,53 @@ const content = [
 
 const WhatWeDo = () => {
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".badge-start-trigger",
-        start: "top 300",
-        end: "+=510",
-        scrub: 1,
-      },
-    })
+    const mm = gsap.matchMedia()
 
-    tl.from("#privacy", { fill: "#E1523A" }, "+=0.5")
-      .to("#privacy", { fill: "#111827", ease: "ease-out" })
-      .to(".badge-right", { y: 220, ease: "ease-out" })
-      .to("#scaling", { fill: "#E1523A", ease: "ease-in" }, "+=0.5")
-      .to(".badge-right", { y: 510, ease: "ease-out" })
-      .to("#scaling", { fill: "#111827", ease: "ease-out" })
-      .to("#explorations", { fill: "#E1523A", ease: "ease-in" })
+    mm.add("(min-width: 1024px)", () => {
+      gsap.registerPlugin(ScrollTrigger)
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".badge-start-trigger",
+          start: "top center",
+          end: "+=550",
+          scrub: 1,
+          // markers: true,
+        },
+      })
+
+      tl.from("#privacy", { fill: "#E1523A" }, "+=0.5")
+        .to(".badge-right", { y: 50, ease: "ease-out" }, "+=1")
+        .to("#privacy", { fill: "#111827", ease: "ease-out" }, "+=0.5")
+        .to(".badge-right", { y: 100, ease: "ease-out" })
+        .to("#scaling", { fill: "#E1523A", ease: "ease-in" })
+        .to(".badge-right", { y: 250, ease: "ease-out" }, "+=1")
+        .to(".badge-right", { y: 350, ease: "ease-out" })
+        .to("#scaling", { fill: "#111827", ease: "ease-out" })
+        .to("#explorations", { fill: "#E1523A", ease: "ease-in" })
+        .to(".badge-right", { y: 550, ease: "ease-out" })
+    })
   }, [])
 
   return (
-    <section className="badge-start-trigger relative grid w-full grid-cols-1 gap-10 overflow-hidden md:grid-cols-2 lg:grid-cols-3 lg:gap-0">
-      <h2 className="hidden w-full justify-start text-xl uppercase text-orange lg:flex lg:justify-center">
+    <section className="badge-start-trigger relative flex flex-col gap-4 lg:grid lg:grid-cols-4 lg:gap-0">
+      <h2 className="order-1 pt-6 text-xl uppercase text-orange lg:order-none xl:text-center">
         What we do
       </h2>
-      <div className="flex flex-col gap-10">
-        <h2 className="flex w-full justify-start text-xl uppercase text-orange lg:hidden lg:justify-center">
-          What we do
-        </h2>
-
-        <div className="flex flex-col gap-6">
-          <div className="mb-10 flex w-full items-start justify-center md:hidden lg:hidden">
-            <NextImage
-              src={PSELogoCircle}
-              alt="pselogocircle"
-              style={{ objectFit: "contain" }}
-              width={252}
-              height={252}
-            />
-          </div>
-          {content.map((item, index) => (
-            <article className={cn("pb-24", item.className)} key={index}>
-              <h3 className="text-3xl">{item.title}</h3>
-              <div className="p-2"></div>
-              <p className="text-lg">{item.description}</p>
-            </article>
-          ))}
-        </div>
+      <div className="order-3 flex max-w-xl flex-col gap-2 pt-6 lg:order-none lg:col-span-2 lg:mx-auto lg:gap-6">
+        {content.map((item, index) => (
+          <article className={cn("pb-12 lg:px-6 lg:pb-24", item.className)} key={index}>
+            <h3 className="text-2xl xl:text-3xl">{item.title}</h3>
+            <div className="p-2"></div>
+            <p className="xl:text-lg">{item.description}</p>
+          </article>
+        ))}
       </div>
-      <div className="mx-auto hidden md:flex">
+      <div className="lg-order-none relative order-2 lg:mx-auto">
         <svg
-          width="213"
-          height="213"
           viewBox="0 0 213 213"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="badge-right"
+          className="badge-right h-32 w-32 lg:h-52 lg:w-52"
         >
           <g id="pse-logo-badge">
             <path
