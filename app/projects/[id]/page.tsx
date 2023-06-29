@@ -104,7 +104,7 @@ export default function ProjectDetailPage() {
         {findProject.image ? (
           <div className="flex h-auto items-center justify-center">
             <NextImage
-              src={require(`@/public/projects-logo/${findProject.image}`)}
+              src={require(`@/public/project-banners/${findProject.image}`)}
               alt="bg"
               width={664}
             />
@@ -113,22 +113,7 @@ export default function ProjectDetailPage() {
           <div />
         )}
         <div className="flex w-full flex-col gap-5 py-10 text-base font-normal md:w-[664px] md:text-lg">
-          <p>
-            {`RLN is a protocol that allows one user to punish another user who is
-            abusing the rate limit in an anonymous system. Users can withdraw
-            the offender's stake or reveal their secrets, helping to maintain
-            system integrity via deterrence. RLN is built using the Semaphore
-            protocol.`}
-          </p>
-          <p>
-            {`This project is aimed at developers looking to stop spam while
-            preserving anonymity within a system. If you're working on
-            communication systems such as chat apps, client-server
-            communications, or peer-to-peer communications, RLN can help you
-            maintain privacy and anonymity while preventing abuse in the form of
-            spam and denial of service attacks. This ensures a safer and more
-            enjoyable user experience for your application's users.`}
-          </p>
+          <p>{findProject.description}</p>
         </div>
       </div>
     </section>

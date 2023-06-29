@@ -1,5 +1,8 @@
 "use client"
 
+import Image from "next/image"
+import PSELogoCircle from "@/public/logos/pse-logo-circle.svg"
+
 import { cn } from "@/lib/utils"
 
 const content = [
@@ -53,28 +56,43 @@ const WhatWeDo = () => {
   // }, [])
 
   return (
-    <section className="badge-start-trigger relative flex flex-col gap-4 lg:grid lg:grid-cols-4 lg:gap-0">
-      <h2 className="order-1 pt-6 text-xl uppercase text-orange lg:order-none xl:text-center">
+    <section className="badge-start-trigger relative grid w-full grid-cols-1 gap-10 overflow-hidden md:grid-cols-2 lg:grid-cols-3 lg:gap-0">
+      <h6 className="hidden w-full justify-start text-xl uppercase text-orange lg:flex lg:justify-center">
         What we do
-      </h2>
-      <div className="order-3 flex max-w-xl flex-col gap-2 pt-6 lg:order-none lg:col-span-2 lg:mx-auto lg:gap-6">
-        {content.map((item, index) => (
-          <article
-            className={cn("pb-12 last-of-type:pb-8 lg:px-6 lg:pb-24", item.className)}
-            key={index}
-          >
-            <h3 className="text-2xl xl:text-3xl">{item.title}</h3>
-            <div className="p-2"></div>
-            <p className="xl:text-lg">{item.description}</p>
-          </article>
-        ))}
+      </h6>
+      <div className="flex flex-col gap-10">
+        <h6 className="flex w-full justify-start text-xl uppercase text-orange lg:hidden lg:justify-center">
+          What we do
+        </h6>
+
+        <div className="flex flex-col gap-6">
+          <div className="mb-10 flex w-full items-start justify-center md:hidden lg:hidden">
+            <Image
+              src={PSELogoCircle}
+              alt="pselogocircle"
+              style={{ objectFit: "contain" }}
+              width={208}
+              height={208}
+            />
+          </div>
+          {content.map((item, index) => (
+            <article
+              className={cn("pb-12 last-of-type:pb-8 lg:pb-24", item.className)}
+              key={index}
+            >
+              <h3 className="text-3xl">{item.title}</h3>
+              <div className="p-2"></div>
+              <p className="text-lg">{item.description}</p>
+            </article>
+          ))}
+        </div>
       </div>
-      <div className="lg-order-none relative order-2 lg:mx-auto">
+      <div className="lg-order-none relative order-2 hidden md:flex lg:mx-auto">
         <svg
           viewBox="0 0 213 213"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="badge-right h-32 w-32 lg:h-52 lg:w-52"
+          className="badge-right h-52 lg:w-52"
         >
           <g id="pse-logo-badge">
             <path

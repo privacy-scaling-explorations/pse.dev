@@ -12,8 +12,8 @@ import { ArrowRightUp } from "@/components/svgs/arrows"
 
 export default function IndexPage() {
   return (
-    <section className="flex flex-col">
-      <div className="flex w-full flex-col justify-between gap-5 bg-[#D0F2FF] px-[32px] py-5 md:flex-row md:px-20">
+    <section className="flex flex-col bg-main-gradient">
+      <div className="flex w-full flex-col justify-between gap-5 px-[32px] py-5 md:flex-row md:px-20">
         <div className="flex w-full flex-col justify-center gap-5 md:w-[660px]">
           <h6 className="font-sans text-lg uppercase tracking-[0.2625rem] text-orange lg:text-xl">
             Privacy + Scaling Explorations
@@ -22,17 +22,15 @@ export default function IndexPage() {
             Programmable cryptography for people like you
           </h1>
           <Link href={"/projects"} className="flex items-center gap-2">
-            <Link href={"/projects"} className="flex items-center gap-2">
-              <h1 className="border-b-2 border-orange text-base uppercase">
-                Explore The Project Library
-              </h1>
-              <Image
-                src={ArrowRightVector}
-                alt="arrowvector"
-                height={24}
-                width={24}
-              />
-            </Link>
+            <h1 className="border-b-2 border-orange text-base font-medium uppercase">
+              Explore The Project Library
+            </h1>
+            <Image
+              src={ArrowRightVector}
+              alt="arrowvector"
+              height={24}
+              width={24}
+            />
           </Link>
         </div>
         <div className="m-auto flex h-[364px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[542px]">
@@ -40,7 +38,7 @@ export default function IndexPage() {
         </div>
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col bg-white">
         <div className="flex flex-col justify-between gap-5 border-y border-black px-[32px] py-5 md:flex-row md:gap-0 lg:px-20">
           <div className="flex flex-col items-start justify-center gap-2 lg:flex-row lg:items-center">
             <div className="flex w-[280px] items-center justify-start gap-2">
@@ -141,12 +139,12 @@ export default function IndexPage() {
       </div>
 
       <div className="bg-radial-gradient flex flex-col gap-32 px-6 py-24 md:px-12">
-        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-4 lg:gap-0">
-          <h2 className="text-xl uppercase text-orange lg:order-none lg:text-center">
+        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
+          <h6 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
             Who we are
-          </h2>
-          <div className="lg:col-span-3 lg:pl-[140px]">
-            <h3 className="max-w-2xl text-3xl font-bold">
+          </h6>
+          <div className="col-span-0 flex flex-col lg:col-span-1">
+            <h3 className="text-3xl font-bold">
               PSE is a research lab building free tools that expand the world of
               cryptography.
             </h3>
@@ -155,11 +153,11 @@ export default function IndexPage() {
 
         <WhatWeDo />
 
-        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-4 lg:gap-0">
-          <h2 className="text-xl uppercase text-orange lg:order-none lg:text-center">
-            how to plug in
-          </h2>
-          <div className="lg:col-span-3 lg:pl-[140px]">
+        <section className="relative grid w-full grid-cols-1 gap-10 overflow-hidden lg:grid-cols-3 lg:gap-0">
+          <h6 className="flex w-full justify-start text-xl uppercase text-orange lg:justify-center">
+            How To Plug In
+          </h6>
+          <div className="col-span-0 flex flex-col lg:col-span-1">
             <p className="max-w-2xl xl:text-lg">
               PSE is a growing team of developers, researchers, designers,
               communicators, artists, and organizers. There are so many ways to
