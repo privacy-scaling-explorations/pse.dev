@@ -73,7 +73,7 @@ export default function ProjectsPage() {
                           height={18}
                         />
                       </Link>
-                      {project.links.website !== null && (
+                      {project.links.website && (
                         <Link
                           href={`${project.links.website}`}
                           target="_blank"
