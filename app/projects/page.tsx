@@ -73,20 +73,22 @@ export default function ProjectsPage() {
                           height={18}
                         />
                       </Link>
-                      <Link
-                        href={`${project.links.website}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="hover:opacity-60"
-                      >
-                        <Image
-                          src={GlobeIcon}
-                          className="cursor-pointer"
-                          alt="globalVector"
-                          width={18}
-                          height={18}
-                        />
-                      </Link>
+                      {project.links.website !== null && (
+                        <Link
+                          href={`${project.links.website}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:opacity-60"
+                        >
+                          <Image
+                            src={GlobeIcon}
+                            className="cursor-pointer"
+                            alt="globalVector"
+                            width={18}
+                            height={18}
+                          />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>

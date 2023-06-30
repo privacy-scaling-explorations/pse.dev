@@ -45,24 +45,17 @@ export default function ProjectDetailPage() {
             {findProject.name}
           </h1>
           <div className="flex flex-wrap items-center justify-start gap-5">
-            {githubLink !== "none" && (
-              <NextLink
-                href={findProject.links.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className="flex items-center gap-2">
-                  <NextImage
-                    src={GithubVector}
-                    alt="bg"
-                    width={20}
-                    height={20}
-                  />
-                  <p>Github</p>
-                </div>
-              </NextLink>
-            )}
-            {websiteLink !== "none" && (
+            <NextLink
+              href={findProject.links.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="flex items-center gap-2">
+                <NextImage src={GithubVector} alt="bg" width={20} height={20} />
+                <p>Github</p>
+              </div>
+            </NextLink>
+            {websiteLink !== null && (
               <NextLink
                 href={findProject.links.website}
                 target="_blank"
@@ -79,7 +72,7 @@ export default function ProjectDetailPage() {
                 </div>
               </NextLink>
             )}
-            {twitterLink !== "none" && (
+            {twitterLink !== null && (
               <NextLink
                 href={findProject.links.twitter}
                 target="_blank"
