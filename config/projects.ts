@@ -49,7 +49,7 @@ export const projects = [
       github: "https://github.com/privacy-scaling-explorations/maci",
 
       website:
-        "https://mirror.xyz/privacy-scaling-explorations.eth/ltCt68hslI5jmMf1AnfkrP2eUwkeZ8_fgkHc_WyD9Nc",
+        "none",
 
       twitter: "none",
       discord: "none",
@@ -99,7 +99,7 @@ export const projects = [
     links: {
       github: "https://github.com/kayleegeorge/zk-chat//",
 
-      website: "https://www.notion.so/6649797a76ed4858933015360fc76650?pvs=21",
+      website: "none",
       twitter: "none",
       discord: "none",
     },
@@ -174,7 +174,7 @@ export const projects = [
     links: {
       github: "https://github.com/privacy-scaling-explorations/security",
       website:
-        "https://mirror.xyz/privacy-scaling-explorations.eth/BaqGMfBhEZR1cvTJlA9E3Xu5ZhD7IthLiUK-Q75rQMM",
+        "none",
       discord: "none",
       twitter: "none",
     },
@@ -201,7 +201,7 @@ export const projects = [
     links: {
       github: "https://github.com/privacy-scaling-explorations/zkevm-circuits",
       website:
-        "https://mirror.xyz/privacy-scaling-explorations.eth/I5BzurX-T6slFaPbA4i3hVrO7U2VkBR45eO-N3CSnSg",
+        "none",
       twitter: "none",
       discord: "none",
     },
@@ -281,7 +281,7 @@ export const projects = [
       github: "https://github.com/socathie",
 
       website:
-        "https://mirror.xyz/privacy-scaling-explorations.eth/K88lOS4XegJGzMoav9K5bLuT9Zhn3Hz2KkhB3ITq-m8",
+        "none",
       twitter: "none",
       discord: "none",
     },
@@ -302,7 +302,7 @@ export const projects = [
     links: {
       github: "https://github.com/zkparty",
 
-      website: "https://docs.google.com/presentation/d/1dTKWaZDPCZFI5W",
+      website: "none",
       twitter: "none",
       discord: "none",
     },
@@ -346,10 +346,10 @@ export const projects = [
     description:
       "TLSNotary is useful for developers of privacy focused projects that need data provenance from secure web servers. It leverages the widely-used Transport Layer Security (TLS) protocol to securely and privately prove a transcript of communications took place with a webserver. The protocol involves splitting TLS session keys between two parties: the User and the Notary. Neither the User nor Notary are in possession of the full TLS session keys, they only hold a share of those keys. This ensures the security assumptions of TLS while enabling the User to prove the authenticity of the communication to the Notary. The Notary remains unaware of which webserver is being queried, and the Notary never has access to the unencrypted communications. All of this is achieved while maintaining full privacy.",
     links: {
-      github: "none",
-      website: "none",
+      github: "https://github.com/tlsnotary/tlsn",
+      website: "https://tlsnotary.org/",
       twitter: "none",
-      discord: "none",
+      discord: "https://discord.gg/9XwESXtcN7",
     },
     tags: {
       themes: [],
