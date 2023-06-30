@@ -75,8 +75,20 @@ export function SiteFooter() {
           </NextLink>
         </div>
         <div className="flex gap-5 text-white">
-          <h1>Privacy Policy</h1>
-          <h1>Terms of use</h1>
+          <NextLink
+            href={siteConfig.links.privacyPolicy}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <h1>Privacy Policy</h1>
+          </NextLink>
+          <NextLink
+            href={siteConfig.links.termOfUse}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <h1>Terms of use</h1>
+          </NextLink>
         </div>
         <h1 className="text-gray-400">Last updated June 8, 2023</h1>
       </div>
