@@ -9,8 +9,8 @@ export const projects = [
     links: {
       github: "https://github.com/Rate-Limiting-Nullifier/circom-rln",
       website: "https://rate-limiting-nullifier.github.io/rln-docs/",
-      twitter: "none",
-      discord: "none",
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: ["Anonymity/privacy"],
@@ -28,7 +28,7 @@ export const projects = [
     links: {
       github: "https://github.com/zkitter",
       website: "https://www.zkitter.com/explore/",
-      twitter: "none",
+      twitter: null,
       discord: "https://discord.gg/Em4Z9yE8eW",
     },
 
@@ -48,11 +48,10 @@ export const projects = [
     links: {
       github: "https://github.com/privacy-scaling-explorations/maci",
 
-      website:
-        "none",
+      website: null,
 
-      twitter: "none",
-      discord: "none",
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: ["Anonymity/privacy", "Voting/governance"],
@@ -70,7 +69,7 @@ export const projects = [
     links: {
       github: "https://github.com/getwax",
       website: "https://getwax.org/",
-      twitter: "none",
+      twitter: null,
       discord: "https://discord.gg/hGDmAhcRyz",
     },
     tags: {
@@ -99,9 +98,9 @@ export const projects = [
     links: {
       github: "https://github.com/kayleegeorge/zk-chat//",
 
-      website: "none",
-      twitter: "none",
-      discord: "none",
+      website: null,
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: ["Anonymity/privacy", "Social"],
@@ -118,9 +117,9 @@ export const projects = [
       "CryptKeeper is a browser extension that generates Semaphore and RLN proofs for websites, providing a secure and portable solution for managing anonymous identity secrets across different applications. It simplifies the integration of zero-knowledge (ZK) identities and proofs into applications, allowing developers to focus on building the front-end and logic of their applications. By handling complex aspects of cryptography, circuits, caching, and storage, CryptKeeper enables users to interact with decentralized applications (dapps) without revealing their private identity secrets. It is aimed at building secure community standards for the growing ZK ecosystem.",
     links: {
       github: "https://github.com/CryptKeeperZK",
-      website: "none",
-      twitter: "none",
-      discord: "none",
+      website: null,
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: ["Anonymity/privacy", "Social", "Identity"],
@@ -139,7 +138,7 @@ export const projects = [
     links: {
       github: "https://github.com/semaphore-protocol",
       website: "https://semaphore.appliedzkp.org/",
-      twitter: "none",
+      twitter: null,
       discord: "https://semaphore.appliedzkp.org/discord",
     },
     tags: {
@@ -173,10 +172,9 @@ export const projects = [
       "PSE Security is a division of the Privacy & Scaling Explorations team at the Ethereum Foundation. Its primary goal is to identify and rectify bugs, thereby enhancing the security of the Ethereum Layer 2 and Zero-Knowledge ecosystems. Recognizing the potential for critical bugs to cause significant setbacks, PSE Security is committed to preemptively addressing these issues. The team offers open-source projects like the ZK Bug Tracker and Bridge Bug Tracker, which track real bugs and exploits in production code, and encourages community contributions. PSE Security also conducts manual audits and plans to help teach the community more about security and ways they can prevent bugs themselves.",
     links: {
       github: "https://github.com/privacy-scaling-explorations/security",
-      website:
-        "none",
-      discord: "none",
-      twitter: "none",
+      website: null,
+      discord: null,
+      twitter: null,
     },
     tags: {
       themes: [
@@ -200,10 +198,9 @@ export const projects = [
       "zkEVM Community Edition is a project aimed at validating Ethereum blocks using zero-knowledge proofs. It is designed to be fully compatible with Ethereum's EVM and serves two primary goals. First, it enables the creation of a layer 2 network (zkRollup) compatible with the Ethereum ecosystem, which uses zero-knowledge proofs to validate blocks, thus enhancing scalability. Second, it allows the generation of zero-knowledge proofs for blocks from the existing layer 1 Ethereum network, enabling light clients to quickly synchronize many blocks with low resource consumption while ensuring block correctness without needing trust in external parties.",
     links: {
       github: "https://github.com/privacy-scaling-explorations/zkevm-circuits",
-      website:
-        "none",
-      twitter: "none",
-      discord: "none",
+      website: null,
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: ["Scaling"],
@@ -222,8 +219,8 @@ export const projects = [
     links: {
       github: "https://github.com/privacy-scaling-explorations/bandada",
       website: "https://bandada.appliedzkp.org/",
-      twitter: "none",
-      discord: "none",
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: [
@@ -259,9 +256,9 @@ export const projects = [
       "The DSL Working Group is focused on the exploration and improvement of languages used to write zero-knowledge circuits. The group's primary goal is to enhance the state of zk circuit languages, making them easier to write and review by offering the right abstractions. They also aim to make it harder to write unsound circuits by implementing static analysis and enforcing safer patterns. Additionally, they are working to support next-generation (Incrementally Verifiable Computation or IVC) proving systems. The group is currently working on Chiquito, a high-level Domain-Specific Language (DSL) for Halo2 circuits that lowers the entry barrier to write zk circuits with a state-machine abstraction API.",
     links: {
       github: "https://github.com/privacy-scaling-explorations/chiquito/",
-      website: "none",
-      twitter: "none",
-      discord: "none",
+      website: null,
+      twitter: null,
+      discord: null,
     },
     tags: {
       type: ["Legos/dev tools", "Proof of concept", "Developer tooling"],
@@ -280,10 +277,9 @@ export const projects = [
     links: {
       github: "https://github.com/socathie",
 
-      website:
-        "none",
-      twitter: "none",
-      discord: "none",
+      website: null,
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: ["Anonymity/privacy", "Scaling"],
@@ -302,9 +298,9 @@ export const projects = [
     links: {
       github: "https://github.com/zkparty",
 
-      website: "none",
-      twitter: "none",
-      discord: "none",
+      website: null,
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: ["Scaling", "Education"],
@@ -324,7 +320,7 @@ export const projects = [
       github: "http://github.com/monemetrics/semaphore-zk3",
       website: "http://zk3.io/",
       twitter: "http://twitter.com/zk3org",
-      discord: "none",
+      discord: null,
     },
     tags: {
       themes: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
@@ -348,7 +344,7 @@ export const projects = [
     links: {
       github: "https://github.com/tlsnotary/tlsn",
       website: "https://tlsnotary.org/",
-      twitter: "none",
+      twitter: null,
       discord: "https://discord.gg/9XwESXtcN7",
     },
     tags: {
@@ -367,9 +363,9 @@ export const projects = [
       "EigenTrust is a library designed to manage trust within a distributed network, incorporating zero-knowledge features. It serves as a reputation bank for the Ethereum ecosystem, providing an interoperable layer for managing reputation and trust. The protocol creates zero-knowledge proofs of reputation scores based on ratings given by network participants. This allows for the creation of a reputation system for peer-to-peer marketplaces and exchanges, reputation-weighted voting, and community gatekeeping.",
     links: {
       github: "https://github.com/eigen-trust/protocol",
-      website: "none",
-      twitter: "none",
-      discord: "none",
+      website: null,
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: ["Reputation", "Identity"],
@@ -388,8 +384,8 @@ export const projects = [
     links: {
       github: "https://github.com/privacy-scaling-explorations/e2e-zk-ecdsa",
       website: "https://anonklub.fly.dev/",
-      twitter: "none",
-      discord: "none",
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: [
@@ -413,9 +409,9 @@ export const projects = [
       "Summa allows centralized exchanges to demonstrate that their assets exceed their liabilities without revealing critical business information such as individual user balances, total number of users, and total liabilities or assets. It uses zero-knowledge proofs to ensure that exchanges can demonstrate they have sufficient assets to cover all user balances. The protocol involves building a Merkle Sum Tree of user balances, generating proofs for each user, and allowing users to verify these proofs.",
     links: {
       github: "https://github.com/summa-dev",
-      website: "none",
-      twitter: "none",
-      discord: "none",
+      website: null,
+      twitter: null,
+      discord: null,
     },
     tags: {
       themes: ["Anonymity/privacy", "Computational Integrity"],
