@@ -33,7 +33,7 @@ export default function IndexPage() {
             />
           </Link>
         </div>
-        <div className="m-auto flex h-[364px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[542px]">
+        <div className="m-auto flex h-[364px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[400px]">
           <Image src={PSELogo} alt="pselogo" style={{ objectFit: "cover" }} />
         </div>
       </div>
