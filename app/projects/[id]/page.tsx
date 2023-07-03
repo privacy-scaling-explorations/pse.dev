@@ -32,8 +32,7 @@ export default function ProjectDetailPage() {
     (project) => String(project.id) === router.split("/").slice(1)[1]
   )[0]
 
-  const twitterLink = findProject.links.twitter
-  const websiteLink = findProject.links.website
+  const { github, discord, twitter, website } = findProject.links
 
   return (
     <section className="flex flex-col items-center">
@@ -44,17 +43,19 @@ export default function ProjectDetailPage() {
             {findProject.name}
           </h1>
           <div className="flex flex-wrap items-center justify-start gap-5">
-            <Link
-              href={findProject.links.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className="flex items-center gap-2">
-                <Image src={GithubVector} alt="bg" width={20} height={20} />
-                <p>Github</p>
-              </div>
-            </Link>
-            {websiteLink && (
+            {github && (
+              <Link
+                href={findProject.links.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="flex items-center gap-2">
+                  <Image src={GithubVector} alt="bg" width={20} height={20} />
+                  <p>Github</p>
+                </div>
+              </Link>
+            )}
+            {website && (
               <Link
                 href={findProject.links.website}
                 target="_blank"
@@ -66,7 +67,7 @@ export default function ProjectDetailPage() {
                 </div>
               </Link>
             )}
-            {twitterLink && (
+            {twitter && (
               <Link
                 href={findProject.links.twitter}
                 target="_blank"

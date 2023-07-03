@@ -29,53 +29,55 @@ export default function ProjectsPage() {
           <p className="text-base text-slate-900/70 md:text-lg">{`Showing ${projects.length} projects`}</p>
           <div className="flex flex-wrap justify-center gap-6 py-6">
             {projects.map((project, index) => {
+              const { id, image, links, name, tldr } = project
+              const { github, website } = links
               return (
                 <div
                   key={index}
-                  onClick={() => router.push(`/projects/${project.id}`)}
+                  onClick={() => router.push(`/projects/${id}`)}
                   className="flex h-[419px] w-[310px] cursor-pointer flex-col overflow-hidden rounded-lg border border-slate-900/20 transition ease-in-out hover:scale-105"
                 >
                   {project.image.length > 0 ? (
                     <Image
-                      src={require(`@/public/project-banners/${project.image}`)}
-                      alt={project.name}
+                      src={require(`@/public/project-banners/${image}`)}
+                      alt={name}
                       className="h-[163px] w-full rounded-t-lg object-cover"
                     />
                   ) : (
                     <Image
                       src={require(`@/public/project-banners/fallback.webp`)}
-                      alt={project.name}
+                      alt={name}
                       className="h-[163px] w-full rounded-t-lg object-cover"
                     />
                   )}
                   <div className="flex h-full flex-col justify-between gap-5 rounded-b-lg bg-white p-5">
                     <div className="flex flex-col justify-start gap-2">
-                      <h1 className="text-xl font-bold text-black">
-                        {project.name}
-                      </h1>
-                      <p className="text-slate-900/80">{project.tldr}</p>
+                      <h1 className="text-xl font-bold text-black">{name}</h1>
+                      <p className="text-slate-900/80">{tldr}</p>
                     </div>
                     <div
                       className="mr-auto flex items-center justify-start gap-2"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Link
-                        href={`${project.links.github}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="hover:opacity-60"
-                      >
-                        <Image
-                          src={GithubIcon}
-                          alt="githubVector"
-                          className="cursor-pointer"
-                          width={18}
-                          height={18}
-                        />
-                      </Link>
-                      {project.links.website && (
+                      {github && (
                         <Link
-                          href={`${project.links.website}`}
+                          href={`${github}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:opacity-60"
+                        >
+                          <Image
+                            src={GithubIcon}
+                            alt="githubVector"
+                            className="cursor-pointer"
+                            width={18}
+                            height={18}
+                          />
+                        </Link>
+                      )}
+                      {website && (
+                        <Link
+                          href={`${website}`}
                           target="_blank"
                           rel="noreferrer"
                           className="hover:opacity-60"
