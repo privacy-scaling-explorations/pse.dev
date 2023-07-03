@@ -10,7 +10,6 @@ export const Github = ({ color }: MySvgProps) => {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g id="github">
@@ -32,7 +31,6 @@ export const Global = ({ color }: MySvgProps) => {
       width="25"
       height="24"
       viewBox="0 0 25 24"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g id="global-line" clip-path="url(#clip0_3593_4165)">
@@ -62,7 +60,6 @@ export const Discord = ({ color }: MySvgProps) => {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g id="discord">
@@ -91,7 +88,6 @@ export const Twitter = ({ color }: MySvgProps) => {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g id="twitter">
@@ -113,7 +109,6 @@ export const Mirror = ({ color }: MySvgProps) => {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g id="Mirror">

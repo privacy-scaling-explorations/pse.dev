@@ -1,7 +1,7 @@
 "use client"
 
-import NextImage from "next/image"
-import NextLink from "next/link"
+import Image from "next/image"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 import GithubVector from "@/public/social-medias/github-fill.svg"
 import GlobalVector from "@/public/social-medias/global-line.svg"
@@ -32,9 +32,7 @@ export default function ProjectDetailPage() {
     (project) => String(project.id) === router.split("/").slice(1)[1]
   )[0]
 
-  const githubLink = findProject.links.github
-  const twitterLink = findProject.links.twitter
-  const websiteLink = findProject.links.website
+  const { github, discord, twitter, website } = findProject.links
 
   return (
     <section className="flex flex-col items-center">
@@ -45,56 +43,41 @@ export default function ProjectDetailPage() {
             {findProject.name}
           </h1>
           <div className="flex flex-wrap items-center justify-start gap-5">
-            {githubLink !== "none" && (
-              <NextLink
+            {github && (
+              <Link
                 href={findProject.links.github}
                 target="_blank"
                 rel="noreferrer"
               >
                 <div className="flex items-center gap-2">
-                  <NextImage
-                    src={GithubVector}
-                    alt="bg"
-                    width={20}
-                    height={20}
-                  />
+                  <Image src={GithubVector} alt="bg" width={20} height={20} />
                   <p>Github</p>
                 </div>
-              </NextLink>
+              </Link>
             )}
-            {websiteLink !== "none" && (
-              <NextLink
+            {website && (
+              <Link
                 href={findProject.links.website}
                 target="_blank"
                 rel="noreferrer"
               >
                 <div className="flex items-center gap-2">
-                  <NextImage
-                    src={GlobalVector}
-                    alt="bg"
-                    width={20}
-                    height={20}
-                  />
+                  <Image src={GlobalVector} alt="bg" width={20} height={20} />
                   <p>Website</p>
                 </div>
-              </NextLink>
+              </Link>
             )}
-            {twitterLink !== "none" && (
-              <NextLink
+            {twitter && (
+              <Link
                 href={findProject.links.twitter}
                 target="_blank"
                 rel="noreferrer"
               >
                 <div className="flex items-center gap-2">
-                  <NextImage
-                    src={TwitterVector}
-                    alt="bg"
-                    width={20}
-                    height={20}
-                  />
+                  <Image src={TwitterVector} alt="bg" width={20} height={20} />
                   <p>Twitter</p>
                 </div>
-              </NextLink>
+              </Link>
             )}
           </div>
           <p className="mt-5 w-full text-lg md:w-[612px]">{findProject.tldr}</p>
@@ -103,7 +86,7 @@ export default function ProjectDetailPage() {
       <div className="flex w-full flex-col items-center justify-center gap-5 bg-anakiwa px-[24px] py-10 md:px-0">
         {findProject.image ? (
           <div className="flex h-auto items-center justify-center">
-            <NextImage
+            <Image
               src={require(`@/public/project-banners/${findProject.image}`)}
               alt="bg"
               width={664}
