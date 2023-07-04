@@ -23,7 +23,7 @@ module.exports = {
         corduroy: "#4A5754",
         orange: "#E1523A",
         orangeDark: "#E3533A",
-        anakiwa: "#F2FAFD",
+        anakiwa: "hsl(var(--anakiwa))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
