@@ -59,7 +59,7 @@ const News = () => {
                 <div className="flex w-48 items-center gap-2">
                   <Image
                     src={newsType["icon"]}
-                    alt="pseicon1"
+                    alt=""
                     className="h-4 object-fill"
                   />
                   <p className="text-sm font-semibold uppercase tracking-widest text-orange">
@@ -67,7 +67,7 @@ const News = () => {
                   </p>
                 </div>
                 <p className="p-1 lg:hidden"></p>
-                <p className="border-b-2 border-b-transparent text-slate-950 group-hover:border-b-orange lg:text-lg">
+                <p className="border-b-2 border-b-transparent text-slate-950 transition duration-150 ease-out group-hover:border-b-orange lg:text-lg">
                   {item.title}
                 </p>
               </div>
