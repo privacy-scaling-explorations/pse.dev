@@ -11,7 +11,7 @@ export const newsItems: NewsInterface[] = [
   },
   {
     type: "learn",
-    title: "Folding Circom Circuit: A ZKML Case Study - Dr. Cathie So",
+    title: "Folding Circom Circuit: A ZKML Case Study by Dr. Cathie So",
     action: {
       label: "Watch",
       url: "https://www.youtube.com/live/jb6HDEtY4CI",
@@ -19,7 +19,7 @@ export const newsItems: NewsInterface[] = [
   },
   {
     type: "event",
-    title: "PSE @ ETHGlobal Paris",
+    title: "PSE@ETHGlobal Paris",
     action: {
       label: "Attend",
       url: "https://ethglobal.com/events/paris2023",
@@ -27,8 +27,7 @@ export const newsItems: NewsInterface[] = [
   },
   {
     type: "post",
-    title:
-      " zkEVM Community Edition Part 3: Logic and StructureZKProof Community Event",
+    title: " zkEVM Community Edition Part 3: Logic and Structure",
     action: {
       label: "Read",
       url: "https://mirror.xyz/privacy-scaling-explorations.eth/shl8eMBiObd6_AUBikXZrjKD4fibI6xUZd7d9Yv5ezE",
