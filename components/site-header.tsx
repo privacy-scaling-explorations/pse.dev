@@ -13,7 +13,7 @@ import { SiteHeaderMobile } from "./site-header-mobile"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full bg-white px-8 shadow-sm">
+    <header className="sticky top-0 z-40 w-full bg-white px-6 shadow-sm xl:px-20">
       <div className="flex h-16  justify-between space-x-4 sm:space-x-0">
         <MainNav items={siteConfig.mainNav} />
         <SiteHeaderMobile />
