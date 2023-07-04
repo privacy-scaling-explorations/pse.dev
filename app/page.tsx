@@ -15,7 +15,7 @@ export default function IndexPage() {
   return (
     <section className="flex flex-col bg-main-gradient">
       <div className="flex w-full flex-col justify-between gap-5 p-7 md:flex-row md:px-20">
-        <div className="flex w-full flex-col justify-center gap-5 md:w-[660px]">
+        <div className="flex w-full flex-col justify-center gap-6 md:w-[660px]">
           <h6 className="font-sans text-sm uppercase tracking-widest text-orange xl:text-lg">
             Privacy + Scaling Explorations
           </h6>
@@ -23,19 +23,20 @@ export default function IndexPage() {
             className="text-4xl font-bold lg:text-5xl xl:text-7xl"
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, cubicBezier: "easeOut"}}
           >
             Programmable cryptography for people like you
           </motion.h1>
-          <Link href={"/projects"} className="flex items-center gap-2">
-            <h1 className="border-b-2 border-orange text-base font-medium uppercase">
+          <Link href={"/projects"} className="group flex items-center gap-2">
+            <span className="border-b-2 border-orange text-base font-medium uppercase">
               Explore Project Library
-            </h1>
+            </span>
             <Image
               src={ArrowRightVector}
               alt="arrowvector"
-              height={24}
-              width={24}
+              height={20}
+              width={20}
+              className="duration-200 ease-in-out group-hover:translate-x-2"
             />
           </Link>
         </div>
