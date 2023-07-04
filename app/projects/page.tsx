@@ -35,7 +35,7 @@ export default function ProjectsPage() {
                 <div
                   key={index}
                   onClick={() => router.push(`/projects/${id}`)}
-                  className="flex h-[419px] w-[310px] cursor-pointer flex-col overflow-hidden rounded-lg border border-slate-900/20 transition ease-in-out hover:scale-105"
+                  className="flex h-[419px] w-[310px] cursor-pointer flex-col overflow-hidden rounded-lg border border-slate-900/20 transition duration-150 ease-in hover:scale-105"
                 >
                   {project.image.length > 0 ? (
                     <Image
