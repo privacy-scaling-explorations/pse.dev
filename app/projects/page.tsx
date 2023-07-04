@@ -3,10 +3,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { projects } from "@/data/projects"
 import GithubIcon from "@/public/social-medias/github-fill.svg"
 import GlobeIcon from "@/public/social-medias/global-line.svg"
-
-import { projects } from "@/config/projects"
 
 export default function ProjectsPage() {
   const router = useRouter()

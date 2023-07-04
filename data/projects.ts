@@ -1,6 +1,6 @@
 export const projects = [
   {
-    id: 1,
+    id: "rln",
     image: "rlnlogo.webp",
     name: "Rate-Limiting Nullifier",
     tldr: "A protocol for deterring spam and maintaining anonymity in communication systems.",
@@ -17,7 +17,7 @@ export const projects = [
     },
   },
   {
-    id: 2,
+    id: "zkitter",
     image: "zkitterlogo.webp",
     name: "Zkitter",
     tldr: "A decentralized social network prioritizing privacy and anonymity",
@@ -36,7 +36,7 @@ export const projects = [
     },
   },
   {
-    id: 3,
+    id: "maci",
     image: "macilogo.webp",
     name: "MACI",
     tldr: "A secure e-voting solution minimizing the risk of collusion and bribery",
@@ -52,10 +52,10 @@ export const projects = [
     },
   },
   {
-    id: 4,
+    id: "wax",
     image: "waxlogo.webp",
-    name: "WAX: Wallet Account eXperiments",
-    tldr: "Streamlining web3 product development with smart account components for enhanced wallets, dApps, and SDKs.",
+    name: "Wallet Account eXperiments (WAX)",
+    tldr: "Streamlines web3 product development with smart account components for enhanced wallets, dApps, and SDKs.",
     description:
       "Wallet Account eXperiments (WAX), formerly known as BLS Wallet, is a suite of production-ready smart account components that provide advanced features for wallets, SDKs, and dApps. It's designed to lower gas costs on EVM rollups through aggregated BLS signatures, simplifying the integration of contract wallets and reducing the cost of layer 2 transactions. This makes WAX particularly beneficial for web3 projects targeting developing economies. WAX components incorporate advanced cryptographic primitives in a secure and intuitive way, using Safe contracts for a familiar and battle-tested foundation. Each additional module can be audited and added or removed at the account holder's discretion. WAX offers features like cheaper L2 transactions, modular smart contract components, ERC 4337 compatibility, zk email verification, passkeys verification, multi-action transactions, gasless transactions, and wallet upgradability. The primary use cases for WAX include scaling, key management, and the creation of prototypes for the web3 ecosystem.",
     links: {
@@ -80,7 +80,7 @@ export const projects = [
   },
 
   {
-    id: 5,
+    id: "zk-chat",
     image: "",
     name: "ZK-Chat",
     tldr: "A protocol for integrating decentralized, anonymous, and spam-protected chat into applications.",
@@ -96,7 +96,7 @@ export const projects = [
     },
   },
   {
-    id: 6,
+    id: "cryptkeeper",
     image: "cryptkeeperlogo.webp",
     name: "CryptKeeper",
     tldr: "A browser extension for secure, portable anonymous identity management across applications.",
@@ -113,7 +113,7 @@ export const projects = [
     },
   },
   {
-    id: 7,
+    id: "semaphore",
     image: "semaphorelogo.webp",
     name: "Semaphore",
     tldr: "A zero-knowledge protocol enabling anonymous group membership proof and signaling.",
@@ -147,7 +147,7 @@ export const projects = [
     },
   },
   {
-    id: 8,
+    id: "pse-security",
     image: "",
     name: "PSE Security",
     tldr: "Proactively securing Ethereum's L2 and ZK ecosystems.",
@@ -170,7 +170,7 @@ export const projects = [
   },
 
   {
-    id: 9,
+    id: "zkevm-community",
     image: "",
     name: "zkEVM Community Edition",
     tldr: "A zero-knowledge proof mechanism for Ethereum block verification.",
@@ -187,7 +187,7 @@ export const projects = [
   },
 
   {
-    id: 10,
+    id: "bandada",
     image: "bandada.webp",
     name: "Bandada",
     tldr: "An open-source system for managing privacy-preserving groups of anonymous individuals.",
@@ -223,7 +223,7 @@ export const projects = [
   },
 
   {
-    id: 11,
+    id: "dsl-working-group",
     image: "",
     name: "DSL Working Group",
     tldr: "Exploration of languages for writing zk circuits",
@@ -240,10 +240,10 @@ export const projects = [
   },
 
   {
-    id: 12,
+    id: "zkml",
     image: "",
-    name: "ZKML (Zero-Knowledge Machine Learning)",
-    tldr: "ZKML leverages zero-knowledge proofs for privacy-preserving machine learning, enabling model and data privacy with transparent verification.",
+    name: "ZKML",
+    tldr: "ZKML (Zero-Knowledge Machine Learning) leverages zero-knowledge proofs for privacy-preserving machine learning, enabling model and data privacy with transparent verification.",
     description:
       "ZKML is a solution that combines the power of zero-knowledge proofs (ZKPs) and machine learning to address the privacy concerns in traditional machine learning. It provides a platform for machine learning developers to convert their TensorFlow Keras models into ZK-compatible versions, ensuring model privacy, data privacy, and transparent verification. ZKML can be used to verify if a specific machine learning model was used to generate a particular piece of content, without revealing the input or the model used. It has potential use cases in on-chain biometric authentication, private data marketplace, proprietary ML model sharing, and AIGC NFTs.",
     links: {
@@ -257,7 +257,7 @@ export const projects = [
   },
 
   {
-    id: 13,
+    id: "trusted-setups",
     image: "",
     name: "Trusted Setups",
     tldr: "Aiding developers with tools for trusted setups.",
@@ -274,7 +274,7 @@ export const projects = [
   },
 
   {
-    id: 14,
+    id: "zk3",
     image: "",
     name: "zk3",
     tldr: "Utilizing ZK proofs in social networks",
@@ -298,7 +298,7 @@ export const projects = [
   },
 
   {
-    id: 15,
+    id: "tlsn",
     image: "tlsnlogo.webp",
     name: "TLSNotary",
     tldr: "A protocol for creating cryptographic proofs of authenticity for any data on the web.",
@@ -317,7 +317,7 @@ export const projects = [
   },
 
   {
-    id: 16,
+    id: "eigen-trust",
     image: "",
     name: "EigenTrust",
     tldr: "A distributed reputation system with zero-knowledge features.",
@@ -334,7 +334,7 @@ export const projects = [
   },
 
   {
-    id: 17,
+    id: "anon-klub",
     image: "",
     name: "AnonKlub",
     tldr: "A mechanism for anonymous proof of Ethereum address ownership.",
@@ -358,7 +358,7 @@ export const projects = [
   },
 
   {
-    id: 18,
+    id: "summa",
     image: "",
     name: "Summa",
     tldr: "Protocol enabling centralized exchanges to prove solvency without compromising private information.",
