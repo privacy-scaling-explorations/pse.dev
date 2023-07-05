@@ -82,7 +82,7 @@ export default function IndexPage() {
               passHref
               className="flex items-center gap-2"
             >
-              <div className="border-b-2 border-orange text-base font-[500] uppercase">
+              <div className="border-b-2 border-orange text-base font-medium uppercase">
                 Say Hi On Discord
               </div>
               <ArrowRightUp color="black" />

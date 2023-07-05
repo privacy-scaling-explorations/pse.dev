@@ -1,102 +1,105 @@
-"use client"
-
+import { Metadata, ResolvingMetadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { projects } from "@/data/projects"
 import GithubVector from "@/public/social-medias/github-fill.svg"
 import GlobalVector from "@/public/social-medias/global-line.svg"
 import TwitterVector from "@/public/social-medias/twitter-fill.svg"
 
-import { projects } from "@/config/projects"
-import Breadcrumbs from "@/components/breadcrumbs"
+type PageProps = {
+  params: { id: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
 
-export default function ProjectDetailPage() {
-  const router = usePathname()
-
-  const breadcrumbs = router
-    .split("/")
-    .slice(1)
-    .map((part) => {
-      const id = Number(part)
-
-      if (!isNaN(id)) {
-        const project = projects.find((project) => project.id === id)
-
-        return project ? project.name : part
-      } else {
-        return part
-      }
-    })
-
-  const findProject = projects.filter(
-    (project) => String(project.id) === router.split("/").slice(1)[1]
+export async function generateMetadata(
+  { params }: PageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const currProject = projects.filter(
+    (project) => String(project.id) === params.id
   )[0]
 
-  const { github, discord, twitter, website } = findProject.links
+  return {
+    title: currProject.name,
+    description: currProject.tldr,
+    openGraph: {
+      images: [
+        currProject.image
+          ? `/project-banners/${currProject.image}`
+          : "/project-banners/fallback.webp",
+      ],
+    },
+  }
+}
+
+export default function ProjectDetailPage({ params }: PageProps) {
+  const currProject = projects.filter(
+    (project) => String(project.id) === params.id
+  )[0]
+
+  const { github, twitter, website } = currProject.links
 
   return (
     <section className="flex flex-col items-center">
-      <div className="relative flex h-auto w-full justify-center overflow-hidden bg-second-gradient md:h-[400px]">
-        <div className="z-[11] flex w-full flex-col justify-center gap-5 p-[24px] md:w-[664px] md:p-0">
-          <Breadcrumbs path={breadcrumbs} />
-          <h1 className="text-2xl font-[700] md:text-3xl">
-            {findProject.name}
-          </h1>
+      <div className="mx-auto flex h-auto w-full justify-center bg-second-gradient md:h-[272px]">
+        <div className="flex flex-col gap-3 p-6 md:w-[700px]">
+          <div className="flex gap-2 text-sm">
+            <Link
+              href="/projects"
+              className="font-medium transition duration-100 hover:text-orange"
+            >
+              Project Library
+            </Link>
+            <p className="text-slate-500">/</p>
+            <p className="text-slate-500">{currProject.name}</p>
+          </div>
+          <p className="p-2"></p>
+          <h1 className="text-3xl font-bold md:text-4xl">{currProject.name}</h1>
           <div className="flex flex-wrap items-center justify-start gap-5">
             {github && (
-              <Link
-                href={findProject.links.github}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <Link href={github} target="_blank" rel="noreferrer">
                 <div className="flex items-center gap-2">
-                  <Image src={GithubVector} alt="bg" width={20} height={20} />
-                  <p>Github</p>
+                  <Image src={GithubVector} alt="" width={16} height={16} />
+                  <p className="text-slate-600">Github</p>
                 </div>
               </Link>
             )}
             {website && (
-              <Link
-                href={findProject.links.website}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <Link href={website} target="_blank" rel="noreferrer">
                 <div className="flex items-center gap-2">
-                  <Image src={GlobalVector} alt="bg" width={20} height={20} />
-                  <p>Website</p>
+                  <Image src={GlobalVector} alt="" width={16} height={16} />
+                  <p className="text-slate-600">Website</p>
                 </div>
               </Link>
             )}
             {twitter && (
-              <Link
-                href={findProject.links.twitter}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <Link href={twitter} target="_blank" rel="noreferrer">
                 <div className="flex items-center gap-2">
-                  <Image src={TwitterVector} alt="bg" width={20} height={20} />
-                  <p>Twitter</p>
+                  <Image src={TwitterVector} alt="" width={16} height={16} />
+                  <p className="text-slate-600">Twitter</p>
                 </div>
               </Link>
             )}
           </div>
-          <p className="mt-5 w-full text-lg md:w-[612px]">{findProject.tldr}</p>
+          <p className="text-slate-600">{currProject.tldr}</p>
         </div>
       </div>
-      <div className="flex w-full flex-col items-center justify-center gap-5 bg-anakiwa px-[24px] py-10 md:px-0">
-        {findProject.image ? (
-          <div className="flex h-auto items-center justify-center">
+      <div className="flex w-full flex-col items-center justify-center gap-5 bg-anakiwa px-6 py-10 md:px-0">
+        <div className="w-[700px]">
+          <div className="relative flex items-center justify-center overflow-hidden rounded-lg">
             <Image
-              src={require(`@/public/project-banners/${findProject.image}`)}
-              alt="bg"
-              width={664}
+              src={`/project-banners/${
+                currProject.image ? currProject.image : "fallback.webp"
+              }`}
+              alt={`${currProject.name} banner`}
+              width={1200}
+              height={630}
+              className="w-full rounded-t-lg object-cover"
             />
           </div>
-        ) : (
-          <div />
-        )}
-        <div className="flex w-full flex-col gap-5 py-10 text-base font-normal md:w-[664px] md:text-lg">
-          <p>{findProject.description}</p>
+          <div className="flex w-full flex-col gap-5 py-10 text-base font-normal leading-relaxed">
+            <p>{currProject.description}</p>
+          </div>
         </div>
       </div>
     </section>

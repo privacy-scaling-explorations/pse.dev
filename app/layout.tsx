@@ -10,6 +10,7 @@ import { TailwindIndicator } from "@/components/tailwind-indicator"
 // import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://appliedzkp.org"),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
