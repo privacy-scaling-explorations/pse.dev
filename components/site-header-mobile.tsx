@@ -46,7 +46,7 @@ export function SiteHeaderMobile() {
               height={24}
             />
           </div>
-          <div className="flex w-full flex-col gap-5 px-[16px] text-base font-[500]">
+          <div className="flex w-full flex-col gap-5 px-[16px] text-base font-medium">
             <NextLink
               href={"/"}
               onClick={() => setHeader(false)}
