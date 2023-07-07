@@ -26,23 +26,23 @@ jobs:
       id-token: write
       contents: read
 
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        persist-credentials: false
-
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v2
-      with:
-        role-to-assume: arn:aws:iam::490752553772:role/pse-web-ecs-deploy-slc
-        role-duration-seconds: 1800
-        aws-region: eu-central-1
-
-    - name: Build and Push images to ECR
-      run: |
-          .github/scripts/build.sh ${{ env.DATA }}
-
-    - name: Create Deployment
-      run: |
-          .github/scripts/deploy.sh
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+  
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::490752553772:role/pse-web-ecs-deploy-slc
+          role-duration-seconds: 1800
+          aws-region: eu-central-1
+  
+      - name: Build and Push images to ECR
+        run: |
+            .github/scripts/build.sh ${{ env.DATA }}
+  
+      - name: Create Deployment
+        run: |
+            .github/scripts/deploy.sh
