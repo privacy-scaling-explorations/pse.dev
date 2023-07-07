@@ -29,6 +29,7 @@ jobs:
     steps:
       - name: Check branch
         run: |
+            echo $GITHUB_BASE_REF
             if [ "$GITHUB_BASE_REF" != "main" ]; then
               echo "Operation not permitted"
               exit 1
