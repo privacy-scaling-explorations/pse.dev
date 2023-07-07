@@ -27,6 +27,11 @@ jobs:
       contents: read
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+  
       - name: Check branch
         run: |
             echo $GITHUB_BASE_REF
@@ -35,11 +40,6 @@ jobs:
               exit 1
             fi
 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-  
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
