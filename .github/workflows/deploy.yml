@@ -27,6 +27,13 @@ jobs:
       contents: read
 
     steps:
+      - name: Check branch
+        run: |
+            if [ "$GITHUB_BASE_REF" != "main" ]; then
+              echo "Operation not permitted"
+              exit 1
+            fi
+
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -43,6 +50,6 @@ jobs:
         run: |
             .github/scripts/build.sh ${{ env.DATA }}
   
-      - name: Create Deployment
+      - name: Update Deployment
         run: |
             .github/scripts/deploy.sh
