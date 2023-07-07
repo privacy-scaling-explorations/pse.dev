@@ -34,8 +34,8 @@ jobs:
   
       - name: Check branch
         run: |
-            echo $GITHUB_BASE_REF
-            if [ "$GITHUB_BASE_REF" != "main" ]; then
+            echo $GITHUB_REF_NAME
+            if [ "$GITHUB_REF_NAME" != "main" ]; then
               echo "Operation not permitted"
               exit 1
             fi
