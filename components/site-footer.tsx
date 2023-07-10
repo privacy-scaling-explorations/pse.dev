@@ -22,7 +22,7 @@ export function SiteFooter() {
           by the Ethereum Foundation.
         </h1>
       </div>
-      <div className="flex w-full flex-col gap-5 px-[32px] text-base font-[500]">
+      <div className="flex w-full flex-col gap-5 px-[32px] text-base font-medium">
         <Link href={"/"} className="border-b-2 border-[#171C1B] py-5">
           HOME
         </Link>
