@@ -38,9 +38,9 @@ const showMove = {
 const News = () => {
   return (
     <ul className="bg-white">
-      <h4 className="bg-slate-500 px-6 py-2 text-lg font-bold uppercase tracking-wide text-slate-50 backdrop-blur-sm lg:px-20">
+      {/* <h4 className="bg-slate-500 px-6 py-2 text-lg font-bold uppercase tracking-wide text-slate-50 backdrop-blur-sm lg:px-20">
         what&apos;s happening
-      </h4>
+      </h4> */}
       {newsItems.map((item: NewsInterface, index) => {
         const newsType = newsTypes[item.type as keyof NewsType]
         return (
