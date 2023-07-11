@@ -12,6 +12,14 @@ on:
         options:
           - enable
           - disable
+      environment:
+        description: "Environment"
+        required: true
+        default: "prod"
+        type: choice
+        options:
+        - prod
+        - stg
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DATA: ${{ github.event.inputs.build }}
+      DATA_ENV: ${{ github.event.inputs.environment }}
     permissions:
       id-token: write
       contents: read
@@ -48,8 +57,8 @@ jobs:
   
       - name: Build and Push images to ECR
         run: |
-            .github/scripts/build.sh ${{ env.DATA }}
+            .github/scripts/build.sh ${{ env.DATA }} ${{ env.DATA_ENV }}
   
       - name: Update Deployment
         run: |
-            .github/scripts/deploy.sh
+            .github/scripts/deploy.sh ${{ env.DATA_ENV }}
