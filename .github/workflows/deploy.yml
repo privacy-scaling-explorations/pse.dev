@@ -38,9 +38,11 @@ jobs:
     steps:
       - name: Check branch
         run: |
-            if [ "$GITHUB_REF_NAME" != "main" ]; then
-              echo "Operation not permitted"
-              exit 1
+            if [ "${{ env.DATA_ENV }}" = "prod" ]; then
+              if [ "$GITHUB_REF_NAME" != "main" ]; then
+                echo "Operation not permitted"
+                exit 1
+              fi
             fi
 
       - name: Checkout
