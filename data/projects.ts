@@ -78,16 +78,15 @@ export const projects = [
       types: ["Prototype", "Proof of concept", "Lego sets/toolkits"],
     },
   },
-
   {
-    id: "zk-chat",
+    id: "discreetly",
     image: "",
-    name: "ZK-Chat",
-    tldr: "A protocol for integrating decentralized, anonymous, and spam-protected chat into applications.",
+    name: "Discreetly",
+    tldr: "An anonymous, federated, chat application using ZK.",
     description:
-      "ZK-Chat is a protocol that enables developers to incorporate decentralized, anonymous chat features into their applications, complete with spam protection and anonymous group signaling. It uses Waku decentralized messaging, Semaphore for anonymous signaling, and Rate-Limiting Nullifier (RLN) for spam prevention. This creates a decentralized, client-server model that offers unstoppable, anonymous chat with registry on-chain. It's designed for both developers and users, offering an app and a library for easy integration into various applications.",
+      "An anonymous, federated, chat application that uses Rate-Limiting Nullifier for spam prevention.",
     links: {
-      github: "https://github.com/kayleegeorge/zk-chat//",
+      github: "https://github.com/Discreetly",
     },
     tags: {
       themes: ["Anonymity/privacy", "Social"],
