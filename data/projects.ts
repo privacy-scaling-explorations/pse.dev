@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: "rln",
-    image: "rlnlogo.webp",
+    image: "rln.webp",
     name: "Rate-Limiting Nullifier",
     tldr: "A protocol for deterring spam and maintaining anonymity in communication systems.",
     description:
@@ -18,7 +18,7 @@ export const projects = [
   },
   {
     id: "zkitter",
-    image: "zkitterlogo.webp",
+    image: "zkitter.webp",
     name: "Zkitter",
     tldr: "A decentralized social network prioritizing privacy and anonymity",
     description:
@@ -37,7 +37,7 @@ export const projects = [
   },
   {
     id: "maci",
-    image: "macilogo.webp",
+    image: "maci.webp",
     name: "MACI",
     tldr: "A secure e-voting solution minimizing the risk of collusion and bribery",
     description:
@@ -53,7 +53,7 @@ export const projects = [
   },
   {
     id: "wax",
-    image: "waxlogo.webp",
+    image: "wax.webp",
     name: "Wallet Account eXperiments (WAX)",
     tldr: "Streamlines web3 product development with smart account components for enhanced wallets, dApps, and SDKs.",
     description:
@@ -80,7 +80,7 @@ export const projects = [
   },
   {
     id: "discreetly",
-    image: "",
+    image: "discreetly.svg",
     name: "Discreetly",
     tldr: "An anonymous, federated, chat application using ZK.",
     description:
@@ -96,7 +96,7 @@ export const projects = [
   },
   {
     id: "cryptkeeper",
-    image: "cryptkeeperlogo.webp",
+    image: "cryptkeeper.webp",
     name: "CryptKeeper",
     tldr: "A browser extension for secure, portable anonymous identity management across applications.",
     description:
@@ -113,7 +113,7 @@ export const projects = [
   },
   {
     id: "semaphore",
-    image: "semaphorelogo.webp",
+    image: "semaphore.webp",
     name: "Semaphore",
     tldr: "A zero-knowledge protocol enabling anonymous group membership proof and signaling.",
     description:
@@ -257,7 +257,7 @@ export const projects = [
 
   {
     id: "trusted-setups",
-    image: "",
+    image: "trusted-setups.svg",
     name: "Trusted Setups",
     tldr: "Aiding developers with tools for trusted setups.",
     description:
@@ -274,7 +274,7 @@ export const projects = [
 
   {
     id: "zk3",
-    image: "",
+    image: "zk3.svg",
     name: "zk3",
     tldr: "Utilizing ZK proofs in social networks",
     description:
@@ -298,7 +298,7 @@ export const projects = [
 
   {
     id: "tlsn",
-    image: "tlsnlogo.webp",
+    image: "tlsn.webp",
     name: "TLSNotary",
     tldr: "A protocol for creating cryptographic proofs of authenticity for any data on the web.",
     description:
@@ -370,6 +370,94 @@ export const projects = [
       themes: ["Anonymity/privacy", "Computational Integrity"],
       type: ["Infrastructure/protocol", "Application"],
       builtWith: ["Halo2 PSE"],
+    },
+  },
+  {
+    id: "anon-aadhaar",
+    image: "",
+    name: "Anon Aadhaar",
+    tldr: "Tools for building build privacy-preserving applications using government ID cards, specifically Aadhaar cards in India.",
+    description:
+      "Anon Aadhaar is a project that allows individuals to prove their citizenship anonymously. The project provides circuits, an SDK, and demo applications that generate and verify proofs of valid Aadhaar cards, integrating with the PCD framework to support a wide range of applications.",
+    links: {
+      github: "https://github.com/privacy-scaling-explorations/anon-aadhaar",
+    },
+    tags: {
+      themes: ["Anonymity/privacy", "Social", "Identity", "Voting/governance"],
+      type: ["Legos/dev tools", "Lego sets/toolkits", "Proof of concept"],
+      builtWith: ["Circom, RSA"],
+    },
+  },
+  {
+    id: "channel-4",
+    image: "channel4.svg",
+    name: "Channel 4",
+    tldr: "Content discovery through community contributions, using state channels to reward users for popular posts.",
+    description:
+      "Channel 4 is a community-driven platform where users can submit and discover content. It uses state channels to incentivize user engagement. When a user likes the content you've submitted, a state channel closes and rewards are dropped into their wallet. This approach combines entertainment with the power of state channels, enabling community members to earn while they engage.",
+    links: {
+      github: "https://github.com/State-Channel-4",
+      website: "https://channel4.wtf/",
+      discord: "https://discord.gg/76UrYgVyEx",
+    },
+    tags: {
+      themes: ["Scaling"],
+      type: ["Application"],
+      builtWith: ["State channel", "Smart contract"],
+    },
+  },
+  {
+    id: "pollen-labs",
+    image: "pollen-labs.svg",
+    name: "Pollen Labs",
+    tldr: "Champions of freedom of speech and expression through decentralized innovation.",
+    description:
+      "Pollen Labs is driven by a mission to make a significant impact on global lives by addressing complex, pressing issues. They work alongside their community to break barriers, preserve privacy, and build a future where every voice is heard, and a free web is accessible to all. Their projects, like Channel 4, a content discovery engine, and Daisy, focusing on information transparency, embody this mission., enabling community members to earn while they engage.",
+    links: {
+      website: "https://pollenlabs.org/",
+      twitter: "https://twitter.com/PollenLabs_",
+    },
+    tags: {
+      themes: ["Anonymity/privacy", "Scaling"],
+      type: ["Application"],
+      builtWith: [""],
+    },
+  },
+  {
+    id: "unirep-protocol",
+    image: "unirep.svg",
+    name: "UniRep Protocol",
+    tldr: "A Zero-Knowledge Protocol for user data & reputation management",
+    description:
+      "UniRep is a zero-knowledge protocol that securely manages user data through anonymous identifiers, enabling trustless interactions and enhanced user privacy in applications. It expands the concept of reputation to include various user data aspects, such as preferences, activity, alignments, and ownership. UniRep promotes non-custodial applications that don't hold user data, reducing data breach risks and emphasizing security for both users and developers.",
+    links: {
+      github: "https://github.com/Unirep",
+      website: "https://developer.unirep.io/docs/welcome",
+      twitter: "https://twitter.com/UniRep_Protocol",
+      discord: "https://discord.gg/VzMMDJmYc5",
+    },
+    tags: {
+      themes: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+      type: ["Legos/dev tools, Protocol"],
+      builtWith: ["Semaphore", "Circom"],
+    },
+  },
+  {
+    id: "zkp2p",
+    image: "",
+    name: "ZKP2P",
+    tldr: "Instant fiat to crypto onramp connecting traditional peer-to-peer payment services with zero-knowledge proofs.",
+    description:
+      "ZKP2P is for defi consumers looking to onboard assets on chain quickly without going through a CEX as an intermediary. ZKP2P generates a privacy-preserving proof of payment between two users on existing payment rails like Venmo or Paypal and uses said proof to unlocked escrowed digital assets on-chain.",
+    links: {
+      github: "https://github.com/zkp2p",
+      website: "https://zkp2p.xyz/",
+      twitter: "https://twitter.com/zkp2p",
+    },
+    tags: {
+      themes: ["Private communications"],
+      type: ["Application"],
+      builtWith: ["Circom", "Halo2"],
     },
   },
 ]
