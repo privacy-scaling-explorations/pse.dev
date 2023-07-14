@@ -10,6 +10,14 @@ export const newsItems: NewsInterface[] = [
     },
   },
   {
+    type: "post",
+    title: " Learnings from the KZG Ceremony",
+    action: {
+      label: "Read",
+      url: "https://mirror.xyz/privacy-scaling-explorations.eth/naTdx-u7kyirczTLSAnWwH6ZdedfTQu1yCWQj1m_n-E",
+    },
+  },
+  {
     type: "learn",
     title: "Folding Circom Circuit: A ZKML Case Study by Dr. Cathie So",
     action: {
@@ -25,12 +33,4 @@ export const newsItems: NewsInterface[] = [
       url: "https://ethglobal.com/events/paris2023",
     },
   },
-  {
-    type: "post",
-    title: " zkEVM Community Edition Part 3: Logic and Structure",
-    action: {
-      label: "Read",
-      url: "https://mirror.xyz/privacy-scaling-explorations.eth/shl8eMBiObd6_AUBikXZrjKD4fibI6xUZd7d9Yv5ezE",
-    },
-  },
-]
+] 
