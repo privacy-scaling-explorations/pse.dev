@@ -80,7 +80,7 @@ export const projects = [
   },
   {
     id: "discreetly",
-    image: "Discreetly.svg",
+    image: "discreetly.svg",
     name: "Discreetly",
     tldr: "An anonymous, federated, chat application using ZK.",
     description:
@@ -257,7 +257,7 @@ export const projects = [
 
   {
     id: "trusted-setups",
-    image: "Trusted-Setup.svg",
+    image: "trusted-setup.svg",
     name: "Trusted Setups",
     tldr: "Aiding developers with tools for trusted setups.",
     description:
@@ -274,7 +274,7 @@ export const projects = [
 
   {
     id: "zk3",
-    image: "Zk3.svg",
+    image: "zk3.svg",
     name: "zk3",
     tldr: "Utilizing ZK proofs in social networks",
     description:
@@ -408,7 +408,7 @@ export const projects = [
   },
   {
     id: "Pollen-Labs",
-    image: "Pollen-labs.svg",
+    image: "pollen-labs.svg",
     name: "Pollen Labs",
     tldr: "Champions of freedom of speech and expression through decentralized innovation.",
     description:
@@ -425,7 +425,7 @@ export const projects = [
   },
   {
     id: "UniRep-Protocol",
-    image: "Unirep.svg",
+    image: "unirep.svg",
     name: "UniRep Protocol",
     tldr: "A Zero-Knowledge Protocol for user data & reputation management",
     description:
