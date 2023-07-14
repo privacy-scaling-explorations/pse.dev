@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: "rln",
-    image: "rlnlogo.webp",
+    image: "rln.webp",
     name: "Rate-Limiting Nullifier",
     tldr: "A protocol for deterring spam and maintaining anonymity in communication systems.",
     description:
@@ -18,7 +18,7 @@ export const projects = [
   },
   {
     id: "zkitter",
-    image: "zkitterlogo.webp",
+    image: "zkitter.webp",
     name: "Zkitter",
     tldr: "A decentralized social network prioritizing privacy and anonymity",
     description:
@@ -37,7 +37,7 @@ export const projects = [
   },
   {
     id: "maci",
-    image: "macilogo.webp",
+    image: "maci.webp",
     name: "MACI",
     tldr: "A secure e-voting solution minimizing the risk of collusion and bribery",
     description:
@@ -53,7 +53,7 @@ export const projects = [
   },
   {
     id: "wax",
-    image: "waxlogo.webp",
+    image: "wax.webp",
     name: "Wallet Account eXperiments (WAX)",
     tldr: "Streamlines web3 product development with smart account components for enhanced wallets, dApps, and SDKs.",
     description:
@@ -80,7 +80,7 @@ export const projects = [
   },
   {
     id: "discreetly",
-    image: "Discreetly.svg",
+    image: "discreetly.svg",
     name: "Discreetly",
     tldr: "An anonymous, federated, chat application using ZK.",
     description:
@@ -96,7 +96,7 @@ export const projects = [
   },
   {
     id: "cryptkeeper",
-    image: "cryptkeeperlogo.webp",
+    image: "cryptkeeper.webp",
     name: "CryptKeeper",
     tldr: "A browser extension for secure, portable anonymous identity management across applications.",
     description:
@@ -113,7 +113,7 @@ export const projects = [
   },
   {
     id: "semaphore",
-    image: "semaphorelogo.webp",
+    image: "semaphore.webp",
     name: "Semaphore",
     tldr: "A zero-knowledge protocol enabling anonymous group membership proof and signaling.",
     description:
@@ -257,7 +257,7 @@ export const projects = [
 
   {
     id: "trusted-setups",
-    image: "Trusted-Setup.svg",
+    image: "trusted-setups.svg",
     name: "Trusted Setups",
     tldr: "Aiding developers with tools for trusted setups.",
     description:
@@ -274,7 +274,7 @@ export const projects = [
 
   {
     id: "zk3",
-    image: "Zk3.svg",
+    image: "zk3.svg",
     name: "zk3",
     tldr: "Utilizing ZK proofs in social networks",
     description:
@@ -298,7 +298,7 @@ export const projects = [
 
   {
     id: "tlsn",
-    image: "tlsnlogo.webp",
+    image: "tlsn.webp",
     name: "TLSNotary",
     tldr: "A protocol for creating cryptographic proofs of authenticity for any data on the web.",
     description:
@@ -373,7 +373,7 @@ export const projects = [
     },
   },
   {
-    id: "Anon-Aadhaar",
+    id: "anon-aadhaar",
     image: "",
     name: "Anon Aadhaar",
     tldr: "Tools for building build privacy-preserving applications using government ID cards, specifically Aadhaar cards in India.",
@@ -389,7 +389,7 @@ export const projects = [
     },
   },
   {
-    id: "Channel-4",
+    id: "channel-4",
     image: "channel4.svg",
     name: "Channel 4",
     tldr: "Content discovery through community contributions, using state channels to reward users for popular posts.",
@@ -407,8 +407,8 @@ export const projects = [
     },
   },
   {
-    id: "Pollen-Labs",
-    image: "Pollen-labs.svg",
+    id: "pollen-labs",
+    image: "pollen-labs.svg",
     name: "Pollen Labs",
     tldr: "Champions of freedom of speech and expression through decentralized innovation.",
     description:
@@ -424,8 +424,8 @@ export const projects = [
     },
   },
   {
-    id: "UniRep-Protocol",
-    image: "Unirep.svg",
+    id: "unirep-protocol",
+    image: "unirep.svg",
     name: "UniRep Protocol",
     tldr: "A Zero-Knowledge Protocol for user data & reputation management",
     description:
@@ -434,7 +434,7 @@ export const projects = [
       github: "https://github.com/Unirep",
       website: "https://developer.unirep.io/docs/welcome",
       twitter: "https://twitter.com/UniRep_Protocol",
-      discord: "https://discord.gg/VzMMDJmYc5", 
+      discord: "https://discord.gg/VzMMDJmYc5",
     },
     tags: {
       themes: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
@@ -443,7 +443,7 @@ export const projects = [
     },
   },
   {
-    id: "ZKP2P",
+    id: "zkp2p",
     image: "",
     name: "ZKP2P",
     tldr: "Instant fiat to crypto onramp connecting traditional peer-to-peer payment services with zero-knowledge proofs.",
