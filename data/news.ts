@@ -11,7 +11,7 @@ export const newsItems: NewsInterface[] = [
   },
   {
     type: "post",
-    title: " Learnings from the KZG Ceremony",
+    title: "Learnings from the KZG Ceremony",
     action: {
       label: "Read",
       url: "https://mirror.xyz/privacy-scaling-explorations.eth/naTdx-u7kyirczTLSAnWwH6ZdedfTQu1yCWQj1m_n-E",
@@ -33,4 +33,4 @@ export const newsItems: NewsInterface[] = [
       url: "https://ethglobal.com/events/paris2023",
     },
   },
-] 
+]
