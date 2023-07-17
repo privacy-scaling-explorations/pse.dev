@@ -85,7 +85,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
         </div>
       </div>
       <div className="flex w-full flex-col items-center justify-center gap-5 bg-anakiwa px-6 py-10 md:px-0">
-        <div className="w-[700px]">
+        <div className="w-full md:w-[700px]">
           <div className="relative flex items-center justify-center overflow-hidden rounded-lg">
             <Image
               src={`/project-banners/${

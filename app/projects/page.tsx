@@ -52,9 +52,9 @@ export default function ProjectsPage() {
               const { id, image, links, name, tldr } = project
               const { github, website } = links
               return (
+                <div key={index}>
                 <Link href={`/projects/${id}`}>
                   <div
-                    key={index}
                     className="flex h-[419px] w-[310px] cursor-pointer flex-col overflow-hidden rounded-lg border border-slate-900/20 transition duration-150 ease-in hover:scale-105"
                   >
                     <Image
@@ -108,6 +108,7 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                 </Link>
+                </div>
               )
             })}
           </div>
