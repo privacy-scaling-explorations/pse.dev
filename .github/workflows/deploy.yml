@@ -1,0 +1,66 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      build:
+        description: "Build trigger"
+        required: true
+        default: "enable"
+        type: choice
+        options:
+          - enable
+          - disable
+      environment:
+        description: "Environment"
+        required: true
+        default: "prod"
+        type: choice
+        options:
+        - prod
+        - stg
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      DATA: ${{ github.event.inputs.build || 'enable' }}
+      DATA_ENV: ${{ github.event.inputs.environment || 'prod' }}
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Check branch
+        run: |
+            if [ "${{ env.DATA_ENV }}" = "prod" ]; then
+              if [ "$GITHUB_REF_NAME" != "main" ]; then
+                echo "Operation not permitted"
+                exit 1
+              fi
+            fi
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+  
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::490752553772:role/pse-web-ecs-deploy-slc
+          role-duration-seconds: 1800
+          aws-region: eu-central-1
+  
+      - name: Build and Push images to ECR
+        run: |
+            .github/scripts/build.sh ${{ env.DATA }} ${{ env.DATA_ENV }}
+  
+      - name: Update Deployment
+        run: |
+            .github/scripts/deploy.sh ${{ env.DATA_ENV }}
