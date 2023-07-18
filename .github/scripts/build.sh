@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 build=$1
 env=$2

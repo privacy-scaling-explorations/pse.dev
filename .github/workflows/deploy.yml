@@ -29,8 +29,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      DATA: ${{ github.event.inputs.build }}
-      DATA_ENV: ${{ github.event.inputs.environment }}
+      DATA: ${{ github.event.inputs.build || 'enable' }}
+      DATA_ENV: ${{ github.event.inputs.environment || 'prod' }}
     permissions:
       id-token: write
       contents: read
