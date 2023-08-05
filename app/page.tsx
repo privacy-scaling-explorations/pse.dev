@@ -23,7 +23,7 @@ export default function IndexPage() {
             className="text-4xl font-bold lg:text-5xl xl:text-7xl"
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, cubicBezier: "easeOut"}}
+            transition={{ duration: 0.8, cubicBezier: "easeOut" }}
           >
             Programmable cryptography for people like you
           </motion.h1>
