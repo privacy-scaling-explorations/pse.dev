@@ -11,7 +11,8 @@ export const projects = [
       website: "https://rate-limiting-nullifier.github.io/rln-docs/",
     },
     tags: {
-      themes: ["Anonymity/privacy"],
+      keywords: ["Anonymity/privacy"],
+      themes: ["Build"],
       types: ["Infrastructure/protocol"],
       builtWith: ["Circom", "Solidity", "Semaphore"],
     },
@@ -30,7 +31,8 @@ export const projects = [
     },
 
     tags: {
-      themes: ["Anonymity/privacy", "Social", "Identity"],
+      keywords: ["Anonymity/privacy", "Social", "Identity"],
+      themes: ["Build"],
       types: ["Application", "Infrastructure/protocol"],
       builtWith: ["Semaphore", "RLN", "Interep", "zkchat"],
     },
@@ -46,7 +48,8 @@ export const projects = [
       github: "https://github.com/privacy-scaling-explorations/maci",
     },
     tags: {
-      themes: ["Anonymity/privacy", "Voting/governance"],
+      keywords: ["Anonymity/privacy", "Voting/governance"],
+      themes: ["Build"],
       types: ["Lego sets/toolkits", "Infrastructure/protocol"],
       builtWith: ["P0tion", "JubjubLib"],
     },
@@ -74,7 +77,8 @@ export const projects = [
         "deno",
       ],
 
-      themes: ["Scaling", "Key management"],
+      keywords: ["Scaling", "Key management"],
+      themes: ["Play"],
       types: ["Prototype", "Proof of concept", "Lego sets/toolkits"],
     },
   },
@@ -89,7 +93,8 @@ export const projects = [
       github: "https://github.com/Discreetly",
     },
     tags: {
-      themes: ["Anonymity/privacy", "Social"],
+      keywords: ["Anonymity/privacy", "Social"],
+      themes: ["Play"],
       types: ["Legos/dev tools", "Proof of concept", "Application"],
       builtWith: ["RLN", "Semaphore", "Waku"],
     },
@@ -105,7 +110,8 @@ export const projects = [
       github: "https://github.com/CryptKeeperZK",
     },
     tags: {
-      themes: ["Anonymity/privacy", "Social", "Identity"],
+      keywords: ["Anonymity/privacy", "Social", "Identity"],
+      themes: ["Build"],
       types: ["Application", "Infrastructure/protocol", "Lego sets/toolkits"],
 
       builtWith: ["Semaphore", "RLN"],
@@ -124,7 +130,7 @@ export const projects = [
       discord: "https://semaphore.appliedzkp.org/discord",
     },
     tags: {
-      themes: [
+      keywords: [
         "Anonymity/privacy",
         "Social",
         "Identity",
@@ -136,7 +142,7 @@ export const projects = [
         "Key management",
         "Other (group membership)",
       ],
-
+     themes: ["Build"],
       types: [
         "Legos/dev tools",
         "Lego sets/toolkits",
@@ -156,13 +162,14 @@ export const projects = [
       github: "https://github.com/privacy-scaling-explorations/security",
     },
     tags: {
-      themes: [
+      keywords: [
         "Anonymity/privacy",
         "Education",
         "Key management",
         "Scaling",
         "Security",
       ],
+       themes: ["Build"],
       types: ["Legos/dev tools"],
       builtWith: ["Slither", "Ecne", "Circomspect", "Echidna"],
     },
@@ -179,7 +186,8 @@ export const projects = [
       github: "https://github.com/privacy-scaling-explorations/zkevm-circuits",
     },
     tags: {
-      themes: ["Scaling"],
+      keywords: ["Scaling"],
+       themes: ["Build"],
       types: ["Infrastructure/protocol", "Lego sets/toolkits"],
       builtWith: ["halo2 from zcash", "Rust", "geth"],
     },
@@ -197,7 +205,7 @@ export const projects = [
       website: "https://bandada.appliedzkp.org/",
     },
     tags: {
-      themes: [
+      keywords: [
         "Anonymity/privacy",
         "Social",
         "Identity",
@@ -208,6 +216,7 @@ export const projects = [
         "Scaling",
         "Key management",
       ],
+       themes: ["Build, Play"],
       type: [
         "Legos/dev tools",
         "Lego sets/toolkits",
@@ -233,7 +242,8 @@ export const projects = [
     },
     tags: {
       type: ["Legos/dev tools", "Proof of concept", "Developer tooling"],
-      themes: [],
+       themes: ["Research"],
+      keywords: [],
       builtWith: [],
     },
   },
@@ -249,7 +259,8 @@ export const projects = [
       github: "https://github.com/socathie/circomlib-ml",
     },
     tags: {
-      themes: ["Anonymity/privacy", "Scaling"],
+      keywords: ["Anonymity/privacy", "Scaling"],
+       themes: ["Research"],
       type: ["Proof of concept", "Infrastructure/protocol"],
       builtWith: ["circom", "halo2", "nova"],
     },
@@ -266,7 +277,8 @@ export const projects = [
       github: "https://github.com/zkparty",
     },
     tags: {
-      themes: ["Scaling", "Education"],
+      keywords: ["Scaling", "Education"],
+       themes: ["Play"],
       type: ["Legos/dev tools", "Lego sets/toolkits"],
       builtWith: [],
     },
@@ -285,7 +297,8 @@ export const projects = [
       twitter: "http://twitter.com/zk3org",
     },
     tags: {
-      themes: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+      keywords: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+       themes: ["Play"],
       type: [
         "Legos/dev tools",
         "Lego sets/toolkits",
@@ -309,7 +322,8 @@ export const projects = [
       discord: "https://discord.gg/9XwESXtcN7",
     },
     tags: {
-      themes: [],
+      keywords: [],
+      themes: ["Build"],
       type: [],
       builtWith: [],
     },
@@ -326,7 +340,8 @@ export const projects = [
       github: "https://github.com/eigen-trust/protocol",
     },
     tags: {
-      themes: ["Reputation", "Identity"],
+      keywords: ["Reputation", "Identity"],
+       themes: ["Build"],
       type: ["Infrastructure/protocol"],
       builtWith: ["Ethereum Attestation Service", "Halo2", "ethers.rs"],
     },
@@ -344,13 +359,14 @@ export const projects = [
       website: "https://anonklub.fly.dev/",
     },
     tags: {
-      themes: [
+      keywords: [
         "Transaction privacy",
         "Anonymity/privacy",
         "Social",
         "Identity",
         "Voting/governance",
       ],
+       themes: ["Build, Play"],
       type: ["Infrastructure/protocol", "Prototype", "Proof of concept"],
       builtWith: ["Circom", "snarkjs", "halo2"],
     },
@@ -367,7 +383,8 @@ export const projects = [
       github: "https://github.com/summa-dev",
     },
     tags: {
-      themes: ["Anonymity/privacy", "Computational Integrity"],
+      keywords: ["Anonymity/privacy", "Computational Integrity"],
+       themes: ["Build, Play"],
       type: ["Infrastructure/protocol", "Application"],
       builtWith: ["Halo2 PSE"],
     },
@@ -383,7 +400,8 @@ export const projects = [
       github: "https://github.com/privacy-scaling-explorations/anon-aadhaar",
     },
     tags: {
-      themes: ["Anonymity/privacy", "Social", "Identity", "Voting/governance"],
+      keywords: ["Anonymity/privacy", "Social", "Identity", "Voting/governance"],
+       themes: ["Build, Play"],
       type: ["Legos/dev tools", "Lego sets/toolkits", "Proof of concept"],
       builtWith: ["Circom, RSA"],
     },
@@ -401,7 +419,8 @@ export const projects = [
       discord: "https://discord.gg/76UrYgVyEx",
     },
     tags: {
-      themes: ["Scaling"],
+      keywords: ["Scaling"],
+       themes: ["Play"],
       type: ["Application"],
       builtWith: ["State channel", "Smart contract"],
     },
@@ -418,7 +437,8 @@ export const projects = [
       twitter: "https://twitter.com/PollenLabs_",
     },
     tags: {
-      themes: ["Anonymity/privacy", "Scaling"],
+      keywords: ["Anonymity/privacy", "Scaling"],
+       themes: ["Play"],
       type: ["Application"],
       builtWith: [""],
     },
@@ -437,7 +457,8 @@ export const projects = [
       discord: "https://discord.gg/VzMMDJmYc5",
     },
     tags: {
-      themes: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+      keywords: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+       themes: ["Build"],
       type: ["Legos/dev tools, Protocol"],
       builtWith: ["Semaphore", "Circom"],
     },
@@ -455,7 +476,8 @@ export const projects = [
       twitter: "https://twitter.com/zkp2p",
     },
     tags: {
-      themes: ["Private communications"],
+      keywords: ["Private communications"],
+       themes: ["Play"],
       type: ["Application"],
       builtWith: ["Circom", "Halo2"],
     },
