@@ -7,6 +7,10 @@ const createMarkdownElement = (tag: keyof JSX.IntrinsicElements, props: any) =>
     ...props,
   })
 
+const Table = (props: any) => {
+  return <table data-component="table">{props.children}</table>
+}
+
 // Styling for HTML attributes for markdown component
 const REACT_MARKDOWN_CONFIG: Components = {
   a: ({ node, ...props }) =>
@@ -45,6 +49,7 @@ const REACT_MARKDOWN_CONFIG: Components = {
       className: "text-neutral-800 text-md font-bold",
       ...props,
     }),
+  table: Table,
 }
 
 interface MarkdownProps {

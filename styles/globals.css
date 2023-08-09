@@ -79,7 +79,7 @@
     @apply font-sans;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply font-sans bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   h1,
@@ -87,10 +87,32 @@
   h3,
   h4,
   h5, h6 {
-    @apply font-display font-bold;
+    @apply font-bold font-display;
   }
 
   #privacy, #scaling, #explorations{
     @apply fill-gray-900;
+  }
+}
+
+/**
+ * Custom styles for Markdown component
+ */
+@layer base {
+  table[data-component="table"] {
+    @apply overflow-hidden rounded-lg table-auto bg-anakiwa-100; 
+  }
+
+  table[data-component="table"] thead > tr > th { 
+    @apply px-4 py-1 text-sm font-medium text-left text-anakiwa-500;
+    @apply border-b border-b-white;
+  }
+
+  table[data-component="table"] tbody > tr > td { 
+    @apply px-4 py-1 text-xs font-medium text-left text-turata-700;
+  }
+
+  table[data-component="table"] tbody > tr:not(:last-child) { 
+    @apply border-b border-b-white;
   }
 }
