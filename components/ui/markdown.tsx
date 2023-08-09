@@ -1,5 +1,6 @@
 import React from "react"
 import ReactMarkdown, { Components } from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 const createMarkdownElement = (tag: keyof JSX.IntrinsicElements, props: any) =>
   React.createElement(tag, {
@@ -11,6 +12,7 @@ const REACT_MARKDOWN_CONFIG: Components = {
   a: ({ node, ...props }) =>
     createMarkdownElement("a", {
       className: "text-orange",
+      target: "_blank",
       ...props,
     }),
   h1: ({ node, ...props }) =>
@@ -51,7 +53,11 @@ interface MarkdownProps {
 
 export const Markdown = ({ children }: MarkdownProps) => {
   return (
-    <ReactMarkdown skipHtml={false} components={REACT_MARKDOWN_CONFIG}>
+    <ReactMarkdown
+      skipHtml={false}
+      components={REACT_MARKDOWN_CONFIG}
+      remarkPlugins={[remarkGfm]}
+    >
       {children}
     </ReactMarkdown>
   )
