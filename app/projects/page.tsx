@@ -32,7 +32,7 @@ export default function ProjectsPage() {
   return (
     <section>
       <div className="bg-second-gradient">
-        <div className="container mx-auto py-12 lg:py-24">
+        <div className="container py-12 mx-auto lg:py-24">
           <h1 className="text-4xl font-bold md:text-5xl">
             Explore the project library
           </h1>
@@ -50,7 +50,7 @@ export default function ProjectsPage() {
           <div className="flex flex-wrap justify-center gap-6 py-6">
             {projects.map((project, index) => {
               const { id, image, links, name, tldr } = project
-              const { github, website } = links
+              const { github, website } = links ?? {}
               return (
                 <div key={index}>
                   <Link href={`/projects/${id}`}>
@@ -62,16 +62,16 @@ export default function ProjectsPage() {
                         alt={`${name} banner`}
                         width={1200}
                         height={630}
-                        className="w-full rounded-t-lg object-cover"
+                        className="object-cover w-full rounded-t-lg"
                       />
-                      <div className="flex h-full flex-col justify-between gap-5 rounded-b-lg bg-white p-5">
+                      <div className="flex flex-col justify-between h-full gap-5 p-5 bg-white rounded-b-lg">
                         <div className="flex flex-col justify-start gap-2">
                           <h1 className="text-xl font-bold text-black">
                             {name}
                           </h1>
                           <p className="text-slate-900/80">{tldr}</p>
                         </div>
-                        <div className="mr-auto flex items-center justify-start gap-2">
+                        <div className="flex items-center justify-start gap-2 mr-auto">
                           {github && (
                             <Link
                               href={`${github}`}
