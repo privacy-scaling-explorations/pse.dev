@@ -6,6 +6,8 @@ import GithubVector from "@/public/social-medias/github-fill.svg"
 import GlobalVector from "@/public/social-medias/global-line.svg"
 import TwitterVector from "@/public/social-medias/twitter-fill.svg"
 
+import { Markdown } from "@/components/ui/markdown"
+
 type PageProps = {
   params: { id: string }
   searchParams: { [key: string]: string | string[] | undefined }
@@ -37,7 +39,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
     (project) => String(project.id) === params.id
   )[0]
 
-  const { github, twitter, website } = currProject.links
+  const { github, twitter, website } = currProject.links ?? {}
 
   return (
     <section className="flex flex-col items-center">
@@ -84,7 +86,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
           <p className="text-slate-600">{currProject.tldr}</p>
         </div>
       </div>
-      <div className="flex w-full flex-col items-center justify-center gap-5 bg-anakiwa px-6 py-10 md:px-0">
+      <div className="flex flex-col items-center justify-center w-full gap-5 px-6 py-10 bg-anakiwa md:px-0">
         <div className="w-full md:w-[700px]">
           <div className="relative flex items-center justify-center overflow-hidden rounded-lg">
             <Image
@@ -94,11 +96,11 @@ export default function ProjectDetailPage({ params }: PageProps) {
               alt={`${currProject.name} banner`}
               width={1200}
               height={630}
-              className="w-full rounded-t-lg object-cover"
+              className="object-cover w-full rounded-t-lg"
             />
           </div>
-          <div className="flex w-full flex-col gap-5 py-10 text-base font-normal leading-relaxed">
-            <p>{currProject.description}</p>
+          <div className="flex flex-col w-full gap-5 py-10 text-base font-normal leading-relaxed">
+            <Markdown>{currProject.description}</Markdown>
           </div>
         </div>
       </div>
