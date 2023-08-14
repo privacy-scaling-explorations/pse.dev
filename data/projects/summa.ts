@@ -6,6 +6,7 @@ Summa allows centralized exchanges to demonstrate that their assets exceed their
 
 export const summa: ProjectInterface = {
   id: "summa",
+  projectStatus: "active",
   image: "",
   name: "Summa",
   tldr: "Protocol enabling centralized exchanges to prove solvency without compromising private information.",

@@ -6,6 +6,7 @@ UniRep is a zero-knowledge protocol that securely manages user data through anon
 
 export const unirepProtocol: ProjectInterface = {
   id: "unirep-protocol",
+  projectStatus: "active",
   image: "unirep.svg",
   name: "UniRep Protocol",
   tldr: "A Zero-Knowledge Protocol for user data & reputation management",

@@ -6,6 +6,7 @@ An anonymous, federated, chat application that uses Rate-Limiting Nullifier for 
 
 export const discreetly: ProjectInterface = {
   id: "discreetly",
+  projectStatus: "active",
   image: "discreetly.svg",
   name: "Discreetly",
   tldr: "An anonymous, federated, chat application using ZK.",

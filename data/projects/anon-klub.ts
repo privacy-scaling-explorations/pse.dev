@@ -6,6 +6,7 @@ AnonKlub is a tool designed for Ethereum developers that allows for anonymous pr
 
 export const anonKlub: ProjectInterface = {
   id: "anon-klub",
+  projectStatus: "active",
   image: "anonklub.svg",
   name: "AnonKlub",
   tldr: "A mechanism for anonymous proof of Ethereum address ownership.",

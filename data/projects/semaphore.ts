@@ -6,6 +6,7 @@ Semaphore is a protocol that allows users to prove their membership in a group a
 
 export const semaphore: ProjectInterface = {
   id: "semaphore",
+  projectStatus: "active",
   image: "semaphore.webp",
   name: "Semaphore",
   tldr: "A zero-knowledge protocol enabling anonymous group membership proof and signaling.",
