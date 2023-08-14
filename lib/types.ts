@@ -20,6 +20,6 @@ export interface ProjectInterface {
   tldr: string
   description: string
   links?: ProjectLinkType
-  projectStatus?: ProjectStatusType
+  projectStatus: ProjectStatusType
   tags?: Record<string, string[]>
 }
