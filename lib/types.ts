@@ -8,9 +8,8 @@ export interface NewsInterface {
   }
 }
 
-export type ProjectLinkType = Partial<
-  Record<"github" | "website" | "discord" | "twitter", string>
->
+export type ProjectLinkWebsite = "github" | "website" | "discord" | "twitter"
+export type ProjectLinkType = Partial<Record<ProjectLinkWebsite, string>>
 export interface ProjectInterface {
   id: string
   image: string
