@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ProjectLinkIconMap, projects } from "@/data/projects"
 
 import { ProjectLinkWebsite } from "@/lib/types"
+import { ProjectLink } from "@/components/project-link"
 
 export const metadata: Metadata = {
   title: "Project Library",
@@ -27,32 +28,6 @@ export const metadata: Metadata = {
 //   }
 //   return array
 // }
-
-interface ProjectLinkProps {
-  url: string
-  image: string
-  website: ProjectLinkWebsite
-}
-function ProjectLink({ url, image, website }: ProjectLinkProps) {
-  return (
-    <Link
-      href={url}
-      target="_blank"
-      rel="noreferrer"
-      className="hover:opacity-60"
-    >
-      <div className="px-4 py-1 rounded bg-[#F5F5F6]">
-        <Image
-          src={image}
-          alt={`${website}Vector`}
-          className="cursor-pointer"
-          width={18}
-          height={18}
-        />
-      </div>
-    </Link>
-  )
-}
 
 export default function ProjectsPage() {
   return (
@@ -105,7 +80,6 @@ export default function ProjectsPage() {
                                 ]
 
                               if (!image) return null // no icon mapping for this website
-
                               return (
                                 <ProjectLink
                                   key={index}
