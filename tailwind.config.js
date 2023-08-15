@@ -13,6 +13,9 @@ module.exports = {
       },
     },
     extend: {
+      translate: {
+        center: "translate(-50%, -50%)",
+      },
       backgroundImage: {
         "main-gradient":
           "radial-gradient(114.29% 42.52% at 103.66% 58.94%, #D0F8F1 0%, #D1F3FF 18.23%, #ECF8FF 51.28%, #E1FFFA 80.21%, #D0F2FF 93.23%)",
@@ -26,10 +29,15 @@ module.exports = {
         anakiwa: "hsl(var(--anakiwa))",
         "anakiwa-100": "#E4F3FA",
         "anakiwa-500": "#29ACCE",
-        "turata-700": "#4A4C54",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        tuatara: {
+          100: "#E5E6E8",
+          200: "#CDCFD4",
+          700: "#4A4C54",
+          950: "#242528",
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
@@ -79,10 +87,20 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        "overlay-show": {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        "content-show": {
+          from: { opacity: 0, transform: "translate(-50%, -48%) scale(0.96)" },
+          to: { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "overlay-show": "overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "content-show": "contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },

@@ -1,0 +1,90 @@
+"use client"
+
+import React, { ReactNode } from "react"
+import * as Dialog from "@radix-ui/react-dialog"
+import { cva } from "class-variance-authority"
+
+import { cn } from "@/lib/utils"
+
+import { Icons } from "../icons"
+
+interface ModalProps {
+  open: boolean
+  setOpen: (open: boolean) => void
+  title?: string
+  children?: ReactNode
+  footer?: ReactNode
+  size?: "lg" | "md" | "xl"
+}
+
+interface ModalWrapperProps {
+  children?: ReactNode
+  className?: string
+}
+
+const ModalContent = ({ children, className = "" }: ModalWrapperProps) => {
+  return <div className={`px-6 py-4 ${className}`}>{children}</div>
+}
+
+const modalContentVariants = cva(
+  "data-[state=open]:animate-content-show flex flex-col bg-white rounded-b-none rounded-t-lg md:rounded-lg shadow-sm top-3 bottom-0 fixed md:-translate-y-1/2 md:-translate-x-1/2 md:top-1/2 md:left-1/2 md:h-full md:max-h-[60vh] focus:outline-none z-50",
+  {
+    variants: {
+      size: {
+        md: "w-full max-w-2xl",
+        lg: "w-full max-w-3xl",
+        xl: "w-full max-w-4xl",
+      },
+    },
+    defaultVariants: {
+      size: "lg",
+    },
+  }
+)
+
+const Modal = ({
+  title,
+  children,
+  footer,
+  size,
+  open,
+  setOpen,
+}: ModalProps) => (
+  <Dialog.Root open={open} onOpenChange={setOpen}>
+    <Dialog.Portal>
+      <Dialog.Overlay className="fixed inset-0 z-50 bg-black opacity-40 data-[state=open]:animate-overlay-show" />
+      <Dialog.Content className={cn(modalContentVariants({ size }))}>
+        {title && (
+          <Dialog.Title>
+            <ModalContent className="text-center border-b border-b-tuatara-200">
+              {title}
+            </ModalContent>
+          </Dialog.Title>
+        )}
+
+        <ModalContent className="h-full overflow-scroll md:h-[82vh]">
+          {children}
+        </ModalContent>
+
+        {footer && (
+          <ModalContent className="mt-auto border-t border-t-tuatara-200">
+            {footer}
+          </ModalContent>
+        )}
+
+        <Dialog.Close>
+          <button
+            className="absolute inline-flex w-5 cursor-pointer right-4 top-4"
+            aria-label="Close"
+          >
+            <Icons.close />
+          </button>
+        </Dialog.Close>
+      </Dialog.Content>
+    </Dialog.Portal>
+  </Dialog.Root>
+)
+
+Modal.displayName = "Modal"
+
+export { Modal, modalContentVariants }

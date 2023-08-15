@@ -109,7 +109,7 @@
   }
 
   table[data-component="table"] tbody > tr > td { 
-    @apply px-4 py-1 text-xs font-medium text-left text-turata-700;
+    @apply px-4 py-1 text-xs font-medium text-left text-tuatara-700;
   }
 
   table[data-component="table"] tbody > tr:not(:last-child) { 
