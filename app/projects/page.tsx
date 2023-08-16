@@ -1,10 +1,8 @@
 import { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
-import { ProjectLinkIconMap, projects } from "@/data/projects"
 
-import { ProjectLinkWebsite } from "@/lib/types"
-import { ProjectLink } from "@/components/project/project-link"
+import ProjectFiltersBar from "@/components/project/project-filters-bar"
+import ProjectList from "@/components/project/project-list"
+import { ProjectResultBar } from "@/components/project/project-result-bar"
 
 export const metadata: Metadata = {
   title: "Project Library",
@@ -13,7 +11,6 @@ export const metadata: Metadata = {
 }
 
 // TODO: MAKE IT RANDOM - This would prob need to be state and so metadata would get cut
-// const randomizeProjects = (projects: any[]) => {
 //   // efficient fisher-yates shuffle
 //   const array = [...projects]
 //   let currentIndex = array.length,
@@ -32,8 +29,8 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <section>
-      <div className="bg-second-gradient">
-        <div className="container py-12 mx-auto lg:py-24">
+      <div className="bg-anakiwa-200">
+        <div className="container py-8 mx-auto md:py-12 lg:px-24 lg:py-16">
           <h1 className="text-4xl font-bold md:text-5xl">
             Explore the project library
           </h1>
@@ -42,62 +39,15 @@ export default function ProjectsPage() {
             PSE is home to many projects, from cryptography research to
             developer tools, protocols and proof-of-concept applications.
           </p>
+          <ProjectFiltersBar />
         </div>
       </div>
-      <div className="w-full bg-anakiwa">
+      <div className="w-full bg-anakiwa-100">
         <div className="container">
-          <p className="p-3"></p>
-          <p className="text-base text-slate-900/70 md:text-lg">{`Showing ${projects.length} projects`}</p>
-          <div className="flex flex-wrap justify-center gap-6 py-6">
-            {projects.map((project, index) => {
-              const { id, image, links, name, tldr } = project
-              return (
-                <div key={index}>
-                  <Link href={`/projects/${id}`}>
-                    <div className="flex h-[419px] w-[310px] cursor-pointer flex-col overflow-hidden rounded-lg border border-slate-900/20 transition duration-150 ease-in hover:scale-105">
-                      <Image
-                        src={`/project-banners/${
-                          image ? image : "fallback.webp"
-                        }`}
-                        alt={`${name} banner`}
-                        width={1200}
-                        height={630}
-                        className="object-cover w-full rounded-t-lg"
-                      />
-                      <div className="flex flex-col justify-between h-full gap-5 p-5 bg-white rounded-b-lg">
-                        <div className="flex flex-col justify-start gap-2">
-                          <h1 className="text-xl font-bold text-black">
-                            {name}
-                          </h1>
-                          <p className="text-slate-900/80">{tldr}</p>
-                        </div>
-                        <div className="flex items-center justify-start gap-2 mr-auto">
-                          {Object.entries(links ?? {})?.map(
-                            ([website, url], index) => {
-                              const image =
-                                ProjectLinkIconMap?.[
-                                  website as ProjectLinkWebsite
-                                ]
-
-                              if (!image) return null // no icon mapping for this website
-                              return (
-                                <ProjectLink
-                                  key={index}
-                                  url={url}
-                                  image={image}
-                                  website={website as ProjectLinkWebsite}
-                                />
-                              )
-                            }
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              )
-            })}
+          <div className="px-3 py-8">
+            <ProjectResultBar />
           </div>
+          <ProjectList />
         </div>
       </div>
     </section>

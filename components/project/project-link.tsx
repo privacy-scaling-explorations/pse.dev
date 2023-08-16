@@ -1,16 +1,20 @@
 "use client"
 
 import Image from "next/image"
+import { ProjectLinkIconMap } from "@/data/projects"
 
 import { ProjectLinkWebsite } from "@/lib/types"
 
 interface ProjectLinkProps {
   url: string
-  image: string
   website: ProjectLinkWebsite
 }
 
-export function ProjectLink({ image, website, url }: ProjectLinkProps) {
+export function ProjectLink({ website, url }: ProjectLinkProps) {
+  const image = ProjectLinkIconMap?.[website as ProjectLinkWebsite]
+
+  // TODO: add support for youtube, discord and other links
+  if (!image) return null
   return (
     <a
       href={url}
