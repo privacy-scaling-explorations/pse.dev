@@ -4,7 +4,7 @@ import Link from "next/link"
 import { ProjectLinkIconMap, projects } from "@/data/projects"
 
 import { ProjectLinkWebsite } from "@/lib/types"
-import { ProjectLink } from "@/components/project-link"
+import { ProjectLink } from "@/components/project/project-link"
 
 export const metadata: Metadata = {
   title: "Project Library",
