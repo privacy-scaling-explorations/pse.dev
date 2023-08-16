@@ -28,6 +28,7 @@ module.exports = {
         orangeDark: "#E3533A",
         anakiwa: "hsl(var(--anakiwa))",
         "anakiwa-100": "#E4F3FA",
+        "anakiwa-300": "#A3DFF0",
         "anakiwa-500": "#29ACCE",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
