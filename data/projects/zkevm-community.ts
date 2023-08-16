@@ -17,6 +17,6 @@ export const zkevmCommunity: ProjectInterface = {
   tags: {
     themes: ["Scaling"],
     types: ["Infrastructure/protocol", "Lego sets/toolkits"],
-    builtWith: ["halo2 from zcash", "Rust", "geth"],
+    builtWith: ["Halo2 from zcash", "Rust", "geth"],
   },
 }

@@ -17,6 +17,6 @@ export const zkml: ProjectInterface = {
   tags: {
     themes: ["Anonymity/privacy", "Scaling"],
     type: ["Proof of concept", "Infrastructure/protocol"],
-    builtWith: ["circom", "halo2", "nova"],
+    builtWith: ["Circom", "Halo2", "nova"],
   },
 }

@@ -31,6 +31,6 @@ export const semaphore: ProjectInterface = {
     ],
 
     types: ["Legos/dev tools", "Lego sets/toolkits", "Infrastructure/protocol"],
-    builtWith: ["ZK-kit", "circom", "snarkjs"],
+    builtWith: ["ZK-kit", "Circom", "snarkjs"],
   },
 }
