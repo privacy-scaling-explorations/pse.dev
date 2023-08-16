@@ -1,9 +1,10 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { projects } from "@/data/projects"
-import GithubIcon from "@/public/social-medias/github-fill.svg"
-import GlobeIcon from "@/public/social-medias/global-line.svg"
+import { ProjectLinkIconMap, projects } from "@/data/projects"
+
+import { ProjectLinkWebsite } from "@/lib/types"
+import { ProjectLink } from "@/components/project-link"
 
 export const metadata: Metadata = {
   title: "Project Library",
@@ -50,7 +51,6 @@ export default function ProjectsPage() {
           <div className="flex flex-wrap justify-center gap-6 py-6">
             {projects.map((project, index) => {
               const { id, image, links, name, tldr } = project
-              const { github, website } = links ?? {}
               return (
                 <div key={index}>
                   <Link href={`/projects/${id}`}>
@@ -72,37 +72,23 @@ export default function ProjectsPage() {
                           <p className="text-slate-900/80">{tldr}</p>
                         </div>
                         <div className="flex items-center justify-start gap-2 mr-auto">
-                          {github && (
-                            <Link
-                              href={`${github}`}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="hover:opacity-60"
-                            >
-                              <Image
-                                src={GithubIcon}
-                                alt="githubVector"
-                                className="cursor-pointer"
-                                width={18}
-                                height={18}
-                              />
-                            </Link>
-                          )}
-                          {website && (
-                            <Link
-                              href={`${website}`}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="hover:opacity-60"
-                            >
-                              <Image
-                                src={GlobeIcon}
-                                className="cursor-pointer"
-                                alt="globalVector"
-                                width={18}
-                                height={18}
-                              />
-                            </Link>
+                          {Object.entries(links ?? {})?.map(
+                            ([website, url], index) => {
+                              const image =
+                                ProjectLinkIconMap?.[
+                                  website as ProjectLinkWebsite
+                                ]
+
+                              if (!image) return null // no icon mapping for this website
+                              return (
+                                <ProjectLink
+                                  key={index}
+                                  url={url}
+                                  image={image}
+                                  website={website as ProjectLinkWebsite}
+                                />
+                              )
+                            }
                           )}
                         </div>
                       </div>

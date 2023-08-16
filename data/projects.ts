@@ -1,4 +1,7 @@
-import { ProjectInterface } from "@/lib/types"
+import GithubIcon from "@/public/social-medias/github-fill.svg"
+import GlobeIcon from "@/public/social-medias/global-line.svg"
+
+import { ProjectInterface, ProjectLinkType } from "@/lib/types"
 
 import { anonAadhaar } from "./projects/anon-aadhaar"
 import { anonKlub } from "./projects/anon-klub"
@@ -24,6 +27,10 @@ import { zkitter } from "./projects/zkitter"
 import { zkml } from "./projects/zkml"
 import { zkp2p } from "./projects/zkp2p"
 
+export const ProjectLinkIconMap: ProjectLinkType = {
+  github: GithubIcon,
+  website: GlobeIcon,
+}
 /**
  * List of Projects
  *
