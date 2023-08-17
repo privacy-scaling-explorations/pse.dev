@@ -42,7 +42,7 @@ export default function ProjectList() {
               />
               <div className="flex flex-col justify-between h-full gap-5 p-5 bg-white rounded-b-lg">
                 <div className="flex flex-col justify-start gap-2">
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 mb-2">
                     {tags?.themes?.map((theme, index) => {
                       const { label } = ThemesButtonMapping?.[theme]
                       const icon = TagsIconMapping?.[theme]

@@ -40,6 +40,7 @@ interface ProjectActionsProps {
   toggleFilter: ({ tag, value, searchQuery }: toggleFilterProps) => void
   setFilterFromQueryString: (filters: Partial<FiltersProps>) => void
   onFilterProject: (searchPattern: string) => void
+  onSelectTheme: (theme: string, searchPattern?: string) => void
 }
 
 const createURLQueryString = (params: Partial<FiltersProps>): string => {
@@ -176,6 +177,25 @@ export const useProjectFiltersState = create<
         projects: filteredProjects,
       }
     }),
+  onSelectTheme: (theme: string, searchQuery = "") => {
+    set((state: any) => {
+      const activeFilters = {
+        ...state.activeFilters,
+        themes: [theme],
+      }
+
+      const filteredProjects = filterProjects({
+        searchPattern: searchQuery ?? "",
+        activeFilters,
+      })
+
+      return {
+        ...state,
+        activeFilters,
+        projects: filteredProjects,
+      }
+    })
+  },
   onFilterProject: (searchPattern: string) => {
     set((state: any) => {
       const filteredProjects = filterProjects({

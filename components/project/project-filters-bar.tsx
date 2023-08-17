@@ -13,6 +13,7 @@ import {
 } from "@/state/useProjectFiltersState"
 import { useDebounce } from "react-use"
 
+import { ProjectStatusType } from "@/lib/types"
 import { cn, queryStringToObject } from "@/lib/utils"
 
 import { Icons } from "../icons"
@@ -58,12 +59,33 @@ export const ThemesButtonMapping: Record<
   },
 }
 
+export const ThemesStatusMapping: Record<
+  ProjectStatusType,
+  {
+    label: string
+    icon: any
+  }
+> = {
+  active: {
+    label: "Active",
+    icon: <Icons.hammer />,
+  },
+  archived: {
+    label: "Archived",
+    icon: <Icons.hand />,
+  },
+  inactive: {
+    label: "Inactive",
+    icon: <Icons.readme />,
+  },
+}
+
 const FilterButtons = ({
   searchQuery,
 }: {
   searchQuery?: string
 }): JSX.Element => {
-  const { toggleFilter, activeFilters } = useProjectFiltersState(
+  const { activeFilters, onSelectTheme } = useProjectFiltersState(
     (state) => state
   )
 
@@ -78,7 +100,7 @@ const FilterButtons = ({
             variant={variant}
             size="lg"
             onClick={() => {
-              toggleFilter({ tag: "themes", value: key, searchQuery })
+              onSelectTheme(key, searchQuery ?? "")
             }}
           >
             <div className="flex items-center gap-2">
