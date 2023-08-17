@@ -6,6 +6,7 @@ Wallet Account eXperiments (WAX), formerly known as BLS Wallet, is a suite of pr
 
 export const wax: ProjectInterface = {
   id: "wax",
+  projectStatus: "active",
   image: "wax.webp",
   name: "Wallet Account eXperiments (WAX)",
   tldr: "Streamlines web3 product development with smart account components for enhanced wallets, dApps, and SDKs.",
@@ -17,16 +18,16 @@ export const wax: ProjectInterface = {
   },
   tags: {
     builtWith: [
-      "Hardhat",
-      "Node",
-      "Solidity BLS library",
+      "hardhat",
+      "node",
+      "solidity bls library",
       "sqlite",
       "docker",
       "ethers",
       "deno",
     ],
-
-    themes: ["Scaling", "Key management"],
+    keywords: ["Scaling", "Key management"],
+    themes: ["play"],
     types: ["Prototype", "Proof of concept", "Lego sets/toolkits"],
   },
 }

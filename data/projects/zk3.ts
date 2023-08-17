@@ -6,6 +6,7 @@ Zk3 is a protocol that leverages Zero Knowledge Proofs (ZKPs) to allow users to 
 
 export const zk3: ProjectInterface = {
   id: "zk3",
+  projectStatus: "active",
   image: "zk3.svg",
   name: "zk3",
   tldr: "Utilizing ZK proofs in social networks",
@@ -16,13 +17,14 @@ export const zk3: ProjectInterface = {
     twitter: "http://twitter.com/zk3org",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+    themes: ["play"],
     type: [
       "Legos/dev tools",
       "Lego sets/toolkits",
       "Infrastructure/protocol",
       "Plugin",
     ],
-    builtWith: ["Semaphore", "Lens protocol"],
+    keywords: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+    builtWith: ["semaphore", "lens protocol"],
   },
 }

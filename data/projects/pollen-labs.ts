@@ -6,6 +6,7 @@ Pollen Labs is driven by a mission to make a significant impact on global lives 
 
 export const pollenLabs: ProjectInterface = {
   id: "pollen-labs",
+  projectStatus: "active",
   image: "pollen-labs.svg",
   name: "Pollen Labs",
   tldr: "Champions of freedom of speech and expression through decentralized innovation.",
@@ -15,8 +16,9 @@ export const pollenLabs: ProjectInterface = {
     twitter: "https://twitter.com/PollenLabs_",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Scaling"],
+    keywords: ["Anonymity/privacy", "Scaling"],
+    themes: ["play"],
     type: ["Application"],
-    builtWith: [""],
+    builtWith: [],
   },
 }

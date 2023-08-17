@@ -1,3 +1,4 @@
+import { HtmlHTMLAttributes } from "react"
 import Link from "next/link"
 import {
   FilterLabelMapping,
@@ -8,6 +9,18 @@ import { ProjectInterface } from "@/lib/types"
 
 import { CategoryTag } from "../ui/categoryTag"
 
+interface TagsProps extends HtmlHTMLAttributes<HTMLDivElement> {
+  label: string
+}
+const TagsWrapper = ({ label, children }: TagsProps) => {
+  return (
+    <div className="flex gap-2">
+      <span className="py-2 text-base font-medium ">{label}</span>
+      {children}
+    </div>
+  )
+}
+
 export function ProjectTags({ project }: { project: ProjectInterface }) {
   return (
     <div className="flex flex-col gap-4 mt-8">
@@ -15,11 +28,12 @@ export function ProjectTags({ project }: { project: ProjectInterface }) {
         const keyTags = project?.tags?.[key as ProjectFilter]
         const hasItems = keyTags && keyTags?.length > 0
 
+        if (key === "themes") return null // ignore themes
+
         return (
           hasItems && (
             <div>
-              <div className="flex gap-2">
-                <span className="py-2 text-base font-medium ">{label}</span>
+              <TagsWrapper label={label}>
                 <div className="flex gap-[6px]">
                   {keyTags?.map((tag) => {
                     return (
@@ -31,11 +45,12 @@ export function ProjectTags({ project }: { project: ProjectInterface }) {
                     )
                   })}
                 </div>
-              </div>
+              </TagsWrapper>
             </div>
           )
         )
       })}
+      <TagsWrapper label="Project status"></TagsWrapper>
     </div>
   )
 }

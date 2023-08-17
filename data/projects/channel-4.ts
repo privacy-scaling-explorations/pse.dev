@@ -6,6 +6,7 @@ Channel 4 is a community-driven platform where users can submit and discover con
 
 export const channel4: ProjectInterface = {
   id: "channel-4",
+  projectStatus: "active",
   image: "channel4.svg",
   name: "Channel 4",
   tldr: "Content discovery through community contributions, using state channels to reward users for popular posts.",
@@ -16,8 +17,9 @@ export const channel4: ProjectInterface = {
     discord: "https://discord.gg/76UrYgVyEx",
   },
   tags: {
-    themes: ["Scaling"],
+    keywords: ["Scaling"],
+    themes: ["play"],
     type: ["Application"],
-    builtWith: ["State channel", "Smart contract"],
+    builtWith: ["state channel", "smart contract"],
   },
 }

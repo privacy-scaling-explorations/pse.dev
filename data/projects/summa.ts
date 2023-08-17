@@ -6,6 +6,7 @@ Summa allows centralized exchanges to demonstrate that their assets exceed their
 
 export const summa: ProjectInterface = {
   id: "summa",
+  projectStatus: "active",
   image: "",
   name: "Summa",
   tldr: "Protocol enabling centralized exchanges to prove solvency without compromising private information.",
@@ -14,8 +15,9 @@ export const summa: ProjectInterface = {
     github: "https://github.com/summa-dev",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Computational Integrity"],
+    keywords: ["Anonymity/privacy", "Computational Integrity"],
+    themes: ["build", "play"],
     type: ["Infrastructure/protocol", "Application"],
-    builtWith: ["Halo2 PSE"],
+    builtWith: ["halo2"],
   },
 }

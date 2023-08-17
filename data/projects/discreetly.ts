@@ -6,6 +6,7 @@ An anonymous, federated, chat application that uses Rate-Limiting Nullifier for 
 
 export const discreetly: ProjectInterface = {
   id: "discreetly",
+  projectStatus: "active",
   image: "discreetly.svg",
   name: "Discreetly",
   tldr: "An anonymous, federated, chat application using ZK.",
@@ -14,8 +15,9 @@ export const discreetly: ProjectInterface = {
     github: "https://github.com/Discreetly",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Social"],
+    keywords: ["Anonymity/privacy", "Social"],
+    themes: ["play"],
     types: ["Legos/dev tools", "Proof of concept", "Application"],
-    builtWith: ["RLN", "Semaphore", "Waku"],
+    builtWith: ["rln", "semaphore", "waku"],
   },
 }

@@ -6,6 +6,7 @@ UniRep is a zero-knowledge protocol that securely manages user data through anon
 
 export const unirepProtocol: ProjectInterface = {
   id: "unirep-protocol",
+  projectStatus: "active",
   image: "unirep.svg",
   name: "UniRep Protocol",
   tldr: "A Zero-Knowledge Protocol for user data & reputation management",
@@ -17,8 +18,9 @@ export const unirepProtocol: ProjectInterface = {
     discord: "https://discord.gg/VzMMDJmYc5",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+    keywords: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+    themes: ["build"],
     type: ["Legos/dev tools, Protocol"],
-    builtWith: ["Semaphore", "Circom"],
+    builtWith: ["semaphore", "circom"],
   },
 }

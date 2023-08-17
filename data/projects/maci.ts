@@ -6,6 +6,7 @@ Minimal Anti-Collusion Infrastructure (MACI) is a protocol designed to provide a
 
 export const maci: ProjectInterface = {
   id: "maci",
+  projectStatus: "active",
   image: "maci.webp",
   name: "MACI",
   tldr: "A secure e-voting solution minimizing the risk of collusion and bribery",
@@ -14,8 +15,9 @@ export const maci: ProjectInterface = {
     github: "https://github.com/privacy-scaling-explorations/maci",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Voting/governance"],
+    keywords: ["Anonymity/privacy", "Voting/governance"],
+    themes: ["build"],
     types: ["Lego sets/toolkits", "Infrastructure/protocol"],
-    builtWith: ["P0tion", "JubjubLib"],
+    builtWith: ["p0tion", "JubjubLib"],
   },
 }

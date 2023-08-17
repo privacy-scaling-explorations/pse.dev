@@ -6,6 +6,7 @@ zkEVM Community Edition is a project aimed at validating Ethereum blocks using z
 
 export const zkevmCommunity: ProjectInterface = {
   id: "zkevm-community",
+  projectStatus: "active",
   image: "",
   name: "zkEVM Community Edition",
   tldr: "A zero-knowledge proof mechanism for Ethereum block verification.",
@@ -14,8 +15,9 @@ export const zkevmCommunity: ProjectInterface = {
     github: "https://github.com/privacy-scaling-explorations/zkevm-circuits",
   },
   tags: {
-    themes: ["Scaling"],
+    keywords: ["Scaling"],
+    themes: ["build"],
     types: ["Infrastructure/protocol", "Lego sets/toolkits"],
-    builtWith: ["halo2 from zcash", "Rust", "geth"],
+    builtWith: ["halo2", "rust", "geth"],
   },
 }
