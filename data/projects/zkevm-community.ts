@@ -18,6 +18,6 @@ export const zkevmCommunity: ProjectInterface = {
     keywords: ["Scaling"],
     themes: ["build"],
     types: ["Infrastructure/protocol", "Lego sets/toolkits"],
-    builtWith: ["halo2 from zcash", "rust", "geth"],
+    builtWith: ["halo2", "rust", "geth"],
   },
 }

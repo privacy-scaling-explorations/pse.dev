@@ -18,6 +18,6 @@ export const summa: ProjectInterface = {
     keywords: ["Anonymity/privacy", "Computational Integrity"],
     themes: ["build", "play"],
     type: ["Infrastructure/protocol", "Application"],
-    builtWith: ["halo2 pse"],
+    builtWith: ["halo2"],
   },
 }
