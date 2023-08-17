@@ -7,6 +7,7 @@ import GlobalVector from "@/public/social-medias/global-line.svg"
 import TwitterVector from "@/public/social-medias/twitter-fill.svg"
 
 import { Markdown } from "@/components/ui/markdown"
+import { ProjectTags } from "@/components/project/project-detail-tags"
 
 type PageProps = {
   params: { id: string }
@@ -86,7 +87,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
           <p className="text-slate-600">{currProject.tldr}</p>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center w-full gap-5 px-6 py-10 bg-anakiwa md:px-0">
+      <div className="flex flex-col items-center justify-center w-full gap-5 px-6 py-10 bg-anakiwa-100 md:px-0">
         <div className="w-full md:w-[700px]">
           <div className="relative flex items-center justify-center overflow-hidden rounded-lg">
             <Image
@@ -98,6 +99,9 @@ export default function ProjectDetailPage({ params }: PageProps) {
               height={630}
               className="object-cover w-full rounded-t-lg"
             />
+          </div>
+          <div className="mt-8">
+            <ProjectTags project={currProject} />
           </div>
           <div className="flex flex-col w-full gap-5 py-10 text-base font-normal leading-relaxed">
             <Markdown>{currProject.description}</Markdown>

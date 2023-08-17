@@ -8,11 +8,15 @@ export interface NewsInterface {
   }
 }
 
-export type ProjectExtraLinkType = "buildWith" | "play" | "research" | "learn"
+export type ProjectLinkWebsite =
+  | "github"
+  | "website"
+  | "discord"
+  | "twitter"
+  | "youtube"
 
-export type ProjectLinkType = Partial<
-  Record<"github" | "website" | "discord" | "twitter", string>
->
+export type ProjectLinkType = Partial<Record<ProjectLinkWebsite, string>>
+export type ProjectExtraLinkType = "buildWith" | "play" | "research" | "learn"
 
 export type ActionLinkType = Partial<
   Record<
