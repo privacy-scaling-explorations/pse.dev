@@ -16,14 +16,15 @@ export const anonKlub: ProjectInterface = {
     website: "https://anonklub.github.io",
   },
   tags: {
-    themes: [
+    keywords: [
       "Transaction privacy",
       "Anonymity/privacy",
       "Social",
       "Identity",
       "Voting/governance",
     ],
+    themes: ["build", "play"],
     type: ["Infrastructure/protocol", "Prototype", "Proof of concept"],
-    builtWith: ["Circom", "snarkjs", "Halo2"],
+    builtWith: ["circom", "snarkjs", "halo2"],
   },
 }

@@ -18,8 +18,9 @@ export const unirepProtocol: ProjectInterface = {
     discord: "https://discord.gg/VzMMDJmYc5",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+    keywords: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
+    themes: ["build"],
     type: ["Legos/dev tools, Protocol"],
-    builtWith: ["Semaphore", "Circom"],
+    builtWith: ["semaphore", "circom"],
   },
 }

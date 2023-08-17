@@ -15,8 +15,9 @@ export const zkevmCommunity: ProjectInterface = {
     github: "https://github.com/privacy-scaling-explorations/zkevm-circuits",
   },
   tags: {
-    themes: ["Scaling"],
+    keywords: ["Scaling"],
+    themes: ["build"],
     types: ["Infrastructure/protocol", "Lego sets/toolkits"],
-    builtWith: ["Halo2 from zcash", "Rust", "geth"],
+    builtWith: ["halo2 from zcash", "rust", "geth"],
   },
 }

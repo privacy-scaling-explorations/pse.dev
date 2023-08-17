@@ -15,8 +15,9 @@ export const summa: ProjectInterface = {
     github: "https://github.com/summa-dev",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Computational Integrity"],
+    keywords: ["Anonymity/privacy", "Computational Integrity"],
+    themes: ["build", "play"],
     type: ["Infrastructure/protocol", "Application"],
-    builtWith: ["Halo2 PSE"],
+    builtWith: ["halo2 pse"],
   },
 }

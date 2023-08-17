@@ -15,8 +15,9 @@ export const eigenTrust: ProjectInterface = {
     github: "https://github.com/eigen-trust/protocol",
   },
   tags: {
-    themes: ["Reputation", "Identity"],
+    keywords: ["Reputation", "Identity"],
+    themes: ["build"],
     type: ["Infrastructure/protocol"],
-    builtWith: ["Ethereum Attestation Service", "Halo2", "ethers.rs"],
+    builtWith: ["ethereum attestation service", "halo2", "ethers.rs"],
   },
 }

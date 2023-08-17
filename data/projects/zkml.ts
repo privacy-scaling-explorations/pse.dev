@@ -15,8 +15,9 @@ export const zkml: ProjectInterface = {
     github: "https://github.com/socathie/circomlib-ml",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Scaling"],
+    keywords: ["Anonymity/privacy", "Scaling"],
+    themes: ["research"],
     type: ["Proof of concept", "Infrastructure/protocol"],
-    builtWith: ["Circom", "Halo2", "nova"],
+    builtWith: ["circom", "halo2", "nova"],
   },
 }

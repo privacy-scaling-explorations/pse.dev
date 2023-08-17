@@ -17,8 +17,9 @@ export const channel4: ProjectInterface = {
     discord: "https://discord.gg/76UrYgVyEx",
   },
   tags: {
-    themes: ["Scaling"],
+    keywords: ["Scaling"],
+    themes: ["play"],
     type: ["Application"],
-    builtWith: ["State channel", "Smart contract"],
+    builtWith: ["state channel", "smart contract"],
   },
 }

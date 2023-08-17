@@ -17,8 +17,9 @@ export const tlsn: ProjectInterface = {
     discord: "https://discord.gg/9XwESXtcN7",
   },
   tags: {
-    themes: [],
+    themes: ["build"],
     type: [],
     builtWith: [],
+    keywords: [],
   },
 }

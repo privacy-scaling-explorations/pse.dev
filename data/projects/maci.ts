@@ -15,8 +15,9 @@ export const maci: ProjectInterface = {
     github: "https://github.com/privacy-scaling-explorations/maci",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Voting/governance"],
+    keywords: ["Anonymity/privacy", "Voting/governance"],
+    themes: ["build"],
     types: ["Lego sets/toolkits", "Infrastructure/protocol"],
-    builtWith: ["P0tion", "JubjubLib"],
+    builtWith: ["p0tion", "JubjubLib"],
   },
 }

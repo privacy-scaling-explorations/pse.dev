@@ -15,8 +15,9 @@ export const discreetly: ProjectInterface = {
     github: "https://github.com/Discreetly",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Social"],
+    keywords: ["Anonymity/privacy", "Social"],
+    themes: ["play"],
     types: ["Legos/dev tools", "Proof of concept", "Application"],
-    builtWith: ["RLN", "Semaphore", "Waku"],
+    builtWith: ["rln", "semaphore", "waku"],
   },
 }

@@ -18,8 +18,9 @@ export const zkitter: ProjectInterface = {
   },
 
   tags: {
-    themes: ["Anonymity/privacy", "Social", "Identity"],
+    keywords: ["Anonymity/privacy", "Social", "Identity"],
+    themes: ["build"],
     types: ["Application", "Infrastructure/protocol"],
-    builtWith: ["Semaphore", "RLN", "Interep", "zkchat"],
+    builtWith: ["semaphore", "rln", "interep", "zkchat"],
   },
 }

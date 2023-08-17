@@ -16,8 +16,9 @@ export const rln: ProjectInterface = {
     website: "https://rate-limiting-nullifier.github.io/rln-docs/",
   },
   tags: {
-    themes: ["Anonymity/privacy"],
+    keywords: ["Anonymity/privacy"],
+    themes: ["build"],
     types: ["Infrastructure/protocol"],
-    builtWith: ["Circom", "Solidity", "Semaphore"],
+    builtWith: ["circom", "solidity", "semaphore"],
   },
 }

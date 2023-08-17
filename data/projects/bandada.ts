@@ -16,7 +16,7 @@ export const bandada: ProjectInterface = {
     website: "https://bandada.appliedzkp.org/",
   },
   tags: {
-    themes: [
+    keywords: [
       "Anonymity/privacy",
       "Social",
       "Identity",
@@ -36,6 +36,7 @@ export const bandada: ProjectInterface = {
       "Plugin",
       "Application",
     ],
-    builtWith: ["Semaphore", "ZK-kit"],
+    builtWith: ["semaphore", "zk-kit"],
+    themes: ["build", "play"],
   },
 }

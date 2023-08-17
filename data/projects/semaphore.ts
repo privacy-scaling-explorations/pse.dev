@@ -17,7 +17,7 @@ export const semaphore: ProjectInterface = {
     discord: "https://semaphore.appliedzkp.org/discord",
   },
   tags: {
-    themes: [
+    keywords: [
       "Anonymity/privacy",
       "Social",
       "Identity",
@@ -29,8 +29,8 @@ export const semaphore: ProjectInterface = {
       "Key management",
       "Other (group membership)",
     ],
-
+    themes: ["build"],
     types: ["Legos/dev tools", "Lego sets/toolkits", "Infrastructure/protocol"],
-    builtWith: ["ZK-kit", "Circom", "snarkjs"],
+    builtWith: ["zk-kit", "circom", "snarkjs"],
   },
 }

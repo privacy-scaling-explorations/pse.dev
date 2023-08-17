@@ -16,7 +16,8 @@ export const pollenLabs: ProjectInterface = {
     twitter: "https://twitter.com/PollenLabs_",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Scaling"],
+    keywords: ["Anonymity/privacy", "Scaling"],
+    themes: ["play"],
     type: ["Application"],
     builtWith: [],
   },

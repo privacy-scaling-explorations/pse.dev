@@ -15,8 +15,9 @@ export const anonAadhaar: ProjectInterface = {
     github: "https://github.com/privacy-scaling-explorations/anon-aadhaar",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Social", "Identity", "Voting/governance"],
+    keywords: ["Anonymity/privacy", "Social", "Identity", "Voting/governance"],
+    themes: ["build", "play"],
     type: ["Legos/dev tools", "Lego sets/toolkits", "Proof of concept"],
-    builtWith: ["Circom, RSA"],
+    builtWith: ["circom", "rsa"],
   },
 }

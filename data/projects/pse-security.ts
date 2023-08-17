@@ -15,14 +15,15 @@ export const pseSecurity: ProjectInterface = {
     github: "https://github.com/privacy-scaling-explorations/security",
   },
   tags: {
-    themes: [
+    keywords: [
       "Anonymity/privacy",
       "Education",
       "Key management",
       "Scaling",
       "Security",
     ],
+    themes: ["build"],
     types: ["Legos/dev tools"],
-    builtWith: ["Slither", "Ecne", "Circomspect", "Echidna"],
+    builtWith: ["slither", "ecne", "circomspect", "echidna"],
   },
 }

@@ -14,8 +14,9 @@ export const trustedSetups: ProjectInterface = {
     github: "https://github.com/zkparty",
   },
   tags: {
-    themes: ["Scaling", "Education"],
+    themes: ["play"],
     type: ["Legos/dev tools", "Lego sets/toolkits"],
     builtWith: [],
+    keywords: ["Scaling", "Education"],
   },
 }

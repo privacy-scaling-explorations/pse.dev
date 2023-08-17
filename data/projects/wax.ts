@@ -18,16 +18,16 @@ export const wax: ProjectInterface = {
   },
   tags: {
     builtWith: [
-      "Hardhat",
-      "Node",
-      "Solidity BLS library",
+      "hardhat",
+      "node",
+      "solidity bls library",
       "sqlite",
       "docker",
       "ethers",
       "deno",
     ],
-
-    themes: ["Scaling", "Key management"],
+    keywords: ["Scaling", "Key management"],
+    themes: ["play"],
     types: ["Prototype", "Proof of concept", "Lego sets/toolkits"],
   },
 }

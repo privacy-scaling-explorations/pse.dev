@@ -17,8 +17,9 @@ export const zkp2p: ProjectInterface = {
     twitter: "https://twitter.com/zkp2p",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Payments", "On-ramping"],
+    keywords: ["Private communications"],
+    theme: ["play"],
     type: ["Proof of concept", "Application"],
-    builtWith: ["Circom", "Halo2"],
+    builtWith: ["circom", "halo2"],
   },
 }
