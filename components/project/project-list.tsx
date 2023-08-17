@@ -25,7 +25,7 @@ const NoResults = () => {
       <div className="mx-auto">
         <Image className="w-9 h-9" src={NoResultIcon} alt="no result icon" />
       </div>
-      <span className="text-xl text-2xl font-bold font-display text-tuatara-950">
+      <span className="text-2xl font-bold font-display text-tuatara-950">
         No results found.
       </span>
       <span className="text-lg font-normal text-tuatara-950">
