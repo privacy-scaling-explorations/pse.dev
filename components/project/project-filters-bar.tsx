@@ -88,7 +88,7 @@ const FilterButtons = ({
   )
 
   return (
-    <div className="relative grid grid-cols-3 col-span-1 gap-2 md:gap-4 md:gap-6 md:col-span-2 after:content-none md:after:content-[''] after:absolute after:h-11 after:w-[1px] after:bg-anakiwa-500 after:-right-[25px]">
+    <div className="relative grid grid-cols-3 col-span-1 gap-2 md:gap-4 md:col-span-2 after:content-none md:after:content-[''] after:absolute after:h-11 after:w-[1px] after:bg-anakiwa-500 after:-right-[25px]">
       {Object.entries(ThemesButtonMapping).map(([key, { label, icon }]) => {
         const isActive = activeFilters?.themes?.includes(key)
         const variant = isActive ? "blue" : "white"
