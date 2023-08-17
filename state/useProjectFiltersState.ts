@@ -11,9 +11,14 @@ export type FiltersProps = Record<ProjectFilter, string[]>
 export const FilterLabelMapping: Record<ProjectFilter, string> = {
   keywords: "Keywords",
   builtWith: "Built with",
-  themes: "Themes",
+  themes: "Themes selected",
 }
 
+export const FilterTypeMapping: Record<ProjectFilter, "checkbox" | "button"> = {
+  keywords: "checkbox",
+  builtWith: "checkbox",
+  themes: "button",
+}
 interface ProjectStateProps {
   projects: ProjectInterface[]
   filters: FiltersProps
@@ -23,15 +28,22 @@ interface ProjectStateProps {
 
 interface SearchMatchByParamsProps {
   searchPattern: string
+  activeFilters?: Partial<FiltersProps>
 }
 
+interface toggleFilterProps {
+  tag: ProjectFilter
+  value: string
+  searchQuery?: string
+}
 interface ProjectActionsProps {
-  toggleFilter: (projectFilter: ProjectFilter, value: string) => void
+  toggleFilter: ({ tag, value, searchQuery }: toggleFilterProps) => void
   setFilterFromQueryString: (filters: Partial<FiltersProps>) => void
   onFilterProject: (searchPattern: string) => void
 }
 
-const createURLQueryString = (params: Partial<FiltersProps>) => {
+const createURLQueryString = (params: Partial<FiltersProps>): string => {
+  if (Object.keys(params)?.length === 0) return "" // no params, return empty string
   const qs = Object.keys(params)
     .map((key: any) => `${key}=${encodeURIComponent((params as any)[key])}`)
     .join("&")
@@ -41,9 +53,9 @@ const createURLQueryString = (params: Partial<FiltersProps>) => {
 
 const getProjectFilters = (): FiltersProps => {
   const filters: FiltersProps = {
+    themes: ["play", "build", "research"],
     keywords: [],
     builtWith: [],
-    themes: [],
   }
 
   // get list of all tags from project list
@@ -65,7 +77,10 @@ const getProjectFilters = (): FiltersProps => {
   return filters
 }
 
-const filterProjects = ({ searchPattern }: SearchMatchByParamsProps) => {
+const filterProjects = ({
+  searchPattern = "",
+  activeFilters = {},
+}: SearchMatchByParamsProps) => {
   // keys that will be used for search
   const keys = [
     "name",
@@ -76,21 +91,49 @@ const filterProjects = ({ searchPattern }: SearchMatchByParamsProps) => {
     "projectStatus",
   ]
 
-  const query = {
-    $or: [
-      // search for every keys
-      ...keys.map((key) => ({
-        [key]: searchPattern,
-      })),
-    ],
+  let tagsFiltersQuery: Record<string, string>[] = []
+
+  Object.entries(activeFilters).forEach(([key, values]) => {
+    values.forEach((value) => {
+      tagsFiltersQuery.push({
+        [`tags.${key}`]: value,
+      })
+    })
+  })
+
+  const noActiveFilters =
+    tagsFiltersQuery.length === 0 && searchPattern.length === 0
+
+  if (noActiveFilters) return projects
+
+  let query: any = {}
+
+  if (searchPattern?.length === 0) {
+    query = {
+      $and: [...tagsFiltersQuery],
+    }
+  } else if (tagsFiltersQuery.length === 0) {
+    query = {
+      name: searchPattern,
+    }
+  } else {
+    query = {
+      $and: [
+        {
+          $and: [...tagsFiltersQuery],
+        },
+        { name: searchPattern },
+      ],
+    }
   }
+
   const fuse = new Fuse(projects, {
     threshold: 0.2,
     useExtendedSearch: true,
     keys,
   })
+
   const result = fuse.search(query)?.map(({ item }) => item)
-  console.log(result, projects)
 
   return result ?? []
 }
@@ -102,7 +145,7 @@ export const useProjectFiltersState = create<
   queryString: "",
   filters: getProjectFilters(), // list of filters with all possible values from projects
   activeFilters: {}, // list of filters active in the current view by the user
-  toggleFilter: (filterKey: ProjectFilter, value: string) =>
+  toggleFilter: ({ tag: filterKey, value, searchQuery }: toggleFilterProps) =>
     set((state: any) => {
       if (!filterKey) return
       const values: string[] = state?.activeFilters?.[filterKey] ?? []
@@ -113,28 +156,30 @@ export const useProjectFiltersState = create<
         values.push(value)
       }
 
+      const activeFiltersNormalized = values.filter(Boolean)
+
       const activeFilters: Partial<FiltersProps> = {
         ...state.activeFilters,
-        [filterKey]: values,
+        [filterKey]: activeFiltersNormalized,
       }
+      const queryString = createURLQueryString(activeFilters)
+      const filteredProjects = filterProjects({
+        searchPattern: searchQuery ?? "",
+        activeFilters,
+      })
 
       return {
         ...state,
         activeFilters,
-        queryString: createURLQueryString(activeFilters),
+        queryString,
+        projects: filteredProjects,
       }
     }),
   onFilterProject: (searchPattern: string) => {
     set((state: any) => {
-      console.log("searchPattern", searchPattern)
-      if (!searchPattern?.length)
-        return {
-          ...state,
-          projects,
-        }
-
       const filteredProjects = filterProjects({
         searchPattern,
+        activeFilters: state.activeFilters,
       })
 
       return {

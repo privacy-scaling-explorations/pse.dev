@@ -9,8 +9,8 @@ export default function Badge({ value, children }: BadgeProps) {
 
   return (
     <div className="relative">
-      <div className="absolute flex items-center justify-center min-w-4 h-4 m-auto rounded-full bg-anakiwa-950  -top-[5px] -right-[5px] px-1">
-        <span className="text-xs text-white ">{value}</span>
+      <div className="absolute flex items-center justify-center min-w-4 h-4 m-auto rounded-full bg-anakiwa-950  -top-[5px] -right-[5px] px-[6px]">
+        <span className="text-xs text-white">{value}</span>
       </div>
       {children}
     </div>

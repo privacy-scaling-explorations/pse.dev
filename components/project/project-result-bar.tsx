@@ -1,6 +1,9 @@
 "use client"
 
-import { useProjectFiltersState } from "@/state/useProjectFiltersState"
+import {
+  ProjectFilter,
+  useProjectFiltersState,
+} from "@/state/useProjectFiltersState"
 
 import { CategoryTag } from "../ui/categoryTag"
 
@@ -12,7 +15,7 @@ export const ProjectResultBar = () => {
   )
 
   const haveActiveFilters = Object.entries(activeFilters).some(
-    ([_key, values]) => values.length > 0
+    ([_key, values]) => values?.length > 0
   )
 
   if (!haveActiveFilters)
@@ -38,7 +41,12 @@ export const ProjectResultBar = () => {
                   <CategoryTag
                     closable
                     variant="gray"
-                    onClose={() => toggleFilter(key as any, filter)}
+                    onClose={() =>
+                      toggleFilter({
+                        tag: key as ProjectFilter,
+                        value: filter,
+                      })
+                    }
                     key={`${index}-${filter}`}
                   >
                     {filter}

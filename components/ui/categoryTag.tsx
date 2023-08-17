@@ -14,6 +14,7 @@ const categoryTagVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         gray: "bg-tuatara-100 text-tuatara-950",
         blue: "bg-anakiwa-300 text-black",
+        selected: "bg-transparent border  text-black border",
       },
       size: {
         default: "h-10 py-2 px-4",

@@ -3,9 +3,11 @@
 import React, { ChangeEvent, ReactNode, useEffect, useState } from "react"
 import Image from "next/image"
 import { useRouter, useSearchParams } from "next/navigation"
+import { projects } from "@/data/projects"
 import FiltersIcon from "@/public/icons/filters.svg"
 import {
   FilterLabelMapping,
+  FilterTypeMapping,
   ProjectFilter,
   useProjectFiltersState,
 } from "@/state/useProjectFiltersState"
@@ -13,8 +15,10 @@ import { useDebounce } from "react-use"
 
 import { cn, queryStringToObject } from "@/lib/utils"
 
+import { Icons } from "../icons"
 import Badge from "../ui/badge"
 import { Button } from "../ui/button"
+import { CategoryTag } from "../ui/categoryTag"
 import { Checkbox } from "../ui/checkbox"
 import { Input } from "../ui/input"
 import { Modal } from "../ui/modal"
@@ -28,7 +32,62 @@ const FilterWrapper = ({ label, children }: FilterWrapperProps) => {
   return (
     <div className="flex flex-col gap-4 py-6">
       <span className="text-xl font-bold">{label}</span>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-2">{children}</div>
+      {children}
+    </div>
+  )
+}
+
+export const ThemesButtonMapping: Record<
+  string,
+  {
+    label: string
+    icon: any
+  }
+> = {
+  build: {
+    label: "Build",
+    icon: <Icons.hammer />,
+  },
+  play: {
+    label: "Play",
+    icon: <Icons.hand />,
+  },
+  research: {
+    label: "Research",
+    icon: <Icons.readme />,
+  },
+}
+
+const FilterButtons = ({
+  searchQuery,
+}: {
+  searchQuery?: string
+}): JSX.Element => {
+  const { toggleFilter, activeFilters } = useProjectFiltersState(
+    (state) => state
+  )
+
+  return (
+    <div className="relative grid grid-cols-3 col-span-1 gap-4 md:gap-6 md:col-span-2 after:content-none md:after:content-[''] after:absolute after:h-11 after:w-[1px] after:bg-anakiwa-500 after:-right-[25px]">
+      {Object.entries(ThemesButtonMapping).map(([key, { label, icon }]) => {
+        const isActive = activeFilters?.themes?.includes(key)
+        const variant = isActive ? "blue" : "white"
+        return (
+          <Button
+            key={key}
+            variant={variant}
+            size="lg"
+            onClick={() => {
+              toggleFilter({ tag: "themes", value: key, searchQuery })
+            }}
+          >
+            <div className="flex items-center gap-2">
+              {icon}
+              <span>{label}</span>
+            </div>
+          </Button>
+        )
+      })}
     </div>
   )
 }
@@ -38,12 +97,12 @@ export default function ProjectFiltersBar() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [searchQuery, setSearchQuery] = useState("")
+  const [filterCount, setFilterCount] = useState(0)
 
   const { filters, toggleFilter, queryString, activeFilters, onFilterProject } =
     useProjectFiltersState((state) => state)
 
   useEffect(() => {
-    if (!queryString) return
     router.push(`/projects?${queryString}`)
   }, [queryString, router])
 
@@ -54,8 +113,20 @@ export default function ProjectFiltersBar() {
     })
   }, [])
 
+  useEffect(() => {
+    const count = Object.values(activeFilters).reduce((acc, curr) => {
+      return acc + curr.length
+    }, 0)
+    setFilterCount(count)
+  }, [activeFilters])
+
   const clearAllFilters = () => {
-    useProjectFiltersState.setState({ activeFilters: {}, queryString: "" })
+    useProjectFiltersState.setState({
+      activeFilters: {},
+      queryString: "",
+      projects,
+    })
+    setSearchQuery("") // clear input
     router.push("/projects")
   }
 
@@ -66,7 +137,7 @@ export default function ProjectFiltersBar() {
     500, // debounce timeout in ms when user is typing
     [searchQuery]
   )
-  const hasActiveFilters = queryString && queryString.length > 0
+  const hasActiveFilters = filterCount > 0 || searchQuery.length > 0
 
   return (
     <>
@@ -98,27 +169,76 @@ export default function ProjectFiltersBar() {
       >
         {Object.entries(filters).map(([key, items]) => {
           const filterLabel = FilterLabelMapping?.[key as ProjectFilter] ?? ""
+          const type = FilterTypeMapping?.[key as ProjectFilter]
           const hasItems = items.length > 0
+
+          const hasActiveThemeFilters =
+            (activeFilters?.themes ?? [])?.length > 0
+
+          if (key === "themes" && !hasActiveThemeFilters) return null
 
           return (
             hasItems && (
               <FilterWrapper key={key} label={filterLabel}>
-                <>
+                <div
+                  className={cn("gap-y-2", {
+                    "grid grid-cols-1 gap-2 md:grid-cols-3":
+                      type === "checkbox",
+                    "flex gap-x-4 flex-wrap": type === "button",
+                  })}
+                >
                   {items.map((item) => {
                     const isActive =
                       activeFilters?.[key as ProjectFilter]?.includes(item)
 
-                    return (
-                      <Checkbox
-                        key={item}
-                        onClick={() => toggleFilter(key as ProjectFilter, item)}
-                        name={item}
-                        label={item}
-                        checked={isActive}
-                      />
-                    )
+                    if (type === "checkbox") {
+                      return (
+                        <Checkbox
+                          key={item}
+                          onClick={() =>
+                            toggleFilter({
+                              tag: key as ProjectFilter,
+                              value: item,
+                              searchQuery,
+                            })
+                          }
+                          name={item}
+                          label={item}
+                          checked={isActive}
+                        />
+                      )
+                    }
+
+                    if (type === "button") {
+                      const { icon, label } = ThemesButtonMapping[item]
+                      if (!isActive) return null
+                      return (
+                        <div>
+                          <CategoryTag
+                            variant="selected"
+                            closable
+                            onClose={() => {
+                              toggleFilter({
+                                tag: "themes",
+                                value: item,
+                                searchQuery,
+                              })
+                            }}
+                          >
+                            <div className="flex items-center gap-2">
+                              {icon}
+                              <span className="font-sans text-sm md:text-base">
+                                {label}
+                              </span>
+                            </div>
+                          </CategoryTag>
+                        </div>
+                      )
+                    }
+
+                    return null
                   })}
-                </>
+                </div>
               </FilterWrapper>
             )
           )
@@ -129,31 +249,22 @@ export default function ProjectFiltersBar() {
           What do you want to do today?
         </span>
         <div className="grid items-center justify-between grid-cols-1 gap-3 md:gap-12 md:grid-cols-5">
-          <div className="relative grid grid-cols-3 col-span-1 gap-4 md:gap-6 md:col-span-2 after:content-none md:after:content-[''] after:absolute after:h-11 after:w-[1px] after:bg-anakiwa-500 after:-right-[25px]">
-            <Button variant="white" size="lg">
-              Build
-            </Button>
-            <Button variant="white" size="lg">
-              Play
-            </Button>
-            <Button variant="white" size="lg">
-              Research
-            </Button>
-          </div>
+          <FilterButtons />
           <div className="grid grid-cols-[1fr_auto] col-span-1 gap-3 md:col-span-3">
             <Input
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setSearchQuery(e?.target?.value)
               }
+              value={searchQuery}
               placeholder="Search project title or keyword"
             />
             <div className="flex items-center gap-3">
-              <Badge>
+              <Badge value={filterCount}>
                 <Button
                   onClick={() => setShowModal(true)}
                   variant="white"
                   className={cn({
-                    "border-2 border-anakiwa-950": hasActiveFilters,
+                    "border-2 border-anakiwa-950": filterCount > 0,
                   })}
                 >
                   <div className="flex items-center gap-2">
