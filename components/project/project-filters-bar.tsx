@@ -1,6 +1,6 @@
 "use client"
 
-import React, { ReactNode, useEffect, useState } from "react"
+import React, { ChangeEvent, ReactNode, useEffect, useState } from "react"
 import Image from "next/image"
 import { useRouter, useSearchParams } from "next/navigation"
 import FiltersIcon from "@/public/icons/filters.svg"
@@ -9,6 +9,7 @@ import {
   ProjectFilter,
   useProjectFiltersState,
 } from "@/state/useProjectFiltersState"
+import { useDebounce } from "react-use"
 
 import { cn, queryStringToObject } from "@/lib/utils"
 
@@ -36,6 +37,7 @@ export default function ProjectFiltersBar() {
   const [showModal, setShowModal] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
+  const [searchQuery, setSearchQuery] = useState("")
 
   const { filters, toggleFilter, queryString, activeFilters, onFilterProject } =
     useProjectFiltersState((state) => state)
@@ -57,6 +59,13 @@ export default function ProjectFiltersBar() {
     router.push("/projects")
   }
 
+  useDebounce(
+    () => {
+      onFilterProject(searchQuery)
+    },
+    500, // debounce timeout in ms when user is typing
+    [searchQuery]
+  )
   const hasActiveFilters = queryString && queryString.length > 0
 
   return (
@@ -133,7 +142,9 @@ export default function ProjectFiltersBar() {
           </div>
           <div className="grid grid-cols-[1fr_auto] col-span-1 gap-3 md:col-span-3">
             <Input
-              onChange={(e) => onFilterProject(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setSearchQuery(e?.target?.value)
+              }
               placeholder="Search project title or keyword"
             />
             <div className="flex items-center gap-3">

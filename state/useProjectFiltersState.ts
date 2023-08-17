@@ -85,6 +85,7 @@ const filterProjects = ({ searchPattern }: SearchMatchByParamsProps) => {
     ],
   }
   const fuse = new Fuse(projects, {
+    threshold: 0.2,
     useExtendedSearch: true,
     keys,
   })
