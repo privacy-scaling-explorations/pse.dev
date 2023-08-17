@@ -22,7 +22,6 @@ interface ProjectStateProps {
 }
 
 interface SearchMatchByParamsProps {
-  list: any[]
   searchPattern: string
 }
 
@@ -66,19 +65,31 @@ const getProjectFilters = (): FiltersProps => {
   return filters
 }
 
-const filterProjects = ({ list, searchPattern }: SearchMatchByParamsProps) => {
-  const keys = ["title", "tldr", "tags.keywords", "tags.builtWith"]
-  const fuseOptions = {
-    keys,
+const filterProjects = ({ searchPattern }: SearchMatchByParamsProps) => {
+  // keys that will be used for search
+  const keys = [
+    "name",
+    "tldr",
+    "tags.themes",
+    "tags.keywords",
+    "tags.builtWith",
+    "projectStatus",
+  ]
+
+  const query = {
     $or: [
-      {
-        $path: keys,
-        val: searchPattern,
-      },
+      // search for every keys
+      ...keys.map((key) => ({
+        [key]: searchPattern,
+      })),
     ],
   }
-  const fuse = new Fuse(list, fuseOptions)
-  const result = fuse.search(searchPattern)?.map(({ item }) => item)
+  const fuse = new Fuse(projects, {
+    useExtendedSearch: true,
+    keys,
+  })
+  const result = fuse.search(query)?.map(({ item }) => item)
+  console.log(result, projects)
 
   return result ?? []
 }
@@ -114,10 +125,14 @@ export const useProjectFiltersState = create<
     }),
   onFilterProject: (searchPattern: string) => {
     set((state: any) => {
-      if (!searchPattern?.length) return state
+      console.log("searchPattern", searchPattern)
+      if (!searchPattern?.length)
+        return {
+          ...state,
+          projects,
+        }
 
       const filteredProjects = filterProjects({
-        list: state.projects,
         searchPattern,
       })
 

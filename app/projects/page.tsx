@@ -31,17 +31,23 @@ export default function ProjectsPage() {
     <section>
       <div className="bg-anakiwa-200">
         <div className="container py-8 mx-auto md:py-12 lg:px-24 lg:py-16">
-          <h1 className="text-4xl font-bold md:text-5xl">
-            Explore the project library
-          </h1>
-          <p className="p-2"></p>
-          <p className="w-full text-lg md:w-[612px] md:text-xl">
-            PSE is home to many projects, from cryptography research to
-            developer tools, protocols and proof-of-concept applications.
-          </p>
-          <ProjectFiltersBar />
+          <div className="flex flex-col justify-between gap-10">
+            <div>
+              <h1 className="text-3xl font-bold md:text-5xl">
+                Explore the project library
+              </h1>
+              <p className="p-2"></p>
+              <p className="w-full text-lg md:w-[612px] md:text-xl">
+                PSE is home to many projects, from cryptography research to
+                developer tools, protocols and proof-of-concept applications.
+              </p>
+            </div>
+            <div className=" bg-anakiwa-500 w-20 h-[1px]"></div>
+            <ProjectFiltersBar />
+          </div>
         </div>
       </div>
+
       <div className="w-full bg-anakiwa-100">
         <div className="container">
           <div className="px-3 py-8">

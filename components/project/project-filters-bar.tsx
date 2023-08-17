@@ -37,7 +37,7 @@ export default function ProjectFiltersBar() {
   const router = useRouter()
   const searchParams = useSearchParams()
 
-  const { filters, toggleFilter, queryString, activeFilters } =
+  const { filters, toggleFilter, queryString, activeFilters, onFilterProject } =
     useProjectFiltersState((state) => state)
 
   useEffect(() => {
@@ -115,12 +115,12 @@ export default function ProjectFiltersBar() {
           )
         })}
       </Modal>
-      <div className="flex flex-col gap-6 mt-10">
+      <div className="flex flex-col gap-6">
         <span className="text-lg font-medium">
           What do you want to do today?
         </span>
         <div className="grid items-center justify-between grid-cols-1 gap-3 md:gap-12 md:grid-cols-5">
-          <div className="grid grid-cols-3 col-span-1 gap-4 md:gap-6 md:col-span-2">
+          <div className="relative grid grid-cols-3 col-span-1 gap-4 md:gap-6 md:col-span-2 after:content-none md:after:content-[''] after:absolute after:h-11 after:w-[1px] after:bg-anakiwa-500 after:-right-[25px]">
             <Button variant="white" size="lg">
               Build
             </Button>
@@ -132,7 +132,10 @@ export default function ProjectFiltersBar() {
             </Button>
           </div>
           <div className="grid grid-cols-[1fr_auto] col-span-1 gap-3 md:col-span-3">
-            <Input placeholder="Search project title or keyword" />
+            <Input
+              onChange={(e) => onFilterProject(e.target.value)}
+              placeholder="Search project title or keyword"
+            />
             <div className="flex items-center gap-3">
               <Badge>
                 <Button
