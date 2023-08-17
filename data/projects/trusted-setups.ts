@@ -5,6 +5,7 @@ The Trusted Setups project is dedicated to simplifying the process of trusted se
 `
 export const trustedSetups: ProjectInterface = {
   id: "trusted-setups",
+  projectStatus: "active",
   image: "trusted-setups.svg",
   name: "Trusted Setups",
   tldr: "Aiding developers with tools for trusted setups.",
@@ -13,8 +14,9 @@ export const trustedSetups: ProjectInterface = {
     github: "https://github.com/zkparty",
   },
   tags: {
-    themes: ["Scaling", "Education"],
+    themes: ["play"],
     type: ["Legos/dev tools", "Lego sets/toolkits"],
     builtWith: [],
+    keywords: ["Scaling", "Education"],
   },
 }

@@ -6,6 +6,7 @@ PSE Security is a division of the Privacy & Scaling Explorations team at the Eth
 
 export const pseSecurity: ProjectInterface = {
   id: "pse-security",
+  projectStatus: "active",
   image: "",
   name: "PSE Security",
   tldr: "Proactively securing Ethereum's L2 and ZK ecosystems.",
@@ -14,14 +15,15 @@ export const pseSecurity: ProjectInterface = {
     github: "https://github.com/privacy-scaling-explorations/security",
   },
   tags: {
-    themes: [
+    keywords: [
       "Anonymity/privacy",
       "Education",
       "Key management",
       "Scaling",
       "Security",
     ],
+    themes: ["build"],
     types: ["Legos/dev tools"],
-    builtWith: ["Slither", "Ecne", "Circomspect", "Echidna"],
+    builtWith: ["slither", "ecne", "circomspect", "echidna"],
   },
 }

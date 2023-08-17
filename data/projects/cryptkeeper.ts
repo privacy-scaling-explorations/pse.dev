@@ -6,6 +6,7 @@ CryptKeeper is a browser extension that generates Semaphore and RLN proofs for w
 
 export const cryptkeeper: ProjectInterface = {
   id: "cryptkeeper",
+  projectStatus: "active",
   image: "cryptkeeper.webp",
   name: "CryptKeeper",
   tldr: "A browser extension for secure, portable anonymous identity management across applications.",
@@ -14,9 +15,9 @@ export const cryptkeeper: ProjectInterface = {
     github: "https://github.com/CryptKeeperZK",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Social", "Identity"],
+    keywords: ["Anonymity/privacy", "Social", "Identity"],
+    themes: ["build"],
     types: ["Application", "Infrastructure/protocol", "Lego sets/toolkits"],
-
-    builtWith: ["Semaphore", "RLN"],
+    builtWith: ["semaphore", "rln"],
   },
 }

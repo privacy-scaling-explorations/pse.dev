@@ -8,9 +8,23 @@ export interface NewsInterface {
   }
 }
 
+export type ProjectExtraLinkType = "buildWith" | "play" | "research" | "learn"
+
 export type ProjectLinkType = Partial<
   Record<"github" | "website" | "discord" | "twitter", string>
 >
+
+export type ActionLinkType = Partial<
+  Record<
+    ProjectExtraLinkType,
+    Array<{
+      label: string
+      url: string
+    }>
+  >
+>
+
+export type ProjectStatusType = "active" | "inactive" | "archived"
 export interface ProjectInterface {
   id: string
   image: string
@@ -18,5 +32,7 @@ export interface ProjectInterface {
   tldr: string
   description: string
   links?: ProjectLinkType
+  projectStatus: ProjectStatusType
   tags?: Record<string, string[]>
+  extraLinks?: ActionLinkType
 }

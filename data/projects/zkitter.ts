@@ -6,6 +6,7 @@ Zkitter is a decentralized social network that emphasizes privacy by default. It
 
 export const zkitter: ProjectInterface = {
   id: "zkitter",
+  projectStatus: "archived",
   image: "zkitter.webp",
   name: "Zkitter",
   tldr: "A decentralized social network prioritizing privacy and anonymity",
@@ -17,8 +18,9 @@ export const zkitter: ProjectInterface = {
   },
 
   tags: {
-    themes: ["Anonymity/privacy", "Social", "Identity"],
+    keywords: ["Anonymity/privacy", "Social", "Identity"],
+    themes: ["build"],
     types: ["Application", "Infrastructure/protocol"],
-    builtWith: ["Semaphore", "RLN", "Interep", "zkchat"],
+    builtWith: ["semaphore", "rln", "interep", "zkchat"],
   },
 }

@@ -6,6 +6,7 @@ TLSNotary is useful for developers of privacy focused projects that need data pr
 
 export const tlsn: ProjectInterface = {
   id: "tlsn",
+  projectStatus: "active",
   image: "tlsn.webp",
   name: "TLSNotary",
   tldr: "A protocol for creating cryptographic proofs of authenticity for any data on the web.",
@@ -16,8 +17,9 @@ export const tlsn: ProjectInterface = {
     discord: "https://discord.gg/9XwESXtcN7",
   },
   tags: {
-    themes: [],
+    themes: ["build"],
     type: [],
     builtWith: [],
+    keywords: [],
   },
 }

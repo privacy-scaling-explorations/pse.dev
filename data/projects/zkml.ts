@@ -6,6 +6,7 @@ ZKML is a solution that combines the power of zero-knowledge proofs (ZKPs) and m
 
 export const zkml: ProjectInterface = {
   id: "zkml",
+  projectStatus: "active",
   image: "",
   name: "ZKML",
   tldr: "ZKML (Zero-Knowledge Machine Learning) leverages zero-knowledge proofs for privacy-preserving machine learning, enabling model and data privacy with transparent verification.",
@@ -14,7 +15,8 @@ export const zkml: ProjectInterface = {
     github: "https://github.com/socathie/circomlib-ml",
   },
   tags: {
-    themes: ["Anonymity/privacy", "Scaling"],
+    keywords: ["Anonymity/privacy", "Scaling"],
+    themes: ["research"],
     type: ["Proof of concept", "Infrastructure/protocol"],
     builtWith: ["circom", "halo2", "nova"],
   },

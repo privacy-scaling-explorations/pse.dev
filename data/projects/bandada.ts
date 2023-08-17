@@ -6,6 +6,7 @@ Bandada is a project designed to simplify the management of privacy-preserving S
 
 export const bandada: ProjectInterface = {
   id: "bandada",
+  projectStatus: "active",
   image: "bandada.webp",
   name: "Bandada",
   tldr: "An open-source system for managing privacy-preserving groups of anonymous individuals.",
@@ -15,7 +16,7 @@ export const bandada: ProjectInterface = {
     website: "https://bandada.appliedzkp.org/",
   },
   tags: {
-    themes: [
+    keywords: [
       "Anonymity/privacy",
       "Social",
       "Identity",
@@ -35,6 +36,7 @@ export const bandada: ProjectInterface = {
       "Plugin",
       "Application",
     ],
-    builtWith: ["Semaphore", "ZK-kit"],
+    builtWith: ["semaphore", "zk-kit"],
+    themes: ["build", "play"],
   },
 }
