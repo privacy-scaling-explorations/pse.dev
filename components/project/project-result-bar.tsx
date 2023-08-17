@@ -30,7 +30,7 @@ export const ProjectResultBar = () => {
       <span className={labelClass}>
         {`Showing ${projects?.length} projects with:`}{" "}
       </span>
-      <div className="inline-flex flex-wrap gap-4">
+      <div className="inline-flex flex-wrap gap-1 md:gap-4">
         {Object.entries(activeFilters).map(([key, filters], index) => {
           return (
             <>
