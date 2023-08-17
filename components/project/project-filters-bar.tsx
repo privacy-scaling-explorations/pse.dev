@@ -103,6 +103,7 @@ export default function ProjectFiltersBar() {
     useProjectFiltersState((state) => state)
 
   useEffect(() => {
+    if (!queryString) return
     router.push(`/projects?${queryString}`)
   }, [queryString, router])
 

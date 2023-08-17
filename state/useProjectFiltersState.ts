@@ -95,6 +95,7 @@ const filterProjects = ({
 
   Object.entries(activeFilters).forEach(([key, values]) => {
     values.forEach((value) => {
+      if (!value) return // skip empty values
       tagsFiltersQuery.push({
         [`tags.${key}`]: value,
       })
