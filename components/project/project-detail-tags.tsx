@@ -1,3 +1,5 @@
+"use client"
+
 import { HtmlHTMLAttributes } from "react"
 import Link from "next/link"
 import {
@@ -8,10 +10,12 @@ import {
 import { ProjectInterface } from "@/lib/types"
 
 import { CategoryTag } from "../ui/categoryTag"
+import { ThemesStatusMapping } from "./project-filters-bar"
 
 interface TagsProps extends HtmlHTMLAttributes<HTMLDivElement> {
   label: string
 }
+
 const TagsWrapper = ({ label, children }: TagsProps) => {
   return (
     <div className="flex gap-2">
@@ -22,6 +26,8 @@ const TagsWrapper = ({ label, children }: TagsProps) => {
 }
 
 export function ProjectTags({ project }: { project: ProjectInterface }) {
+  const { label, icon } = ThemesStatusMapping?.[project?.projectStatus] ?? {}
+
   return (
     <div className="flex flex-col gap-4 mt-8">
       {Object.entries(FilterLabelMapping).map(([key, label]) => {
@@ -50,7 +56,14 @@ export function ProjectTags({ project }: { project: ProjectInterface }) {
           )
         )
       })}
-      <TagsWrapper label="Project status"></TagsWrapper>
+      <TagsWrapper label="Project status">
+        <CategoryTag variant="gray">
+          <div className="flex items-center gap-1">
+            {icon}
+            {label}
+          </div>
+        </CategoryTag>
+      </TagsWrapper>
     </div>
   )
 }

@@ -59,24 +59,22 @@ export const ThemesButtonMapping: Record<
   },
 }
 
-export const ThemesStatusMapping: Record<
-  ProjectStatusType,
-  {
-    label: string
-    icon: any
-  }
+export const ThemesStatusMapping: Partial<
+  Record<
+    ProjectStatusType,
+    {
+      label: string
+      icon: any
+    }
+  >
 > = {
   active: {
     label: "Active",
-    icon: <Icons.hammer />,
+    icon: <Icons.checkActive />,
   },
   archived: {
     label: "Archived",
-    icon: <Icons.hand />,
-  },
-  inactive: {
-    label: "Inactive",
-    icon: <Icons.readme />,
+    icon: <Icons.archived />,
   },
 }
 
