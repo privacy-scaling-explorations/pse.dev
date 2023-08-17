@@ -21,7 +21,7 @@ const TagsIconMapping: Record<string, any> = {
 
 const NoResults = () => {
   return (
-    <div className="flex flex-col gap-2 pb-40 text-center">
+    <div className="flex flex-col gap-2 pt-24 pb-40 text-center">
       <div className="mx-auto">
         <Image className="w-9 h-9" src={NoResultIcon} alt="no result icon" />
       </div>
