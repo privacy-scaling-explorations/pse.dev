@@ -1,5 +1,5 @@
 addReviewers: true
 addAssignees: author
-reviewers: [thebeyondr, AtHeartEngineer, ChialiT]
+reviewers: [thebeyondr, AtHeartEngineer, ChialiT, heeckhau, kalidiagne]
 skipKeywords: [wip]
 runOnDraft: false
