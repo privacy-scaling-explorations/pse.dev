@@ -15,9 +15,9 @@ export const dslWorkingGroup: ProjectInterface = {
     github: "https://github.com/privacy-scaling-explorations/chiquito/",
   },
   tags: {
-    type: ["research"],
+    type: ["Legos/dev tools", "Proof of concept", "Developer tooling"],
     keywords: [],
-    themes: [],
+    themes: ["research"],
     builtWith: [],
   },
 }
