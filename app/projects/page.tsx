@@ -7,7 +7,7 @@ import { ProjectResultBar } from "@/components/project/project-result-bar"
 export const metadata: Metadata = {
   title: "Project Library",
   description:
-    "PSE is home to many projects, from cryptography research to developer tools, protocols and proof-of-concept applications.",
+    "PSE is home to many projects, from cryptography research to developer tools, protocols, and proof-of-concept applications.",
 }
 
 // TODO: MAKE IT RANDOM - This would prob need to be state and so metadata would get cut
