@@ -11,10 +11,10 @@ export const newsItems: NewsInterface[] = [
   },
   {
     type: "learn",
-    title: "Private markets on Ethereum - 0xPARC Piere. August 23, 2023 14:00 (UTC)",
+    title: "Public events hosted by PSE members to learn about each other’s projects, share ideas, and get feedback.",
     action: {
-      label: "See details",
-      url: "https://discord.com/events/943612659163602974/1139573494372388914",
+      label: "See full schedule",
+      url: "https://pse-team.notion.site/50dcf22c5191485e93406a902ae9e93b?v=453023f8227646dd949abc34a7a4a138&pvs=4",
     },
   },
   {
