@@ -17,8 +17,7 @@ const categoryTagVariants = cva(
         selected: "bg-transparent border  text-black border",
       },
       size: {
-        default: "h-10 py-2 px-4",
-        xs: "py-1 px-[6px] rounded",
+        default: "py-1 px-2",
         sm: "h-9 px-3 rounded-md",
         lg: "h-11 px-8 rounded-md",
       },
