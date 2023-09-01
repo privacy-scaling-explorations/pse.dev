@@ -13,8 +13,8 @@ export const semaphore: ProjectInterface = {
   description,
   links: {
     github: "https://github.com/semaphore-protocol",
-    website: "https://semaphore.appliedzkp.org/",
-    discord: "https://semaphore.appliedzkp.org/discord",
+    website: "https://semaphore.pse.dev/",
+    discord: "https://semaphore.pse.dev/discord",
   },
   tags: {
     keywords: [
