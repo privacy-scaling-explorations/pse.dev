@@ -29,6 +29,8 @@ interface ProjectStateProps {
 interface SearchMatchByParamsProps {
   searchPattern: string
   activeFilters?: Partial<FiltersProps>
+  findAnyMatch?: boolean
+  projects?: ProjectInterface[]
 }
 
 interface toggleFilterProps {
@@ -78,9 +80,11 @@ const getProjectFilters = (): FiltersProps => {
   return filters
 }
 
-const filterProjects = ({
+export const filterProjects = ({
   searchPattern = "",
   activeFilters = {},
+  findAnyMatch = false,
+  projects: projectList = projects,
 }: SearchMatchByParamsProps) => {
   // keys that will be used for search
   const keys = [
@@ -106,11 +110,16 @@ const filterProjects = ({
   const noActiveFilters =
     tagsFiltersQuery.length === 0 && searchPattern.length === 0
 
-  if (noActiveFilters) return projects
+  if (noActiveFilters) return projectList
 
   let query: any = {}
 
-  if (searchPattern?.length === 0) {
+  if (findAnyMatch) {
+    // find any match of filters
+    query = {
+      $or: [...tagsFiltersQuery, { name: searchPattern }],
+    }
+  } else if (searchPattern?.length === 0) {
     query = {
       $and: [...tagsFiltersQuery],
     }
@@ -129,7 +138,7 @@ const filterProjects = ({
     }
   }
 
-  const fuse = new Fuse(projects, {
+  const fuse = new Fuse(projectList, {
     threshold: 0.2,
     useExtendedSearch: true,
     keys,
@@ -179,9 +188,14 @@ export const useProjectFiltersState = create<
     }),
   onSelectTheme: (theme: string, searchQuery = "") => {
     set((state: any) => {
+      // toggle theme when it's already selected
+      const themes = state?.activeFilters?.themes?.includes(theme)
+        ? []
+        : [theme]
+
       const activeFilters = {
         ...state.activeFilters,
-        themes: [theme],
+        themes,
       }
 
       const filteredProjects = filterProjects({

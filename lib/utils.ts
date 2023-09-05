@@ -23,3 +23,7 @@ export function queryStringToObject(
 
   return object
 }
+
+export function shuffleArray<T>(array: T[]) {
+  return array.sort(() => 0.5 - Math.random())
+}
