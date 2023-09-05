@@ -29,7 +29,8 @@ const NoResults = () => {
         No results found.
       </span>
       <span className="text-lg font-normal text-tuatara-950">
-        No projects matching these filters. Try changing your search.
+        {`Sorry, we couldn't find any results for your search. Please try again
+        with different keywords.`}
       </span>
     </div>
   )
