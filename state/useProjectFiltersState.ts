@@ -3,10 +3,20 @@ import Fuse from "fuse.js"
 import { create } from "zustand"
 
 import { ProjectInterface } from "@/lib/types"
-import { uniq } from "@/lib/utils"
+import { shuffleArray, uniq } from "@/lib/utils"
 
+export type ProjectSortBy = "random" | "asc" | "desc"
 export type ProjectFilter = "keywords" | "builtWith" | "themes"
 export type FiltersProps = Record<ProjectFilter, string[]>
+
+export const SortByFnMapping: Record<
+  ProjectSortBy,
+  (a: ProjectInterface, b: ProjectInterface) => number
+> = {
+  random: () => Math.random() - 0.5,
+  asc: (a, b) => a.name.localeCompare(b.name),
+  desc: (a, b) => b.name.localeCompare(a.name),
+}
 
 export const FilterLabelMapping: Record<ProjectFilter, string> = {
   keywords: "Keywords",
@@ -43,6 +53,7 @@ interface ProjectActionsProps {
   setFilterFromQueryString: (filters: Partial<FiltersProps>) => void
   onFilterProject: (searchPattern: string) => void
   onSelectTheme: (theme: string, searchPattern?: string) => void
+  sortProjectBy: (sortBy: ProjectSortBy) => void
 }
 
 const createURLQueryString = (params: Partial<FiltersProps>): string => {
@@ -229,6 +240,20 @@ export const useProjectFiltersState = create<
         ...state,
         activeFilters: filters,
         queryString: createURLQueryString(filters),
+      }
+    })
+  },
+  sortProjectBy(sortBy: ProjectSortBy) {
+    set((state: any) => {
+      const currentList = state.projects
+
+      const sortedProjectList: ProjectInterface[] = currentList.sort(
+        SortByFnMapping[sortBy]
+      )
+
+      return {
+        ...state,
+        projects: sortedProjectList,
       }
     })
   },
