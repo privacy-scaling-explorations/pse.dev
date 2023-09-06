@@ -5,14 +5,27 @@ import { projects } from "@/data/projects"
 import GithubVector from "@/public/social-medias/github-fill.svg"
 import GlobalVector from "@/public/social-medias/global-line.svg"
 import TwitterVector from "@/public/social-medias/twitter-fill.svg"
+import {
+  FilterLabelMapping,
+  ProjectFilter,
+  filterProjects,
+} from "@/state/useProjectFiltersState"
 
+import { ProjectInterface } from "@/lib/types"
+import { shuffleArray } from "@/lib/utils"
+import { CategoryTag } from "@/components/ui/categoryTag"
 import { Markdown } from "@/components/ui/markdown"
-import { ProjectTags } from "@/components/project/project-detail-tags"
+import { Icons } from "@/components/icons"
+import ProjectCard from "@/components/project/project-card"
 import ProjectExtraLinks from "@/components/project/project-extra-links"
 
 type PageProps = {
   params: { id: string }
   searchParams: { [key: string]: string | string[] | undefined }
+}
+
+interface ProjectProps {
+  project: ProjectInterface
 }
 
 export async function generateMetadata(
@@ -34,6 +47,78 @@ export async function generateMetadata(
       ],
     },
   }
+}
+
+function ProjectTags({ project }: ProjectProps) {
+  return (
+    <div className="flex flex-col gap-4 mt-8">
+      {Object.entries(FilterLabelMapping).map(([key, label]) => {
+        const keyTags = project?.tags?.[key as ProjectFilter]
+        const hasItems = keyTags && keyTags?.length > 0
+
+        return (
+          hasItems && (
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="py-2 text-base font-medium ">{label}</span>
+                <div className="flex gap-[6px] flex-wrap">
+                  {keyTags?.map((tag) => {
+                    return (
+                      <Link href={`/projects?${key}=${tag}`}>
+                        <CategoryTag key={tag} variant="gray">
+                          {tag}
+                        </CategoryTag>
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+          )
+        )
+      })}
+    </div>
+  )
+}
+
+function DiscoverMoreProjects({ project }: ProjectProps) {
+  const getSuggestedProjects = () => {
+    const projectList = projects.filter((p) => p.id !== project.id)
+
+    const suggestedProject = filterProjects({
+      searchPattern: "",
+      activeFilters: project?.tags,
+      findAnyMatch: true,
+      projects: projectList,
+    })
+
+    // No match return random projects
+    if (suggestedProject?.length < 2) {
+      return shuffleArray(projectList).slice(0, 2)
+    }
+
+    return suggestedProject.slice(0, 2)
+  }
+
+  const suggestedProject = getSuggestedProjects()
+
+  return (
+    <div className="flex flex-col items-center justify-center w-full px-6 py-32 gap-14 md:px-0 bg-anakiwa-200">
+      <h2 className="text-3xl font-bold text-center">Discover more</h2>
+      <div className="flex flex-col gap-5 md:flex-row">
+        {suggestedProject?.map((project: ProjectInterface) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+      <Link
+        className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950"
+        href="/projects"
+      >
+        <Icons.arrowLeft />
+        <span className="font-sans text-base">Back to project library</span>
+      </Link>
+    </div>
+  )
 }
 
 export default function ProjectDetailPage({ params }: PageProps) {
@@ -112,6 +197,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
           </div>
         </div>
       </div>
+      <DiscoverMoreProjects project={currProject} />
     </section>
   )
 }
