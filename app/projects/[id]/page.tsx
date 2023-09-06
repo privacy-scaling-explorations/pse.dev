@@ -36,8 +36,8 @@ export async function generateMetadata(
   )[0]
 
   const imageUrl = currProject.image
-    ? `/public/project-banners/${currProject.image}`
-    : "/public/og-image.png"
+    ? `/project-banners/${currProject.image}`
+    : "/og-image.png"
 
   return {
     title: currProject.name,
