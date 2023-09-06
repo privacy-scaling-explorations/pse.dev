@@ -15,9 +15,16 @@ interface DropdownProps {
   items?: DropdownItemProps[]
   defaultItem?: string | number
   onChange?: (value: DropdownItemProps["value"]) => void
+  disabled?: boolean
 }
 
-const Dropdown = ({ label, onChange, defaultItem, items }: DropdownProps) => {
+const Dropdown = ({
+  label,
+  onChange,
+  defaultItem,
+  disabled,
+  items,
+}: DropdownProps) => {
   const [selected, setSelected] =
     useState<DropdownItemProps["value"]>(defaultItem)
 
@@ -28,9 +35,11 @@ const Dropdown = ({ label, onChange, defaultItem, items }: DropdownProps) => {
 
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
+      <DropdownMenu.Trigger asChild disabled={disabled}>
         <button
-          className="focus:outline-none ring-0"
+          className={cn("focus:outline-none ring-0", {
+            "opacity-70 cursor-not-allowed": disabled,
+          })}
           aria-label="dropdown menu"
         >
           <div className="flex items-center gap-1">

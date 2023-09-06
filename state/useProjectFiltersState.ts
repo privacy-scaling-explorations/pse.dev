@@ -30,6 +30,7 @@ export const FilterTypeMapping: Record<ProjectFilter, "checkbox" | "button"> = {
   themes: "button",
 }
 interface ProjectStateProps {
+  sortBy: ProjectSortBy
   projects: ProjectInterface[]
   filters: FiltersProps
   activeFilters: Partial<FiltersProps>
@@ -160,9 +161,21 @@ export const filterProjects = ({
   return result ?? []
 }
 
+const sortProjectByFn = (
+  projects: ProjectInterface[],
+  sortBy: ProjectSortBy
+) => {
+  const sortedProjectList: ProjectInterface[] = [...projects].sort(
+    SortByFnMapping[sortBy]
+  )
+
+  return sortedProjectList
+}
+
 export const useProjectFiltersState = create<
   ProjectStateProps & ProjectActionsProps
 >()((set) => ({
+  sortBy: "random",
   projects,
   queryString: "",
   filters: getProjectFilters(), // list of filters with all possible values from projects
@@ -194,7 +207,7 @@ export const useProjectFiltersState = create<
         ...state,
         activeFilters,
         queryString,
-        projects: filteredProjects,
+        projects: sortProjectByFn(filteredProjects, state.sortBy),
       }
     }),
   onSelectTheme: (theme: string, searchQuery = "") => {
@@ -217,7 +230,7 @@ export const useProjectFiltersState = create<
       return {
         ...state,
         activeFilters,
-        projects: filteredProjects,
+        projects: sortProjectByFn(filteredProjects, state.sortBy),
       }
     })
   },
@@ -230,7 +243,7 @@ export const useProjectFiltersState = create<
 
       return {
         ...state,
-        projects: filteredProjects,
+        projects: sortProjectByFn(filteredProjects, state.sortBy),
       }
     })
   },
@@ -245,15 +258,10 @@ export const useProjectFiltersState = create<
   },
   sortProjectBy(sortBy: ProjectSortBy) {
     set((state: any) => {
-      const currentList = state.projects
-
-      const sortedProjectList: ProjectInterface[] = currentList.sort(
-        SortByFnMapping[sortBy]
-      )
-
       return {
         ...state,
-        projects: sortedProjectList,
+        sortBy,
+        projects: sortProjectByFn(state.projects, sortBy),
       }
     })
   },

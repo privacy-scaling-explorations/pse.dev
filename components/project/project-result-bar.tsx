@@ -38,6 +38,7 @@ export const ProjectResultBar = () => {
           defaultItem="random"
           items={projectSortItems}
           onChange={(sortBy) => sortProjectBy(sortBy as ProjectSortBy)}
+          disabled={!projects?.length}
         />
       </div>
       {haveActiveFilters && (
