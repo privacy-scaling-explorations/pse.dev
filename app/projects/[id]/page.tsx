@@ -35,14 +35,20 @@ export async function generateMetadata(
     (project) => String(project.id) === params.id
   )[0]
 
+  const imageUrl = currProject.image
+    ? `/project-banners/${currProject.image}`
+    : "/og-image.png"
+
   return {
     title: currProject.name,
     description: currProject.tldr,
     openGraph: {
       images: [
-        currProject.image
-          ? `/project-banners/${currProject.image}`
-          : "/project-banners/fallback.webp",
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+        },
       ],
     },
   }
