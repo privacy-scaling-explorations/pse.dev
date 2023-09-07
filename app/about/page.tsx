@@ -47,7 +47,12 @@ export default function AboutPage() {
           </span>
         </div>
         <div className="mx-auto">
-          <Image width={300} height={300} src="/logos/pse-logo-bg.svg" />
+          <Image
+            width={300}
+            height={300}
+            src="/logos/pse-logo-bg.svg"
+            alt="pse logo"
+          />
         </div>
       </div>
       <div className="flex flex-col gap-4 px-8 py-16 md:py-24 md:px-32">
