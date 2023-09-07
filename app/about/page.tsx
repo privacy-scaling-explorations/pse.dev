@@ -18,7 +18,12 @@ const PrincipleContent = ({
   return (
     <div className="grid grid-cols-1 gap-6 py-4 md:gap-2 md:mb-8 md:py-6 md:items-center md:grid-cols-2">
       <div className="py-6 m-auto md:py-0">
-        <Image width={width} height={height} src={image} />
+        <Image
+          width={width}
+          height={height}
+          src={image}
+          alt="principle image"
+        />
       </div>
       <span className="flex flex-col gap-4 font-sans text-lg leading-7 break-words">
         {children}
