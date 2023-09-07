@@ -9,12 +9,13 @@ export type ProjectSortBy = "random" | "asc" | "desc" | "relevancy"
 export type ProjectFilter = "keywords" | "builtWith" | "themes"
 export type FiltersProps = Record<ProjectFilter, string[]>
 
+interface ProjectInterfaceScore extends ProjectInterface {
+  score: number
+}
+
 export const SortByFnMapping: Record<
   ProjectSortBy,
-  (
-    a: ProjectInterface & { score: number },
-    b: ProjectInterface & { score: number }
-  ) => number
+  (a: ProjectInterfaceScore, b: ProjectInterfaceScore) => number
 > = {
   random: () => Math.random() - 0.5,
   asc: (a, b) => a.name.localeCompare(b.name),
@@ -174,9 +175,9 @@ const sortProjectByFn = (
   projects: ProjectInterface[],
   sortBy: ProjectSortBy
 ) => {
-  const sortedProjectList: ProjectInterface[] = [...projects].sort(
-    SortByFnMapping[sortBy]
-  )
+  const sortedProjectList: ProjectInterface[] = [
+    ...(projects as ProjectInterfaceScore[]),
+  ].sort(SortByFnMapping[sortBy])
 
   return sortedProjectList
 }
