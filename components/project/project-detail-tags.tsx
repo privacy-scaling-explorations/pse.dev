@@ -57,14 +57,12 @@ export function ProjectTags({ project }: { project: ProjectInterface }) {
         )
       })}
       <TagsWrapper label="Project status">
-        <div>
-          <CategoryTag variant="gray" size="default">
-            <div className="flex items-center gap-1">
-              {icon}
-              {label}
-            </div>
-          </CategoryTag>
-        </div>
+        <CategoryTag variant="gray" size="default">
+          <div className="flex items-center gap-1">
+            {icon}
+            {label}
+          </div>
+        </CategoryTag>
       </TagsWrapper>
     </div>
   )
