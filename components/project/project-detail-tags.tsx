@@ -18,7 +18,7 @@ interface TagsProps extends HtmlHTMLAttributes<HTMLDivElement> {
 
 const TagsWrapper = ({ label, children }: TagsProps) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex items-center gap-2">
       <span className="py-2 text-base font-medium ">{label}</span>
       {children}
     </div>
@@ -40,7 +40,7 @@ export function ProjectTags({ project }: { project: ProjectInterface }) {
           hasItems && (
             <div>
               <TagsWrapper label={label}>
-                <div className="flex gap-[6px]">
+                <div className="flex gap-[6px] flex-wrap">
                   {keyTags?.map((tag) => {
                     return (
                       <Link href={`/projects?${key}=${tag}`}>
@@ -57,12 +57,14 @@ export function ProjectTags({ project }: { project: ProjectInterface }) {
         )
       })}
       <TagsWrapper label="Project status">
-        <CategoryTag variant="gray">
-          <div className="flex items-center gap-1">
-            {icon}
-            {label}
-          </div>
-        </CategoryTag>
+        <div>
+          <CategoryTag variant="gray" size="default">
+            <div className="flex items-center gap-1">
+              {icon}
+              {label}
+            </div>
+          </CategoryTag>
+        </div>
       </TagsWrapper>
     </div>
   )
