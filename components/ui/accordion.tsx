@@ -30,7 +30,7 @@ const Accordion = ({
     >
       {items?.map(({ label, children, value }) => (
         <RadixAccordion.Item value={value}>
-          <RadixAccordion.Trigger className="flex items-center justify-between w-full py-6 border-t group border-t-black">
+          <RadixAccordion.Trigger className="flex items-center justify-between w-full py-6 border-t group border-t-black ring-0 focus:outline-none">
             <span className="font-sans text-base md:text-xl font-bold text-black uppercase tracking-[3.36px] md:tracking-[4.2px] block text-left">
               {label}
             </span>
