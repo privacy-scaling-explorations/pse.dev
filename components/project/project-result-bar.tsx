@@ -18,8 +18,12 @@ const projectSortItems: { label: string; value: ProjectSortBy }[] = [
   { label: "Relevancy", value: "relevancy" },
 ]
 
+const getSortLabel = (sortBy: ProjectSortBy) => {
+  return projectSortItems.find((item) => item.value === sortBy)?.label || sortBy
+}
+
 export const ProjectResultBar = () => {
-  const { activeFilters, toggleFilter, projects, sortProjectBy } =
+  const { activeFilters, toggleFilter, projects, sortProjectBy, sortBy } =
     useProjectFiltersState((state) => state)
 
   const haveActiveFilters = Object.entries(activeFilters).some(
@@ -35,7 +39,7 @@ export const ProjectResultBar = () => {
       <div className="flex items-center justify-between">
         <span className={labelClass}>{resultLabel}</span>
         <Dropdown
-          label="Sort by"
+          label={`Sort: ${getSortLabel(sortBy)}`}
           defaultItem="random"
           items={projectSortItems}
           onChange={(sortBy) => sortProjectBy(sortBy as ProjectSortBy)}
