@@ -3,19 +3,23 @@ import Fuse from "fuse.js"
 import { create } from "zustand"
 
 import { ProjectInterface } from "@/lib/types"
-import { shuffleArray, uniq } from "@/lib/utils"
+import { uniq } from "@/lib/utils"
 
-export type ProjectSortBy = "random" | "asc" | "desc"
+export type ProjectSortBy = "random" | "asc" | "desc" | "relevancy"
 export type ProjectFilter = "keywords" | "builtWith" | "themes"
 export type FiltersProps = Record<ProjectFilter, string[]>
 
 export const SortByFnMapping: Record<
   ProjectSortBy,
-  (a: ProjectInterface, b: ProjectInterface) => number
+  (
+    a: ProjectInterface & { score: number },
+    b: ProjectInterface & { score: number }
+  ) => number
 > = {
   random: () => Math.random() - 0.5,
   asc: (a, b) => a.name.localeCompare(b.name),
   desc: (a, b) => b.name.localeCompare(a.name),
+  relevancy: (a, b) => b?.score - a?.score, // sort from most relevant to least relevant
 }
 
 export const FilterLabelMapping: Record<ProjectFilter, string> = {
@@ -153,11 +157,16 @@ export const filterProjects = ({
   const fuse = new Fuse(projectList, {
     threshold: 0.2,
     useExtendedSearch: true,
+    includeScore: true,
     keys,
   })
 
-  const result = fuse.search(query)?.map(({ item }) => item)
-
+  const result = fuse.search(query)?.map(({ item, score }) => {
+    return {
+      ...item,
+      score, // 0 indicates a perfect match, while a score of 1 indicates a complete mismatch.
+    }
+  })
   return result ?? []
 }
 

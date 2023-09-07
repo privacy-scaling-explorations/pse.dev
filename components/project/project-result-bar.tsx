@@ -15,6 +15,7 @@ const projectSortItems: { label: string; value: ProjectSortBy }[] = [
   { label: "Random", value: "random" },
   { label: "Title: A-Z", value: "asc" },
   { label: "Title: Z-A", value: "desc" },
+  { label: "Relevancy", value: "relevancy" },
 ]
 
 export const ProjectResultBar = () => {
