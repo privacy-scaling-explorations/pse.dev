@@ -30,7 +30,7 @@ export function SiteHeaderMobile() {
       />
       {header && (
         <div
-          className="z-5 fixed inset-0 flex justify-end bg-black opacity-50"
+          className="fixed inset-0 flex justify-end bg-black opacity-50 z-5"
           onClick={() => setHeader(false)}
         ></div>
       )}
@@ -60,6 +60,13 @@ export function SiteHeaderMobile() {
               className="border-b-2 border-white p-[16px] pt-0"
             >
               PROJECT LIBRARY
+            </NextLink>
+            <NextLink
+              onClick={() => setHeader(false)}
+              href={"/about"}
+              className="border-b-2 border-white p-[16px] pt-0"
+            >
+              ABOUT
             </NextLink>
             <NextLink
               href={siteConfig.links.jobs}
