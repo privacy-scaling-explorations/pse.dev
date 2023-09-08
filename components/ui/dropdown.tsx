@@ -62,7 +62,7 @@ const Dropdown = ({
               <DropdownMenu.Item
                 key={index}
                 className={cn(
-                  "relative py-3 px-5 font-sans text-sm cursor-pointer hover:font-medium focus:outline-none ring-0 hover:text-anakiwa-500 text-duration-200",
+                  "relative py-3 px-5 w-full font-sans text-sm cursor-pointer hover:font-medium focus:outline-none ring-0 hover:text-anakiwa-500 text-duration-200",
                   {
                     "text-tuatara-950 font-normal": !active,
                     "text-anakiwa-500 font-medium": active,
