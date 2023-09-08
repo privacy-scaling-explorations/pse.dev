@@ -17,6 +17,7 @@ import { CategoryTag } from "@/components/ui/categoryTag"
 import { Markdown } from "@/components/ui/markdown"
 import { Icons } from "@/components/icons"
 import ProjectCard from "@/components/project/project-card"
+import ProjectExtraLinks from "@/components/project/project-extra-links"
 
 type PageProps = {
   params: { id: string }
@@ -194,8 +195,11 @@ export default function ProjectDetailPage({ params }: PageProps) {
           <div className="mt-8">
             <ProjectTags project={currProject} />
           </div>
-          <div className="flex flex-col w-full gap-5 py-10 text-base font-normal leading-relaxed">
+          <div className="flex flex-col w-full gap-5 pt-10 text-base font-normal leading-relaxed">
             <Markdown>{currProject.description}</Markdown>
+          </div>
+          <div className="py-16">
+            <ProjectExtraLinks project={currProject} />
           </div>
         </div>
       </div>
