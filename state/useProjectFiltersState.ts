@@ -20,7 +20,7 @@ export const SortByFnMapping: Record<
   random: () => Math.random() - 0.5,
   asc: (a, b) => a.name.localeCompare(b.name),
   desc: (a, b) => b.name.localeCompare(a.name),
-  relevancy: (a, b) => b?.score - a?.score, // sort from most relevant to least relevant
+  relevance: (a, b) => b?.score - a?.score, // sort from most relevant to least relevant
 }
 
 export const FilterLabelMapping: Record<ProjectFilter, string> = {
