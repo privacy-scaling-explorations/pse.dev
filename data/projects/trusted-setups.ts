@@ -15,7 +15,7 @@ export const trustedSetups: ProjectInterface = {
   },
   tags: {
     themes: ["play"],
-    type: ["Legos/dev tools", "Lego sets/toolkits"],
+    types: ["Legos/dev tools", "Lego sets/toolkits"],
     builtWith: [],
     keywords: ["Scaling", "Education"],
   },

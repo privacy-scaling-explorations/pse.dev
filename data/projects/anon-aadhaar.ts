@@ -17,7 +17,7 @@ export const anonAadhaar: ProjectInterface = {
   tags: {
     keywords: ["Anonymity/privacy", "Social", "Identity", "Voting/governance"],
     themes: ["build", "play"],
-    type: ["Legos/dev tools", "Lego sets/toolkits", "Proof of concept"],
+    types: ["Legos/dev tools", "Lego sets/toolkits", "Proof of concept"],
     builtWith: ["circom", "rsa"],
   },
 }

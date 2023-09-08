@@ -27,7 +27,7 @@ export const bandada: ProjectInterface = {
       "Scaling",
       "Key management",
     ],
-    type: [
+    types: [
       "Legos/dev tools",
       "Lego sets/toolkits",
       "Prototype",
