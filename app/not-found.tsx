@@ -21,7 +21,6 @@ export default function NotFound() {
           <SiteHeader />
           <div className="container m-auto">
             <div className="flex flex-col -mt-16 gap-7">
-              {" "}
               <div className="flex flex-col items-center justify-center gap-3 text-center">
                 <div className="flex flex-col gap-2">
                   <Image
