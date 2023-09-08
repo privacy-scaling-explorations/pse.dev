@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { Icons } from "../icons"
 
 const categoryTagVariants = cva(
-  "flex p-[6px] gap-2 rounded-[6px] inline-flex items-center",
+  "flex gap-2 rounded-[6px] inline-flex items-center",
   {
     variants: {
       variant: {
