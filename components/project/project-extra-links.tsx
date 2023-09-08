@@ -17,7 +17,7 @@ const ExtraLinkLabelMapping: Record<
   }
 > = {
   buildWith: {
-    label: "Build With",
+    label: "Build with this tool",
     icon: <Icons.hammer />,
   },
   play: {
