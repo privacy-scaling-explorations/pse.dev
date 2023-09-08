@@ -34,27 +34,30 @@ const PrincipleContent = ({
 export default function AboutPage() {
   return (
     <div className="bg-anakiwa-200">
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] lg:gap-2 px-7 py-10 bg-second-gradient gap-16 lg:py-20 lg:px-20">
-        <div className="flex flex-col gap-8 lg:w-4/5">
-          <h6 className="text-4xl font-bold md:py-4 md:text-5xl text-tuatara-950 font-display">
-            Collective experimentation of cryptography.
-          </h6>
-          <span className="font-sans text-base font-normal text-tuatara-950 leading-[27px]">
-            PSE is a multi-disciplinary research and development lab supported
-            by the Ethereum Foundation. We create open source infrastructure,
-            tools and educational resources for building cryptography into real
-            world applications.
-          </span>
-        </div>
-        <div className="mx-auto">
-          <Image
-            width={300}
-            height={300}
-            src="/logos/pse-logo-bg.svg"
-            alt="pse logo"
-          />
+      <div className="bg-second-gradient">
+        <div className="container grid grid-cols-1 lg:grid-cols-[1fr_300px] lg:gap-2 py-10 mx-auto gap-16 lg:py-20">
+          <div className="flex flex-col gap-8 lg:w-4/5">
+            <h6 className="text-4xl font-bold break-words md:py-4 md:text-5xl text-tuatara-950 font-display">
+              Collective experimentation of cryptography.
+            </h6>
+            <span className="font-sans text-base font-normal text-tuatara-950 leading-[27px]">
+              PSE is a multi-disciplinary research and development lab supported
+              by the Ethereum Foundation. We create open source infrastructure,
+              tools and educational resources for building cryptography into
+              real world applications.
+            </span>
+          </div>
+          <div className="mx-auto">
+            <Image
+              width={300}
+              height={300}
+              src="/logos/pse-logo-bg.svg"
+              alt="pse logo"
+            />
+          </div>
         </div>
       </div>
+
       <div className="flex flex-col gap-4 px-8 py-16 md:py-24 md:px-32">
         <h6 className="text-4xl uppercase font-display">Pse principles</h6>
         <Accordion
