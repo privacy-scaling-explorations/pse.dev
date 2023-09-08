@@ -30,10 +30,12 @@ module.exports = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         anakiwa: {
+          50: "#F2FAFD",
           100: "hsl(var(--anakiwa))",
           100: "#E4F3FA",
           200: "#C2E8F5",
           300: "#A3DFF0",
+          400: "#50C3E0",
           500: "#29ACCE",
           950: "#103241",
         },
