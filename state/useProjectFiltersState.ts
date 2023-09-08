@@ -5,7 +5,7 @@ import { create } from "zustand"
 import { ProjectInterface } from "@/lib/types"
 import { uniq } from "@/lib/utils"
 
-export type ProjectSortBy = "random" | "asc" | "desc" | "relevancy"
+export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
 export type ProjectFilter = "keywords" | "builtWith" | "themes"
 export type FiltersProps = Record<ProjectFilter, string[]>
 
