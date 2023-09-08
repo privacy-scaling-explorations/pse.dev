@@ -39,7 +39,7 @@ export const ProjectResultBar = () => {
       <div className="flex items-center justify-between">
         <span className={labelClass}>{resultLabel}</span>
         <Dropdown
-          label={`Sort: ${getSortLabel(sortBy)}`}
+          label={`Sort by: ${getSortLabel(sortBy)}`}
           defaultItem="random"
           items={projectSortItems}
           onChange={(sortBy) => sortProjectBy(sortBy as ProjectSortBy)}
