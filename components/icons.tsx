@@ -112,6 +112,22 @@ export const Icons = {
       />
     </svg>
   ),
+  externalUrl: (props: LucideProps) => (
+    <svg
+      width="24"
+      height="25"
+      viewBox="0 0 24 25"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        id="Vector"
+        d="M16.0034 9.5141L7.39642 18.1211L5.98242 16.7071L14.5884 8.1001H7.00342V6.1001H18.0034V17.1001H16.0034V9.5141Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
   arrowLeft: (props: LucideProps) => (
     <svg
       width="20"
