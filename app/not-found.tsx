@@ -26,7 +26,7 @@ export default function NotFound() {
                   <Image
                     width={80}
                     height={80}
-                    src="/icons/emotion-sad-line.svg"
+                    src="/icons/404-search.svg"
                     alt="emotion sad"
                     className="w-12 h-12 mx-auto md:w-20 md:h-20 text-anakiwa-400"
                   />
