@@ -28,7 +28,7 @@ export default function NotFound() {
                     height={80}
                     src="/icons/404-search.svg"
                     alt="emotion sad"
-                    className="w-12 h-12 mx-auto md:w-20 md:h-20 text-anakiwa-400"
+                    className="w-12 h-12 mx-auto md:w-24 md:h-24 text-anakiwa-400"
                   />
                   <span className="text-5xl font-bold text-anakiwa-400 md:text-8xl font-display">
                     404
