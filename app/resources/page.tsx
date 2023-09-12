@@ -157,8 +157,8 @@ const ResourceNav = () => {
 export default function ResourcePage() {
   return (
     <div className="bg-second-gradient">
-      <div className="container grid grid-cols-1 px-4 md:grid-cols-[1fr_3fr_1fr] gap-6 py-10 md:pb-20">
-        <div className="hidden md:block"></div>
+      <div className="container grid grid-cols-1 px-4 grid-cols-1 md:grid-cols-[3fr_1fr] lg:grid-cols-[1fr_3fr_1fr] gap-6 py-10 md:pb-20">
+        <div className="md:hidden lg:block"></div>
         <div>
           <div className="grid grid-cols-1 gap-16">
             <div className="flex flex-col gap-8">
