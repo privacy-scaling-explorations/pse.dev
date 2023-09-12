@@ -29,6 +29,9 @@ export function SiteFooter() {
         <Link href={"/projects"} className="border-b-2 border-[#171C1B] py-5">
           PROJECT LIBRARY
         </Link>
+        <Link href={"/about"} className="border-b-2 border-[#171C1B] py-5">
+          ABOUT
+        </Link>
         <Link
           href={siteConfig.links.jobs}
           target="_blank"
