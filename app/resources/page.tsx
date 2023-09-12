@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import Link from "next/link"
 
@@ -82,11 +84,28 @@ const ResourceCard = ({ id, title, children }: ResourceCardProps) => {
 }
 
 const ResourceNavItem = ({
+  id,
   children,
   active = false,
 }: ResourceNavItemProps) => {
+  const onScroll = () => {
+    const element = document.getElementById(id)
+    const top = element?.offsetTop ?? 0
+    const offset = 80
+
+    if (element) {
+      window?.scrollTo({
+        behavior: "smooth",
+        top: (top ?? 0) - offset,
+      })
+    }
+  }
+
   return (
-    <li className="flex items-center h-8 px-3 border-l-2 cursor-pointer">
+    <li
+      onClick={onScroll}
+      className="flex items-center h-8 px-3 border-l-2 cursor-pointer"
+    >
       {children}
     </li>
   )
@@ -106,9 +125,12 @@ const ResourceNav = () => {
           <ResourceNavItem id="design">Design</ResourceNavItem>
         </ul>
       </div>
-      <Button size="lg">
-        <span className="text-sm font-medium">Add resource</span>
-      </Button>
+      {/* TODO: add lint to github for edit this page*/}
+      <Link href={"/"}>
+        <Button size="lg">
+          <span className="text-sm font-medium">Add resource</span>
+        </Button>
+      </Link>
     </div>
   )
 }
@@ -257,8 +279,10 @@ export default function ResourcePage() {
             </ResourceCard>
           </div>
         </div>
-        <div className="fixed hidden right-10 md:block top-32">
-          <ResourceNav />
+        <div className="relative hidden right-10 md:block top-32">
+          <div className="sticky right-0 top-14">
+            <ResourceNav />
+          </div>
         </div>
       </div>
     </div>
