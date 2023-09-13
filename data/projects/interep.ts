@@ -14,7 +14,7 @@ export const Interep: ProjectInterface = {
     },
     extraLinks: {
         learn: [{
-            label: 'Learn more',
+            label: 'Interep: An on-ramp for reputation',
             url: 'https://mirror.xyz/privacy-scaling-explorations.eth/w7zCHj0xoxIfhoJIxI-ZeYIXwvNatP1t4w0TsqSIBe4'
         }],
     },
