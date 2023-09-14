@@ -9,5 +9,8 @@ export const ZKKit: ProjectInterface = {
     projectStatus: 'archived',
     links: {
         github: 'https://github.com/privacy-scaling-explorations/zk-kit',
+    },
+    tags: {
+        keywords: ['anonymity']
     }
 }

@@ -21,4 +21,7 @@ export const Zkopru: ProjectInterface = {
             url: 'https://mirror.xyz/privacy-scaling-explorations.eth/EB0KcMY0k9ucN8iQSBeOYksoupDYRBQ4ZffhRt477FE'
         }],
     },
+    tags: {
+        keywords: ['anonymity', 'private transactions']
+    }
 }
