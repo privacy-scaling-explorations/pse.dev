@@ -24,7 +24,7 @@ export const anonKlub: ProjectInterface = {
       "Voting/governance",
     ],
     themes: ["build", "play"],
-    type: ["Infrastructure/protocol", "Prototype", "Proof of concept"],
+    types: ["Infrastructure/protocol", "Prototype", "Proof of concept"],
     builtWith: ["circom", "snarkjs", "halo2"],
   },
 }

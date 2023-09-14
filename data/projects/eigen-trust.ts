@@ -17,7 +17,7 @@ export const eigenTrust: ProjectInterface = {
   tags: {
     keywords: ["Reputation", "Identity"],
     themes: ["build"],
-    type: ["Infrastructure/protocol"],
+    types: ["Infrastructure/protocol"],
     builtWith: ["ethereum attestation service", "halo2", "ethers.rs"],
   },
 }

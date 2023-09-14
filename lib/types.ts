@@ -19,6 +19,8 @@ export type ProjectLinkWebsite =
 
 export type ProjectLinkType = Partial<Record<ProjectLinkWebsite, string>>
 export type ProjectExtraLinkType = "buildWith" | "play" | "research" | "learn"
+export type TagType = "types" | "themes" | "builtWith" | "keywords"
+export type ProjectTags = Partial<Record<TagType, string[]>>
 export type ActionLinkTypeLink = {
   label: string
   url: string
@@ -36,6 +38,6 @@ export interface ProjectInterface {
   description: string
   links?: ProjectLinkType
   projectStatus: ProjectStatusType
-  tags?: Record<string, string[]>
+  tags?: ProjectTags
   extraLinks?: ActionLinkType
 }

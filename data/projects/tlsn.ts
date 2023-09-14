@@ -18,7 +18,7 @@ export const tlsn: ProjectInterface = {
   },
   tags: {
     themes: ["build"],
-    type: [],
+    types: [],
     builtWith: [],
     keywords: [],
   },
