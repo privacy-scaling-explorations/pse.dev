@@ -18,7 +18,7 @@ export const zk3: ProjectInterface = {
   },
   tags: {
     themes: ["play"],
-    type: [
+    types: [
       "Legos/dev tools",
       "Lego sets/toolkits",
       "Infrastructure/protocol",

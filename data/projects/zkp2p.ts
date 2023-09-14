@@ -18,8 +18,8 @@ export const zkp2p: ProjectInterface = {
   },
   tags: {
     keywords: ["Private communications"],
-    theme: ["play"],
-    type: ["Proof of concept", "Application"],
+    themes: ["play"],
+    types: ["Proof of concept", "Application"],
     builtWith: ["circom", "halo2"],
   },
 }

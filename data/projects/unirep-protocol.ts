@@ -20,7 +20,7 @@ export const unirepProtocol: ProjectInterface = {
   tags: {
     keywords: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
     themes: ["build"],
-    type: ["Legos/dev tools, Protocol"],
+    types: ["Legos/dev tools, Protocol"],
     builtWith: ["semaphore", "circom"],
   },
 }
