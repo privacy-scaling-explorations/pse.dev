@@ -5,8 +5,23 @@ import { create } from "zustand"
 import { ProjectInterface } from "@/lib/types"
 import { uniq } from "@/lib/utils"
 
+export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
 export type ProjectFilter = "keywords" | "builtWith" | "themes"
 export type FiltersProps = Record<ProjectFilter, string[]>
+
+interface ProjectInterfaceScore extends ProjectInterface {
+  score: number
+}
+
+export const SortByFnMapping: Record<
+  ProjectSortBy,
+  (a: ProjectInterfaceScore, b: ProjectInterfaceScore) => number
+> = {
+  random: () => Math.random() - 0.5,
+  asc: (a, b) => a.name.localeCompare(b.name),
+  desc: (a, b) => b.name.localeCompare(a.name),
+  relevance: (a, b) => b?.score - a?.score, // sort from most relevant to least relevant
+}
 
 export const FilterLabelMapping: Record<ProjectFilter, string> = {
   keywords: "Keywords",
@@ -20,6 +35,7 @@ export const FilterTypeMapping: Record<ProjectFilter, "checkbox" | "button"> = {
   themes: "button",
 }
 interface ProjectStateProps {
+  sortBy: ProjectSortBy
   projects: ProjectInterface[]
   filters: FiltersProps
   activeFilters: Partial<FiltersProps>
@@ -43,6 +59,7 @@ interface ProjectActionsProps {
   setFilterFromQueryString: (filters: Partial<FiltersProps>) => void
   onFilterProject: (searchPattern: string) => void
   onSelectTheme: (theme: string, searchPattern?: string) => void
+  sortProjectBy: (sortBy: ProjectSortBy) => void
 }
 
 const createURLQueryString = (params: Partial<FiltersProps>): string => {
@@ -141,17 +158,34 @@ export const filterProjects = ({
   const fuse = new Fuse(projectList, {
     threshold: 0.2,
     useExtendedSearch: true,
+    includeScore: true,
     keys,
   })
 
-  const result = fuse.search(query)?.map(({ item }) => item)
-
+  const result = fuse.search(query)?.map(({ item, score }) => {
+    return {
+      ...item,
+      score, // 0 indicates a perfect match, while a score of 1 indicates a complete mismatch.
+    }
+  })
   return result ?? []
+}
+
+const sortProjectByFn = (
+  projects: ProjectInterface[],
+  sortBy: ProjectSortBy
+) => {
+  const sortedProjectList: ProjectInterface[] = [
+    ...(projects as ProjectInterfaceScore[]),
+  ].sort(SortByFnMapping[sortBy])
+
+  return sortedProjectList
 }
 
 export const useProjectFiltersState = create<
   ProjectStateProps & ProjectActionsProps
 >()((set) => ({
+  sortBy: "random",
   projects,
   queryString: "",
   filters: getProjectFilters(), // list of filters with all possible values from projects
@@ -183,7 +217,7 @@ export const useProjectFiltersState = create<
         ...state,
         activeFilters,
         queryString,
-        projects: filteredProjects,
+        projects: sortProjectByFn(filteredProjects, state.sortBy),
       }
     }),
   onSelectTheme: (theme: string, searchQuery = "") => {
@@ -206,7 +240,7 @@ export const useProjectFiltersState = create<
       return {
         ...state,
         activeFilters,
-        projects: filteredProjects,
+        projects: sortProjectByFn(filteredProjects, state.sortBy),
       }
     })
   },
@@ -219,7 +253,7 @@ export const useProjectFiltersState = create<
 
       return {
         ...state,
-        projects: filteredProjects,
+        projects: sortProjectByFn(filteredProjects, state.sortBy),
       }
     })
   },
@@ -229,6 +263,15 @@ export const useProjectFiltersState = create<
         ...state,
         activeFilters: filters,
         queryString: createURLQueryString(filters),
+      }
+    })
+  },
+  sortProjectBy(sortBy: ProjectSortBy) {
+    set((state: any) => {
+      return {
+        ...state,
+        sortBy,
+        projects: sortProjectByFn(state.projects, sortBy),
       }
     })
   },
