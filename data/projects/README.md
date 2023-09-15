@@ -48,8 +48,14 @@ export const example: ProjectInterface = {
   id: "example",
   image: "",
   name: "This is an example of the project",
+  tldr: 'The project one-liner',
+  description: 'A longer project description',
+  projectStatus: '',
   tags: {
     themes: ["play", "buildWith"],
+    keywords: ["Anonymity/privacy", "Voting/governance"],
+    types: ["Lego sets/toolkits", "Infrastructure/protocol"],
+    builtWith: ["p0tion", "JubjubLib"],
   },
   extraLinks: {
     buildWith: [
