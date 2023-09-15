@@ -63,6 +63,13 @@ export function SiteHeaderMobile() {
             </NextLink>
             <NextLink
               onClick={() => setHeader(false)}
+              href={"/about"}
+              className="border-b-2 border-white p-[16px] pt-0"
+            >
+              ABOUT
+            </NextLink>
+            <NextLink
+              onClick={() => setHeader(false)}
               href={"/resources"}
               className="border-b-2 border-white p-[16px] pt-0"
             >

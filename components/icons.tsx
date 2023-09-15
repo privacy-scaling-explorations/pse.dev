@@ -235,4 +235,34 @@ export const Icons = {
       />
     </svg>
   ),
+  plus: (props: LucideProps) => (
+    <svg
+      width="35"
+      height="35"
+      viewBox="0 0 35 35"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M27.7096 18.9555H18.9596V27.7055H16.043V18.9555H7.29297V16.0388H16.043V7.28882H18.9596V16.0388H27.7096V18.9555Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
+  minus: (props: LucideProps) => (
+    <svg
+      width="35"
+      height="35"
+      viewBox="0 0 35 35"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M27.7096 18.9555H7.29297V16.0388H27.7096V18.9555Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
 }

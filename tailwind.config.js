@@ -103,12 +103,22 @@ module.exports = {
           from: { opacity: 0, transform: "translate(-50%, -48%) scale(0.96)" },
           to: { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
         },
+        "slide-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "slide-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "overlay-show": "overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
         "content-show": "contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "slide-down": "slide-down 0.2s ease-out",
+        "slide-up": "slide-up 0.2s ease-out",
       },
     },
   },
