@@ -5,18 +5,15 @@ import { projects } from "@/data/projects"
 import GithubVector from "@/public/social-medias/github-fill.svg"
 import GlobalVector from "@/public/social-medias/global-line.svg"
 import TwitterVector from "@/public/social-medias/twitter-fill.svg"
-import {
-  FilterLabelMapping,
-  ProjectFilter,
-  filterProjects,
-} from "@/state/useProjectFiltersState"
+import { filterProjects } from "@/state/useProjectFiltersState"
 
 import { ProjectInterface } from "@/lib/types"
 import { shuffleArray } from "@/lib/utils"
-import { CategoryTag } from "@/components/ui/categoryTag"
 import { Markdown } from "@/components/ui/markdown"
 import { Icons } from "@/components/icons"
 import ProjectCard from "@/components/project/project-card"
+import { ProjectTags } from "@/components/project/project-detail-tags"
+import ProjectExtraLinks from "@/components/project/project-extra-links"
 
 type PageProps = {
   params: { id: string }
@@ -52,38 +49,6 @@ export async function generateMetadata(
       ],
     },
   }
-}
-
-function ProjectTags({ project }: ProjectProps) {
-  return (
-    <div className="flex flex-col gap-4 mt-8">
-      {Object.entries(FilterLabelMapping).map(([key, label]) => {
-        const keyTags = project?.tags?.[key as ProjectFilter]
-        const hasItems = keyTags && keyTags?.length > 0
-
-        return (
-          hasItems && (
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="py-2 text-base font-medium ">{label}</span>
-                <div className="flex gap-[6px] flex-wrap">
-                  {keyTags?.map((tag) => {
-                    return (
-                      <Link href={`/projects?${key}=${tag}`}>
-                        <CategoryTag key={tag} variant="gray">
-                          {tag}
-                        </CategoryTag>
-                      </Link>
-                    )
-                  })}
-                </div>
-              </div>
-            </div>
-          )
-        )
-      })}
-    </div>
-  )
 }
 
 function DiscoverMoreProjects({ project }: ProjectProps) {
@@ -194,8 +159,11 @@ export default function ProjectDetailPage({ params }: PageProps) {
           <div className="mt-8">
             <ProjectTags project={currProject} />
           </div>
-          <div className="flex flex-col w-full gap-5 py-10 text-base font-normal leading-relaxed">
+          <div className="flex flex-col w-full gap-5 pt-10 text-base font-normal leading-relaxed">
             <Markdown>{currProject.description}</Markdown>
+          </div>
+          <div className="py-16">
+            <ProjectExtraLinks project={currProject} />
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ export const channel4: ProjectInterface = {
   tags: {
     keywords: ["Scaling"],
     themes: ["play"],
-    type: ["Application"],
+    types: ["Application"],
     builtWith: ["state channel", "smart contract"],
   },
 }

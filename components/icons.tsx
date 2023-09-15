@@ -220,4 +220,19 @@ export const Icons = {
       />
     </svg>
   ),
+  arrowDown: (props: LucideProps) => (
+    <svg
+      width="25"
+      height="25"
+      viewBox="0 0 25 25"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.4997 13.6719L17.4497 8.72192L18.8637 10.1359L12.4997 16.4999L6.13574 10.1359L7.54974 8.72192L12.4997 13.6719Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
 }

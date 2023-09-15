@@ -18,7 +18,7 @@ export const pollenLabs: ProjectInterface = {
   tags: {
     keywords: ["Anonymity/privacy", "Scaling"],
     themes: ["play"],
-    type: ["Application"],
+    types: ["Application"],
     builtWith: [],
   },
 }

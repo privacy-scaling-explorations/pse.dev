@@ -13,7 +13,7 @@ export const bandada: ProjectInterface = {
   description,
   links: {
     github: "https://github.com/privacy-scaling-explorations/bandada",
-    website: "https://bandada.appliedzkp.org/",
+    website: "https://bandada.pse.dev",
   },
   tags: {
     keywords: [
@@ -27,7 +27,7 @@ export const bandada: ProjectInterface = {
       "Scaling",
       "Key management",
     ],
-    type: [
+    types: [
       "Legos/dev tools",
       "Lego sets/toolkits",
       "Prototype",
