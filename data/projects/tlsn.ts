@@ -1,7 +1,9 @@
 import { ProjectInterface } from "@/lib/types"
 
 const description = `
-TLSNotary is useful for developers of privacy focused projects that need data provenance from secure web servers. It leverages the widely-used Transport Layer Security (TLS) protocol to securely and privately prove a transcript of communications took place with a webserver. The protocol involves splitting TLS session keys between two parties: the User and the Notary. Neither the User nor Notary are in possession of the full TLS session keys, they only hold a share of those keys. This ensures the security assumptions of TLS while enabling the User to prove the authenticity of the communication to the Notary. The Notary remains unaware of which webserver is being queried, and the Notary never has access to the unencrypted communications. All of this is achieved while maintaining full privacy.
+TLSNotary is ideal for developers of privacy-focused projects that require **data provenance** from secure web servers. It leverages the widely-used **Transport Layer Security (TLS)** protocol to securely and privately prove that a transcript of communications with a web server took place. The protocol divides TLS session keys between two parties: the Prover and the Verifier, using **Multi-Party Computation (MPC)**.  Neither the User nor Notary are in possession of the full TLS session keys, they only hold a share of those keys. This retains the security assumptions of TLS while allowing the Prover to demonstrate the **authenticity of the communication** to the Verifier. The Verifier remains unaware of which webserver is being queried, and the Verifier never has access to the unencrypted communications, except for the data the Prover explicitly wants to disclose.
+
+**TLSNotary can help your project with secure and privacy-preserving data portability!**
 `
 
 export const tlsn: ProjectInterface = {
@@ -17,9 +19,19 @@ export const tlsn: ProjectInterface = {
     discord: "https://discord.gg/9XwESXtcN7",
   },
   tags: {
-    themes: ["build"],
-    types: [],
-    builtWith: [],
-    keywords: [],
+    themes: ["build", "play"],
+    types: [
+      "Legos/dev tools",
+      "Infrastructure/protocol",
+      "Plugin",
+      "Application",
+    ],
+    builtWith: ['rust'],
+    keywords: [
+      "Anonymity/privacy",
+      "Identity",
+      "Reputation",
+      "Data portability"
+    ],
   },
 }
