@@ -37,12 +37,10 @@ export const unirepProtocol: ProjectInterface = {
         label: "Try it out: UniRep.social (Staging)",
         url: 'https://social-staging.unirep.workers.dev',
       },
-    ],
-     play: [
       {
         label: "Try it out: Trustlist (coming soon) ",
         url: 'https://trustlist.pse.dev',
-      },
+      }
     ],
   },
 }
