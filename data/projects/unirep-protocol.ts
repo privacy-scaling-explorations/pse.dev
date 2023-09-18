@@ -28,8 +28,8 @@ export const unirepProtocol: ProjectInterface = {
    extraLinks: {
     buildWith: [
       {
-        label: "Build with this tool",
-        url: 'https://developer.unirep.io/docs/next/welcome',
+        label: "Getting Started with create-unirep-app",
+        url: 'https://developer.unirep.io/docs/next/getting-started/create-unirep-app',
       },
     ],
     play: [
