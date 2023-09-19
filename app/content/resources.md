@@ -6,7 +6,7 @@
     icon="discord"
   />
   <ResourceItem
-    label="OxParc"
+    label="0xPARC"
     description="Organization supporting the next generation of cryptography-enabled applications."
     url="https://0xparc.org/"
   />
@@ -46,7 +46,7 @@
     url="https://zk-learning.org/"
   />
   <ResourceItem
-    label="Learn by Oxparc"
+    label="Learn by 0xPARC"
     description="Born out of their first Applied ZK Learning Group. Supported by volunteers from their community."
     url="https://learn.0xparc.org/"
   />
