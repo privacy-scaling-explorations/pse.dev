@@ -1,24 +1,25 @@
 "use client"
 
-import React, { useEffect } from "react"
 import Link from "next/link"
+import { useCallback, useEffect, useRef, useState } from "react"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
+import { ArrowUpRight } from "lucide-react"
 import ResourcesContent from "../content/resources.md"
 
 interface ResourceItemProps {
   label: string
   icon?:
-    | "globe"
-    | "discord"
-    | "twitter"
-    | "gitHub"
-    | "notion"
-    | "figma"
-    | "drive"
+  | "globe"
+  | "discord"
+  | "twitter"
+  | "gitHub"
+  | "notion"
+  | "figma"
+  | "drive"
   description: string
   url: string
 }
@@ -35,31 +36,31 @@ const ResourceItem = ({
   description,
   url,
 }: ResourceItemProps) => {
-  // @ts-ignore
-  const Icon = Icons?.[icon as keyof Icons] ?? Icons.globe
+  const Icon = Icons?.[icon as keyof typeof Icons] ?? Icons.globe
 
   return (
-    <div className="flex flex-col gap-2">
-      <Link
-        href={url}
-        target="_blank"
-        rel="noreferrer noopener"
-        className="flex items-center gap-1 cursor-pointer group"
-      >
-        <div className="flex items-center gap-2">
-          <span className="w-6 text-anakiwa-400">
-            <Icon />
-          </span>
-          <span className="text-lg font-normal border-b-2 border-b-transparent text-tuatara-950 hover:border-b-orange">
+    <Link
+      href={url}
+      target="_blank"
+      rel="noreferrer noopener"
+      className="group border-b-2 border-anakiwa-300 pb-3 duration-500 hover:border-orange group-hover:transition"
+    >
+      <div className="flex justify-between">
+        <div className="flex space-x-3">
+          <div className="text-anakiwa-500 opacity-50 transition group-hover:text-orange group-hover:opacity-100">
+            <Icon size={8} />
+          </div>
+          <span className="text-lg font-medium">
             {label}
           </span>
-          <Icons.externalUrl />
         </div>
-      </Link>
-      <span className="font-sans text-base italic font-normal text-tuatara-500">
+        <ArrowUpRight size={24} className="text-orange opacity-0 transition duration-500 group-hover:opacity-100" />
+      </div>
+      <div className="p-[2px]"></div>
+      <p className="text-sm text-tuatara-500">
         {description}
-      </span>
-    </div>
+      </p>
+    </Link>
   )
 }
 
@@ -68,62 +69,73 @@ const ResourceCard = ({ id, title, children }: ResourceCardProps) => {
     <div
       id={id}
       data-section={id}
-      className="flex flex-col gap-4 p-4"
+      className="flex flex-col gap-4 rounded-lg p-6 backdrop-blur-md"
       style={{
-        background: "rgba(255, 255, 255, 0.30",
+        background: "rgba(255, 255, 255, 0.33",
       }}
     >
-      <h3 className="py-4 text-xl font-bold md:text-2xl font-display text-tuatara-700">
+      <h3 className="py-4 font-display text-xl font-bold text-tuatara-700 md:text-2xl">
         {title}
       </h3>
-      <div className="grid gap-6 mb-4">{children}</div>
+      <div className="mb-4 grid gap-6">{children}</div>
     </div>
   )
 }
 
 const ResourceNav = () => {
   const SCROLL_OFFSET = 80
-  const [activeId, setActiveId] = React.useState("")
+  const [activeId, setActiveId] = useState("")
+  const [isManualScroll, setIsManualScroll] = useState(false)
   const ID_LABELS_MAPPING: Record<string, string> = {
     "get-involved": "Get involved",
     learn: "Learn",
     build: "Build",
     design: "Design",
   }
+  const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null) // sections are constant so useRef might be better here
 
   useEffect(() => {
-    const sections: any = document.querySelectorAll(`div[data-section]`)
+    if (sectionsRef.current === null) sectionsRef.current = document.querySelectorAll(`div[data-section]`)
+    if (!activeId) activeId == 'get-involved'
 
-    window.onscroll = () => {
-      sections.forEach((section: any) => {
+    const handleScroll = () => {
+      if (isManualScroll) return;
+
+      sectionsRef.current?.forEach((section: any) => {
         const sectionTop = section.offsetTop - SCROLL_OFFSET
         if (window.scrollY >= sectionTop && window.scrollY > 0) {
           setActiveId(section.getAttribute("id"))
         }
       })
     }
-  }, [])
 
-  const scrollToId = (id: string) => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [activeId, isManualScroll])
+
+  const scrollToId = useCallback((id: string) => {
     const element = document.getElementById(id)
     const top = element?.offsetTop ?? 0
 
     if (element) {
+      setActiveId(id) // active clicked id
+      setIsManualScroll(true) // tell the window event listener to ignore this scrolling
       window?.scrollTo({
         behavior: "smooth",
         top: (top ?? 0) - SCROLL_OFFSET,
       })
-      setActiveId(id) // active clicked id
     }
-  }
+
+    setTimeout(() => setIsManualScroll(false), 1200)
+  }, [])
 
   return (
     <div className="flex flex-col gap-6 p-8">
       <div className="flex flex-col gap-4">
-        <span className="text-lg font-bold text-tuatara-700 font-display">
+        <h6 className="font-display text-lg font-bold text-tuatara-700">
           On this page
-        </span>
-        <ul className="font-sans text-black text-normal">
+        </h6>
+        <ul className="text-normal font-sans text-black">
           {Object.entries(ID_LABELS_MAPPING).map(([id, label]) => {
             const active = id === activeId
             return (
@@ -134,7 +146,7 @@ const ResourceNav = () => {
                 }}
                 data-id={id}
                 className={cn(
-                  "flex items-center h-8 px-3 border-l-2 cursor-pointer duration-200",
+                  "flex h-8 cursor-pointer items-center border-l-2 border-l-anakiwa-200 px-3 duration-200",
                   {
                     "border-l-anakiwa-500 text-anakiwa-500 font-medium": active,
                   }
@@ -149,7 +161,7 @@ const ResourceNav = () => {
       {/* TODO: add lint to github for edit this page when is merged*/}
       <Link href={"/"} className="hidden">
         <Button size="lg">
-          <span className="text-sm font-medium text-left">Add resource</span>
+          <span className="text-left text-sm font-medium">Add resource</span>
         </Button>
       </Link>
     </div>
@@ -158,38 +170,36 @@ const ResourceNav = () => {
 
 export default function ResourcePage() {
   return (
-    <div className="bg-second-gradient">
-      <div className="container grid grid-cols-1 px-4 grid-cols-1 md:grid-cols-[3fr_1fr] lg:grid-cols-[1fr_3fr_1fr] gap-6 py-10 md:pb-20">
-        <div className="md:hidden lg:block"></div>
-        <div>
-          <div className="grid grid-cols-1 gap-16">
-            <div className="flex flex-col gap-8">
-              <h6 className="text-4xl font-bold break-words md:text-5xl text-tuatara-950 font-display">
-                Resources
-              </h6>
-              <span className="font-sans text-base font-normal text-tuatara-950 leading-[27px]">
-                This list was compiled by our community. Submit an issue on our
-                Github page to add a resource to this list.
-              </span>
-            </div>
-            <ResourcesContent
-              components={{
-                ResourceItem: (props: ResourceItemProps) => (
-                  <ResourceItem {...props} />
-                ),
-                ResourceCard: (props: ResourceCardProps) => (
-                  <ResourceCard {...props} />
-                ),
-              }}
-            />
-          </div>
-        </div>
-        <div className="relative right-0 z-0 hidden md:block top-32">
-          <div className="sticky right-0 ml-auto top-14">
+    <main className="bg-second-gradient">
+      <div className="container grid grid-cols-1 grid-rows-[auto_1fr] gap-6 px-4 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[1fr_3fr_1fr]">
+        <section className="hidden lg:block"></section>
+        <section className=" flex flex-col gap-8 lg:col-start-2">
+          <h1 className="break-words font-display text-4xl font-bold text-tuatara-950 md:text-5xl">
+            Resources
+          </h1>
+          <p className="font-sans text-base font-normal leading-[27px] text-tuatara-950">
+            This list was compiled by our community. Submit an issue on our
+            Github page to add a resource to this list.
+          </p>
+        </section>
+        <article className="row-start-2 flex flex-col space-y-8 lg:col-start-2">
+          <ResourcesContent
+            components={{
+              ResourceItem: (props: ResourceItemProps) => (
+                <ResourceItem {...props} />
+              ),
+              ResourceCard: (props: ResourceCardProps) => (
+                <ResourceCard {...props} />
+              ),
+            }}
+          />
+        </article>
+        <section className="relative col-start-2 row-start-2 hidden md:block lg:col-start-3">
+          <div className="sticky right-0 top-16 ml-auto">
             <ResourceNav />
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   )
 }
