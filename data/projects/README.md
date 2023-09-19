@@ -48,8 +48,14 @@ export const example: ProjectInterface = {
   id: "example",
   image: "",
   name: "This is an example of the project",
+  tldr: 'The project one-liner',
+  description: 'A longer project description',
+  projectStatus: '',
   tags: {
     themes: ["play", "buildWith"],
+    keywords: ["Anonymity/privacy", "Voting/governance"],
+    types: ["Lego sets/toolkits", "Infrastructure/protocol"],
+    builtWith: ["p0tion", "JubjubLib"],
   },
   extraLinks: {
     buildWith: [
@@ -71,3 +77,8 @@ export const example: ProjectInterface = {
 This is the result
 
 ![Project links](/public/project/example-project-extra-link.png)
+
+## Markdown supported
+
+You can also format the description to your liking using markdown. We supported all the heading, bold and table.
+This can help the reader to quickly scan through the important information.
