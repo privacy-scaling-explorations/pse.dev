@@ -96,7 +96,7 @@ const ResourceNav = () => {
 
   useEffect(() => {
     if (sectionsRef.current === null) sectionsRef.current = document.querySelectorAll(`div[data-section]`)
-    if (!activeId) activeId == 'get-involved'
+    if (!activeId) setActiveId('get-involved')
 
     const handleScroll = () => {
       if (isManualScroll) return;
