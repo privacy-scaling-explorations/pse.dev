@@ -146,8 +146,8 @@ const ResourceNav = () => {
           })}
         </ul>
       </div>
-      {/* TODO: add lint to github for edit this page*/}
-      <Link href={"/"}>
+      {/* TODO: add lint to github for edit this page when is merged*/}
+      <Link href={"/"} className="hidden">
         <Button size="lg">
           <span className="text-sm font-medium text-left">Add resource</span>
         </Button>
