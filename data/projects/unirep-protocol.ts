@@ -1,7 +1,9 @@
 import { ProjectInterface } from "@/lib/types"
 
 const description = `
-UniRep is a zero-knowledge protocol that securely manages user data through anonymous identifiers, enabling trustless interactions and enhanced user privacy in applications. It expands the concept of reputation to include various user data aspects, such as preferences, activity, alignments, and ownership. UniRep promotes non-custodial applications that don't hold user data, reducing data breach risks and emphasizing security for both users and developers.
+UniRep is a zero-knowledge protocol that securely manages user data through anonymous identifiers, enabling trustless interactions and enhanced user privacy in applications. UniRep expands the notion of reputation to include various user data aspects, such as preferences, activity, alignments, and ownership.
+
+Using anonymous identifiers (epoch keys), the protocol allows for trustless engagement with applications while preserving user privacy. This approach promotes non-custodial applications that don't hold user data, reducing data breach risks and emphasizing security for both users and developers.
 `
 
 export const unirepProtocol: ProjectInterface = {
@@ -9,7 +11,7 @@ export const unirepProtocol: ProjectInterface = {
   projectStatus: "active",
   image: "unirep.svg",
   name: "UniRep Protocol",
-  tldr: "A Zero-Knowledge Protocol for user data & reputation management",
+  tldr: "A Zero-Knowledge Protocol built to handle anonymous user data.",
   description,
   links: {
     github: "https://github.com/Unirep",
@@ -19,8 +21,26 @@ export const unirepProtocol: ProjectInterface = {
   },
   tags: {
     keywords: ["Anonymity/privacy", "Social", "Identity", "Reputation"],
-    themes: ["build"],
+    themes: ["build", "play"],
     types: ["Legos/dev tools, Protocol"],
     builtWith: ["semaphore", "circom"],
+  },
+   extraLinks: {
+    buildWith: [
+      {
+        label: "Getting Started with create-unirep-app",
+        url: 'https://developer.unirep.io/docs/next/getting-started/create-unirep-app',
+      },
+    ],
+    play: [
+      {
+        label: "Try it out: UniRep.social (Staging)",
+        url: 'https://social-staging.unirep.workers.dev',
+      },
+      {
+        label: "Try it out: Trustlist (coming soon) ",
+        url: 'https://trustlist.pse.dev',
+      }
+    ],
   },
 }
