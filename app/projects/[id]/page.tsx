@@ -73,8 +73,8 @@ function DiscoverMoreProjects({ project }: ProjectProps) {
   const suggestedProject = getSuggestedProjects()
 
   return (
-    <div className="flex flex-col items-center justify-center w-full px-6 py-32 gap-14 md:px-0 bg-anakiwa-200">
-      <h2 className="text-3xl font-bold text-center">Discover more</h2>
+    <div className="flex w-full flex-col items-center justify-center gap-14 bg-anakiwa-200 px-6 py-32 md:px-0">
+      <h2 className="text-center text-3xl font-bold">Discover more</h2>
       <div className="flex flex-col gap-5 md:flex-row">
         {suggestedProject?.map((project: ProjectInterface) => (
           <ProjectCard project={project} />
@@ -143,7 +143,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
           <p className="text-slate-600">{currProject.tldr}</p>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center w-full gap-5 px-6 py-10 bg-anakiwa-100 md:px-0">
+      <div className="flex w-full flex-col items-center justify-center gap-5 bg-anakiwa-100 px-6 py-10 md:px-0">
         <div className="w-full md:w-[700px]">
           <div className="relative flex items-center justify-center overflow-hidden rounded-lg">
             <Image
@@ -153,13 +153,13 @@ export default function ProjectDetailPage({ params }: PageProps) {
               alt={`${currProject.name} banner`}
               width={1200}
               height={630}
-              className="object-cover w-full rounded-t-lg"
+              className="w-full rounded-t-lg object-cover"
             />
           </div>
           <div className="mt-8">
             <ProjectTags project={currProject} />
           </div>
-          <div className="flex flex-col w-full gap-5 pt-10 text-base font-normal leading-relaxed">
+          <div className="flex w-full flex-col gap-5 pt-10 text-base font-normal leading-relaxed">
             <Markdown>{currProject.description}</Markdown>
           </div>
           <div className="py-16">

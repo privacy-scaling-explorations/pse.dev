@@ -66,7 +66,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </Script>
         <head />
         <body className={"min-h-screen bg-background antialiased"}>
-          <div className="relative flex flex-col min-h-screen">
+          <div className="relative flex min-h-screen flex-col">
             <SiteHeader />
             <div className="flex-1">{children}</div>
             <SiteFooter />

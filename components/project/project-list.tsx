@@ -9,11 +9,11 @@ import ProjectCard from "./project-card"
 
 const NoResults = () => {
   return (
-    <div className="flex flex-col gap-2 pt-24 pb-40 text-center">
+    <div className="flex flex-col gap-2 pb-40 pt-24 text-center">
       <div className="mx-auto">
-        <Image className="w-9 h-9" src={NoResultIcon} alt="no result icon" />
+        <Image className="h-9 w-9" src={NoResultIcon} alt="no result icon" />
       </div>
-      <span className="text-2xl font-bold font-display text-tuatara-950">
+      <span className="font-display text-2xl font-bold text-tuatara-950">
         No results found.
       </span>
       <span className="text-lg font-normal text-tuatara-950">

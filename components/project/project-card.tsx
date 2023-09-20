@@ -64,12 +64,12 @@ export default function ProjectCard({
           alt={`${name} banner`}
           width={1200}
           height={630}
-          className="object-cover w-full rounded-t-lg"
+          className="w-full rounded-t-lg object-cover"
         />
       )}
-      <div className="flex flex-col justify-between h-full gap-5 p-5 bg-white rounded-b-lg">
+      <div className="flex h-full flex-col justify-between gap-5 rounded-b-lg bg-white p-5">
         <div className="flex flex-col justify-start gap-2">
-          <div className="flex gap-2 mb-2">
+          <div className="mb-2 flex gap-2">
             {tags?.themes?.map((theme, index) => {
               const { label } = ThemesButtonMapping?.[theme]
               const icon = TagsIconMapping?.[theme]
@@ -88,7 +88,7 @@ export default function ProjectCard({
           <p className="text-slate-900/80">{tldr}</p>
         </div>
         {showLinks && (
-          <div className="flex items-center justify-start gap-2 mr-auto">
+          <div className="mr-auto flex items-center justify-start gap-2">
             {Object.entries(links ?? {})?.map(([website, url], index) => {
               return (
                 <ProjectLink

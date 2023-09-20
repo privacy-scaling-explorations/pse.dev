@@ -18,7 +18,7 @@ const Checkbox = ({ label, name, checked, ...props }: CheckboxProps) => {
       <CheckboxComponent.Root
         {...props}
         checked={checked}
-        className="ease-in duration-100 flex items-center justify-center w-[14px] h-[14px] bg-white border-2 border-solid rounded-[1.5px] cursor-pointer aria-checked:bg-black aria-checked:border-black border-tuatara-200"
+        className="flex h-[14px] w-[14px] cursor-pointer items-center justify-center rounded-[1.5px] border-2 border-solid border-tuatara-200 bg-white duration-100 ease-in aria-checked:border-black aria-checked:bg-black"
         id={name}
       >
         <CheckboxComponent.Indicator className="text-white">
@@ -27,7 +27,7 @@ const Checkbox = ({ label, name, checked, ...props }: CheckboxProps) => {
       </CheckboxComponent.Root>
       {label && (
         <label
-          className="pl-3 font-sans text-base font-normal break-all cursor-pointer"
+          className="cursor-pointer break-all pl-3 font-sans text-base font-normal"
           htmlFor={name}
         >
           {label}

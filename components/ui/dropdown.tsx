@@ -37,13 +37,13 @@ const Dropdown = ({
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild disabled={disabled}>
         <button
-          className={cn("focus:outline-none ring-0", {
+          className={cn("ring-0 focus:outline-none", {
             "opacity-70 cursor-not-allowed": disabled,
           })}
           aria-label="dropdown menu"
         >
           <div className="flex items-center gap-1">
-            <span className="text-sm font-medium break-words text-tuatara-950">
+            <span className="break-words text-sm font-medium text-tuatara-950">
               {label}
             </span>
             <Icons.arrowDown />
@@ -53,7 +53,7 @@ const Dropdown = ({
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="min-w-[136px] max-h-[250px] overflow-scroll border border-tuatara-200 rounded-md bg-white py-2"
+          className="max-h-[250px] min-w-[136px] overflow-scroll rounded-md border border-tuatara-200 bg-white py-2"
           sideOffset={5}
         >
           {items?.map((item, index) => {
@@ -62,7 +62,7 @@ const Dropdown = ({
               <DropdownMenu.Item
                 key={index}
                 className={cn(
-                  "relative py-3 px-5 w-full font-sans text-sm cursor-pointer hover:font-medium focus:outline-none ring-0 hover:text-anakiwa-500 text-duration-200",
+                  "text-duration-200 relative w-full cursor-pointer px-5 py-3 font-sans text-sm ring-0 hover:font-medium hover:text-anakiwa-500 focus:outline-none",
                   {
                     "text-tuatara-950 font-normal": !active,
                     "text-anakiwa-500 font-medium": active,
@@ -71,7 +71,7 @@ const Dropdown = ({
                 onSelect={() => onSelectCallback(item)}
               >
                 {active && (
-                  <div className="bg-anakiwa-500 w-[3px] absolute left-0 top-0 bottom-0"></div>
+                  <div className="absolute inset-y-0 left-0 w-[3px] bg-anakiwa-500"></div>
                 )}
                 {item.label}
               </DropdownMenu.Item>

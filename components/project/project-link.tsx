@@ -25,7 +25,7 @@ export function ProjectLink({ website, url }: ProjectLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="px-4 py-1 rounded bg-[#F5F5F6]">
+      <div className="rounded bg-[#F5F5F6] px-4 py-1">
         <Image
           src={image}
           alt={`${website}Vector`}

@@ -30,7 +30,7 @@ export function SiteHeaderMobile() {
       />
       {header && (
         <div
-          className="fixed inset-0 flex justify-end bg-black opacity-50 z-5"
+          className="z-5 fixed inset-0 flex justify-end bg-black opacity-50"
           onClick={() => setHeader(false)}
         ></div>
       )}

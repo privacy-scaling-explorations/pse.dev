@@ -14,10 +14,10 @@ export default function ProjectsPage() {
   return (
     <section>
       <div className="bg-anakiwa-200">
-        <div className="container py-10 mx-auto lg:py-20">
+        <div className="container mx-auto py-10 lg:py-20">
           <div className="flex flex-col justify-between gap-10">
             <div>
-              <h1 className="text-4xl font-bold md:text-5xl font-display text-tuatara-950">
+              <h1 className="font-display text-4xl font-bold text-tuatara-950 md:text-5xl">
                 Explore the project library
               </h1>
               <p className="p-2"></p>
@@ -26,7 +26,7 @@ export default function ProjectsPage() {
                 developer tools, protocols and proof-of-concept applications.
               </p>
             </div>
-            <div className=" bg-anakiwa-500 w-20 h-[1px]"></div>
+            <div className=" h-[1px] w-20 bg-anakiwa-500"></div>
             <ProjectFiltersBar />
           </div>
         </div>

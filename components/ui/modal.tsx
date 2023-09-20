@@ -56,7 +56,7 @@ const Modal = ({
       <Dialog.Content className={cn(modalContentVariants({ size }))}>
         {title && (
           <Dialog.Title>
-            <ModalContent className="text-center border-b border-b-tuatara-200">
+            <ModalContent className="border-b border-b-tuatara-200 text-center">
               {title}
             </ModalContent>
           </Dialog.Title>
@@ -74,7 +74,7 @@ const Modal = ({
 
         <Dialog.Close>
           <button
-            className="absolute inline-flex w-5 cursor-pointer right-4 top-4"
+            className="absolute right-4 top-4 inline-flex w-5 cursor-pointer"
             aria-label="Close"
           >
             <Icons.close />
