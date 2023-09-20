@@ -47,14 +47,14 @@ const ResourceItem = ({
     >
       <div className="flex justify-between">
         <div className="flex space-x-3">
-          <div className="text-anakiwa-500 opacity-50 transition group-hover:text-orange group-hover:opacity-100">
-            <Icon size={8} />
+          <div className="h-6 w-6 text-anakiwa-500 opacity-50 transition group-hover:text-tuatara-950 group-hover:opacity-100">
+            <Icon />
           </div>
           <span className="text-lg font-medium">
             {label}
           </span>
         </div>
-        <ArrowUpRight size={24} className="text-orange opacity-0 transition duration-500 group-hover:opacity-100" />
+        <ArrowUpRight size={24} className="text-tuatara-950 opacity-0 transition duration-500 group-hover:opacity-100" />
       </div>
       <div className="p-[2px]"></div>
       <p className="text-sm text-tuatara-500">
@@ -126,7 +126,7 @@ const ResourceNav = () => {
       })
     }
 
-    setTimeout(() => setIsManualScroll(false), 1200)
+    setTimeout(() => setIsManualScroll(false), 800)
   }, [])
 
   return (
@@ -140,6 +140,7 @@ const ResourceNav = () => {
             const active = id === activeId
             return (
               <li
+                key={id}
                 onClick={(e) => {
                   //e?.preventDefault()
                   scrollToId(id)
