@@ -30,12 +30,12 @@ const Accordion = ({
     >
       {items?.map(({ label, children, value }) => (
         <RadixAccordion.Item className="group" value={value}>
-          <RadixAccordion.Trigger className="flex items-center justify-between w-full py-6 border-t border-t-black ring-0 focus:outline-none">
-            <span className="font-sans text-base md:text-xl font-bold text-black uppercase tracking-[3.36px] md:tracking-[4.2px] block text-left">
+          <RadixAccordion.Trigger className="flex w-full items-center justify-between border-t border-t-black py-6 ring-0 focus:outline-none">
+            <span className="block text-left font-sans text-base font-bold uppercase tracking-[3.36px] text-black md:text-xl md:tracking-[4.2px]">
               {label}
             </span>
             <div
-              className={`md:invisible group-hover:visible duration-50 group-data-[state=open]:hidden`}
+              className={`duration-50 group-hover:visible group-data-[state=open]:hidden md:invisible`}
             >
               <Icons.plus className="w-4 md:w-8" />
             </div>
@@ -43,7 +43,7 @@ const Accordion = ({
               <Icons.minus className="w-4 md:w-8" />
             </div>
           </RadixAccordion.Trigger>
-          <RadixAccordion.Content className="group-data-[state=open]:animate-slide-down group-data-[state=closed]:animate-slide-up transition-transform overflow-hidden">
+          <RadixAccordion.Content className="overflow-hidden transition-transform group-data-[state=closed]:animate-slide-up group-data-[state=open]:animate-slide-down">
             {children}
           </RadixAccordion.Content>
         </RadixAccordion.Item>

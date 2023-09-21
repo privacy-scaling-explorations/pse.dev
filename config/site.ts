@@ -17,6 +17,10 @@ export const siteConfig = {
       title: "About",
       href: "/about",
     },
+    {
+      title: "Resources",
+      href: "/resources",
+    },
   ],
   links: {
     twitter: "https://twitter.com/privacyscaling",

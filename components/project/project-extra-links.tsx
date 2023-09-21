@@ -61,7 +61,7 @@ const ExtraLinkItems = ({ id, links = [] }: ExtraLinkItemsProps) => {
             <Link
               href={url}
               target="_blank"
-              className="flex items-center gap-1 overflow-hidden font-sans font-normal duration-200 ease-in-out border-b-2 border-transparent cursor-pointer text-tuatara-950 hover:border-orange"
+              className="flex cursor-pointer items-center gap-1 overflow-hidden border-b-2 border-transparent font-sans font-normal text-tuatara-950 duration-200 ease-in-out hover:border-orange"
             >
               {label}
               <Icons.externalUrl />

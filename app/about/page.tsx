@@ -16,8 +16,8 @@ const PrincipleContent = ({
   height = 300,
 }: PrincipleContentProps) => {
   return (
-    <div className="grid grid-cols-1 gap-6 py-4 md:gap-2 md:mb-8 md:py-6 md:items-center md:grid-cols-2">
-      <div className="py-6 m-auto md:py-0">
+    <div className="grid grid-cols-1 gap-6 py-4 md:mb-8 md:grid-cols-2 md:items-center md:gap-2 md:py-6">
+      <div className="m-auto py-6 md:py-0">
         <Image
           width={width}
           height={height}
@@ -25,7 +25,7 @@ const PrincipleContent = ({
           alt="principle image"
         />
       </div>
-      <span className="flex flex-col gap-4 font-sans text-lg leading-7 break-words">
+      <span className="flex flex-col gap-4 break-words font-sans text-lg leading-7">
         {children}
       </span>
     </div>
@@ -35,12 +35,12 @@ export default function AboutPage() {
   return (
     <div className="bg-anakiwa-200">
       <div className="bg-second-gradient">
-        <div className="container grid grid-cols-1 lg:grid-cols-[1fr_300px] lg:gap-2 py-10 mx-auto gap-16 lg:py-20">
+        <div className="container mx-auto grid grid-cols-1 gap-16 py-10 lg:grid-cols-[1fr_300px] lg:gap-2 lg:py-20">
           <div className="flex flex-col gap-8 lg:w-4/5">
-            <h6 className="text-4xl font-bold break-words md:py-4 md:text-5xl text-tuatara-950 font-display">
+            <h6 className="break-words font-display text-4xl font-bold text-tuatara-950 md:py-4 md:text-5xl">
               Collective experimentation of cryptography.
             </h6>
-            <span className="font-sans text-base font-normal text-tuatara-950 leading-[27px]">
+            <span className="font-sans text-base font-normal leading-[27px] text-tuatara-950">
               PSE is a multi-disciplinary research and development lab supported
               by the Ethereum Foundation. We create open source infrastructure,
               tools and educational resources for building cryptography into
@@ -58,8 +58,8 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 px-8 py-16 md:py-24 md:px-32">
-        <h6 className="text-4xl uppercase font-display">Pse principles</h6>
+      <div className="flex flex-col gap-4 px-8 py-16 md:px-32 md:py-24">
+        <h6 className="font-display text-4xl uppercase">Pse principles</h6>
         <Accordion
           type="multiple"
           items={[

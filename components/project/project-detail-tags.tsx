@@ -29,7 +29,7 @@ export function ProjectTags({ project }: { project: ProjectInterface }) {
   const { label, icon } = ThemesStatusMapping?.[project?.projectStatus] ?? {}
 
   return (
-    <div className="flex flex-col gap-4 mt-8">
+    <div className="mt-8 flex flex-col gap-4">
       {Object.entries(FilterLabelMapping).map(([key, label]) => {
         const keyTags = project?.tags?.[key as ProjectFilter]
         const hasItems = keyTags && keyTags?.length > 0
@@ -40,7 +40,7 @@ export function ProjectTags({ project }: { project: ProjectInterface }) {
           hasItems && (
             <div>
               <TagsWrapper label={label}>
-                <div className="flex gap-[6px] flex-wrap">
+                <div className="flex flex-wrap gap-[6px]">
                   {keyTags?.map((tag) => {
                     return (
                       <Link href={`/projects?${key}=${tag}`}>

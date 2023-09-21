@@ -88,7 +88,7 @@ const FilterButtons = ({
   )
 
   return (
-    <div className="relative grid grid-cols-3 col-span-1 gap-2 md:gap-4 md:col-span-2 after:content-none md:after:content-[''] after:absolute after:h-11 after:w-[1px] after:bg-anakiwa-500 after:-right-[25px]">
+    <div className="relative col-span-1 grid grid-cols-3 gap-2 after:absolute after:right-[-25px] after:h-11 after:w-[1px] after:content-none md:col-span-2 md:gap-4 md:after:content-['']">
       {Object.entries(ThemesButtonMapping).map(([key, { label, icon }]) => {
         const isActive = activeFilters?.themes?.includes(key)
         const variant = isActive ? "blue" : "white"
@@ -132,7 +132,7 @@ export default function ProjectFiltersBar() {
     useProjectFiltersState.setState({
       activeFilters: queryStringToObject(searchParams),
     })
-  }, [])
+  }, [searchParams])
 
   useEffect(() => {
     const count = Object.values(activeFilters).reduce((acc, curr) => {
@@ -269,9 +269,9 @@ export default function ProjectFiltersBar() {
         <span className="text-lg font-medium">
           What do you want to do today?
         </span>
-        <div className="grid items-center justify-between grid-cols-1 gap-3 md:gap-12 md:grid-cols-5">
+        <div className="grid grid-cols-1 items-center justify-between gap-3 md:grid-cols-5 md:gap-12">
           <FilterButtons />
-          <div className="grid grid-cols-[1fr_auto] col-span-1 gap-2 md:gap-3 md:col-span-3">
+          <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">
             <Input
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setSearchQuery(e?.target?.value)
@@ -297,7 +297,7 @@ export default function ProjectFiltersBar() {
               <button
                 disabled={!hasActiveFilters}
                 onClick={clearAllFilters}
-                className="hidden bg-transparent cursor-pointer md:block text-primary opacity-85 hover:opacity-100 disabled:opacity-50 disabled:pointer-events-none"
+                className="opacity-85 hidden cursor-pointer bg-transparent text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block"
               >
                 <div className="flex items-center gap-2 border-b-2 border-black">
                   <span className="text-sm font-medium">Clear all</span>
