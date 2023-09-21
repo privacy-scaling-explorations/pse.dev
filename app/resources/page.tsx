@@ -159,7 +159,7 @@ const ResourceNav = () => {
           })}
         </ul>
       </div>
-      <Link href={"https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/content/resources.md"} >
+      <Link href={"https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/content/resources.md?plain=1"}>
         <Button size="lg">
           <span className="text-left text-sm font-medium">Add resource</span>
         </Button>
