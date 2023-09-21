@@ -159,8 +159,7 @@ const ResourceNav = () => {
           })}
         </ul>
       </div>
-      {/* TODO: add lint to github for edit this page when is merged*/}
-      <Link href={"/"} className="hidden">
+      <Link href={"https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/content/resources.md"} >
         <Button size="lg">
           <span className="text-left text-sm font-medium">Add resource</span>
         </Button>
