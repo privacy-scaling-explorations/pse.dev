@@ -159,9 +159,9 @@ const ResourceNav = () => {
           })}
         </ul>
       </div>
-      <Link href={"https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/content/resources.md?plain=1"}>
-        <Button size="lg">
-          <span className="text-left text-sm font-medium">Add resource</span>
+      <Link href={"https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/content/resources.md?plain=1"} target="_blank">
+        <Button size="lg" icon={Icons.gitHub}>
+          <span className="pl-2 text-left text-sm font-medium">Edit resources</span>
         </Button>
       </Link>
     </div>
