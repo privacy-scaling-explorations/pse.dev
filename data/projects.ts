@@ -32,6 +32,7 @@ import { zkitter } from "./projects/zkitter"
 import { zkml } from "./projects/zkml"
 import { Zkopru } from "./projects/zkopru"
 import { zkp2p } from "./projects/zkp2p"
+import { p256 } from "./projects/p256"
 
 export const ProjectLinkIconMap: ProjectLinkType = {
   github: GithubIcon,
@@ -71,5 +72,6 @@ export const projects: ProjectInterface[] = [
   Coco,
   Interep,
   Zkopru,
-  ZKKit
+  ZKKit,
+  p256
 ]
