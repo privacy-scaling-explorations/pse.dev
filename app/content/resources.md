@@ -76,6 +76,11 @@
     description="Understanding and unlocking the potential of zk-SNARKs, from beginners to experts."
     url="https://leastauthority.com/community-matters/moonmath-manual/"
   />
+     <ResourceItem
+    label="Good first issues/PSE"
+    description="Learn by doing & contributing. Explore all the good first issues that PSE is working on."
+    url="https://pse-gfis.vercel.app/"
+  />
 </ResourceCard>
 
 <ResourceCard id="build" title="Build">
