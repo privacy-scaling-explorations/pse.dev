@@ -77,7 +77,7 @@
     url="https://leastauthority.com/community-matters/moonmath-manual/"
   />
      <ResourceItem
-    label="Good first issues/PSE"
+    label="PSE — Good First Issues"
     description="Learn by doing & contributing. Explore all the good first issues that PSE is working on."
     url="https://pse-gfis.vercel.app/"
   />
