@@ -78,7 +78,7 @@
   />
      <ResourceItem
     label="PSE — Good First Issues"
-    description="Learn by doing & contributing. Explore all the good first issues that PSE is working on."
+    description="Learn by doing & contributing. Explore all the good first issues in PSE's project catalog"
     url="https://pse-gfis.vercel.app/"
   />
 </ResourceCard>
