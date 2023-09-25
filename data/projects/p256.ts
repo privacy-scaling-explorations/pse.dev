@@ -13,7 +13,7 @@ export const p256: ProjectInterface = {
   description,
   links: {
     website: "https://www.p256wallet.org/",
-    github: "https://github.com/zkwebauthn",
+    github: "https://github.com/privacy-scaling-explorations/p256-circom",
   },
   tags: {
     keywords: [
