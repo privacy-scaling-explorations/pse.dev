@@ -1,5 +1,14 @@
 import { type } from "os"
 
+
+export interface AnnounceInterface {
+  type: string
+  description: string
+  short: string
+  url: string
+  id: number
+}
+
 export interface NewsInterface {
   type: string
   title: string
