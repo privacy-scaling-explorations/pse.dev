@@ -37,9 +37,8 @@ const showMove = {
 
 const NewsPlaceholder = () => {
   return (
-    <div className="bg-white">
       <div
-          className="group block h-fit w-full cursor-pointer gap-3 border-b border-t-0 border-slate-950/70 px-6 py-6 transition-all first:border-t xl:px-20"
+          className="block h-fit w-full gap-3 px-6 py-6 xl:px-20 border-b border-t-0 border-slate-950/70"
         >
           <div className="h-full w-full items-center justify-between lg:flex">
             <div className="flex lg:flex lg:gap-12 xl:gap-56">
@@ -50,8 +49,7 @@ const NewsPlaceholder = () => {
               <span className="bg-slate-200 animate-pulse h-6 w-96"></span>
             </div>
           </div>
-        </div>
-    </div>
+      </div>
   )
 }
 
@@ -84,10 +82,10 @@ const News = () => {
 
   if (loading) {
     return (
-      <>
+      <div className="bg-white border-t border-slate-950/70">
         <NewsPlaceholder />
         <NewsPlaceholder />
-      </>
+      </div>
     )
   }
 
