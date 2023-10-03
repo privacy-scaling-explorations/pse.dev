@@ -10,7 +10,7 @@ interface NewsContentInterface {
 
 const NewsContent = ({ news }: NewsContentInterface) => {
   return (
-    <div className="flex flex-col gap-6 pb-6">
+    <div className="flex flex-col gap-6 pb-5">
       <div className="flex flex-col gap-1">
         <span className="font-bold">Pinned: <span className="!font-normal">{news?.pinned ? 'YES' : 'NO'}</span></span>
         <span></span>
