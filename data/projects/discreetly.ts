@@ -13,7 +13,7 @@ export const discreetly: ProjectInterface = {
   description,
   links: {
     github: "https://github.com/Discreetly",
-    website: "https://app.discreetly.chat/",
+    website: "https://app.discreetly.chat/"
   },
   tags: {
     keywords: ["Anonymity/privacy", "Social"],
