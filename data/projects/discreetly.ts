@@ -13,11 +13,12 @@ export const discreetly: ProjectInterface = {
   description,
   links: {
     github: "https://github.com/Discreetly",
+    website: "https://app.discreetly.chat/"
   },
   tags: {
     keywords: ["Anonymity/privacy", "Social"],
     themes: ["play"],
     types: ["Legos/dev tools", "Proof of concept", "Application"],
-    builtWith: ["rln", "semaphore", "waku"],
+    builtWith: ["rln", "semaphore"],
   },
 }
