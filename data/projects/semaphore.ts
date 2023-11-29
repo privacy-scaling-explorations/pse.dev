@@ -15,6 +15,7 @@ export const semaphore: ProjectInterface = {
     github: "https://github.com/semaphore-protocol",
     website: "https://semaphore.pse.dev/",
     discord: "https://semaphore.pse.dev/discord",
+    twitter: "https://twitter.com/SemaphoreDevs",
   },
   tags: {
     keywords: [
