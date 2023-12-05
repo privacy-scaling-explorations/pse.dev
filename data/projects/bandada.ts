@@ -14,6 +14,7 @@ export const bandada: ProjectInterface = {
   links: {
     github: "https://github.com/privacy-scaling-explorations/bandada",
     website: "https://bandada.pse.dev",
+    twitter: "https://twitter.com/BandadaDevs",
   },
   tags: {
     keywords: [
