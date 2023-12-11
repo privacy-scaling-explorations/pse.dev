@@ -58,7 +58,6 @@ export const projects: ProjectInterface[] = [
   dslWorkingGroup,
   zkml,
   trustedSetups,
-  zk3,
   tlsn,
   eigenTrust,
   anonKlub,
@@ -67,7 +66,6 @@ export const projects: ProjectInterface[] = [
   channel4,
   pollenLabs,
   unirepProtocol,
-  zkp2p,
   PerpetualPowersOfTau,
   ECIPHalo2,
   Coco,
@@ -75,5 +73,10 @@ export const projects: ProjectInterface[] = [
   Zkopru,
   ZKKit,
   p256,
-  p0tion
+  p0tion,
+  /**
+  * Grant projects hidden until we have grant tag
+  zkp2p,
+  zk3,
+   */
 ]
