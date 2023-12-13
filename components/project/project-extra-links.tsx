@@ -80,7 +80,7 @@ export default function ProjectExtraLinks({ project }: ProjectExtraLinksProps) {
   if (!hasExtraLinks) return null
 
   return (
-    <div className="flex flex-col gap-12 md:gap-16">
+    <div className="flex flex-col gap-8 py-4">
       {Object.entries(ExtraLinkLabelMapping).map(([key]) => {
         const links = extraLinks[key as ProjectExtraLinkType] ?? []
         return (
