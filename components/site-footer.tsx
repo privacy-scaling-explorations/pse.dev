@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import PSELogo from "@/public/logos/footer-logo.svg"
+import PSELogo from "@/public/logos/pse-logo-circle.svg"
 
 import { siteConfig } from "@/config/site"
 import {
@@ -12,84 +12,111 @@ import {
 
 import { ArrowRightUp } from "./svgs/arrows"
 
+const SocialMedia = ({ label }: { label: string }) => {
+  return (
+    <span className="mt-[0.9px] hidden font-sans text-sm font-normal uppercase leading-[21px] text-white md:block">
+      {label}
+    </span>
+  )
+}
 export function SiteFooter() {
   return (
-    <footer className="flex flex-col gap-5">
-      <div className="flex w-full flex-col gap-5 p-[32px]">
-        <Image src={PSELogo} alt="logo" width={94} height={41} />
-        <h1 className="text-sm">
-          Privacy + Scaling Explorations is a multidisciplinary team supported
-          by the Ethereum Foundation.
-        </h1>
+    <footer className="flex flex-col">
+      <div className="flex flex-col divide-y divide-tuatara-200 px-8">
+        <div className="flex w-full flex-col items-center gap-5 py-8">
+          <Image src={PSELogo} alt="logo" width={133} height={133} />
+          <h1 className="py-2 text-center font-sans text-sm font-normal text-tuatara-950">
+            Privacy + Scaling Explorations is a multidisciplinary team supported
+            by the Ethereum Foundation.
+          </h1>
+        </div>
+        <div className="flex w-full flex-col items-center gap-5 py-8 text-base font-medium md:flex-row md:justify-center">
+          <Link href={"/"} className="link px-[10px]">
+            HOME
+          </Link>
+          <Link href={"/projects"} className="link px-[10px]">
+            PROJECT LIBRARY
+          </Link>
+          <Link href={"/about"} className="link px-[10px]">
+            ABOUT
+          </Link>
+          <Link href={"/resources"} className="link px-[10px]">
+            RESOURCES
+          </Link>
+          <Link
+            href={siteConfig.links.jobs}
+            target="_blank"
+            rel="noreferrer"
+            className="link flex items-center gap-5 px-[10px]"
+          >
+            JOBS
+            <ArrowRightUp color="black" />
+          </Link>
+        </div>
       </div>
-      <div className="flex w-full flex-col gap-5 px-[32px] text-base font-medium">
-        <Link href={"/"} className="border-b-2 border-[#171C1B] py-5">
-          HOME
-        </Link>
-        <Link href={"/projects"} className="border-b-2 border-[#171C1B] py-5">
-          PROJECT LIBRARY
-        </Link>
-        <Link href={"/about"} className="border-b-2 border-[#171C1B] py-5">
-          ABOUT
-        </Link>
-        <Link href={"/resources"} className="border-b-2 border-[#171C1B] py-5">
-          RESOURCES
-        </Link>
-        <Link
-          href={siteConfig.links.jobs}
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center gap-5 py-5"
-        >
-          JOBS
-          <ArrowRightUp color="black" />
-        </Link>
-      </div>
-      <div className="flex w-full flex-col items-center justify-center gap-5 bg-[#171C1B] py-[40px] text-sm">
+      <div className="flex w-full flex-col items-center justify-center gap-2 bg-[#171C1B] py-[40px] text-sm">
         <div className="flex gap-5">
           <Link
             href={siteConfig.links.twitter}
+            className=" flex h-[21px] items-start gap-2"
             target="_blank"
             rel="noreferrer"
           >
             <Twitter color="white" />
+            <SocialMedia label="Twitter" />
           </Link>
 
           <Link
             href={siteConfig.links.discord}
+            className="flex h-[21px] items-start gap-2"
             target="_blank"
             rel="noreferrer"
           >
             <Discord color="white" />
+            <SocialMedia label="Discord" />
           </Link>
-          <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
+          <Link
+            href={siteConfig.links.github}
+            className="flex h-[21px] items-start gap-2"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Github color="white" />
+            <SocialMedia label="Github" />
           </Link>
           <Link
             href={siteConfig.links.articles}
+            className="flex h-[21px] items-start gap-2"
             target="_blank"
             rel="noreferrer"
           >
             <Mirror color="white" />
+            <SocialMedia label="Mirror" />
           </Link>
         </div>
-        <div className="flex gap-5 text-white">
+        <div className="flex gap-5 py-2 text-white">
           <Link
             href={siteConfig.links.privacyPolicy}
             target="_blank"
             rel="noreferrer"
           >
-            <h1>Privacy Policy</h1>
+            <span className="font-sans font-normal leading-[21px]">
+              Privacy Policy
+            </span>
           </Link>
           <Link
             href={siteConfig.links.termOfUse}
             target="_blank"
             rel="noreferrer"
           >
-            <h1>Terms of use</h1>
+            <span className="font-sans font-normal leading-[21px]">
+              Terms of use
+            </span>
           </Link>
         </div>
-        <h1 className="text-gray-400">Last updated June 8, 2023</h1>
+        <span className="py-2 font-sans font-normal text-white opacity-50 ">
+          Last updated June 8, 2023
+        </span>
       </div>
     </footer>
   )

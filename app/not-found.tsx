@@ -24,19 +24,16 @@ export default function NotFound() {
               <div className="flex flex-col items-center justify-center gap-3 text-center">
                 <div className="flex flex-col gap-2">
                   <Image
-                    width={80}
-                    height={80}
+                    width={176}
+                    height={256}
                     src="/icons/404-search.svg"
                     alt="emotion sad"
-                    className="mx-auto h-12 w-12 text-anakiwa-400 md:h-24 md:w-24"
+                    className="mx-auto h-12 w-12 text-anakiwa-400 md:h-64 md:w-44"
                   />
-                  <span className="font-display text-5xl font-bold text-anakiwa-400 md:text-8xl">
-                    404
-                  </span>
                 </div>
                 <div className="flex flex-col gap-5">
                   <span className="font-display text-2xl font-bold text-tuatara-950 md:text-6xl">
-                    Oops! Page not found
+                    404: Page not found.
                   </span>
                   <span className="font-sans text-base font-normal md:text-lg">
                     The page you are looking for might have been removed, had

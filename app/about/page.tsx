@@ -25,7 +25,7 @@ const PrincipleContent = ({
           alt="principle image"
         />
       </div>
-      <span className="flex flex-col gap-4 break-words font-sans text-lg leading-7">
+      <span className="flex flex-col gap-4 break-words font-sans text-lg font-normal leading-[150%]">
         {children}
       </span>
     </div>
@@ -38,7 +38,7 @@ export default function AboutPage() {
         <div className="container mx-auto grid grid-cols-1 gap-16 py-10 lg:grid-cols-[1fr_300px] lg:gap-2 lg:py-20">
           <div className="flex flex-col gap-8 lg:w-4/5">
             <h6 className="break-words font-display text-4xl font-bold text-tuatara-950 md:py-4 md:text-5xl">
-              Collective experimentation of cryptography.
+              About our team
             </h6>
             <span className="font-sans text-base font-normal leading-[27px] text-tuatara-950">
               PSE is a multi-disciplinary research and development lab supported
@@ -47,19 +47,19 @@ export default function AboutPage() {
               real world applications.
             </span>
           </div>
-          <div className="mx-auto">
-            <Image
-              width={300}
-              height={300}
-              src="/logos/pse-logo-bg.svg"
-              alt="pse logo"
-            />
-          </div>
         </div>
       </div>
 
       <div className="flex flex-col gap-4 px-8 py-16 md:px-32 md:py-24">
-        <h6 className="font-display text-4xl uppercase">Pse principles</h6>
+        <div className="mx-auto pb-4">
+          <Image
+            width={280}
+            height={280}
+            src="/logos/pse-logo-bg.svg"
+            alt="pse logo"
+          />
+        </div>
+        <h6 className="font-display text-4xl">Our principles</h6>
         <Accordion
           type="multiple"
           items={[
