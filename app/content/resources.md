@@ -24,7 +24,7 @@
   <ResourceItem
     label="Uncloak Discord"
     description="A community-maintained knowledge wiki experiment, aiming to increase the accessibility of cryptography for developers, researchers, and everyone else."
-    url="https://discord.com/invite/Z4YT3jtzSk"
+    url="https://discord.gg/TYwr4pMS2h"
     icon="discord"
   />
 </ResourceCard>
@@ -79,7 +79,7 @@
      <ResourceItem
     label="PSE — Good First Issues"
     description="Learn by doing & contributing. Explore all the good first issues in PSE's project catalog"
-    url="https://pse-gfis.vercel.app/"
+    url="https://pse-good-first-issues.vercel.app/"
   />
 </ResourceCard>
 
