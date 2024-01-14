@@ -13,6 +13,8 @@ export const maci: ProjectInterface = {
   description,
   links: {
     github: "https://github.com/privacy-scaling-explorations/maci",
+    website: "https://maci.pse.dev",
+    twitter: "https://twitter.com/zkmaci",
   },
   tags: {
     keywords: ["Anonymity/privacy", "Voting/governance"],
