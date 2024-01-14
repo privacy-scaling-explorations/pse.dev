@@ -9,7 +9,7 @@ export const maci: ProjectInterface = {
   projectStatus: "active",
   image: "maci.webp",
   name: "MACI",
-  tldr: "A secure e-voting solution minimizing the risk of collusion and bribery",
+  tldr: "An on-chain voting solution that protects privacy and minimizes the risk of collusion and bribery",
   description,
   links: {
     github: "https://github.com/privacy-scaling-explorations/maci",
