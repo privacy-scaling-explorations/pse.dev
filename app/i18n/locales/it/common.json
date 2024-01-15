@@ -1,0 +1,19 @@
+{
+  "menu": {
+    "home": "Home",
+    "projectLibrary": "Libreria progetti",
+    "about": "Chi siamo",
+    "resources": "Risorse",
+    "jobs": "Lavora con noi"
+  },
+  "footer": {
+    "description": "Privacy + Scaling Explorations is a multidisciplinary team supported by the Ethereum Foundation.",
+    "privacyPolicy": "Informativa privacy",
+    "termsOfUse": "Termini di utilizzo"
+  },
+  "exploreProjectLibrary": "Esplora libreria progetti",
+  "clearAll": "Rimuovi tutti",
+  "showProjects": "Mostra progetti",
+  "filters": "Filtri",
+  "whatDoYouWantDoToday": "Cosa vuoi fare oggi?"
+}

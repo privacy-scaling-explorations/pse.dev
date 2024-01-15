@@ -8,6 +8,12 @@ import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 
+import { fallbackLng, languages } from "./i18n/settings"
+
+export async function generateStaticParams() {
+  return languages.map((language) => ({ language }))
+}
+
 // import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -39,13 +45,17 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode
+  params: any
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+  params: { lang = fallbackLng },
+}: RootLayoutProps) {
   return (
     <>
       <html
-        lang="en"
+        lang={lang}
         className={`${fontSans.variable} ${fontDisplay.variable}`}
         suppressHydrationWarning
       >
@@ -67,9 +77,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body className={"min-h-screen bg-background antialiased"}>
           <div className="relative flex min-h-screen flex-col">
-            <SiteHeader />
+            <SiteHeader lang={lang} />
             <div className="flex-1">{children}</div>
-            <SiteFooter />
+            <SiteFooter lang={lang} />
           </div>
           <TailwindIndicator />
         </body>

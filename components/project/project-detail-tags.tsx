@@ -7,7 +7,10 @@ import {
   ProjectFilter,
 } from "@/state/useProjectFiltersState"
 
+import { LangProps } from "@/types/common"
 import { ProjectInterface } from "@/lib/types"
+import { useTranslation } from "@/app/i18n/client"
+import { LocaleTypes } from "@/app/i18n/settings"
 
 import { CategoryTag } from "../ui/categoryTag"
 import { ThemesStatusMapping } from "./project-filters-bar"
@@ -25,21 +28,26 @@ const TagsWrapper = ({ label, children }: TagsProps) => {
   )
 }
 
-export function ProjectTags({ project }: { project: ProjectInterface }) {
+type IProjectTags = {
+  project: ProjectInterface
+  lang: LocaleTypes
+}
+
+export function ProjectTags({ project, lang }: IProjectTags) {
   const { label, icon } = ThemesStatusMapping?.[project?.projectStatus] ?? {}
+  const { t } = useTranslation(lang, "common")
 
   return (
     <div className="flex flex-col gap-4">
-      {Object.entries(FilterLabelMapping).map(([key, label]) => {
+      {Object.entries(FilterLabelMapping).map(([key]) => {
         const keyTags = project?.tags?.[key as ProjectFilter]
         const hasItems = keyTags && keyTags?.length > 0
 
         if (key === "themes") return null // ignore themes
-
         return (
           hasItems && (
             <div>
-              <TagsWrapper label={label}>
+              <TagsWrapper label={t(`filterLabels.${key}`)}>
                 <div className="flex flex-wrap gap-[6px]">
                   {keyTags?.map((tag) => {
                     return (

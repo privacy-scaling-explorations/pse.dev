@@ -13,8 +13,11 @@ import {
 } from "@/state/useProjectFiltersState"
 import { useDebounce } from "react-use"
 
+import { LangProps } from "@/types/common"
 import { ProjectStatusType } from "@/lib/types"
 import { cn, queryStringToObject } from "@/lib/utils"
+import { useTranslation } from "@/app/i18n/client"
+import { LocaleTypes } from "@/app/i18n/settings"
 
 import { Icons } from "../icons"
 import Badge from "../ui/badge"
@@ -112,7 +115,8 @@ const FilterButtons = ({
   )
 }
 
-export default function ProjectFiltersBar() {
+export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
+  const { t } = useTranslation(lang as LocaleTypes, "common")
   const [showModal, setShowModal] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -172,7 +176,7 @@ export default function ProjectFiltersBar() {
               size="sm"
               onClick={clearAllFilters}
             >
-              Clear all
+              {t("clearAll")}
             </Button>
             <div className="ml-auto">
               <Button
@@ -180,7 +184,7 @@ export default function ProjectFiltersBar() {
                 size="sm"
                 onClick={() => setShowModal(false)}
               >
-                Show projects
+                {t("showProjects")}
               </Button>
             </div>
           </div>
@@ -266,9 +270,7 @@ export default function ProjectFiltersBar() {
         })}
       </Modal>
       <div className="flex flex-col gap-6">
-        <span className="text-lg font-medium">
-          What do you want to do today?
-        </span>
+        <span className="text-lg font-medium">{t("whatDoYouWantDoToday")}</span>
         <div className="grid grid-cols-1 items-center justify-between gap-3 md:grid-cols-5 md:gap-12">
           <FilterButtons />
           <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">
@@ -290,7 +292,7 @@ export default function ProjectFiltersBar() {
                 >
                   <div className="flex items-center gap-2">
                     <Image src={FiltersIcon} alt="filter icon" />
-                    <span className="hidden md:block">Filters</span>
+                    <span className="hidden md:block">{t("filters")}</span>
                   </div>
                 </Button>
               </Badge>
@@ -300,7 +302,7 @@ export default function ProjectFiltersBar() {
                 className="opacity-85 hidden cursor-pointer bg-transparent text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block"
               >
                 <div className="flex items-center gap-2 border-b-2 border-black">
-                  <span className="text-sm font-medium">Clear all</span>
+                  <span className="text-sm font-medium">{t("clearAll")}</span>
                 </div>
               </button>
             </div>

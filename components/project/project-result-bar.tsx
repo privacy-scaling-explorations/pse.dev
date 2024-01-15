@@ -6,6 +6,9 @@ import {
   useProjectFiltersState,
 } from "@/state/useProjectFiltersState"
 
+import { LangProps } from "@/types/common"
+import { useTranslation } from "@/app/i18n/client"
+
 import { CategoryTag } from "../ui/categoryTag"
 import { Dropdown } from "../ui/dropdown"
 
@@ -22,7 +25,8 @@ const getSortLabel = (sortBy: ProjectSortBy) => {
   return projectSortItems.find((item) => item.value === sortBy)?.label || sortBy
 }
 
-export const ProjectResultBar = () => {
+export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
+  const { t } = useTranslation(lang, "common")
   const { activeFilters, toggleFilter, projects, sortProjectBy, sortBy } =
     useProjectFiltersState((state) => state)
 
@@ -30,9 +34,12 @@ export const ProjectResultBar = () => {
     ([_key, values]) => values?.length > 0
   )
 
-  const resultLabel = haveActiveFilters
-    ? `Showing ${projects?.length} projects with:`
-    : `Showing ${projects.length} projects`
+  const resultLabel = t(
+    haveActiveFilters ? "showingProjectsWith" : "showingProjects",
+    {
+      count: projects?.length,
+    }
+  )
 
   return (
     <div className="flex flex-col gap-2">

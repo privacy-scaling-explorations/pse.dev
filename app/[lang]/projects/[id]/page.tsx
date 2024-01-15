@@ -5,23 +5,24 @@ import { projects } from "@/data/projects"
 import GithubVector from "@/public/social-medias/github-fill.svg"
 import GlobalVector from "@/public/social-medias/global-line.svg"
 import TwitterVector from "@/public/social-medias/twitter-fill.svg"
-import { filterProjects } from "@/state/useProjectFiltersState"
 
 import { ProjectInterface } from "@/lib/types"
-import { shuffleArray } from "@/lib/utils"
 import { Markdown } from "@/components/ui/markdown"
 import { Icons } from "@/components/icons"
-import ProjectCard from "@/components/project/project-card"
+import DiscoverMoreProjects from "@/components/project/discover-more-projects"
 import { ProjectTags } from "@/components/project/project-detail-tags"
 import ProjectExtraLinks from "@/components/project/project-extra-links"
+import { useTranslation } from "@/app/i18n"
+import { LocaleTypes } from "@/app/i18n/settings"
 
 type PageProps = {
-  params: { id: string }
+  params: { id: string; lang: string }
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
-interface ProjectProps {
+export interface ProjectProps {
   project: ProjectInterface
+  lang: string
 }
 
 export async function generateMetadata(
@@ -51,50 +52,12 @@ export async function generateMetadata(
   }
 }
 
-function DiscoverMoreProjects({ project }: ProjectProps) {
-  const getSuggestedProjects = () => {
-    const projectList = projects.filter((p) => p.id !== project.id)
-
-    const suggestedProject = filterProjects({
-      searchPattern: "",
-      activeFilters: project?.tags,
-      findAnyMatch: true,
-      projects: projectList,
-    })
-
-    // No match return random projects
-    if (suggestedProject?.length < 2) {
-      return shuffleArray(projectList).slice(0, 2)
-    }
-
-    return suggestedProject.slice(0, 2)
-  }
-
-  const suggestedProject = getSuggestedProjects()
-
-  return (
-    <div className="flex w-full flex-col items-center justify-center gap-14 bg-anakiwa-200 px-6 py-32 md:px-0">
-      <h2 className="text-center text-3xl font-bold">Discover more</h2>
-      <div className="flex flex-col gap-5 md:flex-row">
-        {suggestedProject?.map((project: ProjectInterface) => (
-          <ProjectCard project={project} />
-        ))}
-      </div>
-      <Link
-        className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950"
-        href="/projects"
-      >
-        <Icons.arrowLeft />
-        <span className="font-sans text-base">Back to project library</span>
-      </Link>
-    </div>
-  )
-}
-
-export default function ProjectDetailPage({ params }: PageProps) {
+export default async function ProjectDetailPage({ params }: PageProps) {
   const currProject = projects.filter(
     (project) => String(project.id) === params.id
   )[0]
+  const lang = params?.lang as LocaleTypes
+  const { t } = await useTranslation(lang, "common")
 
   const { github, twitter, website } = currProject.links ?? {}
   const hasSocialLinks = Object.keys(currProject?.links ?? {}).length > 0
@@ -107,10 +70,12 @@ export default function ProjectDetailPage({ params }: PageProps) {
             <div className="flex flex-col gap-6 text-left">
               <Link
                 className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950"
-                href="/projects"
+                href={`/${lang}/projects`}
               >
                 <Icons.arrowLeft />
-                <span className="font-sans text-base">Project library</span>
+                <span className="font-sans text-base">
+                  {t("projectLibrary")}
+                </span>
               </Link>
               <div className="flex flex-col gap-2">
                 <h1 className="py-2 text-3xl font-bold leading-[110%] md:text-5xl">
@@ -168,7 +133,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
                 className="w-full rounded-t-lg object-cover"
               />
             </div>
-            <ProjectTags project={currProject} />
+            <ProjectTags project={currProject} lang={lang} />
             <div className="flex w-full flex-col gap-5 text-base font-normal leading-relaxed">
               <Markdown>{currProject.description}</Markdown>
             </div>
@@ -176,7 +141,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
           </div>
         </div>
       </div>
-      <DiscoverMoreProjects project={currProject} />
+      <DiscoverMoreProjects project={currProject} lang={lang} />
     </section>
   )
 }

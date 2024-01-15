@@ -26,10 +26,14 @@ const Accordion = ({
     <RadixAccordion.Root
       type={type as any}
       defaultValue={defaultValue}
-      collapsible
+      collapsible={true}
     >
-      {items?.map(({ label, children, value }) => (
-        <RadixAccordion.Item className="group" value={value}>
+      {items?.map(({ label, children, value }, accordionIndex) => (
+        <RadixAccordion.Item
+          className="group"
+          value={value}
+          key={accordionIndex}
+        >
           <RadixAccordion.Trigger className="flex w-full items-center justify-between border-t border-t-black py-6 ring-0 focus:outline-none">
             <span className="block text-left font-sans text-base font-bold uppercase tracking-[3.36px] text-black md:text-xl md:tracking-[4.2px]">
               {label}

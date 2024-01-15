@@ -1,53 +1,30 @@
-import Link from "next/link"
+"use client"
 
+import { LangProps } from "@/types/common"
 import { siteConfig } from "@/config/site"
 import { MainNav } from "@/components/main-nav"
-import {
-  Discord,
-  Github,
-  Mirror,
-  Twitter,
-} from "@/components/svgs/social-medias"
+import { useTranslation } from "@/app/i18n/client"
 
+import { Icons } from "./icons"
 import { SiteHeaderMobile } from "./site-header-mobile"
 
-export function SiteHeader() {
+export function SiteHeader({ lang }: LangProps["params"]) {
+  const { t } = useTranslation(lang, "common")
+
   return (
     <header className="sticky top-0 z-40 w-full bg-white px-6 shadow-sm xl:px-20">
       <div className="flex h-16  justify-between space-x-4 sm:space-x-0">
         <MainNav items={siteConfig.mainNav} />
         <SiteHeaderMobile />
         <div className="hidden flex-1 items-center justify-end space-x-4 md:flex">
-          <nav className="flex items-center gap-5 space-x-1">
-            <Link
-              href={siteConfig.links.twitter}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Twitter color="black" />
-            </Link>
-            <Link
-              href={siteConfig.links.discord}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Discord color="black" />
-            </Link>
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Github color="black" />
-            </Link>
-            <Link
-              href={siteConfig.links.articles}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Mirror color="black" />
-            </Link>
-          </nav>
+          <button type="button" className="flex gap-2">
+            <Icons.globe size={22} />
+            <span>
+              {t("menu.languages", {
+                locale: lang?.toUpperCase(),
+              })}
+            </span>
+          </button>
         </div>
       </div>
     </header>

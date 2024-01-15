@@ -1,7 +1,10 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import PSELogo from "@/public/logos/pse-logo-circle.svg"
 
+import { LangProps } from "@/types/common"
 import { siteConfig } from "@/config/site"
 import {
   Discord,
@@ -9,6 +12,7 @@ import {
   Mirror,
   Twitter,
 } from "@/components/svgs/social-medias"
+import { useTranslation } from "@/app/i18n/client"
 
 import { ArrowRightUp } from "./svgs/arrows"
 
@@ -19,37 +23,42 @@ const SocialMedia = ({ label }: { label: string }) => {
     </span>
   )
 }
-export function SiteFooter() {
+
+export function SiteFooter({ lang }: LangProps["params"]) {
+  const { t } = useTranslation(lang, "common")
+
   return (
     <footer className="flex flex-col">
       <div className="flex flex-col divide-y divide-tuatara-200 px-8">
         <div className="flex w-full flex-col items-center gap-5 py-8">
           <Image src={PSELogo} alt="logo" width={133} height={133} />
           <h1 className="py-2 text-center font-sans text-sm font-normal text-tuatara-950">
-            Privacy + Scaling Explorations is a multidisciplinary team supported
-            by the Ethereum Foundation.
+            {t("footer.description")}
           </h1>
         </div>
         <div className="flex w-full flex-col items-center gap-5 py-8 text-base font-medium md:flex-row md:justify-center">
-          <Link href={"/"} className="link px-[10px]">
-            HOME
+          <Link href={`/${lang}`} className="link px-[10px] uppercase">
+            {t("menu.home")}
           </Link>
-          <Link href={"/projects"} className="link px-[10px]">
-            PROJECT LIBRARY
+          <Link href={`/${lang}/projects`} className="link px-[10px] uppercase">
+            {t("menu.projectLibrary")}
           </Link>
-          <Link href={"/about"} className="link px-[10px]">
-            ABOUT
+          <Link href={`/${lang}/about`} className="link px-[10px] uppercase">
+            {t("menu.about")}
           </Link>
-          <Link href={"/resources"} className="link px-[10px]">
-            RESOURCES
+          <Link
+            href={`/${lang}/resources`}
+            className="link px-[10px] uppercase"
+          >
+            {t("menu.resources")}
           </Link>
           <Link
             href={siteConfig.links.jobs}
             target="_blank"
             rel="noreferrer"
-            className="link flex items-center gap-5 px-[10px]"
+            className="link flex items-center gap-5 px-[10px] uppercase"
           >
-            JOBS
+            {t("menu.jobs")}
             <ArrowRightUp color="black" />
           </Link>
         </div>
@@ -101,7 +110,7 @@ export function SiteFooter() {
             rel="noreferrer"
           >
             <span className="font-sans font-normal leading-[21px]">
-              Privacy Policy
+              {t("footer.privacyPolicy")}
             </span>
           </Link>
           <Link
@@ -110,7 +119,7 @@ export function SiteFooter() {
             rel="noreferrer"
           >
             <span className="font-sans font-normal leading-[21px]">
-              Terms of use
+              {t("footer.termsOfUse")}
             </span>
           </Link>
         </div>
