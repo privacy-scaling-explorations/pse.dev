@@ -10,7 +10,7 @@ import {
   useTranslation as useTranslationOrg,
 } from "react-i18next"
 
-import { cookieName, getOptions, languages } from "./settings"
+import { LocaleTypes, cookieName, getOptions, languages } from "./settings"
 
 const runsOnServerSide = typeof window === "undefined"
 
@@ -33,7 +33,11 @@ i18next
     preload: runsOnServerSide ? languages : [],
   })
 
-export function useTranslation(lng: string, ns: string, options = {}) {
+export function useTranslation(
+  lng: LocaleTypes | string,
+  ns: string,
+  options = {}
+) {
   const [cookies, setCookie] = useCookies([cookieName])
   const ret = useTranslationOrg(ns, options)
   const { i18n } = ret

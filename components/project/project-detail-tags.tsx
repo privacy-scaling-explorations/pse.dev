@@ -7,7 +7,6 @@ import {
   ProjectFilter,
 } from "@/state/useProjectFiltersState"
 
-import { LangProps } from "@/types/common"
 import { ProjectInterface } from "@/lib/types"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"

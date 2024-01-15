@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import acceptLanguage from "accept-language"
 
-import { cookieName, fallbacklang, languages } from "./app/i18n/settings"
+import { cookieName, fallbackLng, languages } from "./app/i18n/settings"
 
 acceptLanguage.languages(languages as any)
 
@@ -16,7 +16,7 @@ export function middleware(req: any) {
   if (req.cookies.has(cookieName))
     lang = acceptLanguage.get(req.cookies.get(cookieName).value)
   if (!lang) lang = acceptLanguage.get(req.headers.get("Accept-Language"))
-  if (!lang) lang = fallbacklang
+  if (!lang) lang = fallbackLng
 
   // Keep the file from public folder
   if (PUBLIC_FILE.test(req.nextUrl.pathname)) {
