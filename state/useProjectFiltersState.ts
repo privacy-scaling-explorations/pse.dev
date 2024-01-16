@@ -1,9 +1,11 @@
 import { projects } from "@/data/projects"
 import Fuse from "fuse.js"
+import i18next from "i18next"
 import { create } from "zustand"
 
 import { ProjectInterface } from "@/lib/types"
 import { uniq } from "@/lib/utils"
+import { LocaleTypes, fallbackLng } from "@/app/i18n/settings"
 
 export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
 export type ProjectFilter = "keywords" | "builtWith" | "themes"
@@ -23,10 +25,15 @@ export const SortByFnMapping: Record<
   relevance: (a, b) => b?.score - a?.score, // sort from most relevant to least relevant
 }
 
-export const FilterLabelMapping: Record<ProjectFilter, string> = {
-  keywords: "Keywords",
-  builtWith: "Built with",
-  themes: "Themes selected",
+export const FilterLabelMapping = (
+  lang?: LocaleTypes
+): Record<ProjectFilter, string> => {
+  const t = i18next.getFixedT(lang ?? fallbackLng, "common")
+  return {
+    keywords: t("filterLabels.keyword"),
+    builtWith: t("filterLabels.builtWith"),
+    themes: t("filterLabels.themes"),
+  }
 }
 
 export const FilterTypeMapping: Record<ProjectFilter, "checkbox" | "button"> = {

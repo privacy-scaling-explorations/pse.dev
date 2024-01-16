@@ -124,7 +124,7 @@ export function SiteHeaderMobile({ lang }: LangProps["params"]) {
               <h1>{t("footer.privacyPolicy")}</h1>
               <h1>{t("footer.termsOfUse")}</h1>
             </div>
-            <h1 className="text-gray-400">
+            <h1 className="text-gray-400 text-center">
               {t("lastUpdatedAt", {
                 date: "January 16, 2024",
               })}

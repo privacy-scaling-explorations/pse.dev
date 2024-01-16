@@ -191,7 +191,8 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
         setOpen={setShowModal}
       >
         {Object.entries(filters).map(([key, items]) => {
-          const filterLabel = FilterLabelMapping?.[key as ProjectFilter] ?? ""
+          const filterLabel =
+            FilterLabelMapping(lang)?.[key as ProjectFilter] ?? ""
           const type = FilterTypeMapping?.[key as ProjectFilter]
           const hasItems = items.length > 0
 

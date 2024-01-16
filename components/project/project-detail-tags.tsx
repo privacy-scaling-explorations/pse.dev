@@ -39,7 +39,7 @@ export function ProjectTags({ project, lang }: IProjectTags) {
 
   return (
     <div className="flex flex-col gap-4">
-      {Object.entries(FilterLabelMapping).map(([key]) => {
+      {Object.entries(FilterLabelMapping(lang)).map(([key]) => {
         const keyTags = project?.tags?.[key as ProjectFilter]
         const hasItems = keyTags && keyTags?.length > 0
 
@@ -64,7 +64,7 @@ export function ProjectTags({ project, lang }: IProjectTags) {
           )
         )
       })}
-      <TagsWrapper label="Project status">
+      <TagsWrapper label={t("filterLabels.projectStatus")}>
         <CategoryTag variant="gray" size="default">
           <div className="flex items-center gap-1">
             {icon}

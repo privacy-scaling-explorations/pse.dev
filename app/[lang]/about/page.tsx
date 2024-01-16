@@ -10,6 +10,7 @@ interface PrincipleContentProps {
   width?: number
   height?: number
 }
+
 const PrincipleContent = ({
   image,
   children,
@@ -32,28 +33,33 @@ const PrincipleContent = ({
     </div>
   )
 }
+
+const PrincipleImageSizes: Record<string, { width: number; height: number }> = {
+  "principle-1": {
+    width: 126,
+    height: 114,
+  },
+  "principle-2": {
+    width: 176,
+    height: 260,
+  },
+  "principle-3": {
+    width: 236,
+    height: 260,
+  },
+  "principle-4": {
+    width: 238,
+    height: 260,
+  },
+}
+
 export default async function AboutPage({ params: { lang } }: any) {
   const { t } = await useTranslation(lang, "about-page")
 
-  const [
-    principle1Descriptions,
-    principle2Descriptions,
-    principle3Descriptions,
-    principle4Descriptions,
-  ] = [
-    t("principle-1-description", {
+  const principles: any[] =
+    t("principles", {
       returnObjects: true,
-    }),
-    t("principle-2-description", {
-      returnObjects: true,
-    }),
-    t("principle-3-description", {
-      returnObjects: true,
-    }),
-    t("principle-4-description", {
-      returnObjects: true,
-    }),
-  ] as Array<string>[]
+    }) ?? []
 
   return (
     <div className="bg-anakiwa-200">
@@ -83,74 +89,29 @@ export default async function AboutPage({ params: { lang } }: any) {
         <Accordion
           type="multiple"
           items={[
-            {
-              label: t("principle-1-title"),
-              value: "1",
-              children: (
-                <PrincipleContent
-                  width={126}
-                  height={114}
-                  image="/logos/principle-1.svg"
-                >
-                  {principle1Descriptions?.map(
-                    (description: string, index: number) => {
-                      return <p key={index}>{description}</p>
-                    }
-                  )}
-                </PrincipleContent>
-              ),
-            },
-            {
-              label: t("principle-2-title"),
-              value: "2",
-              children: (
-                <PrincipleContent
-                  image="/logos/principle-2.svg"
-                  width={176}
-                  height={260}
-                >
-                  {principle2Descriptions?.map(
-                    (description: string, index: number) => {
-                      return <p key={index}>{description}</p>
-                    }
-                  )}
-                </PrincipleContent>
-              ),
-            },
-            {
-              label: t("principle-3-title"),
-              value: "3",
-              children: (
-                <PrincipleContent
-                  image="/logos/principle-3.svg"
-                  width={236}
-                  height={260}
-                >
-                  {principle3Descriptions?.map(
-                    (description: string, index: number) => {
-                      return <p key={index}>{description}</p>
-                    }
-                  )}
-                </PrincipleContent>
-              ),
-            },
-            {
-              label: t("principle-4-title"),
-              value: "4",
-              children: (
-                <PrincipleContent
-                  image="/logos/principle-4.svg"
-                  width={238}
-                  height={260}
-                >
-                  {principle4Descriptions?.map(
-                    (description: string, index: number) => {
-                      return <p key={index}>{description}</p>
-                    }
-                  )}
-                </PrincipleContent>
-              ),
-            },
+            ...principles?.map((principle: any, index: number) => {
+              const imageIndex = index + 1
+              const { width, height } =
+                PrincipleImageSizes[`principle-${imageIndex}`] ?? {}
+
+              return {
+                label: principle?.title,
+                value: imageIndex.toString(),
+                children: (
+                  <PrincipleContent
+                    width={width}
+                    height={height}
+                    image={`/logos/principle-${imageIndex}.svg`}
+                  >
+                    {principle.description?.map(
+                      (description: string, index: number) => {
+                        return <p key={index}>{description}</p>
+                      }
+                    )}
+                  </PrincipleContent>
+                ),
+              }
+            }),
           ]}
         />
       </div>
