@@ -11,7 +11,7 @@ type SiteHeaderProps = {
   lang: LocaleTypes
 }
 
-export function SiteHeader({ lang, t }: SiteHeaderProps) {
+export function SiteHeader({ lang }: SiteHeaderProps) {
   const { t: i18n } = useTranslation(lang, "common")
   const MAIN_NAV: MainNavProps["items"] = [
     {
