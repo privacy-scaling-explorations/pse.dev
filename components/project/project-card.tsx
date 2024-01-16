@@ -58,7 +58,7 @@ export default function ProjectCard({
 
   return (
     <div
-      onClick={() => router.push(`${lang}/projects/${id}`)}
+      onClick={() => router.push(`/projects/${id}`)}
       className={cn(projectCardVariants({ showLinks, border, className }))}
     >
       {showBanner && (
@@ -67,14 +67,14 @@ export default function ProjectCard({
           alt={`${name} banner`}
           width={1200}
           height={630}
-          className="w-full rounded-t-lg object-cover"
+          className="w-full rounded-t-lg object-cover min-h-[160px]"
         />
       )}
       <div className="flex h-full flex-col justify-between gap-5 rounded-b-lg bg-white p-5">
         <div className="flex flex-col justify-start gap-2">
           <div className="mb-2 flex gap-2">
             {tags?.themes?.map((theme, index) => {
-              const { label } = ThemesButtonMapping?.[theme]
+              const { label } = ThemesButtonMapping(lang)?.[theme]
               const icon = TagsIconMapping?.[theme]
 
               return (

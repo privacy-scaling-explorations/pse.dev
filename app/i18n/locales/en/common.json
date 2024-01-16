@@ -30,6 +30,21 @@
       "description": "The page you are looking for might have been removed, had its name changed or is temporarily unavailable."
     }
   },
+  "tags": {
+    "build": "Build",
+    "play": "Play",
+    "research": "Research"
+  },
+  "status": {
+    "archived": "Archived",
+    "active": "Active"
+  },
+  "sortBy": "Sort by: {{option}}",
+  "tryItOut": "Try it out!",
+  "learnMore": "Learn more",
+  "buildWithThisTool": "Build with this tool",
+  "deepDiveResearch": "Dive deeper into the research",
+  "searchProjectPlaceholder": "Search project title or keyword",
   "close": "Close",
   "lastUpdatedAt": "Last updated {{date}}",
   "projectLibrary": "Project Library",

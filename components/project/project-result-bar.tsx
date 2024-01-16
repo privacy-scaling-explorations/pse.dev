@@ -14,17 +14,6 @@ import { Dropdown } from "../ui/dropdown"
 
 const labelClass = "h-5 text-xs text-base md:h-6 text-slate-900/70 md:text-lg"
 
-const projectSortItems: { label: string; value: ProjectSortBy }[] = [
-  { label: "Random", value: "random" },
-  { label: "Title: A-Z", value: "asc" },
-  { label: "Title: Z-A", value: "desc" },
-  { label: "Relevance", value: "relevance" },
-]
-
-const getSortLabel = (sortBy: ProjectSortBy) => {
-  return projectSortItems.find((item) => item.value === sortBy)?.label || sortBy
-}
-
 export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
   const { t } = useTranslation(lang, "common")
   const { activeFilters, toggleFilter, projects, sortProjectBy, sortBy } =
@@ -41,12 +30,23 @@ export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
     }
   )
 
+  const projectSortItems: { label: string; value: ProjectSortBy }[] = [
+    { label: t("filterOptions.random"), value: "random" },
+    { label: t("filterOptions.asc"), value: "asc" },
+    { label: t("filterOptions.desc"), value: "desc" },
+    { label: t("filterOptions.relevance"), value: "relevance" },
+  ]
+
+  const activeSortOption = t("sortBy", {
+    option: t(`filterOptions.${sortBy}`),
+  })
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <span className={labelClass}>{resultLabel}</span>
         <Dropdown
-          label={`Sort by: ${getSortLabel(sortBy)}`}
+          label={activeSortOption}
           defaultItem="random"
           items={projectSortItems}
           onChange={(sortBy) => sortProjectBy(sortBy as ProjectSortBy)}

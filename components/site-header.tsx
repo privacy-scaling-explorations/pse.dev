@@ -1,7 +1,6 @@
 "use client"
 
 import { LangProps } from "@/types/common"
-import { siteConfig } from "@/config/site"
 import { MainNav, MainNavProps } from "@/components/main-nav"
 import { useTranslation } from "@/app/i18n/client"
 

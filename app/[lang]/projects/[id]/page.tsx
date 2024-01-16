@@ -137,7 +137,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <div className="flex w-full flex-col gap-5 text-base font-normal leading-relaxed">
               <Markdown>{currProject.description}</Markdown>
             </div>
-            <ProjectExtraLinks project={currProject} />
+            <ProjectExtraLinks project={currProject} lang={lang} />
           </div>
         </div>
       </div>

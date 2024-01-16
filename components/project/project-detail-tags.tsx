@@ -33,7 +33,8 @@ type IProjectTags = {
 }
 
 export function ProjectTags({ project, lang }: IProjectTags) {
-  const { label, icon } = ThemesStatusMapping?.[project?.projectStatus] ?? {}
+  const statusItem = ThemesStatusMapping(lang)
+  const { label, icon } = statusItem?.[project?.projectStatus] ?? {}
   const { t } = useTranslation(lang, "common")
 
   return (
