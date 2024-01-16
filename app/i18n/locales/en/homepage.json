@@ -1,10 +1,9 @@
 {
-  "header-title": "Privacy + Scaling Explorations",
-  "header-subtitle": "Programmable cryptography for people like you",
-  "who-we-are": "Who we are",
-  "what-we-do": "What we do",
-  "how-to-plug-in": "How to plug in",
-  "privacy": "Privacy",
-  "scaling": "Scaling",
-  "explorations": "Explorations"
+  "headerTitle": "Privacy + Scaling Explorations",
+  "headerSubtitle": "Programmable cryptography for people like you",
+  "whoWeAre": "Who we are",
+  "whoWeAreDescription": "PSE is a research lab building free tools that expand the world of cryptography.",
+  "howToPlugIn": "How to plug in",
+  "howToPlugInDescription": "PSE is a growing team of developers, researchers, designers, communicators, artists, and organizers. There are so many ways to get involved- you can try out our apps, build with our tools, contribute to projects, or join our team. We'd love to hear from you!",
+  "sayHiToDiscord": "Say Hi On Discord"
 }

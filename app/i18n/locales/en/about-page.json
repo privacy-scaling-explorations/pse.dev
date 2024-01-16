@@ -1,13 +1,9 @@
 {
   "title": "About our team",
-  "description":  "PSE is a multi-disciplinary research and development lab supported by the Ethereum Foundation. We create open source infrastructure, tools and educational resources for building cryptography into real world applications.",
+  "description": "PSE is a multi-disciplinary research and development lab supported by the Ethereum Foundation. We create open source infrastructure, tools and educational resources for building cryptography into real world applications.",
   "our-principles-title": "Our principles",
   "principle-1-title": "01. Cryptography for people",
-  "principle-1-description": [
-    "Cryptography is everywhere: every time you connect to a secure site, log in with a password or unlock your phone, you're seeing cryptography in action.",
-    "With “programmable” cryptography (like zero knowledge proofs, multi-party computation or homomorphic encryption) we can make verifiable claims about secret information without revealing the information itself. This can be applied to identity management, collusion resistance, anonymous communication and so much more.",
-    "We're building a library of dev tools, research papers, and prototypes that are open source and free for everyone to use. We hope our resources inspire people to innovate the technologies that their communities need."
-  ],
+  "principle-1-description": [],
   "principle-2-title": "02. Privacy by default",
   "principle-2-description": [
     "We believe that privacy is a fundamental right. We want to be part of building an internet that divests from invasive data practices, and instead gives people real choices about who has access to their personal information. Permission should be purpose specific, revocable, informed and uncoerced.",

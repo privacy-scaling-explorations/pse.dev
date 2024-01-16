@@ -40,7 +40,7 @@ export default function DiscoverMoreProjects({ project, lang }: ProjectProps) {
       <h2 className="text-center text-3xl font-bold">{t("discoverMore")}</h2>
       <div className="flex flex-col gap-5 md:flex-row">
         {suggestedProject?.map((project: ProjectInterface) => (
-          <ProjectCard project={project} />
+          <ProjectCard project={project} lang={lang} />
         ))}
       </div>
       <Link

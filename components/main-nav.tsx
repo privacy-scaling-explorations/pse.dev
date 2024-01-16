@@ -7,7 +7,7 @@ import PSELogo from "@/public/logos/header-logo.svg"
 
 import { NavItem } from "@/types/nav"
 
-interface MainNavProps {
+export interface MainNavProps {
   items: NavItem[]
 }
 

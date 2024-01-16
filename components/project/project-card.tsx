@@ -5,8 +5,10 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { VariantProps, cva } from "class-variance-authority"
 
+import { LangProps } from "@/types/common"
 import { ProjectInterface, ProjectLinkWebsite } from "@/lib/types"
 import { cn } from "@/lib/utils"
+import { LocaleTypes } from "@/app/i18n/settings"
 
 import { Icons } from "../icons"
 import { CategoryTag } from "../ui/categoryTag"
@@ -48,14 +50,15 @@ export default function ProjectCard({
   showBanner = false,
   border = false,
   className,
-}: ProjectCardProps) {
+  lang,
+}: ProjectCardProps & { lang: LocaleTypes }) {
   const router = useRouter()
 
   const { id, image, links, name, tldr, tags } = project
 
   return (
     <div
-      onClick={() => router.push(`/projects/${id}`)}
+      onClick={() => router.push(`${lang}/projects/${id}`)}
       className={cn(projectCardVariants({ showLinks, border, className }))}
     >
       {showBanner && (

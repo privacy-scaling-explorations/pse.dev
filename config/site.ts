@@ -1,27 +1,9 @@
 export type SiteConfig = typeof siteConfig
-
+1
 export const siteConfig = {
   name: "Privacy & Scaling Explorations",
   description:
     "Enhancing Ethereum through cryptographic research and collective experimentation.",
-  mainNav: [
-    {
-      title: "Home",
-      href: "/",
-    },
-    {
-      title: "Project Library",
-      href: "/projects",
-    },
-    {
-      title: "About",
-      href: "/about",
-    },
-    {
-      title: "Resources",
-      href: "/resources",
-    },
-  ],
   links: {
     twitter: "https://twitter.com/privacyscaling",
     github: "https://github.com/privacy-scaling-explorations",

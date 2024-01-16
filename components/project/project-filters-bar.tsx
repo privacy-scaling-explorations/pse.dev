@@ -128,8 +128,8 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
 
   useEffect(() => {
     if (!queryString) return
-    router.push(`/projects?${queryString}`)
-  }, [queryString, router])
+    router.push(`${lang}/projects?${queryString}`)
+  }, [queryString, router, lang])
 
   useEffect(() => {
     // set active filters from url
@@ -152,7 +152,7 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
       projects,
     })
     setSearchQuery("") // clear input
-    router.push("/projects")
+    router.push(`${lang}/projects`)
   }
 
   useDebounce(

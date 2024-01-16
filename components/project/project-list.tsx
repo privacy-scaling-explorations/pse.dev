@@ -41,6 +41,7 @@ export default function ProjectList({ lang }: LangProps["params"]) {
         <ProjectCard
           key={project?.id}
           project={project}
+          lang={lang}
           showBanner
           showLinks
           border

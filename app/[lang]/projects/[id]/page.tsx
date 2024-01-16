@@ -22,7 +22,7 @@ type PageProps = {
 
 export interface ProjectProps {
   project: ProjectInterface
-  lang: string
+  lang: LocaleTypes
 }
 
 export async function generateMetadata(

@@ -7,6 +7,7 @@ import ArrowVector from "@/public/icons/arrow-right-up.svg"
 import CloseVector from "@/public/icons/close-fill.svg"
 import HeaderVector from "@/public/icons/menu-burger.svg"
 
+import { LangProps } from "@/types/common"
 import { siteConfig } from "@/config/site"
 import {
   Discord,
@@ -14,9 +15,11 @@ import {
   Mirror,
   Twitter,
 } from "@/components/svgs/social-medias"
+import { useTranslation } from "@/app/i18n/client"
 
-export function SiteHeaderMobile() {
+export function SiteHeaderMobile({ lang }: LangProps["params"]) {
   const [header, setHeader] = useState(false)
+  const { t } = useTranslation(lang, "common")
 
   return (
     <div className="flex items-center md:hidden">
@@ -48,40 +51,40 @@ export function SiteHeaderMobile() {
           </div>
           <div className="flex w-full flex-col gap-5 px-[16px] text-base font-medium">
             <NextLink
-              href={"/"}
+              href={`/${lang}`}
               onClick={() => setHeader(false)}
-              className="border-y-2 border-white p-[16px]"
+              className="border-y-2 border-white p-[16px] uppercase"
             >
-              HOME
+              {t("menu.home")}
             </NextLink>
             <NextLink
               onClick={() => setHeader(false)}
-              href={"/projects"}
-              className="border-b-2 border-white p-[16px] pt-0"
+              href={`${lang}/projects`}
+              className="border-b-2 border-white p-[16px] pt-0 uppercase"
             >
-              PROJECT LIBRARY
+              {t("menu.projectLibrary")}
             </NextLink>
             <NextLink
               onClick={() => setHeader(false)}
-              href={"/about"}
-              className="border-b-2 border-white p-[16px] pt-0"
+              href={`/${lang}/about`}
+              className="border-b-2 border-white p-[16px] pt-0 uppercase"
             >
-              ABOUT
+              {t("menu.about")}
             </NextLink>
             <NextLink
               onClick={() => setHeader(false)}
-              href={"/resources"}
-              className="border-b-2 border-white p-[16px] pt-0"
+              href={`/${lang}/resources`}
+              className="border-b-2 border-white p-[16px] pt-0 uppercase"
             >
-              RESOURCES
+              {t("menu.resources")}
             </NextLink>
             <NextLink
               href={siteConfig.links.jobs}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-5 border-b-2 border-white p-[16px] pt-0"
+              className="flex items-center gap-5 border-b-2 border-white p-[16px] pt-0 uppercase"
             >
-              JOBS
+              {t("menu.jobs")}
               <NextImage src={ArrowVector} alt="logo" width={24} height={24} />
             </NextLink>
           </div>
@@ -118,10 +121,14 @@ export function SiteHeaderMobile() {
               </NextLink>
             </div>
             <div className="flex gap-5 text-white">
-              <h1>Privacy Policy</h1>
-              <h1>Terms of use</h1>
+              <h1>{t("footer.privacyPolicy")}</h1>
+              <h1>{t("footer.termsOfUse")}</h1>
             </div>
-            <h1 className="text-gray-400">Last updated June 8, 2023</h1>
+            <h1 className="text-gray-400">
+              {t("lastUpdatedAt", {
+                date: "January 16, 2024",
+              })}
+            </h1>
           </div>
         </div>
       )}

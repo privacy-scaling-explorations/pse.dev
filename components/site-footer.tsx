@@ -124,7 +124,9 @@ export function SiteFooter({ lang }: LangProps["params"]) {
           </Link>
         </div>
         <span className="py-2 font-sans font-normal text-white opacity-50 ">
-          Last updated June 8, 2023
+          {t("lastUpdatedAt", {
+            date: "January 16, 2024",
+          })}
         </span>
       </div>
     </footer>

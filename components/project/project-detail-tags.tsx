@@ -50,7 +50,7 @@ export function ProjectTags({ project, lang }: IProjectTags) {
                 <div className="flex flex-wrap gap-[6px]">
                   {keyTags?.map((tag) => {
                     return (
-                      <Link href={`/projects?${key}=${tag}`}>
+                      <Link href={`${lang}/projects?${key}=${tag}`}>
                         <CategoryTag key={tag} variant="gray">
                           {tag}
                         </CategoryTag>
