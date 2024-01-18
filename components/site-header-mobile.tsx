@@ -3,7 +3,6 @@
 import { useState } from "react"
 import NextImage from "next/image"
 import NextLink from "next/link"
-import ArrowVector from "@/public/icons/arrow-right-up.svg"
 import CloseVector from "@/public/icons/close-fill.svg"
 import HeaderVector from "@/public/icons/menu-burger.svg"
 
@@ -16,6 +15,8 @@ import {
   Twitter,
 } from "@/components/svgs/social-medias"
 import { useTranslation } from "@/app/i18n/client"
+
+import { Icons } from "./icons"
 
 export function SiteHeaderMobile({ lang }: LangProps["params"]) {
   const [header, setHeader] = useState(false)
@@ -85,7 +86,7 @@ export function SiteHeaderMobile({ lang }: LangProps["params"]) {
               className="flex items-center gap-5 border-b-2 border-white p-[16px] pt-0 uppercase"
             >
               {t("menu.jobs")}
-              <NextImage src={ArrowVector} alt="logo" width={24} height={24} />
+              <Icons.externalUrl className="w-6" fill="white" />
             </NextLink>
           </div>
           <div className="flex h-full w-full flex-col items-center justify-end gap-5 py-[40px] text-sm">

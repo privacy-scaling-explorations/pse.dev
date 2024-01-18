@@ -14,7 +14,7 @@ import {
 } from "@/components/svgs/social-medias"
 import { useTranslation } from "@/app/i18n/client"
 
-import { ArrowRightUp } from "./svgs/arrows"
+import { Icons } from "./icons"
 
 const SocialMedia = ({ label }: { label: string }) => {
   return (
@@ -59,7 +59,7 @@ export function SiteFooter({ lang }: LangProps["params"]) {
             className="link flex items-center gap-5 px-[10px] uppercase"
           >
             {t("menu.jobs")}
-            <ArrowRightUp color="black" />
+            <Icons.externalUrl />
           </Link>
         </div>
       </div>
