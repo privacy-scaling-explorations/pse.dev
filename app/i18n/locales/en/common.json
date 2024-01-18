@@ -33,7 +33,10 @@
   "tags": {
     "build": "Build",
     "play": "Play",
-    "research": "Research"
+    "research": "Research",
+    "grantee": "Grant",
+    "collaborate": "Collaboration",
+    "fullyPSE": "Fully PSE"
   },
   "status": {
     "archived": "Archived",

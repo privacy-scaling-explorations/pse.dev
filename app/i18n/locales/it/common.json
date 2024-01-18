@@ -33,7 +33,10 @@
   "tags": {
     "build": "Sviluppa",
     "play": "Sperimenta",
-    "research": "Ricerca"
+    "research": "Ricerca",
+    "grantee": "Grant",
+    "collaborate": "Collaborazione",
+    "fullyPSE": "Interamente PSE"
   },
   "status": {
     "archived": "Archiviato",
