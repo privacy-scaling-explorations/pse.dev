@@ -1,6 +1,7 @@
 "use client"
 
 import {
+  DEFAULT_PROJECT_SORT_BY,
   ProjectFilter,
   ProjectSortBy,
   useProjectFiltersState,
@@ -30,6 +31,7 @@ export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
     }
   )
 
+
   const projectSortItems: { label: string; value: ProjectSortBy }[] = [
     { label: t("filterOptions.random"), value: "random" },
     { label: t("filterOptions.asc"), value: "asc" },
@@ -47,7 +49,7 @@ export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
         <span className={labelClass}>{resultLabel}</span>
         <Dropdown
           label={activeSortOption}
-          defaultItem="random"
+          defaultItem={DEFAULT_PROJECT_SORT_BY}
           items={projectSortItems}
           onChange={(sortBy) => sortProjectBy(sortBy as ProjectSortBy)}
           disabled={!projects?.length}
