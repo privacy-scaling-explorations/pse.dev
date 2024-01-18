@@ -5,7 +5,9 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
 import { LangProps } from "@/types/common"
+import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
+import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 import { useTranslation } from "@/app/i18n/client"
@@ -164,10 +166,10 @@ const ResourceNav = ({ lang }: LangProps["params"]) => {
         </ul>
       </div>
       <Link
-        href={
-          "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/content/resources.md?plain=1"
-        }
+        href={siteConfig.addGithubResource}
         target="_blank"
+        rel="noreferrer"
+        passHref
       >
         <Button size="lg" icon={Icons.gitHub}>
           <span className="pl-2 text-left text-sm font-medium">
@@ -212,6 +214,25 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
           </div>
         </section>
       </div>
+      <section className="relative border-t border-tuatara-600 bg-[#D0F2FF] py-32 text-center">
+        <AppContent className="flex flex-col gap-6">
+          <h3 className="py-2 font-display text-[18px] font-bold text-tuatara-950 md:text-3xl">
+            {t("addResourceQuestion")}
+          </h3>
+          <Link
+            href={siteConfig.addGithubResource}
+            target="_blank"
+            rel="noreferrer"
+            passHref
+          >
+            <Button>
+              <div className="flex items-center gap-2">
+                <span className="text-[14px]">{t("addSource")}</span>
+              </div>
+            </Button>
+          </Link>
+        </AppContent>
+      </section>
     </main>
   )
 }

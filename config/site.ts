@@ -14,4 +14,6 @@ export const siteConfig = {
     termOfUse: "https://ethereum.org/en/terms-of-use/",
     privacyPolicy: "https://ethereum.org/en/privacy-policy/",
   },
+  addGithubResource:
+    "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/content/resources.md?plain=1",
 }
