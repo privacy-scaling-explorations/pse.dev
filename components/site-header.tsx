@@ -1,5 +1,6 @@
 "use client"
 
+import { useAppSettings } from "@/hooks/useAppSettings"
 import { MainNav, MainNavProps } from "@/components/main-nav"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
@@ -13,24 +14,7 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ lang }: SiteHeaderProps) {
   const { t: i18n } = useTranslation(lang, "common")
-  const MAIN_NAV: MainNavProps["items"] = [
-    {
-      title: i18n("menu.home"),
-      href: "/",
-    },
-    {
-      title: i18n("menu.projectLibrary"),
-      href: "/projects",
-    },
-    {
-      title: i18n("menu.about"),
-      href: "/about",
-    },
-    {
-      title: i18n("menu.resources"),
-      href: "/resources",
-    },
-  ]
+  const { MAIN_NAV } = useAppSettings(lang)
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white px-6 shadow-sm xl:px-20">

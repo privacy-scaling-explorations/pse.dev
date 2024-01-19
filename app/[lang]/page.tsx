@@ -36,10 +36,7 @@ export default function IndexPage() {
           <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[20px]">
             {t("headerSubtitle")}
           </h6>
-          <Link
-            href={`/${lang}/projects`}
-            className="group flex items-center gap-2"
-          >
+          <Link href={`/projects`} className="group flex items-center gap-2">
             <Button className="w-full sm:w-auto">
               <div className="flex items-center gap-1">
                 <span className="text-base font-medium uppercase">

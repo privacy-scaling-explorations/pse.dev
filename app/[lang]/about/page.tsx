@@ -68,7 +68,7 @@ export default async function AboutPage({ params: { lang } }: any) {
         <AppContent>
           <div className="mx-auto grid grid-cols-1 gap-16 py-10 lg:grid-cols-[1fr_300px] lg:gap-2 lg:py-20">
             <div className="flex flex-col gap-8 lg:w-4/5">
-              <h6 className="break-words font-display text-4xl font-bold text-tuatara-950 md:py-4 md:text-5xl">
+              <h6 className="break-words font-display text-4xl font-bold text-tuatara-950 md:text-5xl">
                 {t("title")}
               </h6>
               <span className="font-sans text-base font-normal leading-[27px] text-tuatara-950">

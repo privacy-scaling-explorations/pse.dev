@@ -5,27 +5,30 @@ import Link from "next/link"
 import PSELogo from "@/public/logos/pse-logo-circle.svg"
 
 import { LangProps } from "@/types/common"
+import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
-import {
-  Discord,
-  Github,
-  Mirror,
-  Twitter,
-} from "@/components/svgs/social-medias"
+import { useAppSettings } from "@/hooks/useAppSettings"
 import { useTranslation } from "@/app/i18n/client"
 
 import { Icons } from "./icons"
+import { AppContent } from "./ui/app-content"
 
 const SocialMedia = ({ label }: { label: string }) => {
   return (
-    <span className="mt-[0.9px] hidden font-sans text-sm font-normal uppercase leading-[21px] text-white md:block">
+    <span className="mt-[0.9px] font-sans text-sm font-normal uppercase leading-[21px] text-white md:block">
       {label}
     </span>
   )
 }
 
+const LinksWrapper = ({ children }: { children: React.ReactNode }) => {
+  return <div className="flex flex-col gap-4">{children}</div>
+}
+
 export function SiteFooter({ lang }: LangProps["params"]) {
   const { t } = useTranslation(lang, "common")
+
+  const { MAIN_NAV } = useAppSettings(lang)
 
   return (
     <footer className="flex flex-col">
@@ -36,98 +39,104 @@ export function SiteFooter({ lang }: LangProps["params"]) {
             {t("footer.description")}
           </h1>
         </div>
-        <div className="flex w-full flex-col items-center gap-5 py-8 text-base font-medium md:flex-row md:justify-center">
-          <Link href={`/${lang}`} className="link px-[10px] uppercase">
-            {t("menu.home")}
-          </Link>
-          <Link href={`/${lang}/projects`} className="link px-[10px] uppercase">
-            {t("menu.projectLibrary")}
-          </Link>
-          <Link href={`/${lang}/about`} className="link px-[10px] uppercase">
-            {t("menu.about")}
-          </Link>
-          <Link
-            href={`/${lang}/resources`}
-            className="link px-[10px] uppercase"
-          >
-            {t("menu.resources")}
-          </Link>
-          <Link
-            href={siteConfig.links.jobs}
-            target="_blank"
-            rel="noreferrer"
-            className="link flex items-center gap-5 px-[10px] uppercase"
-          >
-            {t("menu.jobs")}
-            <Icons.externalUrl />
-          </Link>
-        </div>
       </div>
-      <div className="flex w-full flex-col items-center justify-center gap-2 bg-[#171C1B] py-[40px] text-sm">
-        <div className="flex gap-5">
-          <Link
-            href={siteConfig.links.twitter}
-            className=" flex h-[21px] items-start gap-2"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Twitter color="white" />
-            <SocialMedia label="Twitter" />
-          </Link>
+      <div className="bg-tuatara-950 py-8 text-left text-[14px] uppercase text-white">
+        <AppContent className="grid grid-cols-1 justify-between gap-8 bg-tuatara-950 py-2 text-white md:grid-cols-4 lg:px-40">
+          <LinksWrapper>
+            {MAIN_NAV.map(({ title, href }: NavItem, indexKey) => (
+              <Link key={indexKey} href={href}>
+                {title}
+              </Link>
+            ))}
+          </LinksWrapper>
+          <LinksWrapper>
+            <Link
+              href={siteConfig.links.jobs}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2"
+            >
+              <Icons.jobs fill="white" />
+              {t("menu.jobs")}
+              <Icons.externalUrl className="w-5" />
+            </Link>
+            <Link
+              href={siteConfig.links.discord}
+              className="flex items-start gap-2"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icons.discord className="w-4" />
+              <SocialMedia label="Discord" />
+              <Icons.externalUrl className="w-5" />
+            </Link>
+            <Link
+              href={siteConfig.links.github}
+              className="flex items-start gap-2"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icons.gitHub className="w-4" color="white" />
+              <SocialMedia label="Github" />
+              <Icons.externalUrl className="w-5" />
+            </Link>
+          </LinksWrapper>
+          <LinksWrapper>
+            <Link
+              href={siteConfig.links.twitter}
+              className="flex items-center gap-2"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="w-4">
+                <Icons.twitter className="w-full" color="white" />
+              </div>
+              <SocialMedia label="Twitter" />
+              <Icons.externalUrl className="w-5" />
+            </Link>
+            <Link
+              href={siteConfig.links.articles}
+              className="flex items-center gap-2"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="w-4">
+                <Icons.mirror className="w-full" color="white" />
+              </div>
 
-          <Link
-            href={siteConfig.links.discord}
-            className="flex h-[21px] items-start gap-2"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Discord color="white" />
-            <SocialMedia label="Discord" />
-          </Link>
-          <Link
-            href={siteConfig.links.github}
-            className="flex h-[21px] items-start gap-2"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Github color="white" />
-            <SocialMedia label="Github" />
-          </Link>
-          <Link
-            href={siteConfig.links.articles}
-            className="flex h-[21px] items-start gap-2"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Mirror color="white" />
-            <SocialMedia label="Mirror" />
-          </Link>
-        </div>
-        <div className="flex gap-5 py-2 text-white">
-          <Link
-            href={siteConfig.links.privacyPolicy}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span className="font-sans font-normal leading-[21px]">
-              {t("footer.privacyPolicy")}
-            </span>
-          </Link>
-          <Link
-            href={siteConfig.links.termOfUse}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span className="font-sans font-normal leading-[21px]">
-              {t("footer.termsOfUse")}
-            </span>
-          </Link>
-        </div>
-        <span className="py-2 font-sans font-normal text-white opacity-50 ">
-          {t("lastUpdatedAt", {
-            date: "January 16, 2024",
-          })}
-        </span>
+              <SocialMedia label="Mirror" />
+              <Icons.externalUrl className="w-5" />
+            </Link>
+            <Link
+              href={siteConfig.links.youtube}
+              className="flex items-center gap-2"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="w-4">
+                <Icons.youtube className="w-full" color="white" />
+              </div>
+              <SocialMedia label="Youtube" />
+              <Icons.externalUrl className="w-5" />
+            </Link>
+          </LinksWrapper>
+          <LinksWrapper>
+            <Link
+              href={siteConfig.links.privacyPolicy}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>{t("footer.privacyPolicy")}</span>
+            </Link>
+            <Link
+              href={siteConfig.links.termOfUse}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>{t("footer.termsOfUse")}</span>
+            </Link>
+          </LinksWrapper>
+        </AppContent>
       </div>
     </footer>
   )
