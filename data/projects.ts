@@ -14,9 +14,13 @@ import { dslWorkingGroup } from "./projects/dsl-working-group"
 import { ECIPHalo2 } from "./projects/ecip-halo2"
 import { eigenTrust } from "./projects/eigen-trust"
 import { Interep } from "./projects/interep"
+import { jubmoji } from "./projects/jubmoji"
 import { maci } from "./projects/maci"
+import { nfctap } from "./projects/nfctap"
+import { p0tion } from "./projects/p0tion"
+import { p256 } from "./projects/p256"
 import { pollenLabs } from "./projects/pollen-labs"
-import { PerpetualPowersOfTau } from './projects/powers-of-tau'
+import { PerpetualPowersOfTau } from "./projects/powers-of-tau"
 import { pseSecurity } from "./projects/pse-security"
 import { rln } from "./projects/rln"
 import { semaphore } from "./projects/semaphore"
@@ -25,15 +29,13 @@ import { tlsn } from "./projects/tlsn"
 import { trustedSetups } from "./projects/trusted-setups"
 import { unirepProtocol } from "./projects/unirep-protocol"
 import { wax } from "./projects/wax"
-import { ZKKit } from "./projects/zk-kit"
 import { zk3 } from "./projects/zk3"
+import { ZKKit } from "./projects/zk-kit"
 import { zkevmCommunity } from "./projects/zkevm-community"
 import { zkitter } from "./projects/zkitter"
 import { zkml } from "./projects/zkml"
 import { Zkopru } from "./projects/zkopru"
 import { zkp2p } from "./projects/zkp2p"
-import { p256 } from "./projects/p256"
-import { p0tion } from "./projects/p0tion"
 
 export const ProjectLinkIconMap: ProjectLinkType = {
   github: GithubIcon,
@@ -74,6 +76,8 @@ export const projects: ProjectInterface[] = [
   ZKKit,
   p256,
   p0tion,
+  jubmoji,
+  nfctap,
   /**
   * Grant projects hidden until we have grant tag
   zkp2p,
