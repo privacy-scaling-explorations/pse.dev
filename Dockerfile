@@ -1,4 +1,4 @@
-FROM node:18-alpine as builder
+FROM node:18-alpine3.18 as builder
 RUN apk add --no-cache git curl
 
 WORKDIR /builder
@@ -8,7 +8,7 @@ RUN pnpm install
 RUN pnpm build
 
 # Create image by copying build artifacts
-FROM node:18-alpine as runner
+FROM node:18-alpine3.18 as runner
 RUN npm i -g pnpm
 
 USER node
