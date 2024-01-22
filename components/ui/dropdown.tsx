@@ -11,7 +11,7 @@ interface DropdownItemProps {
 }
 
 interface DropdownProps {
-  label: string
+  label: React.ReactNode
   items?: DropdownItemProps[]
   defaultItem?: string | number
   onChange?: (value: DropdownItemProps["value"]) => void
@@ -53,7 +53,7 @@ const Dropdown = ({
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="max-h-[250px] min-w-[136px] overflow-scroll rounded-md border border-tuatara-200 bg-white py-2"
+          className="z-[50] max-h-[250px] min-w-[136px] overflow-scroll rounded-md border border-tuatara-200 bg-white py-2"
           sideOffset={5}
         >
           {items?.map((item, index) => {

@@ -13,6 +13,7 @@ import { LanguageMapping, LocaleTypes } from "@/app/i18n/settings"
 
 import { Icons } from "./icons"
 import { SiteHeaderMobile } from "./site-header-mobile"
+import { Dropdown } from "./ui/dropdown"
 
 type SiteHeaderProps = {
   lang: LocaleTypes
@@ -39,45 +40,37 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
     },
   ]
 
+  const languagesItems: { label: string; value: string }[] =
+    Object.entries(LanguageMapping).map(([value, label]) => {
+      return {
+        label,
+        value,
+      }
+    }) ?? []
+
   return (
     <header className="sticky top-0 z-40 w-full bg-white px-6 shadow-sm xl:px-20">
       <div className="flex h-16 items-center justify-between space-x-4 sm:space-x-0">
         <MainNav items={MAIN_NAV} lang={lang} />
         <SiteHeaderMobile lang={lang} />
-        <DropdownMenu.Root>
-          <DropdownMenu.Trigger className="hidden outline-none md:block">
-            <Trans i18nKey="languageSwitcher" t={i18n}>
-              <div className="hidden h-14 flex-1 items-center justify-end space-x-4 md:flex">
-                <button type="button" className="flex gap-1">
-                  <Icons.globe size={22} />
-                  <span>{LanguageMapping[lang] ?? LanguageMapping["en"]}</span>
-                  <Icons.arrowDown fill="black" />
-                </button>
+        <div className="hidden outline-none md:block">
+          <Dropdown
+            label={
+              <div className="flex items-center gap-1">
+                <Icons.globe size={22} />
+                <span className="!text-base !font-normal text-tuatara-950">
+                  {LanguageMapping[lang] ?? LanguageMapping["en"]}
+                </span>
               </div>
-            </Trans>
-          </DropdownMenu.Trigger>
-          <DropdownMenu.Content className="-mt-2 h-36 !w-32 overflow-scroll rounded-[6px] border border-tuatara-200 bg-white py-3">
-            {Object.entries(LanguageMapping).map(
-              ([language, languageLabel]) => {
-                const isActive = lang === language
-                return (
-                  <Link href={`/${language}`}>
-                    <span className="min-w-36" key={language}>
-                      <DropdownMenu.Item
-                        className={cn(
-                          "cursor-pointer px-5 py-2 font-sans text-sm font-normal leading-[150%] outline-none duration-200 hover:font-medium",
-                          isActive ? "text-anakiwa-500" : "text-tuatara-950"
-                        )}
-                      >
-                        {languageLabel}
-                      </DropdownMenu.Item>
-                    </span>
-                  </Link>
-                )
-              }
-            )}
-          </DropdownMenu.Content>
-        </DropdownMenu.Root>
+            }
+            defaultItem={lang}
+            items={languagesItems}
+            onChange={(lang) => {
+              console.log(lang)
+              window?.location?.replace(`/${lang}`)
+            }}
+          />
+        </div>
       </div>
     </header>
   )
