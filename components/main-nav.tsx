@@ -6,17 +6,19 @@ import { usePathname } from "next/navigation"
 import PSELogo from "@/public/logos/header-logo.svg"
 
 import { NavItem } from "@/types/nav"
+import { LocaleTypes, fallbackLng } from "@/app/i18n/settings"
 
 export interface MainNavProps {
   items: NavItem[]
+  lang?: LocaleTypes
 }
 
-export function MainNav({ items }: MainNavProps) {
+export function MainNav({ items, lang = fallbackLng }: MainNavProps) {
   const router = usePathname()
 
   return (
     <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="flex items-center space-x-2">
+      <Link href={`/${lang}`} className="flex items-center space-x-2">
         <Image src={PSELogo} alt="PSE Logo" width={32} height={32} />
       </Link>
       <nav className="hidden items-center gap-6 md:flex">

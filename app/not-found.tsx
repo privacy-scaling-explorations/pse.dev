@@ -47,7 +47,7 @@ export default function NotFound({ lang }: LangProps["params"]) {
                   </span>
                 </div>
               </div>
-              <Link href={`/${lang}`} className="mx-auto">
+              <Link href="/" className="mx-auto">
                 <Button variant="black">{t("goToHome")}</Button>
               </Link>
             </div>

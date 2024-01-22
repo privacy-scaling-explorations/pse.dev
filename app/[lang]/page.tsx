@@ -15,8 +15,7 @@ import { ArrowRightUp } from "@/components/svgs/arrows"
 import { useTranslation } from "../i18n/client"
 import { LocaleTypes } from "../i18n/settings"
 
-export default function IndexPage() {
-  const lang = useParams()?.locale as LocaleTypes
+export default function IndexPage({ params: { lang } }: any) {
   const { t } = useTranslation(lang, "homepage")
   const { t: ct } = useTranslation(lang, "common")
 
@@ -36,7 +35,7 @@ export default function IndexPage() {
             {t("headerSubtitle")}
           </motion.h1>
           <Link
-            href={`/${lang}/projects`}
+            href={`${lang}/projects`}
             className="group flex items-center gap-2"
           >
             <span className="border-b-2 border-orange text-base font-medium uppercase">
