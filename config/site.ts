@@ -17,5 +17,5 @@ export const siteConfig = {
     privacyPolicy: "https://ethereum.org/en/privacy-policy/",
   },
   addGithubResource:
-    "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/content/resources.md?plain=1",
+    "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/%5Blang%5D/content/resources.md",
 }
