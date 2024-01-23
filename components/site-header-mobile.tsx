@@ -21,10 +21,11 @@ import { useTranslation } from "@/app/i18n/client"
 import { LanguageMapping, languagesItems } from "@/app/i18n/settings"
 
 import { Icons } from "./icons"
-import { Dropdown } from "./ui/dropdown"
 
 const LanguageSwitcher = ({ lang }: LangProps["params"]) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  if (!siteConfig?.showLanguageSwitcher) return null
 
   return (
     <div className="flex flex-col border-b-2 border-white px-[14px] py-[16px] pt-0">

@@ -6,6 +6,7 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import i18next from "i18next"
 import { Trans } from "react-i18next/TransWithoutContext"
 
+import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { MainNav, MainNavProps } from "@/components/main-nav"
 import { useTranslation } from "@/app/i18n/client"
@@ -49,23 +50,25 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
       <div className="flex h-16 items-center justify-between space-x-4 sm:space-x-0">
         <MainNav items={MAIN_NAV} lang={lang} />
         <SiteHeaderMobile lang={lang} />
-        <div className="hidden outline-none md:block">
-          <Dropdown
-            label={
-              <div className="flex items-center gap-1">
-                <Icons.globe size={22} />
-                <span className="!text-base !font-normal text-tuatara-950">
-                  {LanguageMapping[lang] ?? LanguageMapping["en"]}
-                </span>
-              </div>
-            }
-            defaultItem={lang}
-            items={languagesItems}
-            onChange={(lang) => {
-              window?.location?.replace(`/${lang}`)
-            }}
-          />
-        </div>
+        {siteConfig?.showLanguageSwitcher && (
+          <div className="hidden outline-none md:block">
+            <Dropdown
+              label={
+                <div className="flex items-center gap-1">
+                  <Icons.globe size={22} />
+                  <span className="!text-base !font-normal text-tuatara-950">
+                    {LanguageMapping[lang] ?? LanguageMapping["en"]}
+                  </span>
+                </div>
+              }
+              defaultItem={lang}
+              items={languagesItems}
+              onChange={(lang) => {
+                window?.location?.replace(`/${lang}`)
+              }}
+            />
+          </div>
+        )}
       </div>
     </header>
   )

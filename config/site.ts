@@ -1,6 +1,7 @@
 export type SiteConfig = typeof siteConfig
-1
+
 export const siteConfig = {
+  showLanguageSwitcher: false, // TODO: enable when we have more languages
   name: "Privacy & Scaling Explorations",
   description:
     "Enhancing Ethereum through cryptographic research and collective experimentation.",
