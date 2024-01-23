@@ -26,7 +26,7 @@ export const i18n = i18next
   )
   .init({
     ...getOptions(),
-    debug: true,
+    debug: false,
     lng: undefined, // let detect the language on client side
     detection: {
       order: ["path", "htmlTag", "cookie", "navigator"],
@@ -45,7 +45,6 @@ export function useTranslation(
   if (runsOnServerSide && lng && i18n.resolvedLanguage !== lng) {
     i18n.changeLanguage(lng)
   } else {
-    return ret
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [activeLng, setActiveLng] = useState(i18n.resolvedLanguage)
     // eslint-disable-next-line react-hooks/rules-of-hooks

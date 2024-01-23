@@ -6,9 +6,26 @@ export type LocaleTypes = (typeof languages)[number]
 export const defaultNS = "translation"
 export const cookieName = "i18next"
 
+export const LanguageMapping: Record<string, string> = {
+  en: "English",
+  it: "Italiano",
+  ko: "한국어",
+  fr: "Français",
+  "zh-CN": "中文",
+  es: "Español",
+}
+
+export const languagesItems: { label: string; value: string }[] =
+  Object.entries(LanguageMapping).map(([value, label]) => {
+    return {
+      label,
+      value,
+    }
+  }) ?? []
+
 export function getOptions(lng = fallbackLng, ns = defaultNS): InitOptions {
   return {
-    // debug: true,
+    debug: false,
     supportedLngs: languages,
     fallbackLng,
     lng,

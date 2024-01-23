@@ -1,36 +1,49 @@
 "use client"
 
+import { siteConfig } from "@/config/site"
 import { useAppSettings } from "@/hooks/useAppSettings"
-import { MainNav, MainNavProps } from "@/components/main-nav"
-import { useTranslation } from "@/app/i18n/client"
-import { LocaleTypes } from "@/app/i18n/settings"
+import { MainNav } from "@/components/main-nav"
+import {
+  LanguageMapping,
+  LocaleTypes,
+  languagesItems,
+} from "@/app/i18n/settings"
 
 import { Icons } from "./icons"
 import { SiteHeaderMobile } from "./site-header-mobile"
+import { Dropdown } from "./ui/dropdown"
 
 type SiteHeaderProps = {
   lang: LocaleTypes
 }
 
 export function SiteHeader({ lang }: SiteHeaderProps) {
-  const { t: i18n } = useTranslation(lang, "common")
   const { MAIN_NAV } = useAppSettings(lang)
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white px-6 shadow-sm xl:px-20">
-      <div className="flex h-16  justify-between space-x-4 sm:space-x-0">
-        <MainNav items={MAIN_NAV} />
+      <div className="flex h-16 items-center justify-between space-x-4 sm:space-x-0">
+        <MainNav items={MAIN_NAV} lang={lang} />
         <SiteHeaderMobile lang={lang} />
-        <div className="hidden flex-1 items-center justify-end space-x-4 md:flex">
-          <button type="button" className="flex gap-2">
-            <Icons.globe size={22} />
-            <span>
-              {i18n("menu.languages", {
-                locale: lang?.toUpperCase(),
-              })}
-            </span>
-          </button>
-        </div>
+        {siteConfig?.showLanguageSwitcher && (
+          <div className="hidden outline-none md:block">
+            <Dropdown
+              label={
+                <div className="flex items-center gap-1">
+                  <Icons.globe size={22} />
+                  <span className="!text-base !font-normal text-tuatara-950">
+                    {LanguageMapping[lang] ?? LanguageMapping["en"]}
+                  </span>
+                </div>
+              }
+              defaultItem={lang}
+              items={languagesItems}
+              onChange={(lang) => {
+                window?.location?.replace(`/${lang}`)
+              }}
+            />
+          </div>
+        )}
       </div>
     </header>
   )

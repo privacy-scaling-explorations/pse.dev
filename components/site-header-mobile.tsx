@@ -3,11 +3,13 @@
 import { useState } from "react"
 import NextImage from "next/image"
 import NextLink from "next/link"
+import Link from "next/link"
 import CloseVector from "@/public/icons/close-fill.svg"
 import HeaderVector from "@/public/icons/menu-burger.svg"
 
 import { LangProps } from "@/types/common"
 import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
 import {
   Discord,
   Github,
@@ -15,8 +17,54 @@ import {
   Twitter,
 } from "@/components/svgs/social-medias"
 import { useTranslation } from "@/app/i18n/client"
+import { LanguageMapping, languagesItems } from "@/app/i18n/settings"
 
 import { Icons } from "./icons"
+
+const LanguageSwitcher = ({ lang }: LangProps["params"]) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  if (!siteConfig?.showLanguageSwitcher) return null
+
+  return (
+    <div className="flex flex-col border-b-2 border-white px-[14px] py-[16px] pt-0">
+      <button
+        onClick={() => {
+          setIsOpen(!isOpen)
+        }}
+        type="button"
+        className="flex items-center gap-2 uppercase"
+      >
+        <Icons.globe className="text-white" size={22} fill="white" />
+        <span className="text-base font-medium uppercase text-white">
+          {LanguageMapping[lang] ?? LanguageMapping["en"]}
+        </span>
+        <Icons.arrowDown />
+      </button>
+      {isOpen && (
+        <div className="ml-8 mt-4 flex flex-col gap-1">
+          {languagesItems?.map(({ label, value: languageKey }, index) => {
+            const isActive = languageKey === lang
+            return (
+              <Link
+                className={cn(
+                  "py-2 uppercase",
+                  isActive
+                    ? "font-medium text-anakiwa-500"
+                    : "font-normal text-white"
+                )}
+                href={`/${languageKey}`}
+                key={index}
+              >
+                {label}
+              </Link>
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
+}
 
 export function SiteHeaderMobile({ lang }: LangProps["params"]) {
   const [header, setHeader] = useState(false)
@@ -88,6 +136,8 @@ export function SiteHeaderMobile({ lang }: LangProps["params"]) {
               {t("menu.jobs")}
               <Icons.externalUrl className="w-6" fill="white" />
             </NextLink>
+
+            <LanguageSwitcher lang={lang} />
           </div>
           <div className="flex h-full w-full flex-col items-center justify-end gap-5 py-[40px] text-sm">
             <div className="flex gap-5">
@@ -125,7 +175,7 @@ export function SiteHeaderMobile({ lang }: LangProps["params"]) {
               <h1>{t("footer.privacyPolicy")}</h1>
               <h1>{t("footer.termsOfUse")}</h1>
             </div>
-            <h1 className="text-gray-400 text-center">
+            <h1 className="text-center text-gray-400">
               {t("lastUpdatedAt", {
                 date: "January 16, 2024",
               })}

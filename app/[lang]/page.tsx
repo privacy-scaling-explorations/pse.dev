@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useParams } from "next/navigation"
 import PSELogo from "@/public/icons/archstar.webp"
 import { motion } from "framer-motion"
 
@@ -16,8 +15,7 @@ import { WhatWeDo } from "@/components/sections/WhatWeDo"
 import { useTranslation } from "../i18n/client"
 import { LocaleTypes } from "../i18n/settings"
 
-export default function IndexPage() {
-  const lang = useParams()?.locale as LocaleTypes
+export default function IndexPage({ params: { lang } }: any) {
   const { t } = useTranslation(lang, "homepage")
   const { t: ct } = useTranslation(lang, "common")
 
