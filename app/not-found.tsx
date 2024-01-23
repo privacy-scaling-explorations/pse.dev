@@ -1,24 +1,31 @@
+"use client"
+
 import "@/styles/globals.css"
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 
+import { LangProps } from "@/types/common"
 import { fontDisplay, fontSans } from "@/lib/fonts"
 import { Button } from "@/components/ui/button"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 
-export default function NotFound() {
+import { useTranslation } from "./i18n/client"
+
+export default function NotFound({ lang }: LangProps["params"]) {
+  const { t } = useTranslation(lang, "common")
+
   return (
     <html
-      lang="en"
+      lang={lang}
       className={`${fontSans.variable} ${fontDisplay.variable}`}
       suppressHydrationWarning
     >
       <head />
       <body className="min-h-screen">
         <div className="relative flex h-screen flex-col bg-anakiwa-50">
-          <SiteHeader />
+          <SiteHeader lang={lang} />
           <div className="container m-auto">
             <div className="-mt-16 flex flex-col gap-7">
               <div className="flex flex-col items-center justify-center gap-3 text-center">
@@ -33,16 +40,15 @@ export default function NotFound() {
                 </div>
                 <div className="flex flex-col gap-5">
                   <span className="font-display text-2xl font-bold text-tuatara-950 md:text-6xl">
-                    404: Page not found.
+                    {t("error.404.title")}
                   </span>
                   <span className="font-sans text-base font-normal md:text-lg">
-                    The page you are looking for might have been removed, had
-                    its name changed or is temporarily unavailable.
+                    {t("error.404.description")}
                   </span>
                 </div>
               </div>
               <Link href="/" className="mx-auto">
-                <Button variant="black">Go to homepage</Button>
+                <Button variant="black">{t("goToHome")}</Button>
               </Link>
             </div>
           </div>

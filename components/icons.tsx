@@ -42,7 +42,13 @@ export const Icons = {
   globe: (props: LucideProps) => (
     <svg
       width={props.width}
-      height={typeof props.height === 'number' ? props.height : typeof props.width === 'number' ? props.width - 1 : 24}
+      height={
+        typeof props.height === "number"
+          ? props.height
+          : typeof props.width === "number"
+          ? props.width - 1
+          : 24
+      }
       viewBox="0 0 25 24"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +79,13 @@ export const Icons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={props.width}
-      height={typeof props.height === 'number' ? props.height : typeof props.width === 'number' ? props.width - 2 : 22}
+      height={
+        typeof props.height === "number"
+          ? props.height
+          : typeof props.width === "number"
+          ? props.width - 2
+          : 22
+      }
       fill="currentColor"
       viewBox="0 0 24 22"
       {...props}
@@ -88,7 +100,13 @@ export const Icons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={props.width}
-      height={typeof props.height === 'number' ? props.height : typeof props.width === 'number' ? props.width + 2 : 26}
+      height={
+        typeof props.height === "number"
+          ? props.height
+          : typeof props.width === "number"
+          ? props.width + 2
+          : 26
+      }
       fill="currentColor"
       viewBox="0 0 24 26"
       {...props}
@@ -102,17 +120,30 @@ export const Icons = {
     </svg>
   ),
   gitHub: (props: LucideProps) => (
-    <svg viewBox="0 0 64 64" width={props.size} height={props.size} fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path fill="currentColor" d="M59.707 16.72c-2.862-4.903-6.743-8.784-11.645-11.646C43.159 2.213 37.806.782 32 .782c-5.805 0-11.16 1.431-16.062 4.292-4.903 2.861-8.784 6.743-11.646 11.646C1.431 21.623 0 26.977 0 32.782c0 6.973 2.034 13.243 6.104 18.812 4.069 5.569 9.326 9.423 15.77 11.562.75.139 1.305.041 1.666-.291a1.63 1.63 0 0 0 .542-1.25l-.021-2.25a372.109 372.109 0 0 1-.021-3.708l-.958.166c-.611.112-1.382.159-2.312.146-.93-.013-1.896-.11-2.896-.292-1-.18-1.931-.596-2.792-1.249-.861-.653-1.472-1.507-1.833-2.562l-.417-.959c-.278-.638-.715-1.347-1.312-2.125-.597-.778-1.201-1.305-1.812-1.583l-.292-.209a3.096 3.096 0 0 1-.542-.5 2.302 2.302 0 0 1-.375-.583c-.083-.195-.014-.355.208-.48.223-.125.625-.186 1.208-.186l.833.124c.556.111 1.243.444 2.063 1a6.731 6.731 0 0 1 2.021 2.166c.639 1.139 1.409 2.007 2.312 2.605.902.597 1.812.895 2.729.895.916 0 1.708-.069 2.375-.208a8.33 8.33 0 0 0 1.875-.625c.25-1.862.931-3.292 2.041-4.292-1.583-.166-3.006-.417-4.271-.75-1.264-.334-2.569-.875-3.916-1.626-1.348-.75-2.466-1.681-3.354-2.791-.889-1.111-1.618-2.57-2.187-4.375-.569-1.806-.854-3.889-.854-6.25 0-3.362 1.097-6.222 3.292-8.584-1.028-2.527-.931-5.361.291-8.499.806-.25 2-.062 3.583.562 1.583.625 2.743 1.16 3.479 1.604.736.444 1.326.82 1.771 1.125 2.584-.722 5.25-1.083 8-1.083s5.417.361 8.001 1.083l1.583-1c1.083-.667 2.361-1.278 3.833-1.834 1.472-.555 2.598-.708 3.376-.458 1.25 3.139 1.361 5.972.333 8.499 2.194 2.361 3.292 5.223 3.292 8.584 0 2.361-.286 4.451-.854 6.27-.569 1.82-1.305 3.277-2.207 4.375-.903 1.098-2.029 2.021-3.376 2.771s-2.653 1.292-3.917 1.625c-1.264.334-2.687.584-4.271.751 1.444 1.25 2.166 3.222 2.166 5.916v8.791c0 .499.174.916.521 1.25.347.333.895.431 1.646.291 6.445-2.138 11.702-5.992 15.771-11.562 4.069-5.569 6.104-11.839 6.104-18.812-.001-5.804-1.433-11.157-4.293-16.06z" />
+    <svg
+      viewBox="0 0 64 64"
+      width={props.size}
+      height={props.size}
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M59.707 16.72c-2.862-4.903-6.743-8.784-11.645-11.646C43.159 2.213 37.806.782 32 .782c-5.805 0-11.16 1.431-16.062 4.292-4.903 2.861-8.784 6.743-11.646 11.646C1.431 21.623 0 26.977 0 32.782c0 6.973 2.034 13.243 6.104 18.812 4.069 5.569 9.326 9.423 15.77 11.562.75.139 1.305.041 1.666-.291a1.63 1.63 0 0 0 .542-1.25l-.021-2.25a372.109 372.109 0 0 1-.021-3.708l-.958.166c-.611.112-1.382.159-2.312.146-.93-.013-1.896-.11-2.896-.292-1-.18-1.931-.596-2.792-1.249-.861-.653-1.472-1.507-1.833-2.562l-.417-.959c-.278-.638-.715-1.347-1.312-2.125-.597-.778-1.201-1.305-1.812-1.583l-.292-.209a3.096 3.096 0 0 1-.542-.5 2.302 2.302 0 0 1-.375-.583c-.083-.195-.014-.355.208-.48.223-.125.625-.186 1.208-.186l.833.124c.556.111 1.243.444 2.063 1a6.731 6.731 0 0 1 2.021 2.166c.639 1.139 1.409 2.007 2.312 2.605.902.597 1.812.895 2.729.895.916 0 1.708-.069 2.375-.208a8.33 8.33 0 0 0 1.875-.625c.25-1.862.931-3.292 2.041-4.292-1.583-.166-3.006-.417-4.271-.75-1.264-.334-2.569-.875-3.916-1.626-1.348-.75-2.466-1.681-3.354-2.791-.889-1.111-1.618-2.57-2.187-4.375-.569-1.806-.854-3.889-.854-6.25 0-3.362 1.097-6.222 3.292-8.584-1.028-2.527-.931-5.361.291-8.499.806-.25 2-.062 3.583.562 1.583.625 2.743 1.16 3.479 1.604.736.444 1.326.82 1.771 1.125 2.584-.722 5.25-1.083 8-1.083s5.417.361 8.001 1.083l1.583-1c1.083-.667 2.361-1.278 3.833-1.834 1.472-.555 2.598-.708 3.376-.458 1.25 3.139 1.361 5.972.333 8.499 2.194 2.361 3.292 5.223 3.292 8.584 0 2.361-.286 4.451-.854 6.27-.569 1.82-1.305 3.277-2.207 4.375-.903 1.098-2.029 2.021-3.376 2.771s-2.653 1.292-3.917 1.625c-1.264.334-2.687.584-4.271.751 1.444 1.25 2.166 3.222 2.166 5.916v8.791c0 .499.174.916.521 1.25.347.333.895.431 1.646.291 6.445-2.138 11.702-5.992 15.771-11.562 4.069-5.569 6.104-11.839 6.104-18.812-.001-5.804-1.433-11.157-4.293-16.06z"
+      />
     </svg>
   ),
   readme: (props: LucideProps) => (
     <svg
       width={props.size}
-      height={typeof props.size === 'number'
-        ? props.size
-        : typeof props.size === 'number'
-          ? props.size + 1 : 17}
+      height={
+        typeof props.size === "number"
+          ? props.size
+          : typeof props.size === "number"
+          ? props.size + 1
+          : 17
+      }
       viewBox="0 0 16 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +163,13 @@ export const Icons = {
   hand: (props: LucideProps) => (
     <svg
       width={props.width}
-      height={typeof props.height === 'number' ? props.height : typeof props.width === 'number' ? props.width - 1 : 19}
+      height={
+        typeof props.height === "number"
+          ? props.height
+          : typeof props.width === "number"
+          ? props.width - 1
+          : 19
+      }
       viewBox="0 0 20 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +184,13 @@ export const Icons = {
   hammer: (props: LucideProps) => (
     <svg
       width={props.width}
-      height={typeof props.height === 'number' ? props.height : typeof props.width === 'number' ? props.width - 1 : 19}
+      height={
+        typeof props.height === "number"
+          ? props.height
+          : typeof props.width === "number"
+          ? props.width - 1
+          : 19
+      }
       viewBox="0 0 20 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +205,13 @@ export const Icons = {
   checkActive: (props: LucideProps) => (
     <svg
       width={props.width}
-      height={typeof props.height === 'number' ? props.height : typeof props.width === 'number' ? props.width + 1 : 15}
+      height={
+        typeof props.height === "number"
+          ? props.height
+          : typeof props.width === "number"
+          ? props.width + 1
+          : 15
+      }
       viewBox="0 0 14 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

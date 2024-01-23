@@ -11,10 +11,13 @@ import {
   ProjectFilter,
   useProjectFiltersState,
 } from "@/state/useProjectFiltersState"
+import i18next from "i18next"
 import { useDebounce } from "react-use"
 
-import { ProjectStatusType } from "@/lib/types"
+import { IThemeStatus, IThemesButton, LangProps } from "@/types/common"
 import { cn, queryStringToObject } from "@/lib/utils"
+import { useTranslation } from "@/app/i18n/client"
+import { LocaleTypes } from "@/app/i18n/settings"
 
 import { Icons } from "../icons"
 import Badge from "../ui/badge"
@@ -38,49 +41,45 @@ const FilterWrapper = ({ label, children }: FilterWrapperProps) => {
   )
 }
 
-export const ThemesButtonMapping: Record<
-  string,
-  {
-    label: string
-    icon: any
+export const ThemesButtonMapping = (lang: LocaleTypes): IThemesButton => {
+  const t = i18next.getFixedT(lang, "common")
+
+  return {
+    build: {
+      label: t("tags.build"),
+      icon: <Icons.hammer />,
+    },
+    play: {
+      label: t("tags.play"),
+      icon: <Icons.hand />,
+    },
+    research: {
+      label: t("tags.research"),
+      icon: <Icons.readme />,
+    },
   }
-> = {
-  build: {
-    label: "Build",
-    icon: <Icons.hammer />,
-  },
-  play: {
-    label: "Play",
-    icon: <Icons.hand />,
-  },
-  research: {
-    label: "Research",
-    icon: <Icons.readme />,
-  },
 }
 
-export const ThemesStatusMapping: Partial<
-  Record<
-    ProjectStatusType,
-    {
-      label: string
-      icon: any
-    }
-  >
-> = {
-  active: {
-    label: "Active",
-    icon: <Icons.checkActive />,
-  },
-  archived: {
-    label: "Archived",
-    icon: <Icons.archived />,
-  },
+export const ThemesStatusMapping = (lang: LocaleTypes): IThemeStatus => {
+  const t = i18next.getFixedT(lang, "common")
+
+  return {
+    active: {
+      label: t("status.active"),
+      icon: <Icons.checkActive />,
+    },
+    archived: {
+      label: t("status.archived"),
+      icon: <Icons.archived />,
+    },
+  }
 }
 
 const FilterButtons = ({
   searchQuery,
+  lang,
 }: {
+  lang: LocaleTypes
   searchQuery?: string
 }): JSX.Element => {
   const { activeFilters, onSelectTheme } = useProjectFiltersState(
@@ -89,30 +88,33 @@ const FilterButtons = ({
 
   return (
     <div className="relative col-span-1 grid grid-cols-3 gap-2 after:absolute after:right-[-25px] after:h-11 after:w-[1px] after:content-none md:col-span-2 md:gap-4 md:after:content-['']">
-      {Object.entries(ThemesButtonMapping).map(([key, { label, icon }]) => {
-        const isActive = activeFilters?.themes?.includes(key)
-        const variant = isActive ? "blue" : "white"
-        return (
-          <Button
-            key={key}
-            variant={variant}
-            size="lg"
-            onClick={() => {
-              onSelectTheme(key, searchQuery ?? "")
-            }}
-          >
-            <div className="flex items-center gap-2">
-              {icon}
-              <span>{label}</span>
-            </div>
-          </Button>
-        )
-      })}
+      {Object.entries(ThemesButtonMapping(lang)).map(
+        ([key, { label, icon }]) => {
+          const isActive = activeFilters?.themes?.includes(key)
+          const variant = isActive ? "blue" : "white"
+          return (
+            <Button
+              key={key}
+              variant={variant}
+              size="lg"
+              onClick={() => {
+                onSelectTheme(key, searchQuery ?? "")
+              }}
+            >
+              <div className="flex items-center gap-2">
+                {icon}
+                <span>{label}</span>
+              </div>
+            </Button>
+          )
+        }
+      )}
     </div>
   )
 }
 
-export default function ProjectFiltersBar() {
+export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
+  const { t } = useTranslation(lang as LocaleTypes, "common")
   const [showModal, setShowModal] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -125,7 +127,7 @@ export default function ProjectFiltersBar() {
   useEffect(() => {
     if (!queryString) return
     router.push(`/projects?${queryString}`)
-  }, [queryString, router])
+  }, [queryString, router, lang])
 
   useEffect(() => {
     // set active filters from url
@@ -148,7 +150,7 @@ export default function ProjectFiltersBar() {
       projects,
     })
     setSearchQuery("") // clear input
-    router.push("/projects")
+    router.push(`/projects`)
   }
 
   useDebounce(
@@ -172,7 +174,7 @@ export default function ProjectFiltersBar() {
               size="sm"
               onClick={clearAllFilters}
             >
-              Clear all
+              {t("clearAll")}
             </Button>
             <div className="ml-auto">
               <Button
@@ -180,7 +182,7 @@ export default function ProjectFiltersBar() {
                 size="sm"
                 onClick={() => setShowModal(false)}
               >
-                Show projects
+                {t("showProjects")}
               </Button>
             </div>
           </div>
@@ -189,7 +191,8 @@ export default function ProjectFiltersBar() {
         setOpen={setShowModal}
       >
         {Object.entries(filters).map(([key, items]) => {
-          const filterLabel = FilterLabelMapping?.[key as ProjectFilter] ?? ""
+          const filterLabel =
+            FilterLabelMapping(lang)?.[key as ProjectFilter] ?? ""
           const type = FilterTypeMapping?.[key as ProjectFilter]
           const hasItems = items.length > 0
 
@@ -231,7 +234,7 @@ export default function ProjectFiltersBar() {
                     }
 
                     if (type === "button") {
-                      const { icon, label } = ThemesButtonMapping[item]
+                      const { icon, label } = ThemesButtonMapping(lang)[item]
                       if (!isActive) return null
                       return (
                         <div>
@@ -266,18 +269,16 @@ export default function ProjectFiltersBar() {
         })}
       </Modal>
       <div className="flex flex-col gap-6">
-        <span className="text-lg font-medium">
-          What do you want to do today?
-        </span>
+        <span className="text-lg font-medium">{t("whatDoYouWantDoToday")}</span>
         <div className="grid grid-cols-1 items-center justify-between gap-3 md:grid-cols-5 md:gap-12">
-          <FilterButtons />
+          <FilterButtons lang={lang} />
           <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">
             <Input
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setSearchQuery(e?.target?.value)
               }
               value={searchQuery}
-              placeholder="Search project title or keyword"
+              placeholder={t("searchProjectPlaceholder")}
             />
             <div className="flex items-center gap-3">
               <Badge value={filterCount}>
@@ -290,7 +291,7 @@ export default function ProjectFiltersBar() {
                 >
                   <div className="flex items-center gap-2">
                     <Image src={FiltersIcon} alt="filter icon" />
-                    <span className="hidden md:block">Filters</span>
+                    <span className="hidden md:block">{t("filters")}</span>
                   </div>
                 </Button>
               </Badge>
@@ -300,7 +301,7 @@ export default function ProjectFiltersBar() {
                 className="opacity-85 hidden cursor-pointer bg-transparent text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block"
               >
                 <div className="flex items-center gap-2 border-b-2 border-black">
-                  <span className="text-sm font-medium">Clear all</span>
+                  <span className="text-sm font-medium">{t("clearAll")}</span>
                 </div>
               </button>
             </div>

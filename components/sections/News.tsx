@@ -1,41 +1,57 @@
 "use client"
 
 import Image from "next/image"
-import { newsItems } from "@/data/news"
 import PSELearnIcon from "@/public/icons/pseicon1.svg"
 import PSEEventIcon from "@/public/icons/pseicon2.svg"
 import PSEPostIcon from "@/public/icons/pseicon3.svg"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 
+import { LangProps } from "@/types/common"
 import { NewsInterface } from "@/lib/types"
+import { useTranslation } from "@/app/i18n/client"
 
-const newsTypes = {
-  learn: {
-    type: "Learn & Share",
-    icon: PSELearnIcon,
-    defaultActionLabel: "Watch",
-  },
-  event: {
-    type: "Event",
-    icon: PSEEventIcon,
-    defaultActionLabel: "Attend",
-  },
-  post: {
-    type: "Blog Post",
-    icon: PSEPostIcon,
-    defaultActionLabel: "Read",
-  },
+type NewsTypeProps = {
+  type: string
+  icon: any
+  defaultActionLabel: string
 }
-
-type NewsType = typeof newsTypes
+type NewsType = {
+  learn: NewsTypeProps
+  event: NewsTypeProps
+  post: NewsTypeProps
+}
 
 const showMove = {
   initial: { opacity: 0, y: 10 },
   hover: { opacity: 1, y: 0, transition: { duration: 0.2 } },
 }
 
-const News = () => {
+export const News = ({ lang }: LangProps["params"]) => {
+  const { t } = useTranslation(lang, "news-section")
+
+  const newsTypes = {
+    learn: {
+      type: t("learnAndShare"),
+      icon: PSELearnIcon,
+      defaultActionLabel: t("watch"),
+    },
+    event: {
+      type: "Event",
+      icon: PSEEventIcon,
+      defaultActionLabel: t("attend"),
+    },
+    post: {
+      type: "Blog Post",
+      icon: PSEPostIcon,
+      defaultActionLabel: t("read"),
+    },
+  }
+
+  const newsItems: any[] = t("news", {
+    returnObjects: true,
+  })
+
   return (
     <ul className="bg-white">
       {/* <h4 className="bg-slate-500 px-6 py-2 text-lg font-bold uppercase tracking-wide text-slate-50 backdrop-blur-sm lg:px-20">
@@ -84,5 +100,3 @@ const News = () => {
     </ul>
   )
 }
-
-export default News

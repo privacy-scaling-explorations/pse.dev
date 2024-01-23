@@ -1,25 +1,27 @@
 "use client"
 
-import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
-
-import { Icons } from "@/components/icons"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-
+import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+
+import { LangProps } from "@/types/common"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Icons } from "@/components/icons"
+import { useTranslation } from "@/app/i18n/client"
+
 import ResourcesContent from "../content/resources.md"
 
 interface ResourceItemProps {
   label: string
   icon?:
-  | "globe"
-  | "discord"
-  | "twitter"
-  | "gitHub"
-  | "notion"
-  | "figma"
-  | "drive"
+    | "globe"
+    | "discord"
+    | "twitter"
+    | "gitHub"
+    | "notion"
+    | "figma"
+    | "drive"
   description: string
   url: string
 }
@@ -50,16 +52,15 @@ const ResourceItem = ({
           <div className="h-6 w-6 text-anakiwa-500 opacity-50 transition group-hover:text-tuatara-950 group-hover:opacity-100">
             <Icon />
           </div>
-          <span className="text-lg font-medium">
-            {label}
-          </span>
+          <span className="text-lg font-medium">{label}</span>
         </div>
-        <ArrowUpRight size={24} className="text-tuatara-950 opacity-0 transition duration-500 group-hover:opacity-100" />
+        <ArrowUpRight
+          size={24}
+          className="text-tuatara-950 opacity-0 transition duration-500 group-hover:opacity-100"
+        />
       </div>
       <div className="p-[2px]"></div>
-      <p className="text-sm text-tuatara-500">
-        {description}
-      </p>
+      <p className="text-sm text-tuatara-500">{description}</p>
     </Link>
   )
 }
@@ -82,24 +83,27 @@ const ResourceCard = ({ id, title, children }: ResourceCardProps) => {
   )
 }
 
-const ResourceNav = () => {
+const ResourceNav = ({ lang }: LangProps["params"]) => {
+  const { t } = useTranslation(lang, "resources-page")
+
   const SCROLL_OFFSET = 80
   const [activeId, setActiveId] = useState("")
   const [isManualScroll, setIsManualScroll] = useState(false)
   const ID_LABELS_MAPPING: Record<string, string> = {
-    "get-involved": "Get involved",
-    learn: "Learn",
-    build: "Build",
-    design: "Design",
+    "get-involved": t("nav.getInvolved"),
+    learn: t("nav.learn"),
+    build: t("nav.build"),
+    design: t("nav.design"),
   }
   const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null) // sections are constant so useRef might be better here
 
   useEffect(() => {
-    if (sectionsRef.current === null) sectionsRef.current = document.querySelectorAll(`div[data-section]`)
-    if (!activeId) setActiveId('get-involved')
+    if (sectionsRef.current === null)
+      sectionsRef.current = document.querySelectorAll(`div[data-section]`)
+    if (!activeId) setActiveId("get-involved")
 
     const handleScroll = () => {
-      if (isManualScroll) return;
+      if (isManualScroll) return
 
       sectionsRef.current?.forEach((section: any) => {
         const sectionTop = section.offsetTop - SCROLL_OFFSET
@@ -109,8 +113,8 @@ const ResourceNav = () => {
       })
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [activeId, isManualScroll])
 
   const scrollToId = useCallback((id: string) => {
@@ -133,7 +137,7 @@ const ResourceNav = () => {
     <div className="flex flex-col gap-6 p-8">
       <div className="flex flex-col gap-4">
         <h6 className="font-display text-lg font-bold text-tuatara-700">
-          On this page
+          {t("onThisPage")}
         </h6>
         <ul className="text-normal font-sans text-black">
           {Object.entries(ID_LABELS_MAPPING).map(([id, label]) => {
@@ -159,27 +163,35 @@ const ResourceNav = () => {
           })}
         </ul>
       </div>
-      <Link href={"https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/content/resources.md?plain=1"} target="_blank">
+      <Link
+        href={
+          "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/content/resources.md?plain=1"
+        }
+        target="_blank"
+      >
         <Button size="lg" icon={Icons.gitHub}>
-          <span className="pl-2 text-left text-sm font-medium">Edit resources</span>
+          <span className="pl-2 text-left text-sm font-medium">
+            {t("editResources")}
+          </span>
         </Button>
       </Link>
     </div>
   )
 }
 
-export default function ResourcePage() {
+export default function ResourcePage({ params: { lang } }: LangProps) {
+  const { t } = useTranslation(lang, "resources-page")
+
   return (
     <main className="bg-second-gradient">
       <div className="container grid grid-cols-1 grid-rows-[auto_1fr] gap-6 px-4 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[1fr_3fr_1fr]">
         <section className="hidden lg:block"></section>
         <section className=" flex flex-col gap-8 lg:col-start-2">
           <h1 className="break-words font-display text-4xl font-bold text-tuatara-950 md:text-5xl">
-            Resources
+            {t("title")}
           </h1>
           <p className="font-sans text-base font-normal leading-[27px] text-tuatara-950">
-            This list was compiled by our community. Submit an issue on our
-            Github page to add a resource to this list.
+            {t("subtitle")}
           </p>
         </section>
         <article className="row-start-2 flex flex-col space-y-8 lg:col-start-2">
@@ -196,7 +208,7 @@ export default function ResourcePage() {
         </article>
         <section className="relative col-start-2 row-start-2 hidden md:block lg:col-start-3">
           <div className="sticky right-0 top-16 ml-auto">
-            <ResourceNav />
+            <ResourceNav lang={lang} />
           </div>
         </section>
       </div>

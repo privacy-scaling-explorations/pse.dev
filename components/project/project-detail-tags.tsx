@@ -8,6 +8,8 @@ import {
 } from "@/state/useProjectFiltersState"
 
 import { ProjectInterface } from "@/lib/types"
+import { useTranslation } from "@/app/i18n/client"
+import { LocaleTypes } from "@/app/i18n/settings"
 
 import { CategoryTag } from "../ui/categoryTag"
 import { ThemesStatusMapping } from "./project-filters-bar"
@@ -25,25 +27,31 @@ const TagsWrapper = ({ label, children }: TagsProps) => {
   )
 }
 
-export function ProjectTags({ project }: { project: ProjectInterface }) {
-  const { label, icon } = ThemesStatusMapping?.[project?.projectStatus] ?? {}
+type IProjectTags = {
+  project: ProjectInterface
+  lang: LocaleTypes
+}
+
+export function ProjectTags({ project, lang }: IProjectTags) {
+  const statusItem = ThemesStatusMapping(lang)
+  const { label, icon } = statusItem?.[project?.projectStatus] ?? {}
+  const { t } = useTranslation(lang, "common")
 
   return (
     <div className="flex flex-col gap-4">
-      {Object.entries(FilterLabelMapping).map(([key, label]) => {
+      {Object.entries(FilterLabelMapping(lang)).map(([key]) => {
         const keyTags = project?.tags?.[key as ProjectFilter]
         const hasItems = keyTags && keyTags?.length > 0
 
         if (key === "themes") return null // ignore themes
-
         return (
           hasItems && (
             <div>
-              <TagsWrapper label={label}>
+              <TagsWrapper label={t(`filterLabels.${key}`)}>
                 <div className="flex flex-wrap gap-[6px]">
                   {keyTags?.map((tag) => {
                     return (
-                      <Link href={`/projects?${key}=${tag}`}>
+                      <Link href={`${lang}/projects?${key}=${tag}`}>
                         <CategoryTag key={tag} variant="gray">
                           {tag}
                         </CategoryTag>
@@ -56,7 +64,7 @@ export function ProjectTags({ project }: { project: ProjectInterface }) {
           )
         )
       })}
-      <TagsWrapper label="Project status">
+      <TagsWrapper label={t("filterLabels.projectStatus")}>
         <CategoryTag variant="gray" size="default">
           <div className="flex items-center gap-1">
             {icon}
