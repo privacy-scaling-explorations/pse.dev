@@ -15,6 +15,14 @@ export const LanguageMapping: Record<string, string> = {
   es: "Español",
 }
 
+export const languagesItems: { label: string; value: string }[] =
+  Object.entries(LanguageMapping).map(([value, label]) => {
+    return {
+      label,
+      value,
+    }
+  }) ?? []
+
 export function getOptions(lng = fallbackLng, ns = defaultNS): InitOptions {
   return {
     debug: false,

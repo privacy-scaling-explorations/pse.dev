@@ -9,7 +9,11 @@ import { Trans } from "react-i18next/TransWithoutContext"
 import { cn } from "@/lib/utils"
 import { MainNav, MainNavProps } from "@/components/main-nav"
 import { useTranslation } from "@/app/i18n/client"
-import { LanguageMapping, LocaleTypes } from "@/app/i18n/settings"
+import {
+  LanguageMapping,
+  LocaleTypes,
+  languagesItems,
+} from "@/app/i18n/settings"
 
 import { Icons } from "./icons"
 import { SiteHeaderMobile } from "./site-header-mobile"
@@ -40,14 +44,6 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
     },
   ]
 
-  const languagesItems: { label: string; value: string }[] =
-    Object.entries(LanguageMapping).map(([value, label]) => {
-      return {
-        label,
-        value,
-      }
-    }) ?? []
-
   return (
     <header className="sticky top-0 z-40 w-full bg-white px-6 shadow-sm xl:px-20">
       <div className="flex h-16 items-center justify-between space-x-4 sm:space-x-0">
@@ -66,7 +62,6 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
             defaultItem={lang}
             items={languagesItems}
             onChange={(lang) => {
-              console.log(lang)
               window?.location?.replace(`/${lang}`)
             }}
           />
