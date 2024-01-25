@@ -43,11 +43,17 @@ export function SiteFooter({ lang }: LangProps["params"]) {
       <div className="bg-tuatara-950 py-8 text-left text-[14px] uppercase text-white">
         <AppContent className="grid grid-cols-1 justify-between gap-8 bg-tuatara-950 py-2 text-white md:grid-cols-4 lg:px-40">
           <LinksWrapper>
-            {MAIN_NAV.map(({ title, href }: NavItem, indexKey) => (
-              <Link key={indexKey} href={href}>
-                {title}
-              </Link>
-            ))}
+            {MAIN_NAV.map(
+              ({ title, href, external = false }: NavItem, indexKey) => (
+                <Link
+                  key={indexKey}
+                  href={href}
+                  target={external ? "_blank" : undefined}
+                >
+                  {title}
+                </Link>
+              )
+            )}
           </LinksWrapper>
           <LinksWrapper>
             <Link

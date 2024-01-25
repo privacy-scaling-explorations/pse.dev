@@ -23,10 +23,13 @@ export function MainNav({ items, lang = fallbackLng }: MainNavProps) {
       </Link>
       <nav className="hidden items-center gap-6 md:flex">
         {items.map((item, index) => {
+          if (item?.onlyFooter) return null
+
           return (
             <Link
               key={index}
               href={item.href}
+              target={item.external ? "_blank" : undefined}
               className={`uppercase ${
                 item.disabled && "cursor-not-allowed"
               } flex items-center border-b-2 ${

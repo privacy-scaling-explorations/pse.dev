@@ -186,34 +186,35 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
 
   return (
     <main className="bg-second-gradient">
-      <div className="container grid grid-cols-1 grid-rows-[auto_1fr] gap-6 px-4 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[1fr_3fr_1fr]">
-        <section className="hidden lg:block"></section>
-        <section className=" flex flex-col gap-8 lg:col-start-2">
-          <h1 className="break-words font-display text-4xl font-bold text-tuatara-950 md:text-5xl">
-            {t("title")}
-          </h1>
-          <p className="font-sans text-base font-normal leading-[27px] text-tuatara-950">
-            {t("subtitle")}
-          </p>
-        </section>
-        <article className="row-start-2 flex flex-col space-y-8 lg:col-start-2">
-          <ResourcesContent
-            components={{
-              ResourceItem: (props: ResourceItemProps) => (
-                <ResourceItem {...props} />
-              ),
-              ResourceCard: (props: ResourceCardProps) => (
-                <ResourceCard {...props} />
-              ),
-            }}
-          />
-        </article>
-        <section className="relative col-start-2 row-start-2 hidden md:block lg:col-start-3">
+      <AppContent className="container grid grid-cols-1 gap-6 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[4fr_1fr]">
+        <div className="flex flex-col gap-6">
+          <section className="flex flex-col gap-8">
+            <h1 className="break-words font-display text-4xl font-bold text-tuatara-950 md:text-5xl">
+              {t("title")}
+            </h1>
+            <p className="font-sans text-base font-normal leading-[27px] text-tuatara-950">
+              {t("subtitle")}
+            </p>
+          </section>
+          <article className="flex flex-col space-y-8 ">
+            <ResourcesContent
+              components={{
+                ResourceItem: (props: ResourceItemProps) => (
+                  <ResourceItem {...props} />
+                ),
+                ResourceCard: (props: ResourceCardProps) => (
+                  <ResourceCard {...props} />
+                ),
+              }}
+            />
+          </article>
+        </div>
+        <section className="relative hidden md:block ">
           <div className="sticky right-0 top-16 ml-auto">
             <ResourceNav lang={lang} />
           </div>
         </section>
-      </div>
+      </AppContent>
       <section className="relative border-t border-tuatara-600 bg-[#D0F2FF] py-32 text-center">
         <AppContent className="flex flex-col gap-6">
           <h3 className="py-2 font-display text-[18px] font-bold text-tuatara-950 md:text-3xl">
