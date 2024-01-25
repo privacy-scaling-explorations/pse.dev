@@ -10,7 +10,7 @@ import { LocaleTypes, fallbackLng } from "@/app/i18n/settings"
 export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
 export type ProjectFilter = "keywords" | "builtWith" | "themes"
 export type FiltersProps = Record<ProjectFilter, string[]>
-
+export const DEFAULT_PROJECT_SORT_BY: ProjectSortBy = "asc"
 interface ProjectInterfaceScore extends ProjectInterface {
   score: number
 }
@@ -30,7 +30,7 @@ export const FilterLabelMapping = (
 ): Record<ProjectFilter, string> => {
   const t = i18next.getFixedT(lang ?? fallbackLng, "common")
   return {
-    keywords: t("filterLabels.keyword"),
+    keywords: t("filterLabels.keywords"),
     builtWith: t("filterLabels.builtWith"),
     themes: t("filterLabels.themes"),
   }
@@ -192,8 +192,8 @@ const sortProjectByFn = (
 export const useProjectFiltersState = create<
   ProjectStateProps & ProjectActionsProps
 >()((set) => ({
-  sortBy: "random",
-  projects,
+  sortBy: DEFAULT_PROJECT_SORT_BY,
+  projects: sortProjectByFn(projects, DEFAULT_PROJECT_SORT_BY),
   queryString: "",
   filters: getProjectFilters(), // list of filters with all possible values from projects
   activeFilters: {}, // list of filters active in the current view by the user

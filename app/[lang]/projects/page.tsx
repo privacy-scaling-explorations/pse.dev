@@ -15,7 +15,7 @@ export default async function ProjectsPage({ params: { lang } }: any) {
   const { t } = await useTranslation(lang, "projects-page")
 
   return (
-    <section>
+    <>
       <div className="bg-anakiwa-200">
         <div className="container mx-auto py-10 lg:py-20">
           <div className="flex flex-col justify-between gap-10">
@@ -32,7 +32,7 @@ export default async function ProjectsPage({ params: { lang } }: any) {
         </div>
       </div>
 
-      <div className="w-full bg-anakiwa-100">
+      <div className="w-full bg-anakiwa-100 pb-28">
         <div className="container">
           <div className="px-3 py-8">
             <ProjectResultBar lang={lang} />
@@ -40,6 +40,6 @@ export default async function ProjectsPage({ params: { lang } }: any) {
           <ProjectList lang={lang} />
         </div>
       </div>
-    </section>
+    </>
   )
 }

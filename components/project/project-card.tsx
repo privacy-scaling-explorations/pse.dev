@@ -5,7 +5,6 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { VariantProps, cva } from "class-variance-authority"
 
-import { LangProps } from "@/types/common"
 import { ProjectInterface, ProjectLinkWebsite } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { LocaleTypes } from "@/app/i18n/settings"
@@ -67,7 +66,7 @@ export default function ProjectCard({
           alt={`${name} banner`}
           width={1200}
           height={630}
-          className="w-full rounded-t-lg object-cover min-h-[160px]"
+          className="min-h-[160px] w-full rounded-t-lg object-cover"
         />
       )}
       <div className="flex h-full flex-col justify-between gap-5 rounded-b-lg bg-white p-5">
