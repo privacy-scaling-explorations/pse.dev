@@ -13,6 +13,8 @@ export const LanguageMapping: Record<string, string> = {
   fr: "Français",
   "zh-CN": "中文",
   es: "Español",
+  de: "Deutsch",
+  tl: "Thai",
 }
 
 export const languagesItems: { label: string; value: string }[] =
