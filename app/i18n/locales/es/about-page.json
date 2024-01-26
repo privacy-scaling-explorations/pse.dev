@@ -15,13 +15,13 @@
       "title": "02. Privacidad por defecto",
       "description": [
         "Creemos que la privacidad es un derecho fundamental. Queremos ser parte de la construcción de un internet que se aleje de prácticas invasivas de datos y, en cambio, brinde a las personas opciones reales sobre quién tiene acceso a su información personal. La autorización debe ser específica para el propósito, revocable, informada y no coercitiva.",
-        "Creamos herramientas que ayudan a las personas a autenticarse de manera segura, realizar transacciones confidenciales en el blockchain y respetar y preservar la privacidad del usuario."
+        "Creamos herramientas que ayudan a las personas a autenticarse de manera segura, realizar transacciones confidenciales en la cadena de bloques y respetar y preservar la privacidad del usuario."
       ]
     },
     {
       "title": "03. Escalabilidad para comunidades",
       "description": [
-        "Las pruebas de conocimiento cero (ZK Proofs) pueden verificar cálculos de manera rápida y económica, ayudando a sistemas descentralizados como Ethereum a volverse más eficientes. Investigamos, diseñamos y compartimos soluciones de escalabilidad que cualquiera puede usar para contribuir a una infraestructura pública digital más sólida y práctica.",
+        "Las pruebas de conocimiento cero (zero-knowledge proofs) pueden verificar cálculos de manera rápida y económica, ayudando a sistemas descentralizados como Ethereum a volverse más eficientes. Investigamos, diseñamos y compartimos soluciones de escalabilidad que cualquiera puede usar para contribuir a una infraestructura pública digital más sólida y práctica.",
         "También hacemos crecer nuestra comunidad apoyando a la próxima generación de constructores. Organizamos programas de verano inmersivos para estudiantes y conferencias en vivo regulares a las que cualquier persona en el mundo puede unirse y aprender."
       ]
     },
