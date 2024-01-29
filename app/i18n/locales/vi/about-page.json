@@ -1,0 +1,36 @@
+{
+  "title": "Về chúng tôi",
+  "description": "PSE là một nhóm phát triển và nghiên cứu đa ngành được tài trợ bởi Ethereum Foundation. Chúng tôi tạo ra các hạ tầng, công cụ và tài nguyên giáo dục để hương tới việc sử dụng mật mã học giải quyết các vấn đề thực tế trong cuộc sống.",
+  "our-principles-title": "Những nguyên tắc của chúng tôi",
+  "principles": [
+    {
+      "title": "01. Mật mã học cho mọi người",
+      "description": [
+        "Mật mã ở khắp mọi nơi: Mổi một lần bạn kết nối tới một trang web, đăng nhập bằng mật khẩu hoặc mở khóa điện thoại của bạn, thì bạn đang thấy một ứng dụng của mật mã học.",
+        "Với hệ mật mã “programmable” (như zero knowledge proofs, multi-party computation or homomorphic encryption) chúng ta có thể kiểm chứng các mệnh đề mà không cần để lộ các thông tin bí mật của nó. Bằng các đó, chúng ta có thể áp dụng cho hệ thống định danh, chống gian lận, giao tiếp ẩn danh và cùng nhiều ứng dụng khác",
+        "Chúng tôi đang xây dựng các công cụ dành cho nhà phát triển, các bài báo nghiên cứu và các giao thức nguồn mở và miển phí cho mọi người. Chúng tôi hi vọng những gì chúng tôi cung cấp sẽ tạo động lực cho việc phát triển những thứ cộng đồng mong muốn."
+      ]
+    },
+    {
+      "title": "02. Ưu tiên tính riêng tư",
+      "description": [
+        "We believe that privacy is a fundamental right. We want to be part of building an internet that divests from invasive data practices, and instead gives people real choices about who has access to their personal information. Permission should be purpose specific, revocable, informed and uncoerced.",
+        "We make tools that help people to securely authenticate themselves, make confidential transactions on the blockchain, and respect and preserve user privacy."
+      ]
+    },
+    {
+      "title": "03. Scaling for communities",
+      "description": [
+        "Zero knowledge proofs can verify computations quickly and cheaply, helping decentralized systems like Ethereum become more efficient. We research, design and share scaling solutions that anyone can use to contribute to a stronger and more practical digital public infrastructure.",
+        "We also grow our community by supporting the next generation of builders. We host immersive summer programs for students and regular live lectures that anyone in the world can join and learn from."
+      ]
+    },
+    {
+      "title": "04. Open source public goods",
+      "description": [
+        "We are cultivating a diverse and multidisciplinary team to explore the emerging zero knowledge ecosystem. PSE is made up of programmers, engineers, and mathematicians working alongside creatives and community organizers to collaboratively discover the potential of programmable cryptography.",
+        "We experiment in the open and welcome contributions, integrations, forks, or feedback on all of our projects."
+      ]
+    }
+  ]
+}
