@@ -1,11 +1,11 @@
 {
   "siteTitle": "Privacy & Scaling Explorations",
-  "siteDescription": "Verbesserung von Ethereum durch Forschung in der Kryptografie und gemeinsames Experimentieren.",
+  "siteDescription": "Verbesserung von Ethereum durch Forschung in der Kryptographie und gemeinsames Experimentieren.",
   "menu": {
     "home": "Home",
-    "projectLibrary": "Projekt Bibliothek",
+    "projectLibrary": "Projektsammlung",
     "about": "Über uns",
-    "resources": "Resources",
+    "resources": "Ressourcen",
     "jobs": "Jobs",
     "languages": "Sprachen {{locale}}",
     "blog": "Blog",
@@ -14,7 +14,7 @@
     "firstGoodIssue": "First Good Issue"
   },
   "footer": {
-    "description": "Privacy + Scaling Explorations ist ein multi-disziplinäres Team, das von der Ethereum Foundation unterstützt wird.",
+    "description": "Privacy + Scaling Explorations ist ein multidisziplinäres Team, das von der Ethereum Foundation unterstützt wird.",
     "privacyPolicy": "Datenschutzbestimmungen",
     "termsOfUse": "Nutzungsbedingungen"
   },
@@ -61,7 +61,7 @@
   "discoverMore": "Entdecke mehr",
   "goToHome": "Gehe zur Homepage",
   "noResults": "Keine Ergebnisse gefunden.",
-  "noResultsDescription": "Sorry, wir konnten zu deiner Suche keine Ergebnisse finden. Bitte versuche es nochmal mit anderen Stichworten.",
+  "noResultsDescription": "Sorry, wir konnten zu deiner Suche keine Ergebnisse finden. Bitte versuche es nochmal mit anderen Stichwörtern.",
   "exploreProjectLibrary": "Projektsammlung erkunden",
   "clearAll": "Alles zurücksetzen",
   "showProjects": "Projekte anschauen",

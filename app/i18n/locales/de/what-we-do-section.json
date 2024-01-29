@@ -1,9 +1,9 @@
 {
   "whatWeDo": "Was wir machen",
-  "whatWeDoDescription": "PSE ist ein multidisziplinäres Team, das Open-Source-Tools in den Bereichen Privatsphäre und Skalierung für die nächste Generation des Internets entwickelt.",
+  "whatWeDoDescription": "PSE ist ein multidisziplinäres Team, das Open Source Tools in den Bereichen Privatsphäre und Skalierung für die nächste Generation des Internets entwickelt.",
   "privacy": {
     "title": "Privacy (Privatsphäre)",
-    "description": "Wir glauben, dass Privatsphäre ein gesellschaftliches Gut ist, das für jeden frei zugänglich sein sollte. Deshalb entwickeln wir Open-Source-Tools, die Menschen dabei helfen, zu wählen, was, wie, wann und wo sie teilen möchten."
+    "description": "Wir glauben, dass Privatsphäre ein gesellschaftliches Gut ist, das für jeden frei zugänglich sein sollte. Deshalb entwickeln wir Open Source Tools, die Menschen dabei helfen, zu entscheiden, was, wie, wann und wo sie teilen möchten."
   },
   "scaling": {
     "title": "Scaling (Skalierung)",
@@ -11,7 +11,6 @@
   },
   "explorations": {
     "title": "Explorations (Erforschung)",
-    "description": "Wir erkunden das aufstrebende Zero-Knowledge-Ökosystem durch gemeinsame Experimente. Wir arbeiten zusammen, teilen unser Wissen und freuen uns über Beiträge aus der ganzen Welt."
+    "description": "Wir erkunden das aufstrebende Zero-Knowledge-Ökosystem durch gemeinsame Experimente. Wir arbeiten zusammen, teilen was wir lernen und freuen uns über Beiträge aus der ganzen Welt."
   }
 }
-

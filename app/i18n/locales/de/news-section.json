@@ -1,32 +1,32 @@
 {
-  "learnAndShare": "Learn & Share",
+  "learnAndShare": "Lernen & Teilen",
   "event": "Event",
   "blogPost": "Blog Post",
-  "watch": "Watch",
-  "read": "Read",
-  "attend": "Attend",
+  "watch": "Anschauen",
+  "read": "Lesen",
+  "attend": "Besuchen",
   "news": [
     {
-      "type": "post",
-      "title": "Learnings from the KZG Ceremony",
+      "type": "Post",
+      "title": "Erfahrungen von der KZG Zeremonie (English)",
       "action": {
-        "label": "Read",
+        "label": "Lesen",
         "url": "https://mirror.xyz/privacy-scaling-explorations.eth/naTdx-u7kyirczTLSAnWwH6ZdedfTQu1yCWQj1m_n-E"
       }
     },
     {
-      "type": "learn",
-      "title": "Public events hosted by PSE members to learn about each other's projects, share ideas, and get feedback.",
+      "type": "Lernen",
+      "title": "Öffentliche Veranstaltungen, die von PSE-Mitgliedern organisiert werden, um mehr über die Projekte der anderen zu erfahren, Ideen auszutauschen und Feedback zu erhalten. (English)",
       "action": {
-        "label": "See full schedule",
+        "label": "Ganzen Plan anschauen",
         "url": "https://pse-team.notion.site/50dcf22c5191485e93406a902ae9e93b?v=453023f8227646dd949abc34a7a4a138&pvs=4"
       }
     },
     {
-      "type": "learn",
-      "title": "Folding Circom Circuit: A ZKML Case Study by Dr. Cathie So",
+      "type": "Lernen",
+      "title": "Folding Circom Circuit: Eine ZKML Fallstudie von Dr. Cathie So (English)",
       "action": {
-        "label": "Watch",
+        "label": "Anschauen",
         "url": "https://www.youtube.com/live/jb6HDEtY4CI"
       }
     }
