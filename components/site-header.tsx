@@ -3,11 +3,7 @@
 import { siteConfig } from "@/config/site"
 import { useAppSettings } from "@/hooks/useAppSettings"
 import { MainNav } from "@/components/main-nav"
-import {
-  LanguageMapping,
-  LocaleTypes,
-  languagesItems,
-} from "@/app/i18n/settings"
+import { LocaleTypes, languagesItems } from "@/app/i18n/settings"
 
 import { Icons } from "./icons"
 import { SiteHeaderMobile } from "./site-header-mobile"
@@ -19,7 +15,7 @@ type SiteHeaderProps = {
 }
 
 export function SiteHeader({ lang }: SiteHeaderProps) {
-  const { MAIN_NAV } = useAppSettings(lang)
+  const { MAIN_NAV, activeLanguageLabel } = useAppSettings(lang)
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white shadow-sm">
@@ -34,7 +30,7 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
                   <div className="flex items-center gap-1">
                     <Icons.globe size={22} />
                     <span className="!text-base !font-normal text-tuatara-950">
-                      {LanguageMapping[lang] ?? LanguageMapping["en"]}
+                      {activeLanguageLabel}
                     </span>
                   </div>
                 }
