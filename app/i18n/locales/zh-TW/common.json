@@ -40,12 +40,12 @@
     "build": "打造",
     "play": "遊玩",
     "research": "研究",
-    "grantee": "資助",
+    "grantee": "授資助者",
     "collaborate": "合作",
     "fullyPSE": "完全PSE"
   },
   "status": {
-    "archived": "已存檔",
+    "archived": "已封存",
     "active": "活躍"
   },
   "sortBy": "排序方式：{{option}}",

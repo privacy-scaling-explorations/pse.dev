@@ -1,6 +1,6 @@
 {
   "title": "資源",
-  "subtitle": "這個清單由我們的社群共同編製。在我們的 Github 頁面上發起議題（issue）以將資源新增到此清單。",
+  "subtitle": "這個清單由我們的社群共同編製。來我們的 Github 頁面上發起議題（issue）以將新的資源加入清單。",
   "onThisPage": "在這個頁面上",
   "editResources": "編輯資源",
   "addSource": "新增來源",
@@ -8,7 +8,7 @@
   "nav": {
     "getInvolved": "參與",
     "learn": "學習",
-    "build": "構建",
+    "build": "打造",
     "design": "設計"
   }
 }
