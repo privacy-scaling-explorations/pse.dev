@@ -1,72 +1,72 @@
 {
-  "siteTitle": "Privacy & Scaling Explorations",
-  "siteDescription": "Enhancing Ethereum through cryptographic research and collective experimentation.",
+  "siteTitle": "隱私與擴展探索團隊",
+  "siteDescription": "通過密碼學研究和集體實驗來增強以太坊。",
   "menu": {
-    "home": "Home",
-    "projectLibrary": "Project Library",
-    "about": "About",
-    "resources": "Resources",
-    "jobs": "Jobs",
-    "languages": "Languages {{locale}}",
-    "blog": "Blog",
-    "activity": "Activity",
-    "report": "Report",
-    "firstGoodIssue": "First Good Issue"
+    "home": "首頁",
+    "projectLibrary": "專案集",
+    "about": "關於",
+    "resources": "資源",
+    "jobs": "工作機會",
+    "languages": "語言 {{locale}}",
+    "blog": "部落格",
+    "activity": "活動",
+    "report": "報告",
+    "firstGoodIssue": "好上手的開源貢獻"
   },
   "footer": {
-    "description": "Privacy + Scaling Explorations is a multidisciplinary team supported by the Ethereum Foundation.",
-    "privacyPolicy": "Privacy Policy",
-    "termsOfUse": "Terms of use"
+    "description": "隱私 + 擴展探索是由以太坊基金會支持的跨領域團隊。",
+    "privacyPolicy": "隱私政策",
+    "termsOfUse": "使用條款"
   },
   "filterOptions": {
-    "random": "Random",
-    "asc": "Title: A-Z",
-    "desc": "Title: Z-A",
-    "relevance": "Relevance"
+    "random": "隨機",
+    "asc": "標題：A-Z",
+    "desc": "標題：Z-A",
+    "relevance": "相關性"
   },
   "filterLabels": {
-    "keywords": "Keywords",
-    "builtWith": "Built with",
-    "themes": "Themes selected",
-    "projectStatus": "Project status"
+    "keywords": "關鍵詞",
+    "builtWith": "搭建",
+    "themes": "佈景主題",
+    "projectStatus": "專案狀態"
   },
   "error": {
     "404": {
-      "title": "404: Page not found.",
-      "description": "The page you are looking for might have been removed, had its name changed or is temporarily unavailable."
+      "title": "404：找不到頁面。",
+      "description": "您查詢的頁面可能已刪除，其名稱已更改或暫時無法造訪。"
     }
   },
   "tags": {
-    "build": "Build",
-    "play": "Play",
-    "research": "Research",
-    "grantee": "Grant",
-    "collaborate": "Collaboration",
-    "fullyPSE": "Fully PSE"
+    "build": "打造",
+    "play": "遊玩",
+    "research": "研究",
+    "grantee": "資助",
+    "collaborate": "合作",
+    "fullyPSE": "完全PSE"
   },
   "status": {
-    "archived": "Archived",
-    "active": "Active"
+    "archived": "已存檔",
+    "active": "活躍"
   },
-  "sortBy": "Sort by: {{option}}",
-  "tryItOut": "Try it out!",
-  "learnMore": "Learn more",
-  "buildWithThisTool": "Build with this tool",
-  "deepDiveResearch": "Dive deeper into the research",
-  "searchProjectPlaceholder": "Search project title or keyword",
-  "close": "Close",
-  "lastUpdatedAt": "Last updated {{date}}",
-  "projectLibrary": "Project Library",
-  "backToProjectLibrary": "Back to project library",
-  "discoverMore": "Discover more",
-  "goToHome": "Go to homepage",
-  "noResults": "No results found.",
-  "noResultsDescription": "Sorry, we couldn't find any results for your search. Please try again with different keywords.",
-  "exploreProjectLibrary": "Explore Project Library",
-  "clearAll": "Clear all",
-  "showProjects": "Show projects",
-  "filters": "Filters",
-  "whatDoYouWantDoToday": "What do you want to do today?",
-  "showingProjects": "Showing {{count}} projects",
-  "showingProjectsWith": "Showing {{count}} projects with:"
+  "sortBy": "排序方式：{{option}}",
+  "tryItOut": "試用一下！",
+  "learnMore": "了解更多",
+  "buildWithThisTool": "使用此工具構建",
+  "deepDiveResearch": "深入研究",
+  "searchProjectPlaceholder": "搜索專案標題或關鍵詞",
+  "close": "關閉",
+  "lastUpdatedAt": "上次更新於 {{date}}",
+  "projectLibrary": "專案集",
+  "backToProjectLibrary": "返回專案集",
+  "discoverMore": "發現更多",
+  "goToHome": "前往首頁",
+  "noResults": "未找到結果。",
+  "noResultsDescription": "抱歉，我們找不到與您的搜索相關的結果。請嘗試使用不同的關鍵詞再次搜索。",
+  "exploreProjectLibrary": "探索專案集",
+  "clearAll": "清除所有",
+  "showProjects": "顯示專案",
+  "filters": "篩選器",
+  "whatDoYouWantDoToday": "今天您想要做什麼？",
+  "showingProjects": "顯示 {{count}} 個專案",
+  "showingProjectsWith": "顯示 {{count}} 個帶有："
 }
