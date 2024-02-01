@@ -14,7 +14,7 @@
     "firstGoodIssue": "好上手的開源貢獻"
   },
   "footer": {
-    "description": "隱私 + 擴展探索團是由以太坊基金會支持的跨領域團隊。",
+    "description": "隱私 + 擴展探索團是由以太坊基金會資助的跨領域團隊。",
     "privacyPolicy": "隱私政策",
     "termsOfUse": "使用條款"
   },
@@ -26,7 +26,7 @@
   },
   "filterLabels": {
     "keywords": "關鍵詞",
-    "builtWith": "搭建",
+    "builtWith": "開發工具",
     "themes": "佈景主題",
     "projectStatus": "專案狀態"
   },
@@ -66,7 +66,7 @@
   "clearAll": "清除所有",
   "showProjects": "顯示專案",
   "filters": "篩選器",
-  "whatDoYouWantDoToday": "今天您想要做什麼？",
+  "whatDoYouWantDoToday": "今天想做點什麼呢？",
   "showingProjects": "顯示 {{count}} 個專案",
   "showingProjectsWith": "顯示 {{count}} 個帶有："
 }
