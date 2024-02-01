@@ -1,14 +1,14 @@
 {
-  "title": "Resources",
-  "subtitle": "This list was compiled by our community. Submit an issue on our Github page to add a resource to this list.",
-  "onThisPage": "On this page",
-  "editResources": "Edit resources",
-  "addSource": "Add a source",
-  "addResourceQuestion": "Didn't find what you are looking for?",
+  "title": "資源",
+  "subtitle": "這個清單由我們的社群共同編製。在我們的 Github 頁面上發起議題（issue）以將資源新增到此清單。",
+  "onThisPage": "在這個頁面上",
+  "editResources": "編輯資源",
+  "addSource": "新增來源",
+  "addResourceQuestion": "找不到您正在尋找的內容嗎？",
   "nav": {
-    "getInvolved": "Get involved",
-    "learn": "Learn",
-    "build": "Build",
-    "design": "Design"
+    "getInvolved": "參與",
+    "learn": "學習",
+    "build": "構建",
+    "design": "設計"
   }
 }
