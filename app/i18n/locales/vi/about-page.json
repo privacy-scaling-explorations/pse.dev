@@ -14,22 +14,22 @@
     {
       "title": "02. Ưu tiên tính riêng tư",
       "description": [
-        "We believe that privacy is a fundamental right. We want to be part of building an internet that divests from invasive data practices, and instead gives people real choices about who has access to their personal information. Permission should be purpose specific, revocable, informed and uncoerced.",
-        "We make tools that help people to securely authenticate themselves, make confidential transactions on the blockchain, and respect and preserve user privacy."
+        "Chúng tôi tin rằng quyền riêng tư là một quyền cơ bản. Chúng tôi mong muốn trở thành một phần trong việc xây dựng một mạng lưới internet mà ở đó không có các hoạt động xâm lấn dữ liệu, thay vào đó mọi người có quyền lựa chọn ai đó thể truy cập vào các dữ liệu của họ. Sự cho phép phải có một mục đích cụ thể, có thể thu hồi, được thông báo và không bị ép buộc",
+        "Chúng tôi tạo ra những công cụ để giúp người dùng xác thực một cách an toàn, tạo các giao dịch bí mật trên blockchain nhưng đồng thời cũng tôn trọng và bảo vệ quyền riêng tư của người dùng."
       ]
     },
     {
-      "title": "03. Scaling for communities",
+      "title": "03. Mở rộng cho cộng đồng",
       "description": [
-        "Zero knowledge proofs can verify computations quickly and cheaply, helping decentralized systems like Ethereum become more efficient. We research, design and share scaling solutions that anyone can use to contribute to a stronger and more practical digital public infrastructure.",
-        "We also grow our community by supporting the next generation of builders. We host immersive summer programs for students and regular live lectures that anyone in the world can join and learn from."
+        "Zero knowledge proofs có thể kiểm tra tính toán một cách nhanh chống và tiết kiệm. Chúng tôi nghiên cứu, thiết kế và chia sẻ các giải phải mở rộng nơi bất kỳ ai cũng có thể đóng góp để tạo nên một nền tảng số mạnh mẽ và thực tế hơn.",
+        "Chúng tôi phát triển cộng đồng thông qua việc phát triển các thế hệ nhà phát triển tiếp theo. Chúng tôi tổ chức các khóa học mùa hè và thường xuyên có những bài giảng nơi bất kỳ ai trên thế giới đều có thể tham gia và học hỏi."
       ]
     },
     {
-      "title": "04. Open source public goods",
+      "title": "04. Hàng hóa cộng đồng nguồn mở",
       "description": [
-        "We are cultivating a diverse and multidisciplinary team to explore the emerging zero knowledge ecosystem. PSE is made up of programmers, engineers, and mathematicians working alongside creatives and community organizers to collaboratively discover the potential of programmable cryptography.",
-        "We experiment in the open and welcome contributions, integrations, forks, or feedback on all of our projects."
+        "Chúng tôi đang xây dựng một đội ngũ đa dạng và đa ngành để khai phá một hệ sinh zero knowledge mới. PSE là nơi các lập trình viên, kỹ sư và các nhà toán học làm việc cùng với các nhà sáng tạo và các tổ chức cộng đồng để khám phá tìm năng của programmable cryptography",
+        "Chúng tôi thử nghiệm,  cởi mỡ và chào đón những đóng góp, tương tác, phân nhánh và phản hồi về tất cả dự án của chúng tôi."
       ]
     }
   ]
