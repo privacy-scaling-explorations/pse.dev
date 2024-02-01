@@ -1,5 +1,5 @@
 {
-  "siteTitle": "隱私與擴展探索團隊",
+  "siteTitle": "隱私與擴展探索團",
   "siteDescription": "通過密碼學研究和集體實驗來增強以太坊。",
   "menu": {
     "home": "首頁",
@@ -14,7 +14,7 @@
     "firstGoodIssue": "好上手的開源貢獻"
   },
   "footer": {
-    "description": "隱私 + 擴展探索是由以太坊基金會支持的跨領域團隊。",
+    "description": "隱私 + 擴展探索團是由以太坊基金會支持的跨領域團隊。",
     "privacyPolicy": "隱私政策",
     "termsOfUse": "使用條款"
   },
