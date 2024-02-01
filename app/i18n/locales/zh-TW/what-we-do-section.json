@@ -1,16 +1,16 @@
 {
-  "whatWeDo": "What we do",
-  "whatWeDoDescription": "PSE is a multidisciplinary team creating open source privacy and scaling tools and for the next generation's internet.",
+  "whatWeDo": "我們在做什麼",
+  "whatWeDoDescription": "PSE 是一支跨領域團隊，為下一世代的網際網路打造開源的隱私和擴展工具。",
   "privacy": {
-    "title": "Privacy",
-    "description": "We believe privacy is a social good that should be accessible to everyone. That's why we're creating open source tools that help people choose what, how, when, and where they share."
+    "title": "隱私",
+    "description": "我們相信隱私是一種社會福祉，應該對人人可及。這就是為什麼我們正在打造開源工具，幫助人們選擇何時、如何、何地以及與誰分享。"
   },
   "scaling": {
-    "title": "Scaling",
-    "description": "Our infrastructure helps communities grow by making Ethereum more efficient and accessible. From account abstraction and reducing transaction costs, to rollups and zkEVM, we are building towards an interoperable future."
+    "title": "擴展",
+    "description": "我們的基礎設施使以太坊更高效且更可及，並幫助社群成長。從帳戶抽象和降低交易成本到Rollups和zkEVM，我們正在建設一個互操作性的未來。"
   },
   "explorations": {
-    "title": "Explorations",
-    "description": "We are mapping the emerging zero knowledge ecosystem through collective experimentation. We collaborate, share what we learn, and welcome contributions from around the world."
+    "title": "探索",
+    "description": "我們通過集體實驗來繪製新興的零知識生態系統地圖。我們協作，分享我們所學，並歡迎來自世界各地的貢獻。"
   }
 }
