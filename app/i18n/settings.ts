@@ -1,7 +1,7 @@
 import type { InitOptions } from "i18next"
 
 export const fallbackLng = "en"
-export const languages = [fallbackLng, "it", "ko", "fr", "zh-CN", "es"] as const
+export const languages = [fallbackLng, "it", "ko", "fr", "zh-CN",  "zh-TW", "es"] as const
 export type LocaleTypes = (typeof languages)[number]
 export const defaultNS = "translation"
 export const cookieName = "i18next"
@@ -12,6 +12,7 @@ export const LanguageMapping: Record<string, string> = {
   ko: "한국어",
   fr: "Français",
   "zh-CN": "中文",
+  "zh-TW": "正體中文",
   es: "Español",
 }
 
