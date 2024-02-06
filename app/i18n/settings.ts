@@ -35,13 +35,18 @@ export const languageList: Language[] = [
     enabled: true,
   },
   {
-    key: "it",
-    label: "Italiano",
+    key: "es",
+    label: "Español",
     enabled: true,
   },
   {
     key: "zh-TW",
     label: "正體中文",
+    enabled: true,
+  },
+  {
+    key: "it",
+    label: "Italiano",
     enabled: true,
   },
   {
@@ -69,11 +74,7 @@ export const languageList: Language[] = [
     label: "中文",
     enabled: false,
   },
-  {
-    key: "es",
-    label: "Español",
-    enabled: false,
-  },
+
   {
     key: "ja",
     label: "日本語",
