@@ -44,7 +44,7 @@ export const News = ({ lang }: LangProps["params"]) => {
       defaultActionLabel: t("attend"),
     },
     post: {
-      type: "Blog Post",
+      type: t("blogPost"),
       icon: PSEPostIcon,
       defaultActionLabel: t("read"),
     },
