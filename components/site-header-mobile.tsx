@@ -113,7 +113,7 @@ export function SiteHeaderMobile({ lang }: LangProps["params"]) {
             </NextLink>
             <NextLink
               onClick={() => setHeader(false)}
-              href={`${lang}/projects`}
+              href={`/${lang}/projects`}
               className="border-b-2 border-white p-[16px] pt-0 uppercase"
             >
               {t("menu.projectLibrary")}
