@@ -56,11 +56,10 @@ export const News = ({ lang }: LangProps["params"]) => {
 
   return (
     <ul className="bg-white">
-      {/* <h4 className="bg-slate-500 px-6 py-2 text-lg font-bold uppercase tracking-wide text-slate-50 backdrop-blur-sm lg:px-20">
-        what&apos;s happening
-      </h4> */}
       {newsItems.map((item: NewsInterface, index) => {
-        const newsType = newsTypes[item.type as keyof NewsType]
+        const newsType =
+          newsTypes[item.type as keyof NewsType] ?? newsTypes["learn"]
+
         return (
           <motion.a
             href={item.action.url}
@@ -77,12 +76,12 @@ export const News = ({ lang }: LangProps["params"]) => {
                 <div className="lg:flex lg:gap-12 xl:gap-56">
                   <div className="flex w-48 items-center gap-2">
                     <Image
-                      src={newsType["icon"]}
+                      src={newsType?.["icon"]}
                       alt=""
                       className="h-4 object-fill"
                     />
                     <p className="text-sm font-semibold uppercase tracking-widest text-orange">
-                      {newsType["type"]}
+                      {newsType?.["type"]}
                     </p>
                   </div>
                   <p className="p-1 lg:hidden"></p>
@@ -92,7 +91,7 @@ export const News = ({ lang }: LangProps["params"]) => {
                 </div>
                 <motion.p variants={showMove} className="hidden gap-1 lg:flex">
                   <span className="text-sm font-semibold uppercase tracking-wide text-orange">
-                    {item.action.label || newsType["defaultActionLabel"]}
+                    {item.action.label || newsType?.["defaultActionLabel"]}
                   </span>
                   <ArrowUpRight size={18} className="opacity-50" />
                 </motion.p>
