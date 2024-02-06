@@ -10,6 +10,7 @@ import HeaderVector from "@/public/icons/menu-burger.svg"
 import { LangProps } from "@/types/common"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
+import { useAppSettings } from "@/hooks/useAppSettings"
 import {
   Discord,
   Github,
@@ -17,12 +18,13 @@ import {
   Twitter,
 } from "@/components/svgs/social-medias"
 import { useTranslation } from "@/app/i18n/client"
-import { LanguageMapping, languagesItems } from "@/app/i18n/settings"
+import { languageList } from "@/app/i18n/settings"
 
 import { Icons } from "./icons"
 
 const LanguageSwitcher = ({ lang }: LangProps["params"]) => {
   const [isOpen, setIsOpen] = useState(false)
+  const { activeLanguageLabel } = useAppSettings(lang)
 
   if (!siteConfig?.showLanguageSwitcher) return null
 
@@ -37,13 +39,16 @@ const LanguageSwitcher = ({ lang }: LangProps["params"]) => {
       >
         <Icons.globe className="text-white" size={22} fill="white" />
         <span className="text-base font-medium uppercase text-white">
-          {LanguageMapping[lang] ?? LanguageMapping["en"]}
+          {activeLanguageLabel}
         </span>
         <Icons.arrowDown />
       </button>
       {isOpen && (
         <div className="ml-8 mt-4 flex flex-col gap-1">
-          {languagesItems?.map(({ label, value: languageKey }, index) => {
+          {languageList?.map(({ label, key: languageKey, enabled }, index) => {
+            const showLanguage = siteConfig.showOnlyEnabledLanguages && !enabled
+
+            if (showLanguage) return null // skip disabled languages
             const isActive = languageKey === lang
             return (
               <Link
