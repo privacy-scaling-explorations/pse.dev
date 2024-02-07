@@ -3,7 +3,7 @@
 import { siteConfig } from "@/config/site"
 import { useAppSettings } from "@/hooks/useAppSettings"
 import { MainNav } from "@/components/main-nav"
-import { LocaleTypes, languagesItems } from "@/app/i18n/settings"
+import { LocaleTypes, enabledLanguagesItems } from "@/app/i18n/settings"
 
 import { Icons } from "./icons"
 import { SiteHeaderMobile } from "./site-header-mobile"
@@ -35,7 +35,7 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
                   </div>
                 }
                 defaultItem={lang}
-                items={languagesItems}
+                items={enabledLanguagesItems}
                 onChange={(lang) => {
                   window?.location?.replace(`/${lang}`)
                 }}

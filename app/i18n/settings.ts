@@ -3,16 +3,7 @@ import type { InitOptions } from "i18next"
 import { siteConfig } from "@/config/site"
 
 export const fallbackLng = "en"
-export const languages = [
-  fallbackLng,
-  "it",
-  "ko",
-  "fr",
-  "zh-CN",
-  "zh-TW",
-  "es",
-] as const
-export type LocaleTypes = (typeof languages)[number]
+
 export const defaultNS = "translation"
 export const cookieName = "i18next"
 
@@ -82,8 +73,17 @@ export const languageList: Language[] = [
   },
 ]
 
+// list of language keys based on the languageList
+const languageKeys = languageList
+  .map((item) => item.key)
+  .filter((item) => item !== fallbackLng)
+
+export const languages = [fallbackLng, ...languageKeys] as const
+
+export type LocaleTypes = (typeof languages)[number]
+
 // list of only enabled languages
-export const languagesItems: { label: string; value: string }[] =
+export const enabledLanguagesItems: { label: string; value: string }[] =
   languageList
     .filter((item) =>
       siteConfig.showOnlyEnabledLanguages ? item.enabled : true
