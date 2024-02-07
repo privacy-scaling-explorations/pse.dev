@@ -1,0 +1,72 @@
+{
+  "siteTitle": "Khám phá Quyền riêng tư và Mở rộng",
+  "siteDescription": "Nâng cao Ethereum thông qua nghiên cứu mật mã và thử nghiệm tập thể.",
+  "menu": {
+    "home": "Trang chủ",
+    "projectLibrary": "Thư viện Dự án",
+    "about": "Về chúng tôi",
+    "resources": "Tài nguyên",
+    "jobs": "Việc làm",
+    "languages": "Ngôn ngữ {{locale}}",
+    "blog": "Blog",
+    "activity": "Hoạt động",
+    "report": "Báo cáo",
+    "firstGoodIssue": "Vấn đề tốt đầu tiên"
+  },
+  "footer": {
+    "description": "Khám phá Quyền riêng tư + Mở rộng là một nhóm đa ngành được hỗ trợ bởi Ethereum Foundation.",
+    "privacyPolicy": "Chính sách quyền riêng tư",
+    "termsOfUse": "Điều khoản sử dụng"
+  },
+  "filterOptions": {
+    "random": "Ngẫu nhiên",
+    "asc": "Tiêu đề: A-Z",
+    "desc": "Tiêu đề: Z-A",
+    "relevance": "Liên quan"
+  },
+  "filterLabels": {
+    "keywords": "Từ khóa",
+    "builtWith": "Xây dựng bằng",
+    "themes": "Chủ đề được chọn",
+    "projectStatus": "Trạng thái dự án"
+  },
+  "error": {
+    "404": {
+      "title": "404: Trang không tìm thấy.",
+      "description": "Trang bạn đang tìm kiếm có thể đã bị xóa, thay đổi tên hoặc tạm thời không khả dụng."
+    }
+  },
+  "tags": {
+    "build": "Xây dựng",
+    "play": "Chơi",
+    "research": "Nghiên cứu",
+    "grantee": "Hỗ trợ",
+    "collaborate": "Hợp tác",
+    "fullyPSE": "Hoàn toàn PSE"
+  },
+  "status": {
+    "archived": "Lưu trữ",
+    "active": "Hoạt động"
+  },
+  "sortBy": "Sắp xếp theo: {{option}}",
+  "tryItOut": "Thử nó!",
+  "learnMore": "Tìm hiểu thêm",
+  "buildWithThisTool": "Xây dựng với công cụ này",
+  "deepDiveResearch": "Đào sâu vào nghiên cứu",
+  "searchProjectPlaceholder": "Tìm kiếm tiêu đề dự án hoặc từ khóa",
+  "close": "Đóng",
+  "lastUpdatedAt": "Cập nhật lần cuối vào {{date}}",
+  "projectLibrary": "Thư viện Dự án",
+  "backToProjectLibrary": "Quay lại thư viện dự án",
+  "discoverMore": "Khám phá thêm",
+  "goToHome": "Đi đến trang chủ",
+  "noResults": "Không tìm thấy kết quả.",
+  "noResultsDescription": "Xin lỗi, chúng tôi không thể tìm thấy kết quả nào cho tìm kiếm của bạn. Vui lòng thử lại với từ khóa khác.",
+  "exploreProjectLibrary": "Khám phá Thư viện Dự án",
+  "clearAll": "Xóa tất cả",
+  "showProjects": "Hiển thị dự án",
+  "filters": "Bộ lọc",
+  "whatDoYouWantDoToday": "Hôm nay bạn muốn làm gì?",
+  "showingProjects": "Hiển thị {{count}} dự án",
+  "showingProjectsWith": "Hiển thị {{count}} dự án với:"
+}

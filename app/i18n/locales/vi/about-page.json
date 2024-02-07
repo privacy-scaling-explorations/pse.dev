@@ -1,0 +1,36 @@
+{
+  "title": "Về nhóm của chúng tôi",
+  "description": "PSE là một phòng thí nghiệm nghiên cứu và phát triển đa ngành được hỗ trợ bởi Ethereum Foundation. Chúng tôi tạo ra cơ sở hạ tầng mã nguồn mở, công cụ và tài nguyên giáo dục để xây dựng mật mã vào các ứng dụng thực tế.",
+  "our-principles-title": "Nguyên tắc của chúng tôi",
+  "principles": [
+    {
+      "title": "01. Mật mã dành cho mọi người",
+      "description": [
+        "Mật mã có mặt ở khắp mọi nơi: mỗi khi bạn kết nối với một trang web an toàn, đăng nhập bằng mật khẩu hoặc mở khóa điện thoại, bạn đang thấy mật mã hoạt động.",
+        "Với mật mã 'có thể lập trình' (như chứng minh không có tri thức, tính toán đa bên hoặc mã hóa đồng nhất), chúng ta có thể đưa ra những tuyên bố có thể được xác minh về thông tin bí mật mà không cần tiết lộ thông tin chính nó. Điều này có thể được áp dụng vào quản lý danh tính, chống sự kết hợp, truyền thông ẩn danh và nhiều hơn thế nữa.",
+        "Chúng tôi đang xây dựng một thư viện các công cụ phát triển, các bài báo nghiên cứu và các nguyên mẫu mã nguồn mở miễn phí cho mọi người sử dụng. Chúng tôi hy vọng tài nguyên của chúng tôi sẽ truyền cảm hứng cho mọi người sáng tạo ra các công nghệ mà cộng đồng của họ cần."
+      ]
+    },
+    {
+      "title": "02. Quyền riêng tư theo mặc định",
+      "description": [
+        "Chúng tôi tin rằng quyền riêng tư là một quyền cơ bản. Chúng tôi muốn là một phần trong việc xây dựng một internet không liên quan đến các thực hành thu thập dữ liệu xâm nhập và thay vào đó đưa cho mọi người những lựa chọn thực sự về ai có quyền truy cập vào thông tin cá nhân của họ. Sự cho phép phải cụ thể mục đích, có thể thu hồi, có thông tin và không bị ép buộc.",
+        "Chúng tôi tạo ra các công cụ giúp mọi người xác thực mình một cách an toàn, thực hiện các giao dịch bảo mật trên blockchain và tôn trọng và bảo vệ quyền riêng tư người dùng."
+      ]
+    },
+    {
+      "title": "03. Mở rộng cho cộng đồng",
+      "description": [
+        "Chứng minh không có tri thức có thể xác minh tính toán một cách nhanh chóng và giá rẻ, giúp các hệ thống phi tập trung như Ethereum trở nên hiệu quả hơn. Chúng tôi nghiên cứu, thiết kế và chia sẻ các giải pháp mở rộng mà bất kỳ ai cũng có thể sử dụng để đóng góp vào cơ sở hạ tầng công cộng kỹ thuật số mạnh mẽ và thực tếhơn.",
+        "Chúng tôi cũng mở rộng cộng đồng của mình bằng cách hỗ trợ thế hệ kế tiếp của những người xây dựng. Chúng tôi tổ chức các chương trình hè trải nghiệm cho sinh viên và các bài giảng trực tiếp thường xuyên mà bất kỳ ai trên thế giới đều có thể tham gia và học từ đó."
+      ]
+    },
+    {
+      "title": "04. Công cộng mã nguồn mở",
+      "description": [
+        "Chúng tôi đang tạo ra một đội ngũ đa dạng và đa ngành để khám phá hệ sinh thái tri thức không có tri thức đang nổi lên. PSE bao gồm các lập trình viên, kỹ sư và nhà toán học làm việc cùng với các nhà sáng tạo và nhà tổ chức cộng đồng để khám phá tiềm năng của mật mã có thể lập trình một cách hợp tác.",
+        "Chúng tôi thực nghiệm công khai và chào đón sự đóng góp, tích hợp, nhánh hoặc phản hồi về tất cả các dự án của chúng tôi."
+      ]
+    }
+  ]
+}
