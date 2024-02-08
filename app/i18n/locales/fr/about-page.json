@@ -6,16 +6,15 @@
     {
       "title": "01. De la cryptographie pour tous",
       "description": [
-        "La cryptographie est partout. À chaque fois que vous vous connectez à un site sécurisé, que vous vous authentifiez avec un mot de passe ou que vous dévérouillez votre téléphone, il y a de la cryptographie dans les coulisses."
-        "Grâce à la cryptographie “programmable”, nous pouvons certifier et vérifier des allégations sans révéler quelconque information secrète qu'elle contiennent. Cette technnologie, qui comprend les preuves à divulgation nulle de connaissance (zk-proof), le calcul multi-partie (MPC) ou encore le chiffrement homomorphique, peut être utilisée dans un grand nombre de scénarii comme la gestion d'identité, la résistance aux collisions, les communications anonymes."
+        "La cryptographie est partout. À chaque fois que vous vous connectez à un site sécurisé, que vous vous authentifiez avec un mot de passe ou que vous dévérouillez votre téléphone, il y a de la cryptographie dans les coulisses.",
+        "Grâce à la cryptographie “programmable”, nous pouvons certifier et vérifier des allégations sans révéler quelconque information secrète qu'elle contiennent. Cette technnologie, qui comprend les preuves à divulgation nulle de connaissance (zk-proof), le calcul multi-partie (MPC) ou encore le chiffrement homomorphique, peut être utilisée dans un grand nombre de scénarii comme la gestion d'identité, la résistance aux collisions, les communications anonymes.",
         "Nous construisons des bibliothèques d'outils de développement, publions des papiers de recherche et implémentons des prototypes en source ouverte et gratuit d'utilisation pour tous. Nous espérons que ceux-ci aideront et inspireront toutes et tous à innover dans leurs projets et leurs communautés."
       ]
     },
     {
       "title": "02. La confidentialité par défaut",
       "description": [
-        "Nous considérons la confidentialité, aussi appelée protection de la vie privée, un droit fondamental.
-        Nous voulons aider à batir un Internet intègre, sans vols de données invasifs ; un Internet contrôlable, où chacun peut choisir qui a accès à ses données personnelles ; un Internet où les permissions sont à fins précises, révocables, consenties et sans contraintes.",
+        "Nous considérons la confidentialité, aussi appelée protection de la vie privée, un droit fondamental. Nous voulons aider à batir un Internet intègre, sans vols de données invasifs ; un Internet contrôlable, où chacun peut choisir qui a accès à ses données personnelles ; un Internet où les permissions sont à fins précises, révocables, consenties et sans contraintes.",
         "Nous implémentons des outils pour aider chacun à s'authentifier de lui-même, à envoyer des transactions confidentielles sur les blockchains, et à respecter et préserver la confidentialité des utilisateurs."
       ]
     },
