@@ -12,10 +12,11 @@
       ]
     },
     {
-      "title": "02. Privacy by default",
+      "title": "02. La confidentialité par défaut",
       "description": [
-        "We believe that privacy is a fundamental right. We want to be part of building an internet that divests from invasive data practices, and instead gives people real choices about who has access to their personal information. Permission should be purpose specific, revocable, informed and uncoerced.",
-        "We make tools that help people to securely authenticate themselves, make confidential transactions on the blockchain, and respect and preserve user privacy."
+        "Nous considérons la confidentialité, aussi appelée protection de la vie privée, un droit fondamental.
+        Nous voulons aider à batir un Internet intègre, sans vols de données invasifs ; un Internet contrôlable, où chacun peut choisir qui a accès à ses données personnelles ; un Internet où les permissions sont à fins précises, révocables, consenties et sans contraintes.",
+        "Nous implémentons des outils pour aider chacun à s'authentifier de lui-même, à envoyer des transactions confidentielles sur les blockchains, et à respecter et préserver la confidentialité des utilisateurs."
       ]
     },
     {
