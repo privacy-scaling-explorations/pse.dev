@@ -65,11 +65,15 @@ export const languageList: Language[] = [
     label: "中文",
     enabled: false,
   },
-
   {
     key: "ja",
     label: "日本語",
     enabled: false,
+  },
+  {
+    key: "fr",
+    label: "Français",
+    enabled: true,
   },
 ]
 
