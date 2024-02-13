@@ -70,11 +70,6 @@ export const languageList: Language[] = [
     label: "日本語",
     enabled: false,
   },
-  {
-    key: "fr",
-    label: "Français",
-    enabled: true,
-  },
 ]
 
 // list of language keys based on the languageList
