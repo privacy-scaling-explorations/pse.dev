@@ -1,14 +1,14 @@
 {
-  "title": "Resources",
-  "subtitle": "This list was compiled by our community. Submit an issue on our Github page to add a resource to this list.",
-  "onThisPage": "On this page",
-  "editResources": "Edit resources",
-  "addSource": "Add a source",
-  "addResourceQuestion": "Didn't find what you are looking for?",
+  "title": "Ressources",
+  "subtitle": "Cette liste à été compilée par notre communauté. Soumettez une issue sur notre page Github pour rajouter des ressources à cette liste.",
+  "onThisPage": "Sur cette page",
+  "editResources": "Editer les ressources",
+  "addSource": "Ajouter une source",
+  "addResourceQuestion": "Vous n'avez pas trouvé ce que vous recherchiez?",
   "nav": {
-    "getInvolved": "Get involved",
-    "learn": "Learn",
-    "build": "Build",
-    "design": "Design"
+    "getInvolved": "Participer",
+    "learn": "Apprendre",
+    "build": "Construire",
+    "design": "Concevoir"
   }
 }
