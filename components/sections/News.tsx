@@ -8,7 +8,7 @@ import PSEPostIcon from "@/public/icons/pseicon3.svg"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 
-import { NewsInterface, AnnounceInterface } from "@/lib/types"
+import { AnnounceInterface, NewsInterface } from "@/lib/types"
 
 const newsTypes = {
   learn: {
@@ -37,19 +37,17 @@ const showMove = {
 
 const NewsPlaceholder = () => {
   return (
-      <div
-          className="block h-fit w-full gap-3 px-6 py-6 xl:px-20 border-b border-t-0 border-slate-950/70"
-        >
-          <div className="h-full w-full items-center justify-between lg:flex">
-            <div className="flex lg:flex lg:gap-12 xl:gap-56">
-              <div className="flex w-48 items-center gap-2">
-                <div className="bg-slate-200 animate-pulse h-6 w-6"></div>
-                <span className="bg-slate-200 animate-pulse h-6 w-40"></span>
-              </div>
-              <span className="bg-slate-200 animate-pulse h-6 w-96"></span>
-            </div>
+    <div className="block h-fit w-full gap-3 px-6 py-6 xl:px-20 border-b border-t-0 border-slate-950/70">
+      <div className="h-full w-full items-center justify-between lg:flex">
+        <div className="flex lg:flex lg:gap-12 xl:gap-56">
+          <div className="flex w-48 items-center gap-2">
+            <div className="bg-slate-200 animate-pulse h-6 w-6"></div>
+            <span className="bg-slate-200 animate-pulse h-6 w-40"></span>
           </div>
+          <span className="bg-slate-200 animate-pulse h-6 w-96"></span>
+        </div>
       </div>
+    </div>
   )
 }
 
@@ -62,17 +60,19 @@ const News = () => {
       setLoading(true)
       await fetch("/api/news")
         .then((res) => res.json())
-        .then(({announcements }: { announcements: AnnounceInterface[] }) => {
-          setNewsItems(announcements?.map((announce) => {
-            return {
-              title: announce.description,
-              type: announce.type,
-              action: {
-                label: announce.short,
-                url: announce.url,
-              },
-            }
-          }) ?? [])
+        .then(({ announcements }: { announcements: AnnounceInterface[] }) => {
+          setNewsItems(
+            announcements?.map((announce) => {
+              return {
+                title: announce.description,
+                type: announce.type,
+                action: {
+                  label: announce.short,
+                  url: announce.url,
+                },
+              }
+            }) ?? []
+          )
         })
       setLoading(false)
     }
@@ -113,7 +113,7 @@ const News = () => {
                     className="h-4 object-fill"
                   />
                   <p className="text-sm font-semibold uppercase tracking-widest text-orange">
-                    {newsType?.["type"] ?? 'News'}
+                    {newsType?.["type"] ?? "News"}
                   </p>
                 </div>
                 <p className="p-1 lg:hidden"></p>
@@ -123,7 +123,7 @@ const News = () => {
               </div>
               <motion.p variants={showMove} className="hidden gap-1 lg:flex">
                 <span className="text-sm font-semibold uppercase tracking-wide text-orange">
-                  {item.action.label || newsType["defaultActionLabel"]}
+                  {item?.action?.label || newsType?.["defaultActionLabel"]}
                 </span>
                 <ArrowUpRight size={18} className="opacity-50" />
               </motion.p>
