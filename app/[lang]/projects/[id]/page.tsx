@@ -132,6 +132,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 height={630}
                 className="w-full rounded-t-lg object-cover"
               />
+              {!currProject?.image && (
+                <span className="w-full px-5 text-3xl text-center font-bold text-black absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                  {currProject?.imageAlt || currProject?.name}
+                </span>
+              )}
             </div>
             <ProjectTags project={currProject} lang={lang} />
             <div className="flex w-full flex-col gap-5 text-base font-normal leading-relaxed">

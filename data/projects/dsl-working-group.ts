@@ -8,6 +8,7 @@ export const dslWorkingGroup: ProjectInterface = {
   id: "dsl-working-group",
   projectStatus: "active",
   image: "",
+  imageAlt: "DSL Working Group",
   name: "DSL Working Group",
   tldr: "Exploration of languages for writing zk circuits",
   description,

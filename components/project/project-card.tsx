@@ -53,7 +53,7 @@ export default function ProjectCard({
 }: ProjectCardProps & { lang: LocaleTypes }) {
   const router = useRouter()
 
-  const { id, image, links, name, tldr, tags } = project
+  const { id, image, links, name, tldr, tags, imageAlt } = project
 
   return (
     <div
@@ -61,13 +61,20 @@ export default function ProjectCard({
       className={cn(projectCardVariants({ showLinks, border, className }))}
     >
       {showBanner && (
-        <Image
-          src={`/project-banners/${image ? image : "fallback.webp"}`}
-          alt={`${name} banner`}
-          width={1200}
-          height={630}
-          className="min-h-[160px] w-full rounded-t-lg object-cover"
-        />
+        <div className="relative flex flex-col">
+          <Image
+            src={`/project-banners/${image ? image : "fallback.webp"}`}
+            alt={`${name} banner`}
+            width={1200}
+            height={630}
+            className="min-h-[160px] w-full rounded-t-lg object-cover"
+          />
+          {!image && (
+            <span className="w-full px-5 text-xl text-center font-bold text-black absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+              {imageAlt || name}
+            </span>
+          )}
+        </div>
       )}
       <div className="flex h-full flex-col justify-between gap-5 rounded-b-lg bg-white p-5">
         <div className="flex flex-col justify-start gap-2">
