@@ -1,10 +1,10 @@
 {
   "title": "Giới thiệu về nhóm của chúng tôi",
-  "description": "PSE là phòng thí nghiệm nghiên cứu và phát triển đa ngành được Ethereum Foundation hỗ trợ. Chúng tôi tạo ra cơ sở hạ tầng, công cụ và tài nguyên giáo dục nguồn mở để ứng dụng/ tích hợp mật mã thành các ứng dụng trong thế giới thực.",
+  "description": "PSE là phòng thí nghiệm nghiên cứu và phát triển đa ngành được Ethereum Foundation hỗ trợ. Chúng tôi tạo ra cơ sở hạ tầng, công cụ và tài nguyên giáo dục nguồn mở để ứng dụng/ tích hợp mật mã vào các ứng dụng trong thế giới thực.",
   "our-principles-title": "Các nguyên tắc của chúng tôi",
   "principles": [
     {
-      "title": "01. Mật mã cho con người",
+      "title": "01. Mật mã cho mọi người",
       "description": [
         "Mật mã có ở mọi nơi: mỗi khi bạn kết nối với một trang web được bảo mật, đăng nhập bằng mật khẩu hoặc mở khóa điện thoại, bạn sẽ thấy hoạt động của mật mã.",
         "Với mật mã “khả lập trình” (như bằng chứng phi tri thức, tính toán nhiều bên hoặc mã hoá đồng cấu), chúng tôi có thể đưa ra các tuyên bố có thể kiểm chứng về thông tin bí mật mà không tiết lộ chính thông tin đó. Điều này có thể được áp dụng để quản lý danh tính, chống sự cấu kết, giao tiếp ẩn danh và nhiều hơn thế nữa.",
