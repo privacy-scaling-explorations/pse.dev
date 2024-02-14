@@ -14,7 +14,7 @@
     {
       "title": "02. La confidentialité par défaut",
       "description": [
-        "Nous considérons la confidentialité, aussi appelée protection de la vie privée, un droit fondamental. Nous voulons aider à batir un Internet intègre, sans vols de données invasifs ; un Internet contrôlable, où chacun peut choisir qui a accès à ses données personnelles ; un Internet où les permissions sont à fins précises, révocables, consenties et sans contraintes.",
+        "Nous considérons la confidentialité, aussi appelée protection de la vie privée, un droit fondamental. Nous voulons aider à bâtir un Internet intègre, sans vols de données invasifs ; un Internet contrôlable, où chacun peut choisir qui a accès à ses données personnelles ; un Internet où les permissions sont à fins précises, révocables, consenties et sans contraintes.",
         "Nous implémentons des outils pour aider chacun à s'authentifier de lui-même, à envoyer des transactions confidentielles sur les blockchains, et à respecter et préserver la confidentialité des utilisateurs."
       ]
     },
