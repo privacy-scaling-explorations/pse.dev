@@ -7,5 +7,5 @@
   "attend": "Partecipa",
   "recentUpdates": "Aggiornamenti recenti",
   "seeAllUpdates": "Ultimi aggiornamenti",
-  "reportOnSocial": "Condividi su {x}"
+  "reportOnSocial": "Condividi su {{socialName}}"
 }
