@@ -5,30 +5,7 @@
   "watch": "Ver",
   "read": "Leer",
   "attend": "Asistir",
-  "news": [
-    {
-      "type": "post",
-      "title": "Lecciones de la Ceremonia KZG",
-      "action": {
-        "label": "Leer",
-        "url": "https://mirror.xyz/privacy-scaling-explorations.eth/naTdx-u7kyirczTLSAnWwH6ZdedfTQu1yCWQj1m_n-E"
-      }
-    },
-    {
-      "type": "aprendizaje",
-      "title": "Eventos públicos organizados por miembros de PSE para aprender sobre los proyectos de los demás, compartir ideas y obtener retroalimentación.",
-      "action": {
-        "label": "Ver calendario completo",
-        "url": "https://pse-team.notion.site/50dcf22c5191485e93406a902ae9e93b?v=453023f8227646dd949abc34a7a4a138&pvs=4"
-      }
-    },
-    {
-      "type": "aprendizaje",
-      "title": "Circuito Circom Plegado: Un Estudio de Caso de ZKML por la Dra. Cathie So",
-      "action": {
-        "label": "Ver",
-        "url": "https://www.youtube.com/live/jb6HDEtY4CI"
-      }
-    }
-  ]
+  "recentUpdates": "Recent Updates",
+  "seeAllUpdates": "See all updates",
+  "reportOnSocial": "Report on {{socialName}}"
 }

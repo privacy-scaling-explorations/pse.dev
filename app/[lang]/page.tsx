@@ -9,11 +9,10 @@ import { siteConfig } from "@/config/site"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
-import { News } from "@/components/sections/News"
+import { NewsSection } from "@/components/sections/NewsSection"
 import { WhatWeDo } from "@/components/sections/WhatWeDo"
 
 import { useTranslation } from "../i18n/client"
-import { LocaleTypes } from "../i18n/settings"
 
 export default function IndexPage({ params: { lang } }: any) {
   const { t } = useTranslation(lang, "homepage")
@@ -53,7 +52,7 @@ export default function IndexPage({ params: { lang } }: any) {
         </div>
       </AppContent>
 
-      <News lang={lang} />
+      <NewsSection lang={lang} />
 
       <div className="bg-radial-gradient flex flex-col">
         <WhatWeDo lang={lang} />

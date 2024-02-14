@@ -5,30 +5,7 @@
   "watch": "觀看",
   "read": "閱讀",
   "attend": "參加",
-  "news": [
-    {
-      "type": "post",
-      "title": "KZG 儀式的經驗與挑戰",
-      "action": {
-        "label": "閱讀",
-        "url": "https://mirror.xyz/privacy-scaling-explorations.eth/naTdx-u7kyirczTLSAnWwH6ZdedfTQu1yCWQj1m_n-E"
-      }
-    },
-    {
-      "type": "learn",
-      "title": "由 PSE 成員主持的公開活動，旨在了解彼此的專案，分享想法並獲得回饋。",
-      "action": {
-        "label": "查看完整時間表",
-        "url": "https://pse-team.notion.site/50dcf22c5191485e93406a902ae9e93b?v=453023f8227646dd949abc34a7a4a138&pvs=4"
-      }
-    },
-    {
-      "type": "learn",
-      "title": "Folding 的 Circom 電路：由 Cathie So 博士分享的 ZKML 案例研究",
-      "action": {
-        "label": "觀看",
-        "url": "https://www.youtube.com/live/jb6HDEtY4CI"
-      }
-    }
-  ]
+  "recentUpdates": "Recent Updates",
+  "seeAllUpdates": "See all updates",
+  "reportOnSocial": "Report on {{socialName}}"
 }
