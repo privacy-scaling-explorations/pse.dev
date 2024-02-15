@@ -33,6 +33,7 @@ export type ProjectStatusType = "active" | "inactive" | "archived"
 export interface ProjectInterface {
   id: string
   image: string
+  imageAlt?: string
   name: string
   tldr: string
   description: string
