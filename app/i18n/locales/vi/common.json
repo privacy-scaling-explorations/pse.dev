@@ -1,6 +1,6 @@
 {
-  "siteTitle": "Khám phá Quyền riêng tư và Mở rộng",
-  "siteDescription": "Nâng cao Ethereum thông qua nghiên cứu mật mã và thử nghiệm tập thể.",
+  "siteTitle": "Khám phá Quyền riêng tư và khả năng mở rộng",
+  "siteDescription": "Phát triển Ethereum thông qua nghiên cứu mật mã và thử nghiệm mang tính công chúng.",
   "menu": {
     "home": "Trang chủ",
     "projectLibrary": "Thư viện Dự án",
@@ -14,7 +14,7 @@
     "firstGoodIssue": "Vấn đề tốt đầu tiên"
   },
   "footer": {
-    "description": "Khám phá Quyền riêng tư + Mở rộng là một nhóm đa ngành được hỗ trợ bởi Ethereum Foundation.",
+    "description": "Khám phá Quyền riêng tư + Khả năng mở rộng là một nhóm đa ngành được hỗ trợ bởi Ethereum Foundation.",
     "privacyPolicy": "Chính sách quyền riêng tư",
     "termsOfUse": "Điều khoản sử dụng"
   },
@@ -26,7 +26,7 @@
   },
   "filterLabels": {
     "keywords": "Từ khóa",
-    "builtWith": "Xây dựng bằng",
+    "builtWith": "Xây dựng với",
     "themes": "Chủ đề được chọn",
     "projectStatus": "Trạng thái dự án"
   },
@@ -38,7 +38,7 @@
   },
   "tags": {
     "build": "Xây dựng",
-    "play": "Chơi",
+    "play": "Thử trải nghiệm",
     "research": "Nghiên cứu",
     "grantee": "Hỗ trợ",
     "collaborate": "Hợp tác",

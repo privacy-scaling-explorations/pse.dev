@@ -1,16 +1,16 @@
 {
   "whatWeDo": "Chúng tôi làm gì",
-  "whatWeDoDescription": "PSE là một nhóm đa ngành sáng tạo các công cụ mã nguồn mở về quyền riêng tư và mở rộng cho thế hệ internet tiếp theo.",
+  "whatWeDoDescription": "PSE là một nhóm đa ngành sáng tạo các công cụ mã nguồn mở về quyền riêng tư và khả năng mở rộng cho thế hệ internet tiếp theo.",
   "privacy": {
     "title": "Quyền riêng tư",
     "description": "Chúng tôi tin rằng quyền riêng tư là một lợi ích xã hội mà mọi người nên có thể tiếp cận. Đó là lý do tại sao chúng tôi đang tạo ra các công cụ mã nguồn mở giúp mọi người lựa chọn những gì, cách thức, thời điểm và nơi mà họ chia sẻ thông tin."
   },
   "scaling": {
     "title": "Mở rộng",
-    "description": "Hệ thống cơ sở hạ tầng của chúng tôi giúp cộng đồng phát triển bằng cách làm cho Ethereum hiệu quả và dễ tiếp cận hơn. Từ trừng phạt tài khoản và giảm chi phí giao dịch, đến rollups và zkEVM, chúng tôi đang xây dựng hướng tới một tương lai tương thích."
+    "description": "Hệ thống cơ sở hạ tầng của chúng tôi giúp cộng đồng phát triển bằng cách làm cho Ethereum hiệu quả và dễ tiếp cận hơn. Từ tài khoản trừu tượng và giảm chi phí giao dịch, đến rollups và zkEVM, chúng tôi đang xây dựng hướng tới một tương lai tương thích."
   },
   "explorations": {
     "title": "Khám phá",
-    "description": "Chúng tôi đang khám phá hệ sinh thái zero knowledge mới nổi qua thử nghiệm tập thể. Chúng tôi hợp tác, chia sẻ những gì chúng tôi học được và hoan nghênh sự đóng góp từ khắp nơi trên thế giới."
+    "description": "Chúng tôi đang khám phá hệ sinh thái bằng chứng phi tri thức đang là trào lưu thông qua thử nghiệm đại chúng. Chúng tôi hợp tác, chia sẻ những gì chúng tôi học được và hoan nghênh sự đóng góp từ khắp nơi trên thế giới."
   }
 }
