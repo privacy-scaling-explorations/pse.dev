@@ -6,7 +6,7 @@
     {
       "title": "01. De la cryptographie pour tous",
       "description": [
-        "La cryptographie est partout. À chaque fois que vous vous connectez à un site sécurisé, que vous vous authentifiez avec un mot de passe ou que vous dévérouillez votre téléphone, il y a de la cryptographie dans les coulisses.",
+        "La cryptographie est partout. À chaque fois que vous vous connectez à un site sécurisé, que vous vous authentifiez avec un mot de passe ou que vous déverrouillez votre téléphone, il y a de la cryptographie dans les coulisses.",
         "Grâce à la cryptographie programmable, nous pouvons certifier et vérifier des allégations sans révéler aucune information secrète qu'elles contiennent. Cette technologie, qui comprend les preuves à divulgation nulle de connaissance (zk-SNARKs), le calcul multipartite sécurisé (MPC) et le chiffrement homomorphique, peut être utilisée dans un grand nombre de scénarios, comme la gestion d'identités, la prévention des collisions, et les communications anonymes.",
         "Nous construisons des bibliothèques d'outils de développement, publions des papiers de recherche et implémentons des prototypes en open source et gratuit d'utilisation pour tous. Nous espérons que ceux-ci aideront et inspireront toutes et tous à innover dans leurs projets et leurs communautés."
       ]
