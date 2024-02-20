@@ -7,29 +7,29 @@
       "title": "01. De la cryptographie pour tous",
       "description": [
         "La cryptographie est partout. À chaque fois que vous vous connectez à un site sécurisé, que vous vous authentifiez avec un mot de passe ou que vous dévérouillez votre téléphone, il y a de la cryptographie dans les coulisses.",
-        "Grâce à la cryptographie “programmable”, nous pouvons certifier et vérifier des allégations sans révéler quelconque information secrète qu'elles contiennent. Cette technnologie, qui comprend les preuves à divulgation nulle de connaissance (zk-proof), le calcul multi-partie (MPC) ou encore le chiffrement homomorphique, peut être utilisée dans un grand nombre de scénarii comme la gestion d'identité, la résistance aux collisions, les communications anonymes.",
-        "Nous construisons des bibliothèques d'outils de développement, publions des papiers de recherche et implémentons des prototypes en source ouverte et gratuit d'utilisation pour tous. Nous espérons que ceux-ci aideront et inspireront toutes et tous à innover dans leurs projets et leurs communautés."
+        "Grâce à la cryptographie programmable, nous pouvons certifier et vérifier des allégations sans révéler aucune information secrète qu'elles contiennent. Cette technologie, qui comprend les preuves à divulgation nulle de connaissance (zk-SNARKs), le calcul multipartite sécurisé (MPC) et le chiffrement homomorphique, peut être utilisée dans un grand nombre de scénarios, comme la gestion d'identités, la prévention des collisions, et les communications anonymes.",
+        "Nous construisons des bibliothèques d'outils de développement, publions des papiers de recherche et implémentons des prototypes en open source et gratuit d'utilisation pour tous. Nous espérons que ceux-ci aideront et inspireront toutes et tous à innover dans leurs projets et leurs communautés."
       ]
     },
     {
       "title": "02. La confidentialité par défaut",
       "description": [
-        "Nous considérons la confidentialité, aussi appelée protection de la vie privée, un droit fondamental. Nous voulons aider à bâtir un Internet intègre, sans vols de données invasifs ; un Internet contrôlable, où chacun peut choisir qui a accès à ses données personnelles ; un Internet où les permissions sont à fins précises, révocables, consenties et sans contraintes.",
-        "Nous implémentons des outils pour aider chacun à s'authentifier de lui-même, à envoyer des transactions confidentielles sur les blockchains, et à respecter et préserver la confidentialité des utilisateurs."
+        "Nous considérons la confidentialité, également appelée protection de la vie privée, comme un droit fondamental. Nous souhaitons contribuer à bâtir un Internet intègre, exempt de vols de données invasifs ; un Internet contrôlable, où chacun peut décider qui a accès à ses données personnelles ; un Internet où les autorisations sont données à des fins précises, révocables, consenties et sans contraintes.",
+        "Nous développons des outils pour permettre à chacun de s'authentifier de manière autonome et en toute sécurité, d'effectuer des transactions en toute confidentialité sur les blockchains et de respecter et préserver la confidentialité des utilisateurs."
       ]
     },
     {
-      "title": "03. Les communautés à l'échelle",
+      "title": "03. Un impact à grande échelle",
       "description": [
-        "Les preuves à divulgations nulles de connaissance permettent la vérification rapide et bon marché de programmes, et ainsi peuvent aider les systèmes décentralisés comme Ethereum. Nous recherchons, concevons et partageons des solutions de mise à l'échelle qui peuvent être utilisées par tous pour contribuer à une infrastructure digitale public plus pratique et robuste.",
-        "Nous développons aussi notre communauté en supportant la nouvelle génération. Nous organisons des stages estivaux pour les étudiants et régulièrement des conférences live où n'importe qui dans le monde peut assister et apprendre."
+        "Les preuves à divulgation nulle de connaissance permettent la vérification rapide et bon marché de programmes, et ainsi peuvent aider les systèmes décentralisés comme Ethereum. Nous recherchons, concevons et partageons des solutions de mise à l'échelle qui peuvent être utilisées par tous pour contribuer à une infrastructure digitale public plus pratique et robuste.",
+        "Nous développons aussi notre communauté en supportant la nouvelle génération. Nous organisons des stages estivaux pour les étudiants et régulièrement des conférences en présentiel auxquelles tout le monde peut se joindre et apprendre."
       ]
     },
     {
       "title": "04. Les biens publics open source",
       "description": [
-        "Nous cultivons une équipe diverse et multidisciplinaire pour explorer ces nouveaux écosystèmes zero-knowlegdge. L'équipe PSE est composée de développeurs, ingénieurs, et mathématiciens travaillant en collaboration avec des créateurs et organisateurs de communautés pour dénicher le potentiel de la cryptographie programmable.",
-        "Nous expérimentons au vu et su de tous et accueillons toutes contributions, intégrations, fourches et retours sur tous nos projets."
+        "Notre équipe cultive une culture diverse et multidisciplinaire dans le but d'explorer ces nouveaux écosystèmes zero-knowlegdge. L'équipe PSE est composée de développeurs, ingénieurs, et mathématiciens travaillant en collaboration avec des créateurs et organisateurs de communautés pour dénicher le potentiel de la cryptographie programmable.",
+        "Nous expérimentons au vu et su de tous et accueillons toutes contributions, intégrations, forks et retours sur tous nos projets."
       ]
     }
   ]
