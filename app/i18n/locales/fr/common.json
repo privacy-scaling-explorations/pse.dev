@@ -11,7 +11,7 @@
     "blog": "Blog",
     "activity": "Activité",
     "report": "Rapports techniques",
-    "firstGoodIssue": "Premières Bonnes Issues"
+    "firstGoodIssue": "Premièrs Bons Ticketes"
   },
   "footer": {
     "description": "Privacy + Scaling Explorations est une équipe multidisciplinaraire soutenue par la Fondation Ethereum.",
@@ -33,7 +33,7 @@
   "error": {
     "404": {
       "title": "404: Page non trouvée.",
-      "description": "La page que vous cherchez a pû être supprimée, renommée ou est temporairement indisponible."
+      "description": "La page que vous cherchez a pû être supprimée, déplacée ou renommée, ou encore est temporairement indisponible."
     }
   },
   "tags": {
@@ -61,8 +61,8 @@
   "discoverMore": "En découvrir plus",
   "goToHome": "Retour à la page d'accueil",
   "noResults": "Aucun résultat trouvé.",
-  "noResultsDescription": "Désolé, nous n'avons pas pu accéder à votre demande. Prière de réessayer avec d'autres mots-clés.",
-  "exploreProjectLibrary": "Explore Project Library",
+  "noResultsDescription": "Désolé, nous n'avons pas pu accéder à votre demande. Veuillez réessayer avec d'autres mots-clés.",
+  "exploreProjectLibrary": "Explorer nos projets",
   "clearAll": "Tout effacer",
   "showProjects": "Montrer les projets",
   "filters": "Filtres",
