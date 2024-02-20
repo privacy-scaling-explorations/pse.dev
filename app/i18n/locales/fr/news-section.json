@@ -8,7 +8,7 @@
   "news": [
     {
       "type": "post",
-      "title": "Leçons prises de la cérémonie KZG",
+      "title": "Learnings from the KZG Ceremony",
       "action": {
         "label": "Lire",
         "url": "https://mirror.xyz/privacy-scaling-explorations.eth/naTdx-u7kyirczTLSAnWwH6ZdedfTQu1yCWQj1m_n-E"
@@ -16,7 +16,7 @@
     },
     {
       "type": "apprendre",
-      "title": "Des évèments publics organisés par les collaborateurs PSE pour découvrir leurs projets, partager des idées, et donner des retours.",
+      "title": "Public events hosted by PSE members to learn about each other's projects, share ideas, and get feedback.",
       "action": {
         "label": "Voir le calendrier complet",
         "url": "https://pse-team.notion.site/50dcf22c5191485e93406a902ae9e93b?v=453023f8227646dd949abc34a7a4a138&pvs=4"
@@ -24,7 +24,7 @@
     },
     {
       "type": "apprendre",
-      "title": "Plier des circuits Circom: Une étude de cas ZKML par Dr. Cathie So",
+      "title": "Folding Circom Circuit: A ZKML Case Study by Dr. Cathie So",
       "action": {
         "label": "Regarder",
         "url": "https://www.youtube.com/live/jb6HDEtY4CI"
