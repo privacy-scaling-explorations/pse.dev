@@ -41,6 +41,11 @@ export const languageList: Language[] = [
     enabled: true,
   },
   {
+    key: "vi",
+    label: "Tiếng Việt",
+    enabled: true,
+  },
+  {
     key: "ko",
     label: "한국어",
     enabled: false,

@@ -1,5 +1,17 @@
-import { type } from "os"
-
+export interface AnnounceInterface {
+  id: number
+  type?: number
+  content: string
+  attachments?: string[]
+  timestamp: string
+  embeds?: {
+    type: "link" | "article"
+    url: string
+    title: string
+    description: string
+    color: number
+  }[]
+}
 export interface NewsInterface {
   type: string
   title: string

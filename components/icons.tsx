@@ -16,8 +16,8 @@ export const Icons = {
   twitter: (props: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="18"
-      height="18"
+      width={props?.size || 18}
+      height={props?.size || 18}
       viewBox="0 0 18 18"
       fill="none"
       {...props}
@@ -40,8 +40,8 @@ export const Icons = {
   ),
   discord: (props: LucideProps) => (
     <svg
-      width="24"
-      height="24"
+      width={props?.width || 24}
+      height={props?.width || 24}
       viewBox="0 0 24 24"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"

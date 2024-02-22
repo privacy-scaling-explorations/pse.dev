@@ -16,6 +16,8 @@ export const siteConfig = {
     jobs: "https://jobs.lever.co/ethereumfoundation/?department=Ethereum%20Foundation&team=Privacy%20and%20Scaling%20Explorations",
     termOfUse: "https://ethereum.org/en/terms-of-use/",
     privacyPolicy: "https://ethereum.org/en/privacy-policy/",
+    discordAnnouncementChannel:
+      "https://discord.com/channels/943612659163602974/969614451089227876",
   },
   addGithubResource:
     "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/%5Blang%5D/content/resources.md",

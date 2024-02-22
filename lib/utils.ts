@@ -27,3 +27,16 @@ export function queryStringToObject(
 export function shuffleArray<T>(array: T[]) {
   return array.sort(() => 0.5 - Math.random())
 }
+
+export function convertDirtyStringToHtml(string: string) {
+  const urlPattern =
+    /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim
+  const pseudoUrlPattern = /(^|[^\/])(www\.[\S]+(\b|$))/gim
+
+  if (!string) return ""
+  return string
+    .replace(/\n/g, "<br />")
+    .replace(urlPattern, '<a href="$&">$&</a>')
+    .replace(pseudoUrlPattern, '$1<a href="http://$2">$2</a>')
+    .toLowerCase()
+}
