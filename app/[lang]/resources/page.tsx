@@ -9,6 +9,7 @@ import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
+import { Label } from "@/components/ui/label"
 import { Icons } from "@/components/icons"
 import { useTranslation } from "@/app/i18n/client"
 
@@ -189,9 +190,7 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
       <AppContent className="container grid grid-cols-1 gap-6 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[4fr_1fr]">
         <div className="flex flex-col gap-6">
           <section className="flex flex-col gap-8">
-            <h1 className="break-words font-display text-4xl font-bold text-tuatara-950 md:text-5xl">
-              {t("title")}
-            </h1>
+            <Label.PageTitle label={t("title")} />
             <p className="font-sans text-base font-normal leading-[27px] text-tuatara-950">
               {t("subtitle")}
             </p>

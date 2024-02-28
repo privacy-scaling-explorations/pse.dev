@@ -8,6 +8,7 @@ import { motion } from "framer-motion"
 import { siteConfig } from "@/config/site"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
+import { Label } from "@/components/ui/label"
 import { Icons } from "@/components/icons"
 import { NewsSection } from "@/components/sections/NewsSection"
 import { WhatWeDo } from "@/components/sections/WhatWeDo"
@@ -23,12 +24,11 @@ export default function IndexPage({ params: { lang } }: any) {
       <AppContent className="flex w-full flex-col justify-between gap-5 p-7 md:flex-row">
         <div className="flex w-full flex-col justify-center gap-8 md:max-w-[700px] lg:gap-14">
           <motion.h1
-            className="text-4xl font-bold lg:text-6xl xl:text-7xl"
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, cubicBezier: "easeOut" }}
           >
-            {t("headerTitle")}
+            <Label.PageTitle label={t("headerTitle")} />
           </motion.h1>
           <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[20px]">
             {t("headerSubtitle")}
