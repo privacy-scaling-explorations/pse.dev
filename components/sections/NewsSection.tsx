@@ -90,7 +90,7 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
               >
                 <Icons.twitter size={24} className="text-anakiwa-500" />
                 <span className="flex text-anakiwa-900 underline font-medium leading-[24px]">
-                  {t("reportOnSocial", {
+                  {t("repostOnSocial", {
                     socialName: "X",
                   })}
                 </span>
