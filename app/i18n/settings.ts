@@ -58,7 +58,7 @@ export const languageList: Language[] = [
   {
     key: "de",
     label: "Deutsch",
-    enabled: false,
+    enabled: true,
   },
   {
     key: "ar",
