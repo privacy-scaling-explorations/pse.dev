@@ -14,14 +14,23 @@ const client = new Client({
 
 const rest = new REST({ version: "10" }).setToken(TOKEN)
 
-
-
 export const getAnnouncementChannelMessages = async () => {
-  console.log("Retrieve announcements from discord channel...")
-  const MESSAGES_URL = `${Routes.channelMessages(GUILD_ID)}?limit=${MESSAGES_LIMIT}`
-  // If operating on a guild channel, this endpoint requires the current user to have the VIEW_CHANNEL permission
-  const messages = await rest.get(MESSAGES_URL)
-  return messages
+  try {
+    if (!TOKEN) {
+      return Promise.reject("Discord token is required")
+    }
+
+    if (!GUILD_ID) {
+      return Promise.reject("Discord guild id is required")
+    }
+    console.log("Retrieve announcements from discord channel...")
+    const MESSAGES_URL = `${Routes.channelMessages(GUILD_ID)}?limit=${MESSAGES_LIMIT}`
+    // If operating on a guild channel, this endpoint requires the current user to have the VIEW_CHANNEL permission
+    const messages = await rest.get(MESSAGES_URL)
+    return messages
+  } catch(err) {
+    return Promise.reject(err)
+  }
 }
 
 const runDiscordBot = () => {
