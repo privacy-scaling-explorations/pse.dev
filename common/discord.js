@@ -4,9 +4,9 @@ const { REST } = require("@discordjs/rest")
 
 config()
 
-const TOKEN = process.env.DISCORD_TOKEN
+const TOKEN = process.env.DISCORD_TOKEN || process.env.NEXT_PUBLIC_DISCORD_TOKEN
 const MESSAGES_LIMIT = 1 // Number of messages to retrieve from the discord channel
-const GUILD_ID = process.env.DISCORD_GUILD_ID
+const GUILD_ID = process.env.DISCORD_GUILD_ID || process.env.NEXT_PUBLIC_DISCORD_GUILD_ID
 
 const client = new Client({
   intents: ["Guilds", "GuildMessages", "MessageContent"],
