@@ -28,6 +28,7 @@ import { summa } from "./projects/summa"
 import { tlsn } from "./projects/tlsn"
 import { trustedSetups } from "./projects/trusted-setups"
 import { unirepProtocol } from "./projects/unirep-protocol"
+import { voicedeck } from "./projects/voice-deck"
 import { wax } from "./projects/wax"
 import { zk3 } from "./projects/zk3"
 import { ZKKit } from "./projects/zk-kit"
@@ -80,4 +81,5 @@ export const projects: ProjectInterface[] = [
   nfctap,
   zkp2p,
   zk3,
+  voicedeck,
 ]

@@ -7,7 +7,7 @@ Channel 4 is a community-driven platform where users can submit and discover con
 export const channel4: ProjectInterface = {
   id: "channel-4",
   section: "pse",
-  projectStatus: "active",
+  projectStatus: "archived",
   image: "channel4.svg",
   name: "Channel 4",
   tldr: "Content discovery through community contributions, using state channels to reward users for popular posts.",
