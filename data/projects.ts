@@ -78,9 +78,6 @@ export const projects: ProjectInterface[] = [
   p0tion,
   jubmoji,
   nfctap,
-  /**
-  * Grant projects hidden until we have grant tag
   zkp2p,
   zk3,
-   */
 ]

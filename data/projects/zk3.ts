@@ -6,6 +6,7 @@ Zk3 is a protocol that leverages Zero Knowledge Proofs (ZKPs) to allow users to 
 
 export const zk3: ProjectInterface = {
   id: "zk3",
+  section: "grant",
   projectStatus: "active",
   image: "zk3.svg",
   name: "zk3",

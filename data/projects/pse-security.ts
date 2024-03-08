@@ -6,8 +6,9 @@ PSE Security is a division of the Privacy & Scaling Explorations team at the Eth
 
 export const pseSecurity: ProjectInterface = {
   id: "pse-security",
+  section: "pse",
   projectStatus: "active",
-  image: "",
+  image: "pse-security.png",
   name: "PSE Security",
   tldr: "Proactively securing Ethereum's L2 and ZK ecosystems.",
   description,

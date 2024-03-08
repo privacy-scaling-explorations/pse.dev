@@ -12,6 +12,7 @@ The primary use cases for WAX include scaling, key management, and the creation 
 
 export const wax: ProjectInterface = {
   id: "wax",
+  section: "pse",
   projectStatus: "active",
   image: "wax.webp",
   name: "Wallet Account eXperiments - WAX",

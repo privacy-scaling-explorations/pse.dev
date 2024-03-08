@@ -8,6 +8,7 @@ TLSNotary is ideal for developers of privacy-focused projects that require **dat
 
 export const tlsn: ProjectInterface = {
   id: "tlsn",
+  section: "pse",
   projectStatus: "active",
   image: "tlsn.webp",
   name: "TLSNotary",
@@ -26,12 +27,12 @@ export const tlsn: ProjectInterface = {
       "Plugin",
       "Application",
     ],
-    builtWith: ['rust'],
+    builtWith: ["rust"],
     keywords: [
       "Anonymity/privacy",
       "Identity",
       "Reputation",
-      "Data portability"
+      "Data portability",
     ],
   },
 }

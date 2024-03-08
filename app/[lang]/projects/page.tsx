@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 import ProjectFiltersBar from "@/components/project/project-filters-bar"
-import ProjectList from "@/components/project/project-list"
+import { ProjectList } from "@/components/project/project-list"
 import { ProjectResultBar } from "@/components/project/project-result-bar"
 import { useTranslation } from "@/app/i18n"
 

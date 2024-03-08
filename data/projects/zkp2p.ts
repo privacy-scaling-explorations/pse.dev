@@ -6,6 +6,7 @@ ZKP2P is for defi consumers looking to onramp assets on chain quickly without go
 
 export const zkp2p: ProjectInterface = {
   id: "zkp2p",
+  section: "grant",
   projectStatus: "active",
   image: "zkp2p.webp",
   name: "ZKP2P",

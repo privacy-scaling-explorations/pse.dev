@@ -6,6 +6,7 @@ P256 is an ERC-4337 smart contract wallet that leverages zk-SNARKs for WebAuthn 
 
 export const p256: ProjectInterface = {
   id: "p256",
+  section: "pse",
   projectStatus: "active",
   image: "",
   name: "P256",

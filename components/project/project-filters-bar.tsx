@@ -69,7 +69,7 @@ export const ThemesStatusMapping = (lang: LocaleTypes): IThemeStatus => {
       icon: <Icons.checkActive />,
     },
     archived: {
-      label: t("status.archived"),
+      label: t("status.inactive"),
       icon: <Icons.archived />,
     },
   }
