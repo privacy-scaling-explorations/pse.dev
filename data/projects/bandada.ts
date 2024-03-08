@@ -6,6 +6,7 @@ Bandada is a project designed to simplify the management of privacy-preserving S
 
 export const bandada: ProjectInterface = {
   id: "bandada",
+  section: "pse",
   projectStatus: "active",
   image: "bandada.webp",
   name: "Bandada",

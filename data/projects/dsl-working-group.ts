@@ -6,6 +6,7 @@ The DSL Working Group is focused on the exploration and improvement of languages
 
 export const dslWorkingGroup: ProjectInterface = {
   id: "dsl-working-group",
+  section: "pse",
   projectStatus: "active",
   image: "",
   imageAlt: "DSL Working Group",

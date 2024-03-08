@@ -6,6 +6,7 @@ An anonymous, federated, chat application that uses Rate-Limiting Nullifier for 
 
 export const discreetly: ProjectInterface = {
   id: "discreetly",
+  section: "pse",
   projectStatus: "active",
   image: "discreetly.svg",
   name: "Discreetly",
@@ -13,7 +14,7 @@ export const discreetly: ProjectInterface = {
   description,
   links: {
     github: "https://github.com/Discreetly",
-    website: "https://app.discreetly.chat/"
+    website: "https://app.discreetly.chat/",
   },
   tags: {
     keywords: ["Anonymity/privacy", "Social"],

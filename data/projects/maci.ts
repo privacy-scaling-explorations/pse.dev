@@ -6,6 +6,7 @@ Minimal Anti-Collusion Infrastructure (MACI) is a protocol designed to provide a
 
 export const maci: ProjectInterface = {
   id: "maci",
+  section: "pse",
   projectStatus: "active",
   image: "maci.png",
   name: "MACI",
