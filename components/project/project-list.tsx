@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import NoResultIcon from "@/public/icons/no-result.svg"
 import { useProjectFiltersState } from "@/state/useProjectFiltersState"
@@ -42,16 +42,57 @@ const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
 }
 
 export const ProjectList = ({ lang }: LangProps["params"]) => {
-  const { t } = useTranslation(lang, "common")
-  const { t: tResource } = useTranslation(lang, "resources-page")
+  const { t } = useTranslation(lang, "resources-page")
+  const SCROLL_OFFSET = -400
+  const [activeId, setActiveId] = useState("")
+  const [isManualScroll, setIsManualScroll] = useState(false)
+
   const { projects } = useProjectFiltersState((state) => state)
 
   const noItems = projects?.length === 0
 
+  const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null) // sections are constant so useRef might be better here
+
+  useEffect(() => {
+    if (sectionsRef.current === null)
+      sectionsRef.current = document.querySelectorAll(`div[data-section]`)
+    if (!activeId) setActiveId("pse")
+
+    const handleScroll = () => {
+      if (isManualScroll) return
+
+      sectionsRef.current?.forEach((section: any) => {
+        const sectionTop = section.offsetTop - SCROLL_OFFSET
+        if (window.scrollY >= sectionTop && window.scrollY > 0) {
+          setActiveId(section.getAttribute("id"))
+        }
+      })
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [SCROLL_OFFSET, activeId, isManualScroll])
+
+  const scrollToId = useCallback((id: string) => {
+    const element = document.getElementById(id)
+    const top = element?.offsetTop ?? 0
+
+    if (element) {
+      setActiveId(id) // active clicked id
+      setIsManualScroll(true) // tell the window event listener to ignore this scrolling
+      window?.scrollTo({
+        behavior: "smooth",
+        top: (top ?? 0) - SCROLL_OFFSET,
+      })
+    }
+
+    setTimeout(() => setIsManualScroll(false), 800)
+  }, [])
+
   if (noItems) return <NoResults lang={lang} />
 
   return (
-    <div className="relative grid grid-cols-[1fr_200px] justify-between gap-10">
+    <div className="relative grid grid-cols-[1fr_200px] items-start justify-between gap-10">
       <div className="flex flex-col gap-14 md:gap-20">
         {ProjectSections.map((section) => {
           const sectionProjects =
@@ -65,8 +106,15 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
           const sectionTitle =
             ProjectSectionLabelMapping[section as ProjectSection]
 
+          if (!hasProjectsForSection) return null
+
           return (
-            <div className="flex justify-between gap-10">
+            <div
+              key={section}
+              id={section}
+              data-section={section}
+              className="flex justify-between gap-10"
+            >
               <div
                 className={cn(
                   "flex w-full flex-col",
@@ -77,20 +125,16 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
                   <h3 className={cn(sectionTitleClass())}>{sectionTitle}</h3>
                 </div>
                 <div className="flex flex-wrap gap-6">
-                  {hasProjectsForSection ? (
-                    sectionProjects.map((project) => (
-                      <ProjectCard
-                        key={project?.id}
-                        project={project}
-                        lang={lang}
-                        showBanner
-                        showLinks
-                        border
-                      />
-                    ))
-                  ) : (
-                    <span> {t("noResults")}</span>
-                  )}
+                  {sectionProjects.map((project) => (
+                    <ProjectCard
+                      key={project?.id}
+                      project={project}
+                      lang={lang}
+                      showBanner
+                      showLinks
+                      border
+                    />
+                  ))}
                 </div>
               </div>
             </div>
@@ -98,11 +142,42 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
         })}
       </div>
 
-      <div className="sticky top-16">
+      <div
+        id="sidebar"
+        className="sticky top-20 hidden bg-white/30 p-8 md:block"
+      >
         <div className="flex flex-col gap-4">
           <h6 className="font-display text-lg font-bold text-tuatara-700">
-            {tResource("onThisPage")}
+            {t("onThisPage")}
           </h6>
+          <ul className="text-normal font-sans text-black">
+            {ProjectSections.map((id: ProjectSection) => {
+              const label = ProjectSectionLabelMapping[id]
+
+              if (!label) return null // no label for this section
+
+              const active = id === activeId
+
+              return (
+                <li
+                  key={id}
+                  onClick={(e) => {
+                    scrollToId(id)
+                  }}
+                  data-id={id}
+                  className={cn(
+                    "flex h-8 cursor-pointer items-center border-l-2 border-l-anakiwa-200 px-3 duration-200",
+                    {
+                      "border-l-anakiwa-500 text-anakiwa-500 font-medium":
+                        active,
+                    }
+                  )}
+                >
+                  {label}
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </div>
     </div>
