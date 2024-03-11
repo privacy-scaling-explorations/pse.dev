@@ -1,3 +1,7 @@
+// list of project groups
+export const ProjectSections = ["pse", "grant", "collaboration"] as const
+export type ProjectSection = (typeof ProjectSections)[number]
+
 export interface AnnounceInterface {
   id: number
   type?: number
@@ -44,6 +48,7 @@ export type ActionLinkType = Partial<
 export type ProjectStatusType = "active" | "inactive" | "archived"
 export interface ProjectInterface {
   id: string
+  section: ProjectSection
   image: string
   imageAlt?: string
   name: string

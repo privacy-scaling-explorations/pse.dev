@@ -6,8 +6,9 @@ ZKML is a solution that combines the power of zero-knowledge proofs (ZKPs) and m
 
 export const zkml: ProjectInterface = {
   id: "zkml",
+  section: "pse",
   projectStatus: "active",
-  image: "",
+  image: "zkml.png",
   name: "ZKML",
   tldr: "ZKML (Zero-Knowledge Machine Learning) leverages zero-knowledge proofs for privacy-preserving machine learning, enabling model and data privacy with transparent verification.",
   description,

@@ -8,7 +8,8 @@ Using anonymous identifiers (epoch keys), the protocol allows for trustless enga
 
 export const unirepProtocol: ProjectInterface = {
   id: "unirep-protocol",
-  projectStatus: "active",
+  section: "pse",
+  projectStatus: "archived",
   image: "unirep.svg",
   name: "UniRep Protocol",
   tldr: "A Zero-Knowledge Protocol built to handle anonymous user data.",

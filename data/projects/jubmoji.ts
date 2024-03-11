@@ -6,6 +6,7 @@ Jubmoji.quest is a place to keep personal, provable digital mementos from people
 
 export const jubmoji: ProjectInterface = {
   id: "jubmoji",
+  section: "pse",
   projectStatus: "active",
   image: "",
   name: "jubmoji.quest",

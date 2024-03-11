@@ -2,6 +2,7 @@ import { ProjectInterface } from "@/lib/types"
 
 export const ECIPHalo2: ProjectInterface = {
   id: "ecip-halo2",
+  section: "pse",
   image: "",
   imageAlt: "ECIP + Halo 2",
   name: "ECIP (Elliptic Curve Inner Products) Halo 2 Implementation",

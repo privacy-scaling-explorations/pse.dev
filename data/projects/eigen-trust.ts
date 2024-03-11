@@ -6,7 +6,8 @@ EigenTrust is a library designed to manage trust within a distributed network, i
 
 export const eigenTrust: ProjectInterface = {
   id: "eigen-trust",
-  projectStatus: "active",
+  section: "pse",
+  projectStatus: "archived",
   image: "",
   name: "EigenTrust",
   tldr: "A distributed reputation system with zero-knowledge features.",

@@ -6,8 +6,9 @@ p0tion is an agnostic-from-ceremony public good toolkit, with the aim of making 
 
 export const p0tion: ProjectInterface = {
   id: "p0tion",
+  section: "pse",
   projectStatus: "active",
-  image: "",
+  image: "p0tion.png",
   name: "p0tion",
   tldr: "Toolkit for Groth16 Phase 2 Trusted Setup ceremonies.",
   description,
@@ -16,10 +17,7 @@ export const p0tion: ProjectInterface = {
     github: "https://github.com/privacy-scaling-explorations/p0tion",
   },
   tags: {
-    keywords: [
-      "Toolkits",
-      "Infrastructure/protocol"
-    ],
+    keywords: ["Toolkits", "Infrastructure/protocol"],
     themes: ["build"],
     types: ["Legos/dev tools"],
     builtWith: [],

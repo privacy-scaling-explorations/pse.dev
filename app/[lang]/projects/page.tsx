@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 import ProjectFiltersBar from "@/components/project/project-filters-bar"
-import ProjectList from "@/components/project/project-list"
+import { ProjectList } from "@/components/project/project-list"
 import { ProjectResultBar } from "@/components/project/project-result-bar"
 import { useTranslation } from "@/app/i18n"
 
@@ -34,7 +34,7 @@ export default async function ProjectsPage({ params: { lang } }: any) {
 
       <div className="w-full bg-anakiwa-100 pb-28">
         <div className="container">
-          <div className="px-3 py-8">
+          <div className="py-8">
             <ProjectResultBar lang={lang} />
           </div>
           <ProjectList lang={lang} />

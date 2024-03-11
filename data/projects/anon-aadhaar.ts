@@ -6,6 +6,7 @@ Anon Aadhaar is a project that allows individuals to prove their citizenship ano
 
 export const anonAadhaar: ProjectInterface = {
   id: "anon-aadhaar",
+  section: "pse",
   projectStatus: "active",
   image: "anon-aadhaar.svg",
   name: "Anon Aadhaar",

@@ -40,7 +40,8 @@
   },
   "status": {
     "archived": "Archiviato",
-    "active": "Attivo"
+    "active": "Attivo",
+    "inactive": "Inattivo"
   },
   "sortBy": "Ordina per: {{option}}",
   "tryItOut": "Prova!",

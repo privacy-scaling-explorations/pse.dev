@@ -6,8 +6,9 @@ zkEVM Community Edition is a project aimed at validating Ethereum blocks using z
 
 export const zkevmCommunity: ProjectInterface = {
   id: "zkevm-community",
+  section: "pse",
   projectStatus: "active",
-  image: "",
+  image: "zkevm.jpg",
   name: "zkEVM Community Edition",
   tldr: "A zero-knowledge proof mechanism for Ethereum block verification.",
   description,

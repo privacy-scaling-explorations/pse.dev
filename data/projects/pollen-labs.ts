@@ -6,6 +6,7 @@ Pollen Labs is driven by a mission to make a significant impact on global lives 
 
 export const pollenLabs: ProjectInterface = {
   id: "pollen-labs",
+  section: "collaboration",
   projectStatus: "active",
   image: "pollen-labs.svg",
   name: "Pollen Labs",

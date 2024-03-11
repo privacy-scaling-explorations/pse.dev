@@ -45,8 +45,9 @@
     "fullyPSE": "Fully PSE"
   },
   "status": {
-    "archived": "Archived",
-    "active": "Active"
+    "archived": "Inactive",
+    "active": "Active",
+    "inactive": "Inactive"
   },
   "sortBy": "Sort by: {{option}}",
   "tryItOut": "Try it out!",

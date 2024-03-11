@@ -67,10 +67,10 @@ export default function ProjectCard({
             alt={`${name} banner`}
             width={1200}
             height={630}
-            className="min-h-[160px] w-full rounded-t-lg object-cover"
+            className="min-h-[160px] w-full overflow-hidden rounded-t-lg border-none object-cover"
           />
           {!image && (
-            <span className="w-full px-5 text-xl text-center font-bold text-black absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+            <span className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-5 text-center text-xl font-bold text-black">
               {imageAlt || name}
             </span>
           )}
