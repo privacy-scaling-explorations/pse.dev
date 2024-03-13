@@ -11,7 +11,8 @@
     "blog": "Blog",
     "activity": "Activity",
     "report": "Report",
-    "firstGoodIssue": "First Good Issue"
+    "firstGoodIssue": "First Good Issue",
+    "programs": "Programs"
   },
   "footer": {
     "description": "Privacy + Scaling Explorations is a multidisciplinary team supported by the Ethereum Foundation.",

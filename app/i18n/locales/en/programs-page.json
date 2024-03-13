@@ -1,0 +1,74 @@
+{
+  "title": "Join our programs",
+  "description": "Want to explore the world of programmable cryptography and learn how to make substantial contributions to open-source projects? Join our free programs to kickstart your journey!",
+  "common": {
+    "faq": "FAQ",
+    "curriculum": "Curriculum",
+    "howToApply": "How to apply",
+    "applyNow": "Apply now",
+    "learnMoreOnGithub": "Learn more on Github",
+    "week": "Week {{week}}"
+  },
+  "curriculum": [
+    {
+      "title": "PRE-REQUISITES",
+      "items": [
+        "Course overview and resources",
+        "Git, GitHub, and PR workflow basics",
+        "Introduction to ZKPs and Number Theory"
+      ]
+    },
+    {
+      "title": "Cryptographic Basics",
+      "items": [
+        "Getting started with Circom",
+        "Basics of encryption and hash functions",
+        "Digital signatures and elliptic curve cryptography"
+      ]
+    },
+    {
+      "title": "More Crypto + ZKPs",
+      "items": [
+        "Circom crash course + practice",
+        "KZG Commitments and zkSNARKs",
+        "Overview of Trusted Setups and Groth16"
+      ]
+    },
+    {
+      "title": "Hackathon",
+      "items": [
+        "A break from studying",
+        "One week to build something with your new skills!"
+      ]
+    },
+    {
+      "title": "PLONK Week",
+      "items": [
+        "Learn Rust and complete Rustlings",
+        "Deep dive into PLONK",
+        "Make a presentation and blog post on PLONK"
+      ]
+    },
+    {
+      "title": "Technologies + Applications",
+      "items": [
+        "Halo2 introduction and practical",
+        "Study of FHE and MPC",
+        "Explore Semaphore, Bandada, TLSNotary, ZKEmail"
+      ]
+    }
+  ],
+  "contributionsProgram": {
+    "title": "Contributions Program",
+    "description": [
+      "The Contributions Program is a hands on entry-level course for university students looking to explore the world of programmable cryptography. This eight-week program will be conducted simultaneously across Argentina (Buenos Aires), Costa Rica (San José), Ecuador (Cuenca), Japan (Tokyo), South Korea (Seoul), and Taiwan (Taipei).",
+      "By the end of the program, you will gain comprehensive knowledge about Zero Knowledge Proofs (ZKP), Fully Homomorphic Encryption (FHE), and Multiparty Computation (MPC). You will also bolster your GitHub portfolio, and potentially receive grants for further research and contributions!"
+    ]
+  },
+  "accelerationProgram": {
+    "title": "Acceleration Program",
+    "description": [
+      "The Acceleration Program supports alumni of our entry level programs (e.g. Contributions Program, ZK Playground) to deepen their explorations of ZKP, FHE, MPC, and related technologies through grants and mentorship. This program operates on a round-based application system, focusing on specific open tasks for each round."
+    ]
+  }
+}

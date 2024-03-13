@@ -1,29 +1,9 @@
-import React from "react"
 import Image from "next/image"
 
+import { useTranslation } from "@/app/i18n"
 import { Accordion } from "@/components/ui/accordion"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
-import { useTranslation } from "@/app/i18n"
-
-const PrincipleImageSizes: Record<string, { width: number; height: number }> = {
-  "principle-1": {
-    width: 126,
-    height: 114,
-  },
-  "principle-2": {
-    width: 176,
-    height: 260,
-  },
-  "principle-3": {
-    width: 236,
-    height: 260,
-  },
-  "principle-4": {
-    width: 238,
-    height: 260,
-  },
-}
 
 export default async function AboutPage({ params: { lang } }: any) {
   const { t } = await useTranslation(lang, "about-page")

@@ -1,26 +1,39 @@
 "use client"
 
-import React from "react"
+import React, { ReactNode } from "react"
 import * as RadixAccordion from "@radix-ui/react-accordion"
+
+import { cn } from "@/lib/utils"
 
 import { Icons } from "../icons"
 
 interface AccordionItemProps {
-  label: string
+  label: ReactNode
   children?: React.ReactNode
   value: string
 }
 
+type AccordionPadding = "xs" | "sm"
+
 interface AccordionProps extends RadixAccordion.AccordionImplProps {
-  type: "single" | "multiple"
+  type?: "single" | "multiple"
+  size?: AccordionPadding
   defaultValue?: string
   items: AccordionItemProps[]
+  className?: string
+}
+
+const AccordionSizeMapping: Record<AccordionPadding, string> = {
+  xs: "pt-4",
+  sm: "py-6",
 }
 
 const Accordion = ({
   type = "multiple",
   defaultValue,
   items,
+  size = "sm",
+  className,
 }: AccordionProps) => {
   return (
     <RadixAccordion.Root
@@ -30,21 +43,48 @@ const Accordion = ({
     >
       {items?.map(({ label, children, value }, accordionIndex) => (
         <RadixAccordion.Item
-          className="group"
+          className={cn("group", {
+            "pb-4": size === "xs",
+          })}
           value={value}
           key={accordionIndex}
         >
-          <RadixAccordion.Trigger className="flex w-full items-center justify-between border-t border-t-black py-6 ring-0 focus:outline-none">
-            <span className="block text-left font-sans text-base font-bold uppercase tracking-[3.36px] text-black md:text-xl md:tracking-[4.2px]">
-              {label}
-            </span>
+          <RadixAccordion.Trigger className="w-full">
             <div
-              className={`duration-50 group-hover:visible group-data-[state=open]:hidden md:invisible`}
+              className={cn(
+                "flex w-full items-center justify-between border-t border-t-black ring-0 focus:outline-none",
+                className,
+                {
+                  [AccordionSizeMapping.xs]: size === "xs",
+                  [AccordionSizeMapping.sm]: size === "sm",
+                }
+              )}
             >
-              <Icons.plus className="w-4 md:w-8" />
-            </div>
-            <div className={`hidden group-data-[state=open]:block`}>
-              <Icons.minus className="w-4 md:w-8" />
+              {typeof label === "string" ? (
+                <span className="block text-left font-sans text-base font-bold uppercase tracking-[3.36px] text-black md:text-xl md:tracking-[4.2px]">
+                  {label}
+                </span>
+              ) : (
+                label
+              )}
+              <div
+                className={`duration-50 group-hover:visible group-data-[state=open]:hidden md:invisible`}
+              >
+                <Icons.plus
+                  className={cn({
+                    "w-4 md:w-6": size === "xs",
+                    "w-4 md:w-8": size === "sm",
+                  })}
+                />
+              </div>
+              <div className={`hidden group-data-[state=open]:block`}>
+                <Icons.minus
+                  className={cn({
+                    "w-4 md:w-6": size === "xs",
+                    "w-4 md:w-8": size === "sm",
+                  })}
+                />
+              </div>
             </div>
           </RadixAccordion.Trigger>
           <RadixAccordion.Content className="overflow-hidden transition-transform group-data-[state=closed]:animate-slide-up group-data-[state=open]:animate-slide-down">

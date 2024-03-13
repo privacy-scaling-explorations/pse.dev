@@ -20,6 +20,10 @@ export function useAppSettings(lang: LocaleTypes) {
       href: "/projects",
     },
     {
+      title: t("menu.programs"),
+      href: "/programs",
+    },
+    {
       title: t("menu.about"),
       href: "/about",
     },
