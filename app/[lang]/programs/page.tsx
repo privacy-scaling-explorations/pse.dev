@@ -209,7 +209,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                   ))}
                 </Card>
               </div>
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-8 pt-6">
                 <SectionLabel label={t("common.faq")} />
                 <Accordion
                   className="!border-anakiwa-300"

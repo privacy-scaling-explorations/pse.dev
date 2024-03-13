@@ -442,7 +442,7 @@ export const Icons = {
       viewBox="0 0 17 16"
       fill="none"
     >
-      <g clip-path="url(#clip0_7523_20424)">
+      <g clipPath="url(#clip0_7523_20424)">
         <path
           fillRule="evenodd"
           clipRule="evenodd"
