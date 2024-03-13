@@ -187,7 +187,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                   {curriculum.map(({ title, items }, index) => (
                     <div
                       key={index}
-                      className="grid grid-cols-[1fr_2.5fr] divide-x divide-tuatara-300"
+                      className="grid grid-cols-1 divide-tuatara-300 md:grid-cols-[1fr_2.5fr] md:divide-x"
                     >
                       <div className="flex items-center justify-center bg-anakiwa-100 p-2 text-center">
                         <span className="text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
