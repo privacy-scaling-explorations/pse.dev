@@ -41,6 +41,14 @@ const SectionLabel = ({ label }: { label: string }) => {
   )
 }
 
+const AccordionLabel = ({ label }: { label: string }) => {
+  return (
+    <span className="mx-auto text-center text-base font-bold uppercase tracking-[3.36px] text-tuatara-950">
+      {label}
+    </span>
+  )
+}
+
 const ProgramDetail = ({
   title,
   location,
@@ -94,18 +102,21 @@ const ProgramDetail = ({
 
 const ProgramSections = ["contributionsProgram", "accelerationProgram"] as const
 
-const ChooseProgramItems: DropdownProps["items"] & { href?: string } = [
+const ChooseProgramItems: { label: string; value: string; href?: string }[] = [
   {
     label: "Contributions Program Asia",
     value: "contributionsProgramAsia",
+    href: siteConfig.links.applyContributionProgram,
   },
   {
     label: "Contributions Program LatAm",
     value: "contributionsProgramaLatAm",
+    href: siteConfig.links.applyContributionProgram,
   },
   {
     label: "Acceleration Program",
     value: "accelerationProgram",
+    href: siteConfig.links.applyContributionProgram,
   },
 ]
 export default function ProgramsPage({ params: { lang } }: any) {
@@ -177,6 +188,17 @@ export default function ProgramsPage({ params: { lang } }: any) {
     ""
   const selectedProgramLabel = t(selectedProgramKey)
 
+  const ApplyButton = () => {
+    return (
+      <Button className="w-full uppercase" disabled={!selectedProgram}>
+        <div className="flex items-center gap-3">
+          <span>{t("common.applyNow")}</span>
+          <Icons.arrowRight size={20} />
+        </div>
+      </Button>
+    )
+  }
+
   return (
     <div className="flex flex-col">
       <div className="bg-second-gradient">
@@ -211,12 +233,16 @@ export default function ProgramsPage({ params: { lang } }: any) {
                   defaultItem="contributionsProgram"
                 />
               </div>
-              <Button className="w-full uppercase" disabled={!selectedProgram}>
-                <div className="flex items-center gap-3">
-                  <span>{t("common.applyNow")}</span>
-                  <Icons.arrowRight size={20} />
-                </div>
-              </Button>
+              {!selectedProgram ? (
+                <ApplyButton />
+              ) : (
+                <Link
+                  target="_blank"
+                  href={siteConfig.links.applyContributionProgram}
+                >
+                  <ApplyButton />
+                </Link>
+              )}
             </div>
           </div>
         </AppContent>
@@ -272,7 +298,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                       </Link>
                     </Card>
                   </div>
-                  <div className="flex flex-col gap-2 py-10 md:py-16">
+                  <div className="flex flex-col gap-2 pt-8">
                     {contributionsProgramDescription?.map(
                       (description, index) => {
                         return (
@@ -287,56 +313,84 @@ export default function ProgramsPage({ params: { lang } }: any) {
                     )}
                   </div>
                 </div>
-                <div className="flex flex-col gap-8">
-                  <SectionLabel label={t("common.curriculum")} />
-                  <Card
-                    className="divide-y divide-tuatara-300"
-                    padding="none"
-                    variant="transparent"
-                  >
-                    {curriculum.map(({ title, items }, index) => (
-                      <div
-                        key={index}
-                        className="grid grid-cols-1 divide-tuatara-300 md:grid-cols-[1fr_2.5fr] md:divide-x"
-                      >
-                        <div className="flex items-center justify-center border-b border-tuatara-300 bg-anakiwa-100 p-2 text-center md:border-none">
-                          <span className="text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
-                            {t("common.week", {
-                              week: index,
-                            })}
-                            <br />
-                            {title}
-                          </span>
-                        </div>
-                        <div className="py-2">
-                          <ul className="ml-10 list-disc">
-                            {items.map((label: string, index: number) => {
-                              return <li key={index}>{label}</li>
-                            })}
-                          </ul>
-                        </div>
-                      </div>
-                    ))}
-                  </Card>
-                </div>
-                <div className="flex flex-col gap-8 pt-6">
-                  <SectionLabel label={t("common.faq")} />
+                <div className="flex flex-col gap-10">
                   <Accordion
-                    className="!border-anakiwa-300"
                     size="xs"
-                    items={contributionsProgramFaq.map(
-                      ({ question, answer }, index) => {
-                        return {
-                          label: (
-                            <span className="font-sans text-base font-semibold text-black">
-                              {question}
-                            </span>
-                          ),
-                          value: index.toString(),
-                          children: answer,
-                        }
-                      }
-                    )}
+                    className="!border-none"
+                    iconOnHover={false}
+                    items={[
+                      {
+                        label: (
+                          <AccordionLabel label={t("common.curriculum")} />
+                        ),
+                        value: "curriculum",
+                        children: (
+                          <Card
+                            className="mt-10 divide-y divide-tuatara-300"
+                            padding="none"
+                            variant="transparent"
+                          >
+                            {curriculum.map(({ title, items }, index) => (
+                              <div
+                                key={index}
+                                className="grid grid-cols-1 divide-tuatara-300 md:grid-cols-[1fr_2.5fr] md:divide-x"
+                              >
+                                <div className="flex items-center justify-center border-b border-tuatara-300 bg-anakiwa-100 p-2 text-center md:border-none">
+                                  <span className="text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
+                                    {t("common.week", {
+                                      week: index,
+                                    })}
+                                    <br />
+                                    {title}
+                                  </span>
+                                </div>
+                                <div className="py-2">
+                                  <ul className="ml-10 list-disc">
+                                    {items.map(
+                                      (label: string, index: number) => {
+                                        return <li key={index}>{label}</li>
+                                      }
+                                    )}
+                                  </ul>
+                                </div>
+                              </div>
+                            ))}
+                          </Card>
+                        ),
+                      },
+                    ]}
+                  />
+                  <Accordion
+                    size="xs"
+                    className="!border-none"
+                    iconOnHover={false}
+                    items={[
+                      {
+                        label: <AccordionLabel label={t("common.faq")} />,
+                        value: "faq",
+                        children: (
+                          <div className="pt-10">
+                            <Accordion
+                              className="!border-anakiwa-300"
+                              size="xs"
+                              items={contributionsProgramFaq.map(
+                                ({ question, answer }, index) => {
+                                  return {
+                                    label: (
+                                      <span className="font-sans text-base font-semibold text-black">
+                                        {question}
+                                      </span>
+                                    ),
+                                    value: index.toString(),
+                                    children: answer,
+                                  }
+                                }
+                              )}
+                            />
+                          </div>
+                        ),
+                      },
+                    ]}
                   />
                 </div>
               </div>
@@ -371,7 +425,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                 </div>
               </Card>
             </div>
-            <div className="flex flex-col gap-2 py-10 md:py-16">
+            <div className="flex flex-col gap-2 pt-8">
               {accelerationProgramDescription?.map((description, index) => {
                 return (
                   <span key={index} className="font-sans text-base text-black">
@@ -380,68 +434,103 @@ export default function ProgramsPage({ params: { lang } }: any) {
                 )
               })}
             </div>
-            <div className="flex flex-col gap-8 pb-10 md:pb-16">
-              <SectionLabel label={t("common.howToApply")} />
-              <div id="howToApply" className="flex flex-col gap-8">
-                <div>
-                  <strong>{t("howToApply.openTasks.title")}</strong>
-                  <ul className="list-decimal">
-                    {howToApply?.openTasks?.description?.map(
-                      (task: string, index: number) => {
-                        return (
-                          <li
-                            key={index}
-                            className="ml-8 list-item items-center"
-                          >
-                            <div
-                              dangerouslySetInnerHTML={{ __html: task }}
-                            ></div>
-                          </li>
-                        )
-                      }
-                    )}
-                  </ul>
-                </div>
-                <div>
-                  <strong>{t("howToApply.submitIdea.title")}</strong>
-                  <ul className="list-decimal">
-                    {howToApply?.submitIdea?.description?.map(
-                      (task: string, index: number) => {
-                        return (
-                          <li
-                            key={index}
-                            className="ml-8 list-item items-center"
-                          >
-                            <div
-                              dangerouslySetInnerHTML={{ __html: task }}
-                            ></div>
-                          </li>
-                        )
-                      }
-                    )}
-                  </ul>
-                </div>
-                <span>{t("howToApply.description")}</span>
-              </div>
-            </div>
-            <div className="flex flex-col gap-8">
-              <SectionLabel label={t("common.faq")} />
+            <div className="flex flex-col gap-10 pt-14">
               <Accordion
-                className="!border-anakiwa-300"
                 size="xs"
-                items={accelerationProgramFaq.map(
-                  ({ question, answer }, index) => {
-                    return {
-                      label: (
-                        <span className="font-sans text-base font-semibold text-black">
-                          {question}
-                        </span>
-                      ),
-                      value: index.toString(),
-                      children: answer,
-                    }
-                  }
-                )}
+                className="!border-none"
+                iconOnHover={false}
+                items={[
+                  {
+                    label: <AccordionLabel label={t("common.howToApply")} />,
+                    value: "howToApply",
+                    children: (
+                      <div className="mt-10">
+                        <div className="flex flex-col gap-8 pb-10 md:pb-16">
+                          <div id="howToApply" className="flex flex-col gap-8">
+                            <div>
+                              <strong>{t("howToApply.openTasks.title")}</strong>
+                              <ul className="list-decimal">
+                                {howToApply?.openTasks?.description?.map(
+                                  (task: string, index: number) => {
+                                    return (
+                                      <li
+                                        key={index}
+                                        className="ml-8 list-item items-center"
+                                      >
+                                        <div
+                                          dangerouslySetInnerHTML={{
+                                            __html: task,
+                                          }}
+                                        ></div>
+                                      </li>
+                                    )
+                                  }
+                                )}
+                              </ul>
+                            </div>
+                            <div>
+                              <strong>
+                                {t("howToApply.submitIdea.title")}
+                              </strong>
+                              <ul className="list-decimal">
+                                {howToApply?.submitIdea?.description?.map(
+                                  (task: string, index: number) => {
+                                    return (
+                                      <li
+                                        key={index}
+                                        className="ml-8 list-item items-center"
+                                      >
+                                        <div
+                                          dangerouslySetInnerHTML={{
+                                            __html: task,
+                                          }}
+                                        ></div>
+                                      </li>
+                                    )
+                                  }
+                                )}
+                              </ul>
+                            </div>
+                            <span>{t("howToApply.description")}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ),
+                  },
+                ]}
+              />
+
+              <Accordion
+                size="xs"
+                className="!border-none"
+                iconOnHover={false}
+                items={[
+                  {
+                    label: <AccordionLabel label={t("common.faq")} />,
+                    value: "faq",
+                    children: (
+                      <div className="mt-10 flex flex-col gap-8">
+                        <Accordion
+                          className="!border-anakiwa-300"
+                          size="xs"
+                          items={accelerationProgramFaq.map(
+                            ({ question, answer }, index) => {
+                              return {
+                                label: (
+                                  <span className="font-sans text-base font-semibold text-black">
+                                    {question}
+                                  </span>
+                                ),
+                                value: index.toString(),
+                                children: answer,
+                              }
+                            }
+                          )}
+                        />
+                      </div>
+                    ),
+                  },
+                ]}
               />
             </div>
           </div>

@@ -21,6 +21,7 @@ interface AccordionProps extends RadixAccordion.AccordionImplProps {
   defaultValue?: string
   items: AccordionItemProps[]
   className?: string
+  iconOnHover?: boolean
 }
 
 const AccordionSizeMapping: Record<AccordionPadding, string> = {
@@ -34,6 +35,7 @@ const Accordion = ({
   items,
   size = "sm",
   className,
+  iconOnHover = true,
 }: AccordionProps) => {
   return (
     <RadixAccordion.Root
@@ -52,7 +54,7 @@ const Accordion = ({
           <RadixAccordion.Trigger className="w-full">
             <div
               className={cn(
-                "flex w-full items-center justify-between border-t border-t-black ring-0 focus:outline-none",
+                "relative flex w-full items-center justify-between border-t border-t-black ring-0 focus:outline-none",
                 className,
                 {
                   [AccordionSizeMapping.xs]: size === "xs",
@@ -68,7 +70,12 @@ const Accordion = ({
                 label
               )}
               <div
-                className={`duration-50 group-hover:visible group-data-[state=open]:hidden md:invisible`}
+                className={cn(
+                  "duration-50 absolute right-0 group-data-[state=open]:hidden",
+                  {
+                    "group-hover:visible md:invisible": iconOnHover,
+                  }
+                )}
               >
                 <Icons.plus
                   className={cn({
@@ -77,7 +84,9 @@ const Accordion = ({
                   })}
                 />
               </div>
-              <div className={`hidden group-data-[state=open]:block`}>
+              <div
+                className={`absolute right-0 hidden group-data-[state=open]:block`}
+              >
                 <Icons.minus
                   className={cn({
                     "w-4 md:w-6": size === "xs",

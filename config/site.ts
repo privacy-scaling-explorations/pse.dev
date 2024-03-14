@@ -20,8 +20,12 @@ export const siteConfig = {
       "https://discord.com/channels/943612659163602974/969614451089227876",
     accelerationGithub:
       "https://github.com/privacy-scaling-explorations/acceleration-program",
-    latAmContributionProgram: "",
-    asiaContributionProgram: "",
+    latAmContributionProgram:
+      "https://docs.google.com/forms/d/e/1FAIpQLSendzYY0z_z7fZ37g3jmydvzS9I7OWKbY2JrqAnyNqeaBHvMQ/viewform",
+    asiaContributionProgram:
+      "https://docs.google.com/forms/d/e/1FAIpQLSendzYY0z_z7fZ37g3jmydvzS9I7OWKbY2JrqAnyNqeaBHvMQ/viewform",
+    applyContributionProgram:
+      "https://docs.google.com/forms/d/e/1FAIpQLSendzYY0z_z7fZ37g3jmydvzS9I7OWKbY2JrqAnyNqeaBHvMQ/viewform",
   },
   addGithubResource:
     "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/%5Blang%5D/content/resources.md",
