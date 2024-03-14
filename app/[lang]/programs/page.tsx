@@ -126,161 +126,163 @@ export default function ProgramsPage({ params: { lang } }: any) {
           </div>
         </AppContent>
       </div>
-      <div className="flex flex-col">
-        <div className="w-full border-b border-tuatara-300 py-16">
-          <div className="container mx-auto flex flex-col md:max-w-2xl">
-            <div className="flex flex-col gap-8">
-              <SectionTitle label={t("contributionsProgram.title")} />
-              <div className="flex flex-col">
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  <Card className="flex flex-col gap-10">
-                    <ProgramDetail
-                      region="LatAm"
-                      title="Contributions Program"
-                      location="Buenos Aires - Cuenca - San Jose"
-                      date="Jul. 22, 2024 - Sep. 15, 2024"
-                    />
-                    <Button className="uppercase">
-                      <div className="flex items-center gap-3">
-                        <span>{t("common.applyNow")}</span>
-                        <Icons.arrowRight size={20} />
-                      </div>
-                    </Button>
-                  </Card>
-                  <Card className="flex flex-col gap-10">
-                    <ProgramDetail
-                      region="Asia"
-                      title="Contributions Program"
-                      location="Seoul - Taipei - Tokyo"
-                      date="Jul. 29, 2024 - Sep. 22, 2024"
-                    />
-                    <Button className="uppercase">
-                      <div className="flex items-center gap-3">
-                        <span>{t("common.applyNow")}</span>
-                        <Icons.arrowRight size={20} />
-                      </div>
-                    </Button>
-                  </Card>
-                </div>
-                <div className="flex flex-col gap-2 py-16">
-                  {contributionsProgramDescription?.map(
-                    (description, index) => {
-                      return (
-                        <span
-                          key={index}
-                          className="font-sans text-base text-black"
-                        >
-                          {description}
-                        </span>
-                      )
-                    }
-                  )}
-                </div>
-              </div>
+      <AppContent className="relative mx-auto flex gap-5">
+        <div className="flex w-full flex-col">
+          <div className="w-full border-b border-tuatara-300 py-10 md:py-16">
+            <div className="container mx-auto flex flex-col md:max-w-2xl">
               <div className="flex flex-col gap-8">
-                <SectionLabel label={t("common.curriculum")} />
-                <Card
-                  className="divide-y divide-tuatara-300"
-                  padding="none"
-                  variant="transparent"
-                >
-                  {curriculum.map(({ title, items }, index) => (
-                    <div
-                      key={index}
-                      className="grid grid-cols-1 divide-tuatara-300 md:grid-cols-[1fr_2.5fr] md:divide-x"
-                    >
-                      <div className="flex items-center justify-center border-b border-tuatara-300 bg-anakiwa-100 p-2 text-center md:border-none">
-                        <span className="text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
-                          {t("common.week", {
-                            week: index,
-                          })}
-                          <br />
-                          {title}
-                        </span>
-                      </div>
-                      <div className="px-6 py-2">
-                        <ul className=" list-disc">
-                          {items.map((label: string, index: number) => {
-                            return <li key={index}>{label}</li>
-                          })}
-                        </ul>
-                      </div>
-                    </div>
-                  ))}
-                </Card>
-              </div>
-              <div className="flex flex-col gap-8 pt-6">
-                <SectionLabel label={t("common.faq")} />
-                <Accordion
-                  className="!border-anakiwa-300"
-                  size="xs"
-                  items={contributionsProgramFaq.map(
-                    ({ question, answer }, index) => {
-                      return {
-                        label: (
-                          <span className="font-sans text-base font-semibold text-black">
-                            {question}
+                <SectionTitle label={t("contributionsProgram.title")} />
+                <div className="flex flex-col">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <Card className="flex flex-col gap-10">
+                      <ProgramDetail
+                        region="LatAm"
+                        title="Contributions Program"
+                        location="Buenos Aires - Cuenca - San Jose"
+                        date="Jul. 22, 2024 - Sep. 15, 2024"
+                      />
+                      <Button className="uppercase">
+                        <div className="flex items-center gap-3">
+                          <span>{t("common.applyNow")}</span>
+                          <Icons.arrowRight size={20} />
+                        </div>
+                      </Button>
+                    </Card>
+                    <Card className="flex flex-col gap-10">
+                      <ProgramDetail
+                        region="Asia"
+                        title="Contributions Program"
+                        location="Seoul - Taipei - Tokyo"
+                        date="Jul. 29, 2024 - Sep. 22, 2024"
+                      />
+                      <Button className="uppercase">
+                        <div className="flex items-center gap-3">
+                          <span>{t("common.applyNow")}</span>
+                          <Icons.arrowRight size={20} />
+                        </div>
+                      </Button>
+                    </Card>
+                  </div>
+                  <div className="flex flex-col gap-2 py-10 md:py-16">
+                    {contributionsProgramDescription?.map(
+                      (description, index) => {
+                        return (
+                          <span
+                            key={index}
+                            className="font-sans text-base text-black"
+                          >
+                            {description}
                           </span>
-                        ),
-                        value: `${index}`,
-                        children: answer,
+                        )
                       }
-                    }
-                  )}
-                />
+                    )}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-8">
+                  <SectionLabel label={t("common.curriculum")} />
+                  <Card
+                    className="divide-y divide-tuatara-300"
+                    padding="none"
+                    variant="transparent"
+                  >
+                    {curriculum.map(({ title, items }, index) => (
+                      <div
+                        key={index}
+                        className="grid grid-cols-1 divide-tuatara-300 md:grid-cols-[1fr_2.5fr] md:divide-x"
+                      >
+                        <div className="flex items-center justify-center border-b border-tuatara-300 bg-anakiwa-100 p-2 text-center md:border-none">
+                          <span className="text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
+                            {t("common.week", {
+                              week: index,
+                            })}
+                            <br />
+                            {title}
+                          </span>
+                        </div>
+                        <div className="py-2">
+                          <ul className="ml-10 list-disc">
+                            {items.map((label: string, index: number) => {
+                              return <li key={index}>{label}</li>
+                            })}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+                  </Card>
+                </div>
+                <div className="flex flex-col gap-8 pt-6">
+                  <SectionLabel label={t("common.faq")} />
+                  <Accordion
+                    className="!border-anakiwa-300"
+                    size="xs"
+                    items={contributionsProgramFaq.map(
+                      ({ question, answer }, index) => {
+                        return {
+                          label: (
+                            <span className="font-sans text-base font-semibold text-black">
+                              {question}
+                            </span>
+                          ),
+                          value: `${index}`,
+                          children: answer,
+                        }
+                      }
+                    )}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="container mx-auto flex flex-col py-16 md:max-w-2xl">
-          <div className="flex flex-col gap-5">
-            <SectionTitle label={t("accelerationProgram.title")} />
-            <Card className="flex flex-col gap-5">
-              <ProgramDetail
+          <div className="container mx-auto flex flex-col py-10 md:max-w-2xl md:py-16">
+            <div className="flex flex-col gap-5">
+              <SectionTitle label={t("accelerationProgram.title")} />
+              <Card className="flex flex-col gap-5">
+                <ProgramDetail
+                  size="xs"
+                  title="Acceleration Program Round 2"
+                  application="Applications Open"
+                  date="Feb. 29, 2024 - May 31, 2024"
+                />
+                <Button className="uppercase">
+                  <div className="flex items-center gap-3">
+                    {t("common.learnMoreOnGithub")}
+                    <Icons.arrowRight size={20} />
+                  </div>
+                </Button>
+              </Card>
+            </div>
+            <div className="flex flex-col gap-2 py-10 md:py-16">
+              {accelerationProgramDescription?.map((description, index) => {
+                return (
+                  <span key={index} className="font-sans text-base text-black">
+                    {description}
+                  </span>
+                )
+              })}
+            </div>
+            <div className="flex flex-col gap-8">
+              <SectionLabel label={t("common.faq")} />
+              <Accordion
+                className="!border-anakiwa-300"
                 size="xs"
-                title="Acceleration Program Round 2"
-                application="Applications Open"
-                date="Feb. 29, 2024 - May 31, 2024"
-              />
-              <Button className="uppercase">
-                <div className="flex items-center gap-3">
-                  {t("common.learnMoreOnGithub")}
-                  <Icons.arrowRight size={20} />
-                </div>
-              </Button>
-            </Card>
-          </div>
-          <div className="flex flex-col gap-2 py-16">
-            {accelerationProgramDescription?.map((description, index) => {
-              return (
-                <span key={index} className="font-sans text-base text-black">
-                  {description}
-                </span>
-              )
-            })}
-          </div>
-          <div className="flex flex-col gap-8">
-            <SectionLabel label={t("common.faq")} />
-            <Accordion
-              className="!border-anakiwa-300"
-              size="xs"
-              items={accelerationProgramFaq.map(
-                ({ question, answer }, index) => {
-                  return {
-                    label: (
-                      <span className="font-sans text-base font-semibold text-black">
-                        {question}
-                      </span>
-                    ),
-                    value: `${index}`,
-                    children: answer,
+                items={accelerationProgramFaq.map(
+                  ({ question, answer }, index) => {
+                    return {
+                      label: (
+                        <span className="font-sans text-base font-semibold text-black">
+                          {question}
+                        </span>
+                      ),
+                      value: `${index}`,
+                      children: answer,
+                    }
                   }
-                }
-              )}
-            />
+                )}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </AppContent>
     </div>
   )
 }

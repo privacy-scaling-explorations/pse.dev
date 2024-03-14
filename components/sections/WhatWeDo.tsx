@@ -48,7 +48,7 @@ export const WhatWeDo = ({ lang }: LangProps["params"]) => {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {content.map((item, index) => (
               <article
-                className="flex flex-col gap-2 rounded-[6px] bg-white/30 px-8 py-4"
+                className="flex flex-col gap-2 rounded-[6px] border border-tuatara-300 bg-white px-8 py-4"
                 key={index}
               >
                 <div className="flex items-center gap-2">

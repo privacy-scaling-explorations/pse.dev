@@ -1,17 +1,17 @@
 "use client"
 
+import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import PSELogo from "@/public/icons/archstar.webp"
-import { motion } from "framer-motion"
 
-import { siteConfig } from "@/config/site"
+import { Icons } from "@/components/icons"
+import { ConnectWithUs } from "@/components/sections/ConnectWithUs"
+import { NewsSection } from "@/components/sections/NewsSection"
+import { WhatWeDo } from "@/components/sections/WhatWeDo"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import { Icons } from "@/components/icons"
-import { NewsSection } from "@/components/sections/NewsSection"
-import { WhatWeDo } from "@/components/sections/WhatWeDo"
+import { siteConfig } from "@/config/site"
 
 import { useTranslation } from "../i18n/client"
 
@@ -48,7 +48,13 @@ export default function IndexPage({ params: { lang } }: any) {
           </Link>
         </div>
         <div className="m-auto flex h-[320px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[380px]">
-          <Image src={PSELogo} alt="pselogo" style={{ objectFit: "cover" }} />
+          <Image
+            src="/icons/archstar.webp"
+            alt="pselogo"
+            width={380}
+            height={380}
+            style={{ objectFit: "cover" }}
+          />
         </div>
       </AppContent>
 
@@ -56,14 +62,18 @@ export default function IndexPage({ params: { lang } }: any) {
 
       <div className="bg-radial-gradient flex flex-col">
         <WhatWeDo lang={lang} />
+      </div>
 
+      <ConnectWithUs lang={lang} />
+
+      <div className="bg-radial-gradient">
         <section className="relative border-y border-tuatara-600 bg-[#D0F2FF] pb-16 pt-8 text-center">
           <AppContent className="flex flex-col gap-6">
             <div className="flex flex-col items-center text-center">
               <h6 className="py-6 font-sans text-base font-bold uppercase tracking-[4px] text-tuatara-950">
-                {t("howToPlugIn")}
+                {ct("connectWithUs")}
               </h6>
-              <p className="md:max-w-2xl">{t("howToPlugInDescription")}</p>
+              <p className="md:max-w-2xl">{ct("connectWithUsDescription")}</p>
             </div>
             <Link
               href={siteConfig.links.discord}

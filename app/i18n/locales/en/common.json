@@ -12,7 +12,8 @@
     "activity": "Activity",
     "report": "Report",
     "firstGoodIssue": "First Good Issue",
-    "programs": "Programs"
+    "programs": "Programs",
+    "openIssues": "Open Issues"
   },
   "footer": {
     "description": "Privacy + Scaling Explorations is a multidisciplinary team supported by the Ethereum Foundation.",
@@ -70,5 +71,8 @@
   "filters": "Filters",
   "whatDoYouWantDoToday": "What do you want to do today?",
   "showingProjects": "Showing {{count}} projects",
-  "showingProjectsWith": "Showing {{count}} projects with:"
+  "showingProjectsWith": "Showing {{count}} projects with:",
+  "connectWithUs": "Connect with us",
+  "connectWithUsDescription": "We welcome contributions from around the world! Join our discord to try out apps, build with our tools, contribute to projects, or check out job openings and grant opportunities.",
+  "ourYearProgram": "Our {{year}} program"
 }
