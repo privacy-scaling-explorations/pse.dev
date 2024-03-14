@@ -1,9 +1,10 @@
 "use client"
 
-import { ReactNode } from "react"
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { accelerationProgramFaq } from "@/data/programs/accelerationProgramFaq"
 import { contributionsProgramFaq } from "@/data/programs/contributionsProgramFaq"
+import { Coins } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Accordion } from "@/components/ui/accordion"
@@ -88,8 +89,20 @@ const ProgramDetail = ({
     </div>
   )
 }
+
+const ProgramSections = ["contributionsProgram", "accelerationProgram"] as const
 export default function ProgramsPage({ params: { lang } }: any) {
   const { t } = useTranslation(lang, "programs-page")
+  const { t: common } = useTranslation(lang, "common")
+  const [activeId, setActiveId] = useState("")
+  const [isManualScroll, setIsManualScroll] = useState(false)
+  const SCROLL_OFFSET = -400
+  const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null)
+
+  const howToApply: any =
+    t("howToApply", {
+      returnObjects: true,
+    }) || []
 
   const contributionsProgramDescription: any[] =
     t("contributionsProgram.description", {
@@ -104,6 +117,44 @@ export default function ProgramsPage({ params: { lang } }: any) {
     t("curriculum", {
       returnObjects: true,
     }) ?? []
+
+  useEffect(() => {
+    if (sectionsRef.current === null)
+      sectionsRef.current = document.querySelectorAll(`div[data-section]`)
+    if (!activeId) setActiveId(ProgramSections?.[0] ?? "")
+
+    const handleScroll = () => {
+      if (isManualScroll) return
+
+      sectionsRef.current?.forEach((section: any) => {
+        const sectionTop = section.offsetTop - SCROLL_OFFSET
+        if (window.scrollY >= sectionTop && window.scrollY > 0) {
+          setActiveId(section.getAttribute("id"))
+        }
+      })
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [SCROLL_OFFSET, activeId, isManualScroll])
+
+  const scrollToId = useCallback((id: string) => {
+    const element = document.getElementById(id)
+    const top = element?.offsetTop ?? 0
+
+    if (element) {
+      setActiveId(id) // active clicked id
+      setIsManualScroll(true) // tell the window event listener to ignore this scrolling
+      window?.scrollTo({
+        behavior: "smooth",
+        top: (top ?? 0) - SCROLL_OFFSET,
+      })
+    }
+
+    setTimeout(() => setIsManualScroll(false), 800)
+  }, [])
+
+  console.log("howToApply?.openTask?", howToApply)
 
   return (
     <div className="flex flex-col">
@@ -126,9 +177,13 @@ export default function ProgramsPage({ params: { lang } }: any) {
           </div>
         </AppContent>
       </div>
-      <AppContent className="relative mx-auto flex gap-5">
+      <AppContent className="relative mx-auto flex w-full items-start">
         <div className="flex w-full flex-col">
-          <div className="w-full border-b border-tuatara-300 py-10 md:py-16">
+          <div
+            id="contributionsProgram"
+            data-section="contributionsProgram"
+            className="w-full border-b border-tuatara-300 py-10 md:py-16"
+          >
             <div className="container mx-auto flex flex-col md:max-w-2xl">
               <div className="flex flex-col gap-8">
                 <SectionTitle label={t("contributionsProgram.title")} />
@@ -233,7 +288,11 @@ export default function ProgramsPage({ params: { lang } }: any) {
               </div>
             </div>
           </div>
-          <div className="container mx-auto flex flex-col py-10 md:max-w-2xl md:py-16">
+          <div
+            id="accelerationProgram"
+            data-section="accelerationProgram"
+            className="container mx-auto flex flex-col py-10 md:max-w-2xl md:py-16"
+          >
             <div className="flex flex-col gap-5">
               <SectionTitle label={t("accelerationProgram.title")} />
               <Card className="flex flex-col gap-5">
@@ -243,12 +302,14 @@ export default function ProgramsPage({ params: { lang } }: any) {
                   application="Applications Open"
                   date="Feb. 29, 2024 - May 31, 2024"
                 />
-                <Button className="uppercase">
-                  <div className="flex items-center gap-3">
-                    {t("common.learnMoreOnGithub")}
-                    <Icons.arrowRight size={20} />
-                  </div>
-                </Button>
+                <div className="mx-auto">
+                  <Button className="uppercase">
+                    <div className="flex items-center gap-3">
+                      {t("common.learnMoreOnGithub")}
+                      <Icons.arrowRight size={20} />
+                    </div>
+                  </Button>
+                </div>
               </Card>
             </div>
             <div className="flex flex-col gap-2 py-10 md:py-16">
@@ -259,6 +320,50 @@ export default function ProgramsPage({ params: { lang } }: any) {
                   </span>
                 )
               })}
+            </div>
+            <div className="flex flex-col gap-8 pb-10 md:pb-16">
+              <SectionLabel label={t("common.howToApply")} />
+              <div id="howToApply" className="flex flex-col gap-8">
+                <div>
+                  <strong>{t("howToApply.openTasks.title")}</strong>
+                  <ul className="list-decimal">
+                    {howToApply?.openTasks?.description?.map(
+                      (task: string, index: number) => {
+                        return (
+                          <li
+                            key={index}
+                            className="ml-8 list-item items-center"
+                          >
+                            <div
+                              dangerouslySetInnerHTML={{ __html: task }}
+                            ></div>
+                          </li>
+                        )
+                      }
+                    )}
+                  </ul>
+                </div>
+                <div>
+                  <strong>{t("howToApply.submitIdea.title")}</strong>
+                  <ul className="list-decimal">
+                    {howToApply?.submitIdea?.description?.map(
+                      (task: string, index: number) => {
+                        return (
+                          <li
+                            key={index}
+                            className="ml-8 list-item items-center"
+                          >
+                            <div
+                              dangerouslySetInnerHTML={{ __html: task }}
+                            ></div>
+                          </li>
+                        )
+                      }
+                    )}
+                  </ul>
+                </div>
+                <span>{t("howToApply.description")}</span>
+              </div>
             </div>
             <div className="flex flex-col gap-8">
               <SectionLabel label={t("common.faq")} />
@@ -280,6 +385,44 @@ export default function ProgramsPage({ params: { lang } }: any) {
                 )}
               />
             </div>
+          </div>
+        </div>
+        <div
+          id="sidebar"
+          className="sticky right-0 top-20 hidden w-[320px] bg-white/30 p-8 lg:block"
+        >
+          <div className="flex flex-col gap-4">
+            <h6 className="font-display text-lg font-bold text-tuatara-700">
+              {common("onThisPage")}
+            </h6>
+            <ul className="text-normal font-sans text-black">
+              {ProgramSections.map((id: string) => {
+                const label = t(`${id}.title`)
+
+                if (!label) return null // no label for this section
+
+                const active = id === activeId
+
+                return (
+                  <li
+                    key={id}
+                    onClick={(e) => {
+                      scrollToId(id)
+                    }}
+                    data-id={id}
+                    className={cn(
+                      "flex h-8 cursor-pointer items-center border-l-2 border-l-anakiwa-200 px-3 duration-200",
+                      {
+                        "border-l-anakiwa-500 text-anakiwa-500 font-medium":
+                          active,
+                      }
+                    )}
+                  >
+                    {label}
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </div>
       </AppContent>

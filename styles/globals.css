@@ -121,3 +121,8 @@
 .link {
   @apply border-b-2 border-transparent duration-200 ease-in-out hover:border-orange;
 }
+
+
+#howToApply a {
+  @apply underline;
+}
