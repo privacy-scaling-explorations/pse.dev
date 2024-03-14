@@ -18,6 +18,10 @@ export const siteConfig = {
     privacyPolicy: "https://ethereum.org/en/privacy-policy/",
     discordAnnouncementChannel:
       "https://discord.com/channels/943612659163602974/969614451089227876",
+    accelerationGithub:
+      "https://github.com/privacy-scaling-explorations/acceleration-program",
+    latAmContributionProgram: "",
+    asiaContributionProgram: "",
   },
   addGithubResource:
     "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/%5Blang%5D/content/resources.md",

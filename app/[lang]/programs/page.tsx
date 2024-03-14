@@ -2,14 +2,16 @@
 
 import { ReactNode, useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { accelerationProgramFaq } from "@/data/programs/accelerationProgramFaq"
 import { contributionsProgramFaq } from "@/data/programs/contributionsProgramFaq"
-import { Coins } from "lucide-react"
 
+import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Accordion } from "@/components/ui/accordion"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
+import { Dropdown, DropdownProps } from "@/components/ui/dropdown"
 import { Label } from "@/components/ui/label"
 import { Card } from "@/components/cards/card"
 import { Icons } from "@/components/icons"
@@ -91,11 +93,23 @@ const ProgramDetail = ({
 }
 
 const ProgramSections = ["contributionsProgram", "accelerationProgram"] as const
+
+const ChooseProgramItems: DropdownProps["items"] = [
+  {
+    label: "Contributions Program",
+    value: "contributionsProgram",
+  },
+  {
+    label: "Acceleration Program",
+    value: "accelerationProgram",
+  },
+]
 export default function ProgramsPage({ params: { lang } }: any) {
   const { t } = useTranslation(lang, "programs-page")
   const { t: common } = useTranslation(lang, "common")
   const [activeId, setActiveId] = useState("")
   const [isManualScroll, setIsManualScroll] = useState(false)
+  const [selectedProgram, setSelectedProgram] = useState("")
   const SCROLL_OFFSET = -400
   const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null)
 
@@ -154,7 +168,10 @@ export default function ProgramsPage({ params: { lang } }: any) {
     setTimeout(() => setIsManualScroll(false), 800)
   }, [])
 
-  console.log("howToApply?.openTask?", howToApply)
+  const selectedProgramKey: string =
+    ChooseProgramItems?.find((item) => item.value === selectedProgram)?.label ??
+    ""
+  const selectedProgramLabel = t(selectedProgramKey)
 
   return (
     <div className="flex flex-col">
@@ -174,6 +191,29 @@ export default function ProgramsPage({ params: { lang } }: any) {
               src="/images/computer.png"
               alt="computer image"
             />
+            <div className="flex flex-col gap-6 md:max-w-xs">
+              <div className="flex flex-col gap-1">
+                <span className="text-xs">{common("chooseProgram")}*</span>
+                <Dropdown
+                  className="border border-tuatara-300 bg-white py-2 pl-6 pr-4"
+                  label={
+                    !selectedProgram
+                      ? `${common("chooseProgram")}`
+                      : selectedProgramLabel
+                  }
+                  items={ChooseProgramItems}
+                  width={320}
+                  onChange={(value: any) => setSelectedProgram(value)}
+                  defaultItem="contributionsProgram"
+                />
+              </div>
+              <Button className="w-full uppercase" disabled={!selectedProgram}>
+                <div className="flex items-center gap-3">
+                  <span>{t("common.applyNow")}</span>
+                  <Icons.arrowRight size={20} />
+                </div>
+              </Button>
+            </div>
           </div>
         </AppContent>
       </div>
@@ -196,12 +236,17 @@ export default function ProgramsPage({ params: { lang } }: any) {
                         location="Buenos Aires - Cuenca - San Jose"
                         date="Jul. 22, 2024 - Sep. 15, 2024"
                       />
-                      <Button className="uppercase">
-                        <div className="flex items-center gap-3">
-                          <span>{t("common.applyNow")}</span>
-                          <Icons.arrowRight size={20} />
-                        </div>
-                      </Button>
+                      <Link
+                        href={siteConfig.links.latAmContributionProgram}
+                        target="_blank"
+                      >
+                        <Button className="w-full uppercase">
+                          <div className="flex items-center gap-3">
+                            <span>{t("common.applyNow")}</span>
+                            <Icons.arrowRight size={20} />
+                          </div>
+                        </Button>
+                      </Link>
                     </Card>
                     <Card className="flex flex-col gap-10">
                       <ProgramDetail
@@ -210,12 +255,17 @@ export default function ProgramsPage({ params: { lang } }: any) {
                         location="Seoul - Taipei - Tokyo"
                         date="Jul. 29, 2024 - Sep. 22, 2024"
                       />
-                      <Button className="uppercase">
-                        <div className="flex items-center gap-3">
-                          <span>{t("common.applyNow")}</span>
-                          <Icons.arrowRight size={20} />
-                        </div>
-                      </Button>
+                      <Link
+                        href={siteConfig.links.asiaContributionProgram}
+                        target="_blank"
+                      >
+                        <Button className="w-full uppercase">
+                          <div className="flex items-center gap-3">
+                            <span>{t("common.applyNow")}</span>
+                            <Icons.arrowRight size={20} />
+                          </div>
+                        </Button>
+                      </Link>
                     </Card>
                   </div>
                   <div className="flex flex-col gap-2 py-10 md:py-16">
@@ -278,7 +328,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                               {question}
                             </span>
                           ),
-                          value: `${index}`,
+                          value: index.toString(),
                           children: answer,
                         }
                       }
@@ -303,12 +353,17 @@ export default function ProgramsPage({ params: { lang } }: any) {
                   date="Feb. 29, 2024 - May 31, 2024"
                 />
                 <div className="mx-auto">
-                  <Button className="uppercase">
-                    <div className="flex items-center gap-3">
-                      {t("common.learnMoreOnGithub")}
-                      <Icons.arrowRight size={20} />
-                    </div>
-                  </Button>
+                  <Link
+                    href={siteConfig.links.accelerationGithub}
+                    target="_blank"
+                  >
+                    <Button className="uppercase">
+                      <div className="flex items-center gap-3">
+                        {t("common.learnMoreOnGithub")}
+                        <Icons.arrowRight size={20} />
+                      </div>
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             </div>
@@ -378,7 +433,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                           {question}
                         </span>
                       ),
-                      value: `${index}`,
+                      value: index.toString(),
                       children: answer,
                     }
                   }

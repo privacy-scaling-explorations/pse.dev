@@ -34,7 +34,7 @@ export function SiteFooter({ lang }: LangProps["params"]) {
         <AppContent className="grid grid-cols-1 justify-between gap-8 bg-tuatara-950 py-2 text-white md:grid-cols-[2fr_3fr]">
           <div className="order-2 flex flex-col items-center gap-4 md:order-1 md:flex-row">
             <Icons.logoWhite size={134} />
-            <span className="text-sm text-white">
+            <span className="text-center text-sm text-white md:text-left">
               {t("footer.description")}
             </span>
           </div>
