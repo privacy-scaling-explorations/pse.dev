@@ -94,10 +94,14 @@ const ProgramDetail = ({
 
 const ProgramSections = ["contributionsProgram", "accelerationProgram"] as const
 
-const ChooseProgramItems: DropdownProps["items"] = [
+const ChooseProgramItems: DropdownProps["items"] & { href?: string } = [
   {
-    label: "Contributions Program",
-    value: "contributionsProgram",
+    label: "Contributions Program Asia",
+    value: "contributionsProgramAsia",
+  },
+  {
+    label: "Contributions Program LatAm",
+    value: "contributionsProgramaLatAm",
   },
   {
     label: "Acceleration Program",
@@ -201,7 +205,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                       ? `${common("chooseProgram")}`
                       : selectedProgramLabel
                   }
-                  items={ChooseProgramItems}
+                  items={ChooseProgramItems as DropdownProps["items"]}
                   width={320}
                   onChange={(value: any) => setSelectedProgram(value)}
                   defaultItem="contributionsProgram"
