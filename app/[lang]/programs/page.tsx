@@ -254,7 +254,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
             data-section="contributionsProgram"
             className="w-full border-b border-tuatara-300 py-10 md:py-16"
           >
-            <div className="container mx-auto flex flex-col md:max-w-2xl">
+            <div className="mx-auto flex flex-col md:max-w-2xl">
               <div className="flex flex-col gap-8">
                 <SectionTitle label={t("contributionsProgram.title")} />
                 <div className="flex flex-col">
@@ -399,7 +399,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
           <div
             id="accelerationProgram"
             data-section="accelerationProgram"
-            className="container mx-auto flex flex-col py-10 md:max-w-2xl md:py-16"
+            className="mx-auto flex flex-col py-10 md:max-w-2xl md:py-16"
           >
             <div className="flex flex-col gap-5">
               <SectionTitle label={t("accelerationProgram.title")} />
