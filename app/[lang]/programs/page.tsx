@@ -209,6 +209,33 @@ export default function ProgramsPage({ params: { lang } }: any) {
               <span className="font-sans text-base font-normal leading-[27px] text-tuatara-950">
                 {t("description")}
               </span>
+              <div className="flex flex-col gap-6 md:max-w-xs">
+                <div className="flex flex-col gap-1">
+                  <span className="text-xs">{common("chooseProgram")}*</span>
+                  <Dropdown
+                    className="border border-tuatara-300 bg-white py-2 pl-6 pr-4"
+                    label={
+                      !selectedProgram
+                        ? `${common("chooseProgram")}`
+                        : selectedProgramLabel
+                    }
+                    items={ChooseProgramItems as DropdownProps["items"]}
+                    width={320}
+                    onChange={(value: any) => setSelectedProgram(value)}
+                    defaultItem="contributionsProgram"
+                  />
+                </div>
+                {!selectedProgram ? (
+                  <ApplyButton />
+                ) : (
+                  <Link
+                    target="_blank"
+                    href={siteConfig.links.applyContributionProgram}
+                  >
+                    <ApplyButton />
+                  </Link>
+                )}
+              </div>
             </div>
             <Image
               width={280}
@@ -217,33 +244,6 @@ export default function ProgramsPage({ params: { lang } }: any) {
               src="/images/computer.png"
               alt="computer image"
             />
-            <div className="flex flex-col gap-6 md:max-w-xs">
-              <div className="flex flex-col gap-1">
-                <span className="text-xs">{common("chooseProgram")}*</span>
-                <Dropdown
-                  className="border border-tuatara-300 bg-white py-2 pl-6 pr-4"
-                  label={
-                    !selectedProgram
-                      ? `${common("chooseProgram")}`
-                      : selectedProgramLabel
-                  }
-                  items={ChooseProgramItems as DropdownProps["items"]}
-                  width={320}
-                  onChange={(value: any) => setSelectedProgram(value)}
-                  defaultItem="contributionsProgram"
-                />
-              </div>
-              {!selectedProgram ? (
-                <ApplyButton />
-              ) : (
-                <Link
-                  target="_blank"
-                  href={siteConfig.links.applyContributionProgram}
-                >
-                  <ApplyButton />
-                </Link>
-              )}
-            </div>
           </div>
         </AppContent>
       </div>
