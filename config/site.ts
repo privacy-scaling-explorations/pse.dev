@@ -19,7 +19,7 @@ export const siteConfig = {
     discordAnnouncementChannel:
       "https://discord.com/channels/943612659163602974/969614451089227876",
     accelerationGithub:
-      "https://github.com/privacy-scaling-explorations/acceleration-program",
+      "https://github.com/privacy-scaling-explorations/acceleration-program/issues/new?assignees=&labels=&projects=&template=proposal-for-applicant.md&title=",
     latAmContributionProgram:
       "https://docs.google.com/forms/d/e/1FAIpQLSendzYY0z_z7fZ37g3jmydvzS9I7OWKbY2JrqAnyNqeaBHvMQ/viewform",
     asiaContributionProgram:
