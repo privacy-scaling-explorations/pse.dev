@@ -28,7 +28,8 @@
     "keywords": "Keywords",
     "builtWith": "Built with",
     "themes": "Themes selected",
-    "projectStatus": "Project status"
+    "projectStatus": "Project status",
+    "fundingSource": "Funding source"
   },
   "error": {
     "404": {

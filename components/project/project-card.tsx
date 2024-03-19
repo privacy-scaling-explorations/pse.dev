@@ -118,7 +118,7 @@ export default function ProjectCard({
             </div>
           )}
           {projectNotActive && (
-            <span className="text-sm font-medium italic leading-[21px] text-tuatara-400">
+            <span className="ml-auto text-sm font-medium italic leading-[21px] text-tuatara-400">
               {t("notCurrentlyActive")}
             </span>
           )}

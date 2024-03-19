@@ -35,7 +35,7 @@ const NoResults = ({ lang }: LangProps["params"]) => {
   )
 }
 
-const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
+export const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
   pse: "PSE projects",
   grant: "Grants",
   collaboration: "Collaborations",

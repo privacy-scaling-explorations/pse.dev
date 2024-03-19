@@ -25,7 +25,8 @@ module.exports = {
         "second-gradient":
           "radial-gradient(56.07% 115.65% at 93.66% 158.94%, #D0F8F1 0%, #D1F3FF 18.23%, #ECF8FF 51.28%, #E1FFFA 80.21%, #D0F2FF 93.23%)",
 
-        "classic-gradient": "radial-gradient(325.52% 79.63% at 100% -0.02%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(205.45% 61.89% at 2.34% 99.98%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)"
+        "classic-gradient": "radial-gradient(325.52% 79.63% at 100% -0.02%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(205.45% 61.89% at 2.34% 99.98%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)",
+        "project-page-gradient": "linear-gradient(180deg, #C2E8F5 -17.44%, #FFF 17.72%)"
       },
       colors: {
         corduroy: "#4A5754",

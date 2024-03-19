@@ -13,6 +13,7 @@ import { LocaleTypes } from "@/app/i18n/settings"
 
 import { CategoryTag } from "../ui/categoryTag"
 import { ThemesStatusMapping } from "./project-filters-bar"
+import { ProjectSectionLabelMapping } from "./project-list"
 
 interface TagsProps extends HtmlHTMLAttributes<HTMLDivElement> {
   label: string
@@ -69,6 +70,13 @@ export function ProjectTags({ project, lang }: IProjectTags) {
           <div className="flex items-center gap-1">
             {icon}
             {label}
+          </div>
+        </CategoryTag>
+      </TagsWrapper>
+      <TagsWrapper label={t("filterLabels.fundingSource")}>
+        <CategoryTag variant="gray" size="default">
+          <div className="flex items-center gap-1">
+            {ProjectSectionLabelMapping[project?.section]}
           </div>
         </CategoryTag>
       </TagsWrapper>
