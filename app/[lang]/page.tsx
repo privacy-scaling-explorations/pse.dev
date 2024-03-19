@@ -56,9 +56,9 @@ export default function IndexPage({ params: { lang } }: any) {
         }
       />
 
-      <NewsSection lang={lang} />
-
       <div className="flex flex-col">
+        <NewsSection lang={lang} />
+
         <WhatWeDo lang={lang} />
 
         <Banner

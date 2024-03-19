@@ -36,7 +36,7 @@ export const WhatWeDo = ({ lang }: LangProps["params"]) => {
   return (
     <div className="border-t border-tuatara-600 bg-anakiwa-200">
       <div className="bg-classic-gradient">
-        <AppContent>
+        <AppContent className="mx-auto max-w-[978px]">
           <section className="flex flex-col gap-16 py-16 md:pb-24">
             <div className="flex flex-col text-center">
               <h6 className="py-6 font-sans text-base font-bold uppercase tracking-[4px] text-tuatara-950">
