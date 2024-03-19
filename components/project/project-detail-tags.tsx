@@ -21,7 +21,7 @@ interface TagsProps extends HtmlHTMLAttributes<HTMLDivElement> {
 
 const TagsWrapper = ({ label, children }: TagsProps) => {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-col items-start md:flex-row md:items-center md:gap-2">
       <span className="py-2 text-base font-medium ">{label}</span>
       {children}
     </div>
