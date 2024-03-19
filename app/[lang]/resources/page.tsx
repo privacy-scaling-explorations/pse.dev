@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
 
 import { LangProps } from "@/types/common"
 import { siteConfig } from "@/config/site"
@@ -10,6 +9,7 @@ import { cn } from "@/lib/utils"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
+import { Banner } from "@/components/banner"
 import { Icons } from "@/components/icons"
 import { PageHeader } from "@/components/page-header"
 import { useTranslation } from "@/app/i18n/client"
@@ -49,22 +49,21 @@ const ResourceItem = ({
       href={url}
       target="_blank"
       rel="noreferrer noopener"
-      className="group border-b-2 border-anakiwa-300 pb-3 duration-500 hover:border-orange group-hover:transition"
+      className="group pb-3 duration-500 group-hover:transition"
     >
-      <div className="flex justify-between">
+      <div className="flex items-center gap-1">
         <div className="flex space-x-3">
           <div className="h-6 w-6 text-anakiwa-500 opacity-50 transition group-hover:text-tuatara-950 group-hover:opacity-100">
             <Icon />
           </div>
-          <span className="text-lg font-medium">{label}</span>
+          <span className="text-lg font-medium duration-200 group-hover:text-orange">
+            {label}
+          </span>
         </div>
-        <ArrowUpRight
-          size={24}
-          className="text-tuatara-950 opacity-0 transition duration-500 group-hover:opacity-100"
-        />
+        <Icons.externalUrl className="text-tuatara-950 transition duration-200 group-hover:text-orange" />
       </div>
       <div className="p-[2px]"></div>
-      <p className="text-sm text-tuatara-500">{description}</p>
+      <p className="text-sm text-tuatara-500 ">{description}</p>
     </Link>
   )
 }
@@ -74,15 +73,12 @@ const ResourceCard = ({ id, title, children }: ResourceCardProps) => {
     <div
       id={id}
       data-section={id}
-      className="flex flex-col gap-4 rounded-lg p-6 backdrop-blur-md"
-      style={{
-        background: "rgba(255, 255, 255, 0.33",
-      }}
+      className="mx-auto flex max-w-[644px] flex-col rounded-lg"
     >
-      <h3 className="py-4 font-display text-xl font-bold text-tuatara-700 md:text-2xl">
-        {title}
-      </h3>
-      <div className="mb-4 grid gap-6">{children}</div>
+      <Label.Section label={title} className="pb-8 text-center" />
+      <div className="mb-4 grid gap-6 rounded-lg border border-tuatara-300 bg-anakiwa-100 px-10 py-8">
+        {children}
+      </div>
     </div>
   )
 }
@@ -199,7 +195,7 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
           </Link>
         }
       />
-      <AppContent className="container grid grid-cols-1 gap-6 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[4fr_1fr]">
+      <AppContent className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[4fr_1fr]">
         <div className="flex flex-col gap-6">
           <article className="flex flex-col space-y-8 ">
             <ResourcesContent
@@ -220,25 +216,33 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
           </div>
         </section>
       </AppContent>
-      <section className="relative border-t border-tuatara-600 bg-[#D0F2FF] py-32 text-center">
-        <AppContent className="flex flex-col gap-6">
+      <Banner
+        title={
           <h3 className="py-2 font-display text-[18px] font-bold text-tuatara-950 md:text-3xl">
             {t("addResourceQuestion")}
           </h3>
-          <Link
-            href={siteConfig.addGithubResource}
-            target="_blank"
-            rel="noreferrer"
-            passHref
-          >
-            <Button>
-              <div className="flex items-center gap-2">
-                <span className="text-[14px]">{t("addSource")}</span>
-              </div>
-            </Button>
-          </Link>
-        </AppContent>
-      </section>
+        }
+      >
+        <Link
+          href={siteConfig.links.discord}
+          className="pb-6"
+          target="_blank"
+          rel="noreferrer"
+          passHref
+        >
+          <Button>
+            <div className="flex items-center gap-1">
+              <Icons.discord size={18} />
+              <span className="text-[14px] uppercase">
+                {common("connectWithUsOnPlatform", {
+                  platform: "Discord",
+                })}
+              </span>
+              <Icons.externalUrl size={20} />
+            </div>
+          </Button>
+        </Link>
+      </Banner>
     </main>
   )
 }

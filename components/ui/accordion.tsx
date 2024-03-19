@@ -34,7 +34,7 @@ const Accordion = ({
           value={value}
           key={accordionIndex}
         >
-          <RadixAccordion.Trigger className="flex w-full items-center justify-between border-t border-t-black py-6 ring-0 focus:outline-none">
+          <RadixAccordion.Trigger className="flex w-full items-center justify-between border-t border-t-anakiwa-300 py-6 ring-0 focus:outline-none">
             <span className="block text-left font-sans text-base font-bold uppercase tracking-[3.36px] text-black md:text-xl md:tracking-[4.2px]">
               {label}
             </span>

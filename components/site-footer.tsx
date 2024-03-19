@@ -32,14 +32,6 @@ export function SiteFooter({ lang }: LangProps["params"]) {
 
   return (
     <footer className="flex flex-col">
-      <div className="flex flex-col divide-y divide-tuatara-200 px-8">
-        <div className="flex w-full flex-col items-center gap-5 py-8">
-          <Image src={PSELogo} alt="logo" width={133} height={133} />
-          <h1 className="py-2 text-center font-sans text-sm font-normal text-tuatara-950">
-            {t("footer.description")}
-          </h1>
-        </div>
-      </div>
       <div className="bg-tuatara-950 py-8 text-left text-[14px] uppercase text-white">
         <AppContent className="grid grid-cols-1 justify-between gap-8 bg-tuatara-950 py-2 text-white md:grid-cols-4 lg:px-40">
           <LinksWrapper>

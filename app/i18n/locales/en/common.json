@@ -72,5 +72,7 @@
   "showingProjectsWith": "Showing {{count}} projects with:",
   "connectWithUsOnPlatform": "Connect with us on {{platform}}",
   "addResource": "Add a resource",
-  "notCurrentlyActive": "Not Currently Active"
+  "notCurrentlyActive": "Not Currently Active",
+  "connectWithUs": "Connect with us",
+  "connectWithUsDescription": "Connect with our community on Discord to try out new apps, build with our tools, and contribute to projects!"
 }
