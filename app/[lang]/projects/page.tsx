@@ -22,9 +22,9 @@ export default async function ProjectsPage({ params: { lang } }: any) {
         <ProjectFiltersBar lang={lang} />
       </PageHeader>
 
-      <div className="w-full bg-anakiwa-100 pb-28">
-        <div className="container">
-          <div className="py-8">
+      <div className="w-full bg-white pb-28">
+        <div className="container flex flex-col gap-14 py-8">
+          <div>
             <ProjectResultBar lang={lang} />
           </div>
           <ProjectList lang={lang} />

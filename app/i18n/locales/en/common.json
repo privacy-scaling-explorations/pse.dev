@@ -70,5 +70,7 @@
   "whatDoYouWantDoToday": "What do you want to do today?",
   "showingProjects": "Showing {{count}} projects",
   "showingProjectsWith": "Showing {{count}} projects with:",
-  "connectWithUsOnPlatform": "Connect with us on {{platform}}"
+  "connectWithUsOnPlatform": "Connect with us on {{platform}}",
+  "addResource": "Add a resource",
+  "notCurrentlyActive": "Not Currently Active"
 }

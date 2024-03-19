@@ -11,6 +11,7 @@ import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Icons } from "@/components/icons"
+import { PageHeader } from "@/components/page-header"
 import { useTranslation } from "@/app/i18n/client"
 
 import ResourcesContent from "../content/resources.md"
@@ -166,35 +167,40 @@ const ResourceNav = ({ lang }: LangProps["params"]) => {
           })}
         </ul>
       </div>
-      <Link
-        href={siteConfig.addGithubResource}
-        target="_blank"
-        rel="noreferrer"
-        passHref
-      >
-        <Button size="lg" icon={Icons.gitHub}>
-          <span className="pl-2 text-left text-sm font-medium">
-            {t("editResources")}
-          </span>
-        </Button>
-      </Link>
     </div>
   )
 }
 
 export default function ResourcePage({ params: { lang } }: LangProps) {
   const { t } = useTranslation(lang, "resources-page")
+  const { t: common } = useTranslation(lang, "common")
 
   return (
-    <main className="bg-second-gradient">
+    <main className="bg-white">
+      <PageHeader
+        title={t("title")}
+        subtitle={t("subtitle")}
+        actions={
+          <Link
+            href={siteConfig.addGithubResource}
+            target="_blank"
+            rel="noreferrer"
+            passHref
+          >
+            <Button size="lg">
+              <div className="flex items-center gap-1">
+                <Icons.discord size={18} />
+                <span className="pl-2 text-left text-sm font-medium uppercase">
+                  {common("addResource")}
+                </span>
+                <Icons.externalUrl size={22} />
+              </div>
+            </Button>
+          </Link>
+        }
+      />
       <AppContent className="container grid grid-cols-1 gap-6 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[4fr_1fr]">
         <div className="flex flex-col gap-6">
-          <section className="flex flex-col gap-8">
-            <Label.PageTitle label={t("title")} />
-            <p className="font-sans text-base font-normal leading-[27px] text-tuatara-950">
-              {t("subtitle")}
-            </p>
-          </section>
           <article className="flex flex-col space-y-8 ">
             <ResourcesContent
               components={{

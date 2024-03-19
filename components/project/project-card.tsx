@@ -7,6 +7,7 @@ import { VariantProps, cva } from "class-variance-authority"
 
 import { ProjectInterface, ProjectLinkWebsite } from "@/lib/types"
 import { cn } from "@/lib/utils"
+import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
 
 import { Icons } from "../icons"
@@ -29,11 +30,11 @@ const TagsIconMapping: Record<string, any> = {
 }
 
 const projectCardVariants = cva(
-  "flex  w-[310px] cursor-pointer flex-col overflow-hidden rounded-lg transition duration-150 ease-in hover:scale-105",
+  "flex w-[310px] cursor-pointer flex-col overflow-hidden rounded-lg transition duration-150 ease-in hover:scale-105",
   {
     variants: {
       showLinks: {
-        true: "min-h-[460px]",
+        true: "min-h-[450px]",
         false: "min-h-[200px]",
       },
       border: {
@@ -51,9 +52,13 @@ export default function ProjectCard({
   className,
   lang,
 }: ProjectCardProps & { lang: LocaleTypes }) {
+  const { t } = useTranslation(lang, "common")
   const router = useRouter()
 
-  const { id, image, links, name, tldr, tags, imageAlt } = project
+  const { id, image, links, name, tldr, tags, imageAlt, projectStatus } =
+    project
+
+  const projectNotActive = projectStatus !== "active"
 
   return (
     <div
@@ -76,7 +81,7 @@ export default function ProjectCard({
           )}
         </div>
       )}
-      <div className="flex h-full flex-col justify-between gap-5 rounded-b-lg bg-white p-5">
+      <div className="flex h-full flex-col justify-between rounded-b-lg bg-white p-4">
         <div className="flex flex-col justify-start gap-2">
           <div className="mb-2 flex gap-2">
             {tags?.themes?.map((theme, index) => {
@@ -94,21 +99,30 @@ export default function ProjectCard({
             })}
           </div>
           <h1 className="text-xl font-bold text-black">{name}</h1>
-          <p className="text-slate-900/80">{tldr}</p>
-        </div>
-        {showLinks && (
-          <div className="mr-auto flex items-center justify-start gap-2">
-            {Object.entries(links ?? {})?.map(([website, url], index) => {
-              return (
-                <ProjectLink
-                  key={index}
-                  url={url}
-                  website={website as ProjectLinkWebsite}
-                />
-              )
-            })}
+          <div className="flex h-28 flex-col gap-4">
+            <p className="text-slate-900/80">{tldr}</p>
           </div>
-        )}
+        </div>
+        <div className="mt-auto flex justify-between">
+          {showLinks && (
+            <div className="flex items-center justify-start gap-3">
+              {Object.entries(links ?? {})?.map(([website, url], index) => {
+                return (
+                  <ProjectLink
+                    key={index}
+                    url={url}
+                    website={website as ProjectLinkWebsite}
+                  />
+                )
+              })}
+            </div>
+          )}
+          {projectNotActive && (
+            <span className="text-sm font-medium italic leading-[21px] text-tuatara-400">
+              {t("notCurrentlyActive")}
+            </span>
+          )}
+        </div>
       </div>
     </div>
   )
