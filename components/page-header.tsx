@@ -23,7 +23,7 @@ const PageHeader = ({
   image,
 }: PageHeaderProps) => {
   return (
-    <div className="bg-second-gradient">
+    <div className="bg-cover-gradient">
       <AppContent className="flex w-full flex-col gap-14 py-12 md:py-20">
         <div className="flex flex-col items-start justify-between gap-5 md:flex-row md:gap-28">
           <div className="flex w-full flex-col justify-center gap-8 md:max-w-[700px] lg:gap-14">
