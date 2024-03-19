@@ -75,5 +75,6 @@
   "addResource": "Add a resource",
   "notCurrentlyActive": "Not Currently Active",
   "connectWithUs": "Connect with us",
-  "connectWithUsDescription": "Connect with our community on Discord to try out new apps, build with our tools, and contribute to projects!"
+  "connectWithUsDescription": "Connect with our community on Discord to try out new apps, build with our tools, and contribute to projects!",
+  "joinOurDiscord": "Join our discord"
 }
