@@ -119,7 +119,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 )}
               </div>
             )}
-            <div className="mt-10 block h-[1px] w-full bg-anakiwa-300"></div>
+            <div className="mt-10 hidden h-[1px] w-full bg-anakiwa-300 md:block"></div>
           </div>
 
           <div className="mt-[50px] flex w-full flex-col gap-6">
