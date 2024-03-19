@@ -69,5 +69,6 @@
   "filters": "Filters",
   "whatDoYouWantDoToday": "What do you want to do today?",
   "showingProjects": "Showing {{count}} projects",
-  "showingProjectsWith": "Showing {{count}} projects with:"
+  "showingProjectsWith": "Showing {{count}} projects with:",
+  "connectWithUsOnPlatform": "Connect with us on {{platform}}"
 }
