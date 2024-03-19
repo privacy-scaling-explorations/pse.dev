@@ -30,7 +30,7 @@ const TagsIconMapping: Record<string, any> = {
 }
 
 const projectCardVariants = cva(
-  "flex w-[310px] cursor-pointer flex-col overflow-hidden rounded-lg transition duration-150 ease-in hover:scale-105",
+  "flex cursor-pointer flex-col overflow-hidden rounded-lg transition duration-150 ease-in hover:scale-105",
   {
     variants: {
       showLinks: {

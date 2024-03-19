@@ -92,7 +92,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   if (noItems) return <NoResults lang={lang} />
 
   return (
-    <div className="relative grid grid-cols-[1fr_200px] items-start justify-between gap-10">
+    <div className="relative grid grid-cols-1 items-start justify-between gap-10 md:grid-cols-[1fr_200px]">
       <div className="flex flex-col gap-14 md:gap-20">
         {ProjectSections.map((section) => {
           const sectionProjects =
@@ -124,7 +124,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
                 <div className="overflow-hidden">
                   <h3 className={cn(sectionTitleClass())}>{sectionTitle}</h3>
                 </div>
-                <div className="flex flex-wrap gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4">
                   {sectionProjects.map((project) => (
                     <ProjectCard
                       key={project?.id}
