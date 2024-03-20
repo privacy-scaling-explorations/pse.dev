@@ -2,6 +2,18 @@
 export const ProjectSections = ["pse", "grant", "collaboration"] as const
 export type ProjectSection = (typeof ProjectSections)[number]
 
+export const ProjectStatusList = ["active", "inactive"] as const
+export type ProjectStatusType = (typeof ProjectStatusList)[number]
+
+export const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
+  pse: "PSE projects",
+  grant: "Grants",
+  collaboration: "Collaborations",
+}
+export const ProjectStatusLabelMapping: Record<ProjectStatusType, string> = {
+  active: "Active",
+  inactive: "Not Currently Active",
+}
 export interface AnnounceInterface {
   id: number
   type?: number
@@ -50,7 +62,6 @@ export type ActionLinkType = Partial<
   Record<ProjectExtraLinkType, Array<ActionLinkTypeLink>>
 >
 
-export type ProjectStatusType = "active" | "inactive" | "archived"
 export interface ProjectInterface {
   id: string
   section: ProjectSection

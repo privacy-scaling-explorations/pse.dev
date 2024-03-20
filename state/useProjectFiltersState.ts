@@ -47,6 +47,7 @@ export const FilterTypeMapping: Partial<
   keywords: "checkbox",
   builtWith: "checkbox",
   themes: "button",
+  fundingSource: "checkbox",
 }
 interface ProjectStateProps {
   sortBy: ProjectSortBy

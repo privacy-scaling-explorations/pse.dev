@@ -1,6 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 
 import { LangProps } from "@/types/common"
@@ -176,6 +177,16 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
       <PageHeader
         title={t("title")}
         subtitle={t("subtitle")}
+        image={
+          <div className="m-auto flex h-[320px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[343px]">
+            <Image
+              width={343}
+              height={320}
+              src="/icons/resource-illustration.webp"
+              alt="illustrations"
+            />
+          </div>
+        }
         actions={
           <Link
             href={siteConfig.addGithubResource}

@@ -7,7 +7,11 @@ import { useProjectFiltersState } from "@/state/useProjectFiltersState"
 import { cva } from "class-variance-authority"
 
 import { LangProps } from "@/types/common"
-import { ProjectSection, ProjectSections } from "@/lib/types"
+import {
+  ProjectSection,
+  ProjectSectionLabelMapping,
+  ProjectSections,
+} from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { useTranslation } from "@/app/i18n/client"
 
@@ -33,12 +37,6 @@ const NoResults = ({ lang }: LangProps["params"]) => {
       </span>
     </div>
   )
-}
-
-export const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
-  pse: "PSE projects",
-  grant: "Grants",
-  collaboration: "Collaborations",
 }
 
 export const ProjectList = ({ lang }: LangProps["params"]) => {
@@ -92,7 +90,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   if (noItems) return <NoResults lang={lang} />
 
   return (
-    <div className="relative grid grid-cols-1 items-start justify-between gap-8 md:gap-10 md:grid-cols-[1fr_200px]">
+    <div className="relative grid grid-cols-1 items-start justify-between gap-8 md:grid-cols-[1fr_200px] md:gap-10">
       <div className="flex flex-col gap-10 md:gap-20">
         {ProjectSections.map((section) => {
           const sectionProjects =

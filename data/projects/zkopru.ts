@@ -8,7 +8,7 @@ export const Zkopru: ProjectInterface = {
   tldr: "Optimistic Rollup with zk-SNARKs for private Ethereum transactions.",
   description:
     "ZKOPRU is one of the initial projects of EF's PSE team. It is a Layer 2 scaling solution for Ethereum, emphasizing private transactions through zk-SNARKs and optimistic rollups. It provides an economical Ethereum privacy wallet, enabling users to transact with ETH, ERC-20s, and NFTs anonymously",
-  projectStatus: "archived",
+  projectStatus: "inactive",
   links: {
     website: "https://zkopru.network/",
     github: "https://github.com/zkopru-network",
