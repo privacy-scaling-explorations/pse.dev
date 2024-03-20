@@ -18,7 +18,21 @@ export default async function ProjectsPage({ params: { lang } }: any) {
 
   return (
     <>
-      <PageHeader title={t("title")} subtitle={t("subtitle")}>
+      <PageHeader
+        title={t("title")}
+        subtitle={t("subtitle")}
+        image={
+          <div className="mx-auto lg:absolute lg:right-36">
+            <Image
+              width={280}
+              height={280}
+              className="mx-auto w-[160px] md:w-[180px] lg:ml-auto lg:w-[200px] xl:w-[260px]"
+              src="/icons/lens.webp"
+              alt="lens icon"
+            />
+          </div>
+        }
+      >
         <ProjectFiltersBar lang={lang} />
       </PageHeader>
 

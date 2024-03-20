@@ -24,7 +24,7 @@ const PageHeader = ({
 }: PageHeaderProps) => {
   return (
     <div className="bg-cover-gradient">
-      <AppContent className="flex w-full flex-col gap-10 py-10 md:gap-14 md:py-20">
+      <AppContent className="relative flex w-full flex-col gap-10 py-10 md:gap-14 md:py-20">
         <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:gap-28">
           <div className="flex w-full flex-col justify-center gap-6 md:max-w-[700px] md:gap-8 lg:gap-14">
             <div className="flex flex-col gap-4 md:gap-8">
