@@ -7,13 +7,12 @@ import {
   ProjectFilter,
 } from "@/state/useProjectFiltersState"
 
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectSectionLabelMapping } from "@/lib/types"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
 
 import { CategoryTag } from "../ui/categoryTag"
 import { ThemesStatusMapping } from "./project-filters-bar"
-import { ProjectSectionLabelMapping } from "./project-list"
 
 interface TagsProps extends HtmlHTMLAttributes<HTMLDivElement> {
   label: string
