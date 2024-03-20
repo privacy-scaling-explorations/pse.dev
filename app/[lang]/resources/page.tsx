@@ -183,7 +183,7 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
             rel="noreferrer"
             passHref
           >
-            <Button size="lg">
+            <Button className="w-full md:w-auto" size="lg">
               <div className="flex items-center gap-1">
                 <Icons.discord size={18} />
                 <span className="pl-2 text-left text-sm font-medium uppercase">

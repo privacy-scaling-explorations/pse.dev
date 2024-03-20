@@ -64,7 +64,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   return (
     <section className="flex flex-col items-center bg-project-page-gradient">
-      <div className="flex w-full flex-col items-center justify-center gap-5 px-6 py-16 md:px-0">
+      <div className="flex w-full flex-col items-center justify-center gap-5 px-6 py-8 md:px-0 md:py-16">
         <div className=" w-full md:max-w-[644px]">
           <div className="flex flex-col">
             <div className="flex flex-col gap-6 text-left">
@@ -122,7 +122,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <div className="mt-10 hidden h-[1px] w-full bg-anakiwa-300 md:block"></div>
           </div>
 
-          <div className="mt-[50px] flex w-full flex-col gap-6">
+          <div className="mt-6 flex w-full flex-col gap-6 md:mt-[50px]">
             <div className="relative flex items-center justify-center overflow-hidden rounded-lg">
               <Image
                 src={`/project-banners/${
@@ -134,7 +134,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 className="w-full rounded-t-lg object-cover"
               />
               {!currProject?.image && (
-                <span className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 transform px-5 text-center text-3xl font-bold text-black">
+                <span className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-5 text-center text-3xl font-bold text-black">
                   {currProject?.imageAlt || currProject?.name}
                 </span>
               )}

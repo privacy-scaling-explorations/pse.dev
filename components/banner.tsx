@@ -10,8 +10,8 @@ type BannerProps = {
 
 const Banner = ({ title, subtitle, children }: BannerProps) => {
   return (
-    <section className="relative border-t border-tuatara-600 bg-anakiwa-default text-center">
-      <div className="bg-classic-gradient py-16">
+    <section className="relative border-t border-tuatara-600 bg-cover-gradient text-center">
+      <div className="py-16">
         <AppContent className="flex flex-col gap-6">
           <div className="flex flex-col items-center text-center">
             {typeof title === "string" ? (

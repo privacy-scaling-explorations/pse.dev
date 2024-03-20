@@ -36,27 +36,23 @@ export default function DiscoverMoreProjects({ project, lang }: ProjectProps) {
   const suggestedProject = getSuggestedProjects()
 
   return (
-    <div className="w-full bg-anakiwa-300">
-      <div className="bg-classic-gradient">
-        <div className="mx-auto flex w-full max-w-[644px] flex-col items-center justify-center gap-14 px-6 py-16 md:px-0">
-          <h2 className="text-center text-3xl font-bold">
-            {t("discoverMore")}
-          </h2>
-          <div className="grid grid-cols-1 flex-col gap-5 md:grid-cols-2 md:flex-row">
-            {suggestedProject?.map((project: ProjectInterface) => (
-              <ProjectCard border project={project} lang={lang} />
-            ))}
-          </div>
-          <Link
-            className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950"
-            href={`/${lang}/projects`}
-          >
-            <Icons.arrowLeft />
-            <span className="font-sans text-base">
-              {t("backToProjectLibrary")}
-            </span>
-          </Link>
+    <div className="w-ful bg-cover-gradient">
+      <div className="mx-auto flex w-full max-w-[644px] flex-col items-center justify-center gap-14 px-6 py-12 md:px-0 md:py-16">
+        <h2 className="text-center text-3xl font-bold">{t("discoverMore")}</h2>
+        <div className="grid grid-cols-1 flex-col gap-5 md:grid-cols-2 md:flex-row">
+          {suggestedProject?.map((project: ProjectInterface) => (
+            <ProjectCard border project={project} lang={lang} />
+          ))}
         </div>
+        <Link
+          className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950"
+          href={`/${lang}/projects`}
+        >
+          <Icons.arrowLeft />
+          <span className="font-sans text-base">
+            {t("backToProjectLibrary")}
+          </span>
+        </Link>
       </div>
     </div>
   )
