@@ -7,7 +7,11 @@ import { useProjectFiltersState } from "@/state/useProjectFiltersState"
 import { cva } from "class-variance-authority"
 
 import { LangProps } from "@/types/common"
-import { ProjectSection, ProjectSections } from "@/lib/types"
+import {
+  ProjectSection,
+  ProjectSectionLabelMapping,
+  ProjectSections,
+} from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { useTranslation } from "@/app/i18n/client"
 
@@ -33,12 +37,6 @@ const NoResults = ({ lang }: LangProps["params"]) => {
       </span>
     </div>
   )
-}
-
-const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
-  pse: "PSE projects",
-  grant: "Grants",
-  collaboration: "Collaborations",
 }
 
 export const ProjectList = ({ lang }: LangProps["params"]) => {
@@ -92,8 +90,8 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   if (noItems) return <NoResults lang={lang} />
 
   return (
-    <div className="relative grid grid-cols-[1fr_200px] items-start justify-between gap-10">
-      <div className="flex flex-col gap-14 md:gap-20">
+    <div className="relative grid grid-cols-1 items-start justify-between gap-8 md:grid-cols-[1fr_200px] md:gap-10">
+      <div className="flex flex-col gap-10 md:gap-20">
         {ProjectSections.map((section) => {
           const sectionProjects =
             projects.filter(
@@ -118,13 +116,13 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
               <div
                 className={cn(
                   "flex w-full flex-col",
-                  hasProjectsForSection ? "gap-10" : "gap-2"
+                  hasProjectsForSection ? "gap-6 md:gap-10" : "gap-2"
                 )}
               >
                 <div className="overflow-hidden">
                   <h3 className={cn(sectionTitleClass())}>{sectionTitle}</h3>
                 </div>
-                <div className="flex flex-wrap gap-6">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 3xl:grid-cols-4">
                   {sectionProjects.map((project) => (
                     <ProjectCard
                       key={project?.id}

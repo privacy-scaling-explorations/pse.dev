@@ -8,7 +8,11 @@ import { uniq } from "@/lib/utils"
 import { LocaleTypes, fallbackLng } from "@/app/i18n/settings"
 
 export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
-export type ProjectFilter = "keywords" | "builtWith" | "themes"
+export type ProjectFilter =
+  | "keywords"
+  | "builtWith"
+  | "themes"
+  | "fundingSource"
 export type FiltersProps = Record<ProjectFilter, string[]>
 export const DEFAULT_PROJECT_SORT_BY: ProjectSortBy = "asc"
 interface ProjectInterfaceScore extends ProjectInterface {
@@ -33,13 +37,17 @@ export const FilterLabelMapping = (
     keywords: t("filterLabels.keywords"),
     builtWith: t("filterLabels.builtWith"),
     themes: t("filterLabels.themes"),
+    fundingSource: t("filterLabels.fundingSource"),
   }
 }
 
-export const FilterTypeMapping: Record<ProjectFilter, "checkbox" | "button"> = {
+export const FilterTypeMapping: Partial<
+  Record<ProjectFilter, "checkbox" | "button">
+> = {
   keywords: "checkbox",
   builtWith: "checkbox",
   themes: "button",
+  fundingSource: "checkbox",
 }
 interface ProjectStateProps {
   sortBy: ProjectSortBy
@@ -83,6 +91,7 @@ const getProjectFilters = (): FiltersProps => {
     themes: ["play", "build", "research"],
     keywords: [],
     builtWith: [],
+    fundingSource: [],
   }
 
   // get list of all tags from project list

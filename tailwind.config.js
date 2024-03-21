@@ -8,19 +8,23 @@ module.exports = {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+
     },
     extend: {
+      screens: {
+        "2xl": "1400px",
+        "3xl": "1600px",
+        "medium": "978px",
+      },
       translate: {
         center: "translate(-50%, -50%)",
       },
       backgroundImage: {
         "main-gradient":
           "radial-gradient(114.29% 42.52% at 103.66% 58.94%, #D0F8F1 0%, #D1F3FF 18.23%, #ECF8FF 51.28%, #E1FFFA 80.21%, #D0F2FF 93.23%)",
-        "second-gradient":
-          "radial-gradient(56.07% 115.65% at 93.66% 158.94%, #D0F8F1 0%, #D1F3FF 18.23%, #ECF8FF 51.28%, #E1FFFA 80.21%, #D0F2FF 93.23%)",
+        "cover-gradient": "linear-gradient(84deg, #FFF -1.95%, #C2E8F5 59.98%, #FFF 100.64%)",
+        "classic-gradient": "radial-gradient(325.52% 79.63% at 100% -0.02%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(205.45% 61.89% at 2.34% 99.98%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)",
+        "project-page-gradient": "linear-gradient(180deg, #C2E8F5 -17.44%, #FFF 17.72%)"
       },
       colors: {
         corduroy: "#4A5754",
@@ -30,6 +34,7 @@ module.exports = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         anakiwa: {
+          default: "#D0F2FF",
           50: "#F2FAFD",
           100: "hsl(var(--anakiwa))",
           100: "#E4F3FA",
@@ -45,6 +50,8 @@ module.exports = {
         tuatara: {
           100: "#E5E6E8",
           200: "#CDCFD4",
+          300: "#AAADB6",
+          400: "#808590",
           500: "#656A75",
           600: "#565964",
           700: "#4A4C54",

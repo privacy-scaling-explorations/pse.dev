@@ -15,6 +15,12 @@ import i18next from "i18next"
 import { useDebounce } from "react-use"
 
 import { IThemeStatus, IThemesButton, LangProps } from "@/types/common"
+import {
+  ProjectSectionLabelMapping,
+  ProjectSections,
+  ProjectStatusLabelMapping,
+  ProjectStatusList,
+} from "@/lib/types"
 import { cn, queryStringToObject } from "@/lib/utils"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
@@ -30,11 +36,12 @@ import { Modal } from "../ui/modal"
 interface FilterWrapperProps {
   label: string
   children?: ReactNode
+  className?: string
 }
 
-const FilterWrapper = ({ label, children }: FilterWrapperProps) => {
+const FilterWrapper = ({ label, children, className }: FilterWrapperProps) => {
   return (
-    <div className="flex flex-col gap-4 py-6">
+    <div className={cn("flex flex-col gap-4 py-6", className)}>
       <span className="text-xl font-bold">{label}</span>
       {children}
     </div>
@@ -68,7 +75,7 @@ export const ThemesStatusMapping = (lang: LocaleTypes): IThemeStatus => {
       label: t("status.active"),
       icon: <Icons.checkActive />,
     },
-    archived: {
+    inactive: {
       label: t("status.inactive"),
       icon: <Icons.archived />,
     },
@@ -190,83 +197,103 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
         open={showModal}
         setOpen={setShowModal}
       >
-        {Object.entries(filters).map(([key, items]) => {
-          const filterLabel =
-            FilterLabelMapping(lang)?.[key as ProjectFilter] ?? ""
-          const type = FilterTypeMapping?.[key as ProjectFilter]
-          const hasItems = items.length > 0
+        <div className="flex flex-col divide-y divide-tuatara-200">
+          {Object.entries(filters).map(([key, items]) => {
+            const filterLabel =
+              FilterLabelMapping(lang)?.[key as ProjectFilter] ?? ""
+            const type = FilterTypeMapping?.[key as ProjectFilter]
+            const hasItems = items.length > 0
 
-          const hasActiveThemeFilters =
-            (activeFilters?.themes ?? [])?.length > 0
+            const hasActiveThemeFilters =
+              (activeFilters?.themes ?? [])?.length > 0
 
-          if (key === "themes" && !hasActiveThemeFilters) return null
+            if (key === "themes" && !hasActiveThemeFilters) return null
 
-          return (
-            hasItems && (
-              <FilterWrapper key={key} label={filterLabel}>
-                <div
-                  className={cn("gap-y-2", {
-                    "grid grid-cols-1 gap-2 md:grid-cols-3":
-                      type === "checkbox",
-                    "flex gap-x-4 flex-wrap": type === "button",
-                  })}
-                >
-                  {items.map((item) => {
-                    const isActive =
-                      activeFilters?.[key as ProjectFilter]?.includes(item)
+            return (
+              hasItems && (
+                <FilterWrapper key={key} label={filterLabel}>
+                  <div
+                    className={cn("gap-y-2", {
+                      "grid grid-cols-1 gap-2 md:grid-cols-3":
+                        type === "checkbox",
+                      "flex gap-x-4 flex-wrap": type === "button",
+                    })}
+                  >
+                    {items.map((item) => {
+                      const isActive =
+                        activeFilters?.[key as ProjectFilter]?.includes(item)
 
-                    if (type === "checkbox") {
-                      return (
-                        <Checkbox
-                          key={item}
-                          onClick={() =>
-                            toggleFilter({
-                              tag: key as ProjectFilter,
-                              value: item,
-                              searchQuery,
-                            })
-                          }
-                          name={item}
-                          label={item}
-                          checked={isActive}
-                        />
-                      )
-                    }
-
-                    if (type === "button") {
-                      const { icon, label } = ThemesButtonMapping(lang)[item]
-                      if (!isActive) return null
-                      return (
-                        <div>
-                          <CategoryTag
-                            variant="selected"
-                            closable
-                            onClose={() => {
+                      if (type === "checkbox") {
+                        return (
+                          <Checkbox
+                            key={item}
+                            onClick={() =>
                               toggleFilter({
-                                tag: "themes",
+                                tag: key as ProjectFilter,
                                 value: item,
                                 searchQuery,
                               })
-                            }}
-                          >
-                            <div className="flex items-center gap-2">
-                              {icon}
-                              <span className="font-sans text-sm md:text-base">
-                                {label}
-                              </span>
-                            </div>
-                          </CategoryTag>
-                        </div>
-                      )
-                    }
+                            }
+                            name={item}
+                            label={item}
+                            checked={isActive}
+                          />
+                        )
+                      }
 
-                    return null
-                  })}
-                </div>
-              </FilterWrapper>
+                      if (type === "button") {
+                        const { icon, label } = ThemesButtonMapping(lang)[item]
+                        if (!isActive) return null
+                        return (
+                          <div>
+                            <CategoryTag
+                              variant="selected"
+                              closable
+                              onClose={() => {
+                                toggleFilter({
+                                  tag: "themes",
+                                  value: item,
+                                  searchQuery,
+                                })
+                              }}
+                            >
+                              <div className="flex items-center gap-2">
+                                {icon}
+                                <span className="font-sans text-sm md:text-base">
+                                  {label}
+                                </span>
+                              </div>
+                            </CategoryTag>
+                          </div>
+                        )
+                      }
+
+                      return null
+                    })}
+                  </div>
+                </FilterWrapper>
+              )
             )
-          )
-        })}
+          })}
+          <FilterWrapper
+            className="hidden"
+            label={t("filterLabels.fundingSource")}
+          >
+            {ProjectSections.map((section) => {
+              const label = ProjectSectionLabelMapping[section]
+              return <Checkbox key={section} name={section} label={label} />
+            })}
+          </FilterWrapper>
+          <FilterWrapper
+            className="hidden"
+            label={t("filterLabels.projectStatus")}
+          >
+            {ProjectStatusList.map((section) => {
+              const label = ProjectStatusLabelMapping[section]
+              return <Checkbox key={section} name={section} label={label} />
+            })}
+          </FilterWrapper>
+        </div>
       </Modal>
       <div className="flex flex-col gap-6">
         <span className="text-lg font-medium">{t("whatDoYouWantDoToday")}</span>
