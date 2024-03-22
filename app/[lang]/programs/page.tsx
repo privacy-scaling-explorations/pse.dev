@@ -610,6 +610,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
               </div>
             </div>
           </div>
+          <div className="lg:w-[320px]"></div>
         </AppContent>
       </div>
     </div>
