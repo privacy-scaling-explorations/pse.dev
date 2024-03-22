@@ -337,7 +337,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                         id="curriculum"
                         size="xs"
                         className="!border-none"
-                        iconOnHover={false}
+                        iconOnHover
                         items={[
                           {
                             label: (
@@ -383,7 +383,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                       <Accordion
                         size="xs"
                         className="!border-none"
-                        iconOnHover={false}
+                        iconOnHover
                         items={[
                           {
                             label: <AccordionLabel label={t("common.faq")} />,
@@ -507,7 +507,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                   id="howToApply"
                   size="xs"
                   className="!border-none"
-                  iconOnHover={false}
+                  iconOnHover
                   items={[
                     {
                       label: <AccordionLabel label={t("common.howToApply")} />,
@@ -578,7 +578,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                   id="faq"
                   size="xs"
                   className="!border-none"
-                  iconOnHover={false}
+                  iconOnHover
                   items={[
                     {
                       label: <AccordionLabel label={t("common.faq")} />,
