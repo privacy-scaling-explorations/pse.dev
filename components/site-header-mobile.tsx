@@ -107,7 +107,7 @@ export function SiteHeaderMobile({ lang }: LangProps["params"]) {
           </div>
           <div className="flex w-full flex-col px-[16px] text-base font-medium">
             {MAIN_NAV.map((item, index) => {
-              if (item.onlyHeader) return null
+              if (item.onlyFooter) return null
 
               return (
                 <NextLink

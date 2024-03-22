@@ -37,6 +37,7 @@ export function useAppSettings(lang: LocaleTypes) {
       title: t("menu.blog"),
       href: "https://mirror.xyz/privacy-scaling-explorations.eth",
       external: true,
+      onlyHeader: true,
     },
   ]
 
