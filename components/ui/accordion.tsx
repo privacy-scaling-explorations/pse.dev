@@ -76,7 +76,11 @@ const Accordion = ({
               ) : (
                 label
               )}
-              <div className="absolute right-0 top-2 md:top-5">
+              <div
+                className={cn("absolute right-0 flex items-center", {
+                  "top-[10px]": size === "xs",
+                })}
+              >
                 <Icons.plus
                   data-icon="plus"
                   className={cn("duration-200", {
