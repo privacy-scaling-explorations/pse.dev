@@ -48,7 +48,7 @@ const ConnectWithUs = ({ lang }: ConnectWithUsProps) => {
                 width={280}
                 height={280}
                 className="mx-auto h-[148px] w-[190px] lg:ml-auto lg:h-[247px] lg:w-[320px]"
-                src="/images/computer.png"
+                src="/images/programs.png"
                 alt="computer image"
               />
             </div>

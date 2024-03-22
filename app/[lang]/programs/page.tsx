@@ -210,7 +210,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
               width={280}
               height={280}
               className="mx-auto h-[210px] w-[276px] lg:ml-auto lg:h-[350px] lg:w-[460px]"
-              src="/images/computer.png"
+              src="/images/programs.png"
               alt="computer image"
             />
           }
