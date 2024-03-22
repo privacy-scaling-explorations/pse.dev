@@ -9,7 +9,7 @@ Using anonymous identifiers (epoch keys), the protocol allows for trustless enga
 export const unirepProtocol: ProjectInterface = {
   id: "unirep-protocol",
   section: "pse",
-  projectStatus: "archived",
+  projectStatus: "inactive",
   image: "unirep.svg",
   name: "UniRep Protocol",
   tldr: "A Zero-Knowledge Protocol built to handle anonymous user data.",
@@ -26,22 +26,22 @@ export const unirepProtocol: ProjectInterface = {
     types: ["Legos/dev tools, Protocol"],
     builtWith: ["semaphore", "circom"],
   },
-   extraLinks: {
+  extraLinks: {
     buildWith: [
       {
         label: "Getting Started with create-unirep-app",
-        url: 'https://developer.unirep.io/docs/next/getting-started/create-unirep-app',
+        url: "https://developer.unirep.io/docs/next/getting-started/create-unirep-app",
       },
     ],
     play: [
       {
         label: "Try it out: UniRep.social (Staging)",
-        url: 'https://social-staging.unirep.workers.dev',
+        url: "https://social-staging.unirep.workers.dev",
       },
       {
         label: "Try it out: Trustlist (coming soon) ",
-        url: 'https://trustlist.pse.dev',
-      }
+        url: "https://trustlist.pse.dev",
+      },
     ],
   },
 }

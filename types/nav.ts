@@ -4,5 +4,6 @@ export interface NavItem {
   disabled?: boolean
   external?: boolean
   onlyFooter?: boolean
-  order?: number // user for footer column order
+  onlyHeader?: boolean
+  onlyMobile?: boolean
 }

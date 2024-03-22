@@ -7,7 +7,7 @@ import {
   ProjectFilter,
 } from "@/state/useProjectFiltersState"
 
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectSectionLabelMapping } from "@/lib/types"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
 
@@ -20,7 +20,7 @@ interface TagsProps extends HtmlHTMLAttributes<HTMLDivElement> {
 
 const TagsWrapper = ({ label, children }: TagsProps) => {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-col items-start md:flex-row md:items-center md:gap-2">
       <span className="py-2 text-base font-medium ">{label}</span>
       {children}
     </div>
@@ -69,6 +69,13 @@ export function ProjectTags({ project, lang }: IProjectTags) {
           <div className="flex items-center gap-1">
             {icon}
             {label}
+          </div>
+        </CategoryTag>
+      </TagsWrapper>
+      <TagsWrapper label={t("filterLabels.fundingSource")}>
+        <CategoryTag variant="gray" size="default">
+          <div className="flex items-center gap-1">
+            {ProjectSectionLabelMapping[project?.section]}
           </div>
         </CategoryTag>
       </TagsWrapper>

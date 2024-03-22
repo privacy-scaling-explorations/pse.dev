@@ -25,15 +25,13 @@ export function ProjectLink({ website, url }: ProjectLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="rounded bg-[#F5F5F6] px-4 py-1">
-        <Image
-          src={image}
-          alt={`${website}Vector`}
-          className="cursor-pointer"
-          width={18}
-          height={18}
-        />
-      </div>
+      <Image
+        src={image}
+        alt={`${website}Vector`}
+        className="h-5 cursor-pointer text-black"
+        width={20}
+        height={20}
+      />
     </a>
   )
 }

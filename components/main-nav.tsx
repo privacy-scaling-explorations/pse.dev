@@ -25,8 +25,8 @@ export function MainNav({ items, lang = fallbackLng }: MainNavProps) {
       <nav className="hidden items-center gap-6 md:flex">
         {items.map((item, index) => {
           if (item?.onlyFooter) return null
+          if (item?.onlyMobile) return null
 
-          // if (item.href.includes("http")) return
           const langKey = `/${lang}`
           const pathParts = item.href
             .replace(langKey, "")
@@ -45,13 +45,16 @@ export function MainNav({ items, lang = fallbackLng }: MainNavProps) {
               key={index}
               href={item.href}
               target={item.external ? "_blank" : undefined}
-              className={cn("flex items-center border-b-2 uppercase", {
-                "cursor-not-allowed": item.disabled,
-                "border-transparent": item.href !== router,
-                "!border-orange": item.href === router || isActive,
-                "text-sm font-medium duration-200 ease-in-out hover:border-orange":
-                  true,
-              })}
+              className={cn(
+                "flex cursor-pointer items-center border-b-2 uppercase",
+                {
+                  "cursor-not-allowed": item.disabled,
+                  "border-transparent": item.href !== router,
+                  "!border-orange": item.href === router || isActive,
+                  "text-sm font-medium duration-200 ease-in-out hover:border-orange":
+                    true,
+                }
+              )}
             >
               {item.title}
             </Link>

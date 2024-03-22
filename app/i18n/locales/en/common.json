@@ -30,7 +30,8 @@
     "keywords": "Keywords",
     "builtWith": "Built with",
     "themes": "Themes selected",
-    "projectStatus": "Project status"
+    "projectStatus": "Project status",
+    "fundingSource": "Funding source"
   },
   "error": {
     "404": {
@@ -77,5 +78,9 @@
   "ourYearProgram": "Our {{year}} program",
   "onThisPage": "On this page",
   "howToApply": "How to apply",
-  "chooseProgram": "Choose your program"
+  "chooseProgram": "Choose your program",
+  "connectWithUsOnPlatform": "Connect with us on {{platform}}",
+  "addResource": "Add a resource",
+  "notCurrentlyActive": "Not Currently Active",
+  "joinOurDiscord": "Join our discord"
 }

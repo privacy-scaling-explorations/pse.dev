@@ -34,8 +34,8 @@ export const WhatWeDo = ({ lang }: LangProps["params"]) => {
   ]
 
   return (
-    <>
-      <AppContent>
+    <div className="border-t border-tuatara-600 bg-cover-gradient">
+      <AppContent className="mx-auto max-w-[978px]">
         <section className="flex flex-col gap-16 py-16 md:pb-24">
           <div className="flex flex-col text-center">
             <h6 className="py-6 font-sans text-base font-bold uppercase tracking-[4px] text-tuatara-950">
@@ -48,7 +48,7 @@ export const WhatWeDo = ({ lang }: LangProps["params"]) => {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {content.map((item, index) => (
               <article
-                className="flex flex-col gap-2 rounded-[6px] border border-tuatara-300 bg-white px-8 py-4"
+                className="border-tuatara-300 flex flex-col gap-2 rounded-[6px] border bg-white px-8 py-4"
                 key={index}
               >
                 <div className="flex items-center gap-2">
@@ -65,6 +65,6 @@ export const WhatWeDo = ({ lang }: LangProps["params"]) => {
           </div>
         </section>
       </AppContent>
-    </>
+    </div>
   )
 }

@@ -1,5 +1,7 @@
 import { Metadata } from "next"
+import Image from "next/image"
 
+import { PageHeader } from "@/components/page-header"
 import ProjectFiltersBar from "@/components/project/project-filters-bar"
 import { ProjectList } from "@/components/project/project-list"
 import { ProjectResultBar } from "@/components/project/project-result-bar"
@@ -16,25 +18,27 @@ export default async function ProjectsPage({ params: { lang } }: any) {
 
   return (
     <>
-      <div className="bg-anakiwa-200">
-        <div className="container mx-auto py-10 lg:py-20">
-          <div className="flex flex-col justify-between gap-10">
-            <div>
-              <h1 className="font-display text-4xl font-bold text-tuatara-950 md:text-5xl"></h1>
-              <p className="p-2"></p>
-              <p className="w-full text-lg md:w-[612px] md:text-xl">
-                {t("subtitle")}
-              </p>
-            </div>
-            <div className="h-[1px] w-20 bg-anakiwa-500"></div>
-            <ProjectFiltersBar lang={lang} />
+      <PageHeader
+        title={t("title")}
+        subtitle={t("subtitle")}
+        image={
+          <div className="mx-auto lg:absolute lg:right-36">
+            <Image
+              width={280}
+              height={280}
+              className="mx-auto w-[160px] md:w-[180px] lg:ml-auto lg:w-[200px] xl:w-[260px]"
+              src="/icons/lens.webp"
+              alt="lens icon"
+            />
           </div>
-        </div>
-      </div>
+        }
+      >
+        <ProjectFiltersBar lang={lang} />
+      </PageHeader>
 
-      <div className="w-full bg-anakiwa-100 pb-28">
-        <div className="container">
-          <div className="py-8">
+      <div className="w-full bg-white pb-28">
+        <div className="container flex flex-col gap-14 py-8">
+          <div>
             <ProjectResultBar lang={lang} />
           </div>
           <ProjectList lang={lang} />

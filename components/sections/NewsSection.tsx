@@ -64,7 +64,7 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
         <h3 className="text-base font-bold font-sans text-center uppercase tracking-[3.36px]">
           {t("recentUpdates")}
         </h3>
-        <AppContent className="flex flex-col gap-4">
+        <AppContent className="mx-auto flex max-w-[978px] flex-col gap-4">
           <div className="flex gap-6 flex-col border border-tuatara-950 bg-anakiwa-100 p-6 rounded-[8px] ">
             <div className="flex items-center pb-6 border-b border-b-anakiwa-400 justify-between">
               {!loading ? (
