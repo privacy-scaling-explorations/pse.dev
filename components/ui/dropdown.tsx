@@ -37,6 +37,8 @@ const Dropdown = ({
     if (typeof onChange === "function") onChange(value)
   }
 
+  const selectedLabel = items?.find((item) => item.value === selected)?.label
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild disabled={disabled}>
@@ -48,7 +50,7 @@ const Dropdown = ({
         >
           <div className="flex items-center gap-1">
             <span className="break-words text-sm font-medium text-tuatara-950">
-              {label}
+              {selectedLabel ?? label}
             </span>
             <div className="ml-auto">
               <Icons.arrowDown />

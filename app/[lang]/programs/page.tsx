@@ -124,9 +124,10 @@ export default function ProgramsPage({ params: { lang } }: any) {
   const { t: common } = useTranslation(lang, "common")
   const [activeId, setActiveId] = useState("")
   const [isManualScroll, setIsManualScroll] = useState(false)
-  const [selectedProgram, setSelectedProgram] = useState("")
+  const [selectedProgram, setSelectedProgram] = useState(ChooseProgramItems[0].value)
   const SCROLL_OFFSET = -400
   const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null)
+  const [{ value: defaultProgramValue }] = ChooseProgramItems
 
   const howToApply: any =
     t("howToApply", {
@@ -202,48 +203,52 @@ export default function ProgramsPage({ params: { lang } }: any) {
   return (
     <div className="flex flex-col">
       <div className="bg-second-gradient">
-        <PageHeader
-          title={t("title")}
-          subtitle={t("description")}
-          image={
-            <Image
-              width={280}
-              height={280}
-              className="mx-auto h-[210px] w-[276px] lg:ml-auto lg:h-[350px] lg:w-[460px]"
-              src="/images/programs.png"
-              alt="computer image"
-            />
-          }
-          actions={
-            <div className="flex flex-col gap-6 md:max-w-xs">
-              <div className="flex flex-col gap-1">
-                <span className="text-xs">{common("chooseProgram")}*</span>
-                <Dropdown
-                  className="border border-tuatara-300 bg-white py-2 pl-6 pr-4"
-                  label={
-                    !selectedProgram
-                      ? `${common("chooseProgram")}`
-                      : selectedProgramLabel
-                  }
-                  items={ChooseProgramItems as DropdownProps["items"]}
-                  width={320}
-                  onChange={(value: any) => setSelectedProgram(value)}
-                  defaultItem={ChooseProgramItems[0].value}
-                />
-              </div>
-              {!selectedProgram ? (
-                <ApplyButton />
-              ) : (
-                <Link
-                  target="_blank"
-                  href={siteConfig.links.applyContributionProgram}
-                >
-                  <ApplyButton />
-                </Link>
-              )}
-            </div>
-          }
-        />
+        {defaultProgramValue && (
+          <PageHeader
+            title={t("title")}
+            subtitle={t("description")}
+            image={
+              <Image
+                width={280}
+                height={280}
+                className="mx-auto h-[210px] w-[276px] lg:ml-auto lg:h-[350px] lg:w-[460px]"
+                src="/images/programs.png"
+                alt="computer image"
+              />
+            }
+            actions={
+              defaultProgramValue && (
+                <div className="flex flex-col gap-6 md:max-w-xs">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-xs">{common("chooseProgram")}*</span>
+                    <Dropdown
+                      className="border border-tuatara-300 bg-white py-2 pl-6 pr-4"
+                      label={
+                        !selectedProgram
+                          ? `${common("chooseProgram")}`
+                          : selectedProgramLabel
+                      }
+                      items={ChooseProgramItems as DropdownProps["items"]}
+                      width={320}
+                      onChange={(value: any) => setSelectedProgram(value)}
+                      defaultItem={defaultProgramValue}
+                    />
+                  </div>
+                  {!selectedProgram ? (
+                    <ApplyButton />
+                  ) : (
+                    <Link
+                      target="_blank"
+                      href={siteConfig.links.applyContributionProgram}
+                    >
+                      <ApplyButton />
+                    </Link>
+                  )}
+                </div>
+              )
+            }
+          />
+        )}
       </div>
       <AppContent className="relative mx-auto flex w-full items-start">
         <div className="flex w-full flex-col">
