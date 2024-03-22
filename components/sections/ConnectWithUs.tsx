@@ -25,7 +25,7 @@ const ConnectWithUs = ({ lang }: ConnectWithUsProps) => {
             year: new Date().getFullYear(),
           })}
         </h3>
-        <AppContent>
+        <AppContent className="mx-auto max-w-[978px]">
           <Card className="!px-10 !py-16">
             <div className="bg-radial-gradient grid grid-cols-1 gap-8 md:grid-cols-[2fr_1fr] md:gap-4">
               <div className="flex flex-col gap-8 text-center md:text-left">

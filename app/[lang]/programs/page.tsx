@@ -12,9 +12,9 @@ import { Accordion } from "@/components/ui/accordion"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Dropdown, DropdownProps } from "@/components/ui/dropdown"
-import { Label } from "@/components/ui/label"
 import { Card } from "@/components/cards/card"
 import { Icons } from "@/components/icons"
+import { PageHeader } from "@/components/page-header"
 import { useTranslation } from "@/app/i18n/client"
 
 type ProgramDetailProps = {
@@ -202,41 +202,10 @@ export default function ProgramsPage({ params: { lang } }: any) {
   return (
     <div className="flex flex-col">
       <div className="bg-second-gradient">
-        <AppContent className="flex gap-[56px]">
-          <div className="grid w-full grid-cols-1 gap-16 py-10 lg:grid-cols-[1fr_1fr] lg:gap-2 lg:py-20">
-            <div className="flex w-full flex-col gap-8 lg:max-w-[650px]">
-              <Label.PageTitle label={t("title")} />
-              <span className="font-sans text-base font-normal leading-[27px] text-tuatara-950">
-                {t("description")}
-              </span>
-              <div className="flex flex-col gap-6 md:max-w-xs">
-                <div className="flex flex-col gap-1">
-                  <span className="text-xs">{common("chooseProgram")}*</span>
-                  <Dropdown
-                    className="border border-tuatara-300 bg-white py-2 pl-6 pr-4"
-                    label={
-                      !selectedProgram
-                        ? `${common("chooseProgram")}`
-                        : selectedProgramLabel
-                    }
-                    items={ChooseProgramItems as DropdownProps["items"]}
-                    width={320}
-                    onChange={(value: any) => setSelectedProgram(value)}
-                    defaultItem="contributionsProgram"
-                  />
-                </div>
-                {!selectedProgram ? (
-                  <ApplyButton />
-                ) : (
-                  <Link
-                    target="_blank"
-                    href={siteConfig.links.applyContributionProgram}
-                  >
-                    <ApplyButton />
-                  </Link>
-                )}
-              </div>
-            </div>
+        <PageHeader
+          title={t("title")}
+          subtitle={t("description")}
+          image={
             <Image
               width={280}
               height={280}
@@ -244,8 +213,37 @@ export default function ProgramsPage({ params: { lang } }: any) {
               src="/images/computer.png"
               alt="computer image"
             />
-          </div>
-        </AppContent>
+          }
+          actions={
+            <div className="flex flex-col gap-6 md:max-w-xs">
+              <div className="flex flex-col gap-1">
+                <span className="text-xs">{common("chooseProgram")}*</span>
+                <Dropdown
+                  className="border border-tuatara-300 bg-white py-2 pl-6 pr-4"
+                  label={
+                    !selectedProgram
+                      ? `${common("chooseProgram")}`
+                      : selectedProgramLabel
+                  }
+                  items={ChooseProgramItems as DropdownProps["items"]}
+                  width={320}
+                  onChange={(value: any) => setSelectedProgram(value)}
+                  defaultItem={ChooseProgramItems[0].value}
+                />
+              </div>
+              {!selectedProgram ? (
+                <ApplyButton />
+              ) : (
+                <Link
+                  target="_blank"
+                  href={siteConfig.links.applyContributionProgram}
+                >
+                  <ApplyButton />
+                </Link>
+              )}
+            </div>
+          }
+        />
       </div>
       <AppContent className="relative mx-auto flex w-full items-start">
         <div className="flex w-full flex-col">
