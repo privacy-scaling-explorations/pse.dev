@@ -126,3 +126,34 @@
 #howToApply a {
   @apply underline;
 }
+
+/*Accordion open state*/
+.accordion > [data-state="open"] [data-icon="minus"] {
+  @apply block;
+}
+.accordion > [data-state="open"] [data-icon="plus"] {
+  @apply hidden;
+}
+
+/*Accordion close state*/
+.accordion > [data-state="closed"] [data-icon="plus"] {
+  @apply block;
+}
+.accordion > [data-state="closed"] [data-icon="minus"] {
+  @apply hidden;
+}
+
+/*Accordion hover state content*/
+.accordion.hover-icon > [data-state="closed"] [data-icon="plus"] {
+  @apply hidden;
+}
+.accordion.hover-icon > [data-state="closed"]:hover [data-icon="plus"] {
+  @apply block;
+}
+
+/*Accordion hover state content*/
+@media screen and (max-width: 768px) {
+  .accordion.hover-icon > [data-state="closed"] [data-icon="plus"] {
+    @apply block;
+  }
+}

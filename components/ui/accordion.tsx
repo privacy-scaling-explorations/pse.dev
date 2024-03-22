@@ -22,6 +22,7 @@ interface AccordionProps extends RadixAccordion.AccordionImplProps {
   items: AccordionItemProps[]
   className?: string
   iconOnHover?: boolean
+  id?: string
 }
 
 const AccordionSizeMapping: Record<AccordionPadding, string> = {
@@ -31,21 +32,27 @@ const AccordionSizeMapping: Record<AccordionPadding, string> = {
 
 const Accordion = ({
   type = "multiple",
+  id,
   defaultValue,
   items,
   size = "sm",
   className,
   iconOnHover = true,
 }: AccordionProps) => {
+  const groupName = id ? `group/${id}` : "group"
+
   return (
     <RadixAccordion.Root
+      className={cn("accordion", {
+        "hover-icon": iconOnHover,
+      })}
       type={type as any}
       defaultValue={defaultValue}
       collapsible={true}
     >
       {items?.map(({ label, children, value }, accordionIndex) => (
         <RadixAccordion.Item
-          className={cn("group", {
+          className={cn(groupName, {
             "pb-4": size === "xs",
           })}
           value={value}
@@ -54,7 +61,7 @@ const Accordion = ({
           <RadixAccordion.Trigger className="w-full">
             <div
               className={cn(
-                "relative flex w-full items-center justify-between border-t border-t-black ring-0 focus:outline-none",
+                "relative grid w-full grid-cols-[1fr_20px] items-center justify-between border-t border-t-black ring-0 focus:outline-none md:grid-cols-[1fr_30px]",
                 className,
                 {
                   [AccordionSizeMapping.xs]: size === "xs",
@@ -69,25 +76,16 @@ const Accordion = ({
               ) : (
                 label
               )}
-              <div
-                className={cn(
-                  "duration-50 absolute right-0 group-data-[state=open]:hidden",
-                  {
-                    "group-hover:visible md:invisible": iconOnHover,
-                  }
-                )}
-              >
+              <div className="absolute right-0 top-2 md:top-5">
                 <Icons.plus
-                  className={cn({
+                  data-icon="plus"
+                  className={cn("duration-200", {
                     "w-4 md:w-6": size === "xs",
                     "w-4 md:w-8": size === "sm",
                   })}
                 />
-              </div>
-              <div
-                className={`absolute right-0 hidden group-data-[state=open]:block`}
-              >
                 <Icons.minus
+                  data-icon="minus"
                   className={cn({
                     "w-4 md:w-6": size === "xs",
                     "w-4 md:w-8": size === "sm",
@@ -96,7 +94,7 @@ const Accordion = ({
               </div>
             </div>
           </RadixAccordion.Trigger>
-          <RadixAccordion.Content className="overflow-hidden transition-transform group-data-[state=closed]:animate-slide-up group-data-[state=open]:animate-slide-down">
+          <RadixAccordion.Content className="overflow-hidden pt-2 transition-transform group-data-[state=closed]:animate-slide-up group-data-[state=open]:animate-slide-down">
             {children}
           </RadixAccordion.Content>
         </RadixAccordion.Item>
