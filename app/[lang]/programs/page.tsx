@@ -3,8 +3,8 @@
 import { ReactNode, useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { accelerationProgramFaq } from "@/data/programs/accelerationProgramFaq"
-import { contributionsProgramFaq } from "@/data/programs/contributionsProgramFaq"
+import { acceleratorProgramFaq } from "@/data/programs/acceleratorProgramFaq"
+import { coreProgramFaq } from "@/data/programs/coreProgramFaq"
 import { twMerge } from "tailwind-merge"
 
 import { siteConfig } from "@/config/site"
@@ -21,10 +21,9 @@ import { useTranslation } from "@/app/i18n/client"
 type ProgramDetailProps = {
   region?: string
   title: ReactNode
+  deadline?: string
   location?: string
   date: string
-  application?: string
-  size?: "xs" | "sm"
 }
 
 const SectionTitle = ({ label }: { label: string }) => {
@@ -65,69 +64,54 @@ const ProgramDetail = ({
   title,
   location,
   date,
-  application,
   region,
-  size = "sm",
+  deadline,
 }: ProgramDetailProps) => {
   return (
-    <div
-      className={cn("flex flex-col text-center", {
-        "gap-10": size === "sm",
-        "gap-5": size === "xs",
-      })}
-    >
-      <div className="flex flex-col">
-        <span className="font-display text-lg font-bold leading-none text-black">
-          {region}
+    <div className="flex flex-col gap-4 text-center">
+      <span className="font-display text-lg font-bold leading-none text-black">
+        {region} <br />
+        {title}
+      </span>
+
+      {deadline && (
+        <span className="font-sans text-xs font-normal italic text-tuatara-500">
+          Application Deadline: {deadline}
         </span>
-        <span className="font-display text-lg font-bold leading-none text-black">
-          {title}
-        </span>
-      </div>
-      <div className="flex flex-col gap-6">
-        {application && (
-          <div className="mx-auto flex items-center gap-2">
-            <Icons.checked />
-            <span className="font-sans text-xs font-normal text-black">
-              {application}
-            </span>
-          </div>
-        )}
-        {location && (
-          <div className="mx-auto flex items-center gap-2">
-            <Icons.location />
-            <span className="font-sans text-xs font-normal text-black">
-              {location}
-            </span>
-          </div>
-        )}
+      )}
+
+      {location && (
         <div className="mx-auto flex items-center gap-2">
-          <Icons.calendar />
+          <Icons.location />
           <span className="font-sans text-xs font-normal text-black">
-            {date}
+            {location}
           </span>
         </div>
+      )}
+      <div className="mx-auto flex items-center gap-2">
+        <Icons.calendar />
+        <span className="font-sans text-xs font-normal text-black">{date}</span>
       </div>
     </div>
   )
 }
 
-const ProgramSections = ["contributionsProgram", "accelerationProgram"] as const
+const ProgramSections = ["coreProgram", "acceleratorProgram"] as const
 
 const ChooseProgramItems: { label: string; value: string; href?: string }[] = [
   {
     label: "Contributions Program Asia",
-    value: "contributionsProgramAsia",
+    value: "coreProgramAsia",
     href: siteConfig.links.applyContributionProgram,
   },
   {
     label: "Contributions Program LatAm",
-    value: "contributionsProgramaLatAm",
+    value: "coreProgramaLatAm",
     href: siteConfig.links.applyContributionProgram,
   },
   {
     label: "Acceleration Program",
-    value: "accelerationProgram",
+    value: "acceleratorProgram",
     href: siteConfig.links.applyContributionProgram,
   },
 ]
@@ -148,12 +132,12 @@ export default function ProgramsPage({ params: { lang } }: any) {
       returnObjects: true,
     }) || []
 
-  const contributionsProgramDescription: any[] =
-    t("contributionsProgram.description", {
+  const coreProgramDescription: any[] =
+    t("coreProgram.description", {
       returnObjects: true,
     }) || []
-  const accelerationProgramDescription: any[] =
-    t("accelerationProgram.description", {
+  const acceleratorProgramDescription: any[] =
+    t("acceleratorProgram.description", {
       returnObjects: true,
     }) ?? []
 
@@ -269,19 +253,20 @@ export default function ProgramsPage({ params: { lang } }: any) {
           <AppContent className="relative mx-auto flex w-full items-start">
             <div className="flex w-full flex-col">
               <div
-                id="contributionsProgram"
-                data-section="contributionsProgram"
+                id="coreProgram"
+                data-section="coreProgram"
                 className="w-ful py-10 md:py-16"
               >
                 <div className="mx-auto flex flex-col md:max-w-2xl">
                   <div className="flex flex-col gap-8">
-                    <SectionTitle label={t("contributionsProgram.title")} />
+                    <SectionTitle label={t("coreProgram.title")} />
                     <div className="flex flex-col">
                       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <Card className="flex flex-col gap-10">
                           <ProgramDetail
                             region="LatAm"
-                            title="Contributions Program"
+                            title="Core Program"
+                            deadline="Apr. 30, 2024"
                             location="Buenos Aires - Cuenca - San Jose"
                             date="Jul. 22, 2024 - Sep. 15, 2024"
                           />
@@ -300,7 +285,8 @@ export default function ProgramsPage({ params: { lang } }: any) {
                         <Card className="flex flex-col gap-10">
                           <ProgramDetail
                             region="Asia"
-                            title="Contributions Program"
+                            title="Core Program"
+                            deadline="Apr. 30, 2024"
                             location="Seoul - Taipei - Tokyo"
                             date="Jul. 29, 2024 - Sep. 22, 2024"
                           />
@@ -318,21 +304,19 @@ export default function ProgramsPage({ params: { lang } }: any) {
                         </Card>
                       </div>
                       <div className="flex flex-col gap-2 pt-8">
-                        {contributionsProgramDescription?.map(
-                          (description, index) => {
-                            return (
-                              <span
-                                key={index}
-                                className="font-sans text-base text-black"
-                              >
-                                {description}
-                              </span>
-                            )
-                          }
-                        )}
+                        {coreProgramDescription?.map((description, index) => {
+                          return (
+                            <span
+                              key={index}
+                              className="font-sans text-base text-tuatara-950"
+                            >
+                              {description}
+                            </span>
+                          )
+                        })}
                       </div>
                     </div>
-                    <div className="flex flex-col gap-0 md:gap-10">
+                    <div className="flex flex-col gap-0 md:mt-4 md:gap-10">
                       <Accordion
                         id="curriculum"
                         size="xs"
@@ -355,8 +339,8 @@ export default function ProgramsPage({ params: { lang } }: any) {
                                     key={index}
                                     className="grid grid-cols-1 divide-tuatara-300 md:grid-cols-[1fr_2.5fr] md:divide-x"
                                   >
-                                    <div className="flex items-center justify-center border-b border-tuatara-300 bg-anakiwa-100 p-2 text-center md:border-none">
-                                      <span className="text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
+                                    <div className="flex h-[96px] items-center justify-center border-b border-tuatara-300 bg-anakiwa-100 p-2 text-center md:border-none">
+                                      <span className="max-w-[136px] text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
                                         {t("common.week", {
                                           week: index,
                                         })}
@@ -364,7 +348,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                                         {title}
                                       </span>
                                     </div>
-                                    <div className="py-2">
+                                    <div className="flex items-center py-2">
                                       <ul className="ml-10 list-disc">
                                         {items.map(
                                           (label: string, index: number) => {
@@ -394,16 +378,23 @@ export default function ProgramsPage({ params: { lang } }: any) {
                                   id="faq"
                                   className="!border-anakiwa-300"
                                   size="xs"
-                                  items={contributionsProgramFaq.map(
+                                  items={coreProgramFaq.map(
                                     ({ question, answer }, index) => {
                                       return {
                                         label: (
-                                          <span className="text-left font-sans text-base font-semibold text-black">
+                                          <span className="text-left font-sans text-base font-medium leading-6 text-black">
                                             {question}
                                           </span>
                                         ),
                                         value: index.toString(),
-                                        children: answer,
+                                        children: (
+                                          <span
+                                            className="font-sans text-sm font-normal text-black"
+                                            dangerouslySetInnerHTML={{
+                                              __html: answer?.toString() ?? "",
+                                            }}
+                                          ></span>
+                                        ),
                                       }
                                     }
                                   )}
@@ -462,18 +453,23 @@ export default function ProgramsPage({ params: { lang } }: any) {
         <AppContent className="relative mx-auto flex w-full items-start">
           <div className="flex w-full flex-col">
             <div
-              id="accelerationProgram"
-              data-section="accelerationProgram"
+              id="acceleratorProgram"
+              data-section="acceleratorProgram"
               className="mx-auto flex flex-col py-10 md:max-w-2xl md:py-16"
             >
               <div className="flex flex-col gap-5">
-                <SectionTitle label={t("accelerationProgram.title")} />
+                <SectionTitle label={t("acceleratorProgram.title")} />
                 <Card className="flex flex-col gap-5">
                   <ProgramDetail
-                    size="xs"
-                    title="Acceleration Program Round 2"
-                    application="Applications Open"
-                    date="Feb. 29, 2024 - May 31, 2024"
+                    title={
+                      <>
+                        Acceleration Program <br />
+                        Round 2
+                      </>
+                    }
+                    deadline="May 31, 2024"
+                    location="Remote Application"
+                    date="June 1, 2024 - August 31, 2024"
                   />
                   <div className="mx-auto">
                     <Link
@@ -491,11 +487,11 @@ export default function ProgramsPage({ params: { lang } }: any) {
                 </Card>
               </div>
               <div className="flex flex-col gap-2 pt-8">
-                {accelerationProgramDescription?.map((description, index) => {
+                {acceleratorProgramDescription?.map((description, index) => {
                   return (
                     <span
                       key={index}
-                      className="font-sans text-base text-black"
+                      className="font-sans text-base text-tuatara-950"
                     >
                       {description}
                     </span>
@@ -520,9 +516,9 @@ export default function ProgramsPage({ params: { lang } }: any) {
                               className="flex flex-col gap-8"
                             >
                               <div>
-                                <strong>
+                                <span className="text-base font-medium text-tuatara-950">
                                   {t("howToApply.openTasks.title")}
-                                </strong>
+                                </span>
                                 <ul className="list-decimal">
                                   {howToApply?.openTasks?.description?.map(
                                     (task: string, index: number) => {
@@ -532,6 +528,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                                           className="ml-8 list-item items-center"
                                         >
                                           <div
+                                            className="text-tuatara-950"
                                             dangerouslySetInnerHTML={{
                                               __html: task,
                                             }}
@@ -543,9 +540,9 @@ export default function ProgramsPage({ params: { lang } }: any) {
                                 </ul>
                               </div>
                               <div>
-                                <strong>
+                                <span className="text-base font-medium text-tuatara-950">
                                   {t("howToApply.submitIdea.title")}
-                                </strong>
+                                </span>
                                 <ul className="list-decimal">
                                   {howToApply?.submitIdea?.description?.map(
                                     (task: string, index: number) => {
@@ -555,6 +552,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                                           className="ml-8 list-item items-center"
                                         >
                                           <div
+                                            className="text-tuatara-95"
                                             dangerouslySetInnerHTML={{
                                               __html: task,
                                             }}
@@ -565,7 +563,9 @@ export default function ProgramsPage({ params: { lang } }: any) {
                                   )}
                                 </ul>
                               </div>
-                              <span>{t("howToApply.description")}</span>
+                              <span className="text-base text-tuatara-950">
+                                {t("howToApply.description")}
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -588,16 +588,20 @@ export default function ProgramsPage({ params: { lang } }: any) {
                           <Accordion
                             className="!border-anakiwa-300"
                             size="xs"
-                            items={accelerationProgramFaq.map(
+                            items={acceleratorProgramFaq.map(
                               ({ question, answer }, index) => {
                                 return {
                                   label: (
-                                    <span className="text-left font-sans text-base font-semibold text-black">
+                                    <span className="font-mediu text-left font-sans text-base text-black">
                                       {question}
                                     </span>
                                   ),
                                   value: index.toString(),
-                                  children: answer,
+                                  children: (
+                                    <span className="flex flex-col gap-3 text-base text-tuatara-950">
+                                      {answer}
+                                    </span>
+                                  ),
                                 }
                               }
                             )}
