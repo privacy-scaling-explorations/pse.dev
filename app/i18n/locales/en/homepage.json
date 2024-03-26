@@ -5,5 +5,10 @@
   "whoWeAreDescription": "PSE is a research lab building free tools that expand the world of cryptography.",
   "howToPlugIn": "How to plug in",
   "howToPlugInDescription": "Try out our apps, build with our tools, contribute to projects, or check out our job openings. We welcome contributions from around the world!",
-  "joinOurDiscord": "Join our discord"
+  "joinOurDiscord": "Join our community",
+  "recentUpdates": "Recent updates",
+  "connectWithUs": {
+    "title": "Join our programs",
+    "description": "Want to explore the world of programmable cryptography and learn how to make contributions to open-source projects? Join our free programs to start your journey!"
+  }
 }

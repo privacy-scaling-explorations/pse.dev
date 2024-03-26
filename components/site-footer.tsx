@@ -2,11 +2,11 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import PSELogo from "@/public/logos/pse-logo-circle.svg"
 
 import { LangProps } from "@/types/common"
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
 import { useAppSettings } from "@/hooks/useAppSettings"
 import { useTranslation } from "@/app/i18n/client"
 
@@ -35,8 +35,14 @@ const ItemLabel = ({
   )
 }
 
-const LinksWrapper = ({ children }: { children: React.ReactNode }) => {
-  return <div className="flex flex-col gap-4">{children}</div>
+const LinksWrapper = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) => {
+  return <div className={cn("flex flex-col gap-4", className)}>{children}</div>
 }
 
 export function SiteFooter({ lang }: LangProps["params"]) {

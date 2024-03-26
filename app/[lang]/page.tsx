@@ -6,12 +6,12 @@ import PSELogo from "@/public/icons/archstar.webp"
 import { motion } from "framer-motion"
 
 import { siteConfig } from "@/config/site"
-import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Banner } from "@/components/banner"
 import { Icons } from "@/components/icons"
 import { PageHeader } from "@/components/page-header"
+import { ConnectWithUs } from "@/components/sections/ConnectWithUs"
 import { NewsSection } from "@/components/sections/NewsSection"
 import { WhatWeDo } from "@/components/sections/WhatWeDo"
 
@@ -60,6 +60,8 @@ export default function IndexPage({ params: { lang } }: any) {
         <NewsSection lang={lang} />
 
         <WhatWeDo lang={lang} />
+
+        <ConnectWithUs lang={lang} />
 
         <Banner
           title={common("connectWithUs")}

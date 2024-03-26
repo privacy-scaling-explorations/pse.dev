@@ -10,12 +10,14 @@ interface DropdownItemProps {
   value?: string | number
 }
 
-interface DropdownProps {
+export interface DropdownProps {
   label: React.ReactNode
   items?: DropdownItemProps[]
   defaultItem?: string | number
   onChange?: (value: DropdownItemProps["value"]) => void
   disabled?: boolean
+  className?: string
+  width?: number
 }
 
 const Dropdown = ({
@@ -24,6 +26,8 @@ const Dropdown = ({
   defaultItem,
   disabled,
   items,
+  className,
+  width,
 }: DropdownProps) => {
   const [selected, setSelected] =
     useState<DropdownItemProps["value"]>(defaultItem)
@@ -33,27 +37,37 @@ const Dropdown = ({
     if (typeof onChange === "function") onChange(value)
   }
 
+  const selectedLabel = items?.find((item) => item.value === selected)?.label
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild disabled={disabled}>
         <button
-          className={cn("ring-0 focus:outline-none", {
+          className={cn("ring-0 focus:outline-none", className, {
             "opacity-70 cursor-not-allowed": disabled,
           })}
           aria-label="dropdown menu"
         >
           <div className="flex items-center gap-1">
             <span className="break-words text-sm font-medium text-tuatara-950">
-              {label}
+              {selectedLabel ?? label}
             </span>
-            <Icons.arrowDown />
+            <div className="ml-auto">
+              <Icons.arrowDown />
+            </div>
           </div>
         </button>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="z-[50] max-h-[250px] min-w-[136px] overflow-scroll rounded-md border border-tuatara-200 bg-white py-2"
+          style={{ width: `${width}px` }}
+          className={cn(
+            "z-[50] max-h-[250px] overflow-scroll rounded-md border border-tuatara-200 bg-white py-2",
+            {
+              "max-w-[136px]": width === undefined,
+            }
+          )}
           sideOffset={5}
         >
           {items?.map((item, index) => {

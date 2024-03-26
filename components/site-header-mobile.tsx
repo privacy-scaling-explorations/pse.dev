@@ -75,6 +75,8 @@ export function SiteHeaderMobile({ lang }: LangProps["params"]) {
   const [header, setHeader] = useState(false)
   const { t } = useTranslation(lang, "common")
 
+  const { MAIN_NAV } = useAppSettings(lang)
+
   return (
     <div className="flex items-center md:hidden">
       <NextImage
@@ -103,46 +105,24 @@ export function SiteHeaderMobile({ lang }: LangProps["params"]) {
               height={24}
             />
           </div>
-          <div className="flex w-full flex-col gap-5 px-[16px] text-base font-medium">
-            <NextLink
-              href={`/${lang}`}
-              onClick={() => setHeader(false)}
-              className="border-y-2 border-white p-[16px] uppercase"
-            >
-              {t("menu.home")}
-            </NextLink>
-            <NextLink
-              onClick={() => setHeader(false)}
-              href={`/${lang}/projects`}
-              className="border-b-2 border-white p-[16px] pt-0 uppercase"
-            >
-              {t("menu.projectLibrary")}
-            </NextLink>
-            <NextLink
-              onClick={() => setHeader(false)}
-              href={`/${lang}/about`}
-              className="border-b-2 border-white p-[16px] pt-0 uppercase"
-            >
-              {t("menu.about")}
-            </NextLink>
-            <NextLink
-              onClick={() => setHeader(false)}
-              href={`/${lang}/resources`}
-              className="border-b-2 border-white p-[16px] pt-0 uppercase"
-            >
-              {t("menu.resources")}
-            </NextLink>
-            <NextLink
-              href={siteConfig.links.jobs}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-5 border-b-2 border-white p-[16px] pt-0 uppercase"
-            >
-              {t("menu.jobs")}
-              <Icons.externalUrl className="w-6" fill="white" />
-            </NextLink>
+          <div className="flex w-full flex-col px-[16px] text-base font-medium">
+            {MAIN_NAV.map((item, index) => {
+              if (item.onlyFooter) return null
 
-            <LanguageSwitcher lang={lang} />
+              return (
+                <NextLink
+                  key={index}
+                  href={`/${lang}/${item.href}`}
+                  onClick={() => setHeader(false)}
+                  className="border-b-2 border-white p-4 uppercase"
+                >
+                  {item.title}
+                </NextLink>
+              )
+            })}
+            <div className="mt-4">
+              <LanguageSwitcher lang={lang} />
+            </div>
           </div>
           <div className="flex h-full w-full flex-col items-center justify-end gap-5 py-[40px] text-sm">
             <div className="flex gap-5">

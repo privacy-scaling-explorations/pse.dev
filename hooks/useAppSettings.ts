@@ -15,10 +15,15 @@ export function useAppSettings(lang: LocaleTypes) {
     {
       title: t("menu.home"),
       href: "/",
+      onlyMobile: true,
     },
     {
       title: t("menu.projectLibrary"),
       href: "/projects",
+    },
+    {
+      title: t("menu.programs"),
+      href: "/programs",
     },
     {
       title: t("menu.about"),

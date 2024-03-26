@@ -1,6 +1,13 @@
+import { ReactNode } from "react"
+
 // list of project groups
 export const ProjectSections = ["pse", "grant", "collaboration"] as const
 export type ProjectSection = (typeof ProjectSections)[number]
+
+export interface Faq {
+  question: string
+  answer: ReactNode
+}
 
 export const ProjectStatusList = ["active", "inactive"] as const
 export type ProjectStatusType = (typeof ProjectStatusList)[number]

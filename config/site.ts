@@ -22,6 +22,10 @@ export const siteConfig = {
     firstGoodIssue: "https://pse-gfis.vercel.app",
     discordAnnouncementChannel:
       "https://discord.com/channels/943612659163602974/969614451089227876",
+    acceleratorProgram:
+      "https://github.com/privacy-scaling-explorations/acceleration-program/issues/new?assignees=&labels=&projects=&template=propose-your-open-task.md&title=",
+    coreProgram:
+      "https://docs.google.com/forms/d/e/1FAIpQLSendzYY0z_z7fZ37g3jmydvzS9I7OWKbY2JrqAnyNqeaBHvMQ/viewform",
   },
   addGithubResource:
     "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/%5Blang%5D/content/resources.md",

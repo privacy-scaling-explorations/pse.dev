@@ -5,4 +5,5 @@ export interface NavItem {
   external?: boolean
   onlyFooter?: boolean
   onlyHeader?: boolean
+  onlyMobile?: boolean
 }

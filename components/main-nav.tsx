@@ -25,6 +25,7 @@ export function MainNav({ items, lang = fallbackLng }: MainNavProps) {
       <nav className="hidden items-center gap-6 md:flex">
         {items.map((item, index) => {
           if (item?.onlyFooter) return null
+          if (item?.onlyMobile) return null
 
           const langKey = `/${lang}`
           const pathParts = item.href
