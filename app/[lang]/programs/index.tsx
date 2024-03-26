@@ -29,7 +29,7 @@ type ProgramDetailProps = {
 
 const SectionTitle = ({ label }: { label: string }) => {
   return (
-    <span className="text-center font-display text-[32px] font-bold tracking-[3.36px] text-tuatara-950">
+    <span className="text-center font-display text-[32px] font-bold text-tuatara-950">
       {label}
     </span>
   )
@@ -112,7 +112,7 @@ export const ProgramPageContent = ({ lang }: any) => {
   const [selectedProgram, setSelectedProgram] = useState(
     ChooseProgramItems[0].value
   )
-  const SCROLL_OFFSET = -400
+  const SCROLL_OFFSET = -900
   const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null)
   const [{ value: defaultProgramValue }] = ChooseProgramItems
 
@@ -202,8 +202,8 @@ export const ProgramPageContent = ({ lang }: any) => {
               <Image
                 width={280}
                 height={280}
-                className="mx-auto h-[210px] w-[276px] lg:ml-auto lg:h-[350px] lg:w-[460px]"
-                src="/images/programs.png"
+                className="mx-auto h-[256px] w-[290px] lg:ml-auto lg:h-[428px] lg:w-[484px]"
+                src="/images/programs-3.png"
                 alt="computer image"
               />
             }
