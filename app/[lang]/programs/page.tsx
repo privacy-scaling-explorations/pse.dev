@@ -33,13 +33,6 @@ const SectionTitle = ({ label }: { label: string }) => {
     </span>
   )
 }
-const SectionLabel = ({ label }: { label: string }) => {
-  return (
-    <span className="text-center font-sans text-base font-bold uppercase tracking-[3.36px] text-tuatara-950">
-      {label}
-    </span>
-  )
-}
 
 const AccordionLabel = ({
   label,
@@ -100,19 +93,14 @@ const ProgramSections = ["coreProgram", "acceleratorProgram"] as const
 
 const ChooseProgramItems: { label: string; value: string; href?: string }[] = [
   {
-    label: "Contributions Program Asia",
-    value: "coreProgramAsia",
-    href: siteConfig.links.applyContributionProgram,
+    label: "Core Program",
+    value: "coreProgram",
+    href: siteConfig.links.coreProgram,
   },
   {
-    label: "Contributions Program LatAm",
-    value: "coreProgramaLatAm",
-    href: siteConfig.links.applyContributionProgram,
-  },
-  {
-    label: "Acceleration Program",
+    label: "Accelerator Program",
     value: "acceleratorProgram",
-    href: siteConfig.links.applyContributionProgram,
+    href: siteConfig.links.acceleratorProgram,
   },
 ]
 export default function ProgramsPage({ params: { lang } }: any) {
@@ -198,6 +186,10 @@ export default function ProgramsPage({ params: { lang } }: any) {
     )
   }
 
+  const selectedProgramUrl = ChooseProgramItems?.find(
+    (item) => item.value === selectedProgram
+  )?.href
+
   return (
     <div className="flex flex-col">
       <div className="bg-second-gradient">
@@ -235,10 +227,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                   {!selectedProgram ? (
                     <ApplyButton />
                   ) : (
-                    <Link
-                      target="_blank"
-                      href={siteConfig.links.applyContributionProgram}
-                    >
+                    <Link target="_blank" href={selectedProgramUrl ?? "#"}>
                       <ApplyButton />
                     </Link>
                   )}
@@ -271,7 +260,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                             date="Jul. 22, 2024 - Sep. 15, 2024"
                           />
                           <Link
-                            href={siteConfig.links.latAmContributionProgram}
+                            href={siteConfig.links.coreProgram}
                             target="_blank"
                           >
                             <Button className="w-full uppercase">
@@ -291,7 +280,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                             date="Jul. 29, 2024 - Sep. 22, 2024"
                           />
                           <Link
-                            href={siteConfig.links.asiaContributionProgram}
+                            href={siteConfig.links.coreProgram}
                             target="_blank"
                           >
                             <Button className="w-full uppercase">
@@ -473,7 +462,7 @@ export default function ProgramsPage({ params: { lang } }: any) {
                   />
                   <div className="mx-auto">
                     <Link
-                      href={siteConfig.links.accelerationGithub}
+                      href={siteConfig.links.acceleratorProgram}
                       target="_blank"
                     >
                       <Button className="uppercase">
