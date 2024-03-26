@@ -157,14 +157,16 @@ export const ProgramPageContent = ({ lang }: any) => {
 
   const scrollToId = useCallback((id: string) => {
     const element = document.getElementById(id)
-    const top = element?.offsetTop ?? 0
+    const scrollTop = document.documentElement.scrollTop
+    const rectViewportTop = element?.getBoundingClientRect()?.top ?? 0
+    const top = rectViewportTop + scrollTop
 
     if (element) {
       setActiveId(id) // active clicked id
       setIsManualScroll(true) // tell the window event listener to ignore this scrolling
       window?.scrollTo({
         behavior: "smooth",
-        top: (top ?? 0) - SCROLL_OFFSET,
+        top,
       })
     }
 
