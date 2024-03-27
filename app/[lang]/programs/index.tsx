@@ -205,7 +205,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                 width={280}
                 height={280}
                 className="mx-auto h-[256px] w-[290px] lg:ml-auto lg:h-[428px] lg:w-[484px]"
-                src="/images/programs-3.png"
+                src="/images/programs.png"
                 alt="computer image"
               />
             }
