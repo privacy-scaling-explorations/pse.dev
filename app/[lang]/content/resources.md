@@ -46,6 +46,11 @@
     url="https://zk-learning.org/"
   />
   <ResourceItem
+      label="Elliptic Curve Cryptography from scratch"
+      description="A full course of lectures by Matan that covers everything from basic naive set theory to pairings."
+      url="https://www.youtube.com/playlist?list=PLV91V4b0yVqQ_inAjuIB5SwBNyYmA9S6M"
+  />
+  <ResourceItem
     label="Learn by 0xPARC"
     description="Born out of their first Applied ZK Learning Group. Supported by volunteers from their community."
     url="https://learn.0xparc.org/"
