@@ -14,10 +14,12 @@ import { Accordion } from "@/components/ui/accordion"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Dropdown, DropdownProps } from "@/components/ui/dropdown"
+import { Banner } from "@/components/banner"
 import { Card } from "@/components/cards/card"
 import { Icons } from "@/components/icons"
 import { PageHeader } from "@/components/page-header"
 import { useTranslation } from "@/app/i18n/client"
+import { Divider } from "@/components/divider"
 
 type ProgramDetailProps = {
   region?: string
@@ -92,29 +94,13 @@ const ProgramDetail = ({
 
 const ProgramSections = ["coreProgram", "acceleratorProgram"] as const
 
-const ChooseProgramItems: { label: string; value: string; href?: string }[] = [
-  {
-    label: "Core Program",
-    value: "coreProgram",
-    href: siteConfig.links.coreProgram,
-  },
-  {
-    label: "Accelerator Program",
-    value: "acceleratorProgram",
-    href: siteConfig.links.acceleratorProgram,
-  },
-]
 export const ProgramPageContent = ({ lang }: any) => {
   const { t } = useTranslation(lang, "programs-page")
   const { t: common } = useTranslation(lang, "common")
   const [activeId, setActiveId] = useState("")
   const [isManualScroll, setIsManualScroll] = useState(false)
-  const [selectedProgram, setSelectedProgram] = useState(
-    ChooseProgramItems[0].value
-  )
   const SCROLL_OFFSET = -900
   const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null)
-  const [{ value: defaultProgramValue }] = ChooseProgramItems
 
   const howToApply: any =
     t("howToApply", {
@@ -173,276 +159,192 @@ export const ProgramPageContent = ({ lang }: any) => {
     setTimeout(() => setIsManualScroll(false), 800)
   }, [])
 
-  const selectedProgramKey: string =
-    ChooseProgramItems?.find((item) => item.value === selectedProgram)?.label ??
-    ""
-  const selectedProgramLabel = t(selectedProgramKey)
-
-  const ApplyButton = () => {
-    return (
-      <Button className="w-full uppercase" disabled={!selectedProgram}>
-        <div className="flex items-center gap-3">
-          <span>{t("common.applyNow")}</span>
-          <Icons.arrowRight size={20} />
-        </div>
-      </Button>
-    )
-  }
-
-  const selectedProgramUrl = ChooseProgramItems?.find(
-    (item) => item.value === selectedProgram
-  )?.href
-
   return (
-    <div className="flex flex-col">
+    <Divider.Section className="flex flex-col">
       <div className="bg-second-gradient">
-        {defaultProgramValue && (
-          <PageHeader
-            title={t("title")}
-            subtitle={t("description")}
-            image={
-              <Image
-                width={280}
-                height={280}
-                className="mx-auto h-[256px] w-[290px] lg:ml-auto lg:h-[428px] lg:w-[484px]"
-                src="/images/programs.png"
-                alt="computer image"
-              />
-            }
-            actions={
-              defaultProgramValue && (
-                <div className="flex flex-col gap-6 md:max-w-xs">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-xs">{common("chooseProgram")}*</span>
-                    <Dropdown
-                      className="border border-tuatara-300 bg-white py-2 pl-6 pr-4"
-                      label={
-                        !selectedProgram
-                          ? `${common("chooseProgram")}`
-                          : selectedProgramLabel
-                      }
-                      items={ChooseProgramItems as DropdownProps["items"]}
-                      width={320}
-                      onChange={(value: any) => setSelectedProgram(value)}
-                      defaultItem={defaultProgramValue}
-                    />
-                  </div>
-                  {!selectedProgram ? (
-                    <ApplyButton />
-                  ) : (
-                    <Link target="_blank" href={selectedProgramUrl ?? "#"}>
-                      <ApplyButton />
-                    </Link>
-                  )}
-                </div>
-              )
-            }
-          />
-        )}
+        <PageHeader
+          title={t("title")}
+          subtitle={t("description")}
+          image={
+            <Image
+              width={280}
+              height={280}
+              className="mx-auto h-[256px] w-[290px] lg:ml-auto lg:h-[428px] lg:w-[484px]"
+              src="/images/programs.png"
+              alt="computer image"
+            />
+          }
+        />
       </div>
-      <div className="flex flex-col">
-        <div className="border-b border-tuatara-300">
-          <AppContent className="relative mx-auto flex w-full items-start">
-            <div className="flex w-full flex-col">
-              <div
-                id="coreProgram"
-                data-section="coreProgram"
-                className="w-ful py-10 md:py-16"
-              >
-                <div className="mx-auto flex flex-col md:max-w-2xl">
-                  <div className="flex flex-col gap-8">
-                    <SectionTitle label={t("coreProgram.title")} />
-                    <div className="flex flex-col">
-                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                        <Card className="flex flex-col gap-10">
-                          <ProgramDetail
-                            region="LatAm"
-                            title="Core Program"
-                            deadline="Apr. 30, 2024"
-                            location="Buenos Aires - Cuenca - San Jose"
-                            date="Jul. 22, 2024 - Sep. 15, 2024"
-                          />
-                          <Link
-                            href={siteConfig.links.coreProgram}
-                            target="_blank"
-                          >
-                            <Button className="w-full uppercase">
-                              <div className="flex items-center gap-3">
-                                <span>{t("common.applyNow")}</span>
-                                <Icons.arrowRight size={20} />
-                              </div>
-                            </Button>
-                          </Link>
-                        </Card>
-                        <Card className="flex flex-col gap-10">
-                          <ProgramDetail
-                            region="Asia"
-                            title="Core Program"
-                            deadline="Apr. 30, 2024"
-                            location="Seoul - Taipei - Tokyo"
-                            date="Jul. 29, 2024 - Sep. 22, 2024"
-                          />
-                          <Link
-                            href={siteConfig.links.coreProgram}
-                            target="_blank"
-                          >
-                            <Button className="w-full uppercase">
-                              <div className="flex items-center gap-3">
-                                <span>{t("common.applyNow")}</span>
-                                <Icons.arrowRight size={20} />
-                              </div>
-                            </Button>
-                          </Link>
-                        </Card>
-                      </div>
-                      <div className="flex flex-col gap-2 pt-8">
-                        {coreProgramDescription?.map((description, index) => {
-                          return (
-                            <span
-                              key={index}
-                              className="font-sans text-base text-tuatara-950"
-                            >
-                              {description}
-                            </span>
-                          )
-                        })}
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-0 md:mt-4 md:gap-10">
-                      <Accordion
-                        id="curriculum"
-                        size="xs"
-                        className="!border-none"
-                        iconOnHover
-                        items={[
-                          {
-                            label: (
-                              <AccordionLabel label={t("common.curriculum")} />
-                            ),
-                            value: "curriculum",
-                            children: (
-                              <Card
-                                className="mt-10 divide-y divide-tuatara-300"
-                                padding="none"
-                                variant="transparent"
-                              >
-                                {curriculum.map(({ title, items }, index) => (
-                                  <div
-                                    key={index}
-                                    className="grid grid-cols-1 divide-tuatara-300 md:grid-cols-[1fr_2.5fr] md:divide-x"
-                                  >
-                                    <div className="flex h-[96px] items-center justify-center border-b border-tuatara-300 bg-anakiwa-100 p-2 text-center md:border-none">
-                                      <span className="max-w-[136px] text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
-                                        {t("common.week", {
-                                          week: index,
-                                        })}
-                                        <br />
-                                        {title}
-                                      </span>
-                                    </div>
-                                    <div className="flex items-center py-2">
-                                      <ul className="ml-10 list-disc">
-                                        {items.map(
-                                          (label: string, index: number) => {
-                                            return <li key={index}>{label}</li>
-                                          }
-                                        )}
-                                      </ul>
-                                    </div>
-                                  </div>
-                                ))}
-                              </Card>
-                            ),
-                          },
-                        ]}
+      <div className="relative flex w-full flex-col justify-center">
+        <div className="sticky right-0 top-[120px] z-10 mx-auto flex w-full max-w-screen-3xl">
+          <div
+            id="sidebar"
+            className="top-2 ml-auto hidden bg-white p-2 lg:block lg:w-[220px] xl:w-[320px] xl:px-8"
+          >
+            <div className="flex flex-col gap-4">
+              <h6 className="font-display text-lg font-bold text-tuatara-700">
+                {common("onThisPage")}
+              </h6>
+              <ul className="text-normal font-sans text-black">
+                {ProgramSections.map((id: string) => {
+                  const label = t(`${id}.title`)
+
+                  if (!label) return null // no label for this section
+
+                  const active = id === activeId
+
+                  return (
+                    <li
+                      key={id}
+                      onClick={(e) => {
+                        scrollToId(id)
+                      }}
+                      data-id={id}
+                      className={cn(
+                        "flex h-8 cursor-pointer items-center border-l-2 border-l-anakiwa-200 px-3 duration-200",
+                        {
+                          "border-l-anakiwa-500 text-anakiwa-500 font-medium":
+                            active,
+                        }
+                      )}
+                    >
+                      {label}
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-0 flex w-full flex-col divide-y divide-tuatara-300 lg:top-[-160px]">
+          <div
+            id="coreProgram"
+            data-section="coreProgram"
+            className="w-ful py-10 md:py-16"
+          >
+            <div className="mx-auto flex flex-col md:max-w-2xl">
+              <div className="flex flex-col gap-8">
+                <SectionTitle label={t("coreProgram.title")} />
+                <div className="flex flex-col">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <Card className="flex flex-col gap-10">
+                      <ProgramDetail
+                        region="LatAm"
+                        title="Core Program"
+                        deadline="Apr. 30, 2024"
+                        location="Buenos Aires - Cuenca - San Jose"
+                        date="Jul. 22, 2024 - Sep. 15, 2024"
                       />
-                      <Accordion
-                        size="xs"
-                        className="!border-none"
-                        iconOnHover
-                        items={[
-                          {
-                            label: <AccordionLabel label={t("common.faq")} />,
-                            value: "faq",
-                            children: (
-                              <div className="pt-10">
-                                <Accordion
-                                  id="faq"
-                                  className="!border-anakiwa-300"
-                                  size="xs"
-                                  items={coreProgramFaq.map(
-                                    ({ question, answer }, index) => {
-                                      return {
-                                        label: (
-                                          <span className="text-left font-sans text-base font-medium leading-6 text-black">
-                                            {question}
-                                          </span>
-                                        ),
-                                        value: index.toString(),
-                                        children: (
-                                          <span
-                                            className="font-sans text-sm font-normal text-black"
-                                            dangerouslySetInnerHTML={{
-                                              __html: answer?.toString() ?? "",
-                                            }}
-                                          ></span>
-                                        ),
-                                      }
-                                    }
-                                  )}
-                                />
-                              </div>
-                            ),
-                          },
-                        ]}
+                      <Link href={siteConfig.links.coreProgram} target="_blank">
+                        <Button className="w-full uppercase">
+                          <div className="flex items-center gap-3">
+                            <span>{t("common.applyNow")}</span>
+                            <Icons.arrowRight size={20} />
+                          </div>
+                        </Button>
+                      </Link>
+                    </Card>
+                    <Card className="flex flex-col gap-10">
+                      <ProgramDetail
+                        region="Asia"
+                        title="Core Program"
+                        deadline="Apr. 30, 2024"
+                        location="Seoul - Taipei - Tokyo"
+                        date="Jul. 29, 2024 - Sep. 22, 2024"
                       />
-                    </div>
+                      <Link href={siteConfig.links.coreProgram} target="_blank">
+                        <Button className="w-full uppercase">
+                          <div className="flex items-center gap-3">
+                            <span>{t("common.applyNow")}</span>
+                            <Icons.arrowRight size={20} />
+                          </div>
+                        </Button>
+                      </Link>
+                    </Card>
+                  </div>
+                  <div className="flex flex-col gap-2 pt-8">
+                    {coreProgramDescription?.map((description, index) => {
+                      return (
+                        <span
+                          key={index}
+                          className="font-sans text-base text-tuatara-950"
+                        >
+                          {description}
+                        </span>
+                      )
+                    })}
                   </div>
                 </div>
-              </div>
-            </div>
-            <div
-              id="sidebar"
-              className="sticky right-0 top-20 hidden w-[320px] bg-white/30 p-8 lg:block"
-            >
-              <div className="flex flex-col gap-4">
-                <h6 className="font-display text-lg font-bold text-tuatara-700">
-                  {common("onThisPage")}
-                </h6>
-                <ul className="text-normal font-sans text-black">
-                  {ProgramSections.map((id: string) => {
-                    const label = t(`${id}.title`)
+                <div className="flex flex-col gap-0 md:mt-4 md:gap-10">
+                  <div className="flex flex-col">
+                    <AccordionLabel label={t("common.curriculum")} />
+                    <Card
+                      className="mt-10 divide-y divide-tuatara-300"
+                      padding="none"
+                      variant="transparent"
+                    >
+                      {curriculum.map(({ title, items }, index) => (
+                        <div
+                          key={index}
+                          className="grid grid-cols-1 divide-tuatara-300 md:grid-cols-[1fr_2.5fr] md:divide-x"
+                        >
+                          <div className="flex h-[96px] items-center justify-center border-b border-tuatara-300 bg-anakiwa-100 p-2 text-center md:border-none">
+                            <span className="max-w-[136px] text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
+                              {t("common.week", {
+                                week: index,
+                              })}
+                              <br />
+                              {title}
+                            </span>
+                          </div>
+                          <div className="flex items-center py-2">
+                            <ul className="ml-10 list-disc">
+                              {items.map((label: string, index: number) => {
+                                return <li key={index}>{label}</li>
+                              })}
+                            </ul>
+                          </div>
+                        </div>
+                      ))}
+                    </Card>
+                  </div>
 
-                    if (!label) return null // no label for this section
-
-                    const active = id === activeId
-
-                    return (
-                      <li
-                        key={id}
-                        onClick={(e) => {
-                          scrollToId(id)
-                        }}
-                        data-id={id}
-                        className={cn(
-                          "flex h-8 cursor-pointer items-center border-l-2 border-l-anakiwa-200 px-3 duration-200",
-                          {
-                            "border-l-anakiwa-500 text-anakiwa-500 font-medium":
-                              active,
+                  <div className="flex flex-col">
+                    <AccordionLabel label={t("common.faq")} />
+                    <div className="pt-10">
+                      <Accordion
+                        id="faq"
+                        className="!border-anakiwa-300"
+                        size="xs"
+                        items={coreProgramFaq.map(
+                          ({ question, answer }, index) => {
+                            return {
+                              label: (
+                                <span className="text-left font-sans text-base font-medium leading-6 text-black">
+                                  {question}
+                                </span>
+                              ),
+                              value: index.toString(),
+                              children: (
+                                <span
+                                  className="font-sans text-sm font-normal text-black"
+                                  dangerouslySetInnerHTML={{
+                                    __html: answer?.toString() ?? "",
+                                  }}
+                                ></span>
+                              ),
+                            }
                           }
                         )}
-                      >
-                        {label}
-                      </li>
-                    )
-                  })}
-                </ul>
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </AppContent>
-        </div>
-
-        <AppContent className="relative mx-auto flex w-full items-start">
+          </div>
           <div className="flex w-full flex-col">
             <div
               id="acceleratorProgram"
@@ -491,124 +393,115 @@ export const ProgramPageContent = ({ lang }: any) => {
                 })}
               </div>
               <div className="flex flex-col gap-0  pt-14 md:gap-10">
-                <Accordion
-                  id="howToApply"
-                  size="xs"
-                  className="!border-none"
-                  iconOnHover
-                  items={[
-                    {
-                      label: <AccordionLabel label={t("common.howToApply")} />,
-                      value: "howToApply",
-                      children: (
-                        <div className="mt-10">
-                          <div className="flex flex-col gap-8 pb-10 md:pb-16">
-                            <div
-                              id="howToApply"
-                              className="flex flex-col gap-8"
-                            >
-                              <div>
-                                <span className="text-base font-medium text-tuatara-950">
-                                  {t("howToApply.openTasks.title")}
-                                </span>
-                                <ul className="list-decimal">
-                                  {howToApply?.openTasks?.description?.map(
-                                    (task: string, index: number) => {
-                                      return (
-                                        <li
-                                          key={index}
-                                          className="ml-8 list-item items-center"
-                                        >
-                                          <div
-                                            className="text-tuatara-950"
-                                            dangerouslySetInnerHTML={{
-                                              __html: task,
-                                            }}
-                                          ></div>
-                                        </li>
-                                      )
-                                    }
-                                  )}
-                                </ul>
-                              </div>
-                              <div>
-                                <span className="text-base font-medium text-tuatara-950">
-                                  {t("howToApply.submitIdea.title")}
-                                </span>
-                                <ul className="list-decimal">
-                                  {howToApply?.submitIdea?.description?.map(
-                                    (task: string, index: number) => {
-                                      return (
-                                        <li
-                                          key={index}
-                                          className="ml-8 list-item items-center"
-                                        >
-                                          <div
-                                            className="text-tuatara-95"
-                                            dangerouslySetInnerHTML={{
-                                              __html: task,
-                                            }}
-                                          ></div>
-                                        </li>
-                                      )
-                                    }
-                                  )}
-                                </ul>
-                              </div>
-                              <span className="text-base text-tuatara-950">
-                                {t("howToApply.description")}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      ),
-                    },
-                  ]}
-                />
-
-                <Accordion
-                  id="faq"
-                  size="xs"
-                  className="!border-none"
-                  iconOnHover
-                  items={[
-                    {
-                      label: <AccordionLabel label={t("common.faq")} />,
-                      value: "faq",
-                      children: (
-                        <div className="mt-10 flex flex-col gap-8">
-                          <Accordion
-                            className="!border-anakiwa-300"
-                            size="xs"
-                            items={acceleratorProgramFaq.map(
-                              ({ question, answer }, index) => {
-                                return {
-                                  label: (
-                                    <span className="font-mediu text-left font-sans text-base text-black">
-                                      {question}
-                                    </span>
-                                  ),
-                                  value: index.toString(),
-                                  children: (
-                                    <span className="flex flex-col gap-3 text-base text-tuatara-950">
-                                      {answer}
-                                    </span>
-                                  ),
-                                }
+                <div className="flex flex-col">
+                  <AccordionLabel label={t("common.howToApply")} />
+                  <div className="mt-10">
+                    <div className="flex flex-col gap-8 pb-10 md:pb-16">
+                      <div id="howToApply" className="flex flex-col gap-8">
+                        <div>
+                          <span className="text-base font-medium text-tuatara-950">
+                            {t("howToApply.openTasks.title")}
+                          </span>
+                          <ul className="list-decimal">
+                            {howToApply?.openTasks?.description?.map(
+                              (task: string, index: number) => {
+                                return (
+                                  <li
+                                    key={index}
+                                    className="ml-8 list-item items-center"
+                                  >
+                                    <div
+                                      className="text-tuatara-950"
+                                      dangerouslySetInnerHTML={{
+                                        __html: task,
+                                      }}
+                                    ></div>
+                                  </li>
+                                )
                               }
                             )}
-                          />
+                          </ul>
                         </div>
-                      ),
-                    },
-                  ]}
-                />
+                        <div>
+                          <span className="text-base font-medium text-tuatara-950">
+                            {t("howToApply.submitIdea.title")}
+                          </span>
+                          <ul className="list-decimal">
+                            {howToApply?.submitIdea?.description?.map(
+                              (task: string, index: number) => {
+                                return (
+                                  <li
+                                    key={index}
+                                    className="ml-8 list-item items-center"
+                                  >
+                                    <div
+                                      className="text-tuatara-95"
+                                      dangerouslySetInnerHTML={{
+                                        __html: task,
+                                      }}
+                                    ></div>
+                                  </li>
+                                )
+                              }
+                            )}
+                          </ul>
+                        </div>
+                        <span className="text-base text-tuatara-950">
+                          {t("howToApply.description")}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <AccordionLabel label={t("common.faq")} />
+                  <div className="mt-10 flex flex-col gap-8">
+                    <Accordion
+                      className="!border-anakiwa-300"
+                      size="xs"
+                      items={acceleratorProgramFaq.map(
+                        ({ question, answer }, index) => {
+                          return {
+                            label: (
+                              <span className="font-mediu text-left font-sans text-base text-black">
+                                {question}
+                              </span>
+                            ),
+                            value: index.toString(),
+                            children: (
+                              <span className="flex flex-col gap-3 text-base text-tuatara-950">
+                                {answer}
+                              </span>
+                            ),
+                          }
+                        }
+                      )}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div className="lg:w-[320px]"></div>
-        </AppContent>
+        </div>
       </div>
-    </div>
+      <Banner title={common("learnMore")} subtitle={common("learnMoreDiscord")}>
+        <Link
+          href={siteConfig.links.discord}
+          target="_blank"
+          rel="noreferrer"
+          passHref
+        >
+          <Button>
+            <div className="flex items-center gap-2">
+              <Icons.discord fill="white" className="h-4" />
+              <span className="text-[14px] uppercase">
+                {common("joinOurDiscord")}
+              </span>
+              <Icons.externalUrl fill="white" className="h-5" />
+            </div>
+          </Button>
+        </Link>
+      </Banner>
+    </Divider.Section>
   )
 }

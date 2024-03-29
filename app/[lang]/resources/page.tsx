@@ -11,6 +11,7 @@ import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Banner } from "@/components/banner"
+import { Divider } from "@/components/divider"
 import { Icons } from "@/components/icons"
 import { PageHeader } from "@/components/page-header"
 import { useTranslation } from "@/app/i18n/client"
@@ -173,7 +174,7 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
   const { t: common } = useTranslation(lang, "common")
 
   return (
-    <main className="bg-white">
+    <Divider.Section className="bg-white">
       <PageHeader
         title={t("title")}
         subtitle={t("subtitle")}
@@ -206,27 +207,29 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
           </Link>
         }
       />
-      <AppContent className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[4fr_1fr]">
-        <div className="flex flex-col gap-6">
-          <article className="flex flex-col space-y-8 ">
-            <ResourcesContent
-              components={{
-                ResourceItem: (props: ResourceItemProps) => (
-                  <ResourceItem {...props} />
-                ),
-                ResourceCard: (props: ResourceCardProps) => (
-                  <ResourceCard {...props} />
-                ),
-              }}
-            />
-          </article>
-        </div>
-        <section className="relative hidden md:block ">
-          <div className="sticky right-0 top-16 ml-auto">
-            <ResourceNav lang={lang} />
+      <div className="flex justify-center">
+        <AppContent className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[4fr_1fr]">
+          <div className="flex flex-col gap-6">
+            <article className="flex flex-col space-y-8 ">
+              <ResourcesContent
+                components={{
+                  ResourceItem: (props: ResourceItemProps) => (
+                    <ResourceItem {...props} />
+                  ),
+                  ResourceCard: (props: ResourceCardProps) => (
+                    <ResourceCard {...props} />
+                  ),
+                }}
+              />
+            </article>
           </div>
-        </section>
-      </AppContent>
+          <section className="relative hidden md:block ">
+            <div className="sticky right-0 top-16 ml-auto">
+              <ResourceNav lang={lang} />
+            </div>
+          </section>
+        </AppContent>
+      </div>
       <Banner
         title={
           <h3 className="py-2 font-display text-[18px] font-bold text-tuatara-950 md:text-3xl">
@@ -254,6 +257,6 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
           </Button>
         </Link>
       </Banner>
-    </main>
+    </Divider.Section>
   )
 }

@@ -17,5 +17,9 @@ export const metadata: Metadata = {
 }
 
 export default function ProgramsPage({ params: { lang } }: any) {
-  return <ProgramPageContent lang={lang} />
+  return (
+    <div className="flex flex-col">
+      <ProgramPageContent lang={lang} />
+    </div>
+  )
 }
