@@ -16,10 +16,10 @@ import { Button } from "@/components/ui/button"
 import { Dropdown, DropdownProps } from "@/components/ui/dropdown"
 import { Banner } from "@/components/banner"
 import { Card } from "@/components/cards/card"
+import { Divider } from "@/components/divider"
 import { Icons } from "@/components/icons"
 import { PageHeader } from "@/components/page-header"
 import { useTranslation } from "@/app/i18n/client"
-import { Divider } from "@/components/divider"
 
 type ProgramDetailProps = {
   region?: string
@@ -177,12 +177,12 @@ export const ProgramPageContent = ({ lang }: any) => {
         />
       </div>
       <div className="relative flex w-full flex-col justify-center">
-        <div className="sticky right-0 top-[120px] z-10 mx-auto flex w-full max-w-screen-3xl">
+        <div className="sticky right-0 top-0 z-10 mx-auto flex w-full max-w-screen-3xl">
           <div
             id="sidebar"
-            className="top-2 ml-auto hidden bg-white p-2 lg:block lg:w-[220px] xl:w-[320px] xl:px-8"
+            className="relative ml-auto hidden bg-white p-2 lg:block"
           >
-            <div className="flex flex-col gap-4">
+            <div className="absolute right-0 mt-[80px] flex flex-col gap-4 lg:w-[220px] xl:w-[320px] xl:px-8">
               <h6 className="font-display text-lg font-bold text-tuatara-700">
                 {common("onThisPage")}
               </h6>
@@ -218,7 +218,7 @@ export const ProgramPageContent = ({ lang }: any) => {
           </div>
         </div>
 
-        <div className="relative z-0 flex w-full flex-col divide-y divide-tuatara-300 lg:top-[-160px]">
+        <div className="relative z-0 flex w-full flex-col divide-y divide-tuatara-300 ">
           <div
             id="coreProgram"
             data-section="coreProgram"
