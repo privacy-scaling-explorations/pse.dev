@@ -18,7 +18,7 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
   const { MAIN_NAV, activeLanguageLabel } = useAppSettings(lang)
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white shadow-sm">
+    <header className="sticky top-0 z-40 w-full border-b border-tuatara-300 bg-white shadow-sm">
       <AppContent>
         <div className="flex h-16 items-center justify-between space-x-4 sm:space-x-0">
           <MainNav items={MAIN_NAV} lang={lang} />

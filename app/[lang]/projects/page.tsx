@@ -6,6 +6,7 @@ import ProjectFiltersBar from "@/components/project/project-filters-bar"
 import { ProjectList } from "@/components/project/project-list"
 import { ProjectResultBar } from "@/components/project/project-result-bar"
 import { useTranslation } from "@/app/i18n"
+import { Divider } from "@/components/divider"
 
 export const metadata: Metadata = {
   title: "Project Library",
@@ -17,7 +18,7 @@ export default async function ProjectsPage({ params: { lang } }: any) {
   const { t } = await useTranslation(lang, "projects-page")
 
   return (
-    <>
+    <Divider.Section>
       <PageHeader
         title={t("title")}
         subtitle={t("subtitle")}
@@ -44,6 +45,6 @@ export default async function ProjectsPage({ params: { lang } }: any) {
           <ProjectList lang={lang} />
         </div>
       </div>
-    </>
+    </Divider.Section>
   )
 }

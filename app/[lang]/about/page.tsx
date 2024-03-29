@@ -7,6 +7,7 @@ import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Banner } from "@/components/banner"
+import { Divider } from "@/components/divider"
 import { Icons } from "@/components/icons"
 import { PageHeader } from "@/components/page-header"
 import { useTranslation } from "@/app/i18n"
@@ -21,7 +22,7 @@ export default async function AboutPage({ params: { lang } }: any) {
     }) ?? []
 
   return (
-    <div className="bg-white">
+    <Divider.Section className="bg-white">
       <PageHeader
         title={t("title")}
         subtitle={t("description")}
@@ -55,32 +56,34 @@ export default async function AboutPage({ params: { lang } }: any) {
         }
       />
 
-      <AppContent className="container flex w-full max-w-[978px] flex-col gap-8 py-10 md:py-16">
-        <Label.Section
-          className="text-center"
-          label={t("our-principles-title")}
-        />
-        <Accordion
-          type="multiple"
-          items={[
-            ...principles?.map((principle: any, index: number) => {
-              return {
-                label: principle?.title,
-                value: index.toString(),
-                children: (
-                  <span className="flex flex-col gap-6 break-words pb-12 font-sans text-lg font-normal leading-[150%]">
-                    {principle.description?.map(
-                      (description: string, index: number) => {
-                        return <p key={index}>{description}</p>
-                      }
-                    )}
-                  </span>
-                ),
-              }
-            }),
-          ]}
-        />
-      </AppContent>
+      <div className="flex justify-center">
+        <AppContent className="container flex w-full max-w-[978px] flex-col gap-8 py-10 md:py-16">
+          <Label.Section
+            className="text-center"
+            label={t("our-principles-title")}
+          />
+          <Accordion
+            type="multiple"
+            items={[
+              ...principles?.map((principle: any, index: number) => {
+                return {
+                  label: principle?.title,
+                  value: index.toString(),
+                  children: (
+                    <span className="flex flex-col gap-6 break-words pb-12 font-sans text-lg font-normal leading-[150%]">
+                      {principle.description?.map(
+                        (description: string, index: number) => {
+                          return <p key={index}>{description}</p>
+                        }
+                      )}
+                    </span>
+                  ),
+                }
+              }),
+            ]}
+          />
+        </AppContent>
+      </div>
 
       <Banner title={t("banner.title")} subtitle={t("banner.subtitle")}>
         <Link
@@ -100,6 +103,6 @@ export default async function AboutPage({ params: { lang } }: any) {
           </Button>
         </Link>
       </Banner>
-    </div>
+    </Divider.Section>
   )
 }
