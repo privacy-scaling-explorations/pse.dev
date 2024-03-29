@@ -463,7 +463,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                         ({ question, answer }, index) => {
                           return {
                             label: (
-                              <span className="font-mediu text-left font-sans text-base text-black">
+                              <span className="text-left font-sans text-base font-medium text-black">
                                 {question}
                               </span>
                             ),
