@@ -2,7 +2,7 @@
 
 import React from "react"
 import Image from "next/image"
-import { useRouter } from "next/navigation"
+import Link from "next/link"
 import { VariantProps, cva } from "class-variance-authority"
 
 import { ProjectInterface, ProjectLinkWebsite } from "@/lib/types"
@@ -53,7 +53,6 @@ export default function ProjectCard({
   lang,
 }: ProjectCardProps & { lang: LocaleTypes }) {
   const { t } = useTranslation(lang, "common")
-  const router = useRouter()
 
   const { id, image, links, name, tldr, tags, imageAlt, projectStatus } =
     project
@@ -61,8 +60,8 @@ export default function ProjectCard({
   const projectNotActive = projectStatus !== "active"
 
   return (
-    <div
-      onClick={() => router.push(`/projects/${id}`)}
+    <Link
+      href={`/projects/${id}`}
       className={cn(projectCardVariants({ showLinks, border, className }))}
     >
       {showBanner && (
@@ -124,6 +123,6 @@ export default function ProjectCard({
           )}
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
