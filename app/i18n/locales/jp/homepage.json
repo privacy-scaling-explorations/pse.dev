@@ -1,14 +1,14 @@
 {
   "headerTitle": "Privacy + Scaling Explorations",
-  "headerSubtitle": "Building free resources for people expanding the world of programmable cryptography.",
-  "whoWeAre": "Who we are",
-  "whoWeAreDescription": "PSE is a research lab building free tools that expand the world of cryptography.",
-  "howToPlugIn": "How to plug in",
-  "howToPlugInDescription": "Try out our apps, build with our tools, contribute to projects, or check out our job openings. We welcome contributions from around the world!",
-  "joinOurDiscord": "Join our community",
-  "recentUpdates": "Recent updates",
+  "headerSubtitle": "プログラム可能な暗号化の世界を広げるための無料リソースを構築 (Building free resources for people expanding the world of programmable cryptography.)",
+  "whoWeAre": "私たちについて (Who we are)",
+  "whoWeAreDescription": "PSEは、暗号化の世界を広げるための無料ツールを構築する研究ラボです (PSE is a research lab building free tools that expand the world of cryptography.)",
+  "howToPlugIn": "参加方法 (How to plug in)",
+  "howToPlugInDescription": "アプリを試したり、ツールを使って構築したり、プロジェクトに貢献したり、求人情報をチェックしたりしましょう。世界中からの貢献を歓迎します! (Try out our apps, build with our tools, contribute to projects, or check out our job openings. We welcome contributions from around the world!)",
+  "joinOurDiscord": "コミュニティに参加する (Join our community)",
+  "recentUpdates": "最近のアップデート (Recent updates)",
   "connectWithUs": {
-    "title": "Join our programs",
-    "description": "Want to explore the world of programmable cryptography and learn how to make contributions to open-source projects? Join our free programs to start your journey!"
+    "title": "プログラムに参加する (Join our programs)",
+    "description": "プログラム可能な暗号化の世界を探求し、オープンソースプロジェクトへの貢献方法を学びたいですか？ 無料プログラムに参加して、あなたの旅を始めましょう！ (Want to explore the world of programmable cryptography and learn how to make contributions to open-source projects? Join our free programs to start your journey!)"
   }
 }

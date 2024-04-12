@@ -1,38 +1,38 @@
 {
-  "title": "About our team",
-  "description": "PSE is an Ethereum Foundation supported research and development lab dedicated to testing use cases for cryptographic primitives. We build open source infrastructure and tools, host workshops and summer programs, and collaborate with people bringing cryptography to life.",
-  "our-principles-title": "Our Principles",
+  "title": "チームについて",
+  "description": "PSEはイーサリアム財団が支援する研究開発ラボで、暗号プリミティブのユースケースをテストすることに専念しています。私たちはオープンソースのインフラとツールを構築し、ワークショップやサマープログラムを開催し、暗号を現実のものにするために人々と協力しています。",
+  "our-principles-title": "私たちの原則",
   "banner": {
-    "title": "Connect with us",
-    "subtitle": "Join our discord to learn more about our research, connect with our community, and keep posted about jobs and grant opportunities!"
+    "title": "私たちとつながる",
+    "subtitle": "私たちの研究の詳細を学び、コミュニティとつながり、求人や助成金の情報を入手するために、Discordに参加してください！"
   },
   "principles": [
     {
-      "title": "01. Cryptography for people",
+      "title": "01. 人のための暗号化",
       "description": [
-        "Cryptography is everywhere: every time you connect to a secure site, log in with a password or unlock your phone, you're seeing cryptography in action. With “programmable” cryptography (like zero knowledge proofs, multi-party computation or homomorphic encryption) we can make verifiable claims about secret information without revealing the information itself.",
-        " This can be applied to identity management, collusion resistance, anonymous communication and so much more. We're building a library of dev tools, research papers, and prototypes that are open source and free for everyone to use. We hope our resources inspire people to innovate the technologies that their communities need."
+        "暗号化はあらゆる場所にあります。安全なサイトに接続したり、パスワードでログインしたり、携帯のロックを解除するたびに、暗号化が機能しているのが確認できます。ゼロ知識証明、マルチパーティ計算、準同型暗号などの「プログラム可能な」暗号化を使用すると、秘密情報自体を公開せずに、その情報について検証可能な主張を行うことができます。",
+        " これは、ID管理、共謀耐性、匿名通信などに応用できます。私たちは、オープンソースで誰もが無料で使用できる開発ツール、リサーチペーパー、プロトタイプのライブラリを構築しています。リソースがコミュニティが必要とする技術革新を人々に促すことを願っています。"
       ]
     },
     {
-      "title": "02. Prioritizing privacy",
+      "title": "02. プライバシーを優先",
       "description": [
-        "We believe that privacy is a fundamental right. We want to be part of building an internet that divests from invasive data practices, and instead gives people real choices about who has access to their personal information.",
-        " Permission should be purpose specific, revocable, informed and uncoerced. We make tools that help people to securely authenticate themselves, make confidential transactions on the blockchain, and respect and preserve user privacy."
+        "私たちは、プライバシーは基本的人権であると考えています。侵襲的なデータ慣行から脱却し、代わりに、個人情報のアクセス権を誰に持たせるのかについて人々にリアルな選択肢を提供するインターネットの構築に貢献したいと考えています。",
+        " 許可は、目的特化型で、取り消し可能で、情報に基づいたもので、強制されないものでなければなりません。私たちは、人々が安全に認証を行い、ブロックチェーン上で機密性の高いトランザクションを実行し、ユーザーのプライバシーを尊重し保護するためのツールを作成しています。"
       ]
     },
     {
-      "title": "03. Scaling for communities",
+      "title": "03. コミュニティのためのスケーリング",
       "description": [
-        "Zero knowledge proofs can verify computations quickly and cheaply, helping decentralized systems like Ethereum become more efficient. We research, design and share scaling solutions that anyone can use to contribute to a stronger and more practical digital public infrastructure.",
-        " We also grow our community by supporting the next generation of builders. We host immersive  programs for students and lecture series that are open to everyone interested in building with cryptography."
+        "ゼロ知識証明は計算を迅速かつ安価に検証することができ、イーサリアムのような分散型システムの効率化に貢献します。私たちは、誰もが使用してより強固で実用的なデジタル公共インフラの構築に貢献できるようなスケーリングソリューションを研究、設計、共有しています。",
+        " また、次世代の構築者を支援することでコミュニティを拡大させています。学生向けの没入型プログラムや、暗号を使用した構築に興味のあるすべての人を対象とした講義シリーズを開催しています。"
       ]
     },
     {
-      "title": "04. Collective exploration",
+      "title": "04. 共同探索",
       "description": [
-        "We are cultivating a diverse and multidisciplinary team to explore the emerging zero knowledge ecosystem. PSE is made up of programmers, engineers, and mathematicians working alongside creatives and community organizers to collaboratively discover the potential of programmable cryptography.",
-        "We experiment in the open and welcome contributions, integrations, forks, or feedback on all of our projects."
+        "私たちは、出現しつつあるゼロ知識エコシステムを探るために、多様性があり学際的なチームを育成しています。PSEは、プログラマー、エンジニア、数学者がクリエイターやコミュニティオーガナイザーと協力して、プログラム可能な暗号の可能性を共同で発見するチームです。",
+        "私たちはオープンに実験を行い、すべてのプロジェクトへの貢献、統合、フォーク、フィードバックを歓迎します。"
       ]
     }
   ]

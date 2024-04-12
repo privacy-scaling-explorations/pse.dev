@@ -1,14 +1,14 @@
 {
-  "title": "Resources",
-  "subtitle": "This list was compiled by our community. Submit an issue on our Github page to add a resource to this list.",
-  "onThisPage": "On this page",
-  "editResources": "Edit resources",
-  "addSource": "Add a source",
-  "addResourceQuestion": "Didn't find what you are looking for?",
+  "title": "リソース",
+  "subtitle": "このリストはコミュニティによって編集されました。 このリストにリソースを追加するには、GitHubページでイシューを送信してください。",
+  "onThisPage": "このページで",
+  "editResources": "リソースを編集",
+  "addSource": "ソースを追加",
+  "addResourceQuestion": "探しているものが見つかりませんか？",
   "nav": {
-    "getInvolved": "Get involved",
-    "learn": "Learn",
-    "build": "Build",
-    "design": "Design"
+    "getInvolved": "参加する",
+    "learn": "学ぶ",
+    "build": "構築する",
+    "design": "デザイン"
   }
 }

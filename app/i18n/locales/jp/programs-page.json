@@ -1,90 +1,90 @@
 {
-  "title": "Get started with programmable cryptography",
-  "description": "PSE offers free educational programs to help you dive deep into Zero Knowledge Proofs, Fully Homomorphic Encryption, Multi-Party Computation and the latest in programmable cryptography. Whether you’re looking to learn the basics or start making open-source contributions, we have resources for your learning journey!",
+  "title": "プログラム可能な暗号化を始めましょう (Get started with programmable cryptography)",
+  "description": "PSEは、ゼロ知識証明、完全準同型暗号、マルチパーティ計算、そして最新のプログラム可能な暗号について深く学ぶための無料の教育プログラムを提供しています。基礎を学びたい方でも、オープンソースへの貢献を始めたい方でも、学習の旅に役立つリソースを用意しています！ (PSE offers free educational programs to help you dive deep into Zero Knowledge Proofs, Fully Homomorphic Encryption, Multi-Party Computation and the latest in programmable cryptography. Whether you’re looking to learn the basics or start making open-source contributions, we have resources for your learning journey!)",
   "common": {
-    "faq": "FAQ",
-    "curriculum": "Curriculum",
-    "howToApply": "How to apply",
-    "applyNow": "Apply now",
-    "learnMoreOnGithub": "Learn more on Github",
-    "week": "Week {{week}}"
+    "faq": "よくある質問 (FAQ)",
+    "curriculum": "カリキュラム (Curriculum)",
+    "howToApply": "応募方法 (How to apply)",
+    "applyNow": "今すぐ応募する (Apply now)",
+    "learnMoreOnGithub": "GitHubで詳細を見る (Learn more on Github)",
+    "week": "Week {{week}} (週 {{week}})"
   },
   "curriculum": [
     {
-      "title": "PRE-REQUISITES",
+      "title": "前提条件 (PRE-REQUISITES)",
       "items": [
-        "Course overview and resources",
-        "Git, GitHub, and PR workflow basics",
-        "Introduction to ZKPs and Number Theory"
+        "コースの概要とリソース (Course overview and resources)",
+        "Git、GitHub、およびPRワークフローの基本 (Git, GitHub, and PR workflow basics)",
+        "ゼロ知識証明 (ZKPs) と数論の入門 (Introduction to ZKPs and Number Theory)"
       ]
     },
     {
-      "title": "Cryptographic Basics",
+      "title": "暗号の基本 (Cryptographic Basics)",
       "items": [
-        "Getting started with Circom",
-        "Basics of encryption and hash functions",
-        "Digital signatures and elliptic curve cryptography"
+        "Circom入門 (Getting started with Circom)",
+        "暗号化とハッシュ関数の基礎 (Basics of encryption and hash functions)",
+        "デジタル署名と楕円曲線暗号 (Digital signatures and elliptic curve cryptography)"
       ]
     },
     {
-      "title": "More Crypto + ZKPs",
+      "title": "より高度な暗号化 + ZKP (More Crypto + ZKPs)",
       "items": [
-        "Circom crash course + practice",
-        "KZG Commitments and zkSNARKs",
-        "Overview of Trusted Setups and Groth16"
+        "Circom 集中講座 + 実践 (Circom crash course + practice)",
+        "KZGコミットメントと zkSNARK (KZG Commitments and zkSNARKs)",
+        "信頼されたセットアップと Groth16 の概要 (Overview of Trusted Setups and Groth16)"
       ]
     },
     {
-      "title": "Hackathon",
+      "title": "ハッカソン (Hackathon)",
       "items": [
-        "A break from studying",
-        "One week to build something with your new skills!"
+        "学習からの脱却 (A break from studying)",
+        "新しいスキルを使って何かを構築する1週間 (One week to build something with your new skills!)"
       ]
     },
     {
-      "title": "PLONK Week",
+      "title": "PLONK ウィーク (PLONK Week)",
       "items": [
-        "Learn Rust and complete Rustlings",
-        "Deep dive into PLONK",
-        "Make a presentation and blog post on PLONK"
+        "Rustを学び、Rustlingsを完了する (Learn Rust and complete Rustlings)",
+        "PLONKの深掘り (Deep dive into PLONK)",
+        "PLONKに関するプレゼンテーションとブログ記事の作成 (Make a presentation and blog post on PLONK)"
       ]
     },
     {
-      "title": "Technologies + Applications",
+      "title": "技術とアプリケーション (Technologies + Applications)",
       "items": [
-        "Halo2 introduction and practical",
-        "Study of FHE and MPC",
-        "Explore Semaphore, Bandada, TLSNotary, ZKEmail"
+        "Halo2の紹介と実用 (Halo2 introduction and practical)",
+        "FHEとMPCの研究 (Study of FHE and MPC)",
+        "Semaphore、Bandada、TLSNotary、ZKEmail を探索する (Explore Semaphore, Bandada, TLSNotary, ZKEmail)"
       ]
     }
   ],
   "coreProgram": {
-    "title": "Core Program",
+    "title": "コアプログラム (Core Program)",
     "description": [
-      "PSE's Core Program is an eight-week introductory course for university students looking to explore the world of programmable cryptography. The program will be run hybrid style with online and in-person sessions in Argentina (Buenos Aires), Costa Rica (San José), Ecuador (Cuenca), Japan (Tokyo), South Korea (Seoul), and Taiwan (Taipei).",
-      "By the end of the program, you will gain comprehensive knowledge about Zero Knowledge Proofs (ZKP), Fully Homomorphic Encryption (FHE), and Multiparty Computation (MPC). You will also bolster your GitHub portfolio, and potentially receive grants for further research and contributions!"
+      "PSEのコアプログラムは、プログラム可能な暗号の世界を探求したい大学生向けの8週間の入門コースです。このプログラムは、オンラインとアルゼンチン (ブエノスアイレス)、コスタリカ (サンホセ)、エクアドル (クエンカ)、日本 (東京)、韓国 (ソウル)、台湾 (台北) で対面のセッションを組み合わせたハイブリッド形式で開催されます。",
+      "プログラムの終了までに、ゼロ知識証明 (ZKP)、完全準同型暗号 (FHE)、およびマルチパーティ計算 (MPC) に関する包括的な知識を習得できます。また、GitHubのポートフォリオを強化し、さらなる研究や貢献のための助成金を受け取る可能性もあります。 "
     ]
   },
   "acceleratorProgram": {
-    "title": "Accelerator Program",
+    "title": "アクセラレータプログラム",
     "description": [
-      "The Accelerator Program supports alumni of our entry level programs (e.g. Core Program, ZK Summer, ZK Playground) to deepen explorations of ZKP, FHE, MPC, and related technologies through grants and mentorship. This program operates on a round-based application system, focusing on specific open tasks for each round."
+      "アクセラレーター・プログラムは、ZKP、FHE、MPC、および関連技術の探求を深めるためのエントリー・レベル・プログラム（コア・プログラム、ZKサマー、ZKプレイグラウンドなど）の修了生を、助成金やメンターシップを通じて支援するものです。このプログラムは、ラウンド・ベースの応募システムで運営され、各ラウンドの特定のオープン・タスクに焦点を当てます。"
     ]
   },
   "howToApply": {
-    "description": "We encourage people to apply as each round opens because we review applications on a first-come first-serve basis! If there are multiple proposals about the same issue, we may consider granting multiple applications on a case-by-case basis.",
+    "description": "先着順で審査を行いますので、各ラウンドの開始と同時に応募されることをお勧めします！同じ案件について複数の応募があった場合、ケース・バイ・ケースで複数の応募への助成を検討することがあります。",
     "openTasks": {
-      "title": "To apply for an open task:",
+      "title": "オープンタスクに応募する:",
       "description": [
-        "Explore the <a href='https://github.com/privacy-scaling-explorations/acceleration-program/issues?q=is%3Aopen+is%3Aissue+-label%3A%22Application+Proposal%22+-label%3A%22WIP%22+' target='_blank'>Open Task RFP List</a>",
-        "Apply using this <a href='https://github.com/privacy-scaling-explorations/acceleration-program/issues/new?assignees=&labels=&projects=&template=proposal-for-applicant.md&title=' target='_blank'>template</a>"
+        "探索 <a href='https://github.com/privacy-scaling-explorations/acceleration-program/issues?q=is%3Aopen+is%3Aissue+-label%3A%22Application+Proposal%22+-label%3A%22WIP%22+' target='_blank'>Open Task RFP List</a>",
+        "お申し込みはこちらから <a href='https://github.com/privacy-scaling-explorations/acceleration-program/issues/new?assignees=&labels=&projects=&template=proposal-for-applicant.md&title=' target='_blank'>template</a>"
       ]
     },
     "submitIdea": {
-      "title": "To submit your own idea:",
+      "title": "自分のアイデアを提出するには:",
       "description": [
-        "Submit your idea using this <a href='https://github.com/privacy-scaling-explorations/acceleration-program/issues/new?assignees=&labels=&projects=&template=propose-your-open-task.md&title=' target='_blank'>template</a>",
-        "You can look into this <a href='https://github.com/privacy-scaling-explorations/acceleration-program/blob/main/Doc/Idea%20Pool.md' target='_blank'>idea pool</a> and find one and submit here"
+        "アイデアを投稿する <a href='https://github.com/privacy-scaling-explorations/acceleration-program/issues/new?assignees=&labels=&projects=&template=propose-your-open-task.md&title=' target='_blank'>template</a>",
+        "こちらを参照 <a href='https://github.com/privacy-scaling-explorations/acceleration-program/blob/main/Doc/Idea%20Pool.md' target='_blank'>idea pool</a> and find one and submit here"
       ]
     }
   }
