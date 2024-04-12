@@ -4,16 +4,16 @@
   "menu": {
     "home": "ホーム",
     "projectLibrary": "プロジェクトライブラリ",
-    "about": "について",
+    "about": "About",
     "resources": "リソース",
     "jobs": "求人",
     "languages": "言語 {{locale}}",
     "blog": "ブログ",
     "activity": "アクティビティ",
     "report": "レポート",
-    "firstGoodIssue": "最初の適切な課題",
+    "firstGoodIssue": "firstGoodIssue",
     "programs": "プログラム",
-    "openIssues": "オープンイシュー"
+    "openIssues": "openIssues"
   },
   "footer": {
     "description": "プライバシーとスケーリングの探究は、イーサリアム財団によって支援される多分野チームです",
@@ -40,15 +40,15 @@
     }
   },
   "tags": {
-    "build": "構築",
-    "play": "プレイ",
+    "build": "構築する",
+    "play": "実施する",
     "research": "リサーチ",
     "grantee": "助成金受給者",
     "collaborate": "コラボレーション",
     "fullyPSE": "完全PSE"
   },
   "status": {
-    "archived": "非アクティブ",
+    "archived": "アーカイブ",
     "active": "アクティブ",
     "inactive": "非アクティブ"
   },
