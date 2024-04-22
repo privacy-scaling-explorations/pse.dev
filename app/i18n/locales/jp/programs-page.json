@@ -11,7 +11,7 @@
   },
   "curriculum": [
     {
-      "title": "前提条件 (PRE-REQUISITES)",
+      "title": "必須条件",
       "items": [
         "コースの概要とリソース (Course overview and resources)",
         "Git、GitHub、およびPRワークフローの基本 (Git, GitHub, and PR workflow basics)",
