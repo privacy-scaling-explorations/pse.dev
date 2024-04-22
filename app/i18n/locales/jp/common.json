@@ -28,7 +28,7 @@
   },
   "filterLabels": {
     "keywords": "キーワード",
-    "builtWith": "ビルドツール",
+    "builtWith": "開発ツール",
     "themes": "選択されたテーマ",
     "projectStatus": "プロジェクトステータス",
     "fundingSource": "資金源"
