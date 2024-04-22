@@ -5,7 +5,7 @@
   "watch": "見る",
   "read": "読む",
   "attend": "参加する",
-  "recentUpdates": "最近のアップデート (Recent Updates)",
+  "recentUpdates": "最近のアップデート",
   "seeAllUpdates": "すべてのアップデートを見る (See all updates)",
   "repostOnSocial": "{{socialName}}でリポストする (Repost on {{socialName}})"
 }
