@@ -4,7 +4,7 @@
   "menu": {
     "home": "ホーム",
     "projectLibrary": "プロジェクトライブラリ",
-    "about": "About",
+    "about": "このサイトについて",
     "resources": "リソース",
     "jobs": "求人",
     "languages": "言語 {{locale}}",
