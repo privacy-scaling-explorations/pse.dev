@@ -21,7 +21,7 @@
     {
       "title": "暗号学の基礎",
       "items": [
-        "Circom入門 (Getting started with Circom)",
+        "Circom入門",
         "暗号化とハッシュ関数の基礎 (Basics of encryption and hash functions)",
         "デジタル署名と楕円曲線暗号 (Digital signatures and elliptic curve cryptography)"
       ]
