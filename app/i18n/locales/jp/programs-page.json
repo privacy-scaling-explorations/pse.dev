@@ -7,7 +7,7 @@
     "howToApply": "応募方法",
     "applyNow": "今すぐ応募する",
     "learnMoreOnGithub": "GitHubで詳細を見る",
-    "week": "Week {{week}} (週 {{week}})"
+    "week": "第{{week}}週"
   },
   "curriculum": [
     {
