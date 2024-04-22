@@ -52,7 +52,7 @@
     {
       "title": "技術とアプリケーション",
       "items": [
-        "Halo2の紹介と実用 (Halo2 introduction and practical)",
+        "Halo2の入門と実践",
         "FHEとMPCの研究 (Study of FHE and MPC)",
         "Semaphore、Bandada、TLSNotary、ZKEmail を探索する (Explore Semaphore, Bandada, TLSNotary, ZKEmail)"
       ]
