@@ -76,7 +76,7 @@
     "openTasks": {
       "title": "オープンタスクに応募する:",
       "description": [
-        "探索 <a href='https://github.com/privacy-scaling-explorations/acceleration-program/issues?q=is%3Aopen+is%3Aissue+-label%3A%22Application+Proposal%22+-label%3A%22WIP%22+' target='_blank'>Open Task RFP List</a>",
+        "探す <a href='https://github.com/privacy-scaling-explorations/acceleration-program/issues?q=is%3Aopen+is%3Aissue+-label%3A%22Application+Proposal%22+-label%3A%22WIP%22+' target='_blank'>Open Task RFP List</a>",
         "お申し込みはこちらから <a href='https://github.com/privacy-scaling-explorations/acceleration-program/issues/new?assignees=&labels=&projects=&template=proposal-for-applicant.md&title=' target='_blank'>template</a>"
       ]
     },
