@@ -19,7 +19,7 @@
       ]
     },
     {
-      "title": "暗号の基本 (Cryptographic Basics)",
+      "title": "暗号学の基礎",
       "items": [
         "Circom入門 (Getting started with Circom)",
         "暗号化とハッシュ関数の基礎 (Basics of encryption and hash functions)",
