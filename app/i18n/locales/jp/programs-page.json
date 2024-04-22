@@ -13,7 +13,7 @@
     {
       "title": "必須条件",
       "items": [
-        "コースの概要とリソース (Course overview and resources)",
+        "コースの概要とリソース",
         "Git、GitHub、およびPRワークフローの基本 (Git, GitHub, and PR workflow basics)",
         "ゼロ知識証明 (ZKPs) と数論の入門 (Introduction to ZKPs and Number Theory)"
       ]
