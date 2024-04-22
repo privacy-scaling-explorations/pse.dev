@@ -30,7 +30,7 @@
       "title": "より高度な暗号技術とZKP",
       "items": [
         "Circom 集中講座 + 実践",
-        "KZGコミットメントと zkSNARK (KZG Commitments and zkSNARKs)",
+        "KZGコミットメントと zkSNARKs",
         "信頼されたセットアップと Groth16 の概要 (Overview of Trusted Setups and Groth16)"
       ]
     },
