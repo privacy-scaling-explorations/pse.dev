@@ -4,7 +4,7 @@
   "common": {
     "faq": "よくある質問",
     "curriculum": "カリキュラム",
-    "howToApply": "応募方法 (How to apply)",
+    "howToApply": "応募方法",
     "applyNow": "今すぐ応募する (Apply now)",
     "learnMoreOnGithub": "GitHubで詳細を見る (Learn more on Github)",
     "week": "Week {{week}} (週 {{week}})"
