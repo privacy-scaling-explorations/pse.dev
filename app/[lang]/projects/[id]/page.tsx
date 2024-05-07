@@ -37,10 +37,7 @@ export async function generateMetadata(
   const BASE_URL =
     process.env.NODE_ENV === "production" ? "https://pse.dev" : "."
 
-  const customImage = `${BASE_URL}/${currProject.image}`.replace(
-    "//pse.dev//",
-    "//pse.dev/"
-  ) // prevent double slashes
+  const customImage = `${BASE_URL}/${currProject.image}`
 
   const imageUrl =
     currProject?.image?.length > 0 ? customImage : `${BASE_URL}/og-image.png`
