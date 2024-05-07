@@ -35,8 +35,7 @@ export async function generateMetadata(
   )[0]
 
   const WEBSITE_URL = process.env.VERCEL_URL || "https://pse.dev"
-  const BASE_URL =
-    process.env.NODE_ENV === "production" ? new URL(WEBSITE_URL) : "."
+  const BASE_URL = process.env.NODE_ENV === "production" ? WEBSITE_URL : "."
 
   const imageUrl =
     currProject?.image?.length > 0
