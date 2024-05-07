@@ -1,4 +1,5 @@
 import { Metadata, ResolvingMetadata } from "next"
+import { headers } from "next/headers"
 import Image from "next/image"
 import Link from "next/link"
 import { projects } from "@/data/projects"
@@ -26,6 +27,7 @@ export interface ProjectProps {
   lang: LocaleTypes
 }
 
+declare const window: any
 export async function generateMetadata(
   { params }: PageProps,
   parent: ResolvingMetadata
@@ -37,21 +39,37 @@ export async function generateMetadata(
   const isProduction = process.env.NODE_ENV === "production"
 
   const BASE_URL =
-    process.env.NODE_ENV === "production" ? "https://pse.dev" : "."
+    process.env.NODE_ENV === "production"
+      ? "https://pse.dev"
+      : typeof window !== "undefined"
+      ? window?.location?.origin
+      : ""
 
-  const customImage = `/${currProject.image}`
+  const hasProjectImage = currProject?.image?.length > 0
 
-  const imageUrl =
-    currProject?.image?.length > 0 ? customImage : `${BASE_URL}/og-image.png`
+  const productionImage: string = isProduction
+    ? new URL(
+        hasProjectImage
+          ? `/project-banners/${currProject.image}`
+          : `/og-image.png`,
+        BASE_URL
+      ).toString()
+    : ""
+
+  const devImage: string = !isProduction
+    ? hasProjectImage
+      ? `/project-banners/${currProject.image}`
+      : "./og-image.png"
+    : "./og-image.png"
 
   return {
     title: currProject.name,
     description: currProject.tldr,
     openGraph: {
-      url: isProduction ? BASE_URL : undefined,
+      url: BASE_URL,
       images: [
         {
-          url: imageUrl,
+          url: isProduction ? productionImage : devImage,
           width: 1200,
           height: 630,
         },
