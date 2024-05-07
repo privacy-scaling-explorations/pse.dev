@@ -5,7 +5,6 @@ import { projects } from "@/data/projects"
 import GithubVector from "@/public/social-medias/github-fill.svg"
 import GlobalVector from "@/public/social-medias/global-line.svg"
 import TwitterVector from "@/public/social-medias/twitter-fill.svg"
-import { Divide } from "lucide-react"
 
 import { ProjectInterface } from "@/lib/types"
 import { Markdown } from "@/components/ui/markdown"
@@ -35,9 +34,13 @@ export async function generateMetadata(
     (project) => String(project.id) === params.id
   )[0]
 
-  const imageUrl = currProject.image
-    ? `/project-banners/${currProject.image}`
-    : "/og-image.png"
+  const BASE_URL =
+    process.env.NODE_ENV === "production" ? new URL("https://pse.dev") : "."
+
+  const imageUrl =
+    currProject?.image?.length > 0
+      ? `${BASE_URL}/${currProject.image}`
+      : `${BASE_URL}/og-image.png`
 
   return {
     title: currProject.name,
