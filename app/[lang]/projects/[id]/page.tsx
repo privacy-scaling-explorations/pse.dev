@@ -34,10 +34,12 @@ export async function generateMetadata(
     (project) => String(project.id) === params.id
   )[0]
 
+  const isProduction = process.env.NODE_ENV === "production"
+
   const BASE_URL =
     process.env.NODE_ENV === "production" ? "https://pse.dev" : "."
 
-  const customImage = `${BASE_URL}/${currProject.image}`
+  const customImage = `/${currProject.image}`
 
   const imageUrl =
     currProject?.image?.length > 0 ? customImage : `${BASE_URL}/og-image.png`
@@ -46,6 +48,7 @@ export async function generateMetadata(
     title: currProject.name,
     description: currProject.tldr,
     openGraph: {
+      url: isProduction ? BASE_URL : undefined,
       images: [
         {
           url: imageUrl,
