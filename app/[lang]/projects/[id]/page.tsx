@@ -39,7 +39,7 @@ export async function generateMetadata(
 
   const imageUrl =
     currProject?.image?.length > 0
-      ? `${BASE_URL}${currProject.image}`
+      ? `${BASE_URL}/${currProject.image}`
       : `${BASE_URL}/og-image.png`
 
   return {
