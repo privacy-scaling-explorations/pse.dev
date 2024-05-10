@@ -1,4 +1,3 @@
-import { siteConfig } from "@/config/site"
 import { MainNavProps } from "@/components/main-nav"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes, fallbackLng, languageList } from "@/app/i18n/settings"
