@@ -10,8 +10,8 @@
     "languages": "Languages {{locale}}",
     "blog": "Blog",
     "activity": "Activity",
-    "report": "Report",
-    "firstGoodIssue": "First Good Issue",
+    "report": "Technical Report",
+    "firstGoodIssue": "Good First Issue",
     "programs": "Programs",
     "openIssues": "Open Issues"
   },
