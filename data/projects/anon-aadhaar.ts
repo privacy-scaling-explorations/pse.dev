@@ -13,6 +13,7 @@ export const anonAadhaar: ProjectInterface = {
   tldr: "Tools for building build privacy-preserving applications using government ID cards, specifically Aadhaar cards in India.",
   description,
   links: {
+    website: "https://anon-aadhaar.pse.dev/",
     github: "https://github.com/privacy-scaling-explorations/anon-aadhaar",
   },
   tags: {
