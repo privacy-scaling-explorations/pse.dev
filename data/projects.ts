@@ -1,5 +1,6 @@
 import GithubIcon from "@/public/social-medias/github-fill.svg"
 import GlobeIcon from "@/public/social-medias/global-line.svg"
+import TwitterIcon from "@/public/social-medias/twitter-fill.svg"
 
 import { ProjectInterface, ProjectLinkType } from "@/lib/types"
 
@@ -42,6 +43,7 @@ import { zkp2p } from "./projects/zkp2p"
 export const ProjectLinkIconMap: ProjectLinkType = {
   github: GithubIcon,
   website: GlobeIcon,
+  twitter: TwitterIcon,
 }
 /**
  * List of Projects
