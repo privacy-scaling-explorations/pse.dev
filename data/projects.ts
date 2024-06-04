@@ -31,6 +31,7 @@ import { unirepProtocol } from "./projects/unirep-protocol"
 import { voicedeck } from "./projects/voice-deck"
 import { wax } from "./projects/wax"
 import { zk3 } from "./projects/zk3"
+import { zkemail } from "./projects/zk-email"
 import { ZKKit } from "./projects/zk-kit"
 import { zkevmCommunity } from "./projects/zkevm-community"
 import { zkitter } from "./projects/zkitter"
@@ -82,4 +83,5 @@ export const projects: ProjectInterface[] = [
   zkp2p,
   zk3,
   voicedeck,
+  zkemail,
 ]
