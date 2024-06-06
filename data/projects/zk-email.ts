@@ -6,7 +6,7 @@ ZK Email is a library for anonymous verification of emails while selectively rev
 
 export const zkemail: ProjectInterface = {
   id: "zk-email",
-  section: "grant",
+  section: "collaboration",
   projectStatus: "active",
   image: "zk-email.jpeg",
   name: "zk-email",
