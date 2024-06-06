@@ -1,5 +1,6 @@
 import GithubIcon from "@/public/social-medias/github-fill.svg"
 import GlobeIcon from "@/public/social-medias/global-line.svg"
+import TwitterIcon from "@/public/social-medias/twitter-fill.svg"
 
 import { ProjectInterface, ProjectLinkType } from "@/lib/types"
 
@@ -31,6 +32,7 @@ import { unirepProtocol } from "./projects/unirep-protocol"
 import { voicedeck } from "./projects/voice-deck"
 import { wax } from "./projects/wax"
 import { zk3 } from "./projects/zk3"
+import { zkemail } from "./projects/zk-email"
 import { ZKKit } from "./projects/zk-kit"
 import { zkevmCommunity } from "./projects/zkevm-community"
 import { zkitter } from "./projects/zkitter"
@@ -41,6 +43,7 @@ import { zkp2p } from "./projects/zkp2p"
 export const ProjectLinkIconMap: ProjectLinkType = {
   github: GithubIcon,
   website: GlobeIcon,
+  twitter: TwitterIcon,
 }
 /**
  * List of Projects
@@ -82,4 +85,5 @@ export const projects: ProjectInterface[] = [
   zkp2p,
   zk3,
   voicedeck,
+  zkemail,
 ]
