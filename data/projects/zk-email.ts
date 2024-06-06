@@ -1,7 +1,7 @@
 import { ProjectInterface } from "@/lib/types"
 
 const description = `
-ZK Email is a library that allows for anonymous verification of email signatures while masking specific data. It enables verification of emails to/from specific domains or subsets of domains, as well as verification based on specific text in the email body. This technology can be used for web2 interoperability, decentralized anonymous KYC, or to create interesting on-chain anonymity sets.
+ZK Email is a library for anonymous verification of emails while selectively revealing specific data. It allows a prover to demonstrate receipt of an email from a specific sender or domain or the presence of certain text in the subject or body. This can be used for Web 2.0 interoperability, email recovery solutions of smart accounts, anonymous KYC, or to create interesting applications based on anonymity sets.
 `
 
 export const zkemail: ProjectInterface = {
