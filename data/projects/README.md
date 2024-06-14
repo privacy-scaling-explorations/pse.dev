@@ -1,6 +1,6 @@
 ## Add new project to projects list
 
-1. Add new file inside `[...]/data/projects.ts` folder
+1. Add new file inside `[...]/data/projects` folder
 2. Add project details inside the file already created, to easily include all the required parameters make sure to use the `ProjectInterface`
 
 ```js
