@@ -26,7 +26,7 @@ export const example: ProjectInterface = {
 
 #### 3. Register the New Project:
  - Open the projects.ts file located in the same directory or wherever your project's list is maintained.
- - Add your new project to the projects array to make it visible within your application. For example:
+ - Add your new project to the projects array to make it visible:
 
 ```js
 import { example } from './projects/example';
@@ -37,7 +37,7 @@ const projects: ProjectInterface[] = [
 ];
 ```
 
-By following these steps, you will successfully add a new project to your application and ensure it is correctly registered and visible.
+By following these steps, you will successfully add a new project and ensure it is correctly registered and visible.
 
 ## Show badges in the project card
 
