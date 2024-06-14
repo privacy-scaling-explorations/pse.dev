@@ -39,6 +39,7 @@ import { zkitter } from "./projects/zkitter"
 import { zkml } from "./projects/zkml"
 import { Zkopru } from "./projects/zkopru"
 import { zkp2p } from "./projects/zkp2p"
+import { chiquito } from "./projects/chiquito"
 
 export const ProjectLinkIconMap: ProjectLinkType = {
   github: GithubIcon,
