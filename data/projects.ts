@@ -88,5 +88,6 @@ export const projects: ProjectInterface[] = [
   zk3,
   voicedeck,
   zkemail,
+  chiquito,
   maciRPGF
 ]
