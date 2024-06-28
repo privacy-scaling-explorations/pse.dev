@@ -39,6 +39,7 @@ import { zkitter } from "./projects/zkitter"
 import { zkml } from "./projects/zkml"
 import { Zkopru } from "./projects/zkopru"
 import { zkp2p } from "./projects/zkp2p"
+import { chiquito } from "./projects/chiquito"
 import { maciRPGF } from "./projects/maci-rpgf"
 
 export const ProjectLinkIconMap: ProjectLinkType = {
@@ -87,5 +88,6 @@ export const projects: ProjectInterface[] = [
   zk3,
   voicedeck,
   zkemail,
+  chiquito,
   maciRPGF
 ]

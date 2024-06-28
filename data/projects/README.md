@@ -2,15 +2,15 @@
 
 ####  1. Create a New Project File:
   - Navigate to the [...]/data/projects folder within your project directory.
- - Inside this folder, create a new file named example.ts.
+ - Inside this folder, create a new file named [project_name].ts.
 
 #### 2. Add Project Details:
- - Open the newly created example.ts file.
+ - Open the newly created [project_name].ts file.
  - To ensure all necessary parameters are included, use the ProjectInterface template. Here's a basic structure to get you started:
 
 ```js
 export const example: ProjectInterface = {
-  id: "example",
+  id: "project_name",
   image: "",
   name: "This is an example of the project",
   tags: {
