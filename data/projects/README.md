@@ -9,7 +9,7 @@
  - To ensure all necessary parameters are included, use the ProjectInterface template. Here's a basic structure to get you started:
 
 ```js
-export const example: ProjectInterface = {
+export const project_name: ProjectInterface = {
   id: "project_name",
   image: "",
   name: "This is an example of the project",
@@ -29,11 +29,11 @@ export const example: ProjectInterface = {
  - Add your new project to the projects array to make it visible:
 
 ```js
-import { example } from './projects/example';
+import { project_name } from './projects/[project_name].ts';
 
 const projects: ProjectInterface[] = [
   // other projects
-  example,
+  project_name,
 ];
 ```
 
