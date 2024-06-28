@@ -6,20 +6,23 @@ Enhancing Ethereum through cryptographic research and collective experimentation
 ## Contributing guidelines
 
 ### Open for contribution.
-- For updating project detail, please open PR and request at least two reviewers for approval (there should be auto-assign actions, so you don't need to select manually).
 - For adding new features, please open PR and first merge to staging/dev for QA, or open issue for suggestion, bug report.
 - For any misc. update such as typo, PR to main and two approval is needed.
 
+### Add/Edit project list
+- For updating/adding project detail [you can follow this guide](https://github.com/privacy-scaling-explorations/pse.dev/blob/main/data/projects/README.md)
 
-### Project detail now supports markdown
-For PSE members who wish to add more information to the project detail, you can now add to the "description" in the {project}.ts. 
+## PR Review process
+#### For internal, PSE member:
+- Suggest to tag: @kalidiagne, @ChialiT, @AtHeartEngineer, @kichong for PR review.
+- If question, please reach out in discord channel #website-pse
 
-Supported format:
-- Headings
-- Table
-- more to come in a later release.
 
-Please note the keyword and theme is curated by the comms & design team. If you wish to change, please create a PR. 
+#### For external:
+- Translation PR: please tag a member you know that can help review your translation
+- Any type of PR: please state clear your intention
+For any suggestion, feel free to open issue or send us a message on Discord #suggestion
+
 
 
 ## Run Locally

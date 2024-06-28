@@ -98,7 +98,12 @@ This is the result
 
 ![Project links](/public/project/example-project-extra-link.png)
 
-## Markdown supported
+### Project detail now supports markdown
+For PSE members who wish to add more information to the project detail, you can now add to the "description" in the {project}.ts.
 
-You can also format the description to your liking using markdown. We supported all the heading, bold and table.
-This can help the reader to quickly scan through the important information.
+Supported format:
+- Headings
+- Table
+- more to come in a later release.
+
+Please note the keyword and theme is curated by the comms & design team. If you wish to change, please create a PR.
