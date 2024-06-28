@@ -1,11 +1,16 @@
 ## Add new project to projects list
 
-1. Add new file inside `[...]/data/projects` folder
-2. Add project details inside the file already created, to easily include all the required parameters make sure to use the `ProjectInterface`
+####  1. Create a New Project File:
+  - Navigate to the [...]/data/projects folder within your project directory.
+ - Inside this folder, create a new file named [project_name].ts.
+
+#### 2. Add Project Details:
+ - Open the newly created [project_name].ts file.
+ - To ensure all necessary parameters are included, use the ProjectInterface template. Here's a basic structure to get you started:
 
 ```js
-export const example: ProjectInterface = {
-  id: "example",
+export const project_name: ProjectInterface = {
+  id: "project_name",
   image: "",
   name: "This is an example of the project",
   tags: {
@@ -17,7 +22,22 @@ export const example: ProjectInterface = {
 }
 ```
 
-3. Include the exported constant of the project in `projects.ts` and add it to the array `projects` in that file.
+ - Fill in the id, image, name, and tags fields as per your project's details. The tags object includes arrays for keywords, themes, types, and builtWith.
+
+#### 3. Register the New Project:
+ - Open the projects.ts file located in the same directory or wherever your project's list is maintained.
+ - Add your new project to the projects array to make it visible:
+
+```js
+import { project_name } from './projects/[project_name].ts';
+
+const projects: ProjectInterface[] = [
+  // other projects
+  project_name,
+];
+```
+
+By following these steps, you will successfully add a new project and ensure it is correctly registered and visible.
 
 ## Show badges in the project card
 
@@ -78,7 +98,12 @@ This is the result
 
 ![Project links](/public/project/example-project-extra-link.png)
 
-## Markdown supported
+### Project detail now supports markdown
+For PSE members who wish to add more information to the project detail, you can now add to the "description" in the {project}.ts.
 
-You can also format the description to your liking using markdown. We supported all the heading, bold and table.
-This can help the reader to quickly scan through the important information.
+Supported format:
+- Headings
+- Table
+- more to come in a later release.
+
+Please note the keyword and theme is curated by the comms & design team. If you wish to change, please create a PR.
