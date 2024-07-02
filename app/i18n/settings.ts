@@ -61,6 +61,11 @@ export const languageList: Language[] = [
     enabled: true,
   },
   {
+    key: "ja",
+    label: "日本語",
+    enabled: true,
+  },
+  {
     key: "ar",
     label: "Arabic",
     enabled: false,
@@ -68,11 +73,6 @@ export const languageList: Language[] = [
   {
     key: "zh-CN",
     label: "中文",
-    enabled: false,
-  },
-  {
-    key: "ja",
-    label: "日本語",
     enabled: false,
   },
 ]
