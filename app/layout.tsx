@@ -10,7 +10,7 @@ export async function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://appliedzkp.org"),
+  metadataBase: new URL("https://pse.dev"),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
