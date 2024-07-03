@@ -121,7 +121,7 @@
   <ResourceItem
     label="PSE identity kit"
     description="Complete with logos, illustrations, text and color styles - open directly in Figma and start designing."
-    url="https://www.figma.com/file/e8wDmS2ZKkGlvs1yhMkqXX/Privacy-%26-Scaling-Explorations-Identity-Kit-(Community)?type=design&node-id=4339-317&mode=design&t=Jjzsaow2zqLSvnWp-0"
+    url="https://www.figma.com/community/file/1290636153494301914/privacy-scaling-explorations-identity-kit"
     icon="figma"
   />
   <ResourceItem
