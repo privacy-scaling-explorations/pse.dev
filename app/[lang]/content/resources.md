@@ -84,7 +84,7 @@
      <ResourceItem
     label="PSE — Good First Issues"
     description="Learn by doing & contributing. Explore all the good first issues in PSE's project catalog"
-    url="https://pse-good-first-issues.vercel.app/"
+    url="https://gfi.pse.dev/"
   />
 </ResourceCard>
 
