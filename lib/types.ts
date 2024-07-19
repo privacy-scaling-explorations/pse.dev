@@ -51,6 +51,7 @@ export type ProjectLinkWebsite =
   | "discord"
   | "twitter"
   | "youtube"
+  | "telegram"
 
 export type ProjectLinkType = Partial<Record<ProjectLinkWebsite, string>>
 export type ProjectExtraLinkType = "buildWith" | "play" | "research" | "learn"
