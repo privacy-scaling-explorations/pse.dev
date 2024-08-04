@@ -31,7 +31,10 @@
     "builtWith": "Built with",
     "themes": "Themes selected",
     "projectStatus": "Project status",
-    "fundingSource": "Funding source"
+    "fundingSource": "Funding source",
+    "funding": "Funding",
+    "license": "License",
+    "projectType": "Project type"
   },
   "error": {
     "404": {
@@ -83,5 +86,8 @@
   "connectWithUsOnPlatform": "Connect with us on {{platform}}",
   "addResource": "Add a resource",
   "notCurrentlyActive": "Not Currently Active",
-  "joinOurDiscord": "Join our discord"
+  "joinOurDiscord": "Join our discord",
+  "prevBrandImage": "Previous branding",
+  "editThisPage": "Edit this page",
+  "contents": "Contents"
 }

@@ -5,7 +5,6 @@ import { projects } from "@/data/projects"
 import GithubVector from "@/public/social-medias/github-fill.svg"
 import GlobalVector from "@/public/social-medias/global-line.svg"
 import TwitterVector from "@/public/social-medias/twitter-fill.svg"
-import { Divide } from "lucide-react"
 
 import { ProjectInterface } from "@/lib/types"
 import { Markdown } from "@/components/ui/markdown"
