@@ -72,8 +72,11 @@ export type ActionLinkType = Partial<
 
 export interface ProjectInterface {
   id: string
+  hasWiki?: boolean // show project with wiki page template
+  license?: string
   section: ProjectSection
   image: string
+  previousBrandImage?: string
   imageAlt?: string
   name: string
   tldr: string // this is managed by the specific translation file
