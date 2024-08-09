@@ -1,0 +1,4 @@
+{
+  "description": "p0tion is an agnostic-from-ceremony public good toolkit, with the aim of making Groth16 zk-applications scale and become production-ready in a safe and secure manner by running Phase 2 Trusted Setup ceremonies.",
+  "tldr": "Toolkit for Groth16 Phase 2 Trusted Setup ceremonies."
+}
