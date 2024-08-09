@@ -1,6 +1,7 @@
 import GithubIcon from "@/public/social-medias/github-fill.svg"
 import GlobeIcon from "@/public/social-medias/global-line.svg"
 import TwitterIcon from "@/public/social-medias/twitter-fill.svg"
+import i18next, { InitOptions } from "i18next"
 
 import { ProjectInterface, ProjectLinkType } from "@/lib/types"
 
@@ -47,6 +48,25 @@ export const ProjectLinkIconMap: ProjectLinkType = {
   github: GithubIcon,
   website: GlobeIcon,
   twitter: TwitterIcon,
+}
+
+export const defineProjectTranslations = (
+  resources: InitOptions["resources"] = {}
+) => {
+  const languageCode = location?.pathname.split("/")[1]
+  console.log("languageCode", languageCode)
+  return null
+  i18next.init({
+    lng: languageCode, // if you're using a language detector, do not define the lng option
+    debug: true,
+    resources: {
+      en: {
+        translation: {
+          tldr: "hello world",
+        },
+      },
+    },
+  })
 }
 /**
  * List of Projects

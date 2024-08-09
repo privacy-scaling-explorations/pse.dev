@@ -5,7 +5,6 @@ import { projects } from "@/data/projects"
 import GithubVector from "@/public/social-medias/github-fill.svg"
 import GlobalVector from "@/public/social-medias/global-line.svg"
 import TwitterVector from "@/public/social-medias/twitter-fill.svg"
-import { Divide } from "lucide-react"
 
 import { ProjectInterface } from "@/lib/types"
 import { Markdown } from "@/components/ui/markdown"
@@ -60,6 +59,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   )[0]
   const lang = params?.lang as LocaleTypes
   const { t } = await useTranslation(lang, "common")
+  const { t: tProject } = await useTranslation(
+    lang,
+    "projects/" + currProject.id
+  )
 
   const { github, twitter, website } = currProject.links ?? {}
   const hasSocialLinks = Object.keys(currProject?.links ?? {}).length > 0
@@ -85,7 +88,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     {currProject.name}
                   </h1>
                   <p className="py-2 leading-[150%] text-slate-600">
-                    {currProject.tldr}
+                    {tProject("tldr")}
                   </p>
                 </div>
               </div>
@@ -154,7 +157,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               </div>
               <ProjectTags project={currProject} lang={lang} />
               <div className="flex w-full flex-col gap-5 text-base font-normal leading-relaxed">
-                <Markdown>{currProject.description}</Markdown>
+                <Markdown>{tProject("description")}</Markdown>
               </div>
               <ProjectExtraLinks project={currProject} lang={lang} />
             </div>
