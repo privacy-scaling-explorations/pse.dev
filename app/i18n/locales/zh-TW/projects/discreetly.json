@@ -1,0 +1,4 @@
+{
+  "description": "An anonymous, federated, chat application that uses Rate-Limiting Nullifier for spam prevention.",
+  "tldr": "An anonymous, federated, chat application using ZK."
+}
