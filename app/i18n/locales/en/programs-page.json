@@ -65,10 +65,10 @@
       "By the end of the program, you will gain comprehensive knowledge about Zero Knowledge Proofs (ZKP), Fully Homomorphic Encryption (FHE), and Multiparty Computation (MPC). You will also bolster your GitHub portfolio, and potentially receive grants for further research and contributions!"
     ]
   },
-  "acceleratorProgram": {
-    "title": "Accelerator Program",
+  "accelerationProgramFaq": {
+    "title": "Acceleration Program",
     "description": [
-      "The Accelerator Program supports alumni of our entry level programs (e.g. Core Program, ZK Summer, ZK Playground) to deepen explorations of ZKP, FHE, MPC, and related technologies through grants and mentorship. This program operates on a round-based application system, focusing on specific open tasks for each round."
+      "The Acceleration Program supports alumni of our entry level programs (e.g. Core Program, ZK Summer, ZK Playground) to deepen explorations of ZKP, FHE, MPC, and related technologies through grants and mentorship. This program operates on a round-based application system, focusing on specific open tasks for each round."
     ]
   },
   "howToApply": {
