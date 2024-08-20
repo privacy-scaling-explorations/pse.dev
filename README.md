@@ -30,13 +30,13 @@ For any suggestion, feel free to open issue or send us a message on Discord #sug
 Clone the project
 
 ```bash
-  git clone https://github.com/privacy-scaling-explorations/website-v2
+  git clone https://github.com/privacy-scaling-explorations/pse.dev
 ```
 
 Go to the project directory
 
 ```bash
-  cd website-v2
+  cd pse.dev
 ```
 
 Install dependencies
