@@ -63,11 +63,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const lang = params?.lang as LocaleTypes
   const { t } = await useTranslation(lang, "common")
 
-  const { t: tProject } = await useTranslation(
-    lang,
-    "projects/" + currProject.id
-  )
-
   const { github, twitter, website } = currProject.links ?? {}
   const hasSocialLinks = Object.keys(currProject?.links ?? {}).length > 0
 
@@ -97,7 +92,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                         {currProject.name}
                       </h1>
                       <p className="py-2 leading-[150%] text-slate-600">
-                        {tProject("tldr")}
+                        {currProject.tldr}
                       </p>
                     </div>
                   </div>
@@ -160,7 +155,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                             }),
                         }}
                       >
-                        {tProject("description")}
+                        {currProject.description}
                       </Markdown>
                     )}
                   </div>

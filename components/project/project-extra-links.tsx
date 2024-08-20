@@ -90,11 +90,11 @@ export default function ProjectExtraLinks({
 
   return (
     <div className="flex flex-col gap-8 py-4">
-      {Object.entries(ExtraLinkLabelMapping).map(([key], index) => {
+      {Object.entries(ExtraLinkLabelMapping).map(([key]) => {
         const links = extraLinks[key as ProjectExtraLinkType] ?? []
         return (
           <ExtraLinkItems
-            key={index}
+            key={key}
             id={key as ProjectExtraLinkType}
             links={links}
           />

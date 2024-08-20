@@ -1,10 +1,10 @@
 import { Faq } from "@/lib/types"
 
-export const accelerationProgramFaq: Faq[] = [
+export const acceleratorProgramFaq: Faq[] = [
   {
     question: "Who can apply?",
     answer:
-      "The Acceleration program is open to alumni of our entry level programs (e.g. Launch Program, ZK Playground) and other applicants at beginner to intermediate levels with programmable cryptography.",
+      "The Accelerator program is open to alumni of our entry level programs (e.g. Launch Program, ZK Playground) and other applicants at beginner to intermediate levels with programmable cryptography.",
   },
   {
     question: "What platform does the program use?",
