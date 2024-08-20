@@ -11,7 +11,11 @@ export const createMarkdownElement = (
   })
 
 const Table = (props: any) => {
-  return <table data-component="table">{props.children}</table>
+  return (
+    <div className="rounded-lg border border-tuatara-300">
+      <table data-component="table">{props.children}</table>
+    </div>
+  )
 }
 
 // Styling for HTML attributes for markdown component
@@ -60,13 +64,13 @@ const REACT_MARKDOWN_CONFIG: Components = {
   ul: ({ node, ...props }) =>
     createMarkdownElement("ul", {
       className:
-        "ml-6 list-disc text-tuatara-700 font-sans text-lg font-normal underline",
+        "ml-6 list-disc text-tuatara-700 font-sans text-lg font-normal",
       ...props,
     }),
   ol: ({ node, ...props }) =>
     createMarkdownElement("ol", {
       className:
-        "ml-6 list-disc text-tuatara-700 font-sans text-lg font-normal underline",
+        "ml-6 list-disc text-tuatara-700 font-sans text-lg font-normal",
       ...props,
     }),
   table: Table,

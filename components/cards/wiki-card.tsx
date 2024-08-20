@@ -134,7 +134,7 @@ export const WikiCard = ({
         </Card>
         {previousBrandImage && (
           <Card padding="none">
-            <div className="h-[140px ]relative flex items-center justify-center overflow-hidden rounded-t-lg ">
+            <div className="relative flex max-h-[140px] items-center justify-center overflow-hidden rounded-t-lg ">
               <Image
                 src={`/project-banners/${previousBrandImage}`}
                 alt={`${project.name} banner`}

@@ -11,6 +11,8 @@ export const unirepProtocol: ProjectInterface = {
   section: "pse",
   projectStatus: "inactive",
   image: "unirep.svg",
+  license: "MIT",
+  previousBrandImage: "unirep-previousBrand.png",
   name: "UniRep Protocol",
   tldr: "A Zero-Knowledge Protocol built to handle anonymous user data.",
   description,

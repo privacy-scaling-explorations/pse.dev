@@ -62,18 +62,28 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   )[0]
   const lang = params?.lang as LocaleTypes
   const { t } = await useTranslation(lang, "common")
+  const { t: projectTranslation } = await useTranslation(
+    lang,
+    "projects/" + currProject.id
+  )
 
   const { github, twitter, website } = currProject.links ?? {}
   const hasSocialLinks = Object.keys(currProject?.links ?? {}).length > 0
 
-  const editPageURL = siteConfig?.editProjectPage(currProject.id)
+  const editPageURL = siteConfig?.editProjectPage(currProject.id, lang)
 
   return (
     <section className="bg-project-page-gradient">
       <Divider.Section className="flex flex-col items-center">
         <AppContent className="flex flex-col gap-12 py-16">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[140px_1fr_290px] lg:items-start lg:gap-12">
-            <WikiSideNavigation className="hidden md:block" />
+            <div className=" sticky top-20">
+              <WikiSideNavigation
+                className="hidden md:block"
+                content={projectTranslation("description")}
+              />
+            </div>
+
             <div className=" flex w-full flex-col items-center justify-center gap-5">
               <div className=" w-full ">
                 <div className="flex flex-col">
@@ -92,7 +102,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                         {currProject.name}
                       </h1>
                       <p className="py-2 leading-[150%] text-slate-600">
-                        {currProject.tldr}
+                        {projectTranslation("tldr")}
                       </p>
                     </div>
                   </div>
@@ -155,7 +165,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                             }),
                         }}
                       >
-                        {currProject.description}
+                        {projectTranslation("description")}
                       </Markdown>
                     )}
                   </div>
