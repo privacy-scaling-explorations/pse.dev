@@ -25,7 +25,7 @@ import { p0tion } from "./projects/p0tion"
 import { p256 } from "./projects/p256"
 import { pollenLabs } from "./projects/pollen-labs"
 import { PerpetualPowersOfTau } from "./projects/powers-of-tau"
-import { proofOfPassport } from "./projects/proof-of-passport"
+import { OpenPassport } from "./projects/openpassport"
 import { pseSecurity } from "./projects/pse-security"
 import { rln } from "./projects/rln"
 import { semaphore } from "./projects/semaphore"
@@ -111,5 +111,5 @@ export const projects: ProjectInterface[] = [
   zkemail,
   chiquito,
   maciRPGF,
-  proofOfPassport,
+  OpenPassport,
 ]
