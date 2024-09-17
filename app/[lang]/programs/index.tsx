@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { acceleratorProgramFaq } from "@/data/programs/acceleratorProgramFaq"
+import { accelerationProgramFaq } from "@/data/programs/accelerationProgramFaq"
 import { coreProgramFaq } from "@/data/programs/coreProgramFaq"
 import { ReactNode } from "react-markdown/lib/ast-to-react"
 import { twMerge } from "tailwind-merge"
@@ -92,7 +92,7 @@ const ProgramDetail = ({
   )
 }
 
-const ProgramSections = ["coreProgram", "acceleratorProgram"] as const
+const ProgramSections = ["coreProgram", "accelerationProgram"] as const
 
 export const ProgramPageContent = ({ lang }: any) => {
   const { t } = useTranslation(lang, "programs-page")
@@ -111,8 +111,8 @@ export const ProgramPageContent = ({ lang }: any) => {
     t("coreProgram.description", {
       returnObjects: true,
     }) || []
-  const acceleratorProgramDescription: any[] =
-    t("acceleratorProgram.description", {
+  const accelerationProgramDescription: any[] =
+    t("accelerationProgram.description", {
       returnObjects: true,
     }) ?? []
 
@@ -347,12 +347,12 @@ export const ProgramPageContent = ({ lang }: any) => {
           </div>
           <div className="flex w-full flex-col">
             <div
-              id="acceleratorProgram"
-              data-section="acceleratorProgram"
+              id="accelerationProgram"
+              data-section="accelerationProgram"
               className="mx-auto flex flex-col py-10 md:max-w-2xl md:py-16"
             >
               <div className="flex flex-col gap-5">
-                <SectionTitle label={t("acceleratorProgram.title")} />
+                <SectionTitle label={t("accelerationProgram.title")} />
                 <Card className="flex flex-col gap-5">
                   <ProgramDetail
                     title={
@@ -367,7 +367,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                   />
                   <div className="mx-auto">
                     <Link
-                      href={siteConfig.links.acceleratorProgram}
+                      href={siteConfig.links.accelerationProgram}
                       target="_blank"
                     >
                       <Button className="uppercase">
@@ -381,7 +381,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                 </Card>
               </div>
               <div className="flex flex-col gap-2 pt-8">
-                {acceleratorProgramDescription?.map((description, index) => {
+                {accelerationProgramDescription?.map((description, index) => {
                   return (
                     <span
                       key={index}
@@ -459,7 +459,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                     <Accordion
                       className="!border-anakiwa-300"
                       size="xs"
-                      items={acceleratorProgramFaq.map(
+                      items={accelerationProgramFaq.map(
                         ({ question, answer }, index) => {
                           return {
                             label: (
