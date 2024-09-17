@@ -38,17 +38,34 @@ export const WikiSideNavigation = ({
 
   console.log("sectionTitles ", sections)
 
+  if (sections?.length === 0) return null
   return (
     <aside className={cn("flex flex-col gap-4", className)}>
-      <h6 className="font-display text-lg font-bold text-tuatara-700">
+      <h6 className="text-lg font-bold font-display text-tuatara-700">
         {t("contents")}
       </h6>
-      <ul className="text-normal font-sans text-black">
+      <ul className="font-sans text-black text-normal">
         {sections?.map(({ text }: any) => {
+          const list = Array.from(document.querySelectorAll("h6"))
+            .concat(Array.from(document.querySelectorAll("h5")))
+            .concat(Array.from(document.querySelectorAll("h4")))
+            .concat(Array.from(document.querySelectorAll("h3")))
+            .concat(Array.from(document.querySelectorAll("h2")))
+            .concat(Array.from(document.querySelectorAll("h2")))
           return (
             <li
               onClick={(e) => {
                 e?.preventDefault()
+                const section = list.find((el: any) =>
+                  el.textContent.includes(text)
+                )
+
+                if (section) {
+                  section?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  })
+                }
               }}
               data-id=""
               className={cn(
