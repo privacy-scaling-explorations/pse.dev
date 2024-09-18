@@ -29,4 +29,6 @@ export const siteConfig = {
   },
   addGithubResource:
     "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/%5Blang%5D/content/resources.md",
+  editProjectPage: (id: string, locale = "en") =>
+    `https://github.com/privacy-scaling-explorations/pse.dev/blob/main/app/i18n/locales/${locale}/projects/${id}.json`,
 }

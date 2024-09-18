@@ -9,6 +9,8 @@ export const semaphore: ProjectInterface = {
   section: "pse",
   projectStatus: "active",
   image: "semaphore.webp",
+  previousBrandImage: "semaphorePrevious.jpg",
+  license: "MIT",
   name: "Semaphore",
   tldr: "A zero-knowledge protocol for anonymous interactions.",
   description,

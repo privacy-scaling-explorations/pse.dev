@@ -101,20 +101,24 @@
  */
 @layer base {
   table[data-component="table"] {
-    @apply overflow-hidden rounded-lg table-auto bg-anakiwa-100;
+    @apply overflow-hidden !border !border-solid !border-tuatara-300 rounded-lg table-auto bg-white;
+  }
+
+  table[data-component="table"] tr  {
+    @apply !divide-solid !divide-x !divide-tuatara-300;
   }
 
   table[data-component="table"] thead > tr > th {
     @apply px-4 py-1 text-sm font-medium text-left text-anakiwa-500;
-    @apply border-b border-b-white;
+    @apply border border-tuatara-300;
   }
 
   table[data-component="table"] tbody > tr > td {
-    @apply px-4 py-1 text-xs font-medium text-left text-tuatara-700;
+    @apply px-4 py-1 text-sm font-medium text-left text-tuatara-700;
   }
 
   table[data-component="table"] tbody > tr:not(:last-child) {
-    @apply border-b border-b-white;
+    @apply border-b border-tuatara-300;
   }
 }
 
