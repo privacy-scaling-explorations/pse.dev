@@ -5,9 +5,6 @@ export const Coco: ProjectInterface = {
   section: "pse",
   image: "coco.svg",
   name: "COCO",
-  tldr: "Integrating Nova into the EVM involves wrapping Liam Eagen's theoretical ECIP argument in Halo 2",
-  description:
-    "With Coco, groups can collaborate to curate feeds of any topic they're interested in. As you scroll through your Coco feed, rather than upvoting or downvoting posts, you'll spend WETH to predict what other group members and the group's moderators will want to see. When you're right, you'll get back your original WETH and more — but if you're wrong, you'll lose what you put in. Through this process, you help Coco filter value from noise to make sure group feeds only consist of posts that the group cares about.",
   projectStatus: "inactive",
   tags: {
     keywords: ["prediction market", "scaling"],

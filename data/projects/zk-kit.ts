@@ -5,9 +5,6 @@ export const ZKKit: ProjectInterface = {
   section: "pse",
   image: "zk-kit.svg",
   name: "ZK-Kit",
-  tldr: "A set of reusable libraries for zero-knowledge technologies.",
-  description:
-    "ZK-kit is a set of libraries (algorithms or utility functions) that can be reused in different projects and zero-knowledge protocols, making it easier for developers to access user-friendly, tested, and documented libraries.",
   projectStatus: "active",
   links: {
     website: "https://zkkit.pse.dev",

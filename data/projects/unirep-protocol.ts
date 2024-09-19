@@ -1,11 +1,5 @@
 import { ProjectInterface } from "@/lib/types"
 
-const description = `
-UniRep is a zero-knowledge protocol that securely manages user data through anonymous identifiers, enabling trustless interactions and enhanced user privacy in applications. UniRep expands the notion of reputation to include various user data aspects, such as preferences, activity, alignments, and ownership.
-
-Using anonymous identifiers (epoch keys), the protocol allows for trustless engagement with applications while preserving user privacy. This approach promotes non-custodial applications that don't hold user data, reducing data breach risks and emphasizing security for both users and developers.
-`
-
 export const unirepProtocol: ProjectInterface = {
   id: "unirep-protocol",
   section: "pse",
@@ -14,8 +8,6 @@ export const unirepProtocol: ProjectInterface = {
   license: "MIT",
   previousBrandImage: "unirep-previousBrand.png",
   name: "UniRep Protocol",
-  tldr: "A Zero-Knowledge Protocol built to handle anonymous user data.",
-  description,
   links: {
     github: "https://github.com/Unirep",
     website: "https://developer.unirep.io/docs/welcome",

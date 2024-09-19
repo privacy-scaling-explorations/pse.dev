@@ -7,6 +7,7 @@ import { VariantProps, cva } from "class-variance-authority"
 
 import { ProjectInterface, ProjectLinkWebsite } from "@/lib/types"
 import { cn } from "@/lib/utils"
+import useContent from "@/hooks/useContent"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
 
@@ -54,10 +55,13 @@ export default function ProjectCard({
 }: ProjectCardProps & { lang: LocaleTypes }) {
   const { t } = useTranslation(lang, "common")
 
-  const { id, image, links, name, tldr, tags, imageAlt, projectStatus } =
-    project
+  const { id, image, links, name, tags, imageAlt, projectStatus } = project
 
   const projectNotActive = projectStatus !== "active"
+  const { projectContent } = useContent({
+    lang,
+    id,
+  })
 
   return (
     <Link
@@ -74,15 +78,15 @@ export default function ProjectCard({
             className="min-h-[160px] w-full overflow-hidden rounded-t-lg border-none object-cover"
           />
           {!image && (
-            <span className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-5 text-center text-xl font-bold text-black">
+            <span className="absolute w-full px-5 text-xl font-bold text-center text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
               {imageAlt || name}
             </span>
           )}
         </div>
       )}
-      <div className="flex h-full flex-col justify-between rounded-b-lg bg-white p-4">
+      <div className="flex flex-col justify-between h-full p-4 bg-white rounded-b-lg">
         <div className="flex flex-col justify-start gap-2">
-          <div className="mb-2 flex gap-2">
+          <div className="flex gap-2 mb-2">
             {tags?.themes?.map((theme, index) => {
               const { label } = ThemesButtonMapping(lang)?.[theme]
               const icon = TagsIconMapping?.[theme]
@@ -98,11 +102,11 @@ export default function ProjectCard({
             })}
           </div>
           <h1 className="text-xl font-bold text-black">{name}</h1>
-          <div className="flex h-28 flex-col gap-4">
-            <p className="text-slate-900/80">{tldr}</p>
+          <div className="flex flex-col gap-4 h-28">
+            <p className="text-slate-900/80">{projectContent?.tldr}</p>
           </div>
         </div>
-        <div className="mt-auto flex justify-between">
+        <div className="flex justify-between mt-auto">
           {showLinks && (
             <div className="flex items-center justify-start gap-3">
               {Object.entries(links ?? {})?.map(([website, url], index) => {
