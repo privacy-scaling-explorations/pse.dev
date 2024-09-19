@@ -1,12 +1,12 @@
 import { Metadata } from "next"
 import Image from "next/image"
 
+import { Divider } from "@/components/divider"
 import { PageHeader } from "@/components/page-header"
 import ProjectFiltersBar from "@/components/project/project-filters-bar"
 import { ProjectList } from "@/components/project/project-list"
 import { ProjectResultBar } from "@/components/project/project-result-bar"
 import { useTranslation } from "@/app/i18n"
-import { Divider } from "@/components/divider"
 
 export const metadata: Metadata = {
   title: "Project Library",
@@ -38,7 +38,7 @@ export default async function ProjectsPage({ params: { lang } }: any) {
       </PageHeader>
 
       <div className="w-full bg-white pb-28">
-        <div className="container flex flex-col gap-14 py-8">
+        <div className="container flex flex-col py-8 gap-14">
           <div>
             <ProjectResultBar lang={lang} />
           </div>

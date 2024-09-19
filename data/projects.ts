@@ -1,7 +1,6 @@
 import GithubIcon from "@/public/social-medias/github-fill.svg"
 import GlobeIcon from "@/public/social-medias/global-line.svg"
 import TwitterIcon from "@/public/social-medias/twitter-fill.svg"
-import i18next, { InitOptions } from "i18next"
 
 import { ProjectInterface, ProjectLinkType } from "@/lib/types"
 
@@ -21,11 +20,11 @@ import { jubmoji } from "./projects/jubmoji"
 import { maci } from "./projects/maci"
 import { maciRPGF } from "./projects/maci-rpgf"
 import { nfctap } from "./projects/nfctap"
+import { OpenPassport } from "./projects/openpassport"
 import { p0tion } from "./projects/p0tion"
 import { p256 } from "./projects/p256"
 import { pollenLabs } from "./projects/pollen-labs"
 import { PerpetualPowersOfTau } from "./projects/powers-of-tau"
-import { OpenPassport } from "./projects/openpassport"
 import { pseSecurity } from "./projects/pse-security"
 import { rln } from "./projects/rln"
 import { semaphore } from "./projects/semaphore"
@@ -50,24 +49,6 @@ export const ProjectLinkIconMap: ProjectLinkType = {
   twitter: TwitterIcon,
 }
 
-export const defineProjectTranslations = (
-  resources: InitOptions["resources"] = {}
-) => {
-  const languageCode = location?.pathname.split("/")[1]
-  console.log("languageCode", languageCode)
-  return null
-  i18next.init({
-    lng: languageCode, // if you're using a language detector, do not define the lng option
-    debug: true,
-    resources: {
-      en: {
-        translation: {
-          tldr: "hello world",
-        },
-      },
-    },
-  })
-}
 /**
  * List of Projects
  *

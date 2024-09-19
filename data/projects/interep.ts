@@ -5,9 +5,6 @@ export const Interep: ProjectInterface = {
   section: "pse",
   image: "interep.svg",
   name: "Interep",
-  tldr: "An identity bridge from web2 to web3",
-  description:
-    "Interep aims to provide an identity solution for Ethereum users by bridging from an established digital identity source such as Reddit, Twitter, and Github. The product provides an identity layer in the application stack and uses the Semaphore framework to ensure privacy. Interep allows users to establish sybil-resistant decentralized identities on web3 without starting from scratch. By leveraging zero-knowledge proofs, Interep ensures only essential information is disclosed.",
   projectStatus: "inactive",
   tags: {
     keywords: ["social", "reputation"],

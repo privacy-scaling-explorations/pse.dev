@@ -1,5 +1,8 @@
 ## Add new project to projects list
 
+
+
+
 ####  1. Create a New Project File:
   - Navigate to the [...]/data/projects folder within your project directory.
  - Inside this folder, create a new file named [project_name].ts.
@@ -7,6 +10,8 @@
 #### 2. Add Project Details:
  - Open the newly created [project_name].ts file.
  - To ensure all necessary parameters are included, use the ProjectInterface template. Here's a basic structure to get you started:
+
+**Note**: The `description` and `tldr` are now managed through the respective translation file located in /i18n/locales. Refer to step #4 for more details.
 
 ```js
 export const project_name: ProjectInterface = {
@@ -35,6 +40,20 @@ const projects: ProjectInterface[] = [
   // other projects
   project_name,
 ];
+```
+
+#### 4. Project Description and TLRD
+With the project now supporting multiple languages, the description and content fields are managed in the internalization folder. Follow these steps:
+- Create a new project_id.json file in /app/i18n/locales/${lang}/projects/${project_id}.json.
+- Ensure the project_id defined in Step 2 matches the project_id.json file.
+- In this new file, add the description and tldr for the project.
+- Repeat these steps for each language you wish to support.
+
+```json
+{
+  "description": "project description content",
+  "tldr": "project tldr"
+}
 ```
 
 By following these steps, you will successfully add a new project and ensure it is correctly registered and visible.
@@ -68,8 +87,6 @@ export const example: ProjectInterface = {
   id: "example",
   image: "",
   name: "This is an example of the project",
-  tldr: 'The project one-liner',
-  description: 'A longer project description',
   projectStatus: '',
   tags: {
     themes: ["play", "buildWith"],

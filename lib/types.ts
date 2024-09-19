@@ -79,8 +79,8 @@ export interface ProjectInterface {
   previousBrandImage?: string
   imageAlt?: string
   name: string
-  tldr: string // this is managed by the specific translation file
-  description: string // this is managed by the specific translation file
+  tldr?: string // this is managed by the specific translation file in /i18n/locales
+  description?: string // this is managed by the specific translation file /i18n/locales
   links?: ProjectLinkType
   projectStatus: ProjectStatusType
   tags?: ProjectTags
