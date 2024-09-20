@@ -11,7 +11,7 @@ export const semaphore: ProjectInterface = {
   links: {
     github: "https://github.com/semaphore-protocol",
     website: "https://semaphore.pse.dev/",
-    discord: "https://semaphore.pse.dev/discord",
+    telegram: "https://semaphore.pse.dev/telegram",
     twitter: "https://twitter.com/SemaphoreDevs",
   },
   tags: {
