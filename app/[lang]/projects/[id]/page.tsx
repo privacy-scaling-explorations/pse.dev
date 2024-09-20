@@ -156,20 +156,18 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
                 <div className="flex flex-col w-full gap-6 mt-6 md:mt-10">
                   <div className="flex flex-col w-full gap-4 text-base font-normal leading-relaxed">
-                    {typeof currProject?.description === "string" && (
-                      <Markdown
-                        components={{
-                          p: ({ node, ...props }) =>
-                            createMarkdownElement("p", {
-                              className:
-                                "text-tuatara-700 font-sans text-lg font-normal",
-                              ...props,
-                            }),
-                        }}
-                      >
-                        {projectTranslation("description")}
-                      </Markdown>
-                    )}
+                    <Markdown
+                      components={{
+                        p: ({ node, ...props }) =>
+                          createMarkdownElement("p", {
+                            className:
+                              "text-tuatara-700 font-sans text-lg font-normal",
+                            ...props,
+                          }),
+                      }}
+                    >
+                      {projectTranslation("description")}
+                    </Markdown>
                     <ProjectTags project={currProject} lang={lang} />
                   </div>
                   <ProjectExtraLinks project={currProject} lang={lang} />
