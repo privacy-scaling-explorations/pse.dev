@@ -35,7 +35,6 @@ type IProjectTags = {
 }
 
 export function ProjectTags({ project, lang }: IProjectTags) {
-  return null
   const statusItem = ThemesStatusMapping(lang)
   const { label, icon } = statusItem?.[project?.projectStatus] ?? {}
   const { t } = useTranslation(lang, "common")
