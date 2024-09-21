@@ -1,13 +1,9 @@
 import { Metadata, ResolvingMetadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 import { projects } from "@/data/projects"
-import GithubVector from "@/public/social-medias/github-fill.svg"
-import GlobalVector from "@/public/social-medias/global-line.svg"
-import TwitterVector from "@/public/social-medias/twitter-fill.svg"
 
 import { siteConfig } from "@/config/site"
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 import { AppContent } from "@/components/ui/app-content"
 import { Markdown, createMarkdownElement } from "@/components/ui/markdown"
 import { WikiCard } from "@/components/cards/wiki-card"
@@ -16,7 +12,7 @@ import { Icons } from "@/components/icons"
 import DiscoverMoreProjects from "@/components/project/discover-more-projects"
 import { ProjectTags } from "@/components/project/project-detail-tags"
 import ProjectExtraLinks from "@/components/project/project-extra-links"
-import { ThemesStatusMapping } from "@/components/project/project-filters-bar"
+import { ProjectLinkIconMap } from "@/components/project/project-links"
 import { WikiSideNavigation } from "@/components/wiki-side-navigation"
 import { useTranslation } from "@/app/i18n"
 import { LocaleTypes } from "@/app/i18n/settings"
@@ -69,7 +65,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     "projects/" + currProject.id
   )
 
-  const { github, twitter, website } = currProject.links ?? {}
   const hasSocialLinks = Object.keys(currProject?.links ?? {}).length > 0
 
   const editPageURL = siteConfig?.editProjectPage(currProject.id, lang)
@@ -110,44 +105,25 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   </div>
                   {hasSocialLinks && (
                     <div className="flex flex-wrap items-center justify-start gap-6 pt-4">
-                      {github && (
-                        <Link href={github} target="_blank" rel="noreferrer">
-                          <div className="flex items-center gap-2">
-                            <Image
-                              src={GithubVector}
-                              alt=""
-                              width={16}
-                              height={16}
-                            />
-                            <p className="text-slate-600">Github</p>
-                          </div>
-                        </Link>
-                      )}
-                      {website && (
-                        <Link href={website} target="_blank" rel="noreferrer">
-                          <div className="flex items-center gap-2">
-                            <Image
-                              src={GlobalVector}
-                              alt=""
-                              width={16}
-                              height={16}
-                            />
-                            <p className="text-slate-600">Website</p>
-                          </div>
-                        </Link>
-                      )}
-                      {twitter && (
-                        <Link href={twitter} target="_blank" rel="noreferrer">
-                          <div className="flex items-center gap-2">
-                            <Image
-                              src={TwitterVector}
-                              alt=""
-                              width={16}
-                              height={16}
-                            />
-                            <p className="text-slate-600">Twitter</p>
-                          </div>
-                        </Link>
+                      {Object?.entries(currProject.links ?? {})?.map(
+                        ([key, value]) => {
+                          return (
+                            <Link
+                              key={key}
+                              href={value ?? ""}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="group"
+                            >
+                              <div className="flex items-center gap-2">
+                                {ProjectLinkIconMap?.[key]}
+                                <p className="capitalize duration-200 text-slate-600 group-hover:text-orange">
+                                  {key}
+                                </p>
+                              </div>
+                            </Link>
+                          )
+                        }
                       )}
                     </div>
                   )}

@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const maciRPGF: ProjectInterface = {
   id: "maci-rpgf",
   section: "pse",
-  projectStatus: "active",
+  projectStatus: ProjectStatus.ACTIVE,
   image: "maci-rpgf.png",
   name: "MACI RPGF",
   links: {

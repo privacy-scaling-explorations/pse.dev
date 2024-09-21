@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const eigenTrust: ProjectInterface = {
   id: "eigen-trust",
   section: "pse",
-  projectStatus: "inactive",
+  projectStatus: ProjectStatus.INACTIVE,
   image: "",
   name: "EigenTrust",
   links: {

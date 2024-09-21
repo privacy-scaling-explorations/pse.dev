@@ -1,11 +1,11 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const Zkopru: ProjectInterface = {
   id: "zkopru",
   section: "pse",
   image: "zkopru.svg",
   name: "ZKOPRU",
-  projectStatus: "inactive",
+  projectStatus: ProjectStatus.INACTIVE,
   links: {
     website: "https://zkopru.network/",
     github: "https://github.com/zkopru-network",

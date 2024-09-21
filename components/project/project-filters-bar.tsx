@@ -18,8 +18,8 @@ import { IThemeStatus, IThemesButton, LangProps } from "@/types/common"
 import {
   ProjectSectionLabelMapping,
   ProjectSections,
+  ProjectStatus,
   ProjectStatusLabelMapping,
-  ProjectStatusList,
 } from "@/lib/types"
 import { cn, queryStringToObject } from "@/lib/utils"
 import { useTranslation } from "@/app/i18n/client"
@@ -288,8 +288,9 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
             className="hidden"
             label={t("filterLabels.projectStatus")}
           >
-            {ProjectStatusList.map((section) => {
-              const label = ProjectStatusLabelMapping[section]
+            {Object.keys(ProjectStatus).map((section: any) => {
+              // @ts-ignore
+              const label = ProjectStatusLabelMapping?.[section]
               return <Checkbox key={section} name={section} label={label} />
             })}
           </FilterWrapper>
@@ -297,7 +298,7 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
       </Modal>
       <div className="flex flex-col gap-6">
         <span className="text-lg font-medium">{t("whatDoYouWantDoToday")}</span>
-        <div className="grid grid-cols-1 items-center justify-between gap-3 md:grid-cols-5 md:gap-12">
+        <div className="grid items-center justify-between grid-cols-1 gap-3 md:grid-cols-5 md:gap-12">
           <FilterButtons lang={lang} />
           <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">
             <Input
@@ -325,7 +326,7 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
               <button
                 disabled={!hasActiveFilters}
                 onClick={clearAllFilters}
-                className="opacity-85 hidden cursor-pointer bg-transparent text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block"
+                className="hidden bg-transparent cursor-pointer opacity-85 text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block"
               >
                 <div className="flex items-center gap-2 border-b-2 border-black">
                   <span className="text-sm font-medium">{t("clearAll")}</span>

@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const dslWorkingGroup: ProjectInterface = {
   id: "dsl-working-group",
   section: "pse",
-  projectStatus: "active",
+  projectStatus: ProjectStatus.ACTIVE,
   image: "",
   imageAlt: "DSL Working Group",
   name: "DSL Working Group",
