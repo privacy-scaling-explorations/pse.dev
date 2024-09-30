@@ -3,7 +3,7 @@ import { ProjectInterface } from "@/lib/types"
 export const summa: ProjectInterface = {
   id: "summa",
   section: "pse",
-  projectStatus: "active",
+  projectStatus: "inactive",
   image: "summa.svg",
   name: "Summa",
   links: {
