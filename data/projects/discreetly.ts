@@ -3,7 +3,7 @@ import { ProjectInterface } from "@/lib/types"
 export const discreetly: ProjectInterface = {
   id: "discreetly",
   section: "pse",
-  projectStatus: "active",
+  projectStatus: "inactive",
   image: "discreetly.svg",
   name: "Discreetly",
   links: {
