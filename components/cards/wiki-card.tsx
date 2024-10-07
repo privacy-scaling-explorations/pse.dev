@@ -4,7 +4,7 @@ import { ReactNode } from "react"
 import Image from "next/image"
 
 import { ProjectInterface, ProjectSectionLabelMapping } from "@/lib/types"
-import { cn } from "@/lib/utils"
+import { cn, removeProtocol } from "@/lib/utils"
 import { useTranslation } from "@/app/i18n/client"
 
 import { AppLink } from "../app-link"
@@ -50,7 +50,7 @@ const WikiDetail = ({ label, value }: WikiDetailProps) => {
 const WikiLink = ({ href, external, children }: WikiLinkProps) => {
   return (
     <AppLink
-      className="text-anakiwa-500 duration-200 hover:text-anakiwa-700"
+      className="duration-200 text-anakiwa-500 hover:text-anakiwa-700"
       href={href}
       external={external}
     >
@@ -86,10 +86,10 @@ export const WikiCard = ({
               alt={`${project.name} banner`}
               width={290}
               height={140}
-              className=" bg-cover"
+              className="bg-cover "
             />
             {!project?.image && (
-              <span className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-5 text-center text-3xl font-bold text-black">
+              <span className="absolute w-full px-5 text-3xl font-bold text-center text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
                 {project?.imageAlt || project?.name}
               </span>
             )}
@@ -102,9 +102,12 @@ export const WikiCard = ({
             <WikiDetail
               label={t("filterLabels.builtWith")}
               value={
-                <div className=" flex flex-col gap-1">
+                <div className="flex flex-col gap-1 ">
                   {builtWithKeys.map((key) => (
-                    <WikiLink href="#" key={key}>
+                    <WikiLink
+                      href={`/${lang}/projects?builtWith=${key}`}
+                      key={key}
+                    >
                       {key}
                     </WikiLink>
                   ))}
@@ -125,7 +128,7 @@ export const WikiCard = ({
                 label="Website"
                 value={
                   <WikiLink href={website} external>
-                    {website}
+                    {removeProtocol(website)}
                   </WikiLink>
                 }
               />
@@ -140,15 +143,15 @@ export const WikiCard = ({
                 alt={`${project.name} banner`}
                 width={290}
                 height={140}
-                className=" bg-cover"
+                className="bg-cover "
               />
               {!project?.image && (
-                <span className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-5 text-center text-3xl font-bold text-black">
+                <span className="absolute w-full px-5 text-3xl font-bold text-center text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
                   {project?.imageAlt || project?.name}
                 </span>
               )}
             </div>
-            <div className="flex items-center justify-center bg-white py-4">
+            <div className="flex items-center justify-center py-4 bg-white">
               <span className="text-xs font-normal text-black">
                 {t("prevBrandImage")}
               </span>

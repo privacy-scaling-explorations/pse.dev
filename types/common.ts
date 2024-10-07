@@ -1,4 +1,4 @@
-import { ProjectStatusType } from "@/lib/types"
+import { ProjectStatus } from "@/lib/types"
 import { LocaleTypes } from "@/app/i18n/settings"
 
 export interface LangProps {
@@ -9,7 +9,7 @@ export interface LangProps {
 
 export type IThemeStatus = Partial<
   Record<
-    ProjectStatusType,
+    ProjectStatus,
     {
       label: string
       icon: any

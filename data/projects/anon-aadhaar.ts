@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const anonAadhaar: ProjectInterface = {
   id: "anon-aadhaar",
   section: "pse",
-  projectStatus: "active",
+  projectStatus: ProjectStatus.ACTIVE,
   image: "anon-aadhaar.svg",
   name: "Anon Aadhaar",
   links: {

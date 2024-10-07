@@ -4,7 +4,6 @@ import Image from "next/image"
 import Link from "next/link"
 import PSELogo from "@/public/icons/archstar.webp"
 import { motion } from "framer-motion"
-import { Divide } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 import { Button } from "@/components/ui/button"
@@ -47,7 +46,7 @@ export default function IndexPage({ params: { lang } }: any) {
             </div>
           }
           actions={
-            <Link href={`/projects`} className="group flex items-center gap-2">
+            <Link href={`/projects`} className="flex items-center gap-2 group">
               <Button className="w-full sm:w-auto">
                 <div className="flex items-center gap-1">
                   <span className="text-base font-medium uppercase">

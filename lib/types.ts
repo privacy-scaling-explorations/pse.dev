@@ -4,20 +4,21 @@ import { ReactNode } from "react"
 export const ProjectSections = ["pse", "grant", "collaboration"] as const
 export type ProjectSection = (typeof ProjectSections)[number]
 
+export enum ProjectStatus {
+  ACTIVE = "active",
+  INACTIVE = "inactive",
+}
 export interface Faq {
   question: string
   answer: ReactNode
 }
-
-export const ProjectStatusList = ["active", "inactive"] as const
-export type ProjectStatusType = (typeof ProjectStatusList)[number]
 
 export const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
   pse: "PSE projects",
   grant: "Grants",
   collaboration: "Collaborations",
 }
-export const ProjectStatusLabelMapping: Record<ProjectStatusType, string> = {
+export const ProjectStatusLabelMapping: Record<ProjectStatus, string> = {
   active: "Active",
   inactive: "Not Currently Active",
 }
@@ -53,7 +54,7 @@ export type ProjectLinkWebsite =
   | "youtube"
   | "telegram"
 
-export type ProjectLinkType = Partial<Record<ProjectLinkWebsite, string>>
+export type ProjectLinkType = Partial<Record<ProjectLinkWebsite, any>>
 export type ProjectExtraLinkType = "buildWith" | "play" | "research" | "learn"
 export type TagType =
   | "types"
@@ -82,7 +83,7 @@ export interface ProjectInterface {
   tldr?: string // this is managed by the specific translation file in /i18n/locales
   description?: string // this is managed by the specific translation file /i18n/locales
   links?: ProjectLinkType
-  projectStatus: ProjectStatusType
+  projectStatus: ProjectStatus
   tags?: ProjectTags
   extraLinks?: ActionLinkType
 }

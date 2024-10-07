@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const pollenLabs: ProjectInterface = {
   id: "pollen-labs",
   section: "collaboration",
-  projectStatus: "inactive",
+  projectStatus: ProjectStatus.INACTIVE,
   image: "pollen-labs.svg",
   name: "Pollen Labs",
   links: {

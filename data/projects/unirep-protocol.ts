@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const unirepProtocol: ProjectInterface = {
   id: "unirep-protocol",
   section: "pse",
-  projectStatus: "inactive",
+  projectStatus: ProjectStatus.INACTIVE,
   image: "unirep.svg",
   license: "MIT",
   previousBrandImage: "unirep-previousBrand.png",

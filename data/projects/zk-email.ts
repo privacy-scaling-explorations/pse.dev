@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const zkemail: ProjectInterface = {
   id: "zk-email",
   section: "collaboration",
-  projectStatus: "active",
+  projectStatus: ProjectStatus.ACTIVE,
   image: "zk-email.jpeg",
   name: "zk-email",
   links: {

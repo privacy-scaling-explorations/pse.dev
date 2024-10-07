@@ -40,8 +40,8 @@ export const Icons = {
   ),
   discord: (props: LucideProps) => (
     <svg
-      width={props?.size || 24}
-      height={props?.size || 24}
+      width={props?.size || 18}
+      height={props?.size || 18}
       viewBox="0 0 24 24"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ export const Icons = {
           ? props.height
           : typeof props.width === "number"
           ? props.width - 1
-          : 24
+          : 18
       }
       viewBox="0 0 25 24"
       fill="currentColor"

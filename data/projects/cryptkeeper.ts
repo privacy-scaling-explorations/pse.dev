@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const cryptkeeper: ProjectInterface = {
   id: "cryptkeeper",
   section: "pse",
-  projectStatus: "inactive",
+  projectStatus: ProjectStatus.INACTIVE,
   image: "cryptkeeper.webp",
   name: "CryptKeeper",
   links: {

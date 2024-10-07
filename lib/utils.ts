@@ -40,3 +40,7 @@ export function convertDirtyStringToHtml(string: string) {
     .replace(pseudoUrlPattern, '$1<a href="http://$2">$2</a>')
     .toLowerCase()
 }
+
+export function removeProtocol(url: string) {
+  return url?.replace(/^https?:\/\//, "")
+}

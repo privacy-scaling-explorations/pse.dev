@@ -1,11 +1,11 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const Coco: ProjectInterface = {
   id: "coco",
   section: "pse",
   image: "coco.svg",
   name: "COCO",
-  projectStatus: "inactive",
+  projectStatus: ProjectStatus.INACTIVE,
   tags: {
     keywords: ["prediction market", "scaling"],
   },

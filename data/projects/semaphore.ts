@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const semaphore: ProjectInterface = {
   id: "semaphore",
   section: "pse",
-  projectStatus: "active",
+  projectStatus: ProjectStatus.ACTIVE,
   image: "semaphore.webp",
   previousBrandImage: "semaphorePrevious.jpg",
   license: "MIT",

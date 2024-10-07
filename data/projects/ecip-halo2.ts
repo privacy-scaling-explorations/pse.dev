@@ -1,4 +1,4 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const ECIPHalo2: ProjectInterface = {
   id: "ecip-halo2",
@@ -6,7 +6,7 @@ export const ECIPHalo2: ProjectInterface = {
   image: "",
   imageAlt: "ECIP + Halo 2",
   name: "ECIP (Elliptic Curve Inner Products) Halo 2 Implementation",
-  projectStatus: "active",
+  projectStatus: ProjectStatus.ACTIVE,
   links: {
     github: "https://github.com/levs57/sage-circuits/",
     website: "https://perpetualpowersoftau.com/",

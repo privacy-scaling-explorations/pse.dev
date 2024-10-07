@@ -1,9 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { ProjectLinkIconMap } from "@/data/projects"
 
 import { ProjectLinkWebsite } from "@/lib/types"
+
+import { ProjectLinkIconMap } from "./project-links"
 
 interface ProjectLinkProps {
   url: string
@@ -11,10 +12,9 @@ interface ProjectLinkProps {
 }
 
 export function ProjectLink({ website, url }: ProjectLinkProps) {
-  const image = ProjectLinkIconMap?.[website as ProjectLinkWebsite]
+  const icon = ProjectLinkIconMap?.[website as ProjectLinkWebsite]
 
-  // TODO: add support for youtube, discord and other links
-  if (!image) return null
+  if (!icon) return null
   return (
     <a
       href={url}
@@ -25,13 +25,7 @@ export function ProjectLink({ website, url }: ProjectLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <Image
-        src={image}
-        alt={`${website}Vector`}
-        className="h-5 cursor-pointer text-black"
-        width={20}
-        height={20}
-      />
+      {icon}
     </a>
   )
 }
