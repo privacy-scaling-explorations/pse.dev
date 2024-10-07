@@ -42,6 +42,7 @@ import { zkitter } from "./projects/zkitter"
 import { zkml } from "./projects/zkml"
 import { Zkopru } from "./projects/zkopru"
 import { zkp2p } from "./projects/zkp2p"
+import { zkID } from "./projects/zk-id"
 
 export const ProjectLinkIconMap: ProjectLinkType = {
   github: GithubIcon,
@@ -93,4 +94,5 @@ export const projects: ProjectInterface[] = [
   chiquito,
   maciRPGF,
   OpenPassport,
+  zkID,
 ]
