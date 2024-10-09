@@ -1,6 +1,6 @@
 import { ProjectInterface } from "@/lib/types"
 
-export const maciPLATFORM: ProjectInterface = {
+export const maciPlatform: ProjectInterface = {
   id: "maci-platform",
   section: "pse",
   projectStatus: "active",
