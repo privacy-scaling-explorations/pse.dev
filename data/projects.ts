@@ -14,7 +14,7 @@ import { eigenTrust } from "./projects/eigen-trust"
 import { Interep } from "./projects/interep"
 import { jubmoji } from "./projects/jubmoji"
 import { maci } from "./projects/maci"
-import { maciRPGF } from "./projects/maci-rpgf"
+import { maciPlatform } from "./projects/maci-platform"
 import { nfctap } from "./projects/nfctap"
 import { OpenPassport } from "./projects/openpassport"
 import { p0tion } from "./projects/p0tion"
@@ -32,6 +32,7 @@ import { voicedeck } from "./projects/voice-deck"
 import { wax } from "./projects/wax"
 import { zk3 } from "./projects/zk3"
 import { zkemail } from "./projects/zk-email"
+import { zkID } from "./projects/zk-id"
 import { ZKKit } from "./projects/zk-kit"
 import { zkevmCommunity } from "./projects/zkevm-community"
 import { zkitter } from "./projects/zkitter"
@@ -81,6 +82,7 @@ export const projects: ProjectInterface[] = [
   voicedeck,
   zkemail,
   chiquito,
-  maciRPGF,
+  maciPlatform,
   OpenPassport,
+  zkID,
 ]

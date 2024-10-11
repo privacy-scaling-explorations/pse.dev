@@ -8,8 +8,6 @@ export const wax: ProjectInterface = {
   name: "Wallet Account eXperiments - WAX",
   links: {
     github: "https://github.com/getwax",
-    website: "https://wax.pse.dev/",
-    discord: "https://discord.gg/hGDmAhcRyz",
   },
   tags: {
     builtWith: [

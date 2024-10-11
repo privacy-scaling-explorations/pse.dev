@@ -1,13 +1,13 @@
 import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
-export const maciRPGF: ProjectInterface = {
-  id: "maci-rpgf",
+export const maciPlatform: ProjectInterface = {
+  id: "maci-platform",
   section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   image: "maci-rpgf.png",
-  name: "MACI RPGF",
+  name: "MACI Platform",
   links: {
-    github: "https://github.com/privacy-scaling-explorations/maci-rpgf",
+    github: "https://github.com/privacy-scaling-explorations/maci-platform",
     website: "https://maci.pse.dev",
     twitter: "https://twitter.com/zkmaci",
   },
