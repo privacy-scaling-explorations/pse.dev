@@ -36,13 +36,13 @@ import { voicedeck } from "./projects/voice-deck"
 import { wax } from "./projects/wax"
 import { zk3 } from "./projects/zk3"
 import { zkemail } from "./projects/zk-email"
+import { zkID } from "./projects/zk-id"
 import { ZKKit } from "./projects/zk-kit"
 import { zkevmCommunity } from "./projects/zkevm-community"
 import { zkitter } from "./projects/zkitter"
 import { zkml } from "./projects/zkml"
 import { Zkopru } from "./projects/zkopru"
 import { zkp2p } from "./projects/zkp2p"
-import { zkID } from "./projects/zk-id"
 
 export const ProjectLinkIconMap: ProjectLinkType = {
   github: GithubIcon,
@@ -92,7 +92,7 @@ export const projects: ProjectInterface[] = [
   voicedeck,
   zkemail,
   chiquito,
-  maciRPGF,
+  maciPlatform,
   OpenPassport,
   zkID,
 ]
