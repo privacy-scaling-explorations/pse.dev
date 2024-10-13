@@ -15,4 +15,12 @@ export const summa: ProjectInterface = {
     types: ["Infrastructure/protocol", "Application"],
     builtWith: ["halo2"],
   },
+  extraLinks: {
+    learn: [
+      {
+        label: "Documentation",
+        url: "https://summa.gitbook.io/summa",
+      },
+    ],
+  },
 }
