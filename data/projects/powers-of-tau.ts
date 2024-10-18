@@ -1,11 +1,11 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const PerpetualPowersOfTau: ProjectInterface = {
   id: "perpetual-powers-of-tau",
   section: "pse",
   image: "powers-of-tau.png",
   name: "Perpetual Powers of Tau",
-  projectStatus: "active",
+  projectStatus: ProjectStatus.ACTIVE,
   tags: {
     keywords: ["scaling"],
   },

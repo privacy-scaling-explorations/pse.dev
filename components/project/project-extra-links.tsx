@@ -65,10 +65,7 @@ export default function ProjectExtraLinks({
     return (
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-2">
-          {icon && <span className="text-anakiwa-500">{icon}</span>}
-          <p className="font-sans text-xl font-medium text-tuatara-700">
-            {label}
-          </p>
+          <p className="py-2 text-[22px] font-bold text-tuatara-700">{label}</p>
         </div>
         <div className="flex flex-col items-start gap-2">
           {links.map(({ label, url }: ActionLinkTypeLink) => {
@@ -76,7 +73,7 @@ export default function ProjectExtraLinks({
               <Link
                 href={url}
                 target="_blank"
-                className="flex cursor-pointer items-center gap-1 overflow-hidden border-b-2 border-transparent font-sans font-normal text-tuatara-950 duration-200 ease-in-out hover:border-orange"
+                className="flex items-center gap-1 overflow-hidden font-sans font-normal duration-200 ease-in-out border-b cursor-pointer border-anakiwa-400 text-tuatara-950 hover:border-orange"
               >
                 {label}
                 <Icons.externalUrl />

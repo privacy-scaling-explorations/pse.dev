@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const wax: ProjectInterface = {
   id: "wax",
   section: "pse",
-  projectStatus: "inactive",
+  projectStatus: ProjectStatus.ACTIVE,
   image: "wax.webp",
   name: "Wallet Account eXperiments - WAX",
   links: {

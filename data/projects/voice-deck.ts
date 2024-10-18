@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const voicedeck: ProjectInterface = {
   id: "voice-deck",
   section: "collaboration",
-  projectStatus: "active",
+  projectStatus: ProjectStatus.ACTIVE,
   image: "voiceDeck.svg",
   name: "VoiceDeck",
   links: {

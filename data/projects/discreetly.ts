@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const discreetly: ProjectInterface = {
   id: "discreetly",
   section: "pse",
-  projectStatus: "inactive",
+  projectStatus: ProjectStatus.ACTIVE,
   image: "discreetly.svg",
   name: "Discreetly",
   links: {

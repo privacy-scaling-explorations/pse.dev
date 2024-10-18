@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const zkitter: ProjectInterface = {
   id: "zkitter",
   section: "pse",
-  projectStatus: "inactive",
+  projectStatus: ProjectStatus.INACTIVE,
   image: "zkitter.webp",
   name: "Zkitter",
   links: {

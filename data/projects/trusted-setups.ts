@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const trustedSetups: ProjectInterface = {
   id: "trusted-setups",
   section: "pse",
-  projectStatus: "active",
+  projectStatus: ProjectStatus.ACTIVE,
   image: "trusted-setups.svg",
   name: "Trusted Setups",
   links: {

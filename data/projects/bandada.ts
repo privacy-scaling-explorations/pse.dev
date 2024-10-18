@@ -1,9 +1,9 @@
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const bandada: ProjectInterface = {
   id: "bandada",
   section: "pse",
-  projectStatus: "active",
+  projectStatus: ProjectStatus.ACTIVE,
   image: "bandada.webp",
   name: "Bandada",
   links: {
