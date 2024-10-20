@@ -1,9 +1,19 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+
+const content: ProjectContent = {
+  en: {
+    tldr: "",
+    description: `
+
+`,
+  },
+}
 
 export const wax: ProjectInterface = {
   id: "wax",
   section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
+  content,
   image: "wax.webp",
   name: "Wallet Account eXperiments - WAX",
   links: {
@@ -17,7 +27,7 @@ export const wax: ProjectInterface = {
       "solidity bls library",
       "sqlite",
       "docker",
-      "ethers",
+      "ethers.js",
       "deno",
     ],
     keywords: ["Scaling", "Key management", "WAX"],

@@ -1,9 +1,17 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+
+const content: ProjectContent = {
+  en: {
+    tldr: "An anonymous, federated, chat application using ZK.",
+    description: `An anonymous, federated, chat application that uses Rate-Limiting Nullifier for spam prevention.`,
+  },
+}
 
 export const discreetly: ProjectInterface = {
   id: "discreetly",
   section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
+  content,
   image: "discreetly.svg",
   name: "Discreetly",
   links: {

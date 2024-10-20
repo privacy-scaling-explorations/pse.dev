@@ -68,9 +68,12 @@ export default function ProjectExtraLinks({
           <p className="py-2 text-[22px] font-bold text-tuatara-700">{label}</p>
         </div>
         <div className="flex flex-col items-start gap-2">
-          {links.map(({ label, url }: ActionLinkTypeLink) => {
+          {links.map((link: ActionLinkTypeLink, index) => {
+            if (!link) return null
+            const { label, url } = link ?? {}
             return (
               <Link
+                key={index}
                 href={url}
                 target="_blank"
                 className="flex items-center gap-1 overflow-hidden font-sans font-normal duration-200 ease-in-out border-b cursor-pointer border-anakiwa-400 text-tuatara-950 hover:border-orange"

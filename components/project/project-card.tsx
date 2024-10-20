@@ -1,13 +1,11 @@
-"use client"
-
 import React from "react"
 import Image from "next/image"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { VariantProps, cva } from "class-variance-authority"
 
+import { getProjectById } from "@/lib/projectsUtils"
 import { ProjectInterface, ProjectLinkWebsite } from "@/lib/types"
 import { cn } from "@/lib/utils"
-import useContent from "@/hooks/useContent"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
 
@@ -54,19 +52,19 @@ export default function ProjectCard({
   lang,
 }: ProjectCardProps & { lang: LocaleTypes }) {
   const { t } = useTranslation(lang, "common")
+  const router = useRouter()
 
   const { id, image, links, name, tags, imageAlt, projectStatus } = project
 
   const projectNotActive = projectStatus !== "active"
-  const { projectContent } = useContent({
-    lang,
-    id,
-  })
+  const { content: projectContent } = getProjectById(id, lang)
 
   return (
-    <Link
-      href={`/projects/${id}`}
+    <div
       className={cn(projectCardVariants({ showLinks, border, className }))}
+      onClick={() => {
+        router.push(`/projects/${id}`)
+      }}
     >
       {showBanner && (
         <div className="relative flex flex-col">
@@ -102,9 +100,11 @@ export default function ProjectCard({
             })}
           </div>
           <h1 className="text-xl font-bold text-black">{name}</h1>
-          <div className="flex flex-col gap-4 h-28">
-            <p className="text-slate-900/80">{projectContent?.tldr}</p>
-          </div>
+          {projectContent?.tldr && (
+            <div className="flex flex-col gap-4 h-28">
+              <p className="text-slate-900/80">{projectContent?.tldr}</p>
+            </div>
+          )}
         </div>
         <div className="flex justify-between mt-auto">
           {showLinks && (
@@ -127,6 +127,6 @@ export default function ProjectCard({
           )}
         </div>
       </div>
-    </Link>
+    </div>
   )
 }

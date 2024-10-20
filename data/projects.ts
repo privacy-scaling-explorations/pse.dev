@@ -11,6 +11,7 @@ import { discreetly } from "./projects/discreetly"
 import { dslWorkingGroup } from "./projects/dsl-working-group"
 import { ECIPHalo2 } from "./projects/ecip-halo2"
 import { eigenTrust } from "./projects/eigen-trust"
+import { example } from "./projects/example"
 import { Interep } from "./projects/interep"
 import { jubmoji } from "./projects/jubmoji"
 import { maci } from "./projects/maci"
@@ -46,6 +47,7 @@ import { zkp2p } from "./projects/zkp2p"
  * Every 'description' props supports markdown syntax https://www.markdownguide.org/basic-syntax/
  */
 export const projects: ProjectInterface[] = [
+  example,
   rln,
   zkitter,
   maci,

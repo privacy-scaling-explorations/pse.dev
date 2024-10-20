@@ -69,7 +69,7 @@ export const WikiCard = ({
 
   const { website } = project.links ?? {}
 
-  const projectType = ProjectSectionLabelMapping[project?.section]
+  const projectFunding = ProjectSectionLabelMapping[project?.section]
   const { label: projectStatus } = statusItem?.[project?.projectStatus] ?? {}
   const builtWithKeys: string[] = project?.tags?.builtWith ?? []
   const previousBrandImage = project?.previousBrandImage
@@ -99,25 +99,26 @@ export const WikiCard = ({
               label={t("filterLabels.projectStatus")}
               value={projectStatus}
             />
+            {builtWithKeys?.length > 0 && (
+              <WikiDetail
+                label={t("filterLabels.builtWith")}
+                value={
+                  <div className="flex flex-col gap-1 ">
+                    {builtWithKeys.map((key) => (
+                      <WikiLink
+                        href={`/${lang}/projects?builtWith=${key}`}
+                        key={key}
+                      >
+                        {key}
+                      </WikiLink>
+                    ))}
+                  </div>
+                }
+              />
+            )}
             <WikiDetail
-              label={t("filterLabels.builtWith")}
-              value={
-                <div className="flex flex-col gap-1 ">
-                  {builtWithKeys.map((key) => (
-                    <WikiLink
-                      href={`/${lang}/projects?builtWith=${key}`}
-                      key={key}
-                    >
-                      {key}
-                    </WikiLink>
-                  ))}
-                </div>
-              }
-            />
-            <WikiDetail label={t("filterLabels.funding")} />
-            <WikiDetail
-              label={t("filterLabels.projectType")}
-              value={projectType}
+              label={t("filterLabels.funding")}
+              value={projectFunding}
             />
             <WikiDetail
               label={t("filterLabels.license")}

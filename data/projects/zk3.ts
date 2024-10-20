@@ -1,9 +1,19 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+
+const content: ProjectContent = {
+  en: {
+    tldr: "",
+    description: `
+
+`,
+  },
+}
 
 export const zk3: ProjectInterface = {
   id: "zk3",
   section: "grant",
   projectStatus: ProjectStatus.ACTIVE,
+  content,
   image: "zk3.svg",
   name: "zk3",
   links: {

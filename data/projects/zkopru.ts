@@ -1,11 +1,19 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+
+const content: ProjectContent = {
+  en: {
+    tldr: "Optimistic Rollup with zk-SNARKs for private Ethereum transactions.",
+    description: `ZKOPRU is one of the initial projects of EF's PSE team. It is a Layer 2 scaling solution for Ethereum, emphasizing private transactions through zk-SNARKs and optimistic rollups. It provides an economical Ethereum privacy wallet, enabling users to transact with ETH, ERC-20s, and NFTs anonymously`,
+  },
+}
 
 export const Zkopru: ProjectInterface = {
   id: "zkopru",
-  section: "pse",
+  section: "archived",
   image: "zkopru.svg",
   name: "ZKOPRU",
   projectStatus: ProjectStatus.INACTIVE,
+  content,
   links: {
     website: "https://zkopru.network/",
     github: "https://github.com/zkopru-network",
@@ -24,6 +32,6 @@ export const Zkopru: ProjectInterface = {
     ],
   },
   tags: {
-    keywords: ["anonymity", "private transactions"],
+    keywords: ["anonymity/privacy", "private transactions"],
   },
 }

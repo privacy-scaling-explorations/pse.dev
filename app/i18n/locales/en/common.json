@@ -55,6 +55,7 @@
     "active": "Active",
     "inactive": "Inactive"
   },
+  "projectSunset": "This project has been sunset and is not actively worked on anymore.",
   "sortBy": "Sort by: {{option}}",
   "tryItOut": "Try it out!",
   "learnMore": "Learn more",

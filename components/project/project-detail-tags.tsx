@@ -7,7 +7,7 @@ import {
   ProjectFilter,
 } from "@/state/useProjectFiltersState"
 
-import { ProjectInterface, ProjectSectionLabelMapping } from "@/lib/types"
+import { ProjectInterface } from "@/lib/types"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
 
@@ -21,9 +21,7 @@ interface TagsProps extends HtmlHTMLAttributes<HTMLDivElement> {
 const TagsWrapper = ({ label, children }: TagsProps) => {
   return (
     <div className="flex flex-col items-start md:gap-2">
-      <span className="py-2 text-[22px] font-bold text-tuatara-700">
-        {label}
-      </span>
+      <h3 className="py-2 text-[22px] font-bold text-tuatara-700">{label}</h3>
       {children}
     </div>
   )
@@ -45,15 +43,18 @@ export function ProjectTags({ project, lang }: IProjectTags) {
         const keyTags = project?.tags?.[key as ProjectFilter]
         const hasItems = keyTags && keyTags?.length > 0
 
-        if (key === "themes") return null // ignore themes
+        if (["themes", "builtWith"].includes(key)) return null // keys to ignore
         return (
           hasItems && (
-            <div>
+            <div data-section-id={key} key={key}>
               <TagsWrapper label={t(`filterLabels.${key}`)}>
                 <div className="flex flex-wrap gap-[6px]">
-                  {keyTags?.map((tag) => {
+                  {keyTags?.map((tag, index) => {
                     return (
-                      <Link href={`/${lang}/projects?${key}=${tag}`}>
+                      <Link
+                        key={index}
+                        href={`/${lang}/projects?${key}=${tag}`}
+                      >
                         <CategoryTag key={tag} variant="gray">
                           {tag}
                         </CategoryTag>
@@ -66,21 +67,6 @@ export function ProjectTags({ project, lang }: IProjectTags) {
           )
         )
       })}
-      <TagsWrapper label={t("filterLabels.projectStatus")}>
-        <CategoryTag variant="gray" size="default">
-          <div className="flex items-center gap-1">
-            {icon}
-            {label}
-          </div>
-        </CategoryTag>
-      </TagsWrapper>
-      <TagsWrapper label={t("filterLabels.fundingSource")}>
-        <CategoryTag variant="gray" size="default">
-          <div className="flex items-center gap-1">
-            {ProjectSectionLabelMapping[project?.section]}
-          </div>
-        </CategoryTag>
-      </TagsWrapper>
     </div>
   )
 }

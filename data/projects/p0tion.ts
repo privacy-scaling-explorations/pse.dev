@@ -1,9 +1,17 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+
+const content: ProjectContent = {
+  en: {
+    tldr: "Toolkit for Groth16 Phase 2 Trusted Setup ceremonies.",
+    description: `p0tion is an agnostic-from-ceremony public good toolkit, with the aim of making Groth16 zk-applications scale and become production-ready in a safe and secure manner by running Phase 2 Trusted Setup ceremonies.`,
+  },
+}
 
 export const p0tion: ProjectInterface = {
   id: "p0tion",
   section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
+  content,
   image: "p0tion.png",
   name: "p0tion",
   links: {

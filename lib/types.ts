@@ -1,7 +1,12 @@
 import { ReactNode } from "react"
 
 // list of project groups
-export const ProjectSections = ["pse", "grant", "collaboration"] as const
+export const ProjectSections = [
+  "pse",
+  "grant",
+  "collaboration",
+  "archived",
+] as const
 export type ProjectSection = (typeof ProjectSections)[number]
 
 export enum ProjectStatus {
@@ -17,6 +22,7 @@ export const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
   pse: "PSE projects",
   grant: "Grants",
   collaboration: "Collaborations",
+  archived: "Archived",
 }
 export const ProjectStatusLabelMapping: Record<ProjectStatus, string> = {
   active: "Active",
@@ -71,17 +77,22 @@ export type ActionLinkType = Partial<
   Record<ProjectExtraLinkType, Array<ActionLinkTypeLink>>
 >
 
+export interface ProjectContent {
+  [language: string]: {
+    tldr: string
+    description: string
+  }
+}
 export interface ProjectInterface {
   id: string
   hasWiki?: boolean // show project with wiki page template
   license?: string
+  content: ProjectContent // project tldr and description with support for multiple language
   section: ProjectSection
   image: string
   previousBrandImage?: string
   imageAlt?: string
   name: string
-  tldr?: string // this is managed by the specific translation file in /i18n/locales
-  description?: string // this is managed by the specific translation file /i18n/locales
   links?: ProjectLinkType
   projectStatus: ProjectStatus
   tags?: ProjectTags
