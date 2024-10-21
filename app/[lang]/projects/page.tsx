@@ -1,5 +1,4 @@
 import { Metadata } from "next"
-import Image from "next/image"
 
 import { Divider } from "@/components/divider"
 import { PageHeader } from "@/components/page-header"
@@ -11,7 +10,7 @@ import { useTranslation } from "@/app/i18n"
 export const metadata: Metadata = {
   title: "Project Library",
   description:
-    "PSE is home to many projects, from cryptography research to developer tools, protocols, and proof-of-concept applications.",
+    "PSE supports projects working on theoretical cryptography research, protocol development, open source tooling, experimental applications, and more.",
 }
 
 export default async function ProjectsPage({ params: { lang } }: any) {
@@ -22,26 +21,14 @@ export default async function ProjectsPage({ params: { lang } }: any) {
       <PageHeader
         title={t("title")}
         subtitle={t("subtitle")}
-        image={
-          <div className="mx-auto lg:absolute lg:right-36">
-            <Image
-              width={280}
-              height={280}
-              className="mx-auto w-[160px] md:w-[180px] lg:ml-auto lg:w-[200px] xl:w-[260px]"
-              src="/icons/lens.webp"
-              alt="lens icon"
-            />
-          </div>
-        }
+        showDivider={false}
       >
         <ProjectFiltersBar lang={lang} />
       </PageHeader>
 
       <div className="w-full bg-white pb-28">
         <div className="container flex flex-col py-8 gap-14">
-          <div>
-            <ProjectResultBar lang={lang} />
-          </div>
+          <ProjectResultBar lang={lang} />
           <ProjectList lang={lang} />
         </div>
       </div>

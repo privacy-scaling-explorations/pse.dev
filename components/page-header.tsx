@@ -10,6 +10,7 @@ type PageHeaderProps = {
   children?: ReactNode
   image?: ReactNode
   contentWidth?: number
+  showDivider?: boolean
 }
 
 const PageHeader = ({
@@ -18,6 +19,7 @@ const PageHeader = ({
   actions,
   children,
   image,
+  showDivider = true,
 }: PageHeaderProps) => {
   return (
     <div className="flex h-full w-full items-center bg-cover-gradient md:h-[600px]">
@@ -38,7 +40,7 @@ const PageHeader = ({
         </div>
         {children && (
           <div className="flex flex-col gap-10">
-            <div className="h-[1px] w-20 bg-anakiwa-500"></div>
+            {showDivider && <div className="h-[1px] w-20 bg-anakiwa-500"></div>}
             {children}
           </div>
         )}
