@@ -55,11 +55,13 @@
     "active": "Active",
     "inactive": "Inactive"
   },
+  "projectSunset": "This project has been sunset and is not actively worked on anymore.",
   "sortBy": "Sort by: {{option}}",
   "tryItOut": "Try it out!",
   "learnMore": "Learn more",
   "learnMoreDiscord": "Join our Discord to learn more about our programs and other educational opportunities!",
   "buildWithThisTool": "Build with this tool",
+  "buildWith": "Build with",
   "deepDiveResearch": "Dive deeper into the research",
   "searchProjectPlaceholder": "Search project title or keyword",
   "close": "Close",

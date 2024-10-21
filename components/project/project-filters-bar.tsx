@@ -297,9 +297,7 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
         </div>
       </Modal>
       <div className="flex flex-col gap-6">
-        <span className="text-lg font-medium">{t("whatDoYouWantDoToday")}</span>
         <div className="grid items-center justify-between grid-cols-1 gap-3 md:grid-cols-5 md:gap-12">
-          <FilterButtons lang={lang} />
           <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">
             <Input
               onChange={(e: ChangeEvent<HTMLInputElement>) =>

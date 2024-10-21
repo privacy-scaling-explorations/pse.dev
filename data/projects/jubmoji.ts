@@ -1,9 +1,17 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+
+const content: ProjectContent = {
+  en: {
+    tldr: "Users of Jubmoji.quest tap NFC cards to collect signatures. By collecting these signatures, they complete quests.",
+    description: `Jubmoji.quest is a place to keep personal, provable digital mementos from people you meet and places you visit IRL. Each time you tap a card, you collect a Jubmoji, a unique cryptographic signature that you can store privately and share as you wish!`,
+  },
+}
 
 export const jubmoji: ProjectInterface = {
   id: "jubmoji",
   section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
+  content,
   image: "",
   name: "jubmoji.quest",
   links: {

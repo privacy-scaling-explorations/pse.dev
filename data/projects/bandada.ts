@@ -1,8 +1,16 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+
+const content: ProjectContent = {
+  en: {
+    tldr: "An open-source system for managing privacy-preserving groups of anonymous individuals.",
+    description: `Bandada is a project designed to simplify the management of privacy-preserving Semaphore groups. It is aimed at developers who want to build privacy-based applications and integrate anonymity sets, as well as non-developers working in DAOs, governments, international institutions, non-profit organizations, and associations that want to create and manage anonymous groups. Bandada offers a plug-and-play infrastructure, reducing the time and complexity required for managing anonymity sets. It enables anonymous signaling, such as voting, messaging, login, or endorsing, in various use cases like private organizations, GitHub repository contributors, and groups of wallets holding a specific NFT.`,
+  },
+}
 
 export const bandada: ProjectInterface = {
   id: "bandada",
   section: "pse",
+  content,
   projectStatus: ProjectStatus.ACTIVE,
   image: "bandada.webp",
   name: "Bandada",

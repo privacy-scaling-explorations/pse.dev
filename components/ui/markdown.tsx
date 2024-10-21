@@ -2,17 +2,29 @@ import React from "react"
 import ReactMarkdown, { Components } from "react-markdown"
 import remarkGfm from "remark-gfm"
 
+const generateSectionId = (text: string) => {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+}
+
 export const createMarkdownElement = (
   tag: keyof JSX.IntrinsicElements,
   props: any
 ) =>
   React.createElement(tag, {
     ...props,
+    ref: (node: HTMLElement | null) => {
+      if (node && node.textContent) {
+        node.setAttribute(
+          "data-section-id",
+          generateSectionId(node.textContent)
+        )
+      }
+    },
   })
 
 const Table = (props: any) => {
   return (
-    <div className="rounded-lg border border-tuatara-300">
+    <div className="border rounded-lg border-tuatara-300">
       <table data-component="table">{props.children}</table>
     </div>
   )
@@ -58,19 +70,19 @@ const REACT_MARKDOWN_CONFIG: Components = {
     }),
   p: ({ node, ...props }) =>
     createMarkdownElement("p", {
-      className: "text-tuatara-700 font-sans text-lg font-normal",
+      className: "text-tuatara-700 font-sans text-base font-normal",
       ...props,
     }),
-  ul: ({ node, ...props }) =>
-    createMarkdownElement("ul", {
+  ul: ({ node, ordered, ...props }) =>
+    createMarkdownElement(ordered ? "ol" : "ul", {
       className:
-        "ml-6 list-disc text-tuatara-700 font-sans text-lg font-normal",
+        "ml-6 list-disc text-tuatara-700 font-sans text-base font-normal",
       ...props,
     }),
-  ol: ({ node, ...props }) =>
-    createMarkdownElement("ol", {
+  ol: ({ node, ordered, ...props }) =>
+    createMarkdownElement(ordered ? "ol" : "ul", {
       className:
-        "ml-6 list-disc text-tuatara-700 font-sans text-lg font-normal",
+        "ml-6 list-disc text-tuatara-700 font-sans text-base font-normal",
       ...props,
     }),
   table: Table,

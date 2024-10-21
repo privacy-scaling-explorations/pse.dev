@@ -97,11 +97,15 @@ const getProjectFilters = (): FiltersProps => {
   // get list of all tags from project list
   projects.forEach((project) => {
     if (project?.tags?.builtWith) {
-      filters.builtWith.push(...project?.tags?.builtWith)
+      filters.builtWith.push(
+        ...project?.tags?.builtWith?.map((tag) => tag?.toLowerCase())
+      )
     }
 
     if (project?.tags?.keywords) {
-      filters.keywords.push(...project?.tags?.keywords)
+      filters.keywords.push(
+        ...project?.tags?.keywords.map((keyword) => keyword?.toLowerCase())
+      )
     }
   })
 

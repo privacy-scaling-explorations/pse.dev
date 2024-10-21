@@ -25,11 +25,11 @@ const NoResults = ({ lang }: LangProps["params"]) => {
   const { t } = useTranslation(lang, "common")
 
   return (
-    <div className="flex flex-col gap-2 pb-40 pt-24 text-center">
+    <div className="flex flex-col gap-2 pt-24 pb-40 text-center">
       <div className="mx-auto">
         <Image className="h-9 w-9" src={NoResultIcon} alt="no result icon" />
       </div>
-      <span className="font-display text-2xl font-bold text-tuatara-950">
+      <span className="text-2xl font-bold font-display text-tuatara-950">
         {t("noResults")}
       </span>
       <span className="text-lg font-normal text-tuatara-950">
@@ -44,6 +44,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   const SCROLL_OFFSET = -400
   const [activeId, setActiveId] = useState("")
   const [isManualScroll, setIsManualScroll] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   const { projects } = useProjectFiltersState((state) => state)
 
@@ -52,40 +53,63 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null) // sections are constant so useRef might be better here
 
   useEffect(() => {
-    if (sectionsRef.current === null)
+    setIsMounted(true)
+    if (typeof window !== "undefined") {
       sectionsRef.current = document.querySelectorAll(`div[data-section]`)
-    if (!activeId) setActiveId("pse")
 
-    const handleScroll = () => {
-      if (isManualScroll) return
+      const handleScroll = () => {
+        if (isManualScroll) return
 
-      sectionsRef.current?.forEach((section: any) => {
-        const sectionTop = section.offsetTop - SCROLL_OFFSET
-        if (window.scrollY >= sectionTop && window.scrollY > 0) {
-          setActiveId(section.getAttribute("id"))
-        }
-      })
+        sectionsRef.current?.forEach((section: any) => {
+          const sectionTop = section.offsetTop - SCROLL_OFFSET
+          if (window.scrollY >= sectionTop && window.scrollY > 0) {
+            setActiveId(section.getAttribute("id"))
+          }
+        })
+      }
+
+      window.addEventListener("scroll", handleScroll)
+      return () => window.removeEventListener("scroll", handleScroll)
     }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [SCROLL_OFFSET, activeId, isManualScroll])
+  }, [SCROLL_OFFSET, isManualScroll])
 
   const scrollToId = useCallback((id: string) => {
-    const element = document.getElementById(id)
-    const top = element?.offsetTop ?? 0
+    if (typeof window !== "undefined") {
+      const element = document.getElementById(id)
+      const top = element?.offsetTop ?? 0
 
-    if (element) {
-      setActiveId(id) // active clicked id
-      setIsManualScroll(true) // tell the window event listener to ignore this scrolling
-      window?.scrollTo({
-        behavior: "smooth",
-        top: (top ?? 0) - SCROLL_OFFSET,
-      })
+      if (element) {
+        setActiveId(id) // active clicked id
+        setIsManualScroll(true) // tell the window event listener to ignore this scrolling
+        window?.scrollTo({
+          behavior: "smooth",
+          top: (top ?? 0) - SCROLL_OFFSET,
+        })
+      }
+
+      setTimeout(() => setIsManualScroll(false), 800)
     }
-
-    setTimeout(() => setIsManualScroll(false), 800)
   }, [])
+
+  // loading state skeleton
+  if (!isMounted) {
+    return (
+      <div className="grid items-start justify-between w-4/5 grid-cols-1 gap-8 md:grid-cols-4 md:gap-10">
+        <div className="min-h-[420px] border border-gray-200 rounded-lg overflow-hidden">
+          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+        </div>
+        <div className="min-h-[420px] border border-gray-200 rounded-lg overflow-hidden">
+          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+        </div>
+        <div className="min-h-[420px] border border-gray-200 rounded-lg overflow-hidden">
+          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+        </div>
+        <div className="min-h-[420px] border border-gray-200 rounded-lg overflow-hidden">
+          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+        </div>
+      </div>
+    )
+  }
 
   if (noItems) return <NoResults lang={lang} />
 
@@ -142,13 +166,13 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
 
       <div
         id="sidebar"
-        className="sticky top-20 hidden bg-white/30 p-8 md:block"
+        className="sticky hidden p-8 top-20 bg-white/30 md:block"
       >
         <div className="flex flex-col gap-4">
-          <h6 className="font-display text-lg font-bold text-tuatara-700">
+          <h6 className="text-lg font-bold font-display text-tuatara-700">
             {t("onThisPage")}
           </h6>
-          <ul className="text-normal font-sans text-black">
+          <ul className="font-sans text-black text-normal">
             {ProjectSections.map((id: ProjectSection) => {
               const label = ProjectSectionLabelMapping[id]
 
@@ -159,7 +183,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
               return (
                 <li
                   key={id}
-                  onClick={(e) => {
+                  onClick={() => {
                     scrollToId(id)
                   }}
                   data-id={id}

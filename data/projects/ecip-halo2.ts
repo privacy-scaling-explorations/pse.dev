@@ -1,12 +1,20 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+
+const content: ProjectContent = {
+  en: {
+    tldr: "Integrating Nova into the EVM involves wrapping Liam Eagen's theoretical ECIP argument in Halo 2",
+    description: `Liam Eagen has developed a ZK proof for Elliptic Curve Inner Products (ECIPs) to overcome a significant bottle neck in recursive proof composition over elliptic curve cycles. The process of integrating Nova into the EVM requires an efficient method or "argument" for handling large elliptic Multi-Scalar Multiplications (MSMs). The final step in this integration process involves wrapping this argument Halo 2.`,
+  },
+}
 
 export const ECIPHalo2: ProjectInterface = {
   id: "ecip-halo2",
   section: "pse",
   image: "",
+  projectStatus: ProjectStatus.ACTIVE,
+  content,
   imageAlt: "ECIP + Halo 2",
   name: "ECIP (Elliptic Curve Inner Products) Halo 2 Implementation",
-  projectStatus: ProjectStatus.ACTIVE,
   links: {
     github: "https://github.com/levs57/sage-circuits/",
     website: "https://perpetualpowersoftau.com/",
