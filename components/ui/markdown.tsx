@@ -2,12 +2,24 @@ import React from "react"
 import ReactMarkdown, { Components } from "react-markdown"
 import remarkGfm from "remark-gfm"
 
+const generateSectionId = (text: string) => {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+}
+
 export const createMarkdownElement = (
   tag: keyof JSX.IntrinsicElements,
   props: any
 ) =>
   React.createElement(tag, {
     ...props,
+    ref: (node: HTMLElement | null) => {
+      if (node && node.textContent) {
+        node.setAttribute(
+          "data-section-id",
+          generateSectionId(node.textContent)
+        )
+      }
+    },
   })
 
 const Table = (props: any) => {

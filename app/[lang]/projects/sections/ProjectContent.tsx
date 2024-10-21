@@ -60,6 +60,7 @@ export const ProjectContent = ({
               {content?.description?.length > 0 && (
                 <WikiSideNavigation
                   className="hidden lg:block"
+                  project={project}
                   content={content?.description}
                 />
               )}
@@ -186,7 +187,7 @@ export const ProjectContent = ({
                 project={project}
                 lang={lang}
               />
-              <div className="lg:col-start-2">
+              <div data-section-id="edit-this-page" className="lg:col-start-2">
                 <Link
                   href={editPageURL}
                   target="_blank"

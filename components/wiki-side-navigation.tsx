@@ -2,8 +2,11 @@
 
 import { useEffect, useRef, useState } from "react"
 
+import { ProjectExtraLinkType } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { useTranslation } from "@/app/i18n/client"
+
+import { Icons } from "./icons"
 
 interface Section {
   level: number
@@ -15,12 +18,14 @@ interface WikiSideNavigationProps {
   className?: string
   lang?: string
   content?: string
+  project?: any
 }
 
 export const WikiSideNavigation = ({
   className,
   lang = "en",
   content = "",
+  project,
 }: WikiSideNavigationProps) => {
   const { t } = useTranslation(lang, "common")
   const [sections, setSections] = useState<Section[]>([])
@@ -46,6 +51,10 @@ export const WikiSideNavigation = ({
     }
 
     setSections(extractedSections)
+    // Set the first section as active by default
+    if (extractedSections.length > 0) {
+      setActiveSection(extractedSections[0].id)
+    }
   }, [content])
 
   // Set up intersection observer
@@ -59,7 +68,7 @@ export const WikiSideNavigation = ({
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id)
+          setActiveSection(entry.target.getAttribute("data-section-id"))
         }
       })
     }, observerOptions)
@@ -89,8 +98,36 @@ export const WikiSideNavigation = ({
         top: offsetPosition,
         behavior: "smooth",
       })
+      setActiveSection(sectionId)
     }
   }
+
+  const ExtraLinkLabelMapping: Record<
+    ProjectExtraLinkType,
+    {
+      label: string
+      icon?: any
+    }
+  > = {
+    buildWith: {
+      label: t("buildWith"),
+      icon: <Icons.hammer />,
+    },
+    play: {
+      label: t("tryItOut"),
+      icon: <Icons.hand />,
+    },
+    research: {
+      label: t("deepDiveResearch"),
+      icon: <Icons.readme />,
+    },
+    learn: {
+      label: t("learnMore"),
+    },
+  }
+
+  const { extraLinks = {} } = project
+  const hasExtraLinks = Object.keys(extraLinks).length > 0
 
   if (sections.length === 0 || content.length === 0) return null
 
@@ -105,7 +142,7 @@ export const WikiSideNavigation = ({
             <li
               key={index}
               className={cn(
-                "flex h-8 items-center border-l-2 border-l-anakiwa-200 px-3 duration-200",
+                "flex h-8 items-center border-l-2 border-l-anakiwa-200 px-3 duration-200 cursor-pointer",
                 {
                   "border-l-anakiwa-500 text-anakiwa-500 font-medium":
                     activeSection === section.id,
@@ -120,6 +157,40 @@ export const WikiSideNavigation = ({
               </button>
             </li>
           ))}
+          {Object.entries(ExtraLinkLabelMapping).map(([key]) => {
+            const links = extraLinks[key as ProjectExtraLinkType] ?? []
+            // @ts-ignore
+            const { label } = ExtraLinkLabelMapping?.[key as any] ?? {}
+            if (!links.length) return null // no links hide the section
+            return (
+              <li
+                key={key}
+                onClick={() => scrollToSection(key)}
+                className={cn(
+                  "flex h-8 items-center border-l-2 border-l-anakiwa-200 px-3 duration-200  cursor-pointer",
+                  {
+                    "border-l-anakiwa-500 text-anakiwa-500 font-medium":
+                      activeSection === key,
+                  }
+                )}
+              >
+                {label}
+              </li>
+            )
+          })}
+          <li
+            key="edit"
+            onClick={() => scrollToSection("edit-this-page")}
+            className={cn(
+              "flex h-8 items-center border-l-2 border-l-anakiwa-200 px-3 duration-200  cursor-pointer",
+              {
+                "border-l-anakiwa-500 text-anakiwa-500 font-medium":
+                  activeSection === "edit-this-page",
+              }
+            )}
+          >
+            Edit this page
+          </li>
         </ul>
       </aside>
     </div>

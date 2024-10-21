@@ -63,9 +63,9 @@ export default function ProjectExtraLinks({
     if (!links.length) return null // no links hide the section
 
     return (
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2" data-section-id={id}>
         <div className="flex items-center gap-2">
-          <p className="py-2 text-[22px] font-bold text-tuatara-700">{label}</p>
+          <p className="text-[22px] font-bold text-tuatara-700">{label}</p>
         </div>
         <div className="flex flex-col items-start gap-2">
           {links.map((link: ActionLinkTypeLink, index) => {
@@ -89,7 +89,7 @@ export default function ProjectExtraLinks({
   }
 
   return (
-    <div className="flex flex-col gap-8 py-4">
+    <div className="flex flex-col gap-8">
       {Object.entries(ExtraLinkLabelMapping).map(([key]) => {
         const links = extraLinks[key as ProjectExtraLinkType] ?? []
         return (
