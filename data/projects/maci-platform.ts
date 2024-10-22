@@ -12,7 +12,7 @@ export const maciPlatform: ProjectInterface = {
   section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   content,
-  image: "maci-rpgf.png",
+  image: "maci-platform.png",
   name: "MACI Platform",
   links: {
     github: "https://github.com/privacy-scaling-explorations/maci-platform",

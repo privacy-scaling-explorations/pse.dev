@@ -67,7 +67,7 @@ export default function ProjectCard({
       }}
     >
       {showBanner && (
-        <div className="relative flex flex-col">
+        <div className="relative flex flex-col border-b border-black/10">
           <Image
             src={`/project-banners/${image ? image : "fallback.webp"}`}
             alt={`${name} banner`}
@@ -84,21 +84,6 @@ export default function ProjectCard({
       )}
       <div className="flex flex-col justify-between h-full p-4 bg-white rounded-b-lg">
         <div className="flex flex-col justify-start gap-2">
-          <div className="flex gap-2 mb-2">
-            {tags?.themes?.map((theme, index) => {
-              const { label } = ThemesButtonMapping(lang)?.[theme]
-              const icon = TagsIconMapping?.[theme]
-
-              return (
-                <CategoryTag variant="blue" key={index}>
-                  <div className="flex items-center gap-1">
-                    {icon}
-                    <span>{label ?? theme}</span>
-                  </div>
-                </CategoryTag>
-              )
-            })}
-          </div>
           <h1 className="text-xl font-bold text-black">{name}</h1>
           {projectContent?.tldr && (
             <div className="flex flex-col gap-4 h-28">

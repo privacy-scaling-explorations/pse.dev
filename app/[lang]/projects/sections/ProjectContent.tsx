@@ -125,44 +125,44 @@ export const ProjectContent = ({
                         </span>
                       </span>
                     )}
-                    <div className="flex flex-col w-full gap-4 text-base font-normal leading-relaxed">
+                    <div className="flex flex-col w-full text-base font-normal leading-relaxed">
                       {content?.description && (
                         <Markdown
                           components={{
                             h1: ({ node, ...props }) =>
                               createMarkdownElement("h1", {
                                 className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold",
+                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
                                 ...props,
                               }),
                             h2: ({ node, ...props }) =>
                               createMarkdownElement("h2", {
                                 className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold",
+                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
                                 ...props,
                               }),
                             h3: ({ node, ...props }) =>
                               createMarkdownElement("h3", {
                                 className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold",
+                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
                                 ...props,
                               }),
                             h4: ({ node, ...props }) =>
                               createMarkdownElement("h4", {
                                 className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold",
+                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
                                 ...props,
                               }),
                             h5: ({ node, ...props }) =>
                               createMarkdownElement("h5", {
                                 className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold",
+                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
                                 ...props,
                               }),
                             h6: ({ node, ...props }) =>
                               createMarkdownElement("h6", {
                                 className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold",
+                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
                                 ...props,
                               }),
                             p: ({ node, ...props }) =>

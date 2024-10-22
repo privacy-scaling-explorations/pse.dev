@@ -38,7 +38,7 @@ export function ProjectTags({ project, lang }: IProjectTags) {
   const { t } = useTranslation(lang, "common")
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 pt-10">
       {Object.entries(FilterLabelMapping(lang)).map(([key]) => {
         const keyTags = project?.tags?.[key as ProjectFilter]
         const hasItems = keyTags && keyTags?.length > 0
