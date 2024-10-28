@@ -4,9 +4,10 @@
   "private": true,
   "engines": {
     "node": ">=16.8",
-    "pnpm": ">=7.28.0",
+    "pnpm": ">=7.5.1",
     "npm": "please-use-pnpm"
   },
+  "packageManager": "pnpm@7.5.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
