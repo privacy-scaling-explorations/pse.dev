@@ -31,7 +31,6 @@ export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
     }
   )
 
-
   const projectSortItems: { label: string; value: ProjectSortBy }[] = [
     { label: t("filterOptions.random"), value: "random" },
     { label: t("filterOptions.asc"), value: "asc" },
