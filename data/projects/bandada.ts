@@ -104,7 +104,7 @@ export const bandada: ProjectInterface = {
         url: "https://github.com/bandada-infra/bandada/tree/main/libs/api-sdk",
       },
       {
-        label: "Boilerplate",
+        label: "Bandada Boilerplate",
         url: "https://github.com/bandada-infra/boilerplate",
       },
     ],
