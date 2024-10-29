@@ -127,6 +127,10 @@ export const bandada: ProjectInterface = {
         label: "Bandada Documentation",
         url: "https://docs.bandada.pse.dev/",
       },
+      {
+        label: "Bandada Board",
+        url: "https://github.com/orgs/bandada-infra/projects/1",
+      },
     ],
   },
 }
