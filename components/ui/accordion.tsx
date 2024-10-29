@@ -15,7 +15,7 @@ interface AccordionItemProps {
 
 type AccordionPadding = "xs" | "sm"
 
-interface AccordionProps extends RadixAccordion.AccordionImplProps {
+interface AccordionProps {
   type?: "single" | "multiple"
   size?: AccordionPadding
   defaultValue?: string
