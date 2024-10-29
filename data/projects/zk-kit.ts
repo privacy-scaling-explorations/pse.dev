@@ -3,7 +3,9 @@ import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
 const content: ProjectContent = {
   en: {
     tldr: "A set of reusable libraries for zero-knowledge technologies.",
-    description: `ZK-kit is a set of libraries (algorithms or utility functions) that can be reused in different projects and zero-knowledge protocols, making it easier for developers to access user-friendly, tested, and documented libraries.`,
+    description: `### Overview
+
+    ZK-Kit provides reference implementations of crypto primitives in different languages for reuse in production-level projects to accelerate safe and performant ZK development.`,
   },
 }
 
@@ -22,6 +24,30 @@ export const ZKKit: ProjectInterface = {
     keywords: ["Education", "Toolkits", "Anonymity/Privacy", "Algorithms"],
     themes: ["build"],
     types: ["Legos/dev tools"],
-    builtWith: ["Circom", "JavaScript", "Solidity", "Noir"],
+    builtWith: ["Circom", "JavaScript", "Solidity", "Noir", "Rust"],
+  },
+  extraLinks: {
+    buildWith: [
+      {
+        label: "ZK-Kit JavaScript",
+        url: "https://github.com/privacy-scaling-explorations/zk-kit",
+      },
+      {
+        label: "ZK-Kit Solidity",
+        url: "https://github.com/privacy-scaling-explorations/zk-kit.solidity",
+      },
+      {
+        label: "ZK-Kit Circom",
+        url: "https://github.com/privacy-scaling-explorations/zk-kit.circom",
+      },
+      {
+        label: "ZK-Kit Rust",
+        url: "https://github.com/privacy-scaling-explorations/zk-kit.rust",
+      },
+      {
+        label: "ZK-Kit Noir",
+        url: "https://github.com/privacy-scaling-explorations/zk-kit.noir",
+      },
+    ],
   },
 }
