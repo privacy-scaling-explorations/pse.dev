@@ -24,17 +24,6 @@ With Semaphore, you can allow your users to do the following:
 
 When a user broadcasts a message, Semaphore zero-knowledge proofs can ensure that the user has joined the group and hasn't already cast a message with a nullifier.
 
-### Links
-
-* Website: https://semaphore.pse.dev
-* Documentation: https://docs.semaphore.pse.dev
-* Telegram: https://semaphore.pse.dev/telegram
-* X (Twitter): https://semaphore.pse.dev/x
-* Demo: https://demo.semaphore.pse.dev
-* Explorer: https://explorer.semaphore.pse.dev
-* Benchmarks: https://benchmarks.semaphore.pse.dev
-* Board: https://github.com/orgs/semaphore-protocol/projects/10/views/1
-
 ### Ways to contribute
 
 * Submit your idea to PSE's [acceleration program](https://github.com/privacy-scaling-explorations/acceleration-program) (check out this [discussion](https://github.com/orgs/semaphore-protocol/discussions/463) for potential ideas).
@@ -63,7 +52,7 @@ export const semaphore: ProjectInterface = {
     github: "https://github.com/semaphore-protocol",
     website: "https://semaphore.pse.dev/",
     telegram: "https://semaphore.pse.dev/telegram",
-    twitter: "https://twitter.com/SemaphoreDevs",
+    twitter: "https://semaphore.pse.dev/x",
   },
   tags: {
     keywords: [
@@ -87,6 +76,34 @@ export const semaphore: ProjectInterface = {
       {
         label: "Semaphore Demo",
         url: "https://demo.semaphore.pse.dev/",
+      },
+    ],
+    buildWith: [
+      {
+        label: "Semaphore CLI (Getting Started)",
+        url: "https://docs.semaphore.pse.dev/getting-started",
+      },
+      {
+        label: "Semaphore JS libraries",
+        url: "https://docs.semaphore.pse.dev/guides/identities",
+      },
+      {
+        label: "Semaphore Boilerplate",
+        url: "https://github.com/semaphore-protocol/boilerplate",
+      },
+    ],
+    learn: [
+      {
+        label: "Semaphore Website",
+        url: "https://semaphore.pse.dev",
+      },
+      {
+        label: "Semaphore Documentation",
+        url: "https://docs.semaphore.pse.dev",
+      },
+      {
+        label: "Semaphore Board",
+        url: "https://github.com/orgs/semaphore-protocol/projects/10/views/1",
       },
     ],
   },
