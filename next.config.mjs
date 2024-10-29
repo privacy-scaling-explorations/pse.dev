@@ -1,6 +1,12 @@
 import nextMdx from "@next/mdx"
 
 const withMDX = nextMdx({
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.externals.push("discord.js", "@discordjs/rest");
+    }
+    return config;
+  },
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [],

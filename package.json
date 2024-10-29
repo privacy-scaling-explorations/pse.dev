@@ -3,9 +3,7 @@
   "version": "0.0.2",
   "private": true,
   "engines": {
-    "node": ">=16.8",
-    "pnpm": ">=7.28.0",
-    "npm": "please-use-pnpm"
+    "node": ">=16.x"
   },
   "scripts": {
     "dev": "next dev",
@@ -21,7 +19,7 @@
     "dev:discordbot": "nodemon --watch ./common/discord"
   },
   "dependencies": {
-    "@discordjs/rest": "^2.0.0",
+    "@discordjs/rest": "2.0.0",
     "@next/mdx": "^13.5.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-checkbox": "^1.0.4",
@@ -41,7 +39,7 @@
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-resources-to-backend": "^1.2.0",
     "lucide-react": "0.105.0-alpha.4",
-    "next": "^13.4.10",
+    "next": "14",
     "next-themes": "^0.2.1",
     "nodemon": "^3.0.3",
     "react": "^18.2.0",
@@ -73,5 +71,6 @@
     "prettier": "^2.8.8",
     "tailwindcss": "^3.3.2",
     "typescript": "^4.9.5"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

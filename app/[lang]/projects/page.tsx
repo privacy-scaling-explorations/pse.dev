@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { Metadata } from "next"
 
 import { Divider } from "@/components/divider"
@@ -23,7 +24,9 @@ export default async function ProjectsPage({ params: { lang } }: any) {
         subtitle={t("subtitle")}
         showDivider={false}
       >
-        <ProjectFiltersBar lang={lang} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ProjectFiltersBar lang={lang} />
+        </Suspense>
       </PageHeader>
 
       <div className="w-full bg-white pb-28">
