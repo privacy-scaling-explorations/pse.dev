@@ -13,6 +13,7 @@ import { ECIPHalo2 } from "./projects/ecip-halo2"
 import { eigenTrust } from "./projects/eigen-trust"
 import { Interep } from "./projects/interep"
 import { jubmoji } from "./projects/jubmoji"
+import { mopro } from './projects/mopro'
 import { maci } from "./projects/maci"
 import { maciPlatform } from "./projects/maci-platform"
 import { nfctap } from "./projects/nfctap"
@@ -48,6 +49,7 @@ import { zkp2p } from "./projects/zkp2p"
 export const projects: ProjectInterface[] = [
   rln,
   zkitter,
+  mopro,
   maci,
   wax,
   discreetly,
