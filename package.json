@@ -39,7 +39,7 @@
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-resources-to-backend": "^1.2.0",
     "lucide-react": "0.105.0-alpha.4",
-    "next": "^13.4.10",
+    "next": "14",
     "next-themes": "^0.2.1",
     "nodemon": "^3.0.3",
     "react": "^18.2.0",
