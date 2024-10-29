@@ -5,11 +5,14 @@ const content: ProjectContent = {
     tldr: "A zero-knowledge protocol for anonymous interactions.",
     description: `### Overview
 
-[Semaphore](https://github.com/semaphore-protocol/semaphore/tree/main) is a [zero-knowledge](https://z.cash/learn/what-are-zk-snarks/) protocol that allows you to cast a message (for example, a vote or endorsement) as a provable group member without revealing your identity. Additionally, it provides a simple mechanism to prevent double-signaling. Use cases include private voting, whistleblowing, anonymous DAOs and mixers.
+[Semaphore](https://semaphore.pse.dev/) is a generic privacy layer. Leveraging zero-knowledge technology, users can prove their membership in groups and send messages (extending from votes to endorsements) 
+off-chain or across EVM-compatible blockchains, all without revealing their personal identity. Use cases include private voting, whistleblowing, anonymous DAOs, and mixers.
 
-Semaphore is designed to be a simple and generic privacy layer for decentralized applications (dApps) on Ethereum. It encourages modular application design, allowing dApp developers to choose and customize the on-chain and off-chain components they need.
+Semaphore is designed to be a simple and generic privacy layer for decentralized applications (dApps). It encourages modular application design, allowing
+dApp developers to choose and customize the on-chain and off-chain components they need.
 
-The core of the protocol is the circuit logic. In addition to circuits, Semaphore provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) and [JavaScript libraries](https://github.com/semaphore-protocol/semaphore/tree/main#-packages) that allow developers to generate zero-knowledge proofs and verify them with minimal effort.
+The core of the protocol is the circuit logic. In addition to circuits, Semaphore provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) and 
+[JavaScript libraries](https://github.com/semaphore-protocol/semaphore/tree/main#-packages) that allow developers to generate zero-knowledge proofs and verify them with minimal effort.
 
 ### Features
 
@@ -17,13 +20,33 @@ With Semaphore, you can allow your users to do the following:
 
 1. [Create a Semaphore identity](https://docs.semaphore.pse.dev/guides/identities)
 2. [Add their Semaphore identity to a group (i.e. Merkle tree)](https://docs.semaphore.pse.dev/guides/groups)
-3. [Send a verifiable, anonymous message (e.g., a vote or endorsement)](https://docs.semaphore.pse.dev/guides/proofs)
+3. [Send a verifiable, anonymous message (e.g. a vote or endorsement)](https://docs.semaphore.pse.dev/guides/proofs)
 
-When a user broadcasts a message, Semaphore zero-knowledge proofs can ensure that the user has joined the group and hasn't already cast a message with their nullifier.
-Semaphore uses on-chain Solidity contracts and off-chain JavaScript libraries that work in tandem.
+When a user broadcasts a message, Semaphore zero-knowledge proofs can ensure that the user has joined the group and hasn't already cast a message with a nullifier.
 
-* Off chain, JavaScript libraries can be used to create identities, manage groups, and generate proofs.
-* On chain, Solidity contracts can be used to manage groups and verify proofs.`,
+### Links
+
+* Website: https://semaphore.pse.dev
+* Documentation: https://docs.semaphore.pse.dev
+* Telegram: https://semaphore.pse.dev/telegram
+* X (Twitter): https://semaphore.pse.dev/x
+* Demo: https://demo.semaphore.pse.dev
+* Explorer: https://explorer.semaphore.pse.dev
+* Benchmarks: https://benchmarks.semaphore.pse.dev
+* Board: https://github.com/orgs/semaphore-protocol/projects/10/views/1
+
+### Ways to contribute
+
+* Submit your idea to PSE's [acceleration program](https://github.com/privacy-scaling-explorations/acceleration-program) (check out this [discussion](https://github.com/orgs/semaphore-protocol/discussions/463) for potential ideas).
+* Work on [open issues](https://github.com/semaphore-protocol/semaphore/contribute)
+* Suggest new terms for our [glossary](https://semaphore.pse.dev/docs/glossary) ([website-issue](https://github.com/semaphore-protocol/website/issues/new?assignees=&labels=documentation&template=---glossary-term.md&title=))
+* Propose new networks for our [deployed contracts](https://semaphore.pse.dev/docs/deployed-contracts) ([semaphore-issue](https://github.com/semaphore-protocol/semaphore/issues/new?assignees=&labels=&template=----network.md&title=))
+* Suggest new developer tools ([semaphore-issue](https://github.com/semaphore-protocol/semaphore/issues/new?assignees=&labels=feature+%3Arocket%3A&template=---package.md&title=))
+* Share your Semaphore project with us ([semaphore-issue](https://github.com/semaphore-protocol/semaphore/issues/new?assignees=&labels=documentation++%F0%9F%93%96&template=----project.md&title=))
+* Share ideas for new features ([semaphore-issue](https://github.com/semaphore-protocol/semaphore/issues/new?assignees=&labels=feature+%3Arocket%3A&template=---feature.md&title=))
+* Create a report if you find any bugs in the code ([semaphore-issue](https://github.com/semaphore-protocol/semaphore/issues/new?assignees=&labels=bug+%F0%9F%90%9B&template=---bug.md&title=))
+
+As a Semaphore contributor, you'll be able to claim a special GitPOAP per year 🏅`,
   },
 }
 
@@ -58,5 +81,13 @@ export const semaphore: ProjectInterface = {
     themes: ["build"],
     types: ["Legos/dev tools", "Lego sets/toolkits", "Infrastructure/protocol"],
     builtWith: ["zk-kit", "circom", "snarkjs"],
+  },
+  extraLinks: {
+    play: [
+      {
+        label: "Semaphore Demo",
+        url: "https://demo.semaphore.pse.dev/",
+      },
+    ],
   },
 }
