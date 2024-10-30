@@ -11,6 +11,7 @@ import { discreetly } from "./projects/discreetly"
 import { dslWorkingGroup } from "./projects/dsl-working-group"
 import { ECIPHalo2 } from "./projects/ecip-halo2"
 import { eigenTrust } from "./projects/eigen-trust"
+import { excubiae } from "./projects/excubiae"
 import { Interep } from "./projects/interep"
 import { jubmoji } from "./projects/jubmoji"
 import { mopro } from './projects/mopro'
@@ -87,4 +88,5 @@ export const projects: ProjectInterface[] = [
   maciPlatform,
   OpenPassport,
   zkID,
+  excubiae,
 ]
