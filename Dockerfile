@@ -9,17 +9,14 @@ RUN npm i -g yarn && yarn install
 COPY . .
 RUN yarn build
 
-
-
 # Create image by copying build artifacts
 FROM node:18-alpine3.18 as runner
-RUN rm -rf /usr/local/bin/yarn && npm i -g yarn --force
 
 USER node
-ARG PORT=3000
 
 WORKDIR /home/node
 COPY --chown=node:node  --from=builder /builder/ ./
 
+ARG PORT=3000
 EXPOSE ${PORT}
 CMD ["yarn", "start"]
