@@ -14,9 +14,10 @@ import { eigenTrust } from "./projects/eigen-trust"
 import { excubiae } from "./projects/excubiae"
 import { Interep } from "./projects/interep"
 import { jubmoji } from "./projects/jubmoji"
-import { mopro } from './projects/mopro'
 import { maci } from "./projects/maci"
 import { maciPlatform } from "./projects/maci-platform"
+import { mopro } from "./projects/mopro"
+import { mpc } from "./projects/mpc"
 import { nfctap } from "./projects/nfctap"
 import { OpenPassport } from "./projects/openpassport"
 import { p0tion } from "./projects/p0tion"
@@ -48,6 +49,7 @@ import { zkp2p } from "./projects/zkp2p"
  * Every 'description' props supports markdown syntax https://www.markdownguide.org/basic-syntax/
  */
 export const projects: ProjectInterface[] = [
+  mpc,
   rln,
   zkitter,
   mopro,
