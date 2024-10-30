@@ -2,14 +2,18 @@ FROM node:18-alpine3.18 as builder
 RUN apk add --no-cache git curl
 
 WORKDIR /builder
+
+COPY package.json yarn.lock ./
+RUN npm i -g yarn && yarn install
+
 COPY . .
-RUN npm i -g yarn
-RUN yarn install
 RUN yarn build
+
+
 
 # Create image by copying build artifacts
 FROM node:18-alpine3.18 as runner
-RUN npm i -g yarn
+RUN rm -rf /usr/local/bin/yarn && npm i -g yarn --force
 
 USER node
 ARG PORT=3000
