@@ -142,7 +142,7 @@ export const WikiSideNavigation = ({
             <li
               key={index}
               className={cn(
-                "flex h-8 items-center border-l-2 border-l-anakiwa-200 px-3 duration-200 cursor-pointer",
+                "flex h-8 items-center border-l-2 border-l-anakiwa-200 px-3 duration-200 cursor-pointer ",
                 {
                   "border-l-anakiwa-500 text-anakiwa-500 font-medium":
                     activeSection === section.id,
@@ -151,7 +151,7 @@ export const WikiSideNavigation = ({
             >
               <button
                 onClick={() => scrollToSection(section.id)}
-                className="w-full text-left"
+                className="w-full overflow-hidden text-left line-clamp-1"
               >
                 {section.text}
               </button>
