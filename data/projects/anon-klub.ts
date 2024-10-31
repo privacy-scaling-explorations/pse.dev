@@ -18,6 +18,15 @@ export const anonKlub: ProjectInterface = {
     github: "https://github.com/anonklub",
     website: "https://anonklub.github.io",
   },
+  extraLinks: {
+    learn: [
+      {
+        label:
+          "Sunsetting Blog Post: Reflections on Our Journey in Privacy-Preserving Solutions",
+        url: "https://mirror.xyz/privacy-scaling-explorations.eth/7VTKFVR4PM75WtNnBzuQSBZW-UYoJOsnzBBQmB9MWbY",
+      },
+    ],
+  },
   tags: {
     keywords: [
       "Transaction privacy",
