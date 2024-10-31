@@ -28,12 +28,23 @@ const TagsIconMapping: Record<string, any> = {
   research: <Icons.readme height={12} width={12} />,
 }
 
+const tagCardVariants = cva(
+  "text-xs font-sans text-tuatara-950 rounded-[3px] py-[2px] px-[6px]",
+  {
+    variants: {
+      variant: {
+        primary: "bg-[#D8FEA8]",
+        secondary: "bg-[#C2E8F5]",
+      },
+    },
+  }
+)
 const projectCardVariants = cva(
-  "flex cursor-pointer flex-col overflow-hidden rounded-lg transition duration-150 ease-in hover:scale-105",
+  "flex cursor-pointer flex-col overflow-hidden rounded-lg transition duration-200 ease-in border border-transparent hover:border-anakiwa-500",
   {
     variants: {
       showLinks: {
-        true: "min-h-[450px]",
+        true: "min-h-[280px]",
         false: "min-h-[200px]",
       },
       border: {
@@ -54,20 +65,21 @@ export default function ProjectCard({
   const { t } = useTranslation(lang, "common")
   const router = useRouter()
 
-  const { id, image, links, name, tags, imageAlt, projectStatus } = project
+  const { id, image, links, name, tags, imageAlt, projectStatus, cardTags } =
+    project ?? {}
 
   const projectNotActive = projectStatus !== "active"
   const { content: projectContent } = getProjectById(id, lang)
 
   return (
-    <div
-      className={cn(projectCardVariants({ showLinks, border, className }))}
-      onClick={() => {
-        router.push(`/projects/${id}`)
-      }}
-    >
+    <div className={cn(projectCardVariants({ showLinks, border, className }))}>
       {showBanner && (
-        <div className="relative flex flex-col border-b border-black/10">
+        <div
+          className="relative flex flex-col border-b border-black/10"
+          onClick={() => {
+            router.push(`/projects/${id}`)
+          }}
+        >
           <Image
             src={`/project-banners/${image ? image : "fallback.webp"}`}
             alt={`${name} banner`}
@@ -82,34 +94,52 @@ export default function ProjectCard({
           )}
         </div>
       )}
-      <div className="flex flex-col justify-between h-full p-4 bg-white rounded-b-lg">
+      <div className="flex flex-col justify-between h-full gap-8 p-4 bg-white rounded-b-lg">
         <div className="flex flex-col justify-start gap-2">
-          <h1 className="text-xl font-bold text-black">{name}</h1>
+          <h1 className="text-2xl font-bold leading-7 text-black">{name}</h1>
           {projectContent?.tldr && (
-            <div className="flex flex-col gap-4 h-28">
-              <p className="text-slate-900/80">{projectContent?.tldr}</p>
+            <div className="flex flex-col h-24 gap-4">
+              <p className="text-slate-900/80 line-clamp-4">
+                {projectContent?.tldr}
+              </p>
             </div>
           )}
         </div>
-        <div className="flex justify-between mt-auto">
-          {showLinks && (
-            <div className="flex items-center justify-start gap-3">
-              {Object.entries(links ?? {})?.map(([website, url], index) => {
-                return (
-                  <ProjectLink
-                    key={index}
-                    url={url}
-                    website={website as ProjectLinkWebsite}
-                  />
-                )
-              })}
-            </div>
-          )}
+        <div className="flex flex-col gap-2">
           {projectNotActive && (
-            <span className="ml-auto text-sm font-medium italic leading-[21px] text-tuatara-400">
-              {t("notCurrentlyActive")}
+            <span className="text-sm font-medium italic leading-[21px] text-tuatara-400">
+              {t("inactive")}
             </span>
           )}
+          <div className="flex justify-between ">
+            {showLinks && (
+              <div className="flex items-center justify-start gap-3">
+                {Object.entries(links ?? {})?.map(([website, url], index) => {
+                  return (
+                    <ProjectLink
+                      key={index}
+                      url={url}
+                      website={website as ProjectLinkWebsite}
+                    />
+                  )
+                })}
+              </div>
+            )}
+            {cardTags && (
+              <div className="flex items-center gap-1">
+                {cardTags?.primary && (
+                  <div className={tagCardVariants({ variant: "primary" })}>
+                    {cardTags?.primary}
+                  </div>
+                )}
+                {cardTags?.secondary && (
+                  <div className={tagCardVariants({ variant: "secondary" })}>
+                    {cardTags?.secondary}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

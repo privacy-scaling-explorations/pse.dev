@@ -127,6 +127,9 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
   const searchParams = useSearchParams()
   const [searchQuery, setSearchQuery] = useState("")
   const [filterCount, setFilterCount] = useState(0)
+  const [activeItem, setActiveItem] = useState<string | null>(
+    ProjectSections?.[0]
+  )
 
   const { filters, toggleFilter, queryString, activeFilters, onFilterProject } =
     useProjectFiltersState((state) => state)
@@ -296,40 +299,62 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
           </FilterWrapper>
         </div>
       </Modal>
-      <div className="flex flex-col gap-6">
-        <div className="grid items-center justify-between grid-cols-1 gap-3 md:grid-cols-5 md:gap-12">
-          <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">
-            <Input
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setSearchQuery(e?.target?.value)
-              }
-              value={searchQuery}
-              placeholder={t("searchProjectPlaceholder")}
-            />
-            <div className="flex items-center gap-3">
-              <Badge value={filterCount}>
-                <Button
-                  onClick={() => setShowModal(true)}
-                  variant="white"
-                  className={cn({
-                    "border-2 border-anakiwa-950": filterCount > 0,
-                  })}
+      <div className="flex flex-col gap-4">
+        <nav className="container px-4 mx-auto">
+          <ul className="flex space-x-6">
+            {ProjectSections.map((key) => {
+              return (
+                <div
+                  key={key}
+                  className={cn(
+                    "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
+                    activeItem === key
+                      ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
+                      : ""
+                  )}
+                  onClick={() => setActiveItem(key)}
                 >
-                  <div className="flex items-center gap-2">
-                    <Image src={FiltersIcon} alt="filter icon" />
-                    <span className="hidden md:block">{t("filters")}</span>
-                  </div>
-                </Button>
-              </Badge>
-              <button
-                disabled={!hasActiveFilters}
-                onClick={clearAllFilters}
-                className="hidden bg-transparent cursor-pointer opacity-85 text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block"
-              >
-                <div className="flex items-center gap-2 border-b-2 border-black">
-                  <span className="text-sm font-medium">{t("clearAll")}</span>
+                  {key}
                 </div>
-              </button>
+              )
+            })}
+          </ul>
+        </nav>
+        <div className="flex flex-col gap-6">
+          <div className="grid items-center justify-between grid-cols-1 gap-3 md:grid-cols-5 md:gap-12">
+            <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">
+              <Input
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setSearchQuery(e?.target?.value)
+                }
+                value={searchQuery}
+                placeholder={t("searchProjectPlaceholder")}
+              />
+              <div className="flex items-center gap-3">
+                <Badge value={filterCount}>
+                  <Button
+                    onClick={() => setShowModal(true)}
+                    variant="white"
+                    className={cn({
+                      "border-2 border-anakiwa-950": filterCount > 0,
+                    })}
+                  >
+                    <div className="flex items-center gap-2">
+                      <Image src={FiltersIcon} alt="filter icon" />
+                      <span className="hidden md:block">{t("filters")}</span>
+                    </div>
+                  </Button>
+                </Badge>
+                <button
+                  disabled={!hasActiveFilters}
+                  onClick={clearAllFilters}
+                  className="hidden bg-transparent cursor-pointer opacity-85 text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block"
+                >
+                  <div className="flex items-center gap-2 border-b-2 border-black">
+                    <span className="text-sm font-medium">{t("clearAll")}</span>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>

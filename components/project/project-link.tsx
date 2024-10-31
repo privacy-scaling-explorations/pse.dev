@@ -24,6 +24,7 @@ export function ProjectLink({ website, url }: ProjectLinkProps) {
       }}
       target="_blank"
       rel="noopener noreferrer"
+      className="text-lg"
     >
       {icon}
     </a>

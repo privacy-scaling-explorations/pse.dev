@@ -88,6 +88,7 @@
   "connectWithUsOnPlatform": "Connect with us on {{platform}}",
   "addResource": "Add a resource",
   "notCurrentlyActive": "Not Currently Active",
+  "inactive": "Inactive",
   "joinOurDiscord": "Join our discord",
   "prevBrandImage": "Previous branding",
   "editThisPage": "Edit this page",

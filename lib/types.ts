@@ -24,6 +24,15 @@ export const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
   collaboration: "Collaborations",
   archived: "Archived",
 }
+
+export const ProjectSectionDescriptionMapping: Record<ProjectSection, string> =
+  {
+    pse: "",
+    grant: "",
+    collaboration: "",
+    archived:
+      "The projects in our archive are not currently being worked on by PSE, but we encourage everyone to check out their findings and continue experimentation!",
+  }
 export const ProjectStatusLabelMapping: Record<ProjectStatus, string> = {
   active: "Active",
   inactive: "Not Currently Active",
@@ -97,4 +106,8 @@ export interface ProjectInterface {
   projectStatus: ProjectStatus
   tags?: ProjectTags
   extraLinks?: ActionLinkType
+  cardTags: {
+    primary?: string
+    secondary?: string
+  }
 }

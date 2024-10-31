@@ -1,8 +1,9 @@
 import { Suspense } from "react"
 import { Metadata } from "next"
 
+import { AppContent } from "@/components/ui/app-content"
+import { Label } from "@/components/ui/label"
 import { Divider } from "@/components/divider"
-import { PageHeader } from "@/components/page-header"
 import ProjectFiltersBar from "@/components/project/project-filters-bar"
 import { ProjectList } from "@/components/project/project-list"
 import { ProjectResultBar } from "@/components/project/project-result-bar"
@@ -19,22 +20,24 @@ export default async function ProjectsPage({ params: { lang } }: any) {
 
   return (
     <Divider.Section>
-      <PageHeader
-        title={t("title")}
-        subtitle={t("subtitle")}
-        showDivider={false}
-      >
-        <Suspense fallback={<div>Loading...</div>}>
-          <ProjectFiltersBar lang={lang} />
-        </Suspense>
-      </PageHeader>
-
-      <div className="w-full bg-white pb-28">
-        <div className="container flex flex-col py-8 gap-14">
-          <ProjectResultBar lang={lang} />
-          <ProjectList lang={lang} />
-        </div>
+      <div className="bg-cover-gradient">
+        <AppContent className="flex flex-col gap-4 py-10">
+          <Label.PageTitle label={t("title")} />
+          <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
+            {t("subtitle")}
+          </h6>
+        </AppContent>
       </div>
+
+      <AppContent className="flex flex-col gap-10 py-10">
+        <Suspense fallback={<div>Loading...</div>}>
+          <div className="flex flex-col gap-4">
+            <ProjectFiltersBar lang={lang} />
+            <ProjectResultBar lang={lang} />
+          </div>
+        </Suspense>
+        <ProjectList lang={lang} />
+      </AppContent>
     </Divider.Section>
   )
 }
