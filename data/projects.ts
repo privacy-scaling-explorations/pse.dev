@@ -18,6 +18,7 @@ import { maci } from "./projects/maci"
 import { maciPlatform } from "./projects/maci-platform"
 import { mopro } from "./projects/mopro"
 import { mpc } from "./projects/mpc"
+import { mpcStats } from "./projects/mpc-stats"
 import { nfctap } from "./projects/nfctap"
 import { OpenPassport } from "./projects/openpassport"
 import { p0tion } from "./projects/p0tion"
@@ -53,6 +54,7 @@ export const projects: ProjectInterface[] = [
   rln,
   zkitter,
   mopro,
+  mpcStats,
   maci,
   wax,
   discreetly,
