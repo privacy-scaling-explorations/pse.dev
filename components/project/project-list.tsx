@@ -47,7 +47,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   const [isManualScroll, setIsManualScroll] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  const { projects } = useProjectFiltersState((state) => state)
+  const { projects, currentSection } = useProjectFiltersState((state) => state)
 
   const noItems = projects?.length === 0
 
@@ -119,10 +119,15 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
       <div className="flex flex-col">
         {ProjectSections.map((section, index) => {
           const sectionProjects =
-            projects.filter(
-              (project) =>
-                project.section?.toLowerCase() === section?.toLowerCase()
-            ) ?? []
+            projects
+              .filter((project) => {
+                if (currentSection == null) return true // return all projects
+                return project?.section?.toLowerCase() === currentSection 
+              })
+              .filter(
+                (project) =>
+                  project.section?.toLowerCase() === section?.toLowerCase()
+              ) ?? []
 
           const hasProjectsForSection = sectionProjects.length > 0
 
@@ -131,6 +136,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
           const sectionDescription =
             ProjectSectionDescriptionMapping[section as ProjectSection]
 
+          // todo: filter by project section
           if (!hasProjectsForSection) return null
 
           const showTitle = ["archived"].includes(section)

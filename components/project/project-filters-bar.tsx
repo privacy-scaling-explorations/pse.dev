@@ -49,7 +49,7 @@ const FilterWrapper = ({ label, children, className }: FilterWrapperProps) => {
 }
 
 export const ThemesButtonMapping = (lang: LocaleTypes): IThemesButton => {
-  const t = i18next.getFixedT(lang, "common")
+  const t = i18next.getFixedT(lang, "all")
 
   return {
     build: {
@@ -127,12 +127,16 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
   const searchParams = useSearchParams()
   const [searchQuery, setSearchQuery] = useState("")
   const [filterCount, setFilterCount] = useState(0)
-  const [activeItem, setActiveItem] = useState<string | null>(
-    ProjectSections?.[0]
-  )
 
-  const { filters, toggleFilter, queryString, activeFilters, onFilterProject } =
-    useProjectFiltersState((state) => state)
+  const {
+    filters,
+    toggleFilter,
+    queryString,
+    activeFilters,
+    onFilterProject,
+    currentSection,
+    setCurrentSection,
+  } = useProjectFiltersState((state) => state)
 
   useEffect(() => {
     if (!queryString) return
@@ -302,17 +306,28 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
       <div className="flex flex-col gap-4">
         <nav className="container px-4 mx-auto">
           <ul className="flex space-x-6">
+            <div
+              className={cn(
+                "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
+                currentSection == null
+                  ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
+                  : ""
+              )}
+              onClick={() => setCurrentSection(null)}
+            >
+              All
+            </div>
             {ProjectSections.map((key) => {
               return (
                 <div
                   key={key}
                   className={cn(
                     "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
-                    activeItem === key
+                    currentSection === key
                       ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
                       : ""
                   )}
-                  onClick={() => setActiveItem(key)}
+                  onClick={() => setCurrentSection(key)}
                 >
                   {key}
                 </div>
