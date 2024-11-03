@@ -48,7 +48,12 @@ export const mopro: ProjectInterface = {
   tags: {
     keywords: ["Mobile", "Client", "iOS", "Android"],
     themes: ["build", "play"],
-    types: ["Legos/dev tools", "Lego sets/toolkits", "Infrastructure/protocol", "Plugin",],
+    types: [
+      "Legos/dev tools",
+      "Lego sets/toolkits",
+      "Infrastructure/protocol",
+      "Plugin",
+    ],
     builtWith: ["halo2", "circom"],
   },
   extraLinks: {
