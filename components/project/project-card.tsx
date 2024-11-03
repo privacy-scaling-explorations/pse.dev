@@ -72,14 +72,17 @@ export default function ProjectCard({
   const { content: projectContent } = getProjectById(id, lang)
 
   return (
-    <div className={cn(projectCardVariants({ showLinks, border, className }))}>
+    <div
+      className={cn(
+        "group",
+        projectCardVariants({ showLinks, border, className })
+      )}
+      onClick={() => {
+        router.push(`/projects/${id}`)
+      }}
+    >
       {showBanner && (
-        <div
-          className="relative flex flex-col border-b border-black/10"
-          onClick={() => {
-            router.push(`/projects/${id}`)
-          }}
-        >
+        <div className="relative flex flex-col border-b border-black/10">
           <Image
             src={`/project-banners/${image ? image : "fallback.webp"}`}
             alt={`${name} banner`}

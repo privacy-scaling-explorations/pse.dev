@@ -119,15 +119,10 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
       <div className="flex flex-col">
         {ProjectSections.map((section, index) => {
           const sectionProjects =
-            projects
-              .filter((project) => {
-                if (currentSection == null) return true // return all projects
-                return project?.section?.toLowerCase() === currentSection 
-              })
-              .filter(
-                (project) =>
-                  project.section?.toLowerCase() === section?.toLowerCase()
-              ) ?? []
+            projects.filter(
+              (project) =>
+                project.section?.toLowerCase() === section?.toLowerCase()
+            ) ?? []
 
           const hasProjectsForSection = sectionProjects.length > 0
 

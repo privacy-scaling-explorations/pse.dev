@@ -302,6 +302,10 @@ export const useProjectFiltersState = create<
     set((state: any) => {
       return {
         ...state,
+        projects: projects.filter((project) => {
+          if (section == null) return true // return all projects
+          return project?.section?.toLowerCase() === section
+        }),
         currentSection: section,
       }
     })
