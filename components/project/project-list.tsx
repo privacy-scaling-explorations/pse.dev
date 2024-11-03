@@ -9,6 +9,7 @@ import { cva } from "class-variance-authority"
 import { LangProps } from "@/types/common"
 import {
   ProjectSection,
+  ProjectSectionDescriptionMapping,
   ProjectSectionLabelMapping,
   ProjectSections,
 } from "@/lib/types"
@@ -46,7 +47,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   const [isManualScroll, setIsManualScroll] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  const { projects } = useProjectFiltersState((state) => state)
+  const { projects, currentSection } = useProjectFiltersState((state) => state)
 
   const noItems = projects?.length === 0
 
@@ -114,9 +115,9 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   if (noItems) return <NoResults lang={lang} />
 
   return (
-    <div className="relative grid grid-cols-1 items-start justify-between gap-8 md:grid-cols-[1fr_200px] md:gap-10">
-      <div className="flex flex-col gap-10 md:gap-20">
-        {ProjectSections.map((section) => {
+    <div className="relative grid items-start justify-between grid-cols-1">
+      <div className="flex flex-col">
+        {ProjectSections.map((section, index) => {
           const sectionProjects =
             projects.filter(
               (project) =>
@@ -127,8 +128,13 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
 
           const sectionTitle =
             ProjectSectionLabelMapping[section as ProjectSection]
+          const sectionDescription =
+            ProjectSectionDescriptionMapping[section as ProjectSection]
 
+          // todo: filter by project section
           if (!hasProjectsForSection) return null
+
+          const showTitle = ["archived"].includes(section)
 
           return (
             <div
@@ -140,13 +146,23 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
               <div
                 className={cn(
                   "flex w-full flex-col",
-                  hasProjectsForSection ? "gap-6 md:gap-10" : "gap-2"
+                  hasProjectsForSection ? "gap-6 md:gap-10" : "gap-2",
+                  showTitle
+                    ? currentSection == null && "pt-[120px]"
+                    : index > 0 && currentSection == null
+                    ? "pt-10"
+                    : ""
                 )}
               >
-                <div className="overflow-hidden">
-                  <h3 className={cn(sectionTitleClass())}>{sectionTitle}</h3>
-                </div>
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 3xl:grid-cols-4">
+                {showTitle && (
+                  <div className="flex flex-col gap-6 overflow-hidden">
+                    <h3 className={cn(sectionTitleClass())}>{sectionTitle}</h3>
+                    <span className="font-sans text-base italic text-tuatara-950">
+                      {sectionDescription}
+                    </span>
+                  </div>
+                )}
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
                   {sectionProjects.map((project) => (
                     <ProjectCard
                       key={project?.id}
@@ -164,10 +180,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
         })}
       </div>
 
-      <div
-        id="sidebar"
-        className="sticky hidden p-8 top-20 bg-white/30 md:block"
-      >
+      <div id="sidebar" className="sticky hidden p-8 top-20 bg-white/30">
         <div className="flex flex-col gap-4">
           <h6 className="text-lg font-bold font-display text-tuatara-700">
             {t("onThisPage")}
