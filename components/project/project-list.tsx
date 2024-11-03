@@ -147,7 +147,11 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
                 className={cn(
                   "flex w-full flex-col",
                   hasProjectsForSection ? "gap-6 md:gap-10" : "gap-2",
-                  showTitle ? "pt-[120px]" : index > 0 ? "pt-10" : ""
+                  showTitle
+                    ? currentSection == null && "pt-[120px]"
+                    : index > 0 && currentSection == null
+                    ? "pt-10"
+                    : ""
                 )}
               >
                 {showTitle && (
