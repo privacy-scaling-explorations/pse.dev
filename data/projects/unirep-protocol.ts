@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -40,6 +45,7 @@ export const unirepProtocol: ProjectInterface = {
   id: "unirep-protocol",
   content,
   projectStatus: ProjectStatus.INACTIVE,
+  category: ProjectCategory.APPLICATION,
   image: "unirep.svg",
   license: "MIT",
   previousBrandImage: "unirep-previousBrand.png",

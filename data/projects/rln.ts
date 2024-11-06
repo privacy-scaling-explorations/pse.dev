@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -13,6 +18,7 @@ export const rln: ProjectInterface = {
   id: "rln",
   content,
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.DEVTOOLS,
   image: "rln.svg",
   name: "Rate-Limiting Nullifier",
   links: {

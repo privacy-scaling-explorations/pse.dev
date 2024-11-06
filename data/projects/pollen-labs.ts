@@ -1,4 +1,4 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectCategory, ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -25,6 +25,7 @@ export const pollenLabs: ProjectInterface = {
   id: "pollen-labs",
   content,
   projectStatus: ProjectStatus.INACTIVE,
+  category: ProjectCategory.APPLICATION,
   image: "pollen-labs.svg",
   name: "Pollen Labs",
   links: {

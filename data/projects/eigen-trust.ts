@@ -1,4 +1,4 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectCategory, ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -10,6 +10,7 @@ const content: ProjectContent = {
 export const eigenTrust: ProjectInterface = {
   id: "eigen-trust",
   projectStatus: ProjectStatus.INACTIVE,
+  category: ProjectCategory.RESEARCH,
   content,
   image: "",
   name: "EigenTrust",

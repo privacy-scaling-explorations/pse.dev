@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -10,6 +15,7 @@ const content: ProjectContent = {
 export const voicedeck: ProjectInterface = {
   id: "voice-deck",
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.APPLICATION,
   content,
   image: "voiceDeck.svg",
   name: "VoiceDeck",

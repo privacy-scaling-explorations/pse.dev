@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -10,6 +15,7 @@ const content: ProjectContent = {
 export const zkitter: ProjectInterface = {
   id: "zkitter",
   projectStatus: ProjectStatus.INACTIVE,
+  category: ProjectCategory.APPLICATION,
   content,
   image: "zkitter.webp",
   name: "Zkitter",

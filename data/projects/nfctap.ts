@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -12,6 +17,7 @@ NFC activations at SBC and FtC residency
 export const nfctap: ProjectInterface = {
   id: "nfctap",
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.APPLICATION,
   content,
   image: "",
   name: "nfctap.xyz",
