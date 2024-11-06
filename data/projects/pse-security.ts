@@ -16,6 +16,7 @@ export const pseSecurity: ProjectInterface = {
   id: "pse-security",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.RESEARCH,
+  section: "pse",
   content,
   image: "pse-security.png",
   name: "PSE Security",

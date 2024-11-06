@@ -19,6 +19,7 @@ export const rln: ProjectInterface = {
   content,
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.DEVTOOLS,
+  section: "pse",
   image: "rln.svg",
   name: "Rate-Limiting Nullifier",
   links: {

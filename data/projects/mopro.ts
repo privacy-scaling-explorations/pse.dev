@@ -41,6 +41,7 @@ export const mopro: ProjectInterface = {
   content,
   category: ProjectCategory.DEVTOOLS,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   image: "mopro.png",
   license: "MIT",
   name: "Mopro",

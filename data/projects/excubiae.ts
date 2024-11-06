@@ -29,6 +29,7 @@ export const excubiae: ProjectInterface = {
   category: ProjectCategory.APPLICATION,
   content,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   image: "",
   license: "MIT",
   name: "Excubiae",

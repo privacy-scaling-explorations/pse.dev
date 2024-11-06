@@ -17,6 +17,7 @@ export const ECIPHalo2: ProjectInterface = {
   image: "",
   category: ProjectCategory.DEVTOOLS,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   imageAlt: "ECIP + Halo 2",
   name: "ECIP (Elliptic Curve Inner Products) Halo 2 Implementation",

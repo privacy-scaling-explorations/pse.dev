@@ -124,7 +124,10 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
       <div className="flex flex-col">
         {ProjectCategories.map((category: any, index: number) => {
           const sectionProjects =
-            projects.filter((project) => project.category === category) ?? []
+            projects.filter(
+              (project) =>
+                project.category === category && project.section !== "archived"
+            ) ?? []
 
           const hasProjectsForSection = sectionProjects.length > 0
 
@@ -182,6 +185,33 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
             </div>
           )
         })}
+
+        {currentCategory == undefined && (
+          <div data-section="archived" className="flex justify-between gap-10">
+            <div className={cn("flex w-full flex-col gap-10 pt-10")}>
+              <div className="flex flex-col gap-6 overflow-hidden">
+                <h3 className={cn(sectionTitleClass())}>Archived</h3>
+                <span className="font-sans text-base italic text-tuatara-950">
+                  {ProjectSectionDescriptionMapping.archived}
+                </span>
+              </div>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
+                {projects
+                  .filter((project) => project.section === "archived")
+                  .map((project) => (
+                    <ProjectCard
+                      key={project?.id}
+                      project={project}
+                      lang={lang}
+                      showBanner
+                      showLinks
+                      border
+                    />
+                  ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <div id="sidebar" className="sticky hidden p-8 top-20 bg-white/30">

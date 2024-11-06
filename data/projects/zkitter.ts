@@ -16,6 +16,7 @@ export const zkitter: ProjectInterface = {
   id: "zkitter",
   projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.APPLICATION,
+  section: "archived",
   content,
   image: "zkitter.webp",
   name: "Zkitter",

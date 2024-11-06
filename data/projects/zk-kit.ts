@@ -43,6 +43,7 @@ export const ZKKit: ProjectInterface = {
   image: "zk-kit.svg",
   name: "ZK-Kit",
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   links: {
     website: "https://zkkit.pse.dev",

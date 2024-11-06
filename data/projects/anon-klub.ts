@@ -15,6 +15,7 @@ const content: ProjectContent = {
 export const anonKlub: ProjectInterface = {
   id: "anon-klub",
   category: ProjectCategory.APPLICATION,
+  section: "archived",
   content,
   projectStatus: ProjectStatus.INACTIVE,
   image: "anonklub.svg",

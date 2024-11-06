@@ -29,6 +29,7 @@ export const maciPlatform: ProjectInterface = {
   id: "maci-platform",
   category: ProjectCategory.APPLICATION,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   image: "maci-platform.png",
   name: "MACI Platform",

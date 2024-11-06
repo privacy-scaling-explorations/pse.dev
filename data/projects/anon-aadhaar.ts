@@ -42,6 +42,7 @@ We developed a prover for [Digilocker](https://www.digilocker.gov.in/), that let
 export const anonAadhaar: ProjectInterface = {
   id: "anon-aadhaar",
   category: ProjectCategory.APPLICATION,
+  section: "pse",
   content,
   projectStatus: ProjectStatus.ACTIVE,
   image: "anon-aadhaar.svg",

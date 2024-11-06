@@ -16,6 +16,7 @@ export const channel4: ProjectInterface = {
   id: "channel-4",
   content,
   category: ProjectCategory.APPLICATION,
+  section: "archived",
   projectStatus: ProjectStatus.INACTIVE,
   image: "channel4.svg",
   name: "Channel 4",

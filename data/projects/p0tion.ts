@@ -16,6 +16,7 @@ export const p0tion: ProjectInterface = {
   id: "p0tion",
   category: ProjectCategory.DEVTOOLS,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   image: "p0tion.png",
   name: "p0tion",

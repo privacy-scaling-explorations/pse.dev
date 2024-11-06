@@ -18,6 +18,7 @@ export const Zkopru: ProjectInterface = {
   name: "ZKOPRU",
   projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.DEVTOOLS,
+  section: "archived",
   content,
   links: {
     website: "https://zkopru.network/",

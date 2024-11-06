@@ -34,6 +34,7 @@ export const maci: ProjectInterface = {
   id: "maci",
   category: ProjectCategory.APPLICATION,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   image: "maci.png",
   name: "MACI",

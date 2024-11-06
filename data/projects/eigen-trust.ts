@@ -11,6 +11,7 @@ export const eigenTrust: ProjectInterface = {
   id: "eigen-trust",
   projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.RESEARCH,
+  section: "archived",
   content,
   image: "",
   name: "EigenTrust",

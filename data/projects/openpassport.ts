@@ -16,6 +16,7 @@ export const OpenPassport: ProjectInterface = {
   id: "openpassport",
   category: ProjectCategory.APPLICATION,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "grant",
   content,
   image: "openpassport.jpg",
   name: "OpenPassport",

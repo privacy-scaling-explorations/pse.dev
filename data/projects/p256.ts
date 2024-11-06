@@ -16,6 +16,7 @@ export const p256: ProjectInterface = {
   id: "p256",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.DEVTOOLS,
+  section: "pse",
   content,
   image: "",
   name: "P256",

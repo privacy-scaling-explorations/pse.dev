@@ -16,6 +16,7 @@ export const jubmoji: ProjectInterface = {
   id: "jubmoji",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.APPLICATION,
+  section: "pse",
   content,
   image: "",
   name: "jubmoji.quest",

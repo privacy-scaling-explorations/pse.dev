@@ -18,6 +18,7 @@ export const wax: ProjectInterface = {
   id: "wax",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.DEVTOOLS,
+  section: "pse",
   content,
   image: "wax.webp",
   name: "Wallet Account eXperiments - WAX",

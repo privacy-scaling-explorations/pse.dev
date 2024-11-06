@@ -111,6 +111,7 @@ export interface ProjectInterface {
   license?: string
   content: ProjectContent //  project tldr and description with support for multiple language
   category?: ProjectCategory // project category used as filter to replace section
+  section: ProjectSection
   image: string
   previousBrandImage?: string
   imageAlt?: string

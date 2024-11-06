@@ -46,6 +46,7 @@ export const unirepProtocol: ProjectInterface = {
   content,
   projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.APPLICATION,
+  section: "archived",
   image: "unirep.svg",
   license: "MIT",
   previousBrandImage: "unirep-previousBrand.png",

@@ -1,4 +1,9 @@
-import { ProjectCategory, ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -11,6 +16,7 @@ export const zkevmCommunity: ProjectInterface = {
   id: "zkevm-community",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.DEVTOOLS,
+  section: "pse",
   content,
   image: "zkevm.jpg",
   name: "zkEVM Community Edition",

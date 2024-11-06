@@ -16,6 +16,7 @@ export const chiquito: ProjectInterface = {
   id: "chiquito",
   category: ProjectCategory.DEVTOOLS,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   image: "",
   name: "chiquito",

@@ -28,6 +28,7 @@ export const mpc: ProjectInterface = {
   id: "MPC",
   category: ProjectCategory.RESEARCH,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   image: "",
   imageAlt: "MPC",

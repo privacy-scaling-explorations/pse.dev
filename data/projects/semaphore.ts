@@ -48,6 +48,7 @@ export const semaphore: ProjectInterface = {
   id: "semaphore",
   category: ProjectCategory.DEVTOOLS,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   image: "semaphore.webp",
   previousBrandImage: "semaphorePrevious.jpg",

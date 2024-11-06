@@ -18,6 +18,7 @@ export const nfctap: ProjectInterface = {
   id: "nfctap",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.APPLICATION,
+  section: "pse",
   content,
   image: "",
   name: "nfctap.xyz",

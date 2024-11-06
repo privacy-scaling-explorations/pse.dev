@@ -65,6 +65,7 @@ Bandada also provides a preset of credential validators that can be extended wit
 export const bandada: ProjectInterface = {
   id: "bandada",
   category: ProjectCategory.APPLICATION,
+  section: "pse",
   content,
   projectStatus: ProjectStatus.ACTIVE,
   image: "bandada.webp",

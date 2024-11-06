@@ -18,6 +18,7 @@ export const Interep: ProjectInterface = {
   name: "Interep",
   projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.DEVTOOLS,
+  section: "archived",
   content,
   tags: {
     keywords: ["social", "reputation"],

@@ -16,6 +16,7 @@ export const zkml: ProjectInterface = {
   id: "zkml",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.RESEARCH,
+  section: "pse",
   image: "zkml.png",
   name: "ZKML",
   content,

@@ -6,6 +6,7 @@ export const mpcStats: ProjectInterface = {
   name: "MPCStats",
   category: ProjectCategory.APPLICATION,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content: {
     en: {
       tldr: "A framework for private and verifiable statistical analysis across multiple data providers.",

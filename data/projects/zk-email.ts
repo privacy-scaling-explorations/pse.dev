@@ -16,6 +16,7 @@ export const zkemail: ProjectInterface = {
   id: "zk-email",
   category: ProjectCategory.APPLICATION,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "collaboration",
   content,
   image: "zk-email.jpeg",
   name: "zk-email",

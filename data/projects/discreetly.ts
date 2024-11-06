@@ -11,6 +11,7 @@ export const discreetly: ProjectInterface = {
   id: "discreetly",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.APPLICATION,
+  section: "pse",
   content,
   image: "discreetly.svg",
   name: "Discreetly",

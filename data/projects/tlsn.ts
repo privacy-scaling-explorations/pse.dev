@@ -18,6 +18,7 @@ export const tlsn: ProjectInterface = {
   id: "tlsn",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.DEVTOOLS,
+  section: "pse",
   content,
   image: "tlsn.webp",
   name: "TLSNotary",

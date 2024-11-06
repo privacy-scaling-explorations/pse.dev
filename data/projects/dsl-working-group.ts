@@ -16,6 +16,7 @@ export const dslWorkingGroup: ProjectInterface = {
   id: "dsl-working-group",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.RESEARCH,
+  section: "pse",
   content,
   image: "",
   imageAlt: "DSL Working Group",

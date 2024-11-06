@@ -16,6 +16,7 @@ export const zkp2p: ProjectInterface = {
   id: "zkp2p",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.APPLICATION,
+  section: "grant",
   content,
   image: "zkp2p.webp",
   name: "ZKP2P",
