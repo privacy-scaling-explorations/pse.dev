@@ -1,11 +1,16 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
     tldr: "Run a voting round in your community! Forked from EasyRetroPGF and enhanced with MACI for privacy, anti-bribery and anti-collusion",
     description: `### Overview
 
-[MACI Platform](https://github.com/privacy-scaling-explorations/maci-platform/tree/main) is an implementation of EasyRetroPGF with MACI. 
+[MACI Platform](https://github.com/privacy-scaling-explorations/maci-platform/tree/main) is an implementation of EasyRetroPGF with MACI.
 
 This project enables any community, organization or ecosystem to run a voting round.
 It is highly configurable to enable different voting mechanisms (quadratic voting, quadratic funding, etc), gating mechanisms (token based, attestation based, hats-based, etc) and an easy-to-use UI for both round organizers and voters.
@@ -22,8 +27,9 @@ With MACI Platform, you can run different kind of voting rounds for your communi
 
 export const maciPlatform: ProjectInterface = {
   id: "maci-platform",
-  section: "pse",
+  category: ProjectCategory.APPLICATION,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   image: "maci-platform.png",
   name: "MACI Platform",

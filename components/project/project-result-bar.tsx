@@ -13,7 +13,7 @@ import { useTranslation } from "@/app/i18n/client"
 import { CategoryTag } from "../ui/categoryTag"
 import { Dropdown } from "../ui/dropdown"
 
-const labelClass = "h-5 text-xs text-base md:h-6 text-slate-900/70 md:text-lg"
+const labelClass = "h-5 text-xs text-base md:h-6 text-slate-900/70 md:text-sm"
 
 export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
   const { t } = useTranslation(lang, "common")

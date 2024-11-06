@@ -1,17 +1,22 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
     tldr: "A zero-knowledge protocol for anonymous interactions.",
     description: `### Overview
 
-[Semaphore](https://semaphore.pse.dev/) is a generic privacy layer. Leveraging zero-knowledge technology, users can prove their membership in groups and send messages (extending from votes to endorsements) 
+[Semaphore](https://semaphore.pse.dev/) is a generic privacy layer. Leveraging zero-knowledge technology, users can prove their membership in groups and send messages (extending from votes to endorsements)
 off-chain or across EVM-compatible blockchains, all without revealing their personal identity. Use cases include private voting, whistleblowing, anonymous DAOs, and mixers.
 
 Semaphore is designed to be a simple and generic privacy layer for decentralized applications (dApps). It encourages modular application design, allowing
 dApp developers to choose and customize the on-chain and off-chain components they need.
 
-The core of the protocol is the circuit logic. In addition to circuits, Semaphore provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) and 
+The core of the protocol is the circuit logic. In addition to circuits, Semaphore provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) and
 [JavaScript libraries](https://github.com/semaphore-protocol/semaphore/tree/main#-packages) that allow developers to generate zero-knowledge proofs and verify them with minimal effort.
 
 ### Features
@@ -41,8 +46,9 @@ As a Semaphore contributor, you'll be able to claim a special GitPOAP per year ð
 
 export const semaphore: ProjectInterface = {
   id: "semaphore",
-  section: "pse",
+  category: ProjectCategory.DEVTOOLS,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   image: "semaphore.webp",
   previousBrandImage: "semaphorePrevious.jpg",

@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -9,8 +14,9 @@ const content: ProjectContent = {
 
 export const OpenPassport: ProjectInterface = {
   id: "openpassport",
-  section: "grant",
+  category: ProjectCategory.APPLICATION,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "grant",
   content,
   image: "openpassport.jpg",
   name: "OpenPassport",

@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -12,8 +17,9 @@ Rate-Limiting Nullifier (RLN) is a protocol designed to combat spam and denial o
 export const rln: ProjectInterface = {
   id: "rln",
   content,
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.DEVTOOLS,
+  section: "pse",
   image: "rln.svg",
   name: "Rate-Limiting Nullifier",
   links: {

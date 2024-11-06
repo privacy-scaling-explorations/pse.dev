@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -11,8 +16,9 @@ const content: ProjectContent = {
 
 export const tlsn: ProjectInterface = {
   id: "tlsn",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.DEVTOOLS,
+  section: "pse",
   content,
   image: "tlsn.webp",
   name: "TLSNotary",

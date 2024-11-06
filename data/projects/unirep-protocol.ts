@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -39,8 +44,9 @@ Key UniRep features include:
 export const unirepProtocol: ProjectInterface = {
   id: "unirep-protocol",
   content,
-  section: "archived",
   projectStatus: ProjectStatus.INACTIVE,
+  category: ProjectCategory.APPLICATION,
+  section: "archived",
   image: "unirep.svg",
   license: "MIT",
   previousBrandImage: "unirep-previousBrand.png",

@@ -1,4 +1,4 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectCategory, ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -9,8 +9,9 @@ const content: ProjectContent = {
 
 export const discreetly: ProjectInterface = {
   id: "discreetly",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.APPLICATION,
+  section: "pse",
   content,
   image: "discreetly.svg",
   name: "Discreetly",

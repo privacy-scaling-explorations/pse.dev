@@ -40,7 +40,7 @@ const tagCardVariants = cva(
   }
 )
 const projectCardVariants = cva(
-  "flex cursor-pointer flex-col overflow-hidden rounded-lg transition duration-200 ease-in border border-transparent hover:border-anakiwa-500",
+  "flex flex-col overflow-hidden rounded-lg transition duration-200 ease-in border border-transparent",
   {
     variants: {
       showLinks: {
@@ -77,9 +77,6 @@ export default function ProjectCard({
         "group",
         projectCardVariants({ showLinks, border, className })
       )}
-      onClick={() => {
-        router.push(`/projects/${id}`)
-      }}
     >
       {showBanner && (
         <div className="relative flex flex-col border-b border-black/10">
@@ -88,7 +85,7 @@ export default function ProjectCard({
             alt={`${name} banner`}
             width={1200}
             height={630}
-            className="min-h-[160px] w-full overflow-hidden rounded-t-lg border-none object-cover"
+            className="h-[160px] w-full overflow-hidden rounded-t-lg border-none object-cover"
           />
           {!image && (
             <span className="absolute w-full px-5 text-xl font-bold text-center text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
@@ -99,7 +96,14 @@ export default function ProjectCard({
       )}
       <div className="flex flex-col justify-between h-full gap-8 p-4 bg-white rounded-b-lg">
         <div className="flex flex-col justify-start gap-2">
-          <h1 className="text-2xl font-bold leading-7 text-black">{name}</h1>
+          <h1
+            className="text-2xl font-bold leading-7 text-black duration-200 cursor-pointer hover:text-anakiwa-500"
+            onClick={() => {
+              router.push(`/projects/${id}`)
+            }}
+          >
+            {name}
+          </h1>
           {projectContent?.tldr && (
             <div className="flex flex-col h-24 gap-4">
               <p className="text-slate-900/80 line-clamp-4">
