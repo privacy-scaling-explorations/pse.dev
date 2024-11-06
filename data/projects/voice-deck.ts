@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const voicedeck: ProjectInterface = {
   id: "voice-deck",
-  section: "collaboration",
   projectStatus: ProjectStatus.ACTIVE,
   content,
   image: "voiceDeck.svg",

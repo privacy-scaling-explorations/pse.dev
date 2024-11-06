@@ -12,7 +12,6 @@ Rate-Limiting Nullifier (RLN) is a protocol designed to combat spam and denial o
 export const rln: ProjectInterface = {
   id: "rln",
   content,
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   image: "rln.svg",
   name: "Rate-Limiting Nullifier",

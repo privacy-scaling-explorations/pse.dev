@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const discreetly: ProjectInterface = {
   id: "discreetly",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   content,
   image: "discreetly.svg",

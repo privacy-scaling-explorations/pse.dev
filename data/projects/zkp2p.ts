@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -9,8 +14,8 @@ const content: ProjectContent = {
 
 export const zkp2p: ProjectInterface = {
   id: "zkp2p",
-  section: "grant",
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.APPLICATION,
   content,
   image: "zkp2p.webp",
   name: "ZKP2P",

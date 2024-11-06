@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const channel4: ProjectInterface = {
   id: "channel-4",
-  section: "archived",
   content,
   projectStatus: ProjectStatus.INACTIVE,
   image: "channel4.svg",

@@ -1,13 +1,18 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
     tldr: "An open-source tool for managing privacy-preserving groups of anonymous individuals.",
     description: `### Overview
 
-[Bandada](https://bandada.pse.dev/) is a project designed to simplify the management of privacy-preserving groups. It is aimed at developers who want to build privacy-based applications and integrate anonymity sets, as well as non-developers working in DAOs, governments, international institutions, non-profit organizations, and associations that want to create and manage anonymous groups. 
+[Bandada](https://bandada.pse.dev/) is a project designed to simplify the management of privacy-preserving groups. It is aimed at developers who want to build privacy-based applications and integrate anonymity sets, as well as non-developers working in DAOs, governments, international institutions, non-profit organizations, and associations that want to create and manage anonymous groups.
 
-Bandada offers a plug-and-play infrastructure, reducing the time and complexity required for managing anonymity sets. It enables anonymous signaling, such as voting, messaging, logging in, or endorsing, in various use cases like private organizations, GitHub repository contributors, and groups of wallets holding a specific NFT. 
+Bandada offers a plug-and-play infrastructure, reducing the time and complexity required for managing anonymity sets. It enables anonymous signaling, such as voting, messaging, logging in, or endorsing, in various use cases like private organizations, GitHub repository contributors, and groups of wallets holding a specific NFT.
 
 ### Features
 
@@ -21,7 +26,7 @@ Bandada offers a plug-and-play infrastructure, reducing the time and complexity 
 
 ### Background
 
-In Spanish, "Bandada" means "flock" or "group” of birds or animals moving together in a coordinated manner. Groups are an important concept when we speak about privacy and zero-knowledge technologies, they can be thought of as anonymity sets. Credentials are a way to establish necessary trust between a set of participants while letting users keep control over how their identities are stored and used. 
+In Spanish, "Bandada" means "flock" or "group” of birds or animals moving together in a coordinated manner. Groups are an important concept when we speak about privacy and zero-knowledge technologies, they can be thought of as anonymity sets. Credentials are a way to establish necessary trust between a set of participants while letting users keep control over how their identities are stored and used.
 
 Bandada allows you to create groups and establish trust within the participants by ensuring that everyone who joins the group must meet the credential requirements.
 
@@ -59,7 +64,7 @@ Bandada also provides a preset of credential validators that can be extended wit
 
 export const bandada: ProjectInterface = {
   id: "bandada",
-  section: "pse",
+  category: ProjectCategory.APPLICATION,
   content,
   projectStatus: ProjectStatus.ACTIVE,
   image: "bandada.webp",

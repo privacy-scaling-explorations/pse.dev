@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const Zkopru: ProjectInterface = {
   id: "zkopru",
-  section: "archived",
   image: "zkopru.svg",
   name: "ZKOPRU",
   projectStatus: ProjectStatus.INACTIVE,

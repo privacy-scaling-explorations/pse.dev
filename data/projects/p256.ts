@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const p256: ProjectInterface = {
   id: "p256",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   content,
   image: "",

@@ -1,10 +1,10 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const mpcStats: ProjectInterface = {
   id: "mpc-stats",
   image: "mpc-stats.png",
   name: "MPCStats",
-  section: "pse",
+  category: ProjectCategory.APPLICATION,
   projectStatus: ProjectStatus.ACTIVE,
   content: {
     en: {

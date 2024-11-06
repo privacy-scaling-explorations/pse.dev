@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const jubmoji: ProjectInterface = {
   id: "jubmoji",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   content,
   image: "",

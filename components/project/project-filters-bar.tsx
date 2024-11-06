@@ -16,6 +16,8 @@ import { useDebounce } from "react-use"
 
 import { IThemeStatus, IThemesButton, LangProps } from "@/types/common"
 import {
+  ProjectCategories,
+  ProjectCategory,
   ProjectSectionLabelMapping,
   ProjectSections,
   ProjectStatus,
@@ -134,8 +136,8 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
     queryString,
     activeFilters,
     onFilterProject,
-    currentSection,
-    setCurrentSection,
+    currentCategory,
+    setCurrentCategory,
   } = useProjectFiltersState((state) => state)
 
   useEffect(() => {
@@ -309,25 +311,25 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
             <div
               className={cn(
                 "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
-                currentSection == null
+                currentCategory == null
                   ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
                   : ""
               )}
-              onClick={() => setCurrentSection(null)}
+              onClick={() => setCurrentCategory(null)}
             >
               All
             </div>
-            {ProjectSections.map((key) => {
+            {ProjectCategories.map((key) => {
               return (
                 <div
                   key={key}
                   className={cn(
                     "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
-                    currentSection === key
+                    currentCategory === key
                       ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
                       : ""
                   )}
-                  onClick={() => setCurrentSection(key)}
+                  onClick={() => setCurrentCategory(key as ProjectCategory)}
                 >
                   {key}
                 </div>

@@ -11,7 +11,6 @@ NFC activations at SBC and FtC residency
 
 export const nfctap: ProjectInterface = {
   id: "nfctap",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   content,
   image: "",

@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const Coco: ProjectInterface = {
   id: "coco",
-  section: "archived",
   image: "coco.svg",
   name: "COCO",
   projectStatus: ProjectStatus.INACTIVE,

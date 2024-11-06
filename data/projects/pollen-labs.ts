@@ -24,7 +24,6 @@ const content: ProjectContent = {
 export const pollenLabs: ProjectInterface = {
   id: "pollen-labs",
   content,
-  section: "archived",
   projectStatus: ProjectStatus.INACTIVE,
   image: "pollen-labs.svg",
   name: "Pollen Labs",

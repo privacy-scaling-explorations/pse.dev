@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const pseSecurity: ProjectInterface = {
   id: "pse-security",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   content,
   image: "pse-security.png",

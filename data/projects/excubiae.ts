@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -21,7 +26,7 @@ We're actively developing on the official [Excubiae repository](https://github.c
 
 export const excubiae: ProjectInterface = {
   id: "excubiae",
-  section: "pse",
+  category: ProjectCategory.APPLICATION,
   content,
   projectStatus: ProjectStatus.ACTIVE,
   image: "",

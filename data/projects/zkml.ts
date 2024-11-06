@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const zkml: ProjectInterface = {
   id: "zkml",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   image: "zkml.png",
   name: "ZKML",

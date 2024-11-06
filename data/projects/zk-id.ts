@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const zkID: ProjectInterface = {
   id: "zk-id",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   content,
   image: "",

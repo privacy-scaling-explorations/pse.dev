@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const summa: ProjectInterface = {
   id: "summa",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   content,
   image: "summa.svg",

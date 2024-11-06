@@ -39,7 +39,6 @@ Key UniRep features include:
 export const unirepProtocol: ProjectInterface = {
   id: "unirep-protocol",
   content,
-  section: "archived",
   projectStatus: ProjectStatus.INACTIVE,
   image: "unirep.svg",
   license: "MIT",

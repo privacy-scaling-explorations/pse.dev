@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -9,8 +14,8 @@ const content: ProjectContent = {
 
 export const ECIPHalo2: ProjectInterface = {
   id: "ecip-halo2",
-  section: "pse",
   image: "",
+  category: ProjectCategory.DEVTOOLS,
   projectStatus: ProjectStatus.ACTIVE,
   content,
   imageAlt: "ECIP + Halo 2",

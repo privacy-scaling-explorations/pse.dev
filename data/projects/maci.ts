@@ -1,17 +1,22 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
     tldr: "An on-chain voting solution that protects privacy and minimizes the risk of collusion and bribery",
     description: `### Overview
 
-[MACI](https://github.com/privacy-scaling-explorations/maci/tree/dev) is a protocol designed to provide a highly secure e-voting solution. 
+[MACI](https://github.com/privacy-scaling-explorations/maci/tree/dev) is a protocol designed to provide a highly secure e-voting solution.
 
-It enables organisations to conduct on-chain voting processes with a significantly reduced risk of cheating, such as bribery or collusion. 
+It enables organisations to conduct on-chain voting processes with a significantly reduced risk of cheating, such as bribery or collusion.
 
-MACI uses zero-knowledge proofs to implement a receipt-free voting scheme, making it impossible for anyone other than the vote coordinator to verify how a specific user voted. This ensures the correct execution of votes and allows anyone to verify the results. 
+MACI uses zero-knowledge proofs to implement a receipt-free voting scheme, making it impossible for anyone other than the vote coordinator to verify how a specific user voted. This ensures the correct execution of votes and allows anyone to verify the results.
 
-It's particularly beneficial for governance and funding events, where its anti-collusion mechanisms help ensure fair and transparent outcomes. 
+It's particularly beneficial for governance and funding events, where its anti-collusion mechanisms help ensure fair and transparent outcomes.
 
 Please refer to MACI's [documentation](https://maci.pse.dev) for more details.
 
@@ -27,7 +32,7 @@ With MACI, you can take on chain voting to the next level:
 
 export const maci: ProjectInterface = {
   id: "maci",
-  section: "pse",
+  category: ProjectCategory.APPLICATION,
   projectStatus: ProjectStatus.ACTIVE,
   content,
   image: "maci.png",

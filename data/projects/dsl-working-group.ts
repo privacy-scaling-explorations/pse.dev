@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const dslWorkingGroup: ProjectInterface = {
   id: "dsl-working-group",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   content,
   image: "",

@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const cryptkeeper: ProjectInterface = {
   id: "cryptkeeper",
-  section: "archived",
   projectStatus: ProjectStatus.INACTIVE,
   content,
   image: "cryptkeeper.webp",

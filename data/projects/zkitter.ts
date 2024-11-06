@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const zkitter: ProjectInterface = {
   id: "zkitter",
-  section: "archived",
   projectStatus: ProjectStatus.INACTIVE,
   content,
   image: "zkitter.webp",

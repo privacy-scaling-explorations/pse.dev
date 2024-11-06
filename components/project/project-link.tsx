@@ -1,7 +1,5 @@
 "use client"
 
-import Image from "next/image"
-
 import { ProjectLinkWebsite } from "@/lib/types"
 
 import { ProjectLinkIconMap } from "./project-links"

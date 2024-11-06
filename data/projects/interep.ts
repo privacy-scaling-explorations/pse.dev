@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const Interep: ProjectInterface = {
   id: "interep",
-  section: "archived",
   image: "interep.svg",
   name: "Interep",
   projectStatus: ProjectStatus.INACTIVE,

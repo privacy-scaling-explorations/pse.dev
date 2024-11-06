@@ -9,7 +9,6 @@ const content: ProjectContent = {
 
 export const eigenTrust: ProjectInterface = {
   id: "eigen-trust",
-  section: "archived",
   projectStatus: ProjectStatus.INACTIVE,
   content,
   image: "",
