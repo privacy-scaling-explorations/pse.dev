@@ -8,6 +8,7 @@ import CloseVector from "@/public/icons/close-fill.svg"
 import HeaderVector from "@/public/icons/menu-burger.svg"
 
 import { LangProps } from "@/types/common"
+import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { useAppSettings } from "@/hooks/useAppSettings"
@@ -106,13 +107,13 @@ export function SiteHeaderMobile({ lang }: LangProps["params"]) {
             />
           </div>
           <div className="flex w-full flex-col px-[16px] text-base font-medium">
-            {MAIN_NAV.map((item, index) => {
+            {MAIN_NAV.map((item: NavItem, index) => {
               if (item.onlyFooter) return null
 
               return (
                 <NextLink
                   key={index}
-                  href={`/${lang}/${item.href}`}
+                  href={item?.external ? item.href : `/${lang}/${item.href}`}
                   onClick={() => setHeader(false)}
                   className="border-b-2 border-white p-4 uppercase"
                 >
