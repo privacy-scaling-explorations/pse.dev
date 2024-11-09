@@ -46,53 +46,65 @@ const EventCard = ({ event = {}, speakers = [], location = "" }: any) => {
         </div>
       </div>
       <div className="flex flex-col gap-[10px] lg:order-2 order-2">
-        <div className="grid grid-cols-[1fr_32px] items-start justify-between">
-          <Link
-            href={event?.url ?? "#"}
-            target="_blank"
-            className="text-[22px] leading-[24px] text-tuatara-950 underline font-display hover:text-anakiwa-500 font-bold duration-200"
-          >
-            {event?.title}
-          </Link>
-          <button
-            onClick={() => {
-              setIsOpen(!isOpen)
-            }}
-          >
-            <Icons.plus
-              className={cn(
-                "size-5",
-                isOpen ? "rotate-45" : "rotate-0",
-                "transition-transform duration-200"
-              )}
-            />
-          </button>
-        </div>
-
+        <Link
+          href={event?.url ?? "#"}
+          target="_blank"
+          className="text-[22px] leading-[24px] text-tuatara-950 underline font-display hover:text-anakiwa-500 font-bold duration-200"
+        >
+          {event?.title}
+        </Link>
         <div
           className={cn(
-            "overflow-hidden transition-all duration-300",
-            isOpen ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
+            "lg:max-h-none lg:opacity-100 lg:block",
+            "transition-all duration-300 overflow-hidden",
+            isOpen ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0",
+            "lg:transition-none lg:overflow-visible"
           )}
         >
-          <span className="text-base leading-6 text-tuatara-950 font-sans font-normal lg:block">
+          <span className="text-base leading-6 text-tuatara-950 font-sans font-normal">
             {event?.description}
           </span>
         </div>
       </div>
-      <div className="flex flex-wrap lg:flex-col order-1 gap-2 lg:gap-1 lg:order-3">
-        {speakers?.map((speaker: any, index: number) => {
-          return (
-            <Link
-              key={index}
-              className="text-sm text-anakiwa-500 underline break-all"
-              href={speaker.url ?? "#"}
-            >
-              {speaker.label}
-            </Link>
-          )
-        })}
+
+      <div className="lg:order-3 order-1 grid gap-5 pb-3 lg:pb-0 grid-cols-[1fr_32px] lg:grid-cols-1">
+        <div className="flex flex-wrap lg:flex-col gap-1">
+          {speakers?.map((speaker: any, index: number) => {
+            return (
+              <Link
+                key={index}
+                className="text-sm text-anakiwa-500 underline break-all"
+                href={speaker.url ?? "#"}
+              >
+                {speaker.label}
+              </Link>
+            )
+          })}
+        </div>
+        <button
+          className="lg:hidden flex"
+          onClick={() => {
+            setIsOpen(!isOpen)
+          }}
+        >
+          {isOpen ? (
+            <Icons.minus
+              className={cn(
+                "size-5 ml-auto",
+                "transition-transform duration-200"
+              )}
+            />
+          ) : (
+            <Icons.plus
+              className={cn(
+                "size-5 ml-auto",
+                "transition-transform duration-200"
+              )}
+            />
+          )}
+        </button>
       </div>
+
       <div className="order-4 lg:flex hidden">
         <Icons.line />
       </div>
