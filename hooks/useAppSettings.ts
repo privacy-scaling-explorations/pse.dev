@@ -18,7 +18,6 @@ export function useAppSettings(lang: LocaleTypes) {
     },
     {
       title: "Devcon 7",
-      external: true,
       href: "/devcon-7",
     },
     {
