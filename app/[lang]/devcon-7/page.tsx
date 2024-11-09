@@ -1,6 +1,7 @@
 import React from "react"
 import { Metadata } from "next"
 
+import { Devcon7Booths } from "./sections/Devcon7Booths"
 import { Devcon7Header } from "./sections/Devcon7Header"
 import { Devcon7Section } from "./sections/Devcon7Section"
 
@@ -20,9 +21,14 @@ export const metadata: Metadata = {
 
 export default async function DevconPage() {
   return (
-    <div className="flex flex-col">
-      <Devcon7Header />
-      <Devcon7Section />
-    </div>
+    <>
+      <div className="flex flex-col lg:pb-[120px]">
+        <Devcon7Header />
+        <div className="flex flex-col gap-10 lg:gap-14 pt-8 lg:pt-[60px]">
+          <Devcon7Booths />
+          <Devcon7Section />
+        </div>
+      </div>
+    </>
   )
 }
