@@ -57,7 +57,7 @@ const EventCard = ({ event = {}, speakers = [], location = "" }: any) => {
           className={cn(
             "lg:max-h-none lg:opacity-100 lg:block",
             "transition-all duration-300 overflow-hidden",
-            isOpen ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0",
+            isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0",
             "lg:transition-none lg:overflow-visible"
           )}
         >
