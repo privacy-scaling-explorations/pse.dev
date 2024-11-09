@@ -17,6 +17,11 @@ export function useAppSettings(lang: LocaleTypes) {
       onlyMobile: true,
     },
     {
+      title: "Devcon 7",
+      external: true,
+      href: "https://pse-team.notion.site/PSE-x-Devcon-7-Southeast-Asia-138d57e8dd7e80b59cabea798d9bc77b",
+    },
+    {
       title: t("menu.projectLibrary"),
       href: "/projects",
     },
