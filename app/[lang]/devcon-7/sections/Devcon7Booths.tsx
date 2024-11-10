@@ -35,7 +35,7 @@ export const Devcon7Booths = () => {
                   <span className="text-[22px] leading-[24px] text-tuatara-950 font-display font-bold">
                     {booth?.title}
                   </span>
-                  <span className="text-xs lg:text-base lg:leading-6 text-tuatara-950 font-sans font-normal">
+                  <span className="text-xs text-tuatara-950 font-sans font-normal">
                     {booth?.description}
                   </span>
                   <div className="flex flex-col">
