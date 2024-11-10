@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { booths } from "@/data/events/devcon-7"
 
 import { AppContent } from "@/components/ui/app-content"
@@ -17,9 +18,9 @@ export const Devcon7Booths = () => {
             return (
               <div
                 key={index}
-                className="lg:grid lg:grid-cols-[1.5fr_1fr] flex flex-col rounded-lg overflow-hidden border border-[rgba(8, 27, 26, 0.15)]"
+                className="flex flex-col bg-anakiwa-50 rounded-lg overflow-hidden border border-[rgba(8, 27, 26, 0.15)]"
               >
-                <div className="min-h-[160px] bg-slate-50 relative order-1 lg:order-2 bg-[lightgray 50% / cover no-repeat]">
+                <div className="h-[160px] lg:h-[240px] bg-slate-50 relative bg-[lightgray 50% / cover no-repeat]">
                   <Image
                     src={booth.image}
                     alt={`booth image ${index + 1}`}
@@ -28,26 +29,38 @@ export const Devcon7Booths = () => {
                     priority
                   />
                 </div>
-                <div className="flex flex-col gap-3 bg-anakiwa-50 p-4 lg:p-7 order-2 lg:order-1">
+                <div className="flex flex-col gap-3 p-4 lg:p-6">
                   <span className="text-anakiwa-500 text-xs font-sans leading-5 tracking-[2.5px] uppercase font-bold">
                     BOOTH
                   </span>
                   <span className="text-[22px] leading-[24px] text-tuatara-950 font-display font-bold">
                     {booth?.title}
                   </span>
-                  <span className="text-xs lg:text-base lg:leading-6 text-tuatara-950 font-sans font-normal">
+                  <span className="text-xs text-tuatara-950 font-sans font-normal">
                     {booth?.description}
+                    {booth?.learMore && (
+                      <Link
+                        href={booth?.learMore?.url ?? "#"}
+                        target="_blank"
+                        className="block pt-2"
+                      >
+                        {`${booth.learMore.description}: `}{" "}
+                        <span className="underline">
+                          {booth?.learMore?.label}
+                        </span>
+                      </Link>
+                    )}
                   </span>
                   <div className="flex flex-col">
                     <div className="flex items-center gap-[6px]">
                       <Icons.time className="text-tuatara-500" />
-                      <span className="font-sans text-tuatara-500 text-xs lg:text-sm  leading-5 font-normal">
+                      <span className="font-sans text-tuatara-500 text-[10px] font-normal">
                         {booth?.date}
                       </span>
                     </div>
                     <div className="flex  gap-[6px] items-center">
                       <Icons.eventLocation className="text-tuatara-500" />
-                      <span className="font-sans text-tuatara-500 text-xs lg:text-sm leading-5 font-normal">
+                      <span className="font-sans text-tuatara-500 text-[10px] font-normal">
                         {booth?.location}
                       </span>
                     </div>

@@ -24,7 +24,7 @@ export default async function DevconPage() {
     <>
       <div className="flex flex-col lg:pb-[120px]">
         <Devcon7Header />
-        <div className="flex flex-col gap-10 lg:gap-14 pt-8 lg:pt-[60px]">
+        <div className="flex flex-col gap-10 lg:gap-14 pt-8 lg:pt-[60px] mx-auto max-w-[950px]">
           <Devcon7Booths />
           <Devcon7Section />
         </div>
