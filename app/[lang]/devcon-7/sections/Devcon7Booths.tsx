@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { booths } from "@/data/events/devcon-7"
 
 import { AppContent } from "@/components/ui/app-content"
@@ -28,7 +29,7 @@ export const Devcon7Booths = () => {
                     priority
                   />
                 </div>
-                <div className="flex flex-col gap-3 p-4 lg:p-7">
+                <div className="flex flex-col gap-3 p-4 lg:p-6">
                   <span className="text-anakiwa-500 text-xs font-sans leading-5 tracking-[2.5px] uppercase font-bold">
                     BOOTH
                   </span>
@@ -37,17 +38,29 @@ export const Devcon7Booths = () => {
                   </span>
                   <span className="text-xs text-tuatara-950 font-sans font-normal">
                     {booth?.description}
+                    {booth?.learMore && (
+                      <Link
+                        href={booth?.learMore?.url ?? "#"}
+                        target="_blank"
+                        className="block pt-2"
+                      >
+                        {` Learn more at: `}{" "}
+                        <span className="underline">
+                          {booth?.learMore?.label}
+                        </span>
+                      </Link>
+                    )}
                   </span>
                   <div className="flex flex-col">
                     <div className="flex items-center gap-[6px]">
                       <Icons.time className="text-tuatara-500" />
-                      <span className="font-sans text-tuatara-500 text-xs lg:text-sm  leading-5 font-normal">
+                      <span className="font-sans text-tuatara-500 text-[10px] font-normal">
                         {booth?.date}
                       </span>
                     </div>
                     <div className="flex  gap-[6px] items-center">
                       <Icons.eventLocation className="text-tuatara-500" />
-                      <span className="font-sans text-tuatara-500 text-xs lg:text-sm leading-5 font-normal">
+                      <span className="font-sans text-tuatara-500 text-[10px] font-normal">
                         {booth?.location}
                       </span>
                     </div>

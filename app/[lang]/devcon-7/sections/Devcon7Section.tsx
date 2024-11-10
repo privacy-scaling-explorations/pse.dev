@@ -8,7 +8,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 
-const tableSection = cva("lg:grid lg:grid-cols-[200px_1fr_80px_20px] lg:gap-8")
+const tableSection = cva("lg:grid lg:grid-cols-[200px_1fr_160px_20px] lg:gap-8")
 const tableSectionTitle = cva(
   "text-anakiwa-500 text-base lg:text-xs font-sans leading-5 tracking-[2.5px] uppercase font-bold lg:pb-3"
 )

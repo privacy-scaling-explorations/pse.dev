@@ -236,5 +236,9 @@ export const booths = [
       "Throughout history, humans have used patterns, symbols, and codes to forge meaningful connections. This exhibit by Cursive explores cryptography not just as mathematical formulas, but as a deeply human art form.",
     date: "Nov 12 - 15",
     location: "Near Devcon Entrance",
+    learMore: {
+      label: "cursive.team",
+      url: "https://www.cursive.team/",
+    },
   },
 ]
