@@ -44,7 +44,7 @@ export const Devcon7Booths = () => {
                         target="_blank"
                         className="block pt-2"
                       >
-                        {` Learn more at: `}{" "}
+                        {`${booth.learMore.description}: `}{" "}
                         <span className="underline">
                           {booth?.learMore?.label}
                         </span>

@@ -237,8 +237,9 @@ export const booths = [
     date: "Nov 12 - 15",
     location: "Near Devcon Entrance",
     learMore: {
+      description: "Learn more here:",
       label: "cursive.team",
-      url: "https://www.cursive.team/",
+      url: "https://x.com/cursive_team/status/1853780464512946589?s=46",
     },
   },
 ]
