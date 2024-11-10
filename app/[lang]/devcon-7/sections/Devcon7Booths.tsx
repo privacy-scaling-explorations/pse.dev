@@ -17,9 +17,9 @@ export const Devcon7Booths = () => {
             return (
               <div
                 key={index}
-                className="lg:grid lg:grid-cols-[1.5fr_1fr] flex flex-col rounded-lg overflow-hidden border border-[rgba(8, 27, 26, 0.15)]"
+                className="flex flex-col bg-anakiwa-50 rounded-lg overflow-hidden border border-[rgba(8, 27, 26, 0.15)]"
               >
-                <div className="min-h-[160px] bg-slate-50 relative order-1 lg:order-2 bg-[lightgray 50% / cover no-repeat]">
+                <div className="h-[160px] lg:h-[240px] bg-slate-50 relative bg-[lightgray 50% / cover no-repeat]">
                   <Image
                     src={booth.image}
                     alt={`booth image ${index + 1}`}
@@ -28,7 +28,7 @@ export const Devcon7Booths = () => {
                     priority
                   />
                 </div>
-                <div className="flex flex-col gap-3 bg-anakiwa-50 p-4 lg:p-7 order-2 lg:order-1">
+                <div className="flex flex-col gap-3 p-4 lg:p-7">
                   <span className="text-anakiwa-500 text-xs font-sans leading-5 tracking-[2.5px] uppercase font-bold">
                     BOOTH
                   </span>

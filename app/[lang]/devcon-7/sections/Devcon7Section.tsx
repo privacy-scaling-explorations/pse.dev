@@ -105,16 +105,14 @@ const EventCard = ({ event = {}, speakers = [], location = "" }: any) => {
         </button>
       </div>
 
-      <div className="order-4 lg:flex hidden">
-        <Icons.line />
-      </div>
+      <div className="order-4 lg:flex hidden"></div>
     </div>
   )
 }
 
 export const Devcon7Section = () => {
   return (
-    <div className="flex flex-col gap-10 relative lg:px-[60px]">
+    <div className="flex flex-col gap-10 relative">
       <div className="flex flex-col lg:container">
         <div
           className={cn(tableSection(), "lg:border-b lg:border-anakiwa-200")}
