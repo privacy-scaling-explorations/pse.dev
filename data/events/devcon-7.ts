@@ -150,7 +150,7 @@ export const events = [
   {
     location: "Panel - Stage 6",
     speakers: [
-      { url: "https://x.com/ed255", label: "@ed255" },
+      { url: "https://github.com/ed255", label: "@ed255" },
       { url: "https://x.com/janmajlaya_mall", label: "@janmajlaya_mall" },
       { url: "https://x.com/veronica241", label: "@veronica241" },
     ],
