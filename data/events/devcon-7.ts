@@ -99,7 +99,7 @@ export const events = [
       description: `Data can be useful, and also dangerous. This talk will raise questions and concerns that data enthusiasts might want to consider.`,
       url: "https://app.devcon.org/schedule/R3JC8U",
       date: "Tuesday, Nov 12",
-      time: "2:00 PM - 2:50 PM",
+      time: "4:30 PM - 4:55 PM",
     },
   },
   {
