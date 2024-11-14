@@ -76,7 +76,7 @@ export function SiteFooter({ lang }: LangProps["params"]) {
                   !onlyHeader && (
                     <Link
                       key={indexKey}
-                      href={href}
+                      href={external ? href : `/${lang}${href}`}
                       target={external ? "_blank" : undefined}
                     >
                       <ItemLabel label={title} />
