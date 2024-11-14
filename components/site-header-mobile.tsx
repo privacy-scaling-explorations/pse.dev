@@ -113,7 +113,7 @@ export function SiteHeaderMobile({ lang }: LangProps["params"]) {
               return (
                 <NextLink
                   key={index}
-                  href={item?.external ? item.href : `/${lang}/${item.href}`}
+                  href={item?.external ? item.href : `/${lang}${item.href}`}
                   onClick={() => setHeader(false)}
                   className="border-b-2 border-white p-4 uppercase"
                 >
