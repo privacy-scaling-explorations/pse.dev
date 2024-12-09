@@ -19,7 +19,7 @@ export const p0tion: ProjectInterface = {
     github: "https://github.com/privacy-scaling-explorations/p0tion",
   },
   // extraLinks: {
-  //   learn: [{ label: "Trusted Setup/P0tion LTS Announcement", url: "TODO" }],
+  //   learn: [{ label: "Trusted Setup/P0tion/PPoT LTS Announcement", url: "TODO" }],
   // },
   tags: {
     keywords: ["Toolkits", "Infrastructure/protocol"],

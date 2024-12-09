@@ -9,10 +9,10 @@ const content: ProjectContent = {
 
 export const PerpetualPowersOfTau: ProjectInterface = {
   id: "perpetual-powers-of-tau",
-  section: "pse",
+  section: "archived",
   image: "powers-of-tau.png",
   name: "Perpetual Powers of Tau",
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.INACTIVE,
   content,
   tags: {
     keywords: ["scaling"],
@@ -28,6 +28,10 @@ export const PerpetualPowersOfTau: ProjectInterface = {
         label: "Announcing the Perpetual Powers of Tau Ceremony",
         url: "https://medium.com/coinmonks/announcing-the-perpetual-powers-of-tau-ceremony-to-benefit-all-zk-snark-projects-c3da86af8377",
       },
+      // {
+      //   label: "Trusted Setup/P0tion/PPoT LTS Announcement",
+      //   url: "TODO",
+      // },
     ],
   },
 }
