@@ -9,14 +9,17 @@ const content: ProjectContent = {
 
 export const p0tion: ProjectInterface = {
   id: "p0tion",
-  section: "pse",
-  projectStatus: ProjectStatus.ACTIVE,
+  section: "archived",
+  projectStatus: ProjectStatus.INACTIVE,
   content,
   image: "p0tion.png",
   name: "p0tion",
   links: {
     website: "https://ceremony.pse.dev/",
     github: "https://github.com/privacy-scaling-explorations/p0tion",
+  },
+  extraLinks: {
+    learn: [{ label: "Trusted Setup/P0tion LTS Announcement", url: "TODO" }],
   },
   tags: {
     keywords: ["Toolkits", "Infrastructure/protocol"],

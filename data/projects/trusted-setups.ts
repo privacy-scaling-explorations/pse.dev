@@ -9,13 +9,16 @@ const content: ProjectContent = {
 
 export const trustedSetups: ProjectInterface = {
   id: "trusted-setups",
-  section: "pse",
-  projectStatus: ProjectStatus.ACTIVE,
+  section: "archived",
+  projectStatus: ProjectStatus.INACTIVE,
   content,
   image: "trusted-setups.svg",
   name: "Trusted Setups",
   links: {
     github: "https://github.com/zkparty",
+  },
+  extraLinks: {
+    learn: [{ label: "Trusted Setup/P0tion LTS Announcement", url: "TODO" }],
   },
   tags: {
     themes: ["play"],
