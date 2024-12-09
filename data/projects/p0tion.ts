@@ -18,9 +18,9 @@ export const p0tion: ProjectInterface = {
     website: "https://ceremony.pse.dev/",
     github: "https://github.com/privacy-scaling-explorations/p0tion",
   },
-  extraLinks: {
-    learn: [{ label: "Trusted Setup/P0tion LTS Announcement", url: "TODO" }],
-  },
+  // extraLinks: {
+  //   learn: [{ label: "Trusted Setup/P0tion LTS Announcement", url: "TODO" }],
+  // },
   tags: {
     keywords: ["Toolkits", "Infrastructure/protocol"],
     themes: ["build"],
