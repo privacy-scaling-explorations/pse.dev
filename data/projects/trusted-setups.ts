@@ -28,7 +28,7 @@ export const trustedSetups: ProjectInterface = {
   id: "trusted-setups",
   category: ProjectCategory.DEVTOOLS,
   projectStatus: ProjectStatus.INACTIVE,
-  section: "pse",
+  section: "archived",
   content,
   image: "trusted-setups.svg",
   name: "Trusted Setups",
