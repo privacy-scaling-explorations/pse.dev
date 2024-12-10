@@ -13,7 +13,7 @@ const content: ProjectContent = {
 }
 
 export const PerpetualPowersOfTau: ProjectInterface = {
-  id: "perpetual-powers-of-tau",
+  id: "powers-of-tau",
   category: ProjectCategory.DEVTOOLS,
   image: "powers-of-tau.png",
   name: "Perpetual Powers of Tau",
