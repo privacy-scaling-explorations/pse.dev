@@ -10,7 +10,7 @@ import {
       tldr: "Modular library supporting multiple folding schemes and decider backends",
       description: `### Overview
       
-      [Sonobe](https://github.com/privacy-scaling-explorations/sonobe) is a modular library to fold arithmetic circuit instances in an Incremental Verifiable computation (IVC) style. It supports multiple frontends, multiple folding schemes, and multiple decider backends, allowing users to plug-and-play different components. 
+      [Sonobe](https://github.com/privacy-scaling-explorations/sonobe) is a modular library to fold arithmetic circuit instances in an Incremental Verifiable computation (IVC) style. It supports multiple frontends, multiple folding schemes, and multiple decider backends, allowing users to plug-and-play different components. The project is a collaboration between PSE and [0xPARC](https://0xparc.org). 
       
       **Frontends:** Arkworks, Circom, Noir and Noname.
 
