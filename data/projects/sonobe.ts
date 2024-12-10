@@ -12,13 +12,13 @@ import {
   
 The project is a collaboration between PSE and [0xPARC](https://0xparc.org).  
   
-**Frontends:** Arkworks, Circom, Noir and Noname.
+- **Frontends:** Arkworks, Circom, Noir and Noname.
   
-**Folding schemes:** [Nova](https://eprint.iacr.org/2021/370), [CycleFold](https://eprint.iacr.org/2023/1192), [HyperNova](https://eprint.iacr.org/2023/573), and [ProtoGalaxy](https://eprint.iacr.org/2023/1106).  
+- **Folding schemes:** [Nova](https://eprint.iacr.org/2021/370), [CycleFold](https://eprint.iacr.org/2023/1192), [HyperNova](https://eprint.iacr.org/2023/573), and [ProtoGalaxy](https://eprint.iacr.org/2023/1106).  
   
-**Decider backends:** Groth16 and KZG commitment [proofs](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/decider-prove.html) which are [verifiable on-chain](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/solidity-verifier.html).  
+- **Decider backends:** Groth16 and KZG commitment [proofs](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/decider-prove.html) which are [verifiable on-chain](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/solidity-verifier.html).  
   
-**Other features:** [ZK Layer](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/nova-zk.html) and in-browser [WASM usage](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/wasm.html).`,
+- **Other features:** [ZK Layer](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/nova-zk.html) and in-browser [WASM usage](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/wasm.html).`,
     },
   }
   
