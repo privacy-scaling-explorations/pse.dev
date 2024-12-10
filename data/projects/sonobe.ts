@@ -9,24 +9,27 @@ import {
     en: {
       tldr: "Modular library supporting multiple folding schemes and decider backends",
       description: `[Sonobe](https://github.com/privacy-scaling-explorations/sonobe) is a modular library to fold arithmetic circuit instances in an Incremental Verifiable computation (IVC) style. It supports multiple frontends, multiple folding schemes, and multiple decider backends, allowing users to plug-and-play different components.  
-  
+
+<br />
 The project is a collaboration between PSE and [0xPARC](https://0xparc.org).  
-  
+  <br />
 - **Frontends:** 
   - Arkworks
   - Circom
   - Noir
   - Noname
-  
+<br />  
 - **Folding schemes:** 
   - [Nova](https://eprint.iacr.org/2021/370)
   - [CycleFold](https://eprint.iacr.org/2023/1192)
   - [HyperNova](https://eprint.iacr.org/2023/573)
   - [ProtoGalaxy](https://eprint.iacr.org/2023/1106)
-  
+
+<br />  
 - **Decider backends:** 
   - Groth16 and KZG commitment [proofs](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/decider-prove.html) which are [verifiable on-chain](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/solidity-verifier.html).  
-  
+
+<br />
 - **Other features:** 
   - [ZK Layer](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/nova-zk.html) 
   - In-browser [WASM usage](https://privacy-scaling-explorations.github.io/sonobe-docs/usage/wasm.html).`,
