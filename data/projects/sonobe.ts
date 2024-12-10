@@ -29,7 +29,7 @@ import {
     category: ProjectCategory.DEVTOOLS,
     section: "pse",
     content,
-    image: "sonobe.jpg",
+    image: "sonobe.png",
     name: "Sonobe Folding Library",
     links: {
       github: "https://github.com/privacy-scaling-explorations/sonobe",
