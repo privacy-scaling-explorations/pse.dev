@@ -24,7 +24,7 @@ export const PerpetualPowersOfTau: ProjectInterface = {
   image: "powers-of-tau.png",
   name: "Perpetual Powers of Tau",
   projectStatus: ProjectStatus.INACTIVE,
-  section: "pse",
+  section: "archived",
   content,
   tags: {
     keywords: ["scaling"],
