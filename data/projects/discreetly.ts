@@ -9,7 +9,7 @@ const content: ProjectContent = {
 
 export const discreetly: ProjectInterface = {
   id: "discreetly",
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.APPLICATION,
   section: "pse",
   content,
