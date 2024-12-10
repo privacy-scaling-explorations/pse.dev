@@ -26,7 +26,7 @@ export const p0tion: ProjectInterface = {
   id: "p0tion",
   category: ProjectCategory.DEVTOOLS,
   projectStatus: ProjectStatus.INACTIVE,
-  section: "pse",
+  section: "archived",
   content,
   image: "p0tion.png",
   name: "p0tion",
