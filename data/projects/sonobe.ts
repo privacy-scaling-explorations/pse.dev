@@ -7,7 +7,7 @@ import {
   
   const content: ProjectContent = {
     en: {
-      tldr: "Modular library supporting multiple folding schemes and decider backends",
+      tldr: "Modular folding library supporting multiple schemes and decider backends",
       description: `In collaboration with [0xPARC](https://0xparc.org), [Sonobe](https://github.com/privacy-scaling-explorations/sonobe) is a modular library to fold arithmetic circuit instances in an Incremental Verifiable computation (IVC) style. It supports multiple frontends, multiple folding schemes, and multiple decider backends, allowing users to plug-and-play different components.    
   
 - **Frontends:** 
