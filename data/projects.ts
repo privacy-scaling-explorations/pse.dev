@@ -28,6 +28,7 @@ import { PerpetualPowersOfTau } from "./projects/powers-of-tau"
 import { pseSecurity } from "./projects/pse-security"
 import { rln } from "./projects/rln"
 import { semaphore } from "./projects/semaphore"
+import { sonobe } from "./projects/sonobe"
 import { summa } from "./projects/summa"
 import { tlsn } from "./projects/tlsn"
 import { trustedSetups } from "./projects/trusted-setups"
@@ -49,6 +50,7 @@ import { zkp2p } from "./projects/zkp2p"
  * Every 'description' props supports markdown syntax https://www.markdownguide.org/basic-syntax/
  */
 export const projects: ProjectInterface[] = [
+  sonobe,
   mpc,
   rln,
   zkitter,
