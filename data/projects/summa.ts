@@ -14,7 +14,7 @@ const content: ProjectContent = {
 
 export const summa: ProjectInterface = {
   id: "summa",
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.DEVTOOLS,
   section: "pse",
   content,
