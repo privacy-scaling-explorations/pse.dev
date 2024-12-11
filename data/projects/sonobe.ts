@@ -17,7 +17,7 @@ import {
   - Noname  
     
 - **Folding schemes:** 
-  - [Nova](https://eprint.iacr.org/2021/370), [Mova](https://eprint.iacr.org/2024/1220) and [Ova](https://hackmd.io/V4838nnlRKal9ZiTHiGYzw)
+  - [Nova](https://eprint.iacr.org/2021/370), with [upcoming](https://github.com/privacy-scaling-explorations/sonobe/tree/main/folding-schemes/src/folding/nova/nifs) support for [Mova](https://eprint.iacr.org/2024/1220) & [Ova](https://hackmd.io/V4838nnlRKal9ZiTHiGYzw)
   - [CycleFold](https://eprint.iacr.org/2023/1192)
   - [HyperNova](https://eprint.iacr.org/2023/573)
   - [ProtoGalaxy](https://eprint.iacr.org/2023/1106)  
