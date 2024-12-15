@@ -3,7 +3,7 @@ import Fuse from "fuse.js"
 import i18next from "i18next"
 import { create } from "zustand"
 
-import { ProjectInterface } from "@/lib/types"
+import { ProjectCategory, ProjectInterface } from "@/lib/types"
 import { uniq } from "@/lib/utils"
 import { LocaleTypes, fallbackLng } from "@/app/i18n/settings"
 
@@ -55,6 +55,7 @@ interface ProjectStateProps {
   filters: FiltersProps
   activeFilters: Partial<FiltersProps>
   queryString: string
+  currentCategory: ProjectCategory | null
 }
 
 interface SearchMatchByParamsProps {
@@ -75,6 +76,7 @@ interface ProjectActionsProps {
   onFilterProject: (searchPattern: string) => void
   onSelectTheme: (theme: string, searchPattern?: string) => void
   sortProjectBy: (sortBy: ProjectSortBy) => void
+  setCurrentCategory: (section: ProjectCategory | null) => void
 }
 
 const createURLQueryString = (params: Partial<FiltersProps>): string => {
@@ -205,6 +207,7 @@ const sortProjectByFn = (
 export const useProjectFiltersState = create<
   ProjectStateProps & ProjectActionsProps
 >()((set) => ({
+  currentCategory: null,
   sortBy: DEFAULT_PROJECT_SORT_BY,
   projects: sortProjectByFn(projects, DEFAULT_PROJECT_SORT_BY),
   queryString: "",
@@ -292,6 +295,18 @@ export const useProjectFiltersState = create<
         ...state,
         sortBy,
         projects: sortProjectByFn(state.projects, sortBy),
+      }
+    })
+  },
+  setCurrentCategory(category: ProjectCategory | null) {
+    set((state: any) => {
+      return {
+        ...state,
+        projects: projects.filter((project) => {
+          if (category == null) return true // return all projects
+          return project?.category === category
+        }),
+        currentCategory: category,
       }
     })
   },

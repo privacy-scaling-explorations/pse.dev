@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -11,6 +16,7 @@ export const trustedSetups: ProjectInterface = {
   id: "trusted-setups",
   section: "archived",
   projectStatus: ProjectStatus.INACTIVE,
+  category: ProjectCategory.DEVTOOLS,
   content,
   image: "trusted-setups.svg",
   name: "Trusted Setups",

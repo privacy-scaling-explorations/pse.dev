@@ -18,6 +18,7 @@ import { maci } from "./projects/maci"
 import { maciPlatform } from "./projects/maci-platform"
 import { mopro } from "./projects/mopro"
 import { mpc } from "./projects/mpc"
+import { mpcStats } from "./projects/mpc-stats"
 import { nfctap } from "./projects/nfctap"
 import { OpenPassport } from "./projects/openpassport"
 import { p0tion } from "./projects/p0tion"
@@ -33,7 +34,6 @@ import { trustedSetups } from "./projects/trusted-setups"
 import { unirepProtocol } from "./projects/unirep-protocol"
 import { voicedeck } from "./projects/voice-deck"
 import { wax } from "./projects/wax"
-import { zk3 } from "./projects/zk3"
 import { zkemail } from "./projects/zk-email"
 import { zkID } from "./projects/zk-id"
 import { ZKKit } from "./projects/zk-kit"
@@ -53,6 +53,7 @@ export const projects: ProjectInterface[] = [
   rln,
   zkitter,
   mopro,
+  mpcStats,
   maci,
   wax,
   discreetly,
@@ -83,7 +84,6 @@ export const projects: ProjectInterface[] = [
   jubmoji,
   nfctap,
   zkp2p,
-  zk3,
   voicedeck,
   zkemail,
   chiquito,

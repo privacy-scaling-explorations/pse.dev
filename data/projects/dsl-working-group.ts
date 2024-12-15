@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -9,8 +14,9 @@ const content: ProjectContent = {
 
 export const dslWorkingGroup: ProjectInterface = {
   id: "dsl-working-group",
-  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.RESEARCH,
+  section: "pse",
   content,
   image: "",
   imageAlt: "DSL Working Group",

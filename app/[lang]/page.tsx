@@ -6,6 +6,7 @@ import PSELogo from "@/public/icons/archstar.webp"
 import { motion } from "framer-motion"
 
 import { siteConfig } from "@/config/site"
+import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Banner } from "@/components/banner"
@@ -18,12 +19,50 @@ import { WhatWeDo } from "@/components/sections/WhatWeDo"
 
 import { useTranslation } from "../i18n/client"
 
+const Devcon7Banner = () => {
+  return (
+    <div className="bg-[#FFDE17] relative py-6">
+      <AppContent>
+        <div className="flex flex-col lg:flex-row items-center gap-4 justify-between">
+          <Image
+            src="/images/devcon-7-banner-title-mobile.svg"
+            alt="Devcon 7 Banner"
+            className="block object-cover md:hidden"
+            width={204}
+            height={54}
+          />
+
+          <Image
+            src="/images/devcon-7-banner-title-desktop.svg"
+            alt="Devcon 7 Banner"
+            width={559}
+            height={38}
+            className="hidden object-cover md:block"
+            priority
+          />
+          <span className="hidden lg:flex font-sans font-bold text-[#006838] tracking-[2.5px]">
+            BANGKOK, THAILAND // NOVEMBER 2024
+          </span>
+          <Link
+            href="/en/devcon-7"
+            className="bg-[#EC008C] cursor-pointer hover:scale-105 duration-200 flex items-center py-0.5 px-4 min-h-8 gap-2 rounded-[6px] text-[#FFDE17] text-sm font-medium font-sans"
+          >
+            <span>SEE THE SCHEDULE</span>
+            <Icons.arrowRight />
+          </Link>
+        </div>
+      </AppContent>
+    </div>
+  )
+}
+
 export default function IndexPage({ params: { lang } }: any) {
   const { t } = useTranslation(lang, "homepage")
   const { t: common } = useTranslation(lang, "common")
 
   return (
     <section className="flex flex-col">
+      <Devcon7Banner />
       <Divider.Section>
         <PageHeader
           title={

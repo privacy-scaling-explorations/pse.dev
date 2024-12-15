@@ -17,6 +17,10 @@ export function useAppSettings(lang: LocaleTypes) {
       onlyMobile: true,
     },
     {
+      title: "Devcon 7",
+      href: "/devcon-7",
+    },
+    {
       title: t("menu.projectLibrary"),
       href: "/projects",
     },

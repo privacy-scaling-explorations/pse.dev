@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -21,8 +26,9 @@ You can find the detail of the protocol [here](https://eprint.iacr.org/2024/264)
 
 export const mpc: ProjectInterface = {
   id: "MPC",
-  section: "pse",
+  category: ProjectCategory.RESEARCH,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   content,
   image: "",
   imageAlt: "MPC",

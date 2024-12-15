@@ -29,26 +29,26 @@ For any suggestion, feel free to open issue or send us a message on Discord #sug
 
 Clone the project
 
-```bash
+```commandline
   git clone https://github.com/privacy-scaling-explorations/pse.dev
 ```
 
 Go to the project directory
 
-```bash
+```commandline
   cd pse.dev
 ```
 
 Install dependencies
 
-```bash
-  pnpm install
+```commandline
+  yarn
 ```
 
 Start the app
 
-```bash
-  pnpm dev
+```commandline
+  yarn dev
 ```
 
 

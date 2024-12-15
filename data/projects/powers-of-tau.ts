@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -13,6 +18,7 @@ export const PerpetualPowersOfTau: ProjectInterface = {
   image: "powers-of-tau.png",
   name: "Perpetual Powers of Tau",
   projectStatus: ProjectStatus.INACTIVE,
+  category: ProjectCategory.DEVTOOLS,
   content,
   tags: {
     keywords: ["scaling"],

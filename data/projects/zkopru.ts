@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -9,10 +14,11 @@ const content: ProjectContent = {
 
 export const Zkopru: ProjectInterface = {
   id: "zkopru",
-  section: "archived",
   image: "zkopru.svg",
   name: "ZKOPRU",
   projectStatus: ProjectStatus.INACTIVE,
+  category: ProjectCategory.DEVTOOLS,
+  section: "archived",
   content,
   links: {
     website: "https://zkopru.network/",

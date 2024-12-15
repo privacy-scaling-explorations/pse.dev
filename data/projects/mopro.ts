@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -34,8 +39,9 @@ Developer Capabilities:
 export const mopro: ProjectInterface = {
   id: "mopro",
   content,
-  section: "pse",
+  category: ProjectCategory.DEVTOOLS,
   projectStatus: ProjectStatus.ACTIVE,
+  section: "pse",
   image: "mopro.png",
   license: "MIT",
   name: "Mopro",

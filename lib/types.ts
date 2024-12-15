@@ -1,5 +1,12 @@
 import { ReactNode } from "react"
 
+export enum ProjectCategory {
+  APPLICATION = "APPLICATION",
+  DEVTOOLS = "DEVTOOLS",
+  RESEARCH = "RESEARCH",
+}
+
+export const ProjectCategories = Object.values(ProjectCategory) as string[]
 // list of project groups
 export const ProjectSections = [
   "pse",
@@ -18,12 +25,27 @@ export interface Faq {
   answer: ReactNode
 }
 
+export const ProjectCategoryLabelMapping: Record<ProjectCategory, string> = {
+  [ProjectCategory.APPLICATION]: "DEVTOOLS",
+  [ProjectCategory.DEVTOOLS]: "APPLICATIONS",
+  [ProjectCategory.RESEARCH]: "RESEARCH",
+}
+
 export const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
   pse: "PSE projects",
   grant: "Grants",
   collaboration: "Collaborations",
   archived: "Archived",
 }
+
+export const ProjectSectionDescriptionMapping: Record<ProjectSection, string> =
+  {
+    pse: "",
+    grant: "",
+    collaboration: "",
+    archived:
+      "The projects in our archive are not currently being worked on by PSE, but we encourage everyone to check out their findings and continue experimentation!",
+  }
 export const ProjectStatusLabelMapping: Record<ProjectStatus, string> = {
   active: "Active",
   inactive: "Not Currently Active",
@@ -87,7 +109,8 @@ export interface ProjectInterface {
   id: string
   hasWiki?: boolean // show project with wiki page template
   license?: string
-  content: ProjectContent // project tldr and description with support for multiple language
+  content: ProjectContent //  project tldr and description with support for multiple language
+  category?: ProjectCategory // project category used as filter to replace section
   section: ProjectSection
   image: string
   previousBrandImage?: string
@@ -97,4 +120,8 @@ export interface ProjectInterface {
   projectStatus: ProjectStatus
   tags?: ProjectTags
   extraLinks?: ActionLinkType
+  cardTags?: {
+    primary?: string
+    secondary?: string
+  }
 }

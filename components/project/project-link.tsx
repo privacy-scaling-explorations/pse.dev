@@ -1,7 +1,5 @@
 "use client"
 
-import Image from "next/image"
-
 import { ProjectLinkWebsite } from "@/lib/types"
 
 import { ProjectLinkIconMap } from "./project-links"
@@ -24,6 +22,7 @@ export function ProjectLink({ website, url }: ProjectLinkProps) {
       }}
       target="_blank"
       rel="noopener noreferrer"
+      className="text-lg"
     >
       {icon}
     </a>

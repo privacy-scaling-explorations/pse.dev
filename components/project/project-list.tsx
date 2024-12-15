@@ -8,7 +8,11 @@ import { cva } from "class-variance-authority"
 
 import { LangProps } from "@/types/common"
 import {
+  ProjectCategories,
+  ProjectCategory,
+  ProjectCategoryLabelMapping,
   ProjectSection,
+  ProjectSectionDescriptionMapping,
   ProjectSectionLabelMapping,
   ProjectSections,
 } from "@/lib/types"
@@ -46,7 +50,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   const [isManualScroll, setIsManualScroll] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  const { projects } = useProjectFiltersState((state) => state)
+  const { projects, currentCategory } = useProjectFiltersState((state) => state)
 
   const noItems = projects?.length === 0
 
@@ -94,17 +98,17 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   // loading state skeleton
   if (!isMounted) {
     return (
-      <div className="grid items-start justify-between w-4/5 grid-cols-1 gap-8 md:grid-cols-4 md:gap-10">
-        <div className="min-h-[420px] border border-gray-200 rounded-lg overflow-hidden">
+      <div className="grid items-start justify-between w-full grid-cols-1 gap-2 md:grid-cols-4 md:gap-6">
+        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
           <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
         </div>
-        <div className="min-h-[420px] border border-gray-200 rounded-lg overflow-hidden">
+        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
           <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
         </div>
-        <div className="min-h-[420px] border border-gray-200 rounded-lg overflow-hidden">
+        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
           <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
         </div>
-        <div className="min-h-[420px] border border-gray-200 rounded-lg overflow-hidden">
+        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
           <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
         </div>
       </div>
@@ -113,40 +117,59 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
 
   if (noItems) return <NoResults lang={lang} />
 
+  console.log("ProjectCategories", ProjectCategories)
+
   return (
-    <div className="relative grid grid-cols-1 items-start justify-between gap-8 md:grid-cols-[1fr_200px] md:gap-10">
-      <div className="flex flex-col gap-10 md:gap-20">
-        {ProjectSections.map((section) => {
+    <div className="relative grid items-start justify-between grid-cols-1">
+      <div className="flex flex-col">
+        {ProjectCategories.map((category: any, index: number) => {
           const sectionProjects =
             projects.filter(
               (project) =>
-                project.section?.toLowerCase() === section?.toLowerCase()
+                project.category === category && project.section !== "archived"
             ) ?? []
 
           const hasProjectsForSection = sectionProjects.length > 0
 
           const sectionTitle =
-            ProjectSectionLabelMapping[section as ProjectSection]
+            ProjectCategoryLabelMapping[category as ProjectCategory]
 
+          const sectionDescription =
+            // @ts-ignore
+            ProjectSectionDescriptionMapping[category as any]
+
+          // todo: filter by project section
           if (!hasProjectsForSection) return null
+
+          const showTitle = ["archived"].includes(category)
 
           return (
             <div
-              key={section}
-              id={section}
-              data-section={section}
+              key={category}
+              id={category}
+              data-section={category}
               className="flex justify-between gap-10"
             >
               <div
                 className={cn(
                   "flex w-full flex-col",
-                  hasProjectsForSection ? "gap-6 md:gap-10" : "gap-2"
+                  hasProjectsForSection ? "gap-6 md:gap-10" : "gap-2",
+                  showTitle
+                    ? currentCategory == null && "pt-[120px]"
+                    : index > 0 && currentCategory == null
+                    ? "pt-10"
+                    : ""
                 )}
               >
-                <div className="overflow-hidden">
-                  <h3 className={cn(sectionTitleClass())}>{sectionTitle}</h3>
-                </div>
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 3xl:grid-cols-4">
+                {showTitle && (
+                  <div className="flex flex-col gap-6 overflow-hidden">
+                    <h3 className={cn(sectionTitleClass())}>{sectionTitle}</h3>
+                    <span className="font-sans text-base italic text-tuatara-950">
+                      {sectionDescription}
+                    </span>
+                  </div>
+                )}
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
                   {sectionProjects.map((project) => (
                     <ProjectCard
                       key={project?.id}
@@ -162,12 +185,36 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
             </div>
           )
         })}
+
+        {currentCategory == undefined && (
+          <div data-section="archived" className="flex justify-between gap-10">
+            <div className={cn("flex w-full flex-col gap-10 pt-10")}>
+              <div className="flex flex-col gap-6 overflow-hidden">
+                <h3 className={cn(sectionTitleClass())}>Archived</h3>
+                <span className="font-sans text-base italic text-tuatara-950">
+                  {ProjectSectionDescriptionMapping.archived}
+                </span>
+              </div>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
+                {projects
+                  .filter((project) => project.section === "archived")
+                  .map((project) => (
+                    <ProjectCard
+                      key={project?.id}
+                      project={project}
+                      lang={lang}
+                      showBanner
+                      showLinks
+                      border
+                    />
+                  ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
-      <div
-        id="sidebar"
-        className="sticky hidden p-8 top-20 bg-white/30 md:block"
-      >
+      <div id="sidebar" className="sticky hidden p-8 top-20 bg-white/30">
         <div className="flex flex-col gap-4">
           <h6 className="text-lg font-bold font-display text-tuatara-700">
             {t("onThisPage")}

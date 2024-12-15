@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -9,10 +14,11 @@ const content: ProjectContent = {
 
 export const Interep: ProjectInterface = {
   id: "interep",
-  section: "archived",
   image: "interep.svg",
   name: "Interep",
   projectStatus: ProjectStatus.INACTIVE,
+  category: ProjectCategory.DEVTOOLS,
+  section: "archived",
   content,
   tags: {
     keywords: ["social", "reputation"],

@@ -1,4 +1,9 @@
-import { ProjectContent, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -9,8 +14,9 @@ const content: ProjectContent = {
 
 export const channel4: ProjectInterface = {
   id: "channel-4",
-  section: "archived",
   content,
+  category: ProjectCategory.APPLICATION,
+  section: "archived",
   projectStatus: ProjectStatus.INACTIVE,
   image: "channel4.svg",
   name: "Channel 4",
