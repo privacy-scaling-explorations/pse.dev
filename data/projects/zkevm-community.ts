@@ -14,7 +14,7 @@ const content: ProjectContent = {
 
 export const zkevmCommunity: ProjectInterface = {
   id: "zkevm-community",
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.DEVTOOLS,
   section: "pse",
   content,
