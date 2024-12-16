@@ -43,7 +43,7 @@ export function MainNav({ items, lang = fallbackLng }: MainNavProps) {
           return (
             <Link
               key={index}
-              href={!item?.external ? `/${lang}/${item.href}` : item.href}
+              href={!item?.external ? `/${lang}${item.href}` : item.href}
               target={item.external ? "_blank" : undefined}
               className={cn(
                 "flex cursor-pointer items-center border-b-2 uppercase",
