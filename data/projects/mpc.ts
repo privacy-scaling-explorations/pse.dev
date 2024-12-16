@@ -25,7 +25,7 @@ You can find the detail of the protocol [here](https://eprint.iacr.org/2024/264)
 }
 
 export const mpc: ProjectInterface = {
-  id: "MPC",
+  id: "mpc",
   category: ProjectCategory.RESEARCH,
   projectStatus: ProjectStatus.ACTIVE,
   section: "pse",
