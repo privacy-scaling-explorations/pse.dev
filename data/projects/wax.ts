@@ -16,7 +16,7 @@ const content: ProjectContent = {
 
 export const wax: ProjectInterface = {
   id: "wax",
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.DEVTOOLS,
   section: "pse",
   content,
