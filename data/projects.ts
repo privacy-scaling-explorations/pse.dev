@@ -18,6 +18,7 @@ import { maci } from "./projects/maci"
 import { maciPlatform } from "./projects/maci-platform"
 import { mopro } from "./projects/mopro"
 import { mpc } from "./projects/mpc"
+import { circomMpc } from "./projects/circom-mpc"
 import { mpcStats } from "./projects/mpc-stats"
 import { nfctap } from "./projects/nfctap"
 import { OpenPassport } from "./projects/openpassport"
@@ -26,6 +27,7 @@ import { p256 } from "./projects/p256"
 import { pollenLabs } from "./projects/pollen-labs"
 import { PerpetualPowersOfTau } from "./projects/powers-of-tau"
 import { pseSecurity } from "./projects/pse-security"
+import { publiclyVerifiableGarbledCircuit } from "./projects/publicly-verifiable-garbled-circuit"
 import { rln } from "./projects/rln"
 import { semaphore } from "./projects/semaphore"
 import { sonobe } from "./projects/sonobe"
@@ -93,4 +95,6 @@ export const projects: ProjectInterface[] = [
   OpenPassport,
   zkID,
   excubiae,
+  circomMpc,
+  publiclyVerifiableGarbledCircuit,
 ]
