@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 export enum ProjectCategory {
-  APPLICATION = "APPLICATION",
+  APPLICATION = "APPLICATIONS",
   DEVTOOLS = "DEVTOOLS",
   RESEARCH = "RESEARCH",
 }

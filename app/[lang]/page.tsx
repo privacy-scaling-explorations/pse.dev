@@ -62,7 +62,6 @@ export default function IndexPage({ params: { lang } }: any) {
 
   return (
     <section className="flex flex-col">
-      <Devcon7Banner />
       <Divider.Section>
         <PageHeader
           title={

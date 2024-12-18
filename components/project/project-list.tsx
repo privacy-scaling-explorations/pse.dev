@@ -143,6 +143,9 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
 
           const showTitle = ["archived"].includes(category)
 
+
+          
+          
           return (
             <div
               key={category}
@@ -161,14 +164,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
                     : ""
                 )}
               >
-                {showTitle && (
-                  <div className="flex flex-col gap-6 overflow-hidden">
-                    <h3 className={cn(sectionTitleClass())}>{sectionTitle}</h3>
-                    <span className="font-sans text-base italic text-tuatara-950">
-                      {sectionDescription}
-                    </span>
-                  </div>
-                )}
+               
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
                   {sectionProjects.map((project) => (
                     <ProjectCard

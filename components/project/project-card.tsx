@@ -79,7 +79,12 @@ export default function ProjectCard({
       )}
     >
       {showBanner && (
-        <div className="relative flex flex-col border-b border-black/10">
+        <div
+          className="relative flex flex-col border-b border-black/10 cursor-pointer"
+          onClick={() => {
+            router.push(`/projects/${id}`)
+          }}
+        >
           <Image
             src={`/project-banners/${image ? image : "fallback.webp"}`}
             alt={`${name} banner`}

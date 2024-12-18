@@ -35,7 +35,7 @@ export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
     { label: t("filterOptions.random"), value: "random" },
     { label: t("filterOptions.asc"), value: "asc" },
     { label: t("filterOptions.desc"), value: "desc" },
-    { label: t("filterOptions.relevance"), value: "relevance" },
+    // { label: t("filterOptions.relevance"), value: "relevance" },
   ]
 
   const activeSortOption = t("sortBy", {
