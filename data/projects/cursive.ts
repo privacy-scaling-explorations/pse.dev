@@ -7,7 +7,7 @@ import {
 
 const content: ProjectContent = {
   en: {
-    tldr: "This project was built to activate NFCs at SBC and FtC and learn from it for a larger Devconnect experience with 200 cards and 5,000 attendees.",
+    tldr: "A research lab & design studio exploring how cryptography like MPC and ZK can be used to discover and deepen human connection.",
     description: `
 What began as an experimental initiative to transform PSE's theoretical cryptography research into tangible applications has evolved into a dedicated lab that incubates practical ways to connect people through applied cryptography.
 

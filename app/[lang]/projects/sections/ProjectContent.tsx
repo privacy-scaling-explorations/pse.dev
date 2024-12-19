@@ -166,9 +166,9 @@ export const ProjectContent = ({
                                 ...props,
                               }),
                             p: ({ node, ...props }) =>
-                              createMarkdownElement("p", {
+                              createMarkdownElement("p" , {
                                 className:
-                                  "text-tuatara-700 font-sans text-base font-normal",
+                                  "text-tuatara-700 font-sans text-base font-normal peer mt-4 first:mt-0",
                                 ...props,
                               }),
                           }}
