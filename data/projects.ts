@@ -12,6 +12,7 @@ import { dslWorkingGroup } from "./projects/dsl-working-group"
 import { ECIPHalo2 } from "./projects/ecip-halo2"
 import { eigenTrust } from "./projects/eigen-trust"
 import { excubiae } from "./projects/excubiae"
+import { pse_halo2 } from "./projects/pse-halo2";
 import { Interep } from "./projects/interep"
 import { jubmoji } from "./projects/jubmoji"
 import { maci } from "./projects/maci"
@@ -52,6 +53,7 @@ import { zkp2p } from "./projects/zkp2p"
  * Every 'description' props supports markdown syntax https://www.markdownguide.org/basic-syntax/
  */
 export const projects: ProjectInterface[] = [
+  pse_halo2,
   sonobe,
   mpc,
   rln,
