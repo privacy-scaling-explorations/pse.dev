@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site"
 import { Icons } from "./icons"
 
 export const FloatingFeedbackSidebar = () => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
   const checkIfMobile = useCallback(() => {
