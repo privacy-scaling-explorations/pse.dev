@@ -9,6 +9,7 @@ import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 
 import { fallbackLng, languages } from "../i18n/settings"
+import { FloatingFeedbackSidebar } from "@/components/floating-feedback-sidebar"
 
 export async function generateStaticParams() {
   return languages.map((language) => ({ language }))
@@ -76,6 +77,7 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
           suppressHydrationWarning
           className={"min-h-screen bg-background antialiased"}
         >
+           <FloatingFeedbackSidebar />
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader lang={lang} />
             <div className="flex-1">{children}</div>

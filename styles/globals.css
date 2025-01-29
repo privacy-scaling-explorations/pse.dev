@@ -34,7 +34,7 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
-    --anakiwa: 196 73% 97%
+    --anakiwa: 196 73% 97%;
   }
 
   .dark {
@@ -69,13 +69,18 @@
 
     --radius: 0.5rem;
   }
+
+  .writing-mode-vertical-rl {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-  html{
+  html {
     @apply font-sans;
     text-rendering: geometricPrecision;
   }
@@ -87,11 +92,14 @@
   h2,
   h3,
   h4,
-  h5, h6 {
+  h5,
+  h6 {
     @apply font-bold font-display;
   }
 
-  #privacy, #scaling, #explorations{
+  #privacy,
+  #scaling,
+  #explorations {
     @apply fill-gray-900;
   }
 }
@@ -104,7 +112,7 @@
     @apply overflow-hidden !border !border-solid !border-tuatara-300 rounded-lg table-auto bg-white;
   }
 
-  table[data-component="table"] tr  {
+  table[data-component="table"] tr {
     @apply !divide-solid !divide-x !divide-tuatara-300;
   }
 
@@ -122,11 +130,9 @@
   }
 }
 
-
 .link {
   @apply border-b-2 border-transparent duration-200 ease-in-out hover:border-orange;
 }
-
 
 #howToApply a {
   @apply underline;
