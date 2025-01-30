@@ -18,7 +18,7 @@ export const zkp2p: ProjectInterface = {
   category: ProjectCategory.APPLICATION,
   section: "grant",
   content,
-  image: "zkp2p.webp",
+  image: "zkp2p.png",
   name: "ZKP2P",
   links: {
     github: "https://github.com/zkp2p",

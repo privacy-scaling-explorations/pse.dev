@@ -67,7 +67,7 @@ export const bandada: ProjectInterface = {
   category: ProjectCategory.APPLICATION,
   section: "pse",
   content,
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.MAINTAINED,
   image: "bandada.webp",
   name: "Bandada",
   links: {

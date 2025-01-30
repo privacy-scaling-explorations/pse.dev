@@ -19,6 +19,7 @@ export type ProjectSection = (typeof ProjectSections)[number]
 export enum ProjectStatus {
   ACTIVE = "active",
   INACTIVE = "inactive",
+  MAINTAINED = "maintained",
 }
 export interface Faq {
   question: string
@@ -48,8 +49,10 @@ export const ProjectSectionDescriptionMapping: Record<ProjectSection, string> =
   }
 export const ProjectStatusLabelMapping: Record<ProjectStatus, string> = {
   active: "Active",
-  inactive: "Not Currently Active",
+  inactive: "Inactive",
+  maintained: "Maintained",
 }
+
 export interface AnnounceInterface {
   id: number
   type?: number
