@@ -51,7 +51,9 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
   const [isManualScroll, setIsManualScroll] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  const { projects } = useProjectFiltersState((state) => state)
+  const { projects, searchQuery, queryString } = useProjectFiltersState(
+    (state) => state
+  )
 
   const noItems = projects?.length === 0
 
@@ -96,6 +98,8 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
     }
   }, [])
 
+  const hasActiveFilters = searchQuery !== "" || queryString !== ""
+
   // loading state skeleton
   if (!isMounted) {
     return (
@@ -126,6 +130,24 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
     return acc
   }, {} as Record<ProjectStatus, ProjectInterface[]>)
 
+  // show all projects without sections if there are active filters
+  if (hasActiveFilters) {
+    return (
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
+        {projects.map((project) => (
+          <ProjectCard
+            key={project?.id}
+            project={project}
+            lang={lang}
+            showBanner
+            showLinks
+            border
+          />
+        ))}
+      </div>
+    )
+  }
+
   return (
     <div className="relative grid items-start justify-between grid-cols-1">
       <div className="flex flex-col">
@@ -141,12 +163,14 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
           return (
             <div data-section={status} className="flex justify-between gap-10">
               <div className={cn("flex w-full flex-col gap-10 pt-10")}>
-                <div className="flex flex-col gap-6 overflow-hidden">
-                  <h3 className={cn(sectionTitleClass())}>{status}</h3>
-                  <span className="font-sans text-base italic text-tuatara-950">
-                    {description}
-                  </span>
-                </div>
+                {!hasActiveFilters && (
+                  <div className="flex flex-col gap-6 overflow-hidden">
+                    <h3 className={cn(sectionTitleClass())}>{status}</h3>
+                    <span className="font-sans text-base italic text-tuatara-950">
+                      {description}
+                    </span>
+                  </div>
+                )}
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
                   {projects.map((project) => (
                     <ProjectCard
