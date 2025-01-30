@@ -36,6 +36,16 @@ export const ProjectContent = ({
 
   const editPageURL = siteConfig?.editProjectPage(project?.id, lang)
 
+  const ProjectStatusMessageMap: Record<ProjectStatus, string> = {
+    [ProjectStatus.ACTIVE]: "",
+    [ProjectStatus.INACTIVE]: t("projectSunset"),
+    [ProjectStatus.MAINTAINED]: t("projectMaintenance"),
+  }
+
+  // @ts-ignore
+  const projectStatusMessage =
+    ProjectStatusMessageMap?.[project?.projectStatus as ProjectStatus]
+
   if (!project?.id) {
     router.push("/404")
   }
@@ -117,11 +127,11 @@ export const ProjectContent = ({
                   </div>
 
                   <div className="flex flex-col w-full gap-6 mt-6 md:gap-10 md:mt-10">
-                    {project?.projectStatus === ProjectStatus.INACTIVE && (
+                    {projectStatusMessage?.length > 0 && (
                       <span className="relative pl-6 text-tuatara-500">
                         <div className="border-l-[4px] border-l-orangeDark absolute left-0 top-0 bottom-0"></div>
                         <span className="text-tuatara-500">
-                          {t("projectSunset")}
+                          {projectStatusMessage}
                         </span>
                       </span>
                     )}
@@ -166,7 +176,7 @@ export const ProjectContent = ({
                                 ...props,
                               }),
                             p: ({ node, ...props }) =>
-                              createMarkdownElement("p" , {
+                              createMarkdownElement("p", {
                                 className:
                                   "text-tuatara-700 font-sans text-base font-normal peer mt-4 first:mt-0",
                                 ...props,

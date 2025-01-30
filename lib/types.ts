@@ -39,18 +39,16 @@ export const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
   archived: "Archived",
 }
 
-export const ProjectSectionDescriptionMapping: Record<ProjectSection, string> =
-  {
-    pse: "",
-    grant: "",
-    collaboration: "",
-    archived:
-      "The projects in our archive are not currently being worked on by PSE, but we encourage everyone to check out their findings and continue experimentation!",
-  }
 export const ProjectStatusLabelMapping: Record<ProjectStatus, string> = {
   active: "Active",
   inactive: "Inactive",
   maintained: "Maintained",
+}
+
+export const ProjectStatusDescriptionMapping: Record<ProjectStatus, string> = {
+  active: "These projects are under active development by PSE-supported teams",
+  inactive: "The projects in our archive are not currently being worked on by PSE, but we encourage everyone to check out their findings and continue experimentation!",
+  maintained: "Maintenance projects are still being monitored for bug fixes, but are not under active feature development",
 }
 
 export interface AnnounceInterface {
