@@ -26,7 +26,7 @@ This project has been sunset and it is entering to a long term support phase (no
 export const p0tion: ProjectInterface = {
   id: "p0tion",
   category: ProjectCategory.DEVTOOLS,
-  projectStatus: ProjectStatus.INACTIVE,
+  projectStatus: ProjectStatus.MAINTAINED,
   section: "archived",
   content,
   image: "p0tion.png",

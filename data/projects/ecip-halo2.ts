@@ -16,7 +16,7 @@ export const ECIPHalo2: ProjectInterface = {
   id: "ecip-halo2",
   image: "",
   category: ProjectCategory.DEVTOOLS,
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.MAINTAINED,
   section: "pse",
   content,
   imageAlt: "ECIP + Halo 2",

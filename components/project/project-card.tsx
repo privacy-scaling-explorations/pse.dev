@@ -4,7 +4,12 @@ import { useRouter } from "next/navigation"
 import { VariantProps, cva } from "class-variance-authority"
 
 import { getProjectById } from "@/lib/projectsUtils"
-import { ProjectInterface, ProjectLinkWebsite } from "@/lib/types"
+import {
+  ProjectInterface,
+  ProjectLinkWebsite,
+  ProjectStatus,
+  ProjectStatusLabelMapping,
+} from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
@@ -54,6 +59,12 @@ const projectCardVariants = cva(
   }
 )
 
+export const ProjectStatusColorMapping: Record<ProjectStatus, string> = {
+  active: "#D8FEA8",
+  inactive: "#FFB7AA",
+  maintained: "#FFEC9E",
+}
+
 export default function ProjectCard({
   project,
   showLinks = false,
@@ -68,7 +79,6 @@ export default function ProjectCard({
   const { id, image, links, name, tags, imageAlt, projectStatus, cardTags } =
     project ?? {}
 
-  const projectNotActive = projectStatus !== "active"
   const { content: projectContent } = getProjectById(id, lang)
 
   return (
@@ -118,11 +128,6 @@ export default function ProjectCard({
           )}
         </div>
         <div className="flex flex-col gap-2">
-          {projectNotActive && (
-            <span className="text-sm font-medium italic leading-[21px] text-tuatara-400">
-              {t("inactive")}
-            </span>
-          )}
           <div className="flex justify-between ">
             {showLinks && (
               <div className="flex items-center justify-start gap-3">
@@ -137,6 +142,15 @@ export default function ProjectCard({
                 })}
               </div>
             )}
+
+            <div
+              className="px-[6px] py-[2px] text-xs font-normal leading-none flex items-center justify-center rounded-[3px]"
+              style={{
+                backgroundColor: ProjectStatusColorMapping[projectStatus],
+              }}
+            >
+              {ProjectStatusLabelMapping[project?.projectStatus]}
+            </div>
             {cardTags && (
               <div className="flex items-center gap-1">
                 {cardTags?.primary && (
