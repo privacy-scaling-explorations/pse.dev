@@ -55,6 +55,7 @@ interface ProjectStateProps {
   filters: FiltersProps
   activeFilters: Partial<FiltersProps>
   queryString: string
+  searchQuery: string
   currentCategory: ProjectCategory | null
 }
 
@@ -211,6 +212,7 @@ export const useProjectFiltersState = create<
   sortBy: DEFAULT_PROJECT_SORT_BY,
   projects: sortProjectByFn(projects, DEFAULT_PROJECT_SORT_BY),
   queryString: "",
+  searchQuery: "",
   filters: getProjectFilters(), // list of filters with all possible values from projects
   activeFilters: {}, // list of filters active in the current view by the user
   toggleFilter: ({ tag: filterKey, value, searchQuery }: toggleFilterProps) =>
@@ -264,6 +266,7 @@ export const useProjectFiltersState = create<
         ...state,
         activeFilters,
         projects: sortProjectByFn(filteredProjects, state.sortBy),
+        searchQuery,
       }
     })
   },

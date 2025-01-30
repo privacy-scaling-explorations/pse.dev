@@ -84,44 +84,6 @@ export const ThemesStatusMapping = (lang: LocaleTypes): IThemeStatus => {
   }
 }
 
-const FilterButtons = ({
-  searchQuery,
-  lang,
-}: {
-  lang: LocaleTypes
-  searchQuery?: string
-}): JSX.Element => {
-  const { activeFilters, onSelectTheme } = useProjectFiltersState(
-    (state) => state
-  )
-
-  return (
-    <div className="relative col-span-1 grid grid-cols-3 gap-2 after:absolute after:right-[-25px] after:h-11 after:w-[1px] after:content-none md:col-span-2 md:gap-4 md:after:content-['']">
-      {Object.entries(ThemesButtonMapping(lang)).map(
-        ([key, { label, icon }]) => {
-          const isActive = activeFilters?.themes?.includes(key)
-          const variant = isActive ? "blue" : "white"
-          return (
-            <Button
-              key={key}
-              variant={variant}
-              size="lg"
-              onClick={() => {
-                onSelectTheme(key, searchQuery ?? "")
-              }}
-            >
-              <div className="flex items-center gap-2">
-                {icon}
-                <span>{label}</span>
-              </div>
-            </Button>
-          )
-        }
-      )}
-    </div>
-  )
-}
-
 export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
   const { t } = useTranslation(lang as LocaleTypes, "common")
   const [showModal, setShowModal] = useState(false)
@@ -341,9 +303,12 @@ export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
           <div className="grid items-center justify-between grid-cols-1 gap-3 md:grid-cols-5 md:gap-12">
             <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">
               <Input
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   setSearchQuery(e?.target?.value)
-                }
+                  useProjectFiltersState.setState({
+                    searchQuery: e?.target?.value,
+                  })
+                }}
                 value={searchQuery}
                 placeholder={t("searchProjectPlaceholder")}
               />
