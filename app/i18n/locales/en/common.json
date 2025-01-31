@@ -56,7 +56,7 @@
     "inactive": "Inactive"
   },
   "projectSunset": "This project has been sunset and is not actively worked on anymore.",
-  "projectMaintenance": "This project is still being monitored for bug fixes, but are not under active feature development",
+  "projectMaintenance": "This project is still being monitored for bug fixes but is not under active feature development",
   "sortBy": "Sort by: {{option}}",
   "tryItOut": "Try it out!",
   "learnMore": "Learn more",
