@@ -1,0 +1,21 @@
+{
+  "title": "Technical Reports",
+  "description": "Our technical reports are a collection of our research and findings on privacy and scaling. We publish our reports to share our knowledge and insights with the community.",
+  "reports": {
+    "title": "Reports",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "team": {
+    "title": "Team",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "button": {
+    "back": "Back",
+    "backToReports": "Back to reports",
+    "backToBlog": "Back to blog"
+  }
+}

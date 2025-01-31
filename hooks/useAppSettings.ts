@@ -42,10 +42,33 @@ export function useAppSettings(lang: LocaleTypes) {
       external: true,
       onlyHeader: true,
     },
+    {
+      title: "Reports",
+      href: "/reports",
+    },
+  ]
+
+  const REPORTS_NAV: MainNavProps["items"] = [
+    {
+      title: "Reports",
+      href: "/reports",
+      id: "reports",
+    },
+    {
+      title: "Tech blog",
+      href: "/reports/blog",
+      id: "tech-blog",
+    },
+    {
+      title: "Team",
+      href: "/reports/team",
+      id: "team",
+    },
   ]
 
   return {
     MAIN_NAV,
+    REPORTS_NAV,
     activeLanguageLabel: activeLanguage,
   }
 }

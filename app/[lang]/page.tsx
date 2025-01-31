@@ -104,8 +104,6 @@ export default function IndexPage({ params: { lang } }: any) {
 
         <WhatWeDo lang={lang} />
 
-        <ConnectWithUs lang={lang} />
-
         <Banner
           title={common("connectWithUs")}
           subtitle={common("connectWithUsDescription")}

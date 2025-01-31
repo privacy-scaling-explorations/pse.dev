@@ -9,6 +9,7 @@ import { Icons } from "./icons"
 import { SiteHeaderMobile } from "./site-header-mobile"
 import { AppContent } from "./ui/app-content"
 import { Dropdown } from "./ui/dropdown"
+import { usePathname } from "next/navigation"
 
 type SiteHeaderProps = {
   lang: LocaleTypes
@@ -17,6 +18,8 @@ type SiteHeaderProps = {
 export function SiteHeader({ lang }: SiteHeaderProps) {
   const { MAIN_NAV, activeLanguageLabel } = useAppSettings(lang)
 
+  const isReportPage = usePathname().includes("/reports")
+  
   return (
     <header className="sticky top-0 z-40 w-full border-b border-tuatara-300 bg-white shadow-sm">
       <AppContent>
