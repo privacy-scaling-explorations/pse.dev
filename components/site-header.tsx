@@ -9,6 +9,7 @@ import { Icons } from "./icons"
 import { SiteHeaderMobile } from "./site-header-mobile"
 import { AppContent } from "./ui/app-content"
 import { Dropdown } from "./ui/dropdown"
+import { usePathname } from "next/navigation"
 
 type SiteHeaderProps = {
   lang: LocaleTypes
@@ -17,11 +18,13 @@ type SiteHeaderProps = {
 export function SiteHeader({ lang }: SiteHeaderProps) {
   const { MAIN_NAV, activeLanguageLabel } = useAppSettings(lang)
 
+  const isReportPage = usePathname().includes("/reports")
+  
   return (
     <header className="sticky top-0 z-40 w-full border-b border-tuatara-300 bg-white shadow-sm">
       <AppContent>
         <div className="flex h-16 items-center justify-between space-x-4 sm:space-x-0">
-          <MainNav items={MAIN_NAV} lang={lang} />
+          <MainNav items={isReportPage ? [] : MAIN_NAV} lang={lang} />
           <SiteHeaderMobile lang={lang} />
           {siteConfig?.showLanguageSwitcher && (
             <div className="hidden outline-none md:block">
