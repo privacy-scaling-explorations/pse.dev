@@ -107,15 +107,19 @@ export const ProgramPageContent = ({ lang }: any) => {
       returnObjects: true,
     }) || []
 
+  // @ts-ignore
   const coreProgramDescription: any[] =
     t("coreProgram.description", {
       returnObjects: true,
     }) || []
+
+  // @ts-ignore
   const accelerationProgramDescription: any[] =
     t("accelerationProgram.description", {
       returnObjects: true,
     }) ?? []
 
+  // @ts-ignore
   const curriculum: any[] =
     t("curriculum", {
       returnObjects: true,
@@ -228,8 +232,11 @@ export const ProgramPageContent = ({ lang }: any) => {
               <div className="flex flex-col gap-8">
                 <SectionTitle label={t("coreProgram.title")} />
                 <div className="flex flex-col">
+                  {/*
+                    Hide program details for now until we have a clear timeline 
+
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <Card className="flex flex-col gap-10 hidden">
+                    <Card className="flex flex-col gap-10">
                       <ProgramDetail
                         region="LatAm"
                         title="Core Program"
@@ -246,7 +253,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                         </Button>
                       </Link>
                     </Card>
-                    <Card className="flex flex-col gap-10 hidden">
+                    <Card className="flex flex-col gap-10">
                       <ProgramDetail
                         region="Asia"
                         title="Core Program"
@@ -263,7 +270,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                         </Button>
                       </Link>
                     </Card>
-                  </div>
+                  </div>*/}
                   <div className="flex flex-col gap-2 pt-8">
                     {coreProgramDescription?.map((description, index) => {
                       return (
@@ -353,7 +360,7 @@ export const ProgramPageContent = ({ lang }: any) => {
             >
               <div className="flex flex-col gap-5">
                 <SectionTitle label={t("accelerationProgram.title")} />
-                <Card className="flex flex-col gap-5 hidden">
+                {/*<Card className="flex flex-col gap-5">
                   <ProgramDetail
                     title={
                       <>
@@ -378,7 +385,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                       </Button>
                     </Link>
                   </div>
-                </Card>
+                </Card>*/}
               </div>
               <div className="flex flex-col gap-2 pt-8">
                 {accelerationProgramDescription?.map((description, index) => {

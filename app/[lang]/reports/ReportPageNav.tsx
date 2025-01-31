@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 
 import { useAppSettings } from "@/hooks/useAppSettings"
 import { Button } from "@/components/ui/button"
@@ -27,7 +26,7 @@ export const ReportPageNav = ({ lang, activeView }: any) => {
         </Divider.Section>
       </div>
       <div className="lg:flex grid grid-cols-1 gap-4 lg:items-center mx-auto">
-        {REPORTS_NAV.map((report, index) => {
+        {REPORTS_NAV.map((report) => {
           const isActive = report.id === activeView
           return (
             <Link href={`${report.href}`} key={report.title}>
