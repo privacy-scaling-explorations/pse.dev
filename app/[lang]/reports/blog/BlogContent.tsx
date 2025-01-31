@@ -12,9 +12,9 @@ export const BlogContent = ({
 }) => {
   const blog = getBlogPostById(slug)
   return (
-    <div className="bg-project-page-gradient">
+    <div className="bg-project-page-gradient border-b border-tuatara-300 pb-4">
       <AppContent className="flex flex-col items-center justify-center pt-10 w-full gap-5 lg:col-start-2">
-        <div className="w-full ">
+        <div className="w-full max-w-[978px]">
           <div className="flex flex-col">
             <div className="flex flex-col gap-6 text-left">
               {header}
@@ -30,7 +30,6 @@ export const BlogContent = ({
           </div>
         </div>
       </AppContent>
-      <div className="mt-10 hidden h-[1px] w-full bg-anakiwa-300 md:block"></div>
     </div>
   )
 }

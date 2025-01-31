@@ -17,7 +17,7 @@ export default function BlogPageBySlug({
             href={`/${lang}/reports/blog`}
           >
             <Icons.arrowLeft />
-            <span className="font-sans text-base">Back to Blog</span>
+            <span className="font-sans text-base">Back</span>
           </Link>
         }
       />

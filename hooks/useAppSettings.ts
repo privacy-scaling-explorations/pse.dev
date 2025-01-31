@@ -51,15 +51,18 @@ export function useAppSettings(lang: LocaleTypes) {
   const REPORTS_NAV: MainNavProps["items"] = [
     {
       title: "Reports",
-      href: "/reports/list",
+      href: "/reports",
+      id: "reports",
     },
     {
       title: "Tech blog",
       href: "/reports/blog",
+      id: "tech-blog",
     },
     {
       title: "Team",
       href: "/reports/team",
+      id: "team",
     },
   ]
 

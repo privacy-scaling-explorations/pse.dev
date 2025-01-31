@@ -6,4 +6,5 @@ export interface NavItem {
   onlyFooter?: boolean
   onlyHeader?: boolean
   onlyMobile?: boolean
+  id?: string
 }

@@ -24,7 +24,7 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
     <header className="sticky top-0 z-40 w-full border-b border-tuatara-300 bg-white shadow-sm">
       <AppContent>
         <div className="flex h-16 items-center justify-between space-x-4 sm:space-x-0">
-          <MainNav items={isReportPage ? [] : MAIN_NAV} lang={lang} />
+          <MainNav items={MAIN_NAV} lang={lang} />
           <SiteHeaderMobile lang={lang} />
           {siteConfig?.showLanguageSwitcher && (
             <div className="hidden outline-none md:block">

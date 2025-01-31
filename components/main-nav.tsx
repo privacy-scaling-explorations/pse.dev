@@ -12,6 +12,7 @@ import { LocaleTypes, fallbackLng } from "@/app/i18n/settings"
 export interface MainNavProps {
   items: NavItem[]
   lang?: LocaleTypes
+ 
 }
 
 export function MainNav({ items, lang = fallbackLng }: MainNavProps) {

@@ -229,7 +229,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                 <SectionTitle label={t("coreProgram.title")} />
                 <div className="flex flex-col">
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <Card className="flex flex-col gap-10">
+                    <Card className="flex flex-col gap-10 hidden">
                       <ProgramDetail
                         region="LatAm"
                         title="Core Program"
@@ -246,7 +246,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                         </Button>
                       </Link>
                     </Card>
-                    <Card className="flex flex-col gap-10">
+                    <Card className="flex flex-col gap-10 hidden">
                       <ProgramDetail
                         region="Asia"
                         title="Core Program"
@@ -353,7 +353,7 @@ export const ProgramPageContent = ({ lang }: any) => {
             >
               <div className="flex flex-col gap-5">
                 <SectionTitle label={t("accelerationProgram.title")} />
-                <Card className="flex flex-col gap-5">
+                <Card className="flex flex-col gap-5 hidden">
                   <ProgramDetail
                     title={
                       <>

@@ -5,8 +5,6 @@ import { AppContent } from "@/components/ui/app-content"
 import Link from "next/link"
 import { Icons } from "@/components/icons"
 
-
-
 export const ReportsBlogPage = ({ lang }: any) => {
   const { t } = useTranslation(lang, "reports-page")
 

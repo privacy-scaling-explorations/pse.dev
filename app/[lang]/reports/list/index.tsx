@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Icons } from "@/components/icons"
 import { useTranslation } from "@/app/i18n/client"
 import { AppContent } from "@/components/ui/app-content"
+
 export const ReportsListPageContent = ({ lang }: any) => {
   const { t } = useTranslation(lang, "reports-page")
 

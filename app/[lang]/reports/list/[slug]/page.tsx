@@ -14,10 +14,10 @@ export default function ReportPageBySlug({
         header={
           <Link
             className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950"
-            href={`/${lang}/reports/list`}
+            href={`/${lang}/reports`}
           >
             <Icons.arrowLeft />
-            <span className="font-sans text-base">Back to Reports</span>
+            <span className="font-sans text-base">Back</span>
           </Link>
         }
       />

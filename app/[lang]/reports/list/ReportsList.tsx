@@ -16,7 +16,7 @@ export const ReportsList = ({ lang }: { lang: string }) => {
                 </h1>
               </Link>
               <div className="flex flex-col h-16 gap-4">
-                <p className="text-slate-900/80 line-clamp-4">
+                <p className="text-slate-900/80 line-clamp-2">
                   {report.tldr}
                 </p>
               </div>
