@@ -6,6 +6,9 @@ export const pse_halo2: ProjectInterface = {
   name: "PSE-Halo2",
   section: "pse",
   projectStatus: ProjectStatus.INACTIVE,
+  links: {
+    github: "https://github.com/privacy-scaling-explorations/halo2",
+  },
   content: {
     en: {
       tldr: "[PSE-Halo2](https://github.com/privacy-scaling-explorations/halo2) is a rearchiteted, KZG-backended fork of zcash's Halo2, an instantiation of PLONK, with support for [more curves](https://github.com/privacy-scaling-explorations/halo2curves) and other [experimental features](https://github.com/kilic/tetris)",
