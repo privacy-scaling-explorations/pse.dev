@@ -5,7 +5,7 @@ export const pse_halo2: ProjectInterface = {
   image: "",
   name: "PSE-Halo2",
   section: "pse",
-  projectStatus: ProjectStatus.INACTIVE,
+  projectStatus: ProjectStatus.MAINTAINED,
   links: {
     github: "https://github.com/privacy-scaling-explorations/halo2",
   },
