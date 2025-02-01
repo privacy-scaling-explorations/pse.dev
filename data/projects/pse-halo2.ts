@@ -8,6 +8,7 @@ export const pse_halo2: ProjectInterface = {
   projectStatus: ProjectStatus.MAINTAINED,
   links: {
     github: "https://github.com/privacy-scaling-explorations/halo2",
+    website: "https://privacy-scaling-explorations.github.io/halo2/",
   },
   content: {
     en: {
@@ -23,5 +24,13 @@ The original IPA backend was swapped with KZG for cost-effective L1 verifiabilit
     themes: ["build"],
     types: ["Infrastructure/protocol", "Lego sets/toolkits"],
     builtWith: ["halo2", "rust"],
+  },
+  extraLinks: {
+    learn: [
+      {
+        label: "Documentation",
+        url: "https://privacy-scaling-explorations.github.io/halo2/",
+      },
+    ],
   },
 }
