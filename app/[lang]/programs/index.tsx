@@ -105,23 +105,20 @@ export const ProgramPageContent = ({ lang }: any) => {
       returnObjects: true,
     }) || []
 
-  // @ts-expect-error - t is not typed
   const coreProgramDescription: any[] =
-    t('coreProgram.description', {
+    (t('coreProgram.description', {
       returnObjects: true,
-    }) ?? []
+    }) as any[]) ?? []
 
-  // @ts-expect-error - t is not typed
   const accelerationProgramDescription: any[] =
-    t('accelerationProgram.description', {
+    (t('accelerationProgram.description', {
       returnObjects: true,
-    }) ?? []
+    }) as any[]) ?? []
 
-  // @ts-expect-error - t is not typed
   const curriculum: any[] =
-    t('curriculum', {
+    (t('curriculum', {
       returnObjects: true,
-    }) ?? []
+    }) as any[]) ?? []
 
   useEffect(() => {
     if (sectionsRef.current === null)

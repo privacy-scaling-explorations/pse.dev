@@ -1,8 +1,9 @@
-import animate from 'tailwindcss-animate'
-import defaultTheme from 'tailwindcss/defaultTheme'
+// eslint-disable-next-line no-undef, @typescript-eslint/no-require-imports
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
-export default {
+// eslint-disable-next-line no-undef
+module.exports = {
   darkMode: ['class'],
   content: ['app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}'],
   theme: {
@@ -97,7 +98,7 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...defaultTheme.sans],
+        sans: ['var(--font-sans)', ...fontFamily.sans],
         display: ['var(--font-display)', 'Space Grotesk'],
       },
       keyframes: {
@@ -136,5 +137,6 @@ export default {
       },
     },
   },
-  plugins: [animate],
+  // eslint-disable-next-line no-undef, @typescript-eslint/no-require-imports
+  plugins: [require('tailwindcss-animate')],
 }

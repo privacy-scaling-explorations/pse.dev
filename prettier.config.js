@@ -1,5 +1,6 @@
 /** @type {import('prettier').Config} */
-export default {
+// eslint-disable-next-line no-undef
+module.exports = {
   endOfLine: 'lf',
   semi: false,
   singleQuote: false,

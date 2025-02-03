@@ -16,11 +16,10 @@ export default async function AboutPage({ params: { lang } }: any) {
   const { t } = await useTranslation(lang, 'about-page')
   const { t: common } = await useTranslation(lang, 'common')
 
-  // @ts-expect-error - principles is not typed
   const principles: any[] =
-    t('principles', {
+    (t('principles', {
       returnObjects: true,
-    }) ?? []
+    }) as any[]) ?? []
 
   return (
     <Divider.Section className="bg-white">
