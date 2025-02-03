@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server"
-import { getAnnouncementChannelMessages } from "@/common/discord"
+import { NextResponse } from 'next/server'
+import { getAnnouncementChannelMessages } from '@/common/discord'
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
     const announcements = await getAnnouncementChannelMessages()
     return NextResponse.json(

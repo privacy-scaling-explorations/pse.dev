@@ -1,20 +1,20 @@
-import { projects } from "@/data/projects"
-import Fuse from "fuse.js"
-import i18next from "i18next"
-import { create } from "zustand"
+import { projects } from '@/data/projects'
+import Fuse from 'fuse.js'
+import i18next from 'i18next'
+import { create } from 'zustand'
 
-import { ProjectCategory, ProjectInterface } from "@/lib/types"
-import { uniq } from "@/lib/utils"
-import { LocaleTypes, fallbackLng } from "@/app/i18n/settings"
+import { ProjectCategory, ProjectInterface } from '@/lib/types'
+import { uniq } from '@/lib/utils'
+import { LocaleTypes, fallbackLng } from '@/app/i18n/settings'
 
-export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
+export type ProjectSortBy = 'random' | 'asc' | 'desc' | 'relevance'
 export type ProjectFilter =
-  | "keywords"
-  | "builtWith"
-  | "themes"
-  | "fundingSource"
+  | 'keywords'
+  | 'builtWith'
+  | 'themes'
+  | 'fundingSource'
 export type FiltersProps = Record<ProjectFilter, string[]>
-export const DEFAULT_PROJECT_SORT_BY: ProjectSortBy = "asc"
+export const DEFAULT_PROJECT_SORT_BY: ProjectSortBy = 'asc'
 interface ProjectInterfaceScore extends ProjectInterface {
   score: number
 }
@@ -32,22 +32,22 @@ export const SortByFnMapping: Record<
 export const FilterLabelMapping = (
   lang?: LocaleTypes
 ): Record<ProjectFilter, string> => {
-  const t = i18next.getFixedT(lang ?? fallbackLng, "common")
+  const t = i18next.getFixedT(lang ?? fallbackLng, 'common')
   return {
-    keywords: t("filterLabels.keywords"),
-    builtWith: t("filterLabels.builtWith"),
-    themes: t("filterLabels.themes"),
-    fundingSource: t("filterLabels.fundingSource"),
+    keywords: t('filterLabels.keywords'),
+    builtWith: t('filterLabels.builtWith'),
+    themes: t('filterLabels.themes'),
+    fundingSource: t('filterLabels.fundingSource'),
   }
 }
 
 export const FilterTypeMapping: Partial<
-  Record<ProjectFilter, "checkbox" | "button">
+  Record<ProjectFilter, 'checkbox' | 'button'>
 > = {
-  keywords: "checkbox",
-  builtWith: "checkbox",
-  themes: "button",
-  fundingSource: "checkbox",
+  keywords: 'checkbox',
+  builtWith: 'checkbox',
+  themes: 'button',
+  fundingSource: 'checkbox',
 }
 interface ProjectStateProps {
   sortBy: ProjectSortBy
@@ -81,17 +81,17 @@ interface ProjectActionsProps {
 }
 
 const createURLQueryString = (params: Partial<FiltersProps>): string => {
-  if (Object.keys(params)?.length === 0) return "" // no params, return empty string
+  if (Object.keys(params)?.length === 0) return '' // no params, return empty string
   const qs = Object.keys(params)
     .map((key: any) => `${key}=${encodeURIComponent((params as any)[key])}`)
-    .join("&")
+    .join('&')
 
   return qs
 }
 
 const getProjectFilters = (): FiltersProps => {
   const filters: FiltersProps = {
-    themes: ["play", "build", "research"],
+    themes: ['play', 'build', 'research'],
     keywords: [],
     builtWith: [],
     fundingSource: [],
@@ -101,13 +101,20 @@ const getProjectFilters = (): FiltersProps => {
   projects.forEach((project) => {
     if (project?.tags?.builtWith) {
       filters.builtWith.push(
-        ...project?.tags?.builtWith?.map((tag) => tag?.toLowerCase())
+        ...project.tags.builtWith.map((tag) => {
+          if (typeof tag === 'string') {
+            return tag.toLowerCase()
+          }
+          return ''
+        })
       )
     }
 
     if (project?.tags?.keywords) {
       filters.keywords.push(
-        ...project?.tags?.keywords.map((keyword) => keyword?.toLowerCase())
+        ...project.tags.keywords.map((keyword) =>
+          typeof keyword === 'string' ? keyword.toLowerCase() : ''
+        )
       )
     }
   })
@@ -121,22 +128,22 @@ const getProjectFilters = (): FiltersProps => {
 }
 
 export const filterProjects = ({
-  searchPattern = "",
+  searchPattern = '',
   activeFilters = {},
   findAnyMatch = false,
   projects: projectList = projects,
 }: SearchMatchByParamsProps) => {
   // keys that will be used for search
   const keys = [
-    "name",
-    "tldr",
-    "tags.themes",
-    "tags.keywords",
-    "tags.builtWith",
-    "projectStatus",
+    'name',
+    'tldr',
+    'tags.themes',
+    'tags.keywords',
+    'tags.builtWith',
+    'projectStatus',
   ]
 
-  let tagsFiltersQuery: Record<string, string>[] = []
+  const tagsFiltersQuery: Record<string, string>[] = []
 
   Object.entries(activeFilters).forEach(([key, values]) => {
     values.forEach((value) => {
@@ -211,8 +218,8 @@ export const useProjectFiltersState = create<
   currentCategory: null,
   sortBy: DEFAULT_PROJECT_SORT_BY,
   projects: sortProjectByFn(projects, DEFAULT_PROJECT_SORT_BY),
-  queryString: "",
-  searchQuery: "",
+  queryString: '',
+  searchQuery: '',
   filters: getProjectFilters(), // list of filters with all possible values from projects
   activeFilters: {}, // list of filters active in the current view by the user
   toggleFilter: ({ tag: filterKey, value, searchQuery }: toggleFilterProps) =>
@@ -234,7 +241,7 @@ export const useProjectFiltersState = create<
       }
       const queryString = createURLQueryString(activeFilters)
       const filteredProjects = filterProjects({
-        searchPattern: searchQuery ?? "",
+        searchPattern: searchQuery ?? '',
         activeFilters,
       })
 
@@ -245,7 +252,7 @@ export const useProjectFiltersState = create<
         projects: sortProjectByFn(filteredProjects, state.sortBy),
       }
     }),
-  onSelectTheme: (theme: string, searchQuery = "") => {
+  onSelectTheme: (theme: string, searchQuery = '') => {
     set((state: any) => {
       // toggle theme when it's already selected
       const themes = state?.activeFilters?.themes?.includes(theme)
@@ -258,7 +265,7 @@ export const useProjectFiltersState = create<
       }
 
       const filteredProjects = filterProjects({
-        searchPattern: searchQuery ?? "",
+        searchPattern: searchQuery ?? '',
         activeFilters,
       })
 
