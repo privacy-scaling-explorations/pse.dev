@@ -1,31 +1,32 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { siteConfig } from "@/config/site"
-import { Accordion } from "@/components/ui/accordion"
-import { AppContent } from "@/components/ui/app-content"
-import { Button } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
-import { Banner } from "@/components/banner"
-import { Divider } from "@/components/divider"
-import { Icons } from "@/components/icons"
-import { PageHeader } from "@/components/page-header"
-import { useTranslation } from "@/app/i18n"
+import { siteConfig } from '@/config/site'
+import { Accordion } from '@/components/ui/accordion'
+import { AppContent } from '@/components/ui/app-content'
+import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
+import { Banner } from '@/components/banner'
+import { Divider } from '@/components/divider'
+import { Icons } from '@/components/icons'
+import { PageHeader } from '@/components/page-header'
+import { useTranslation } from '@/app/i18n'
 
 export default async function AboutPage({ params: { lang } }: any) {
-  const { t } = await useTranslation(lang, "about-page")
-  const { t: common } = await useTranslation(lang, "common")
+  const { t } = await useTranslation(lang, 'about-page')
+  const { t: common } = await useTranslation(lang, 'common')
 
+  // @ts-expect-error - principles is not typed
   const principles: any[] =
-    t("principles", {
+    t('principles', {
       returnObjects: true,
     }) ?? []
 
   return (
     <Divider.Section className="bg-white">
       <PageHeader
-        title={t("title")}
-        subtitle={t("description")}
+        title={t('title')}
+        subtitle={t('description')}
         image={
           <Image
             width={280}
@@ -45,8 +46,8 @@ export default async function AboutPage({ params: { lang } }: any) {
             <Button>
               <div className="flex items-center gap-2">
                 <span className="text-[14px] uppercase">
-                  {common("connectWithUsOnPlatform", {
-                    platform: "Discord",
+                  {common('connectWithUsOnPlatform', {
+                    platform: 'Discord',
                   })}
                 </span>
                 <Icons.arrowRight fill="white" className="h-5" />
@@ -60,18 +61,18 @@ export default async function AboutPage({ params: { lang } }: any) {
         <AppContent className="container flex w-full max-w-[978px] flex-col gap-8 py-10 md:py-16">
           <Label.Section
             className="text-center"
-            label={t("our-principles-title")}
+            label={t('our-principles-title')}
           />
           <Accordion
             type="multiple"
             items={[
-              ...principles?.map((principle: any, index: number) => {
+              ...principles.map((principle: any, index: number) => {
                 return {
-                  label: principle?.title,
+                  label: principle.title,
                   value: index.toString(),
                   children: (
                     <span className="flex flex-col gap-6 break-words pb-12 font-sans text-lg font-normal leading-[150%]">
-                      {principle.description?.map(
+                      {principle.description.map(
                         (description: string, index: number) => {
                           return <p key={index}>{description}</p>
                         }
@@ -85,7 +86,7 @@ export default async function AboutPage({ params: { lang } }: any) {
         </AppContent>
       </div>
 
-      <Banner title={t("banner.title")} subtitle={t("banner.subtitle")}>
+      <Banner title={t('banner.title')} subtitle={t('banner.subtitle')}>
         <Link
           href={siteConfig.links.discord}
           target="_blank"
@@ -96,7 +97,7 @@ export default async function AboutPage({ params: { lang } }: any) {
             <div className="flex items-center gap-2">
               <Icons.discord fill="white" className="h-4" />
               <span className="text-[14px] uppercase">
-                {common("joinOurDiscord")}
+                {common('joinOurDiscord')}
               </span>
               <Icons.externalUrl fill="white" className="h-5" />
             </div>

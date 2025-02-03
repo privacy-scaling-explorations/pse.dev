@@ -1,25 +1,23 @@
-"use client"
+'use client'
 
-import { useCallback, useEffect, useRef, useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { accelerationProgramFaq } from "@/data/programs/accelerationProgramFaq"
-import { coreProgramFaq } from "@/data/programs/coreProgramFaq"
-import { ReactNode } from "react-markdown/lib/ast-to-react"
-import { twMerge } from "tailwind-merge"
+import { useCallback, useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { accelerationProgramFaq } from '@/data/programs/accelerationProgramFaq'
+import { coreProgramFaq } from '@/data/programs/coreProgramFaq'
+import { ReactNode } from 'react-markdown/lib/ast-to-react'
+import { twMerge } from 'tailwind-merge'
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { Accordion } from "@/components/ui/accordion"
-import { AppContent } from "@/components/ui/app-content"
-import { Button } from "@/components/ui/button"
-import { Dropdown, DropdownProps } from "@/components/ui/dropdown"
-import { Banner } from "@/components/banner"
-import { Card } from "@/components/cards/card"
-import { Divider } from "@/components/divider"
-import { Icons } from "@/components/icons"
-import { PageHeader } from "@/components/page-header"
-import { useTranslation } from "@/app/i18n/client"
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
+import { Accordion } from '@/components/ui/accordion'
+import { Button } from '@/components/ui/button'
+import { Banner } from '@/components/banner'
+import { Card } from '@/components/cards/card'
+import { Divider } from '@/components/divider'
+import { Icons } from '@/components/icons'
+import { PageHeader } from '@/components/page-header'
+import { useTranslation } from '@/app/i18n/client'
 
 type ProgramDetailProps = {
   region?: string
@@ -47,7 +45,7 @@ const AccordionLabel = ({
   return (
     <span
       className={twMerge(
-        "mx-auto text-center text-base font-bold uppercase tracking-[3.36px] text-tuatara-950",
+        'mx-auto text-center text-base font-bold uppercase tracking-[3.36px] text-tuatara-950',
         className
       )}
     >
@@ -92,39 +90,43 @@ const ProgramDetail = ({
   )
 }
 
-const ProgramSections = ["coreProgram", "accelerationProgram"] as const
+const ProgramSections = ['coreProgram', 'accelerationProgram'] as const
 
 export const ProgramPageContent = ({ lang }: any) => {
-  const { t } = useTranslation(lang, "programs-page")
-  const { t: common } = useTranslation(lang, "common")
-  const [activeId, setActiveId] = useState("")
+  const { t } = useTranslation(lang, 'programs-page')
+  const { t: common } = useTranslation(lang, 'common')
+  const [activeId, setActiveId] = useState('')
   const [isManualScroll, setIsManualScroll] = useState(false)
   const SCROLL_OFFSET = -900
   const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null)
 
   const howToApply: any =
-    t("howToApply", {
+    t('howToApply', {
       returnObjects: true,
     }) || []
 
+  // @ts-expect-error - t is not typed
   const coreProgramDescription: any[] =
-    t("coreProgram.description", {
-      returnObjects: true,
-    }) || []
-  const accelerationProgramDescription: any[] =
-    t("accelerationProgram.description", {
+    t('coreProgram.description', {
       returnObjects: true,
     }) ?? []
 
+  // @ts-expect-error - t is not typed
+  const accelerationProgramDescription: any[] =
+    t('accelerationProgram.description', {
+      returnObjects: true,
+    }) ?? []
+
+  // @ts-expect-error - t is not typed
   const curriculum: any[] =
-    t("curriculum", {
+    t('curriculum', {
       returnObjects: true,
     }) ?? []
 
   useEffect(() => {
     if (sectionsRef.current === null)
       sectionsRef.current = document.querySelectorAll(`div[data-section]`)
-    if (!activeId) setActiveId(ProgramSections?.[0] ?? "")
+    if (!activeId) setActiveId(ProgramSections?.[0] ?? '')
 
     const handleScroll = () => {
       if (isManualScroll) return
@@ -132,13 +134,13 @@ export const ProgramPageContent = ({ lang }: any) => {
       sectionsRef.current?.forEach((section: any) => {
         const sectionTop = section.offsetTop - SCROLL_OFFSET
         if (window.scrollY >= sectionTop && window.scrollY > 0) {
-          setActiveId(section.getAttribute("id"))
+          setActiveId(section.getAttribute('id'))
         }
       })
     }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [SCROLL_OFFSET, activeId, isManualScroll])
 
   const scrollToId = useCallback((id: string) => {
@@ -151,7 +153,7 @@ export const ProgramPageContent = ({ lang }: any) => {
       setActiveId(id) // active clicked id
       setIsManualScroll(true) // tell the window event listener to ignore this scrolling
       window?.scrollTo({
-        behavior: "smooth",
+        behavior: 'smooth',
         top,
       })
     }
@@ -163,8 +165,8 @@ export const ProgramPageContent = ({ lang }: any) => {
     <Divider.Section className="flex flex-col">
       <div className="bg-second-gradient">
         <PageHeader
-          title={t("title")}
-          subtitle={t("description")}
+          title={t('title')}
+          subtitle={t('description')}
           image={
             <Image
               width={280}
@@ -184,7 +186,7 @@ export const ProgramPageContent = ({ lang }: any) => {
           >
             <div className="absolute right-0 mt-[80px] flex flex-col gap-4 lg:w-[220px] xl:w-[320px] xl:px-8">
               <h6 className="font-display text-lg font-bold text-tuatara-700">
-                {common("onThisPage")}
+                {common('onThisPage')}
               </h6>
               <ul className="text-normal font-sans text-black">
                 {ProgramSections.map((id: string) => {
@@ -197,14 +199,14 @@ export const ProgramPageContent = ({ lang }: any) => {
                   return (
                     <li
                       key={id}
-                      onClick={(e) => {
+                      onClick={() => {
                         scrollToId(id)
                       }}
                       data-id={id}
                       className={cn(
-                        "flex h-8 cursor-pointer items-center border-l-2 border-l-anakiwa-200 px-3 duration-200",
+                        'flex h-8 cursor-pointer items-center border-l-2 border-l-anakiwa-200 px-3 duration-200',
                         {
-                          "border-l-anakiwa-500 text-anakiwa-500 font-medium":
+                          'border-l-anakiwa-500 text-anakiwa-500 font-medium':
                             active,
                         }
                       )}
@@ -226,7 +228,7 @@ export const ProgramPageContent = ({ lang }: any) => {
           >
             <div className="mx-auto flex flex-col md:max-w-2xl">
               <div className="flex flex-col gap-8">
-                <SectionTitle label={t("coreProgram.title")} />
+                <SectionTitle label={t('coreProgram.title')} />
                 <div className="flex flex-col">
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <Card className="flex flex-col gap-10">
@@ -240,7 +242,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                       <Link href={siteConfig.links.coreProgram} target="_blank">
                         <Button className="w-full uppercase">
                           <div className="flex items-center gap-3">
-                            <span>{t("common.applyNow")}</span>
+                            <span>{t('common.applyNow')}</span>
                             <Icons.arrowRight size={20} />
                           </div>
                         </Button>
@@ -257,7 +259,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                       <Link href={siteConfig.links.coreProgram} target="_blank">
                         <Button className="w-full uppercase">
                           <div className="flex items-center gap-3">
-                            <span>{t("common.applyNow")}</span>
+                            <span>{t('common.applyNow')}</span>
                             <Icons.arrowRight size={20} />
                           </div>
                         </Button>
@@ -279,7 +281,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                 </div>
                 <div className="flex flex-col gap-0 md:mt-4 md:gap-10">
                   <div className="flex flex-col">
-                    <AccordionLabel label={t("common.curriculum")} />
+                    <AccordionLabel label={t('common.curriculum')} />
                     <Card
                       className="mt-10 divide-y divide-tuatara-300"
                       padding="none"
@@ -292,7 +294,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                         >
                           <div className="flex h-[96px] items-center justify-center border-b border-tuatara-300 bg-anakiwa-100 p-2 text-center md:border-none">
                             <span className="max-w-[136px] text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
-                              {t("common.week", {
+                              {t('common.week', {
                                 week: index,
                               })}
                               <br />
@@ -312,7 +314,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                   </div>
 
                   <div className="flex flex-col">
-                    <AccordionLabel label={t("common.faq")} />
+                    <AccordionLabel label={t('common.faq')} />
                     <div className="pt-10">
                       <Accordion
                         id="faq"
@@ -331,7 +333,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                                 <span
                                   className="font-sans text-sm font-normal text-black"
                                   dangerouslySetInnerHTML={{
-                                    __html: answer?.toString() ?? "",
+                                    __html: answer?.toString() ?? '',
                                   }}
                                 ></span>
                               ),
@@ -352,7 +354,7 @@ export const ProgramPageContent = ({ lang }: any) => {
               className="mx-auto flex flex-col py-10 md:max-w-2xl md:py-16"
             >
               <div className="flex flex-col gap-5">
-                <SectionTitle label={t("accelerationProgram.title")} />
+                <SectionTitle label={t('accelerationProgram.title')} />
                 <Card className="flex flex-col gap-5">
                   <ProgramDetail
                     title={
@@ -372,7 +374,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                     >
                       <Button className="uppercase">
                         <div className="flex items-center gap-3">
-                          {t("common.learnMoreOnGithub")}
+                          {t('common.learnMoreOnGithub')}
                           <Icons.arrowRight size={20} />
                         </div>
                       </Button>
@@ -394,13 +396,13 @@ export const ProgramPageContent = ({ lang }: any) => {
               </div>
               <div className="flex flex-col gap-0  pt-14 md:gap-10">
                 <div className="flex flex-col">
-                  <AccordionLabel label={t("common.howToApply")} />
+                  <AccordionLabel label={t('common.howToApply')} />
                   <div className="mt-10">
                     <div className="flex flex-col gap-8 pb-10 md:pb-16">
                       <div id="howToApply" className="flex flex-col gap-8">
                         <div>
                           <span className="text-base font-medium text-tuatara-950">
-                            {t("howToApply.openTasks.title")}
+                            {t('howToApply.openTasks.title')}
                           </span>
                           <ul className="list-decimal">
                             {howToApply?.openTasks?.description?.map(
@@ -424,7 +426,7 @@ export const ProgramPageContent = ({ lang }: any) => {
                         </div>
                         <div>
                           <span className="text-base font-medium text-tuatara-950">
-                            {t("howToApply.submitIdea.title")}
+                            {t('howToApply.submitIdea.title')}
                           </span>
                           <ul className="list-decimal">
                             {howToApply?.submitIdea?.description?.map(
@@ -447,14 +449,14 @@ export const ProgramPageContent = ({ lang }: any) => {
                           </ul>
                         </div>
                         <span className="text-base text-tuatara-950">
-                          {t("howToApply.description")}
+                          {t('howToApply.description')}
                         </span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <AccordionLabel label={t("common.faq")} />
+                  <AccordionLabel label={t('common.faq')} />
                   <div className="mt-10 flex flex-col gap-8">
                     <Accordion
                       className="!border-anakiwa-300"
@@ -484,7 +486,7 @@ export const ProgramPageContent = ({ lang }: any) => {
           </div>
         </div>
       </div>
-      <Banner title={common("learnMore")} subtitle={common("learnMoreDiscord")}>
+      <Banner title={common('learnMore')} subtitle={common('learnMoreDiscord')}>
         <Link
           href={siteConfig.links.discord}
           target="_blank"
@@ -495,7 +497,7 @@ export const ProgramPageContent = ({ lang }: any) => {
             <div className="flex items-center gap-2">
               <Icons.discord fill="white" className="h-4" />
               <span className="text-[14px] uppercase">
-                {common("joinOurDiscord")}
+                {common('joinOurDiscord')}
               </span>
               <Icons.externalUrl fill="white" className="h-5" />
             </div>

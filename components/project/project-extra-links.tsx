@@ -1,17 +1,17 @@
-"use client"
+'use client'
 
-import React from "react"
-import Link from "next/link"
+import React from 'react'
+import Link from 'next/link'
 
 import {
   ActionLinkTypeLink,
   ProjectExtraLinkType,
   ProjectInterface,
-} from "@/lib/types"
-import { useTranslation } from "@/app/i18n/client"
-import { LocaleTypes } from "@/app/i18n/settings"
+} from '@/lib/types'
+import { useTranslation } from '@/app/i18n/client'
+import { LocaleTypes } from '@/app/i18n/settings'
 
-import { Icons } from "../icons"
+import { Icons } from '../icons'
 
 interface ProjectExtraLinksProps {
   project: ProjectInterface
@@ -27,7 +27,7 @@ export default function ProjectExtraLinks({
   project,
   lang,
 }: ProjectExtraLinksProps) {
-  const { t } = useTranslation(lang, "common")
+  const { t } = useTranslation(lang, 'common')
   const { extraLinks = {} } = project
   const hasExtraLinks = Object.keys(extraLinks).length > 0
 
@@ -39,26 +39,26 @@ export default function ProjectExtraLinks({
     }
   > = {
     buildWith: {
-      label: t("buildWithThisTool"),
+      label: t('buildWithThisTool'),
       icon: <Icons.hammer />,
     },
     play: {
-      label: t("tryItOut"),
+      label: t('tryItOut'),
       icon: <Icons.hand />,
     },
     research: {
-      label: t("deepDiveResearch"),
+      label: t('deepDiveResearch'),
       icon: <Icons.readme />,
     },
     learn: {
-      label: t("learnMore"),
+      label: t('learnMore'),
     },
   }
 
   if (!hasExtraLinks) return null
 
   const ExtraLinkItems = ({ id, links = [] }: ExtraLinkItemsProps) => {
-    const { label, icon } = ExtraLinkLabelMapping[id]
+    const { label } = ExtraLinkLabelMapping[id]
 
     if (!links.length) return null // no links hide the section
 

@@ -3,10 +3,9 @@ import {
   LucideProps,
   Moon,
   SunMedium,
-  Twitter,
   X,
   type Icon as LucideIcon,
-} from "lucide-react"
+} from 'lucide-react'
 
 export type Icon = LucideIcon
 
@@ -101,11 +100,11 @@ export const Icons = {
     <svg
       width={props.width}
       height={
-        typeof props.height === "number"
+        typeof props.height === 'number'
           ? props.height
-          : typeof props.width === "number"
-          ? props.width - 1
-          : 18
+          : typeof props.width === 'number'
+            ? props.width - 1
+            : 18
       }
       viewBox="0 0 25 24"
       fill="currentColor"
@@ -138,11 +137,11 @@ export const Icons = {
       xmlns="http://www.w3.org/2000/svg"
       width={props.width}
       height={
-        typeof props.height === "number"
+        typeof props.height === 'number'
           ? props.height
-          : typeof props.width === "number"
-          ? props.width - 2
-          : 22
+          : typeof props.width === 'number'
+            ? props.width - 2
+            : 22
       }
       fill="currentColor"
       viewBox="0 0 24 22"
@@ -159,11 +158,11 @@ export const Icons = {
       xmlns="http://www.w3.org/2000/svg"
       width={props.width}
       height={
-        typeof props.height === "number"
+        typeof props.height === 'number'
           ? props.height
-          : typeof props.width === "number"
-          ? props.width + 2
-          : 26
+          : typeof props.width === 'number'
+            ? props.width + 2
+            : 26
       }
       fill="currentColor"
       viewBox="0 0 24 26"
@@ -196,11 +195,11 @@ export const Icons = {
     <svg
       width={props.size}
       height={
-        typeof props.size === "number"
+        typeof props.size === 'number'
           ? props.size
-          : typeof props.size === "number"
-          ? props.size + 1
-          : 17
+          : typeof props.size === 'number'
+            ? props.size + 1
+            : 17
       }
       viewBox="0 0 16 17"
       fill="none"
@@ -222,11 +221,11 @@ export const Icons = {
     <svg
       width={props.width}
       height={
-        typeof props.height === "number"
+        typeof props.height === 'number'
           ? props.height
-          : typeof props.width === "number"
-          ? props.width - 1
-          : 19
+          : typeof props.width === 'number'
+            ? props.width - 1
+            : 19
       }
       viewBox="0 0 20 19"
       fill="none"
@@ -243,11 +242,11 @@ export const Icons = {
     <svg
       width={props.width}
       height={
-        typeof props.height === "number"
+        typeof props.height === 'number'
           ? props.height
-          : typeof props.width === "number"
-          ? props.width - 1
-          : 19
+          : typeof props.width === 'number'
+            ? props.width - 1
+            : 19
       }
       viewBox="0 0 20 19"
       fill="none"
@@ -264,11 +263,11 @@ export const Icons = {
     <svg
       width={props.width}
       height={
-        typeof props.height === "number"
+        typeof props.height === 'number'
           ? props.height
-          : typeof props.width === "number"
-          ? props.width + 1
-          : 15
+          : typeof props.width === 'number'
+            ? props.width + 1
+            : 15
       }
       viewBox="0 0 14 15"
       fill="none"
@@ -471,6 +470,7 @@ export const Icons = {
       height="14"
       viewBox="0 0 14 14"
       fill="currentColor"
+      {...props}
     >
       <path
         d="M0.960938 9.93311V3.43311C0.960938 3.00213 1.13214 2.5888 1.43689 2.28406C1.74164 1.97931 2.15496 1.80811 2.58594 1.80811H12.3359C12.7669 1.80811 13.1802 1.97931 13.485 2.28406C13.7897 2.5888 13.9609 3.00213 13.9609 3.43311V9.93311C13.9609 10.3641 13.7897 10.7774 13.485 11.0822C13.1802 11.3869 12.7669 11.5581 12.3359 11.5581H2.58594C2.15496 11.5581 1.74164 11.3869 1.43689 11.0822C1.13214 10.7774 0.960938 10.3641 0.960938 9.93311ZM6.47781 4.32117C6.41707 4.27792 6.34559 4.25222 6.27121 4.24689C6.19683 4.24157 6.12242 4.25681 6.05613 4.29097C5.98984 4.32512 5.93423 4.37686 5.89539 4.44051C5.85655 4.50417 5.83598 4.57729 5.83594 4.65186V8.71436C5.83598 8.78893 5.85655 8.86204 5.89539 8.9257C5.93423 8.98936 5.98984 9.04109 6.05613 9.07524C6.12242 9.1094 6.19683 9.12464 6.27121 9.11932C6.34559 9.11399 6.41707 9.08829 6.47781 9.04504L9.32156 7.01379C9.37422 6.97621 9.41715 6.9266 9.44677 6.86908C9.47638 6.81156 9.49184 6.7478 9.49184 6.68311C9.49184 6.61841 9.47638 6.55465 9.44677 6.49713C9.41715 6.43961 9.37422 6.39 9.32156 6.35242L6.47781 4.32117Z"
@@ -485,6 +485,7 @@ export const Icons = {
       height="16"
       viewBox="0 0 17 16"
       fill="none"
+      {...props}
     >
       <g clipPath="url(#clip0_7523_20424)">
         <path
@@ -509,6 +510,7 @@ export const Icons = {
       height="13"
       viewBox="0 0 13 13"
       fill="none"
+      {...props}
     >
       <path
         d="M11.2031 1.20312H1.79685C1.53818 1.20312 1.32654 1.41895 1.32654 1.68274V11.2752C1.32654 11.5389 1.53818 11.7548 1.79685 11.7548H11.2031C11.4618 11.7548 11.6734 11.5389 11.6734 11.2752V1.68274C11.6734 1.41895 11.4618 1.20312 11.2031 1.20312Z"
@@ -543,6 +545,7 @@ export const Icons = {
       height="12"
       viewBox="0 0 12 12"
       fill="none"
+      {...props}
     >
       <path
         fillRule="evenodd"
@@ -705,11 +708,11 @@ export const Icons = {
       />
     </svg>
   ),
-  edit: ({ size = 10, ...props }: LucideProps) => (
+  edit: ({ size = 16, ...props }: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       viewBox="0 0 16 16"
       fill="none"
       {...props}
