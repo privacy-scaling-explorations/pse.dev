@@ -145,8 +145,6 @@ export const filterProjects = ({
 
   const tagsFiltersQuery: Record<string, string>[] = []
 
-  console.log('projectList', projectList)
-
   Object.entries(activeFilters).forEach(([key, values]) => {
     values.forEach((value) => {
       if (!value) return // skip empty values
