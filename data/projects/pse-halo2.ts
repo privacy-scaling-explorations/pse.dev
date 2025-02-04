@@ -31,6 +31,14 @@ The original IPA backend was swapped with KZG for cost-effective L1 verifiabilit
         label: "Documentation",
         url: "https://privacy-scaling-explorations.github.io/halo2/",
       },
+      {
+        label: "PLONK",
+        url: "https://www.youtube.com/watch?v=A0oZVEXav24",
+      },
+      {
+        label: "Origins of Halo2",
+        url: "https://www.youtube.com/watch?v=KdkVTEHUxgo",
+      }
     ],
   },
 }
