@@ -186,9 +186,11 @@ export const filterProjects = ({
   }
 
   const fuse = new Fuse(projectList, {
-    threshold: 0.2,
+    threshold: 0.3,
     useExtendedSearch: true,
     includeScore: true,
+    findAllMatches: true,
+    distance: 200,
     keys,
   })
 
