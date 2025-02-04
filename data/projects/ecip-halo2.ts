@@ -16,14 +16,13 @@ export const ECIPHalo2: ProjectInterface = {
   id: "ecip-halo2",
   image: "",
   category: ProjectCategory.DEVTOOLS,
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.INACTIVE,
   section: "pse",
   content,
   imageAlt: "ECIP + Halo 2",
   name: "ECIP (Elliptic Curve Inner Products) Halo 2 Implementation",
   links: {
     github: "https://github.com/levs57/sage-circuits/",
-    website: "https://perpetualpowersoftau.com/",
   },
   extraLinks: {
     learn: [
