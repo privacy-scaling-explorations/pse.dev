@@ -1,9 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { events } from '@/data/events/devcon-7'
 import { cva } from 'class-variance-authority'
+import { Button } from '@/components/ui/button'
+import { useTranslation } from '@/app/i18n/client'
 
 import { cn } from '@/lib/utils'
 import { Icons } from '@/components/icons'
@@ -65,14 +67,38 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-[10px] lg:order-2 order-2">
-        <Link
-          href={event?.url ?? '#'}
-          target="_blank"
-          className="text-[22px] leading-[24px] text-tuatara-950 underline font-display hover:text-anakiwa-500 font-bold duration-200"
-        >
-          {event?.title}
-        </Link>
+      <div className="flex flex-col justify-start gap-[10px] lg:order-2 order-2">
+        <div className="flex items-center justify-between">
+          <Link
+            href={event?.url ?? '#'}
+            target="_blank"
+            className="text-[22px] inline-flex leading-[24px] text-tuatara-950 underline font-display hover:text-anakiwa-500 font-bold duration-200"
+          >
+            {event?.title}
+          </Link>
+          <button
+            className="lg:hidden flex"
+            onClick={() => {
+              setIsOpen(!isOpen)
+            }}
+          >
+            {isOpen ? (
+              <Icons.minus
+                className={cn(
+                  'size-5 ml-auto',
+                  'transition-transform duration-200'
+                )}
+              />
+            ) : (
+              <Icons.plus
+                className={cn(
+                  'size-5 ml-auto',
+                  'transition-transform duration-200'
+                )}
+              />
+            )}
+          </button>
+        </div>
         <div
           className={cn(
             'lg:max-h-none lg:opacity-100 lg:block',
@@ -84,11 +110,22 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
           <span className="text-base leading-6 text-tuatara-950 font-sans font-normal">
             {event?.description}
           </span>
+          <div className="pt-2 flex lg:!hidden">
+            {event?.youtubeLink && (
+              <iframe
+                width="100%"
+                height="230"
+                src={getYouTubeEmbedURL(event?.youtubeLink) ?? ''}
+                allowFullScreen
+                style={{ borderRadius: '10px', overflow: 'hidden' }}
+              />
+            )}
+          </div>
         </div>
       </div>
 
-      <div className="lg:order-3 order-1 grid gap-5 pb-3 lg:pb-0 grid-cols-[1fr_32px] lg:grid-cols-1">
-        <div className="flex flex-wrap lg:flex-col gap-1">
+      <div className="relative lg:order-3 grid gap-5 pb-3 lg:pb-0 grid-cols-[1fr_32px] lg:grid-cols-1">
+        <div className="hidden lg:flex flex-wrap lg:flex-col gap-1">
           {event?.youtubeLink && (
             <iframe
               width="240"
@@ -99,28 +136,6 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
             />
           )}
         </div>
-        <button
-          className="lg:hidden flex"
-          onClick={() => {
-            setIsOpen(!isOpen)
-          }}
-        >
-          {isOpen ? (
-            <Icons.minus
-              className={cn(
-                'size-5 ml-auto',
-                'transition-transform duration-200'
-              )}
-            />
-          ) : (
-            <Icons.plus
-              className={cn(
-                'size-5 ml-auto',
-                'transition-transform duration-200'
-              )}
-            />
-          )}
-        </button>
       </div>
 
       <div className="order-4 lg:flex hidden"></div>
@@ -128,17 +143,50 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
   )
 }
 
-export const Devcon7Section = () => {
+export const Devcon7Section = ({ lang }: any) => {
+  const [showAll, setShowAll] = useState(false)
+  const { t } = useTranslation(lang, 'devcon-7')
+  const [isMobile, setIsMobile] = useState(false)
+
+  const images = [
+    '/images/devcon-7/devcon-7-overview-1.jpg',
+    '/images/devcon-7/devcon-7-overview-2.jpg',
+    '/images/devcon-7/devcon-7-overview-3.jpg',
+    '/images/devcon-7/devcon-7-overview-4.jpg',
+    '/images/devcon-7/devcon-7-overview-5.jpg',
+    '/images/devcon-7/devcon-7-overview-6.jpg',
+  ]
+
+  useEffect(() => {
+    setIsMobile(window?.innerWidth < 1024)
+  }, [])
+
+  // Show only 1 image on mobile, all images on desktop
+  const visibleImages = showAll ? images : images.slice(0, 1)
+
   return (
     <div className="flex flex-col gap-10 relative">
-      <div className="flex flex-col gap-10 lg:container">
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 pt-10 container lg:!px-0">
-          <div className="h-[230px] w-full rounded-[10px] bg-cover aspect-video bg-center bg-[url('/images/devcon-7/devcon-7-overview-1.jpg')]"></div>
-          <div className="h-[230px] w-full rounded-[10px] bg-cover aspect-video bg-center bg-[url('/images/devcon-7/devcon-7-overview-2.jpg')]"></div>
-          <div className="h-[230px] w-full rounded-[10px] bg-cover aspect-video bg-center bg-[url('/images/devcon-7/devcon-7-overview-3.jpg')]"></div>
-          <div className="h-[230px] w-full rounded-[10px] bg-cover aspect-video bg-center bg-[url('/images/devcon-7/devcon-7-overview-4.jpg')]"></div>
-          <div className="h-[230px] w-full rounded-[10px] bg-cover aspect-video bg-center bg-[url('/images/devcon-7/devcon-7-overview-5.jpg')]"></div>
-          <div className="h-[230px] w-full rounded-[10px] bg-cover aspect-video bg-center bg-[url('/images/devcon-7/devcon-7-overview-6.jpg')]"></div>
+      <div className="flex flex-col gap-3 lg:gap-10 lg:container">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:pt-10 container lg:!px-0">
+          {/* Show all images on desktop, filtered images on mobile */}
+          {(!isMobile ? images : visibleImages).map((image, index) => (
+            <div
+              key={index}
+              className="h-[230px] w-full rounded-[10px] bg-cover aspect-video bg-center"
+              style={{ backgroundImage: `url(${image})` }}
+            />
+          ))}
+          {/* Show button only on mobile when there are hidden images */}
+          {!showAll && images.length > 1 && (
+            <Button
+              onClick={() => setShowAll(true)}
+              className="lg:hidden col-span-1 mt-2"
+              variant="outline"
+              size="sm"
+            >
+              show more
+            </Button>
+          )}
         </div>
         {/* Table header is hidden following new design */}
         <div
