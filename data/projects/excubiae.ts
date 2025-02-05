@@ -8,25 +8,54 @@ import {
 const content: ProjectContent = {
   en: {
     tldr: "an on-chain flexible & composable framework to create, reuse and customize gatekeepers.",
-    description: `### Overview
-Excubiae is an emerging framework for implementing sophisticated on-chain Attribute-Based Access Control (ABAC) gatekeepers. Currently in pre-alpha, this project aims to revolutionize how developers approach access control on Ethereum by providing a composable, gas-efficient foundation for complex validation policies.
-Think of it as a modular building block system for smart contract access control - flexible enough for simple token gates, yet powerful enough for complex multi-step verification flows.
+    description: `### Overview  
+Excubiae is a composable framework for implementing custom, attribute-based access control policies on EVM-compatible networks. It separates policy definition (*what rules to enforce*) from policy checking (*how to validate those rules*), enabling flexible and reusable access control patterns.  
 
-### Features
-As we build towards our full vision, Excubiae currently offers three core capabilities:
-- **Multi-Phase Validation**: you can design sequential validation flows with pre, main, and post conditions which are perfect for complex scenarios like "register → participate → claim".
-- **Flexible Evidence Processing**:  we can support multiple validation types as Zero-Knowledge Proofs, Token holdings, On-chain state checks, Time-based conditions, Multi-signature schemes.
-- **Composable Architecture**: Mix and match gatekeepers for custom access patterns, clean separation of concerns and composability / reuse of custom logic.
+The framework enforces access through two core components: Policy, which defines the enforcement of rules and, Checker which defines the validation of submitted evidence based on the rules.
 
-### Status
-We're actively developing on the official [Excubiae repository](https://github.com/privacy-scaling-explorations/excubiae) on the core Solidity framework & initial documentation. Stay tuned for alpha release, make & integrate tutorials, audits, examples and more.
+Designed with modularity, customizability and reusability in mind, Excubiae provides protocol developers with the building blocks to implement robust access control systems.  
+
+The name "Excubiae" comes from the ancient Roman guards who stood watch and enforced access control—a fitting metaphor for a system that secures smart contract access through configurable policies.
+
+### Vision  
+As blockchain protocols evolve, they generate new forms of verifiable evidence and proofs. While these proofs are critical for access control, integrating them into on-chain systems outside their native environments (e.g., APIs, apps, libraries) remains a challenge.  
+
+Excubiae bridges this gap by providing a universal framework for composing and enforcing interoperable on-chain access policies, serving as a foundational layer for secure, evidence-based authentication across the ecosystem.
+
+### Features  
+- **Composable Access Control** – A modular and reusable framework for attribute-based access control on EVM-compatible networks. Excubiae separates policy logic from validation logic, enabling independent audits and cross-protocol composability.  
+- **Gas-Efficient Minimal Proxy Pattern** – Uses a minimal proxy pattern with immutable arguments to reduce gas costs. Factory contracts can efficiently deploy Policies and Checkers while ensuring proper initialization.  
+- **Multi-Stage Validation System** – Supports three validation stages to support layered access control for use cases such as voting, governance, and staged authentication.
+  - **PRE** – Initial conditions (e.g., token ownership).  
+  - **MAIN** – Ongoing validation (e.g., governance approval).  
+  - **POST** – Follow-up actions (e.g., logging, permission updates).  
+
+### Status  
+🚀 Version [v0.2.0](https://github.com/privacy-scaling-explorations/excubiae/releases/tag/v0.2.0) has been officially released! Excubiae has reached a fully-fledged MVP, and the focus is now on adoption and integration. 
+
+The roadmap includes:
+- ✅ A set of ready-to-use Checkers & Policies and their respective Factories ("extensions"). We are going to start by porting the [MACI Gatekeepers](https://github.com/privacy-scaling-explorations/maci/tree/dev/packages/contracts/contracts/gatekeepers) as Excubiae Policy-Checker contracts.
+- ✅ Deployment scripts, guides, and examples for seamless integration.  
+- ⚠️ Some lower-priority features are on hold and may be revisited based on adoption trends.
+
+These and more will be available with the next release (v0.3.0)
+
+### Contributing  
+We welcome contributions! Whether you're interested in integrating Excubiae, developing custom Policies or Checkers, or providing feedback, we'd love to hear from you.  
+
+🔗 Join the conversation:  
+- 📢 [PSE Discord](https://discord.com/invite/sF5CT5rzrR) (#🚪-excubiae channel)
+- 🛠️ Open an [Issue](https://github.com/privacy-scaling-explorations/excubiae/issues/new) or [Pull Request](https://github.com/privacy-scaling-explorations/excubiae/compare) on the [GitHub monorepo](https://github.com/privacy-scaling-explorations/excubiae).  
+
+### Learn More
+For deeper insights into the core design, philosophy, roadmap, and integration guides, check out our [technical documentation](https://hackmd.io/@0xjei/B1RXoTh71e).
 `,
   },
 }
 
 export const excubiae: ProjectInterface = {
   id: "excubiae",
-  category: ProjectCategory.APPLICATION,
+  category: ProjectCategory.DEVTOOLS,
   content,
   projectStatus: ProjectStatus.ACTIVE,
   section: "pse",
@@ -35,9 +64,10 @@ export const excubiae: ProjectInterface = {
   name: "Excubiae",
   links: {
     github: "https://github.com/privacy-scaling-explorations/excubiae",
+    discord: "https://discord.com/channels/943612659163602974/1332087370065117260"
   },
   tags: {
-    keywords: ["Gatekeeper", "Access Control"],
+    keywords: ["Gatekeeper", "Access Control", "Policy", "Checker"],
     themes: ["build"],
     types: ["Legos/dev tools", "Lego sets/frameworks"],
     builtWith: ["TypeScript", "Solidity"],
