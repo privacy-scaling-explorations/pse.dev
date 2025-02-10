@@ -3,11 +3,11 @@ import {
   ProjectContent,
   ProjectInterface,
   ProjectStatus,
-} from "@/lib/types"
+} from '@/lib/types'
 
 const content: ProjectContent = {
   en: {
-    tldr: "an on-chain flexible & composable framework to create, reuse and customize gatekeepers.",
+    tldr: 'an on-chain flexible & composable framework to create, reuse and customize gatekeepers.',
     description: `### Overview  
 Excubiae is a composable framework for implementing custom, attribute-based access control policies on EVM-compatible networks. It separates policy definition (*what rules to enforce*) from policy checking (*how to validate those rules*), enabling flexible and reusable access control patterns.  
 
@@ -31,14 +31,14 @@ Excubiae bridges this gap by providing a universal framework for composing and e
   - **POST** – Follow-up actions (e.g., logging, permission updates).  
 
 ### Status  
-🚀 Version [v0.2.0](https://github.com/privacy-scaling-explorations/excubiae/releases/tag/v0.2.0) has been officially released! Excubiae has reached a fully-fledged MVP, and the focus is now on adoption and integration. 
+🚀 Version [v0.3.1](https://github.com/privacy-scaling-explorations/excubiae/releases/tag/v0.3.1) has been officially released! Excubiae has reached a fully-fledged MVP, and the focus is now on adoption and integration. 
 
 The roadmap includes:
 - ✅ A set of ready-to-use Checkers & Policies and their respective Factories ("extensions"). We are going to start by porting the [MACI Gatekeepers](https://github.com/privacy-scaling-explorations/maci/tree/dev/packages/contracts/contracts/gatekeepers) as Excubiae Policy-Checker contracts.
-- ✅ Deployment scripts, guides, and examples for seamless integration.  
+    - The current version supports the porting of MACI's [Semaphore](https://github.com/privacy-scaling-explorations/excubiae/tree/main/packages/contracts/contracts/extensions) gatekeeper as extension. This extension enforces membership proofs for a Semaphore group with frontrunning resistance.
+- ✅ Deployment scripts, guides, and examples for seamless integration.
+    - You can already find a [BaseVoting or AdvancedVoting](https://github.com/privacy-scaling-explorations/excubiae/tree/main/packages/contracts/contracts/test/core) examples, plus the Semaphore extension built on the Base core contracts.
 - ⚠️ Some lower-priority features are on hold and may be revisited based on adoption trends.
-
-These and more will be available with the next release (v0.3.0)
 
 ### Contributing  
 We welcome contributions! Whether you're interested in integrating Excubiae, developing custom Policies or Checkers, or providing feedback, we'd love to hear from you.  
@@ -54,23 +54,24 @@ For deeper insights into the core design, philosophy, roadmap, and integration g
 }
 
 export const excubiae: ProjectInterface = {
-  id: "excubiae",
+  id: 'excubiae',
   category: ProjectCategory.DEVTOOLS,
   content,
   projectStatus: ProjectStatus.ACTIVE,
-  section: "pse",
-  image: "",
-  license: "MIT",
-  name: "Excubiae",
+  section: 'pse',
+  image: '',
+  license: 'MIT',
+  name: 'Excubiae',
   links: {
-    github: "https://github.com/privacy-scaling-explorations/excubiae",
-    discord: "https://discord.com/channels/943612659163602974/1332087370065117260"
+    github: 'https://github.com/privacy-scaling-explorations/excubiae',
+    discord:
+      'https://discord.com/channels/943612659163602974/1332087370065117260',
   },
   tags: {
-    keywords: ["Gatekeeper", "Access Control", "Policy", "Checker"],
-    themes: ["build"],
-    types: ["Legos/dev tools", "Lego sets/frameworks"],
-    builtWith: ["TypeScript", "Solidity"],
+    keywords: ['Gatekeeper', 'Access Control', 'Policy', 'Checker'],
+    themes: ['build'],
+    types: ['Legos/dev tools', 'Lego sets/frameworks'],
+    builtWith: ['TypeScript', 'Solidity'],
   },
   extraLinks: {},
 }
