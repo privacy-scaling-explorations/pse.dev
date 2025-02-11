@@ -103,7 +103,7 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
           </div>
           <Link
             href={siteConfig?.links?.discordAnnouncementChannel}
-            className="ml-auto flex items-center gap-1"
+            className="mx-auto flex items-center gap-1"
             target="_blank"
             rel="noopener noreferrer"
             passHref

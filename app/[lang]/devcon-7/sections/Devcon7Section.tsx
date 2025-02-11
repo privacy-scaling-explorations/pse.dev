@@ -144,51 +144,11 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
 }
 
 export const Devcon7Section = ({ lang }: any) => {
-  const [showAll, setShowAll] = useState(false)
   const { t } = useTranslation(lang, 'devcon-7')
-  const [isMobile, setIsMobile] = useState(false)
-
-  const images = [
-    '/images/devcon-7/devcon-7-overview-1.jpg',
-    '/images/devcon-7/devcon-7-overview-2.jpg',
-    '/images/devcon-7/devcon-7-overview-3.jpg',
-    '/images/devcon-7/devcon-7-overview-4.jpg',
-    '/images/devcon-7/devcon-7-overview-5.jpg',
-    '/images/devcon-7/devcon-7-overview-6.jpg',
-  ]
-
-  useEffect(() => {
-    setIsMobile(window?.innerWidth < 1024)
-  }, [])
-
-  // Show only 1 image on mobile, all images on desktop
-  const visibleImages = showAll ? images : images.slice(0, 1)
 
   return (
     <div className="flex flex-col gap-10 relative">
       <div className="flex flex-col gap-3 lg:gap-10 lg:container">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:pt-10 container lg:!px-0">
-          {/* Show all images on desktop, filtered images on mobile */}
-          {(!isMobile ? images : visibleImages).map((image, index) => (
-            <div
-              key={index}
-              className="h-[230px] w-full rounded-[10px] bg-cover aspect-video bg-center"
-              style={{ backgroundImage: `url(${image})` }}
-            />
-          ))}
-          {/* Show button only on mobile when there are hidden images */}
-          {!showAll && images.length > 1 && (
-            <Button
-              onClick={() => setShowAll(true)}
-              className="lg:hidden col-span-1 mt-2"
-              variant="outline"
-              size="sm"
-            >
-              show more
-            </Button>
-          )}
-        </div>
-        {/* Table header is hidden following new design */}
         <div
           className={cn(
             tableSection(),
