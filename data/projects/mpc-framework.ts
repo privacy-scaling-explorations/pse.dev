@@ -1,9 +1,10 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const mpcFramework: ProjectInterface = {
   id: "mpc-framework",
   image: "",
   name: "MPC Framework",
+  category: ProjectCategory.DEVTOOLS,
   license: "MIT",
   section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
