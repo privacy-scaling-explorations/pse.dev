@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 export const Devcon7Slider = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4.2,
@@ -43,6 +43,17 @@ export const Devcon7Slider = () => {
         },
       },
     ],
+    appendDots: (dots: React.ReactNode) => (
+      <div
+        style={{
+          borderRadius: '10px',
+          padding: '10px',
+        }}
+      >
+        <ul style={{ margin: '0px' }}> {dots} </ul>
+      </div>
+    ),
+    customPaging: (i: number) => <div className="h-4 w-4 rounded-full  mt-5" />,
   }
 
   const images = [
