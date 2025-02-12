@@ -2,7 +2,7 @@ import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const mpcFramework: ProjectInterface = {
   id: "mpc-framework",
-  image: "",
+  image: "mpc-illustration.jpg",
   name: "MPC Framework",
   category: ProjectCategory.DEVTOOLS,
   license: "MIT",
