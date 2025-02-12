@@ -1,25 +1,25 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
 export enum ProjectCategory {
-  APPLICATION = "APPLICATIONS",
-  DEVTOOLS = "DEVTOOLS",
-  RESEARCH = "RESEARCH",
+  APPLICATION = 'APPLICATIONS',
+  DEVTOOLS = 'DEVTOOLS',
+  RESEARCH = 'RESEARCH',
 }
 
 export const ProjectCategories = Object.values(ProjectCategory) as string[]
 // list of project groups
 export const ProjectSections = [
-  "pse",
-  "grant",
-  "collaboration",
-  "archived",
+  'pse',
+  'grant',
+  'collaboration',
+  'archived',
 ] as const
 export type ProjectSection = (typeof ProjectSections)[number]
 
 export enum ProjectStatus {
-  ACTIVE = "active",
-  INACTIVE = "inactive",
-  MAINTAINED = "maintained",
+  ACTIVE = 'active',
+  INACTIVE = 'inactive',
+  MAINTAINED = 'maintained',
 }
 export interface Faq {
   question: string
@@ -27,28 +27,30 @@ export interface Faq {
 }
 
 export const ProjectCategoryLabelMapping: Record<ProjectCategory, string> = {
-  [ProjectCategory.APPLICATION]: "DEVTOOLS",
-  [ProjectCategory.DEVTOOLS]: "APPLICATIONS",
-  [ProjectCategory.RESEARCH]: "RESEARCH",
+  [ProjectCategory.APPLICATION]: 'DEVTOOLS',
+  [ProjectCategory.DEVTOOLS]: 'APPLICATIONS',
+  [ProjectCategory.RESEARCH]: 'RESEARCH',
 }
 
 export const ProjectSectionLabelMapping: Record<ProjectSection, string> = {
-  pse: "PSE projects",
-  grant: "Grants",
-  collaboration: "Collaborations",
-  archived: "Archived",
+  pse: 'PSE projects',
+  grant: 'Grants',
+  collaboration: 'Collaborations',
+  archived: 'Archived',
 }
 
 export const ProjectStatusLabelMapping: Record<ProjectStatus, string> = {
-  active: "Active",
-  inactive: "Inactive",
-  maintained: "Maintained",
+  active: 'Active',
+  inactive: 'Inactive',
+  maintained: 'Maintained',
 }
 
 export const ProjectStatusDescriptionMapping: Record<ProjectStatus, string> = {
-  active: "These projects are under active development by PSE-supported teams",
-  inactive: "The projects in our archive are not currently being worked on by PSE, but we encourage everyone to check out their findings and continue experimentation!",
-  maintained: "Maintenance projects are still being monitored for bug fixes, but are not under active feature development",
+  active: 'These projects are under active development by PSE-supported teams',
+  inactive:
+    'The projects in our archive are not currently being worked on by PSE, but we encourage everyone to check out their findings and continue experimentation!',
+  maintained:
+    'Maintenance projects are still being monitored for bug fixes, but are not under active feature development',
 }
 
 export interface AnnounceInterface {
@@ -57,8 +59,13 @@ export interface AnnounceInterface {
   content: string
   attachments?: string[]
   timestamp: string
+  message_snapshots?: {
+    message?: {
+      content?: string
+    }
+  }[]
   embeds?: {
-    type: "link" | "article"
+    type: 'link' | 'article'
     url: string
     title: string
     description: string
@@ -76,21 +83,21 @@ export interface NewsInterface {
 }
 
 export type ProjectLinkWebsite =
-  | "github"
-  | "website"
-  | "discord"
-  | "twitter"
-  | "youtube"
-  | "telegram"
+  | 'github'
+  | 'website'
+  | 'discord'
+  | 'twitter'
+  | 'youtube'
+  | 'telegram'
 
 export type ProjectLinkType = Partial<Record<ProjectLinkWebsite, any>>
-export type ProjectExtraLinkType = "buildWith" | "play" | "research" | "learn"
+export type ProjectExtraLinkType = 'buildWith' | 'play' | 'research' | 'learn'
 export type TagType =
-  | "types"
-  | "themes"
-  | "builtWith"
-  | "keywords"
-  | "fundingSource"
+  | 'types'
+  | 'themes'
+  | 'builtWith'
+  | 'keywords'
+  | 'fundingSource'
 export type ProjectTags = Partial<Record<TagType, string[]>>
 export type ActionLinkTypeLink = {
   label: string

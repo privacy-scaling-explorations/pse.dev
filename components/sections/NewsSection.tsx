@@ -52,7 +52,9 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
   // @ts-expect-error - HtmlToReactParser is not typed
   const htmlToReactParser = new HtmlToReactParser()
   const announcementContent = htmlToReactParser.parse(
-    convertDirtyStringToHtml(news?.content)
+    convertDirtyStringToHtml(
+      news?.content || news?.message_snapshots?.[0]?.message?.content || ''
+    )
   )
 
   const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
