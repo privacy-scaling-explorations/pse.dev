@@ -1,20 +1,20 @@
-import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectCategory, ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const mpcFramework: ProjectInterface = {
-  id: "mpc-framework",
-  image: "mpc-illustration.jpg",
-  name: "MPC Framework",
+  id: 'mpc-framework',
+  image: 'mpc-illustration.jpg',
+  name: 'MPC Framework',
   category: ProjectCategory.DEVTOOLS,
-  license: "MIT",
-  section: "pse",
+  license: 'MIT',
+  section: 'pse',
   projectStatus: ProjectStatus.ACTIVE,
   links: {
-    github: "https://github.com/voltrevo/mpc-framework",
+    github: 'https://github.com/voltrevo/mpc-framework',
     // website: "https://mpc.pse.dev/",
   },
   content: {
     en: {
-      tldr: "Create secure MPC apps easily in TypeScript.",
+      tldr: 'Create secure MPC apps easily in TypeScript.',
       description: `
 ## Quick Start
 
@@ -80,8 +80,8 @@ For a more technical introduction, see [Computerphile's video on Garbled Circuit
   extraLinks: {
     play: [
       {
-        label: "Try it out: Hello world in MPC",
-        url: "https://voltrevo.github.io/mpc-hello/",
+        label: 'Try it out: Hello world in MPC',
+        url: 'https://voltrevo.github.io/mpc-hello/',
       },
     ],
   },
