@@ -46,6 +46,7 @@ import { zkitter } from './projects/zkitter'
 import { zkml } from './projects/zkml'
 import { Zkopru } from './projects/zkopru'
 import { zkp2p } from './projects/zkp2p'
+import { mpcFramework } from './projects/mpc-framework'
 
 /**
  * List of Projects
@@ -99,4 +100,5 @@ export const projects: ProjectInterface[] = [
   excubiae,
   circomMpc,
   publiclyVerifiableGarbledCircuit,
+  mpcFramework,
 ]
