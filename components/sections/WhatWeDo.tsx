@@ -1,48 +1,44 @@
-"use client"
+'use client'
 
-import { LangProps } from "@/types/common"
-import { useTranslation } from "@/app/i18n/client"
+import { LangProps } from '@/types/common'
+import { useTranslation } from '@/app/i18n/client'
 
-import { Icons } from "../icons"
-import { AppContent } from "../ui/app-content"
+import { Icons } from '../icons'
+import { AppContent } from '../ui/app-content'
 
-type WhatWeDoContent = {
-  title: string
-  description: string
-  icon: any
-}
+type WhatWeDoContent = { title: string; description: string; icon: any }
 
-export const WhatWeDo = ({ lang }: LangProps["params"]) => {
-  const { t } = useTranslation(lang, "what-we-do-section")
+export const WhatWeDo = ({ lang }: LangProps['params']) => {
+  const { t } = useTranslation(lang, 'what-we-do-section')
 
   const content: WhatWeDoContent[] = [
     {
-      title: t("privacy.title"),
-      description: t("privacy.description"),
+      title: t('privacy.title'),
+      description: t('privacy.description'),
       icon: Icons.privacy,
     },
     {
-      title: t("scaling.title"),
-      description: t("scaling.description"),
+      title: t('scaling.title'),
+      description: t('scaling.description'),
       icon: Icons.scaling,
     },
     {
-      title: t("explorations.title"),
-      description: t("explorations.description"),
+      title: t('explorations.title'),
+      description: t('explorations.description'),
       icon: Icons.explorations,
     },
   ]
 
   return (
     <div className="bg-cover-gradient">
-      <AppContent className="mx-auto max-w-[978px]">
+      <AppContent className="mx-auto">
         <section className="flex flex-col gap-16 py-16 md:pb-24">
           <div className="flex flex-col text-center">
             <h6 className="py-6 font-sans text-base font-bold uppercase tracking-[4px] text-tuatara-950">
-              {t("whatWeDo")}
+              {t('whatWeDo')}
             </h6>
             <h3 className="font-display text-[18px] font-bold text-tuatara-950 md:text-3xl">
-              {t("whatWeDoDescription")}
+              {t('whatWeDoDescription')}
             </h3>
           </div>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -52,7 +48,9 @@ export const WhatWeDo = ({ lang }: LangProps["params"]) => {
                 key={index}
               >
                 <div className="flex items-center gap-2">
-                  <item.icon />
+                  <div className="w-4">
+                    <item.icon />
+                  </div>
                   <h6 className="font-sans text-base font-bold uppercase tracking-[4px] text-anakiwa-700">
                     {item.title}
                   </h6>

@@ -28,6 +28,7 @@ export function useAppSettings(lang: LocaleTypes) {
     {
       title: t('menu.programs'),
       href: '/programs',
+      onlyFooter: true,
     },
     {
       title: t('menu.about'),

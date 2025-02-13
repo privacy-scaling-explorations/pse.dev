@@ -7,6 +7,8 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Image from 'next/image'
 
+const AnySlider = Slider as any
+
 export const Devcon7Slider = () => {
   const settings = {
     dots: true,
@@ -66,7 +68,7 @@ export const Devcon7Slider = () => {
   ]
 
   return (
-    <Slider {...settings}>
+    <AnySlider {...settings}>
       {images.map((image, index) => (
         <div
           key={index}
@@ -81,6 +83,6 @@ export const Devcon7Slider = () => {
           />
         </div>
       ))}
-    </Slider>
+    </AnySlider>
   )
 }
