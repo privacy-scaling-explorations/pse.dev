@@ -1,17 +1,17 @@
-import { HTMLAttributes } from "react"
+import { HTMLAttributes } from 'react'
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
 const Section = ({ children, className }: HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className={cn("divide-y divide-tuatara-300", className)}>
+    <div className={cn('divide-y divide-tuatara-300 w-full', className)}>
       {children}
     </div>
   )
 }
 
 const Divider = {
-  displayName: "Divider",
+  displayName: 'Divider',
   Section,
 }
 
