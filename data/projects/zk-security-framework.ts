@@ -35,12 +35,12 @@ export const ZKSecurityFramework: ProjectInterface = {
   section: "pse",
   content,
   projectStatus: ProjectStatus.ACTIVE,
-  image: "",
+  image: "zk-security-framework.png",
   license: "MIT",
   name: "ZK Security Framework",
   links: {
     website: "https://zerobase.pro/",
-    github: "https://github.com/ZeroBase-Pro",
+    github: "https://github.com/Salusec/zksecurity-framework",
     twitter: "https://x.com/zerobasezk",
   },
   tags: {
