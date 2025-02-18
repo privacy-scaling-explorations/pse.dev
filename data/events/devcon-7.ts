@@ -9,8 +9,7 @@ export const events = [
       url: 'https://lu.ma/qwvo9tgo',
       date: 'Sunday, Nov 10',
       time: '4:30 PM - 5:00 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=aFjc4p9Eyk4',
     },
   },
   {
@@ -23,8 +22,7 @@ export const events = [
       url: 'https://congress.web3privacy.info/',
       date: 'Monday, Nov 11',
       time: 'TBA',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: '',
     },
   },
   {
@@ -37,8 +35,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/XPLVT8',
       date: 'Tuesday, Nov 12',
       time: '12:40 PM - 12:50 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=Tq7CVqDE_P4',
     },
   },
   {
@@ -52,8 +49,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/9JYWVP',
       date: 'Tuesday, Nov 12',
       time: '1:10 PM - 1:20 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=Didnvmet5Ng',
     },
   },
   {
@@ -66,8 +62,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/CV7QXP',
       date: 'Tuesday, Nov 12',
       time: '1:30 PM - 1:40 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=JX9YtcG_EHk',
     },
   },
   {
@@ -81,8 +76,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/GSZKVK',
       date: 'Tuesday, Nov 12',
       time: '2:10 PM - 2:20 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=-BESF3MUM20',
     },
   },
   {
@@ -98,8 +92,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/BZWFEM',
       date: 'Tuesday, Nov 12',
       time: '2:50 PM - 3:00 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=0ziKiYwhJHk',
     },
   },
   {
@@ -114,8 +107,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/R3JC8U',
       date: 'Tuesday, Nov 12',
       time: '4:30 PM - 4:55 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=E6u3uQGP9J4',
     },
   },
   {
@@ -131,8 +123,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/WNQBQH',
       date: 'Wednesday, Nov 13',
       time: '10:30 AM - 11:00 AM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=YvzdNMpynZM',
     },
   },
   {
@@ -145,8 +136,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/LMCG3V',
       date: 'Wednesday, Nov 13',
       time: '3:20 PM - 3:50 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=TY2ZWmR_UqM',
     },
   },
   {
@@ -165,8 +155,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/PR78EL',
       date: 'Thursday, Nov 14',
       time: '9:45 AM - 10:45 AM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=XsQ_DiECL0I',
     },
   },
   {
@@ -183,8 +172,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/S9S8M9',
       date: 'Thursday, Nov 14',
       time: '1:00 PM - 2:00 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=Md1LKfuBGFo',
     },
   },
   {
@@ -198,8 +186,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/DZVPRH',
       date: 'Thursday, Nov 14',
       time: '1:30 PM - 3:00 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=UsH8zwjcCD4',
     },
   },
   {
@@ -214,8 +201,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/9JFDZA',
       date: 'Thursday, Nov 14',
       time: '4:00 PM - 4:30 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=wSfkpJDq8AI',
     },
   },
   {
@@ -228,8 +214,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/RTVKJC',
       date: 'Thursday, Nov 14',
       time: '4:30 PM - 4:40 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=UPXYzWS7ZJ4&t=1s',
     },
   },
   {
@@ -246,8 +231,7 @@ export const events = [
       url: 'https://app.devcon.org/schedule/VPMQGM',
       date: 'Thursday, Nov 14',
       time: '4:40 PM - 6:10 PM',
-      youtubeLink:
-        'https://www.youtube.com/live/rGE_RDumZGg?si=1jxvatPDl0bwNpfO',
+      youtubeLink: 'https://www.youtube.com/watch?v=FhKjScuaNxw',
     },
   },
 ]
