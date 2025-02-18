@@ -8,7 +8,7 @@ import { Devcon7Section } from './sections/Devcon7Section'
 import { Devcon7Slider } from './sections/Devcon7Slider'
 
 export const metadata: Metadata = {
-  title: 'Devon 7',
+  title: 'Devcon 7',
   description: 'PSE x Devcon 7 Southeast Asia',
   openGraph: {
     images: [
