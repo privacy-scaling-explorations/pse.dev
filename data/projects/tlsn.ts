@@ -42,6 +42,7 @@ export const tlsn: ProjectInterface = {
       "Identity",
       "Reputation",
       "Data portability",
+      "zkTLS"
     ],
   },
   extraLinks: {
