@@ -16,9 +16,13 @@ export const mpcFramework: ProjectInterface = {
     en: {
       tldr: 'Create secure MPC apps easily in TypeScript.',
       description: `
+
+
+A framework that makes MPC easy, in TypeScript. It supports multiple existing circuit generators and MPC backends, but you can also bring your own.
+
 ## Quick Start
 
-MPC Framework supports the web. Try the [hello world](https://voltrevo.github.io/mpc-hello/) app here.
+Try [a demo app](https://github.com/voltrevo/mpc-hello) or quickly [spin up your own](https://github.com/voltrevo/mpc-framework?tab=readme-ov-file#usage-guide)
 
 ## Overview
 
@@ -80,8 +84,16 @@ For a more technical introduction, see [Computerphile's video on Garbled Circuit
   extraLinks: {
     play: [
       {
-        label: 'Try it out: Hello world in MPC',
+        label: 'Hello world in MPC',
         url: 'https://voltrevo.github.io/mpc-hello/',
+      },
+      {
+        label: 'Hello world in MPC',
+        url: 'https://github.com/voltrevo/mpc-lizard-spock',
+      },
+      {
+        label: 'In-browser MPC demo',
+        url: 'https://github.com/voltrevo/mpc-framework-browser-demo',
       },
     ],
   },
