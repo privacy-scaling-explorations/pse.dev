@@ -19,7 +19,6 @@ import { jubmoji } from './projects/jubmoji'
 import { maci } from './projects/maci'
 import { maciPlatform } from './projects/maci-platform'
 import { mopro } from './projects/mopro'
-import { mpc } from './projects/mpc'
 import { circomMpc } from './projects/circom-mpc'
 import { mpcStats } from './projects/mpc-stats'
 import { nfctap } from './projects/cursive'
@@ -58,7 +57,6 @@ export const projects: ProjectInterface[] = [
   ZKSecurityFramework,
   pse_halo2,
   sonobe,
-  mpc,
   rln,
   zkitter,
   mopro,

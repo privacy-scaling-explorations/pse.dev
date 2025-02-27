@@ -17,7 +17,7 @@ See more details [here](https://hackmd.io/@namncc/B1md-dp4ke).`,
 export const publiclyVerifiableGarbledCircuit: ProjectInterface = {
     id: "publicly-verifiable-garbled-circuit",
     category: ProjectCategory.RESEARCH,
-    projectStatus: ProjectStatus.ACTIVE,
+    projectStatus: ProjectStatus.INACTIVE,
     section: "pse",
     content,
     image: "",
