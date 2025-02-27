@@ -175,6 +175,13 @@ export function SiteFooter({ lang }: LangProps['params']) {
             </LinksWrapper>
             <LinksWrapper>
               <Link
+                href={siteConfig.links.discord}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <ItemLabel label="Feedback" />
+              </Link>
+              <Link
                 href={siteConfig.links.privacyPolicy}
                 target="_blank"
                 rel="noreferrer"
@@ -187,15 +194,6 @@ export function SiteFooter({ lang }: LangProps['params']) {
                 rel="noreferrer"
               >
                 <ItemLabel label={t('footer.termsOfUse')} />
-              </Link>
-            </LinksWrapper>
-            <LinksWrapper>
-              <Link
-                href={siteConfig.links.discord}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ItemLabel label="Feedback" />
               </Link>
             </LinksWrapper>
           </div>
