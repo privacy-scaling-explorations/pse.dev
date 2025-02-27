@@ -14,7 +14,7 @@ const content: ProjectContent = {
 
 export const voicedeck: ProjectInterface = {
   id: "voice-deck",
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.APPLICATION,
   section: "collaboration",
   content,

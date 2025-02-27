@@ -14,7 +14,7 @@ const content: ProjectContent = {
 
 export const pseSecurity: ProjectInterface = {
   id: "pse-security",
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.INACTIVE,
   category: ProjectCategory.RESEARCH,
   section: "pse",
   content,

@@ -5,7 +5,7 @@ export const mpcStats: ProjectInterface = {
   image: "mpc-stats.png",
   name: "MPCStats",
   category: ProjectCategory.APPLICATION,
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.INACTIVE,
   section: "pse",
   content: {
     en: {
