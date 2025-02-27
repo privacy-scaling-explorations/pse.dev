@@ -57,7 +57,7 @@ export const excubiae: ProjectInterface = {
   id: 'excubiae',
   category: ProjectCategory.DEVTOOLS,
   content,
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.MAINTAINED,
   section: 'pse',
   image: '',
   license: 'MIT',
