@@ -16,7 +16,7 @@ export const Devcon7Slider = () => {
     speed: 500,
     slidesToShow: 4.2,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     responsive: [
       {
         breakpoint: 1400,
