@@ -31,7 +31,7 @@ Excubiae bridges this gap by providing a universal framework for composing and e
   - **POST** – Follow-up actions (e.g., logging, permission updates).  
 
 ### Status  
-🚀 Version [v0.3.1](https://github.com/privacy-scaling-explorations/excubiae/releases/tag/v0.3.1) has been officially released! Excubiae has reached a fully-fledged MVP, and the focus is now on adoption and integration. 
+🚀 Version [v0.3.2](https://github.com/privacy-scaling-explorations/excubiae/releases/tag/v0.3.2) has been officially released! Excubiae has reached a fully-fledged MVP, and the focus is now on adoption and integration. 
 
 The roadmap includes:
 - ✅ A set of ready-to-use Checkers & Policies and their respective Factories ("extensions"). We are going to start by porting the [MACI Gatekeepers](https://github.com/privacy-scaling-explorations/maci/tree/dev/packages/contracts/contracts/gatekeepers) as Excubiae Policy-Checker contracts.
@@ -48,7 +48,7 @@ We welcome contributions! Whether you're interested in integrating Excubiae, dev
 - 🛠️ Open an [Issue](https://github.com/privacy-scaling-explorations/excubiae/issues/new) or [Pull Request](https://github.com/privacy-scaling-explorations/excubiae/compare) on the [GitHub monorepo](https://github.com/privacy-scaling-explorations/excubiae).  
 
 ### Learn More
-For deeper insights into the core design, philosophy, roadmap, and integration guides, check out our [technical documentation](https://hackmd.io/@0xjei/B1RXoTh71e).
+For deeper insights into the core design, philosophy, roadmap, and integration guides, check out our [documentation](https://github.com/privacy-scaling-explorations/excubiae/tree/main/documentation).
 `,
   },
 }
