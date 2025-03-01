@@ -14,7 +14,7 @@ POD2 is the next iteration of the Provable Object Datatype (POD).  This new iter
   },
 }
 
-export const nfctap: ProjectInterface = {
+export const pod2: ProjectInterface = {
   id: "pod2",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.DEVTOOLS,
