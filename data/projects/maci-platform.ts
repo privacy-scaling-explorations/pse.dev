@@ -28,7 +28,7 @@ With MACI Platform, you can run different kind of voting rounds for your communi
 export const maciPlatform: ProjectInterface = {
   id: "maci-platform",
   category: ProjectCategory.APPLICATION,
-  projectStatus: ProjectStatus.ACTIVE,
+  projectStatus: ProjectStatus.INACTIVE,
   section: "pse",
   content,
   image: "maci-platform.png",

@@ -48,6 +48,8 @@ import { Zkopru } from './projects/zkopru'
 import { zkp2p } from './projects/zkp2p'
 import { mpcFramework } from './projects/mpc-framework'
 import { privateProofDelegation } from './projects/private-proof-delegation'
+import { pod2 } from './projects/pod2'
+
 /**
  * List of Projects
  *
@@ -102,4 +104,5 @@ export const projects: ProjectInterface[] = [
   publiclyVerifiableGarbledCircuit,
   mpcFramework,
   privateProofDelegation,
+  pod2,
 ]
