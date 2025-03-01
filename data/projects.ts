@@ -19,7 +19,6 @@ import { jubmoji } from './projects/jubmoji'
 import { maci } from './projects/maci'
 import { maciPlatform } from './projects/maci-platform'
 import { mopro } from './projects/mopro'
-import { mpc } from './projects/mpc'
 import { circomMpc } from './projects/circom-mpc'
 import { mpcStats } from './projects/mpc-stats'
 import { nfctap } from './projects/cursive'
@@ -48,6 +47,7 @@ import { zkml } from './projects/zkml'
 import { Zkopru } from './projects/zkopru'
 import { zkp2p } from './projects/zkp2p'
 import { mpcFramework } from './projects/mpc-framework'
+import { privateProofDelegation } from './projects/private-proof-delegation'
 import { pod2 } from './projects/pod2'
 
 /**
@@ -59,7 +59,6 @@ export const projects: ProjectInterface[] = [
   ZKSecurityFramework,
   pse_halo2,
   sonobe,
-  mpc,
   rln,
   zkitter,
   mopro,
@@ -104,5 +103,6 @@ export const projects: ProjectInterface[] = [
   circomMpc,
   publiclyVerifiableGarbledCircuit,
   mpcFramework,
+  privateProofDelegation,
   pod2,
 ]
