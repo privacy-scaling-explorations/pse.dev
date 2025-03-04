@@ -35,6 +35,9 @@ Traditional cryptography relied on ECC, which enables various cryptographic prim
 - Multivariate cryptography
 - Isogeny-based cryptography
 
+### Links
+- Post quantum TXs in The Verge [ethresear.ch post](https://ethresear.ch/t/post-quantum-txs-in-the-verge/21763)
+
 ### Our Commitment to PQC at PSE
 
 At PSE, we are committed to staying at the forefront of the rapidly evolving field of PQC by continuously following, testing, and optimizing the latest advancements. Our goal is to ensure that the Ethereum ecosystem is well-prepared for the challenges and opportunities that come with the transition to quantum-safe systems.
