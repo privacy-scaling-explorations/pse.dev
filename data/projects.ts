@@ -50,6 +50,8 @@ import { mpcFramework } from './projects/mpc-framework'
 import { privateProofDelegation } from './projects/private-proof-delegation'
 import { pod2 } from './projects/pod2'
 import { machinaIo } from './projects/machina-iO'
+import { plasmaFold } from './projects/plasma_fold'
+import { vOPRF } from './projects/vOPRF'
 
 /**
  * List of Projects
@@ -106,5 +108,7 @@ export const projects: ProjectInterface[] = [
   mpcFramework,
   privateProofDelegation,
   pod2,
-  machinaIo
+  machinaIo,
+  plasmaFold,
+  vOPRF
 ]
