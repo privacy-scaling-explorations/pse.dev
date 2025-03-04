@@ -1,16 +1,15 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const plasmaFold: ProjectInterface = {
-  id: "plasma_fold",
-  image: "",
-  name: "Plasma Fold",
-  section: "pse",
+  id: 'plasma_fold',
+  image: '',
+  name: 'Plasma Fold',
+  section: 'pse',
   projectStatus: ProjectStatus.ACTIVE,
   content: {
     en: {
-      tldr: "Integrating folding schemes into plasma-based L2 solutions for efficient and scalable Ethereum transactions.",
+      tldr: 'Integrating folding schemes into plasma-based L2 solutions for efficient and scalable Ethereum transactions.',
       description: `
-## Plasma Fold  
 ### Leveraging Folding Schemes for Efficient L2 Solutions  
 
 Our project builds on the external [intmax](https://www.intmax.io/) design by integrating folding schemes into their plasma-based L2 approach. While intmax uses client-side validation with minimal on-chain data and validity proofs to achieve high throughput, its reliance on resource-intensive proving can strain low-end devices. Folding schemes—with low recursive overhead and minimal memory usage—offer a powerful solution to streamline this process.
@@ -35,9 +34,16 @@ Our goal is to design and benchmark a client-friendly zk/plasma scaling solution
     },
   },
   tags: {
-    keywords: ["plasma", "folding schemes", "Ethereum", "scalability", "L2", "zero-knowledge proofs"],
-    themes: ["scalability", "L2 solutions", "zk proofs"],
-    types: ["research", "development"],
-    builtWith: ["plasma", "zk proofs", "folding schemes"],
+    keywords: [
+      'plasma',
+      'folding schemes',
+      'Ethereum',
+      'scalability',
+      'L2',
+      'zero-knowledge proofs',
+    ],
+    themes: ['scalability', 'L2 solutions', 'zk proofs'],
+    types: ['research', 'development'],
+    builtWith: ['plasma', 'zk proofs', 'folding schemes'],
   },
 }

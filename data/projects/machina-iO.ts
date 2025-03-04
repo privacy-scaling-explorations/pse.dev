@@ -1,16 +1,15 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const machinaIo: ProjectInterface = {
-  id: "machina_io",
-  image: "",
-  name: "MachinaIO",
-  section: "pse",
+  id: 'machina_io',
+  image: '',
+  name: 'MachinaIO',
+  section: 'pse',
   projectStatus: ProjectStatus.ACTIVE,
   content: {
     en: {
-      tldr: "Building the first practical indistinguishability obfuscation (iO) system for secure and scalable cryptographic applications.",
+      tldr: 'Building the first practical indistinguishability obfuscation (iO) system for secure and scalable cryptographic applications.',
       description: `
-## MachinaIO  
 ### Towards Practical Indistinguishability Obfuscation (iO)  
 
 MachinaIO aims to create the first *practical* iO system based on formal security proofs, transforming any program into a black-box that hides its internals while preserving its functionality. By replacing committees in multi-party computation (MPC) or multi-key fully homomorphic encryption (FHE), iO can scale these applications securely and eliminate trust bottlenecks.
@@ -32,9 +31,21 @@ Led by two cryptography researchers (*Sora* and *Enrico*), MachinaIO welcomes ad
     },
   },
   tags: {
-    keywords: ["indistinguishability obfuscation", "iO", "cryptography", "Ethereum", "FHE", "SNARKs"],
-    themes: ["cryptography", "privacy", "scalability"],
-    types: ["research", "development"],
-    builtWith: ["FHE", "SNARKs", "functional encryption", "lattice cryptography"],
+    keywords: [
+      'indistinguishability obfuscation',
+      'iO',
+      'cryptography',
+      'Ethereum',
+      'FHE',
+      'SNARKs',
+    ],
+    themes: ['cryptography', 'privacy', 'scalability'],
+    types: ['research', 'development'],
+    builtWith: [
+      'FHE',
+      'SNARKs',
+      'functional encryption',
+      'lattice cryptography',
+    ],
   },
 }
