@@ -1,17 +1,15 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const postQuantumCryptography: ProjectInterface = {
-  id: "post_quantum_cryptography",
-  image: "",
-  name: "Post-Quantum Cryptography and Ethereum",
-  section: "pse",
+  id: 'post_quantum_cryptography',
+  image: '',
+  name: 'Post-Quantum Cryptography and Ethereum',
+  section: 'pse',
   projectStatus: ProjectStatus.ACTIVE,
   content: {
     en: {
       tldr: "Ensuring Ethereum's cryptographic security against future quantum threats.",
       description: `
-## Post-Quantum Cryptography and Ethereum
-
 Post-quantum cryptography (PQC) is crucial for securing digital communication against future quantum computers, which threaten to break widely used cryptographic schemes such as RSA, ECC, and DSA. A smooth transition to PQC requires careful consideration of performance trade-offs, compatibility with existing protocols, and resilience against potential future attacks.
 
 ### The Importance of PQC for Ethereum
@@ -45,9 +43,14 @@ At PSE, we are committed to staying at the forefront of the rapidly evolving fie
     },
   },
   tags: {
-    keywords: ["post-quantum cryptography", "Ethereum", "security", "cryptography"],
-    themes: ["cryptography", "security"],
-    types: ["research", "development"],
-    builtWith: ["ECC", "PQC", "zero-knowledge proofs"],
+    keywords: [
+      'post-quantum cryptography',
+      'Ethereum',
+      'security',
+      'cryptography',
+    ],
+    themes: ['cryptography', 'security'],
+    types: ['research', 'development'],
+    builtWith: ['ECC', 'PQC', 'zero-knowledge proofs'],
   },
 }

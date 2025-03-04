@@ -1,17 +1,15 @@
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const vOPRF: ProjectInterface = {
-  id: "web2_id_nullifiers",
-  image: "",
-  name: "Web2-ID Nullifiers using vOPRF",
-  section: "pse",
+  id: 'web2_id_nullifiers',
+  image: '',
+  name: 'Web2-ID Nullifiers using vOPRF',
+  section: 'pse',
   projectStatus: ProjectStatus.ACTIVE,
   content: {
     en: {
-      tldr: "Enabling pseudonymous systems for Web2 identities using verifiable Oblivious PseudoRandom Functions (vOPRFs).",
+      tldr: 'Enabling pseudonymous systems for Web2 identities using verifiable Oblivious PseudoRandom Functions (vOPRFs).',
       description: `
-## Web2-ID Nullifiers using vOPRF  
-
 ### Overview  
 
 The Web2-ID Nullifiers project enables **pseudonymous systems for Web2 identities** using verifiable Oblivious PseudoRandom Functions (vOPRFs). It addresses the lack of **nullifiers** in Web2 IDs, which are essential for anonymous protocols. The project aims to build an infrastructure, like Semaphore, for Web2-ID registration and reuse across applications.
@@ -52,9 +50,9 @@ The Web2-ID Nullifiers project enables **pseudonymous systems for Web2 identitie
     },
   },
   tags: {
-    keywords: ["vOPRF", "nullifiers", "Web2", "privacy", "ZK proofs", "MPC"],
-    themes: ["privacy", "identity", "zero-knowledge proofs"],
-    types: ["research", "development"],
-    builtWith: ["vOPRF", "MPC", "ZK proofs"],
+    keywords: ['vOPRF', 'nullifiers', 'Web2', 'privacy', 'ZK proofs', 'MPC'],
+    themes: ['privacy', 'identity', 'zero-knowledge proofs'],
+    types: ['research', 'development'],
+    builtWith: ['vOPRF', 'MPC', 'ZK proofs'],
   },
 }
