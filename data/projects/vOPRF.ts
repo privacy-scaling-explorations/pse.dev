@@ -1,11 +1,14 @@
 import { ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const vOPRF: ProjectInterface = {
-  id: 'web2_id_nullifiers',
+  id: 'vOPRF',
   image: '',
   name: 'Web2-ID Nullifiers using vOPRF',
   section: 'pse',
   projectStatus: ProjectStatus.ACTIVE,
+  links: {
+    github: "https://github.com/privacy-scaling-explorations/vOPRF-ID/",
+  },
   content: {
     en: {
       tldr: 'Enabling pseudonymous systems for Web2 identities using verifiable Oblivious PseudoRandom Functions (vOPRFs).',
@@ -45,7 +48,7 @@ The Web2-ID Nullifiers project enables **pseudonymous systems for Web2 identitie
 ### Links  
 
 - [Discussion on EthResearch](https://ethresear.ch/t/web2-nullifiers-using-voprf/21762)  
-- [Blog post by Curry Rasul](https://curryrasul.com/blog/web2-nullifiers/)  
+- [Blog post by Rasul](https://curryrasul.com/blog/web2-nullifiers/)  
       `,
     },
   },
