@@ -42,7 +42,17 @@ export async function GET() {
       attachments: page.properties?.Attachments?.files || [],
     }))
 
-    return NextResponse.json({ events, page })
+    const responseJson = NextResponse.json({ events, page })
+
+    // Disable vercel cache
+    responseJson.headers.set(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, proxy-revalidate'
+    )
+    responseJson.headers.set('Pragma', 'no-cache')
+    responseJson.headers.set('Expires', '0')
+
+    return responseJson
   } catch (error: any) {
     console.error('Error fetching events:', error)
     return NextResponse.json({ error: error.message }, { status: 500 })
