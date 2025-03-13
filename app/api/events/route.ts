@@ -40,6 +40,7 @@ export async function GET() {
       status: page.properties?.Status?.select?.name || '',
       link: page.properties?.Link?.url || '',
       video: page.properties?.VideoURL?.url || '',
+      attachments: page.properties?.Attachments?.files || [],
     }))
 
     return NextResponse.json({ events, page })

@@ -33,7 +33,6 @@ export default function EventsPage({
   params: { lang: string }
 }) {
   const [viewMode, setViewMode] = useState<ViewMode>('list')
-  const { t } = useTranslation(lang, 'events')
   const { data: { events, page } = { events: [], page: {} }, isLoading } =
     useGetNotionEvents()
 
@@ -44,7 +43,7 @@ export default function EventsPage({
           {isLoading ? (
             <div className="h-14 bg-gray-400 w-2/3 animate-pulse"></div>
           ) : (
-            <Label.PageTitle label={t(page.title)} />
+            page?.title && <Label.PageTitle label={page?.title} />
           )}
         </AppContent>
       </div>
