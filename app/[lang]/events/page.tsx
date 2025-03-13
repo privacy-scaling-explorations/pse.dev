@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from '@/app/i18n/client'
 import { Icons } from '@/components/icons'
 import { Button } from '@/components/ui/button'
@@ -33,8 +33,15 @@ export default function EventsPage({
   params: { lang: string }
 }) {
   const [viewMode, setViewMode] = useState<ViewMode>('list')
-  const { data: { events, page } = { events: [], page: {} }, isLoading } =
-    useGetNotionEvents()
+  const {
+    data: { events, page } = { events: [], page: {} },
+    isLoading,
+    refresh,
+  } = useGetNotionEvents()
+
+  useEffect(() => {
+    refresh()
+  }, [])
 
   return (
     <div className="flex flex-col">

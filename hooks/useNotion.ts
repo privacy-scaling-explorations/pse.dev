@@ -1,5 +1,6 @@
 import { EventProps } from '@/app/[lang]/events/page'
 import useSWR from 'swr'
+import { useState } from 'react'
 
 const fetcher = async (url: string) => {
   const response = await fetch(url, {
@@ -15,8 +16,10 @@ const fetcher = async (url: string) => {
 }
 
 export function useGetNotionEvents() {
+  const [forceRefresh, setForceRefresh] = useState(0)
+
   const { data, error } = useSWR<{ events: EventProps['event'][]; page: any }>(
-    `/api/events?timestamp=${Date.now()}`,
+    `/api/events?refresh=${forceRefresh}`,
     fetcher,
     {
       refreshInterval: 60000,
@@ -32,5 +35,6 @@ export function useGetNotionEvents() {
       : { events: [], page: {} },
     isLoading: !data && !error,
     error,
+    refresh: () => setForceRefresh(Date.now()),
   }
 }
