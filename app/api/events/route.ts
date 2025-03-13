@@ -44,10 +44,9 @@ export async function GET() {
 
     const responseJson = NextResponse.json({ events, page })
 
-    // Disable vercel cache
     responseJson.headers.set(
       'Cache-Control',
-      'no-store, no-cache, must-revalidate, proxy-revalidate'
+      'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0, stale-while-revalidate=0'
     )
     responseJson.headers.set('Pragma', 'no-cache')
     responseJson.headers.set('Expires', '0')

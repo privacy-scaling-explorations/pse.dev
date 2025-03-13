@@ -16,7 +16,7 @@ const fetcher = async (url: string) => {
 
 export function useGetNotionEvents() {
   const { data, error } = useSWR<{ events: EventProps['event'][]; page: any }>(
-    `/api/events`,
+    `/api/events?timestamp=${Date.now()}`,
     fetcher,
     {
       refreshInterval: 60000,
