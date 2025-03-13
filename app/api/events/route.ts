@@ -1,11 +1,15 @@
 import { Client } from '@notionhq/client'
 import { NextResponse } from 'next/server'
 
-export async function GET() {
+export async function GET(req: Request) {
   const notion = new Client({
     auth: process.env.NOTION_API_KEY,
   })
+
   try {
+    const { searchParams } = new URL(req.url)
+    const forceRefresh = searchParams.get('forceRefresh')
+
     const databaseInfo: any = await notion.databases.retrieve({
       database_id: process.env.NOTION_EVENTS_DATABASE_ID as string,
     })
@@ -48,6 +52,7 @@ export async function GET() {
       'Cache-Control',
       'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0, stale-while-revalidate=0'
     )
+    responseJson.headers.set('Vercel-CDN-Cache-Control', 'no-store')
     responseJson.headers.set('Pragma', 'no-cache')
     responseJson.headers.set('Expires', '0')
 

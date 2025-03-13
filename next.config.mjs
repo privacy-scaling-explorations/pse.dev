@@ -24,6 +24,36 @@ const withMDX = nextMdx({
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx", "md"],
   reactStrictMode: true,
+  async headers() {
+    return [
+      {
+        source: '/api/events',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0, stale-while-revalidate=0',
+          },
+          {
+            key: 'Vercel-CDN-Cache-Control',
+            value: 'no-store',
+          },
+        ],
+      },
+      {
+        source: '/:lang/events',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0, stale-while-revalidate=0',
+          },
+          {
+            key: 'Vercel-CDN-Cache-Control',
+            value: 'no-store',
+          },
+        ],
+      },
+    ]
+  },
   experimental: {
     appDir: true,
     mdxRs: true,
