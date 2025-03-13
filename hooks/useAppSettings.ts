@@ -22,6 +22,11 @@ export function useAppSettings(lang: LocaleTypes) {
       onlyFooter: true,
     },
     {
+      title: 'Notion Events Page',
+      href: '/events',
+      onlyFooter: true,
+    },
+    {
       title: t('menu.projectLibrary'),
       href: '/projects',
     },

@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import { siteConfig } from '@/config/site'
 
 import { languages } from './i18n/settings'
+import ProviderWrapper from './provider-wrapper'
 
 export async function generateStaticParams() {
   return languages.map((language) => ({ language }))
@@ -42,5 +43,5 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  return <>{children}</>
+  return <ProviderWrapper>{children}</ProviderWrapper>
 }

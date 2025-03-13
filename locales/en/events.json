@@ -1,0 +1,6 @@
+{
+  "title": "Upcoming Events",
+  "subtitle": "Join us at our upcoming events and connect with the community",
+  "errorLoading": "Error loading events. Please try again later.",
+  "noEvents": "No upcoming events at the moment."
+}
