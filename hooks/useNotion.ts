@@ -1,16 +1,36 @@
 import { EventProps } from '@/app/[lang]/events/page'
-import { useQuery } from '@tanstack/react-query'
+import useSWR from 'swr'
 
-export function useGetNotionEvents() {
-  return useQuery<{ events: EventProps['event'][]; page: any }>({
-    queryKey: ['events'],
-    queryFn: async () => {
-      const response = await fetch(`/api/events?timestamp=${Date.now()}`)
-      const data = await response.json()
-      return {
-        events: data.events,
-        page: data.page,
-      }
+const fetcher = async (url: string) => {
+  const response = await fetch(url, {
+    cache: 'no-store',
+    headers: {
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
     },
   })
+  if (!response.ok) {
+    throw new Error('Failed to fetch events')
+  }
+  return response.json()
+}
+
+export function useGetNotionEvents() {
+  const { data, error } = useSWR<{ events: EventProps['event'][]; page: any }>(
+    `/api/events`,
+    fetcher,
+    {
+      refreshInterval: 60000,
+      dedupingInterval: 60000,
+      revalidateOnFocus: false,
+      shouldRetryOnError: (err) => err.status !== 429,
+    }
+  )
+
+  return {
+    data: data
+      ? { events: data.events, page: data.page }
+      : { events: [], page: {} },
+    isLoading: !data && !error,
+    error,
+  }
 }
