@@ -1,11 +1,10 @@
 import { Client } from '@notionhq/client'
 import { NextResponse } from 'next/server'
 
-const notion = new Client({
-  auth: process.env.NOTION_API_KEY,
-})
-
 export async function GET() {
+  const notion = new Client({
+    auth: process.env.NOTION_API_KEY,
+  })
   try {
     const databaseInfo: any = await notion.databases.retrieve({
       database_id: process.env.NOTION_EVENTS_DATABASE_ID as string,
