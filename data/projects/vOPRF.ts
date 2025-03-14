@@ -1,4 +1,4 @@
-import { ProjectInterface, ProjectStatus } from '@/lib/types'
+import { ProjectCategory, ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const vOPRF: ProjectInterface = {
   id: 'vOPRF',
@@ -6,8 +6,9 @@ export const vOPRF: ProjectInterface = {
   name: 'Web2-ID Nullifiers using vOPRF',
   section: 'pse',
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.RESEARCH,
   links: {
-    github: "https://github.com/privacy-scaling-explorations/vOPRF-ID/",
+    github: 'https://github.com/privacy-scaling-explorations/vOPRF-ID/',
   },
   content: {
     en: {

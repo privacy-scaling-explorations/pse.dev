@@ -1,4 +1,4 @@
-import { ProjectInterface, ProjectStatus } from '@/lib/types'
+import { ProjectCategory, ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const plasmaFold: ProjectInterface = {
   id: 'plasma-fold',
@@ -6,6 +6,7 @@ export const plasmaFold: ProjectInterface = {
   name: 'Plasma Fold',
   section: 'pse',
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.RESEARCH,
   content: {
     en: {
       tldr: 'Integrating folding schemes into plasma-based L2 solutions for efficient and scalable Ethereum transactions.',

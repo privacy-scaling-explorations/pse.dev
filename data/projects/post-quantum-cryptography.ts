@@ -1,9 +1,10 @@
-import { ProjectInterface, ProjectStatus } from '@/lib/types'
+import { ProjectCategory, ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const postQuantumCryptography: ProjectInterface = {
   id: 'post-quantum-cryptography',
   image: '',
   name: 'Post-Quantum Cryptography and Ethereum',
+  category: ProjectCategory.RESEARCH,
   section: 'pse',
   projectStatus: ProjectStatus.ACTIVE,
   content: {
