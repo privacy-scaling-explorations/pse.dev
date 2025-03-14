@@ -122,7 +122,7 @@ export const ProgramPageContent = ({ lang }: any) => {
 
   useEffect(() => {
     if (sectionsRef.current === null)
-      sectionsRef.current = document.querySelectorAll(`div[data-section]`)
+      sectionsRef.current = document.querySelectorAll('div[data-section]')
     if (!activeId) setActiveId(ProgramSections?.[0] ?? '')
 
     const handleScroll = () => {
