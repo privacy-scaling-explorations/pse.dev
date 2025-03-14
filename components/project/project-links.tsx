@@ -1,6 +1,4 @@
-import { RiTelegramLine as TelegramIcon } from "react-icons/ri"
-
-import { Icons } from "../icons"
+import { Icons } from '../icons'
 
 export const ProjectLinkIconMap: Record<string, any> = {
   github: (
@@ -17,7 +15,7 @@ export const ProjectLinkIconMap: Record<string, any> = {
     <Icons.twitter size={22} className="duration-200 hover:text-anakiwa-500" />
   ),
   telegram: (
-    <TelegramIcon size={22} className="duration-200 hover:text-anakiwa-500" />
+    <Icons.telegram size={22} className="duration-200 hover:text-anakiwa-500" />
   ),
   discord: (
     <Icons.discord size={20} className="duration-200 hover:text-anakiwa-500" />
