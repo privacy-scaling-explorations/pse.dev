@@ -1,7 +1,7 @@
 import { ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const postQuantumCryptography: ProjectInterface = {
-  id: 'post_quantum_cryptography',
+  id: 'post-quantum-cryptography',
   image: '',
   name: 'Post-Quantum Cryptography and Ethereum',
   section: 'pse',
@@ -14,13 +14,13 @@ Post-quantum cryptography (PQC) is crucial for securing digital communication ag
 
 ### The Importance of PQC for Ethereum
 
-PQC is especially important for Ethereum, which relies on cryptographic security for transactions, smart contracts, and consensus mechanisms. Ethereum primarily uses elliptic curve cryptography (ECC) for digital signatures (via ECDSA and BLS), which quantum computers could break using Shor’s algorithm. If large-scale quantum computers become practical, attackers could:
+PQC is especially important for Ethereum, which relies on cryptographic security for transactions, smart contracts, and consensus mechanisms. Ethereum primarily uses elliptic curve cryptography (ECC) for digital signatures (via ECDSA and BLS), which quantum computers could break using Shor's algorithm. If large-scale quantum computers become practical, attackers could:
 
 - Forge signatures
 - Steal funds
 - Undermine the integrity of the network
 
-Additionally, many Ethereum accounts use externally owned addresses (EOAs) derived from public keys, making them particularly vulnerable to quantum attacks once those public keys are revealed on-chain. This highlights the urgency of transitioning Ethereum’s cryptographic foundations to quantum-resistant alternatives.
+Additionally, many Ethereum accounts use externally owned addresses (EOAs) derived from public keys, making them particularly vulnerable to quantum attacks once those public keys are revealed on-chain. This highlights the urgency of transitioning Ethereum's cryptographic foundations to quantum-resistant alternatives.
 
 Moreover, smart contract platforms need to support post-quantum-friendly cryptographic primitives for zero-knowledge proofs and rollups, which are essential for Ethereum scaling.
 

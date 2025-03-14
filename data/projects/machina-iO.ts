@@ -1,7 +1,7 @@
 import { ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const machinaIo: ProjectInterface = {
-  id: 'machina_io',
+  id: 'machina-io',
   image: '',
   name: 'MachinaIO',
   section: 'pse',

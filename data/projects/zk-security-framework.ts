@@ -3,11 +3,11 @@ import {
   ProjectContent,
   ProjectInterface,
   ProjectStatus,
-} from "@/lib/types"
+} from '@/lib/types'
 
 const content: ProjectContent = {
   en: {
-    tldr: "The ZK Security Framework is a comprehensive repository that provides in-depth knowledge on zero-knowledge proof (ZKP) vulnerabilities, classifications, and defense strategies. It focuses on identifying and addressing security risks in ZKP protocols, offering resources for auditing and improving ZKP implementations.",
+    tldr: 'The ZK Security Framework is a comprehensive repository that provides in-depth knowledge on zero-knowledge proof (ZKP) vulnerabilities, classifications, and defense strategies. It focuses on identifying and addressing security risks in ZKP protocols, offering resources for auditing and improving ZKP implementations.',
     description: `
 ### Overview
 
@@ -24,36 +24,36 @@ The ZK Security Framework provides a meticulous classification of vulnerabilitie
 
 ### Audit Database
 
-The framework’s vulnerability classification includes detailed descriptions of risk levels and provides specific mitigation strategies for each type. It helps developers systematically approach the task of securing ZKP implementations, ranging from simple audit checks to more advanced defenses.
+The framework's vulnerability classification includes detailed descriptions of risk levels and provides specific mitigation strategies for each type. It helps developers systematically approach the task of securing ZKP implementations, ranging from simple audit checks to more advanced defenses.
 `,
   },
 }
 
 export const ZKSecurityFramework: ProjectInterface = {
-  id: "zk-security-framework",
+  id: 'zk-security-framework',
   category: ProjectCategory.RESEARCH,
-  section: "pse",
+  section: 'pse',
   content,
   projectStatus: ProjectStatus.ACTIVE,
-  image: "zk-security-framework.png",
-  license: "MIT",
-  name: "ZK Security Framework",
+  image: 'zk-security-framework.png',
+  license: 'MIT',
+  name: 'ZK Security Framework',
   links: {
-    website: "https://zerobase.pro/",
-    github: "https://github.com/Salusec/zksecurity-framework",
-    twitter: "https://x.com/zerobasezk",
+    website: 'https://zerobase.pro/',
+    github: 'https://github.com/Salusec/zksecurity-framework',
+    twitter: 'https://x.com/zerobasezk',
   },
   tags: {
-    keywords: ["Anonymity/privacy", "Security", "Audit", "Education"],
-    themes: ["play"],
-    types: ["Legos/dev tools"],
-    builtWith: ["circom", "gnark", "halo2", "rust"],
+    keywords: ['Anonymity/privacy', 'Security', 'Audit', 'Education'],
+    themes: ['play'],
+    types: ['Legos/dev tools'],
+    builtWith: ['circom', 'gnark', 'halo2', 'rust'],
   },
   extraLinks: {
     play: [
       {
-        label: "ZK Security Framework",
-        url: "https://github.com/Salusec/zksecurity-framework",
+        label: 'ZK Security Framework',
+        url: 'https://github.com/Salusec/zksecurity-framework',
       },
     ],
   },

@@ -1,13 +1,14 @@
 ## How to Add a New Project to the Projects List
 
+#### 1. Create a New Project File:
 
-####  1. Create a New Project File:
 - Go to the `../data/projects` folder in your project.
 - Create a new file named `[project_name].ts`
 
 #### 2. Add Project Details:
- - Open the newly created `[project_name].ts` file.
- - Use the ProjectInterface template to add the necessary details. Here’s a basic example (please copy this for a quick start):
+
+- Open the newly created `[project_name].ts` file.
+- Use the ProjectInterface template to add the necessary details. Here's a basic example (please copy this for a quick start):
 
 ```js
 import { ProjectInterface, ProjectStatus } from "@/lib/types"
@@ -39,8 +40,8 @@ Sample project description goes here. You can also use **Markdown** for formatti
 
 **Note**: Make sure to add all the necessary language versions (locales) under content to support every language you need. Markdown is supported, so feel free to format accordingly.
 
-
 #### 3. Register the New Project:
+
 - Open the `[...]/data/projects.ts` file where all projects are listed.
 - Add your new project to the projects array to make it visible:
 
@@ -53,7 +54,7 @@ const projects: ProjectInterface[] = [
 ];
 ```
 
-That’s it! Your new project will now be visible. Here is Overview example
+That's it! Your new project will now be visible. Here is Overview example
 
 ![Project overview](/public/project/example-project-badge.jpg)
 

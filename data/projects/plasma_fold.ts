@@ -1,7 +1,7 @@
 import { ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const plasmaFold: ProjectInterface = {
-  id: 'plasma_fold',
+  id: 'plasma-fold',
   image: '',
   name: 'Plasma Fold',
   section: 'pse',
@@ -16,10 +16,10 @@ Our project builds on the external [intmax](https://www.intmax.io/) design by in
 
 ### Overview & Key Contributions  
 
-By combining plasma’s efficient data availability with folding schemes, our approach significantly reduces the resource demands on client devices. This integration:  
+By combining plasma's efficient data availability with folding schemes, our approach significantly reduces the resource demands on client devices. This integration:  
 
 - **Optimizes Client-Side Proving:** Folding schemes accelerate proof generation while cutting down memory requirements, making the system more accessible.  
-- **Maintains a Low On-Chain Footprint:** Leveraging plasma’s lightweight data posting for deposits, withdrawals, and checkpoints ensures fast, secure transaction processing.  
+- **Maintains a Low On-Chain Footprint:** Leveraging plasma's lightweight data posting for deposits, withdrawals, and checkpoints ensures fast, secure transaction processing.  
 - **Boosts Throughput:** The synergy between folding schemes and plasma validity proofs could dramatically enhance transaction-per-second rates.
 
 ### Objectives & Impact  
