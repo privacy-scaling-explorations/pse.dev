@@ -85,7 +85,7 @@ export default function IndexPage({ params: { lang } }: any) {
             </div>
           }
           actions={
-            <Link href={`/projects`} className="flex items-center gap-2 group">
+            <Link href={'/projects'} className="flex items-center gap-2 group">
               <Button className="w-full sm:w-auto">
                 <div className="flex items-center gap-1">
                   <span className="text-base font-medium uppercase">

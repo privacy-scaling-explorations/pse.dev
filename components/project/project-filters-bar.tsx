@@ -128,7 +128,7 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
       projects,
     })
     setSearchQuery('') // clear input
-    router.push(`/projects`)
+    router.push('/projects')
   }
 
   useDebounce(
