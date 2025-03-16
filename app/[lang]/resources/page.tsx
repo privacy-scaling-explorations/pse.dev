@@ -101,7 +101,7 @@ const ResourceNav = ({ lang }: LangProps['params']) => {
 
   useEffect(() => {
     if (sectionsRef.current === null)
-      sectionsRef.current = document.querySelectorAll(`div[data-section]`)
+      sectionsRef.current = document.querySelectorAll('div[data-section]')
     if (!activeId) setActiveId('get-involved')
 
     const handleScroll = () => {

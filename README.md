@@ -1,4 +1,3 @@
-
 # Privacy & Scaling Explorations
 
 Enhancing Ethereum through cryptographic research and collective experimentation.
@@ -6,24 +5,26 @@ Enhancing Ethereum through cryptographic research and collective experimentation
 ## Contributing guidelines
 
 ### Open for contribution.
+
 - For adding new features, please open PR and first merge to staging/dev for QA, or open issue for suggestion, bug report.
 - For any misc. update such as typo, PR to main and two approval is needed.
 
 ### Add/Edit project list
+
 - For updating/adding project detail [you can follow this guide](https://github.com/privacy-scaling-explorations/pse.dev/blob/main/data/projects/README.md)
 
 ## PR Review process
+
 #### For internal, PSE member:
-- Suggest to tag: @kalidiagne, @ChialiT, @AtHeartEngineer, @kichong for PR review.
+
+- Suggest to tag: @kalidiagne, @b1gk4t, @AtHeartEngineer for PR review.
 - If question, please reach out in discord channel #website-pse
 
-
 #### For external:
+
 - Translation PR: please tag a member you know that can help review your translation
 - Any type of PR: please state clear your intention
-For any suggestion, feel free to open issue or send us a message on Discord #suggestion
-
-
+  For any suggestion, feel free to open issue or send us a message on Discord #suggestion
 
 ## Run Locally
 
@@ -51,16 +52,12 @@ Start the app
   yarn dev
 ```
 
-
-
 ## Tech Stack
 
 [@shadcn's Nextjs 13 template](https://github.com/shadcn/next-template)
 
-- Next.js 13 App Directory
+- Next.js 14 App Directory
 - Radix UI Primitives
 - Tailwind CSS
 - Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
 - Tailwind CSS class sorting, merging and linting.
-

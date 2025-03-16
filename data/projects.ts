@@ -112,5 +112,5 @@ export const projects: ProjectInterface[] = [
   postQuantumCryptography,
   machinaIo,
   plasmaFold,
-  vOPRF
+  vOPRF,
 ]

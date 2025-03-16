@@ -62,7 +62,7 @@ export const ProjectList = ({ lang }: LangProps['params']) => {
   useEffect(() => {
     setIsMounted(true)
     if (typeof window !== 'undefined') {
-      sectionsRef.current = document.querySelectorAll(`div[data-section]`)
+      sectionsRef.current = document.querySelectorAll('div[data-section]')
 
       const handleScroll = () => {
         if (isManualScroll) return

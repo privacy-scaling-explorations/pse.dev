@@ -1,11 +1,12 @@
-import { ProjectInterface, ProjectStatus } from '@/lib/types'
+import { ProjectCategory, ProjectInterface, ProjectStatus } from '@/lib/types'
 
 export const machinaIo: ProjectInterface = {
-  id: 'machina_io',
+  id: 'machina-io',
   image: '',
   name: 'MachinaIO',
   section: 'pse',
   projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.RESEARCH,
   content: {
     en: {
       tldr: 'Building the first practical indistinguishability obfuscation (iO) system for secure and scalable cryptographic applications.',

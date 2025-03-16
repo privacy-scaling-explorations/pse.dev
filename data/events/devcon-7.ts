@@ -103,7 +103,8 @@ export const events = [
     ],
     event: {
       title: 'Introduction to Cryptography, New and Old',
-      description: `Data can be useful, and also dangerous. This talk will raise questions and concerns that data enthusiasts might want to consider.`,
+      description:
+        'Data can be useful, and also dangerous. This talk will raise questions and concerns that data enthusiasts might want to consider.',
       url: 'https://app.devcon.org/schedule/R3JC8U',
       date: 'Tuesday, Nov 12',
       time: '4:30 PM - 4:55 PM',
