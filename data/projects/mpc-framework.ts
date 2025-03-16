@@ -10,7 +10,8 @@ export const mpcFramework: ProjectInterface = {
   projectStatus: ProjectStatus.ACTIVE,
   links: {
     github: 'https://github.com/voltrevo/mpc-framework',
-    // website: "https://mpc.pse.dev/",
+    website: 'https://mpc.pse.dev/',
+    telegram: 'https://t.me/+FKnOHTkvmX02ODVl',
   },
   content: {
     en: {
