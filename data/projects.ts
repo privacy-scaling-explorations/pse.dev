@@ -1,6 +1,5 @@
 import { ProjectInterface } from '@/lib/types'
 
-import { ZKSecurityFramework } from './projects/zk-security-framework'
 import { anonAadhaar } from './projects/anon-aadhaar'
 import { anonKlub } from './projects/anon-klub'
 import { bandada } from './projects/bandada'
@@ -60,7 +59,6 @@ import { vOPRF } from './projects/vOPRF'
  * Every 'description' props supports markdown syntax https://www.markdownguide.org/basic-syntax/
  */
 export const projects: ProjectInterface[] = [
-  ZKSecurityFramework,
   pse_halo2,
   sonobe,
   rln,
