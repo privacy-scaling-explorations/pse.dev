@@ -19,7 +19,7 @@ How? Mopro connects different adapters with different platforms. You can think o
 
 With mopro, developers can overcome the limitations of existing tools like \`snarkjs\`, which struggles with small circuit sizes and slow performance in browsers. Our solution leverages the growing power of mobile GPUs to deliver a fast, scalable, and secure proving experience directly on client-side applications
 
-Mopro, short for Mobile Prover, redefines the landscape of mobile app development by introducing an innovative toolkit designed for zero-knowledge (zk) proofs. With mopro, developers can overcome the limitations of existing tools like snarkjs, which struggles with small circuit sizes and slow performance in browsers. Our solution leverages the growing power of mobile GPUs to deliver a fast, scalable, and secure proving experience directly on client-side applications.
+Mopro, short for Mobile Prover, redefines the landscape of mobile app development by introducing an innovative toolkit designed for zero-knowledge (zk) proofs. 
 
 Developer Capabilities:
 
@@ -66,7 +66,7 @@ export const mopro: ProjectInterface = {
     buildWith: [
       {
         label: "Getting Started with mopro",
-        url: "https://zkmopro.org/docs/getting-started/rust-setup",
+        url: "https://zkmopro.org/docs/getting-started",
       },
     ],
     play: [
