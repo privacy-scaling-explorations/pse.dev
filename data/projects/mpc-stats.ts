@@ -24,8 +24,8 @@ MPCStats is a framework that enables data consumers to query statistical computa
     },
   },
   links: {
-    github: "https://github.com/ZKStats",
-    website: "https://t.me/mpcstats",
+    github: "https://github.com/MPCStats",
+    website: "https://mpcstats.github.io/docs",
   },
   tags: {
     keywords: ["MPC", "statistics", "data analysis"],
