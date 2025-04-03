@@ -33,7 +33,7 @@ export const nfctap: ProjectInterface = {
   image: "cursive.webp",
   name: "Cursive",
   links: {
-    github: "https://pse.dev/en/projects/cursive",
+    github: "https://github.com/cursive-team",
     website: "https://www.cursive.team/",
   },
   tags: {
