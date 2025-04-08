@@ -85,19 +85,40 @@ export default function IndexPage({ params: { lang } }: any) {
             </div>
           }
           actions={
-            <Link href={"/projects"} className="flex items-center gap-2 group">
-              <Button className="w-full sm:w-auto">
-                <div className="flex items-center gap-1">
-                  <span className="text-base font-medium uppercase">
-                    {common("exploreProjectLibrary")}
-                  </span>
-                  <Icons.arrowRight
-                    fill="white"
-                    className="h-5 duration-200 ease-in-out group-hover:translate-x-2"
-                  />
-                </div>
-              </Button>
-            </Link>
+            <div className="flex flex-col lg:flex-row gap-10">
+              <Link
+                href={"/research"}
+                className="flex items-center gap-2 group"
+              >
+                <Button className="w-full sm:w-auto">
+                  <div className="flex items-center gap-1">
+                    <span className="text-base font-medium uppercase">
+                      {common("research")}
+                    </span>
+                    <Icons.arrowRight
+                      fill="white"
+                      className="h-5 duration-200 ease-in-out group-hover:translate-x-2"
+                    />
+                  </div>
+                </Button>
+              </Link>
+              <Link
+                href={"/projects"}
+                className="flex items-center gap-2 group"
+              >
+                <Button className="w-full sm:w-auto">
+                  <div className="flex items-center gap-1">
+                    <span className="text-base font-medium uppercase">
+                      {common("developmentProjects")}
+                    </span>
+                    <Icons.arrowRight
+                      fill="white"
+                      className="h-5 duration-200 ease-in-out group-hover:translate-x-2"
+                    />
+                  </div>
+                </Button>
+              </Link>
+            </div>
           }
         />
 
