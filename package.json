@@ -33,6 +33,7 @@
     "dotenv": "^16.4.4",
     "framer-motion": "^10.12.17",
     "fuse.js": "^6.6.2",
+    "gray-matter": "^4.0.3",
     "gsap": "^3.12.1",
     "html-to-react": "^1.7.0",
     "i18next": "^23.7.16",

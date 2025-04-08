@@ -1,9 +1,11 @@
-import React from 'react'
-import ReactMarkdown, { Components } from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+"use client"
+
+import React from "react"
+import ReactMarkdown, { Components } from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 const generateSectionId = (text: string) => {
-  return text.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-")
 }
 
 export const createMarkdownElement = (
@@ -15,7 +17,7 @@ export const createMarkdownElement = (
     ref: (node: HTMLElement | null) => {
       if (node && node.textContent) {
         node.setAttribute(
-          'data-section-id',
+          "data-section-id",
           generateSectionId(node.textContent)
         )
       }
@@ -33,59 +35,69 @@ const Table = (props: any) => {
 // Styling for HTML attributes for markdown component
 const REACT_MARKDOWN_CONFIG: Components = {
   a: ({ ...props }) =>
-    createMarkdownElement('a', {
-      className: 'text-anakiwa-500 hover:text-orange duration-200',
-      target: '_blank',
+    createMarkdownElement("a", {
+      className: "text-anakiwa-500 hover:text-orange duration-200",
+      target: "_blank",
       ...props,
     }),
   h1: ({ ...props }) =>
-    createMarkdownElement('h1', {
-      className: 'text-neutral-800 text-4xl md:text-5xl font-bold',
+    createMarkdownElement("h1", {
+      className: "text-neutral-800 text-4xl md:text-5xl font-bold",
       ...props,
     }),
   h2: ({ ...props }) =>
-    createMarkdownElement('h2', {
-      className: 'text-neutral-800 text-4xl',
+    createMarkdownElement("h2", {
+      className: "text-neutral-800 text-4xl",
       ...props,
     }),
   h3: ({ ...props }) =>
-    createMarkdownElement('h3', {
-      className: 'text-neutral-800 text-3xl',
+    createMarkdownElement("h3", {
+      className: "text-neutral-800 text-3xl",
       ...props,
     }),
   h4: ({ ...props }) =>
-    createMarkdownElement('h4', {
-      className: 'text-neutral-800 text-xl',
+    createMarkdownElement("h4", {
+      className: "text-neutral-800 text-xl",
       ...props,
     }),
   h5: ({ ...props }) =>
-    createMarkdownElement('h5', {
-      className: 'text-neutral-800 text-lg font-bold',
+    createMarkdownElement("h5", {
+      className: "text-neutral-800 text-lg font-bold",
       ...props,
     }),
   h6: ({ ...props }) =>
-    createMarkdownElement('h6', {
-      className: 'text-neutral-800 text-md font-bold',
+    createMarkdownElement("h6", {
+      className: "text-neutral-800 text-md font-bold",
       ...props,
     }),
   p: ({ ...props }) =>
-    createMarkdownElement('p', {
-      className: 'text-tuatara-700 font-sans text-base font-normal',
+    createMarkdownElement("p", {
+      className: "text-tuatara-700 font-sans text-base font-normal",
       ...props,
     }),
   ul: ({ ordered, ...props }) =>
-    createMarkdownElement(ordered ? 'ol' : 'ul', {
+    createMarkdownElement(ordered ? "ol" : "ul", {
       className:
-        'ml-6 list-disc text-tuatara-700 font-sans text-base font-normal',
+        "ml-6 list-disc text-tuatara-700 font-sans text-base font-normal",
       ...props,
     }),
   ol: ({ ordered, ...props }) =>
-    createMarkdownElement(ordered ? 'ol' : 'ul', {
+    createMarkdownElement(ordered ? "ol" : "ul", {
       className:
-        'ml-6 list-disc text-tuatara-700 font-sans text-base font-normal',
+        "ml-6 list-disc text-tuatara-700 font-sans text-base font-normal",
       ...props,
     }),
   table: Table,
+  pre: ({ ...props }) =>
+    createMarkdownElement("pre", {
+      className: "bg-tuatara-950 p-4 rounded-lg text-white",
+      ...props,
+    }),
+  img: ({ ...props }) =>
+    createMarkdownElement("img", {
+      className: "w-full rounded-lg object-cover",
+      ...props,
+    }),
 }
 
 interface MarkdownProps {

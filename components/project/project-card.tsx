@@ -1,19 +1,19 @@
-import React from 'react'
-import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-import { VariantProps, cva } from 'class-variance-authority'
+import React from "react"
+import Image from "next/image"
+import { useRouter } from "next/navigation"
+import { VariantProps, cva } from "class-variance-authority"
 
-import { getProjectById } from '@/lib/projectsUtils'
+import { getProjectById } from "@/lib/projectsUtils"
 import {
   ProjectInterface,
   ProjectLinkWebsite,
   ProjectStatus,
   ProjectStatusLabelMapping,
-} from '@/lib/types'
-import { cn } from '@/lib/utils'
-import { LocaleTypes } from '@/app/i18n/settings'
+} from "@/lib/types"
+import { cn } from "@/lib/utils"
+import { LocaleTypes } from "@/app/i18n/settings"
 
-import { ProjectLink } from './project-link'
+import { ProjectLink } from "./project-link"
 
 interface ProjectCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -24,35 +24,35 @@ interface ProjectCardProps
 }
 
 const tagCardVariants = cva(
-  'text-xs font-sans text-tuatara-950 rounded-[3px] py-[2px] px-[6px]',
+  "text-xs font-sans text-tuatara-950 rounded-[3px] py-[2px] px-[6px]",
   {
     variants: {
       variant: {
-        primary: 'bg-[#D8FEA8]',
-        secondary: 'bg-[#C2E8F5]',
+        primary: "bg-[#D8FEA8]",
+        secondary: "bg-[#C2E8F5]",
       },
     },
   }
 )
 const projectCardVariants = cva(
-  'flex flex-col overflow-hidden rounded-lg transition duration-200 ease-in border border-transparent',
+  "flex flex-col overflow-hidden rounded-lg transition duration-200 ease-in border border-transparent",
   {
     variants: {
       showLinks: {
-        true: 'min-h-[280px]',
-        false: 'min-h-[200px]',
+        true: "min-h-[280px]",
+        false: "min-h-[200px]",
       },
       border: {
-        true: 'border border-slate-900/20',
+        true: "border border-slate-900/20",
       },
     },
   }
 )
 
 export const ProjectStatusColorMapping: Record<ProjectStatus, string> = {
-  active: '#D8FEA8',
-  inactive: '#FFB7AA',
-  maintained: '#FFEC9E',
+  active: "#D8FEA8",
+  inactive: "#FFB7AA",
+  maintained: "#FFEC9E",
 }
 
 export default function ProjectCard({
@@ -73,7 +73,7 @@ export default function ProjectCard({
   return (
     <div
       className={cn(
-        'group',
+        "group",
         projectCardVariants({ showLinks, border, className })
       )}
     >
@@ -85,7 +85,7 @@ export default function ProjectCard({
           }}
         >
           <Image
-            src={`/project-banners/${image ? image : 'fallback.webp'}`}
+            src={`/project-banners/${image ? image : "fallback.webp"}`}
             alt={`${name} banner`}
             width={1200}
             height={630}
@@ -143,12 +143,12 @@ export default function ProjectCard({
             {cardTags && (
               <div className="flex items-center gap-1">
                 {cardTags?.primary && (
-                  <div className={tagCardVariants({ variant: 'primary' })}>
+                  <div className={tagCardVariants({ variant: "primary" })}>
                     {cardTags?.primary}
                   </div>
                 )}
                 {cardTags?.secondary && (
-                  <div className={tagCardVariants({ variant: 'secondary' })}>
+                  <div className={tagCardVariants({ variant: "secondary" })}>
                     {cardTags?.secondary}
                   </div>
                 )}
