@@ -1,11 +1,11 @@
-import { ProjectCategory, ProjectInterface, ProjectStatus } from '@/lib/types'
+import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const postQuantumCryptography: ProjectInterface = {
-  id: 'post-quantum-cryptography',
-  image: '',
-  name: 'Post-Quantum Cryptography and Ethereum',
+  id: "post-quantum-cryptography",
+  image: "",
+  name: "Post-Quantum Cryptography and Ethereum",
   category: ProjectCategory.RESEARCH,
-  section: 'pse',
+  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   content: {
     en: {
@@ -45,13 +45,13 @@ At PSE, we are committed to staying at the forefront of the rapidly evolving fie
   },
   tags: {
     keywords: [
-      'post-quantum cryptography',
-      'Ethereum',
-      'security',
-      'cryptography',
+      "post-quantum cryptography",
+      "Ethereum",
+      "security",
+      "cryptography",
     ],
-    themes: ['cryptography', 'security'],
-    types: ['research', 'development'],
-    builtWith: ['ECC', 'PQC', 'zero-knowledge proofs'],
+    themes: ["cryptography", "security"],
+    types: ["research", "development"],
+    builtWith: ["ECC", "PQC", "zero-knowledge proofs"],
   },
 }

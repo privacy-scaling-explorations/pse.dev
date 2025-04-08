@@ -3,11 +3,11 @@ import {
   ProjectContent,
   ProjectInterface,
   ProjectStatus,
-} from '@/lib/types'
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
-    tldr: 'Tools for building build privacy-preserving applications using government ID cards, specifically Aadhaar cards in India.',
+    tldr: "Tools for building build privacy-preserving applications using government ID cards, specifically Aadhaar cards in India.",
     description: `
 ### Overview
 
@@ -40,31 +40,31 @@ We developed a prover for [Digilocker](https://www.digilocker.gov.in/), that let
 }
 
 export const anonAadhaar: ProjectInterface = {
-  id: 'anon-aadhaar',
+  id: "anon-aadhaar",
   category: ProjectCategory.APPLICATION,
-  section: 'pse',
+  section: "pse",
   content,
   projectStatus: ProjectStatus.ACTIVE,
-  image: 'anon-aadhaar.svg',
-  license: 'MIT',
-  name: 'Anon Aadhaar',
+  image: "anon-aadhaar.svg",
+  license: "MIT",
+  name: "Anon Aadhaar",
   links: {
-    website: 'https://anon-aadhaar.pse.dev/',
-    github: 'https://github.com/privacy-scaling-explorations/anon-aadhaar',
-    telegram: 'https://t.me/anon_aadhaar',
-    twitter: 'https://twitter.com/AnonAadhaar',
+    website: "https://anon-aadhaar.pse.dev/",
+    github: "https://github.com/privacy-scaling-explorations/anon-aadhaar",
+    telegram: "https://t.me/anon_aadhaar",
+    twitter: "https://twitter.com/AnonAadhaar",
   },
   tags: {
-    keywords: ['Anonymity/privacy', 'Social', 'Identity', 'Voting/governance'],
-    themes: ['build', 'play'],
-    types: ['Legos/dev tools', 'Lego sets/toolkits', 'Proof of concept'],
-    builtWith: ['circom', 'rsa', 'TypeScript', 'Solidity'],
+    keywords: ["Anonymity/privacy", "Social", "Identity", "Voting/governance"],
+    themes: ["build", "play"],
+    types: ["Legos/dev tools", "Lego sets/toolkits", "Proof of concept"],
+    builtWith: ["circom", "rsa", "TypeScript", "Solidity"],
   },
   extraLinks: {
     play: [
       {
-        label: 'Try it out: On-Chain Voting App',
-        url: 'https://boilerplate.anon-aadhaar.pse.dev/',
+        label: "Try it out: On-Chain Voting App",
+        url: "https://boilerplate.anon-aadhaar.pse.dev/",
       },
     ],
   },

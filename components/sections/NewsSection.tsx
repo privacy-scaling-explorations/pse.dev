@@ -1,16 +1,16 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
+import React from "react"
+import { useEffect, useState } from "react"
+import Link from "next/link"
 
-import { siteConfig } from '@/config/site'
-import { AnnounceInterface } from '@/lib/types'
-import { convertDirtyStringToHtml } from '@/lib/utils'
-import { useTranslation } from '@/app/i18n/client'
-import { LocaleTypes } from '@/app/i18n/settings'
+import { siteConfig } from "@/config/site"
+import { AnnounceInterface } from "@/lib/types"
+import { convertDirtyStringToHtml } from "@/lib/utils"
+import { useTranslation } from "@/app/i18n/client"
+import { LocaleTypes } from "@/app/i18n/settings"
 
-import { Icons } from '../icons'
-import { AppContent } from '../ui/app-content'
-import { Parser as HtmlToReactParser } from 'html-to-react'
+import { Icons } from "../icons"
+import { AppContent } from "../ui/app-content"
+import { Parser as HtmlToReactParser } from "html-to-react"
 
 interface NewsSectionProps {
   lang: LocaleTypes
@@ -28,7 +28,7 @@ const ContentPlaceholder = () => (
 )
 
 export const NewsSection = ({ lang }: NewsSectionProps) => {
-  const { t } = useTranslation(lang, 'news-section')
+  const { t } = useTranslation(lang, "news-section")
 
   const [newsItems, setNewsItems] = useState<AnnounceInterface[]>([])
   const [loading, setLoading] = useState(true)
@@ -36,7 +36,7 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
   useEffect(() => {
     const getDiscordAnnouncements = async () => {
       setLoading(true)
-      await fetch('/api/news')
+      await fetch("/api/news")
         .then((res) => res.json())
         .then(({ announcements }: { announcements: AnnounceInterface[] }) => {
           setNewsItems(announcements ?? [])
@@ -53,7 +53,7 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
   const htmlToReactParser = new HtmlToReactParser()
   const announcementContent = htmlToReactParser.parse(
     convertDirtyStringToHtml(
-      news?.content || news?.message_snapshots?.[0]?.message?.content || ''
+      news?.content || news?.message_snapshots?.[0]?.message?.content || ""
     )
   )
 
@@ -65,7 +65,7 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
     <div className="bg-white py-16">
       <div className="flex flex-col gap-10 ">
         <h3 className="text-base font-bold font-sans text-center uppercase tracking-[3.36px]">
-          {t('recentUpdates')}
+          {t("recentUpdates")}
         </h3>
         <AppContent className="mx-auto flex max-w-[978px] flex-col gap-4">
           <div className="flex gap-6 flex-col border border-tuatara-950 bg-anakiwa-100 p-6 rounded-[8px] ">
@@ -74,9 +74,9 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
                 news?.timestamp && (
                   <span className="text-anakiwa-600 text-lg font-bold font-display">
                     {new Intl.DateTimeFormat(lang, {
-                      month: 'long',
-                      day: 'numeric',
-                      year: 'numeric',
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
                     }).format(new Date(news?.timestamp))}
                   </span>
                 )
@@ -93,8 +93,8 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
               >
                 <Icons.twitter size={24} className="text-anakiwa-500" />
                 <span className="flex text-anakiwa-900 underline font-medium leading-[24px]">
-                  {t('repostOnSocial', {
-                    socialName: 'X',
+                  {t("repostOnSocial", {
+                    socialName: "X",
                   })}
                 </span>
               </Link>
@@ -111,7 +111,7 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
             passHref
           >
             <Icons.discord className="text-anakiwa-400" />
-            <span>{t('seeAllUpdates')}</span>
+            <span>{t("seeAllUpdates")}</span>
             <Icons.externalUrl className="text-tuatara-950" />
           </Link>
         </AppContent>
@@ -120,4 +120,4 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
   )
 }
 
-NewsSection.displayName = 'NewsSection'
+NewsSection.displayName = "NewsSection"

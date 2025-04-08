@@ -3,7 +3,7 @@ import {
   ProjectContent,
   ProjectInterface,
   ProjectStatus,
-} from '@/lib/types'
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
@@ -14,35 +14,35 @@ const content: ProjectContent = {
 }
 
 export const Coco: ProjectInterface = {
-  id: 'coco',
-  image: 'coco.svg',
+  id: "coco",
+  image: "coco.svg",
   category: ProjectCategory.APPLICATION,
-  section: 'archived',
-  name: 'COCO',
+  section: "archived",
+  name: "COCO",
   projectStatus: ProjectStatus.INACTIVE,
   content,
   tags: {
-    keywords: ['prediction market', 'scaling'],
+    keywords: ["prediction market", "scaling"],
   },
   extraLinks: {
     learn: [
       {
-        label: 'Meet COCO!',
-        url: 'https://mirror.xyz/privacy-scaling-explorations.eth/tEf7iYa8l7ECZwN2T57yyiws7h9Uchip30CQvx-JBBQ',
+        label: "Meet COCO!",
+        url: "https://mirror.xyz/privacy-scaling-explorations.eth/tEf7iYa8l7ECZwN2T57yyiws7h9Uchip30CQvx-JBBQ",
       },
     ],
     buildWith: [
       {
-        label: 'Smart contracts',
-        url: 'https://github.com/Janmajayamall/coco-contracts',
+        label: "Smart contracts",
+        url: "https://github.com/Janmajayamall/coco-contracts",
       },
       {
-        label: 'Frontend',
-        url: 'https://github.com/Janmajayamall/coco-frontend',
+        label: "Frontend",
+        url: "https://github.com/Janmajayamall/coco-frontend",
       },
       {
-        label: 'Frontend (General)',
-        url: 'https://github.com/Janmajayamall/coco-frontend-general',
+        label: "Frontend (General)",
+        url: "https://github.com/Janmajayamall/coco-frontend-general",
       },
     ],
   },

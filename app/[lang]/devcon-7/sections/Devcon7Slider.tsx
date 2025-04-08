@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import React, { useEffect, useState } from 'react'
-import Slider from 'react-slick'
+import React, { useEffect, useState } from "react"
+import Slider from "react-slick"
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import Image from 'next/image'
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import Image from "next/image"
 
 const AnySlider = Slider as any
 
@@ -48,23 +48,23 @@ export const Devcon7Slider = () => {
     appendDots: (dots: React.ReactNode) => (
       <div
         style={{
-          borderRadius: '10px',
-          padding: '10px',
+          borderRadius: "10px",
+          padding: "10px",
         }}
       >
-        <ul style={{ margin: '0px' }}> {dots} </ul>
+        <ul style={{ margin: "0px" }}> {dots} </ul>
       </div>
     ),
     customPaging: (i: number) => <div className="h-4 w-4 rounded-full  mt-5" />,
   }
 
   const images = [
-    '/images/devcon-7/devcon-7-overview-1.jpg',
-    '/images/devcon-7/devcon-7-overview-2.jpg',
-    '/images/devcon-7/devcon-7-overview-3.jpg',
-    '/images/devcon-7/devcon-7-overview-4.jpg',
-    '/images/devcon-7/devcon-7-overview-5.jpg',
-    '/images/devcon-7/devcon-7-overview-6.jpg',
+    "/images/devcon-7/devcon-7-overview-1.jpg",
+    "/images/devcon-7/devcon-7-overview-2.jpg",
+    "/images/devcon-7/devcon-7-overview-3.jpg",
+    "/images/devcon-7/devcon-7-overview-4.jpg",
+    "/images/devcon-7/devcon-7-overview-5.jpg",
+    "/images/devcon-7/devcon-7-overview-6.jpg",
   ]
 
   return (

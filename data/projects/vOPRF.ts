@@ -1,18 +1,18 @@
-import { ProjectCategory, ProjectInterface, ProjectStatus } from '@/lib/types'
+import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const vOPRF: ProjectInterface = {
-  id: 'vOPRF',
-  image: '',
-  name: 'Web2-ID Nullifiers using vOPRF',
-  section: 'pse',
+  id: "vOPRF",
+  image: "",
+  name: "Web2-ID Nullifiers using vOPRF",
+  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.RESEARCH,
   links: {
-    github: 'https://github.com/privacy-scaling-explorations/vOPRF-ID/',
+    github: "https://github.com/privacy-scaling-explorations/vOPRF-ID/",
   },
   content: {
     en: {
-      tldr: 'Enabling pseudonymous systems for Web2 identities using verifiable Oblivious PseudoRandom Functions (vOPRFs).',
+      tldr: "Enabling pseudonymous systems for Web2 identities using verifiable Oblivious PseudoRandom Functions (vOPRFs).",
       description: `
 ### Overview  
 
@@ -54,9 +54,9 @@ The Web2-ID Nullifiers project enables **pseudonymous systems for Web2 identitie
     },
   },
   tags: {
-    keywords: ['vOPRF', 'nullifiers', 'Web2', 'privacy', 'ZK proofs', 'MPC'],
-    themes: ['privacy', 'identity', 'zero-knowledge proofs'],
-    types: ['research', 'development'],
-    builtWith: ['vOPRF', 'MPC', 'ZK proofs'],
+    keywords: ["vOPRF", "nullifiers", "Web2", "privacy", "ZK proofs", "MPC"],
+    themes: ["privacy", "identity", "zero-knowledge proofs"],
+    types: ["research", "development"],
+    builtWith: ["vOPRF", "MPC", "ZK proofs"],
   },
 }

@@ -1,33 +1,33 @@
-'use client'
+"use client"
 
-import { useCallback, useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { useCallback, useEffect, useRef, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
 
-import { LangProps } from '@/types/common'
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
-import { AppContent } from '@/components/ui/app-content'
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { Banner } from '@/components/banner'
-import { Divider } from '@/components/divider'
-import { Icons } from '@/components/icons'
-import { PageHeader } from '@/components/page-header'
-import { useTranslation } from '@/app/i18n/client'
+import { LangProps } from "@/types/common"
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { AppContent } from "@/components/ui/app-content"
+import { Button } from "@/components/ui/button"
+import { Label } from "@/components/ui/label"
+import { Banner } from "@/components/banner"
+import { Divider } from "@/components/divider"
+import { Icons } from "@/components/icons"
+import { PageHeader } from "@/components/page-header"
+import { useTranslation } from "@/app/i18n/client"
 
-import ResourcesContent from '../content/resources.md'
+import ResourcesContent from "../content/resources.md"
 
 interface ResourceItemProps {
   label: string
   icon?:
-    | 'globe'
-    | 'discord'
-    | 'twitter'
-    | 'gitHub'
-    | 'notion'
-    | 'figma'
-    | 'drive'
+    | "globe"
+    | "discord"
+    | "twitter"
+    | "gitHub"
+    | "notion"
+    | "figma"
+    | "drive"
   description: string
   url: string
 }
@@ -40,7 +40,7 @@ interface ResourceCardProps {
 
 const ResourceItem = ({
   label,
-  icon = 'globe',
+  icon = "globe",
   description,
   url,
 }: ResourceItemProps) => {
@@ -85,24 +85,24 @@ const ResourceCard = ({ id, title, children }: ResourceCardProps) => {
   )
 }
 
-const ResourceNav = ({ lang }: LangProps['params']) => {
-  const { t } = useTranslation(lang, 'resources-page')
+const ResourceNav = ({ lang }: LangProps["params"]) => {
+  const { t } = useTranslation(lang, "resources-page")
 
   const SCROLL_OFFSET = 80
-  const [activeId, setActiveId] = useState('')
+  const [activeId, setActiveId] = useState("")
   const [isManualScroll, setIsManualScroll] = useState(false)
   const ID_LABELS_MAPPING: Record<string, string> = {
-    'get-involved': t('nav.getInvolved'),
-    learn: t('nav.learn'),
-    build: t('nav.build'),
-    design: t('nav.design'),
+    "get-involved": t("nav.getInvolved"),
+    learn: t("nav.learn"),
+    build: t("nav.build"),
+    design: t("nav.design"),
   }
   const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null) // sections are constant so useRef might be better here
 
   useEffect(() => {
     if (sectionsRef.current === null)
-      sectionsRef.current = document.querySelectorAll('div[data-section]')
-    if (!activeId) setActiveId('get-involved')
+      sectionsRef.current = document.querySelectorAll("div[data-section]")
+    if (!activeId) setActiveId("get-involved")
 
     const handleScroll = () => {
       if (isManualScroll) return
@@ -110,13 +110,13 @@ const ResourceNav = ({ lang }: LangProps['params']) => {
       sectionsRef.current?.forEach((section: any) => {
         const sectionTop = section.offsetTop - SCROLL_OFFSET
         if (window.scrollY >= sectionTop && window.scrollY > 0) {
-          setActiveId(section.getAttribute('id'))
+          setActiveId(section.getAttribute("id"))
         }
       })
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [activeId, isManualScroll])
 
   const scrollToId = useCallback((id: string) => {
@@ -127,7 +127,7 @@ const ResourceNav = ({ lang }: LangProps['params']) => {
       setActiveId(id) // active clicked id
       setIsManualScroll(true) // tell the window event listener to ignore this scrolling
       window?.scrollTo({
-        behavior: 'smooth',
+        behavior: "smooth",
         top: (top ?? 0) - SCROLL_OFFSET,
       })
     }
@@ -139,7 +139,7 @@ const ResourceNav = ({ lang }: LangProps['params']) => {
     <div className="flex flex-col gap-6 p-8">
       <div className="flex flex-col gap-4">
         <h6 className="font-display text-lg font-bold text-tuatara-700">
-          {t('onThisPage')}
+          {t("onThisPage")}
         </h6>
         <ul className="text-normal font-sans text-black">
           {Object.entries(ID_LABELS_MAPPING).map(([id, label]) => {
@@ -152,9 +152,9 @@ const ResourceNav = ({ lang }: LangProps['params']) => {
                 }}
                 data-id={id}
                 className={cn(
-                  'flex h-8 cursor-pointer items-center border-l-2 border-l-anakiwa-200 px-3 duration-200',
+                  "flex h-8 cursor-pointer items-center border-l-2 border-l-anakiwa-200 px-3 duration-200",
                   {
-                    'border-l-anakiwa-500 text-anakiwa-500 font-medium': active,
+                    "border-l-anakiwa-500 text-anakiwa-500 font-medium": active,
                   }
                 )}
               >
@@ -169,14 +169,14 @@ const ResourceNav = ({ lang }: LangProps['params']) => {
 }
 
 export default function ResourcePage({ params: { lang } }: LangProps) {
-  const { t } = useTranslation(lang, 'resources-page')
-  const { t: common } = useTranslation(lang, 'common')
+  const { t } = useTranslation(lang, "resources-page")
+  const { t: common } = useTranslation(lang, "common")
 
   return (
     <Divider.Section className="bg-white">
       <PageHeader
-        title={t('title')}
-        subtitle={t('subtitle')}
+        title={t("title")}
+        subtitle={t("subtitle")}
         image={
           <div className="m-auto flex h-[320px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[343px]">
             <Image
@@ -198,7 +198,7 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
               <div className="flex items-center gap-1">
                 <Icons.discord size={18} />
                 <span className="pl-2 text-left text-sm font-medium uppercase">
-                  {common('addResource')}
+                  {common("addResource")}
                 </span>
                 <Icons.externalUrl size={22} />
               </div>
@@ -232,7 +232,7 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
       <Banner
         title={
           <h3 className="py-2 font-display text-[18px] font-bold text-tuatara-950 md:text-3xl">
-            {t('addResourceQuestion')}
+            {t("addResourceQuestion")}
           </h3>
         }
       >
@@ -247,8 +247,8 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
             <div className="flex items-center gap-1">
               <Icons.discord size={18} />
               <span className="text-[14px] uppercase">
-                {common('connectWithUsOnPlatform', {
-                  platform: 'Discord',
+                {common("connectWithUsOnPlatform", {
+                  platform: "Discord",
                 })}
               </span>
               <Icons.externalUrl size={20} />

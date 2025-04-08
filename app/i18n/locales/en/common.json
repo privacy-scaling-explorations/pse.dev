@@ -1,9 +1,13 @@
 {
   "siteTitle": "Privacy & Scaling Explorations",
   "siteDescription": "Enhancing Ethereum through cryptographic research and collective experimentation.",
+  "activeResearch": "Active Research",
+  "pastResearch": "Past Research",
   "menu": {
     "home": "Home",
     "projectLibrary": "Project Library",
+    "projects": "Projects",
+    "research": "Research",
     "about": "About",
     "resources": "Resources",
     "jobs": "Jobs",

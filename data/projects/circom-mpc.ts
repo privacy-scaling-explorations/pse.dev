@@ -1,14 +1,14 @@
 import {
-    ProjectCategory,
-    ProjectContent,
-    ProjectInterface,
-    ProjectStatus,
-  } from "@/lib/types"
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
 
 const content: ProjectContent = {
-    en: {
-        tldr: "PSE Research project that enables the use of the Circom language to develop MPC applications.",
-        description: `Circom-MPC is a set of projects designed to compile and run arithmetic and boolean MPC circuits written in Circom.
+  en: {
+    tldr: "PSE Research project that enables the use of the Circom language to develop MPC applications.",
+    description: `Circom-MPC is a set of projects designed to compile and run arithmetic and boolean MPC circuits written in Circom.
 In this project, we envisioned MPC as a broader paradigm, where MPC serves as an umbrella for generic techniques such as Zero-Knowledge Proof, Garbled Circuit, Secret-Sharing, or Fully Homomorphic Encryption.
 
 Throughout this research the team produced some valuable resources and insights, including:
@@ -24,23 +24,23 @@ We decided to sunset the project for a few reasons:
 
 Therefore, we will leave it as a paradigm, and hope that any interested party will pick it up and continue its development.
     `,
-    }
+  },
 }
 
 export const circomMpc: ProjectInterface = {
-    id: "circom-mpc",
-    category: ProjectCategory.RESEARCH,
-    projectStatus: ProjectStatus.INACTIVE,
-    section: "pse",
-    content,
-    image: "",
-    imageAlt: "Circom-MPC",
-    name: "Circom-MPC",
-    links: {
-        github: "https://github.com/namnc/circom-2-arithc",
-      },
-    tags: {
-        keywords: ["mpc", "circom", "mp-spdz"],
-        themes: ["research"],
-    },
+  id: "circom-mpc",
+  category: ProjectCategory.RESEARCH,
+  projectStatus: ProjectStatus.INACTIVE,
+  section: "pse",
+  content,
+  image: "",
+  imageAlt: "Circom-MPC",
+  name: "Circom-MPC",
+  links: {
+    github: "https://github.com/namnc/circom-2-arithc",
+  },
+  tags: {
+    keywords: ["mpc", "circom", "mp-spdz"],
+    themes: ["research"],
+  },
 }

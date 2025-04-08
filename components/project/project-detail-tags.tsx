@@ -1,17 +1,17 @@
-'use client'
+"use client"
 
-import { HtmlHTMLAttributes } from 'react'
-import Link from 'next/link'
+import { HtmlHTMLAttributes } from "react"
+import Link from "next/link"
 import {
   FilterLabelMapping,
   ProjectFilter,
-} from '@/state/useProjectFiltersState'
+} from "@/state/useProjectFiltersState"
 
-import { ProjectInterface } from '@/lib/types'
-import { useTranslation } from '@/app/i18n/client'
-import { LocaleTypes } from '@/app/i18n/settings'
+import { ProjectInterface } from "@/lib/types"
+import { useTranslation } from "@/app/i18n/client"
+import { LocaleTypes } from "@/app/i18n/settings"
 
-import { CategoryTag } from '../ui/categoryTag'
+import { CategoryTag } from "../ui/categoryTag"
 
 interface TagsProps extends HtmlHTMLAttributes<HTMLDivElement> {
   label: string
@@ -32,7 +32,7 @@ type IProjectTags = {
 }
 
 export function ProjectTags({ project, lang }: IProjectTags) {
-  const { t } = useTranslation(lang, 'common')
+  const { t } = useTranslation(lang, "common")
 
   return (
     <div className="flex flex-col gap-4 pt-10">
@@ -40,7 +40,7 @@ export function ProjectTags({ project, lang }: IProjectTags) {
         const keyTags = project?.tags?.[key as ProjectFilter]
         const hasItems = keyTags && keyTags?.length > 0
 
-        if (['themes', 'builtWith'].includes(key)) return null // keys to ignore
+        if (["themes", "builtWith"].includes(key)) return null // keys to ignore
         return (
           hasItems && (
             <div data-section-id={key} key={key}>
