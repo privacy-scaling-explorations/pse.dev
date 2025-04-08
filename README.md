@@ -9,6 +9,10 @@ Enhancing Ethereum through cryptographic research and collective experimentation
 - For adding new features, please open PR and first merge to staging/dev for QA, or open issue for suggestion, bug report.
 - For any misc. update such as typo, PR to main and two approval is needed.
 
+### Add/Edit article
+
+- For updating/adding a new article [you can follow this guide](https://github.com/privacy-scaling-explorations/pse.dev/blob/main/articles/README.md)
+
 ### Add/Edit project list
 
 - For updating/adding project detail [you can follow this guide](https://github.com/privacy-scaling-explorations/pse.dev/blob/main/data/projects/README.md)
