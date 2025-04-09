@@ -41,7 +41,7 @@ UTXO-based model for transaction tracking and a focus on user accessibility via 
 broader trend of combining zero-knowledge cryptography with rollup technology, paving the way for projects like Aztec and Polygon Nightfall.
 
 In summary, ZkOPRU is a pioneering effort to bring privacy to Ethereum's Layer 2 ecosystem, leveraging zk-SNARKs and optimistic rollups to offer a scalable, confidential transaction 
-layer as of its last significant updates around 2020-2021.,
+layer as of its last significant updates around 2020-2021.`,
   },
 }
 
