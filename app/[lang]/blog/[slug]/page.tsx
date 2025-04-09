@@ -1,3 +1,4 @@
+import { blogArticleCardTagCardVariants } from "@/components/blog/blog-article-card"
 import { BlogContent } from "@/components/blog/blog-content"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
@@ -33,7 +34,24 @@ export default function BlogArticle({ params }: any) {
         <div className="w-full bg-cover-gradient border-b border-tuatara-300">
           <AppContent className="flex flex-col gap-4 py-10 max-w-[978px]">
             <Label.PageTitle label={post?.title} />
-            {post?.tldr && <Markdown>{post?.tldr}</Markdown>}
+            {post?.date || post?.tldr ? (
+              <div className="flex flex-col gap-2">
+                {post?.date && (
+                  <div
+                    className={blogArticleCardTagCardVariants({
+                      variant: "secondary",
+                    })}
+                  >
+                    {new Date(post?.date).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </div>
+                )}
+                {post?.tldr && <Markdown>{post?.tldr}</Markdown>}
+              </div>
+            ) : null}
           </AppContent>
         </div>
       </div>

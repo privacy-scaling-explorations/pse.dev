@@ -1,8 +1,9 @@
 import { Article } from "@/lib/blog"
+import { cn } from "@/lib/utils"
 import { cva } from "class-variance-authority"
 import Image from "next/image"
 
-const tagCardVariants = cva(
+export const blogArticleCardTagCardVariants = cva(
   "text-xs font-sans text-tuatara-950 rounded-[3px] py-[2px] px-[6px] w-fit shrink-[0]",
   {
     variants: {
@@ -25,7 +26,7 @@ export const BlogArticleCard = ({
   return (
     <div className="flex flex-col h-full">
       <div className="relative h-48 w-full overflow-hidden bg-gray-100">
-        {image && (
+        {!!image && (
           <Image
             src={imageUrl}
             alt={title}
@@ -61,7 +62,12 @@ export const BlogArticleCard = ({
             </p>
           )}
           {date && (
-            <div className={tagCardVariants({ variant: "secondary" })}>
+            <div
+              className={cn(
+                "ml-auto",
+                blogArticleCardTagCardVariants({ variant: "secondary" })
+              )}
+            >
               {new Date(date).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
