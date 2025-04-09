@@ -6,14 +6,14 @@ import { Markdown } from "@/components/ui/markdown"
 import { getArticles, getArticleById } from "@/lib/blog"
 
 export const generateStaticParams = async () => {
-  const articles = getArticles()
+  const articles = await getArticles()
   return articles.map(({ id }) => ({
     slug: id,
   }))
 }
 
 export async function generateMetadata({ params }: any) {
-  const post = getArticleById(params.slug)
+  const post = await getArticleById(params.slug)
 
   const imageUrl =
     (post?.image ?? "")?.length > 0

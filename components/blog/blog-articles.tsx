@@ -1,7 +1,5 @@
 import { Article, getArticles } from "@/lib/blog"
 import Link from "next/link"
-import Image from "next/image"
-import { cva } from "class-variance-authority"
 import { BlogArticleCard } from "./blog-article-card"
 
 export const BlogArticles = () => {

@@ -19,7 +19,7 @@ export interface Article {
 const articlesDirectory = path.join(process.cwd(), "articles")
 
 // Get all articles from /articles
-export function getArticles() {
+export function getArticles(limit: number = 1000) {
   // Get file names under /articles
   const fileNames = fs.readdirSync(articlesDirectory)
   const allArticlesData = fileNames.map((fileName) => {
@@ -81,6 +81,7 @@ export function getArticles() {
       // Sort in descending order (newest first)
       return dateB.getTime() - dateA.getTime()
     })
+    .slice(0, limit)
     .filter((article: any) => article.id !== "_article-template") as Article[]
 }
 

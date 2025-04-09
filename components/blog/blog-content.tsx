@@ -31,17 +31,14 @@ export function BlogImage({ image, alt, description }: BlogImageProps) {
   )
 }
 
-export function BlogContent({ post }: BlogContentProps) {
-  const articleIndex = getArticles().findIndex(
-    (article) => article.id === post.id
-  )
+export async function BlogContent({ post }: BlogContentProps) {
+  const articles = getArticles() ?? []
+  const articleIndex = articles.findIndex((article) => article.id === post.id)
 
-  const prevArticle = articleIndex > 0 ? getArticles()[articleIndex - 1] : null
+  const prevArticle = articleIndex > 0 ? articles[articleIndex - 1] : null
 
   const nextArticle =
-    articleIndex < getArticles().length - 1
-      ? getArticles()[articleIndex + 1]
-      : null
+    articleIndex < articles.length - 1 ? articles[articleIndex + 1] : null
 
   const moreArticles = [prevArticle, nextArticle].filter(Boolean) as Article[]
 
