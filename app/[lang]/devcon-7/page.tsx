@@ -1,19 +1,19 @@
-import React from 'react'
-import { Metadata } from 'next'
+import React from "react"
+import { Metadata } from "next"
 
-import { Devcon7Booths } from './sections/Devcon7Booths'
-import { Devcon7Header } from './sections/Devcon7Header'
-import { Devcon7Section } from './sections/Devcon7Section'
+import { Devcon7Booths } from "./sections/Devcon7Booths"
+import { Devcon7Header } from "./sections/Devcon7Header"
+import { Devcon7Section } from "./sections/Devcon7Section"
 
-import { Devcon7Slider } from './sections/Devcon7Slider'
+import { Devcon7Slider } from "./sections/Devcon7Slider"
 
 export const metadata: Metadata = {
-  title: 'Devcon 7',
-  description: 'PSE x Devcon 7 Southeast Asia',
+  title: "Devcon 7",
+  description: "PSE x Devcon 7 Southeast Asia",
   openGraph: {
     images: [
       {
-        url: '/devcon-7-cover.png',
+        url: "/devcon-7-cover.png",
         width: 1200,
         height: 630,
       },

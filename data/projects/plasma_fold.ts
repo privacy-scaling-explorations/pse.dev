@@ -1,15 +1,15 @@
-import { ProjectCategory, ProjectInterface, ProjectStatus } from '@/lib/types'
+import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const plasmaFold: ProjectInterface = {
-  id: 'plasma-fold',
-  image: '',
-  name: 'Plasma Fold',
-  section: 'pse',
+  id: "plasma-fold",
+  image: "",
+  name: "Plasma Fold",
+  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.RESEARCH,
   content: {
     en: {
-      tldr: 'Integrating folding schemes into plasma-based L2 solutions for efficient and scalable Ethereum transactions.',
+      tldr: "Integrating folding schemes into plasma-based L2 solutions for efficient and scalable Ethereum transactions.",
       description: `
 ### Leveraging Folding Schemes for Efficient L2 Solutions  
 
@@ -36,15 +36,15 @@ Our goal is to design and benchmark a client-friendly zk/plasma scaling solution
   },
   tags: {
     keywords: [
-      'plasma',
-      'folding schemes',
-      'Ethereum',
-      'scalability',
-      'L2',
-      'zero-knowledge proofs',
+      "plasma",
+      "folding schemes",
+      "Ethereum",
+      "scalability",
+      "L2",
+      "zero-knowledge proofs",
     ],
-    themes: ['scalability', 'L2 solutions', 'zk proofs'],
-    types: ['research', 'development'],
-    builtWith: ['plasma', 'zk proofs', 'folding schemes'],
+    themes: ["scalability", "L2 solutions", "zk proofs"],
+    types: ["research", "development"],
+    builtWith: ["plasma", "zk proofs", "folding schemes"],
   },
 }

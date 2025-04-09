@@ -3,11 +3,11 @@ import {
   ProjectContent,
   ProjectInterface,
   ProjectStatus,
-} from '@/lib/types'
+} from "@/lib/types"
 
 const content: ProjectContent = {
   en: {
-    tldr: 'an on-chain flexible & composable framework to create, reuse and customize gatekeepers.',
+    tldr: "an on-chain flexible & composable framework to create, reuse and customize gatekeepers.",
     description: `### Overview  
 Excubiae is a composable framework for implementing custom, attribute-based access control policies on EVM-compatible networks. It separates policy definition (*what rules to enforce*) from policy checking (*how to validate those rules*), enabling flexible and reusable access control patterns.  
 
@@ -54,24 +54,24 @@ For deeper insights into the core design, philosophy, roadmap, and integration g
 }
 
 export const excubiae: ProjectInterface = {
-  id: 'excubiae',
+  id: "excubiae",
   category: ProjectCategory.DEVTOOLS,
   content,
   projectStatus: ProjectStatus.MAINTAINED,
-  section: 'pse',
-  image: '',
-  license: 'MIT',
-  name: 'Excubiae',
+  section: "pse",
+  image: "",
+  license: "MIT",
+  name: "Excubiae",
   links: {
-    github: 'https://github.com/privacy-scaling-explorations/excubiae',
+    github: "https://github.com/privacy-scaling-explorations/excubiae",
     discord:
-      'https://discord.com/channels/943612659163602974/1332087370065117260',
+      "https://discord.com/channels/943612659163602974/1332087370065117260",
   },
   tags: {
-    keywords: ['Gatekeeper', 'Access Control', 'Policy', 'Checker'],
-    themes: ['build'],
-    types: ['Legos/dev tools', 'Lego sets/frameworks'],
-    builtWith: ['TypeScript', 'Solidity'],
+    keywords: ["Gatekeeper", "Access Control", "Policy", "Checker"],
+    themes: ["build"],
+    types: ["Legos/dev tools", "Lego sets/frameworks"],
+    builtWith: ["TypeScript", "Solidity"],
   },
   extraLinks: {},
 }

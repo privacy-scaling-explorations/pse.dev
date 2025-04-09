@@ -1,9 +1,13 @@
 {
   "siteTitle": "Privacy & Scaling Explorations",
   "siteDescription": "Enhancing Ethereum through cryptographic research and collective experimentation.",
+  "activeResearch": "Active Research",
+  "pastResearch": "Past Research",
   "menu": {
     "home": "Home",
     "projectLibrary": "Project Library",
+    "projects": "Projects",
+    "research": "Research",
     "about": "About",
     "resources": "Resources",
     "jobs": "Jobs",
@@ -74,6 +78,8 @@
   "noResults": "No results found.",
   "noResultsDescription": "Sorry, we couldn't find any results for your search. Please try again with different keywords.",
   "exploreProjectLibrary": "Explore Project Library",
+  "developmentProjects": "Development Projects",
+  "research": "Research",
   "clearAll": "Clear all",
   "showProjects": "Show projects",
   "filters": "Filters",

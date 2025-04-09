@@ -1,4 +1,4 @@
-import { Icons } from '../icons'
+import { Icons } from "../icons"
 
 export const ProjectLinkIconMap: Record<string, any> = {
   github: (

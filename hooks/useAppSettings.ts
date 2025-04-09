@@ -22,8 +22,12 @@ export function useAppSettings(lang: LocaleTypes) {
       onlyFooter: true,
     },
     {
-      title: t("menu.projectLibrary"),
+      title: t("menu.projects"),
       href: "/projects",
+    },
+    {
+      title: t("menu.research"),
+      href: "/research",
     },
     {
       title: t("menu.programs"),

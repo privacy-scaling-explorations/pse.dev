@@ -1,20 +1,20 @@
-import { projects } from '@/data/projects'
-import Fuse from 'fuse.js'
-import i18next from 'i18next'
-import { create } from 'zustand'
+import { projects } from "@/data/projects"
+import Fuse from "fuse.js"
+import i18next from "i18next"
+import { create } from "zustand"
 
-import { ProjectCategory, ProjectInterface } from '@/lib/types'
-import { uniq } from '@/lib/utils'
-import { LocaleTypes, fallbackLng } from '@/app/i18n/settings'
+import { ProjectCategory, ProjectInterface } from "@/lib/types"
+import { uniq } from "@/lib/utils"
+import { LocaleTypes, fallbackLng } from "@/app/i18n/settings"
 
-export type ProjectSortBy = 'random' | 'asc' | 'desc' | 'relevance'
+export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
 export type ProjectFilter =
-  | 'keywords'
-  | 'builtWith'
-  | 'themes'
-  | 'fundingSource'
+  | "keywords"
+  | "builtWith"
+  | "themes"
+  | "fundingSource"
 export type FiltersProps = Record<ProjectFilter, string[]>
-export const DEFAULT_PROJECT_SORT_BY: ProjectSortBy = 'asc'
+export const DEFAULT_PROJECT_SORT_BY: ProjectSortBy = "asc"
 interface ProjectInterfaceScore extends ProjectInterface {
   score: number
 }
@@ -32,26 +32,27 @@ export const SortByFnMapping: Record<
 export const FilterLabelMapping = (
   lang?: LocaleTypes
 ): Record<ProjectFilter, string> => {
-  const t = i18next.getFixedT(lang ?? fallbackLng, 'common')
+  const t = i18next.getFixedT(lang ?? fallbackLng, "common")
   return {
-    keywords: t('filterLabels.keywords'),
-    builtWith: t('filterLabels.builtWith'),
-    themes: t('filterLabels.themes'),
-    fundingSource: t('filterLabels.fundingSource'),
+    keywords: t("filterLabels.keywords"),
+    builtWith: t("filterLabels.builtWith"),
+    themes: t("filterLabels.themes"),
+    fundingSource: t("filterLabels.fundingSource"),
   }
 }
 
 export const FilterTypeMapping: Partial<
-  Record<ProjectFilter, 'checkbox' | 'button'>
+  Record<ProjectFilter, "checkbox" | "button">
 > = {
-  keywords: 'checkbox',
-  builtWith: 'checkbox',
-  themes: 'button',
-  fundingSource: 'checkbox',
+  keywords: "checkbox",
+  builtWith: "checkbox",
+  themes: "button",
+  fundingSource: "checkbox",
 }
 interface ProjectStateProps {
   sortBy: ProjectSortBy
   projects: ProjectInterface[]
+  researchs: ProjectInterface[]
   filters: FiltersProps
   activeFilters: Partial<FiltersProps>
   queryString: string
@@ -81,17 +82,17 @@ interface ProjectActionsProps {
 }
 
 const createURLQueryString = (params: Partial<FiltersProps>): string => {
-  if (Object.keys(params)?.length === 0) return '' // no params, return empty string
+  if (Object.keys(params)?.length === 0) return "" // no params, return empty string
   const qs = Object.keys(params)
     .map((key: any) => `${key}=${encodeURIComponent((params as any)[key])}`)
-    .join('&')
+    .join("&")
 
   return qs
 }
 
 const getProjectFilters = (): FiltersProps => {
   const filters: FiltersProps = {
-    themes: ['play', 'build', 'research'],
+    themes: ["play", "build", "research"],
     keywords: [],
     builtWith: [],
     fundingSource: [],
@@ -102,10 +103,10 @@ const getProjectFilters = (): FiltersProps => {
     if (project?.tags?.builtWith) {
       filters.builtWith.push(
         ...project.tags.builtWith.map((tag) => {
-          if (typeof tag === 'string') {
+          if (typeof tag === "string") {
             return tag.toLowerCase()
           }
-          return ''
+          return ""
         })
       )
     }
@@ -113,7 +114,7 @@ const getProjectFilters = (): FiltersProps => {
     if (project?.tags?.keywords) {
       filters.keywords.push(
         ...project.tags.keywords.map((keyword) =>
-          typeof keyword === 'string' ? keyword.toLowerCase() : ''
+          typeof keyword === "string" ? keyword.toLowerCase() : ""
         )
       )
     }
@@ -128,19 +129,19 @@ const getProjectFilters = (): FiltersProps => {
 }
 
 export const filterProjects = ({
-  searchPattern = '',
+  searchPattern = "",
   activeFilters = {},
   findAnyMatch = false,
   projects: projectList = projects,
 }: SearchMatchByParamsProps) => {
   // keys that will be used for search
   const keys = [
-    'name',
-    'tldr',
-    'tags.themes',
-    'tags.keywords',
-    'tags.builtWith',
-    'projectStatus',
+    "name",
+    "tldr",
+    "tags.themes",
+    "tags.keywords",
+    "tags.builtWith",
+    "projectStatus",
   ]
 
   const tagsFiltersQuery: Record<string, string>[] = []
@@ -203,13 +204,26 @@ export const filterProjects = ({
   return result ?? []
 }
 
-const sortProjectByFn = (
-  projects: ProjectInterface[],
-  sortBy: ProjectSortBy
-) => {
+const sortProjectByFn = ({
+  projects = [],
+  sortBy = DEFAULT_PROJECT_SORT_BY,
+  category = null,
+  ignoreCategories = [ProjectCategory.RESEARCH],
+}: {
+  projects: ProjectInterface[]
+  sortBy?: ProjectSortBy
+  category?: ProjectCategory | null
+  ignoreCategories?: ProjectCategory[]
+}) => {
   const sortedProjectList: ProjectInterface[] = [
     ...(projects as ProjectInterfaceScore[]),
-  ].sort(SortByFnMapping[sortBy])
+  ]
+    .sort(SortByFnMapping[sortBy])
+    .filter((project) => !ignoreCategories.includes(project.category as any))
+
+  if (category) {
+    return sortedProjectList.filter((project) => project.category === category)
+  }
 
   return sortedProjectList
 }
@@ -219,9 +233,18 @@ export const useProjectFiltersState = create<
 >()((set) => ({
   currentCategory: null,
   sortBy: DEFAULT_PROJECT_SORT_BY,
-  projects: sortProjectByFn(projects, DEFAULT_PROJECT_SORT_BY),
-  queryString: '',
-  searchQuery: '',
+  projects: sortProjectByFn({
+    projects,
+    ignoreCategories: [ProjectCategory.RESEARCH],
+  }),
+  researchs: sortProjectByFn({
+    projects,
+    sortBy: DEFAULT_PROJECT_SORT_BY,
+    category: ProjectCategory.RESEARCH,
+    ignoreCategories: [ProjectCategory.DEVTOOLS, ProjectCategory.APPLICATION],
+  }),
+  queryString: "",
+  searchQuery: "",
   filters: getProjectFilters(), // list of filters with all possible values from projects
   activeFilters: {}, // list of filters active in the current view by the user
   toggleFilter: ({ tag: filterKey, value, searchQuery }: toggleFilterProps) =>
@@ -243,7 +266,7 @@ export const useProjectFiltersState = create<
       }
       const queryString = createURLQueryString(activeFilters)
       const filteredProjects = filterProjects({
-        searchPattern: searchQuery ?? '',
+        searchPattern: searchQuery ?? "",
         activeFilters,
       })
 
@@ -251,10 +274,13 @@ export const useProjectFiltersState = create<
         ...state,
         activeFilters,
         queryString,
-        projects: sortProjectByFn(filteredProjects, state.sortBy),
+        projects: sortProjectByFn({
+          projects: filteredProjects,
+          sortBy: state.sortBy,
+        }),
       }
     }),
-  onSelectTheme: (theme: string, searchQuery = '') => {
+  onSelectTheme: (theme: string, searchQuery = "") => {
     set((state: any) => {
       // toggle theme when it's already selected
       const themes = state?.activeFilters?.themes?.includes(theme)
@@ -267,14 +293,17 @@ export const useProjectFiltersState = create<
       }
 
       const filteredProjects = filterProjects({
-        searchPattern: searchQuery ?? '',
+        searchPattern: searchQuery ?? "",
         activeFilters,
       })
 
       return {
         ...state,
         activeFilters,
-        projects: sortProjectByFn(filteredProjects, state.sortBy),
+        projects: sortProjectByFn({
+          projects: filteredProjects,
+          sortBy: state.sortBy,
+        }),
         searchQuery,
       }
     })
@@ -288,7 +317,10 @@ export const useProjectFiltersState = create<
 
       return {
         ...state,
-        projects: sortProjectByFn(filteredProjects, state.sortBy),
+        projects: sortProjectByFn({
+          projects: filteredProjects,
+          sortBy: state.sortBy,
+        }),
       }
     })
   },
@@ -306,7 +338,10 @@ export const useProjectFiltersState = create<
       return {
         ...state,
         sortBy,
-        projects: sortProjectByFn(state.projects, sortBy),
+        projects: sortProjectByFn({
+          projects: state.projects,
+          sortBy,
+        }),
       }
     })
   },

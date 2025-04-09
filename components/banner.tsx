@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react"
 
-import { AppContent } from './ui/app-content'
+import { AppContent } from "./ui/app-content"
 
 type BannerProps = {
   title: ReactNode
@@ -14,7 +14,7 @@ const Banner = ({ title, subtitle, children }: BannerProps) => {
       <div className="py-16">
         <AppContent className="flex flex-col gap-6">
           <div className="flex flex-col items-center text-center">
-            {typeof title === 'string' ? (
+            {typeof title === "string" ? (
               <h6 className="py-4 font-sans text-base font-bold uppercase tracking-[4px] text-tuatara-950">
                 {title}
               </h6>
@@ -30,6 +30,6 @@ const Banner = ({ title, subtitle, children }: BannerProps) => {
   )
 }
 
-Banner.displayName = 'Banner'
+Banner.displayName = "Banner"
 
 export { Banner }

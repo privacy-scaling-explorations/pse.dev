@@ -1,21 +1,21 @@
-'use client'
+"use client"
 
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
-import { events } from '@/data/events/devcon-7'
-import { cva } from 'class-variance-authority'
-import { Button } from '@/components/ui/button'
-import { useTranslation } from '@/app/i18n/client'
+import { useEffect, useState } from "react"
+import Link from "next/link"
+import { events } from "@/data/events/devcon-7"
+import { cva } from "class-variance-authority"
+import { Button } from "@/components/ui/button"
+import { useTranslation } from "@/app/i18n/client"
 
-import { cn } from '@/lib/utils'
-import { Icons } from '@/components/icons'
+import { cn } from "@/lib/utils"
+import { Icons } from "@/components/icons"
 
-const tableSection = cva('lg:grid lg:grid-cols-[200px_1fr_160px_20px] lg:gap-8')
+const tableSection = cva("lg:grid lg:grid-cols-[200px_1fr_160px_20px] lg:gap-8")
 const tableSectionTitle = cva(
-  'text-anakiwa-500 text-base lg:text-xs font-sans leading-5 tracking-[2.5px] uppercase font-bold lg:pb-3'
+  "text-anakiwa-500 text-base lg:text-xs font-sans leading-5 tracking-[2.5px] uppercase font-bold lg:pb-3"
 )
 
-const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
+const EventCard = ({ event = {}, speakers = [], location = "" }: any) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const getYouTubeEmbedURL = (url: string) => {
@@ -28,9 +28,9 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
   return (
     <div
       className={cn(
-        'flex flex-col gap-3',
+        "flex flex-col gap-3",
         tableSection(),
-        'py-4 px-6 lg:p-0 lg:pt-[30px] lg:pb-5 border-b border-b-tuatara-200'
+        "py-4 px-6 lg:p-0 lg:pt-[30px] lg:pb-5 border-b border-b-tuatara-200"
       )}
     >
       <div className="flex flex-col gap-1 order-3 lg:order-1">
@@ -57,7 +57,7 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
                   <Link
                     key={index}
                     className="text-sm text-anakiwa-500 underline break-all"
-                    href={speaker.url ?? '#'}
+                    href={speaker.url ?? "#"}
                   >
                     {speaker.label}
                   </Link>
@@ -70,7 +70,7 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
       <div className="flex flex-col justify-start gap-[10px] lg:order-2 order-2">
         <div className="flex items-center justify-between">
           <Link
-            href={event?.url ?? '#'}
+            href={event?.url ?? "#"}
             target="_blank"
             className="text-[22px] inline-flex leading-[24px] text-tuatara-950 underline font-display hover:text-anakiwa-500 font-bold duration-200"
           >
@@ -85,15 +85,15 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
             {isOpen ? (
               <Icons.minus
                 className={cn(
-                  'size-5 ml-auto',
-                  'transition-transform duration-200'
+                  "size-5 ml-auto",
+                  "transition-transform duration-200"
                 )}
               />
             ) : (
               <Icons.plus
                 className={cn(
-                  'size-5 ml-auto',
-                  'transition-transform duration-200'
+                  "size-5 ml-auto",
+                  "transition-transform duration-200"
                 )}
               />
             )}
@@ -101,10 +101,10 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
         </div>
         <div
           className={cn(
-            'lg:max-h-none lg:opacity-100 lg:block',
-            'transition-all duration-300 overflow-hidden',
-            isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0',
-            'lg:transition-none lg:overflow-visible'
+            "lg:max-h-none lg:opacity-100 lg:block",
+            "transition-all duration-300 overflow-hidden",
+            isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0",
+            "lg:transition-none lg:overflow-visible"
           )}
         >
           <span className="text-base leading-6 text-tuatara-950 font-sans font-normal">
@@ -115,9 +115,9 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
               <iframe
                 width="100%"
                 height="230"
-                src={getYouTubeEmbedURL(event?.youtubeLink) ?? ''}
+                src={getYouTubeEmbedURL(event?.youtubeLink) ?? ""}
                 allowFullScreen
-                style={{ borderRadius: '10px', overflow: 'hidden' }}
+                style={{ borderRadius: "10px", overflow: "hidden" }}
               />
             )}
           </div>
@@ -130,9 +130,9 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
             <iframe
               width="240"
               height="140"
-              src={getYouTubeEmbedURL(event?.youtubeLink) ?? ''}
+              src={getYouTubeEmbedURL(event?.youtubeLink) ?? ""}
               allowFullScreen
-              style={{ borderRadius: '10px', overflow: 'hidden' }}
+              style={{ borderRadius: "10px", overflow: "hidden" }}
             />
           )}
         </div>
@@ -144,7 +144,7 @@ const EventCard = ({ event = {}, speakers = [], location = '' }: any) => {
 }
 
 export const Devcon7Section = ({ lang }: any) => {
-  const { t } = useTranslation(lang, 'devcon-7')
+  const { t } = useTranslation(lang, "devcon-7")
 
   return (
     <div className="flex flex-col gap-10 relative">
@@ -152,16 +152,16 @@ export const Devcon7Section = ({ lang }: any) => {
         <div
           className={cn(
             tableSection(),
-            '!hidden lg:border-b lg:border-anakiwa-200'
+            "!hidden lg:border-b lg:border-anakiwa-200"
           )}
         >
-          <div className={cn(tableSectionTitle(), 'lg:flex hidden')}>
+          <div className={cn(tableSectionTitle(), "lg:flex hidden")}>
             Details
           </div>
-          <div className={cn(tableSectionTitle(), 'lg:text-left text-center')}>
+          <div className={cn(tableSectionTitle(), "lg:text-left text-center")}>
             Talks
           </div>
-          <div className={cn(tableSectionTitle(), 'lg:flex hidden')}>
+          <div className={cn(tableSectionTitle(), "lg:flex hidden")}>
             Speakers
           </div>
           <div className="lg:flex hidden"></div>

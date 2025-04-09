@@ -1,6 +1,7 @@
 import { BlogContent } from "@/components/blog/blog-content"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
+import { Markdown } from "@/components/ui/markdown"
 import { getArticles, getArticleById } from "@/lib/blog"
 
 export const generateStaticParams = async () => {
@@ -32,11 +33,7 @@ export default function BlogArticle({ params }: any) {
         <div className="w-full bg-cover-gradient border-b border-tuatara-300">
           <AppContent className="flex flex-col gap-4 py-10 max-w-[978px]">
             <Label.PageTitle label={post?.title} />
-            {post?.tldr && (
-              <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
-                {post?.tldr}
-              </h6>
-            )}
+            {post?.tldr && <Markdown>{post?.tldr}</Markdown>}
           </AppContent>
         </div>
       </div>
