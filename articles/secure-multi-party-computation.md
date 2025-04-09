@@ -1,7 +1,7 @@
 ---
 authors: ["Brechy"]
 title: "Secure Multi-Party Computation"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was written by Brechy. Thanks Nam Ngo for the feedback and review!"
 date: "2024-08-06"
 ---

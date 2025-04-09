@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Semaphore v3 Announcement"
-image: "cover.png"
+image: "cover.webp"
 tldr: "Semaphore V3 is live!"
 date: "2023-02-09"
 ---

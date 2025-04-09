@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Rate Limiting Nullifier: A spam-protection mechanism for anonymous environments"
-image: "cover.png"
+image: null
 tldr: "Originally published on Aug 30, 2021"
 date: "2022-08-29"
 ---

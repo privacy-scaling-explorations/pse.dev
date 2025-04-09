@@ -1,7 +1,7 @@
 ---
 authors: ["@0xDatapunk"]
 title: "The Power of Crowdsourcing Smart Contract Security for L2 Scaling Solutions"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was authored by @0xDatapunk at PSE Security."
 date: "2023-07-18"
 ---

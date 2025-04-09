@@ -1,7 +1,7 @@
 ---
 authors: [""]
-title: "]"
-image: "/articles/code-optimizations-in-post-quantum-cryptography/cover.png"
+title: "Examle Title"
+image: "cover.png"
 tldr: ""
 date: "2024-04-07"
 ---

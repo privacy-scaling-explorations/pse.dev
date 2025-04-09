@@ -1,7 +1,7 @@
 ---
 authors: ["Mopro Team"]
 title: "Mopro: Comparison of Circom Provers"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was authored by the Mopro team."
 date: "2025-01-21"
 ---

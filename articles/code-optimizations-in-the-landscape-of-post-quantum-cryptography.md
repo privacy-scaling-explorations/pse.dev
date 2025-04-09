@@ -1,7 +1,7 @@
 ---
 authors: ["Miha Stopar"]
 title: "Code Optimizations in the Landscape of Post-Quantum Cryptography"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was written by PSE researcher Miha Stopar."
 date: "2025-04-07"
 ---

@@ -1,7 +1,7 @@
 ---
 authors: ["drCathieSo.eth"]
 title: "ZKML: Bridging AI/ML and Web3 with Zero-Knowledge Proofs"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was authored by drCathieSo.eth and was originally published here."
 date: "2023-05-02"
 ---

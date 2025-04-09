@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Unirep: A private and non-repudiable reputation system"
-image: "cover.png"
+image: "cover.webp"
 tldr: "Originally published on Aug 26, 2021"
 date: "2022-08-29"
 ---

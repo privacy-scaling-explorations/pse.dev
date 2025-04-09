@@ -1,7 +1,7 @@
 ---
 authors: ["AnonKlub Team"]
 title: "AnonKlub: Reflections on Our Journey in Privacy-Preserving Solutions"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was written by the AnonKlub team."
 date: "2024-10-01"
 ---

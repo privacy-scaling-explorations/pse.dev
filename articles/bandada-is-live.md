@@ -1,7 +1,7 @@
 ---
 authors: ["Bandada Team"]
 title: "Bandada is live!"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was written by the Bandada team."
 date: "2023-08-23"
 ---

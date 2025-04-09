@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Zkopru Trusted Setup Completed - Privacy & Scaling Explorations"
-image: "cover.png"
+image: null
 tldr: "Originally published on Apr 21, 2021"
 date: "2022-08-26"
 ---

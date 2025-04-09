@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Release Announcement: MACI 1.0 - Privacy & Scaling Explorations"
-image: "cover.png"
+image: "cover.webp"
 tldr: "Originally published on Oct 12, 2021"
 date: "2022-08-29"
 ---

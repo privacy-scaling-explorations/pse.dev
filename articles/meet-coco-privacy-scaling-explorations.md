@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Meet COCO! - Privacy & Scaling Explorations"
-image: "cover.png"
+image: "cover.webp"
 tldr: "Originally published on Jan 27, 2022"
 date: "2022-08-29"
 ---

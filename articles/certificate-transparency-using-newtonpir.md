@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Certificate Transparency Using NewtonPIR"
-image: "cover.png"
+image: "cover.webp"
 tldr: "NewtonPIR supports core goals of transparency and accountability in certificate issuance without compromising the privacy of the querying parties."
 date: "2025-01-28"
 ---

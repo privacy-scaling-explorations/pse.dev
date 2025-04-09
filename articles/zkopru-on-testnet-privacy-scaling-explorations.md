@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "ZKOPRU on Testnet - Privacy & Scaling Explorations"
-image: "cover.png"
+image: null
 tldr: "Originally published on Nov 30, 2021"
 date: "2022-08-26"
 ---

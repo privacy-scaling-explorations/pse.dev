@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Zkopru Trusted Setup Ceremony"
-image: "cover.png"
+image: null
 tldr: "Originally posted on Mar 26, 2021"
 date: "2022-08-26"
 ---

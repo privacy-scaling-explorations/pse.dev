@@ -1,7 +1,7 @@
 ---
 authors: ["Miha Stopar"]
 title: "Lattice-Based Proof Systems"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was written by PSE researcher Miha Stopar."
 date: "2025-02-18"
 ---

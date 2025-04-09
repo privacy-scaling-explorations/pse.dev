@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Semaphore V2 is Live! - Privacy & Scaling Explorations"
-image: "cover.png"
+image: null
 tldr: "Originally published on Jul 6, 2022"
 date: "2022-08-26"
 ---

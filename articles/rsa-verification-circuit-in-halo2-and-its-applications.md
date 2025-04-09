@@ -1,7 +1,7 @@
 ---
 authors: ["Sora Suegami"]
 title: "RSA Verification Circuit in Halo2 and its Applications"
-image: "cover.png"
+image: null
 tldr: "This post was authored by grantee Sora Suegami (Twitter, Github)"
 date: "2022-11-14"
 ---

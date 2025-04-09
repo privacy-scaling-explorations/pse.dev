@@ -1,6 +1,7 @@
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
+import jsYaml from "js-yaml"
 
 export interface Article {
   id: string
@@ -32,23 +33,53 @@ export function getArticles() {
     const fullPath = path.join(articlesDirectory, fileName)
     const fileContents = fs.readFileSync(fullPath, "utf8")
 
-    const matterResult = matter(fileContents)
+    try {
+      // Use matter with options to handle multiline strings
+      const matterResult = matter(fileContents, {
+        engines: {
+          yaml: {
+            // Ensure multiline strings are parsed correctly
+            parse: (str) => {
+              try {
+                // Use js-yaml's safe load to parse the YAML with type assertion
+                return jsYaml.load(str) as object
+              } catch (e) {
+                console.error(`Error parsing frontmatter in ${fileName}:`, e)
+                // Fallback to empty object if parsing fails
+                return {}
+              }
+            },
+          },
+        },
+      })
 
-    return {
-      id,
-      ...matterResult.data,
-      content: matterResult.content,
+      return {
+        id,
+        ...matterResult.data,
+        content: matterResult.content,
+      }
+    } catch (error) {
+      console.error(`Error processing ${fileName}:`, error)
+      // Return minimal article data if there's an error
+      return {
+        id,
+        title: `Error processing ${id}`,
+        content: "This article could not be processed due to an error.",
+        date: new Date().toISOString().split("T")[0],
+      }
     }
   })
+
   // Sort posts by date
   return allArticlesData
     .filter(Boolean)
     .sort((a: any, b: any) => {
-      if (a.date < b.date) {
-        return 1
-      } else {
-        return -1
-      }
+      // Convert string dates to Date objects for reliable comparison
+      const dateA = new Date(a.date)
+      const dateB = new Date(b.date)
+
+      // Sort in descending order (newest first)
+      return dateB.getTime() - dateA.getTime()
     })
     .filter((article: any) => article.id !== "_article-template") as Article[]
 }

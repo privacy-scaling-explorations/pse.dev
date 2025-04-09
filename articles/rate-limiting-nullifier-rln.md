@@ -1,7 +1,7 @@
 ---
 authors: ["@curryrasul"]
 title: "Rate-Limiting Nullifier (RLN)"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was authored by @curryrasul."
 date: "2023-08-01"
 ---

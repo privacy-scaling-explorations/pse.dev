@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority"
 import Image from "next/image"
 
 const tagCardVariants = cva(
-  "text-xs font-sans text-tuatara-950 rounded-[3px] py-[2px] px-[6px] w-fit",
+  "text-xs font-sans text-tuatara-950 rounded-[3px] py-[2px] px-[6px] w-fit shrink-[0]",
   {
     variants: {
       variant: {
@@ -54,7 +54,12 @@ export const BlogArticleCard = ({
           </h2>
         </div>
 
-        <div className="flex justify-between mt-auto">
+        <div className="flex justify-between mt-auto gap-4 items-center">
+          {authors && authors.length > 0 && (
+            <p className="text-gray-500 text-sm mt-auto">
+              By {authors.join(", ")}
+            </p>
+          )}
           {date && (
             <div className={tagCardVariants({ variant: "secondary" })}>
               {new Date(date).toLocaleDateString("en-US", {
@@ -63,12 +68,6 @@ export const BlogArticleCard = ({
                 year: "numeric",
               })}
             </div>
-          )}
-
-          {authors && authors.length > 0 && (
-            <p className="text-gray-500 text-sm mt-auto">
-              By {authors.join(", ")}
-            </p>
           )}
         </div>
       </div>

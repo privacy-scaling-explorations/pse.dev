@@ -1,7 +1,7 @@
 ---
 authors: ["sinu"]
 title: "TLSNotary Updates"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was written by sinu."
 date: "2023-09-19"
 ---

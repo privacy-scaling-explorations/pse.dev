@@ -1,7 +1,7 @@
 ---
 authors: ["Summa Team"]
 title: "Retrospective: Summa"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was authored by the Summa team."
 date: "2025-02-10"
 ---

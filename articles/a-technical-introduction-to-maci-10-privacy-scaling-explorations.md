@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "A Technical Introduction to MACI 1.0 - Privacy & Scaling Explorations"
-image: "cover.png"
+image: null
 tldr: "Originally published on Jan 18, 2022"
 date: "2022-08-29"
 ---

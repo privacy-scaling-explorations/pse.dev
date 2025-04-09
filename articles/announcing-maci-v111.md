@@ -1,7 +1,7 @@
 ---
 authors: ["Alessandro", "Chao"]
 title: "Announcing MACI v1.1.1"
-image: "cover.png"
+image: "cover.webp"
 tldr: "This post was authored by Alessandro and Chao."
 date: "2023-01-18"
 ---

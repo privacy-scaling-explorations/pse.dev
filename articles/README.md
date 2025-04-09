@@ -15,7 +15,7 @@ Edit the frontmatter section at the top of the file:
 ---
 authors: ["Your Name"] # Add your name or multiple authors in an array
 title: "Your Article Title" # The title of your article
-image: "cover.png" # This should always be "cover.png"
+image: "cover.webp"
 tldr: "A brief summary of your article" # Optional short summary
 date: "YYYY-MM-DD" # Publication date in ISO format
 ---
