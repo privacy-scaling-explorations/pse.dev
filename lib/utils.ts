@@ -1,6 +1,6 @@
-import { ReadonlyURLSearchParams } from 'next/navigation'
-import { clsx, type ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
+import { ReadonlyURLSearchParams } from "next/navigation"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -18,7 +18,7 @@ export function queryStringToObject(
   const obj = Object.fromEntries(searchParams.entries())
   const object: Record<string, any> = {}
   Object.keys(obj).forEach((key) => {
-    object[key] = obj[key]?.split(',')
+    object[key] = obj[key]?.split(",")
   })
 
   return object
@@ -35,14 +35,14 @@ export function convertDirtyStringToHtml(string: string) {
   // eslint-disable-next-line no-useless-escape
   const pseudoUrlPattern = /(^|[^\/])(www\.[\S]+(\b|$))/gim
 
-  if (!string) return ''
+  if (!string) return ""
   return string
-    .replace(/\n/g, '<br />')
+    .replace(/\n/g, "<br />")
     .replace(urlPattern, '<a href="$&">$&</a>')
     .replace(pseudoUrlPattern, '$1<a href="http://$2">$2</a>')
     .toLowerCase()
 }
 
 export function removeProtocol(url: string) {
-  return url?.replace(/^https?:\/\//, '')
+  return url?.replace(/^https?:\/\//, "")
 }

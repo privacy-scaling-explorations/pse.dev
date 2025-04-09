@@ -1,39 +1,39 @@
-import '@/styles/globals.css'
-import { Metadata } from 'next'
-import Script from 'next/script'
+import "@/styles/globals.css"
+import { Metadata } from "next"
+import Script from "next/script"
 
-import { siteConfig } from '@/config/site'
-import { fontDisplay, fontSans } from '@/lib/fonts'
-import { SiteFooter } from '@/components/site-footer'
-import { SiteHeader } from '@/components/site-header'
-import { TailwindIndicator } from '@/components/tailwind-indicator'
+import { siteConfig } from "@/config/site"
+import { fontDisplay, fontSans } from "@/lib/fonts"
+import { SiteFooter } from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
+import { TailwindIndicator } from "@/components/tailwind-indicator"
 
-import { fallbackLng, languages } from '../i18n/settings'
+import { fallbackLng, languages } from "../i18n/settings"
 
 export async function generateStaticParams() {
   return languages.map((language) => ({ language }))
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://appliedzkp.org'),
+  metadataBase: new URL("https://appliedzkp.org"),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/apple-touch-icon.png',
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     images: [
       {
-        url: '/og-image.png',
+        url: "/og-image.png",
         width: 1200,
         height: 630,
       },
@@ -74,7 +74,7 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
         <head />
         <body
           suppressHydrationWarning
-          className={'min-h-screen bg-background antialiased'}
+          className={"min-h-screen bg-background antialiased"}
         >
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader lang={lang} />

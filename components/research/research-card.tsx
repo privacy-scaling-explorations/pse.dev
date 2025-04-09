@@ -21,6 +21,9 @@ interface ProjectCardProps
   project: ProjectInterface
   showLinks?: boolean // show links in the card
   showBanner?: boolean // show images in the card
+  showCardTags?: boolean // show card tags in the card
+  showStatus?: boolean // show status in the card
+  contentClassName?: string // show status in the card
 }
 
 const tagCardVariants = cva(
@@ -60,7 +63,10 @@ export default function ProjectCard({
   showLinks = false,
   showBanner = false,
   border = false,
+  showCardTags = true,
+  showStatus = true,
   className,
+  contentClassName,
   lang,
 }: ProjectCardProps & { lang: LocaleTypes }) {
   const router = useRouter()
@@ -73,9 +79,12 @@ export default function ProjectCard({
   return (
     <div
       className={cn(
-        "group",
+        "group cursor-pointer",
         projectCardVariants({ showLinks, border, className })
       )}
+      onClick={() => {
+        router.push(`/projects/${id}`)
+      }}
     >
       {showBanner && (
         <div
@@ -98,19 +107,23 @@ export default function ProjectCard({
           )}
         </div>
       )}
-      <div className="flex flex-col justify-between h-full gap-8 p-4 bg-white rounded-b-lg">
+      <div
+        className={cn(
+          "flex flex-col justify-between h-full gap-8 p-[30px] bg-white rounded-b-lg hover:bg-research-card-gradient duration-300",
+          contentClassName,
+          {
+            "bg-white": !showBanner,
+            "bg-transparent": showBanner,
+          }
+        )}
+      >
         <div className="flex flex-col justify-start gap-2">
-          <h1
-            className="text-2xl font-bold leading-7 text-black duration-200 cursor-pointer hover:text-anakiwa-500"
-            onClick={() => {
-              router.push(`/projects/${id}`)
-            }}
-          >
+          <h1 className="text-2xl font-bold leading-7 duration-200 cursor-pointer text-anakiwa-700 line-clamp-2">
             {name}
           </h1>
           {projectContent?.tldr && (
             <div className="flex flex-col h-24 gap-4">
-              <p className="text-slate-900/80 line-clamp-4">
+              <p className="text-slate-900/80 line-clamp-3">
                 {projectContent?.tldr}
               </p>
             </div>
@@ -132,27 +145,35 @@ export default function ProjectCard({
               </div>
             )}
 
-            <div
-              className="px-[6px] py-[2px] text-xs font-normal leading-none flex items-center justify-center rounded-[3px]"
-              style={{
-                backgroundColor: ProjectStatusColorMapping[projectStatus],
-              }}
-            >
-              {ProjectStatusLabelMapping[project?.projectStatus]}
-            </div>
-            {cardTags && (
-              <div className="flex items-center gap-1">
-                {cardTags?.primary && (
-                  <div className={tagCardVariants({ variant: "primary" })}>
-                    {cardTags?.primary}
-                  </div>
-                )}
-                {cardTags?.secondary && (
-                  <div className={tagCardVariants({ variant: "secondary" })}>
-                    {cardTags?.secondary}
-                  </div>
-                )}
+            {showStatus && (
+              <div
+                className="px-[6px] py-[2px] text-xs font-normal leading-none flex items-center justify-center rounded-[3px]"
+                style={{
+                  backgroundColor: ProjectStatusColorMapping[projectStatus],
+                }}
+              >
+                {ProjectStatusLabelMapping[project?.projectStatus]}
               </div>
+            )}
+            {showCardTags && (
+              <>
+                {cardTags && (
+                  <div className="flex items-center gap-1">
+                    {cardTags?.primary && (
+                      <div className={tagCardVariants({ variant: "primary" })}>
+                        {cardTags?.primary}
+                      </div>
+                    )}
+                    {cardTags?.secondary && (
+                      <div
+                        className={tagCardVariants({ variant: "secondary" })}
+                      >
+                        {cardTags?.secondary}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>

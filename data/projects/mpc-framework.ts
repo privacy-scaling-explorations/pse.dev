@@ -1,21 +1,21 @@
-import { ProjectCategory, ProjectInterface, ProjectStatus } from '@/lib/types'
+import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const mpcFramework: ProjectInterface = {
-  id: 'mpc-framework',
-  image: 'mpc-illustration.jpg',
-  name: 'MPC Framework',
+  id: "mpc-framework",
+  image: "mpc-illustration.jpg",
+  name: "MPC Framework",
   category: ProjectCategory.DEVTOOLS,
-  license: 'MIT',
-  section: 'pse',
+  license: "MIT",
+  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   links: {
-    github: 'https://github.com/voltrevo/mpc-framework',
-    website: 'https://mpc.pse.dev/',
-    telegram: 'https://t.me/+FKnOHTkvmX02ODVl',
+    github: "https://github.com/voltrevo/mpc-framework",
+    website: "https://mpc.pse.dev/",
+    telegram: "https://t.me/+FKnOHTkvmX02ODVl",
   },
   content: {
     en: {
-      tldr: 'Create secure MPC apps easily in TypeScript.',
+      tldr: "Create secure MPC apps easily in TypeScript.",
       description: `
 
 
@@ -77,7 +77,7 @@ For a more technical introduction, see [Computerphile's video on Garbled Circuit
     },
   },
   tags: {
-    keywords: ['MPC', 'TypeScript'],
+    keywords: ["MPC", "TypeScript"],
     themes: [],
     types: [],
     builtWith: [],
@@ -85,16 +85,16 @@ For a more technical introduction, see [Computerphile's video on Garbled Circuit
   extraLinks: {
     play: [
       {
-        label: 'Hello world in MPC',
-        url: 'https://voltrevo.github.io/mpc-hello/',
+        label: "Hello world in MPC",
+        url: "https://voltrevo.github.io/mpc-hello/",
       },
       {
-        label: 'Hello world in MPC',
-        url: 'https://github.com/voltrevo/mpc-lizard-spock',
+        label: "Hello world in MPC",
+        url: "https://github.com/voltrevo/mpc-lizard-spock",
       },
       {
-        label: 'In-browser MPC demo',
-        url: 'https://github.com/voltrevo/mpc-framework-browser-demo',
+        label: "In-browser MPC demo",
+        url: "https://github.com/voltrevo/mpc-framework-browser-demo",
       },
     ],
   },

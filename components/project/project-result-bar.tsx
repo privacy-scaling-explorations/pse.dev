@@ -1,22 +1,22 @@
-'use client'
+"use client"
 
 import {
   DEFAULT_PROJECT_SORT_BY,
   ProjectFilter,
   ProjectSortBy,
   useProjectFiltersState,
-} from '@/state/useProjectFiltersState'
+} from "@/state/useProjectFiltersState"
 
-import { LangProps } from '@/types/common'
-import { useTranslation } from '@/app/i18n/client'
+import { LangProps } from "@/types/common"
+import { useTranslation } from "@/app/i18n/client"
 
-import { CategoryTag } from '../ui/categoryTag'
-import { Dropdown } from '../ui/dropdown'
+import { CategoryTag } from "../ui/categoryTag"
+import { Dropdown } from "../ui/dropdown"
 
-const labelClass = 'h-5 text-xs text-base md:h-6 text-slate-900/70 md:text-sm'
+const labelClass = "h-5 text-xs text-base md:h-6 text-slate-900/70 md:text-sm"
 
-export const ProjectResultBar = ({ lang }: LangProps['params']) => {
-  const { t } = useTranslation(lang, 'common')
+export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
+  const { t } = useTranslation(lang, "common")
   const { activeFilters, toggleFilter, projects, sortProjectBy, sortBy } =
     useProjectFiltersState((state) => state)
 
@@ -25,20 +25,20 @@ export const ProjectResultBar = ({ lang }: LangProps['params']) => {
   )
 
   const resultLabel = t(
-    haveActiveFilters ? 'showingProjectsWith' : 'showingProjects',
+    haveActiveFilters ? "showingProjectsWith" : "showingProjects",
     {
       count: projects?.length,
     }
   )
 
   const projectSortItems: { label: string; value: ProjectSortBy }[] = [
-    { label: t('filterOptions.random'), value: 'random' },
-    { label: t('filterOptions.asc'), value: 'asc' },
-    { label: t('filterOptions.desc'), value: 'desc' },
+    { label: t("filterOptions.random"), value: "random" },
+    { label: t("filterOptions.asc"), value: "asc" },
+    { label: t("filterOptions.desc"), value: "desc" },
     // { label: t("filterOptions.relevance"), value: "relevance" },
   ]
 
-  const activeSortOption = t('sortBy', {
+  const activeSortOption = t("sortBy", {
     option: t(`filterOptions.${sortBy}`),
   })
 

@@ -38,7 +38,7 @@ The original IPA backend was swapped with KZG for cost-effective L1 verifiabilit
       {
         label: "Origins of Halo2",
         url: "https://www.youtube.com/watch?v=KdkVTEHUxgo",
-      }
+      },
     ],
   },
 }

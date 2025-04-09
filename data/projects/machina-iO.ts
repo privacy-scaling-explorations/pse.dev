@@ -1,15 +1,15 @@
-import { ProjectCategory, ProjectInterface, ProjectStatus } from '@/lib/types'
+import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const machinaIo: ProjectInterface = {
-  id: 'machina-io',
-  image: '',
-  name: 'MachinaIO',
-  section: 'pse',
+  id: "machina-io",
+  image: "",
+  name: "MachinaIO",
+  section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.RESEARCH,
   content: {
     en: {
-      tldr: 'Building the first practical indistinguishability obfuscation (iO) system for secure and scalable cryptographic applications.',
+      tldr: "Building the first practical indistinguishability obfuscation (iO) system for secure and scalable cryptographic applications.",
       description: `
 ### Towards Practical Indistinguishability Obfuscation (iO)  
 
@@ -33,20 +33,20 @@ Led by two cryptography researchers (*Sora* and *Enrico*), MachinaIO welcomes ad
   },
   tags: {
     keywords: [
-      'indistinguishability obfuscation',
-      'iO',
-      'cryptography',
-      'Ethereum',
-      'FHE',
-      'SNARKs',
+      "indistinguishability obfuscation",
+      "iO",
+      "cryptography",
+      "Ethereum",
+      "FHE",
+      "SNARKs",
     ],
-    themes: ['cryptography', 'privacy', 'scalability'],
-    types: ['research', 'development'],
+    themes: ["cryptography", "privacy", "scalability"],
+    types: ["research", "development"],
     builtWith: [
-      'FHE',
-      'SNARKs',
-      'functional encryption',
-      'lattice cryptography',
+      "FHE",
+      "SNARKs",
+      "functional encryption",
+      "lattice cryptography",
     ],
   },
 }

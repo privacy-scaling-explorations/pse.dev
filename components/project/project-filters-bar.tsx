@@ -1,20 +1,20 @@
-'use client'
+"use client"
 
-import React, { ChangeEvent, ReactNode, useEffect, useState } from 'react'
-import Image from 'next/image'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { projects } from '@/data/projects'
-import FiltersIcon from '@/public/icons/filters.svg'
+import React, { ChangeEvent, ReactNode, useEffect, useState } from "react"
+import Image from "next/image"
+import { useRouter, useSearchParams } from "next/navigation"
+import { projects } from "@/data/projects"
+import FiltersIcon from "@/public/icons/filters.svg"
 import {
   FilterLabelMapping,
   FilterTypeMapping,
   ProjectFilter,
   useProjectFiltersState,
-} from '@/state/useProjectFiltersState'
-import i18next from 'i18next'
-import { useDebounce } from 'react-use'
+} from "@/state/useProjectFiltersState"
+import i18next from "i18next"
+import { useDebounce } from "react-use"
 
-import { IThemeStatus, IThemesButton, LangProps } from '@/types/common'
+import { IThemeStatus, IThemesButton, LangProps } from "@/types/common"
 import {
   ProjectCategories,
   ProjectCategory,
@@ -22,18 +22,18 @@ import {
   ProjectSections,
   ProjectStatus,
   ProjectStatusLabelMapping,
-} from '@/lib/types'
-import { cn, queryStringToObject } from '@/lib/utils'
-import { useTranslation } from '@/app/i18n/client'
-import { LocaleTypes } from '@/app/i18n/settings'
+} from "@/lib/types"
+import { cn, queryStringToObject } from "@/lib/utils"
+import { useTranslation } from "@/app/i18n/client"
+import { LocaleTypes } from "@/app/i18n/settings"
 
-import { Icons } from '../icons'
-import Badge from '../ui/badge'
-import { Button } from '../ui/button'
-import { CategoryTag } from '../ui/categoryTag'
-import { Checkbox } from '../ui/checkbox'
-import { Input } from '../ui/input'
-import { Modal } from '../ui/modal'
+import { Icons } from "../icons"
+import Badge from "../ui/badge"
+import { Button } from "../ui/button"
+import { CategoryTag } from "../ui/categoryTag"
+import { Checkbox } from "../ui/checkbox"
+import { Input } from "../ui/input"
+import { Modal } from "../ui/modal"
 
 interface FilterWrapperProps {
   label: string
@@ -43,7 +43,7 @@ interface FilterWrapperProps {
 
 const FilterWrapper = ({ label, children, className }: FilterWrapperProps) => {
   return (
-    <div className={cn('flex flex-col gap-4 py-6', className)}>
+    <div className={cn("flex flex-col gap-4 py-6", className)}>
       <span className="text-xl font-bold">{label}</span>
       {children}
     </div>
@@ -51,45 +51,45 @@ const FilterWrapper = ({ label, children, className }: FilterWrapperProps) => {
 }
 
 export const ThemesButtonMapping = (lang: LocaleTypes): IThemesButton => {
-  const t = i18next.getFixedT(lang, 'all')
+  const t = i18next.getFixedT(lang, "all")
 
   return {
     build: {
-      label: t('tags.build'),
+      label: t("tags.build"),
       icon: <Icons.hammer />,
     },
     play: {
-      label: t('tags.play'),
+      label: t("tags.play"),
       icon: <Icons.hand />,
     },
     research: {
-      label: t('tags.research'),
+      label: t("tags.research"),
       icon: <Icons.readme />,
     },
   }
 }
 
 export const ThemesStatusMapping = (lang: LocaleTypes): IThemeStatus => {
-  const t = i18next.getFixedT(lang, 'common')
+  const t = i18next.getFixedT(lang, "common")
 
   return {
     active: {
-      label: t('status.active'),
+      label: t("status.active"),
       icon: <Icons.checkActive />,
     },
     inactive: {
-      label: t('status.inactive'),
+      label: t("status.inactive"),
       icon: <Icons.archived />,
     },
   }
 }
 
-export default function ProjectFiltersBar({ lang }: LangProps['params']) {
-  const { t } = useTranslation(lang as LocaleTypes, 'common')
+export default function ProjectFiltersBar({ lang }: LangProps["params"]) {
+  const { t } = useTranslation(lang as LocaleTypes, "common")
   const [showModal, setShowModal] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
-  const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery, setSearchQuery] = useState("")
   const [filterCount, setFilterCount] = useState(0)
 
   const {
@@ -124,11 +124,11 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
   const clearAllFilters = () => {
     useProjectFiltersState.setState({
       activeFilters: {},
-      queryString: '',
+      queryString: "",
       projects,
     })
-    setSearchQuery('') // clear input
-    router.push('/projects')
+    setSearchQuery("") // clear input
+    router.push("/projects")
   }
 
   useDebounce(
@@ -152,7 +152,7 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
               size="sm"
               onClick={clearAllFilters}
             >
-              {t('clearAll')}
+              {t("clearAll")}
             </Button>
             <div className="ml-auto">
               <Button
@@ -160,7 +160,7 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
                 size="sm"
                 onClick={() => setShowModal(false)}
               >
-                {t('showProjects')}
+                {t("showProjects")}
               </Button>
             </div>
           </div>
@@ -171,30 +171,30 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
         <div className="flex flex-col divide-y divide-tuatara-200">
           {Object.entries(filters).map(([key, items]) => {
             const filterLabel =
-              FilterLabelMapping(lang)?.[key as ProjectFilter] ?? ''
+              FilterLabelMapping(lang)?.[key as ProjectFilter] ?? ""
             const type = FilterTypeMapping?.[key as ProjectFilter]
             const hasItems = items.length > 0
 
             const hasActiveThemeFilters =
               (activeFilters?.themes ?? [])?.length > 0
 
-            if (key === 'themes' && !hasActiveThemeFilters) return null
+            if (key === "themes" && !hasActiveThemeFilters) return null
 
             return (
               hasItems && (
                 <FilterWrapper key={key} label={filterLabel}>
                   <div
-                    className={cn('gap-y-2', {
-                      'grid grid-cols-1 gap-2 md:grid-cols-3':
-                        type === 'checkbox',
-                      'flex gap-x-4 flex-wrap': type === 'button',
+                    className={cn("gap-y-2", {
+                      "grid grid-cols-1 gap-2 md:grid-cols-3":
+                        type === "checkbox",
+                      "flex gap-x-4 flex-wrap": type === "button",
                     })}
                   >
                     {items.map((item, index) => {
                       const isActive =
                         activeFilters?.[key as ProjectFilter]?.includes(item)
 
-                      if (type === 'checkbox') {
+                      if (type === "checkbox") {
                         return (
                           <Checkbox
                             key={item}
@@ -212,7 +212,7 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
                         )
                       }
 
-                      if (type === 'button') {
+                      if (type === "button") {
                         const { icon, label } = ThemesButtonMapping(lang)[item]
                         if (!isActive) return null
                         return (
@@ -222,7 +222,7 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
                               closable
                               onClose={() => {
                                 toggleFilter({
-                                  tag: 'themes',
+                                  tag: "themes",
                                   value: item,
                                   searchQuery,
                                 })
@@ -248,7 +248,7 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
           })}
           <FilterWrapper
             className="hidden"
-            label={t('filterLabels.fundingSource')}
+            label={t("filterLabels.fundingSource")}
           >
             {ProjectSections.map((section) => {
               const label = ProjectSectionLabelMapping[section]
@@ -257,7 +257,7 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
           </FilterWrapper>
           <FilterWrapper
             className="hidden"
-            label={t('filterLabels.projectStatus')}
+            label={t("filterLabels.projectStatus")}
           >
             {Object.keys(ProjectStatus).map((section: any) => {
               // @ts-expect-error - ProjectStatusLabelMapping is not typed
@@ -272,24 +272,25 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
           <ul className="flex space-x-6">
             <div
               className={cn(
-                'relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary',
+                "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
                 currentCategory == null
-                  ? 'text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400'
-                  : ''
+                  ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
+                  : ""
               )}
               onClick={() => setCurrentCategory(null)}
             >
               All
             </div>
             {ProjectCategories.map((key) => {
+              if (key === ProjectCategory.RESEARCH) return null // Research category has now it's own page
               return (
                 <div
                   key={key}
                   className={cn(
-                    'relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary',
+                    "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
                     currentCategory === key
-                      ? 'text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400'
-                      : ''
+                      ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
+                      : ""
                   )}
                   onClick={() => setCurrentCategory(key as ProjectCategory)}
                 >
@@ -310,7 +311,7 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
                   })
                 }}
                 value={searchQuery}
-                placeholder={t('searchProjectPlaceholder')}
+                placeholder={t("searchProjectPlaceholder")}
               />
               <div className="flex items-center gap-3">
                 <Badge value={filterCount}>
@@ -318,12 +319,12 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
                     onClick={() => setShowModal(true)}
                     variant="white"
                     className={cn({
-                      'border-2 border-anakiwa-950': filterCount > 0,
+                      "border-2 border-anakiwa-950": filterCount > 0,
                     })}
                   >
                     <div className="flex items-center gap-2">
                       <Image src={FiltersIcon} alt="filter icon" />
-                      <span className="hidden md:block">{t('filters')}</span>
+                      <span className="hidden md:block">{t("filters")}</span>
                     </div>
                   </Button>
                 </Badge>
@@ -333,7 +334,7 @@ export default function ProjectFiltersBar({ lang }: LangProps['params']) {
                   className="hidden bg-transparent cursor-pointer opacity-85 text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block"
                 >
                   <div className="flex items-center gap-2 border-b-2 border-black">
-                    <span className="text-sm font-medium">{t('clearAll')}</span>
+                    <span className="text-sm font-medium">{t("clearAll")}</span>
                   </div>
                 </button>
               </div>

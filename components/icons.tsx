@@ -5,7 +5,7 @@ import {
   SunMedium,
   X,
   type Icon as LucideIcon,
-} from 'lucide-react'
+} from "lucide-react"
 
 export type Icon = LucideIcon
 
@@ -114,9 +114,9 @@ export const Icons = {
     <svg
       width={props.width}
       height={
-        typeof props.height === 'number'
+        typeof props.height === "number"
           ? props.height
-          : typeof props.width === 'number'
+          : typeof props.width === "number"
             ? props.width - 1
             : 18
       }
@@ -151,9 +151,9 @@ export const Icons = {
       xmlns="http://www.w3.org/2000/svg"
       width={props.width}
       height={
-        typeof props.height === 'number'
+        typeof props.height === "number"
           ? props.height
-          : typeof props.width === 'number'
+          : typeof props.width === "number"
             ? props.width - 2
             : 22
       }
@@ -172,9 +172,9 @@ export const Icons = {
       xmlns="http://www.w3.org/2000/svg"
       width={props.width}
       height={
-        typeof props.height === 'number'
+        typeof props.height === "number"
           ? props.height
-          : typeof props.width === 'number'
+          : typeof props.width === "number"
             ? props.width + 2
             : 26
       }
@@ -209,9 +209,9 @@ export const Icons = {
     <svg
       width={props.size}
       height={
-        typeof props.size === 'number'
+        typeof props.size === "number"
           ? props.size
-          : typeof props.size === 'number'
+          : typeof props.size === "number"
             ? props.size + 1
             : 17
       }
@@ -235,9 +235,9 @@ export const Icons = {
     <svg
       width={props.width}
       height={
-        typeof props.height === 'number'
+        typeof props.height === "number"
           ? props.height
-          : typeof props.width === 'number'
+          : typeof props.width === "number"
             ? props.width - 1
             : 19
       }
@@ -256,9 +256,9 @@ export const Icons = {
     <svg
       width={props.width}
       height={
-        typeof props.height === 'number'
+        typeof props.height === "number"
           ? props.height
-          : typeof props.width === 'number'
+          : typeof props.width === "number"
             ? props.width - 1
             : 19
       }
@@ -277,9 +277,9 @@ export const Icons = {
     <svg
       width={props.width}
       height={
-        typeof props.height === 'number'
+        typeof props.height === "number"
           ? props.height
-          : typeof props.width === 'number'
+          : typeof props.width === "number"
             ? props.width + 1
             : 15
       }

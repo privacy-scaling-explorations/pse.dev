@@ -1,14 +1,14 @@
 import {
-    ProjectCategory,
-    ProjectContent,
-    ProjectInterface,
-    ProjectStatus,
-  } from "@/lib/types"
-  
-  const content: ProjectContent = {
-    en: {
-      tldr: "Modular folding library supporting multiple schemes and decider backends",
-      description: `In collaboration with [0xPARC](https://0xparc.org), [Sonobe](https://github.com/privacy-scaling-explorations/sonobe) is a modular library to fold arithmetic circuit instances in an Incremental Verifiable computation (IVC) style. It supports multiple frontends, multiple folding schemes, and multiple decider backends, allowing users to plug-and-play different components.    
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
+
+const content: ProjectContent = {
+  en: {
+    tldr: "Modular folding library supporting multiple schemes and decider backends",
+    description: `In collaboration with [0xPARC](https://0xparc.org), [Sonobe](https://github.com/privacy-scaling-explorations/sonobe) is a modular library to fold arithmetic circuit instances in an Incremental Verifiable computation (IVC) style. It supports multiple frontends, multiple folding schemes, and multiple decider backends, allowing users to plug-and-play different components.    
   
 - **Frontends:** 
   - Arkworks
@@ -33,26 +33,25 @@ import {
   - [Bitcoin light client](https://github.com/dmpierre/sonobe-btc) leveraging Sonobe
   - [Hash chains](https://github.com/arnaucube/hash-chain-sonobe): proving chains of Sha256 and Keccak256 hashes
   `,
-    },
-  }
-  
-  export const sonobe: ProjectInterface = {
-    id: "sonobe",
-    projectStatus: ProjectStatus.ACTIVE,
-    category: ProjectCategory.DEVTOOLS,
-    section: "pse",
-    content,
-    image: "sonobe.png",
-    name: "Sonobe Folding Library",
-    links: {
-      github: "https://github.com/privacy-scaling-explorations/sonobe",
-      website: "https://privacy-scaling-explorations.github.io/sonobe-docs"
-    },
-    tags: {
-      keywords: ["Folding", "IVC"],
-      themes: ["build"],
-      types: ["Infrastructure/protocol", "Lego sets/toolkits"],
-      builtWith: ["rust"],
-    },
-  }
-  
+  },
+}
+
+export const sonobe: ProjectInterface = {
+  id: "sonobe",
+  projectStatus: ProjectStatus.ACTIVE,
+  category: ProjectCategory.DEVTOOLS,
+  section: "pse",
+  content,
+  image: "sonobe.png",
+  name: "Sonobe Folding Library",
+  links: {
+    github: "https://github.com/privacy-scaling-explorations/sonobe",
+    website: "https://privacy-scaling-explorations.github.io/sonobe-docs",
+  },
+  tags: {
+    keywords: ["Folding", "IVC"],
+    themes: ["build"],
+    types: ["Infrastructure/protocol", "Lego sets/toolkits"],
+    builtWith: ["rust"],
+  },
+}

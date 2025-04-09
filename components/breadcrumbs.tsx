@@ -1,4 +1,4 @@
-import NextLink from 'next/link'
+import NextLink from "next/link"
 
 interface Props {
   path: string[]
@@ -17,8 +17,8 @@ const Breadcrumbs = ({ path }: Props) => {
           )
         }
         return (
-          <NextLink key={index} href={`/${item}`} className={'capitalize'}>
-            {item === 'projects' ? 'All Projects' : item}
+          <NextLink key={index} href={`/${item}`} className={"capitalize"}>
+            {item === "projects" ? "All Projects" : item}
             <span className="mx-2">/</span>
           </NextLink>
         )
