@@ -15,11 +15,17 @@ export const generateStaticParams = async () => {
 export async function generateMetadata({ params }: any) {
   const post = getArticleById(params.slug)
 
+  const imageUrl =
+    (post?.image ?? "")?.length > 0
+      ? `/articles/${post?.id}/${post?.image}`
+      : "/og-image.png"
+
   return {
-    title: post?.title ? `${post?.title} - Cursive` : "Cursive",
-    description:
-      post?.tldr ??
-      "A cryptography and design lab focused on applications of signed data.",
+    title: post?.title,
+    description: post?.tldr,
+    openGraph: {
+      images: [{ url: imageUrl, width: 1200, height: 630 }],
+    },
   }
 }
 
@@ -32,7 +38,7 @@ export default function BlogArticle({ params }: any) {
     <div className="flex flex-col">
       <div className="flex items-start justify-center background-gradient z-0">
         <div className="w-full bg-cover-gradient border-b border-tuatara-300">
-          <AppContent className="flex flex-col gap-4 py-10 max-w-[978px]">
+          <AppContent className="flex flex-col gap-8 py-10 max-w-[978px]">
             <Label.PageTitle label={post?.title} />
             {post?.date || post?.tldr ? (
               <div className="flex flex-col gap-2">

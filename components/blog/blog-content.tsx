@@ -48,7 +48,7 @@ export function BlogContent({ post }: BlogContentProps) {
   return (
     <AppContent className="max-w-[978px]">
       <div className="flex flex-col gap-10">
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-6">
           <Markdown>{post?.content ?? ""}</Markdown>
         </div>
 

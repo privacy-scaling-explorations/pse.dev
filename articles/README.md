@@ -15,8 +15,8 @@ Edit the frontmatter section at the top of the file:
 ---
 authors: ["Your Name"] # Add your name or multiple authors in an array
 title: "Your Article Title" # The title of your article
-image: "cover.webp"
-tldr: "A brief summary of your article" # Optional short summary
+image: "cover.webp" # Image used as cover
+tldr: "A brief summary of your article" #Short summary
 date: "YYYY-MM-DD" # Publication date in ISO format
 ---
 ```
@@ -30,6 +30,15 @@ Write your article content using Markdown formatting:
   // Your code here
   ```
 - For images, use the Markdown image syntax: `![Alt text](/articles/your-article-name/image-name.png)`
+- For LaTeX math formulas:
+  - Use single dollar signs for inline math: `$E=mc^2$` will render as $E=mc^2$
+  - Use double dollar signs for block math:
+    ```
+    $$
+    F(x) = \int_{-\infty}^{x} f(t) dt
+    $$
+    ```
+    Will render as a centered math equation block
 
 ## Step 3: Add Images
 

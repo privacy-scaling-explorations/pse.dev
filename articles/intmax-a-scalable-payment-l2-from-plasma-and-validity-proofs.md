@@ -6,12 +6,6 @@ tldr: "This post was written by PSE researcher Pierre and originally posted on h
 date: "2025-03-04"
 ---
 
-# Intmax: a scalable payment L2 from plasma and validity proofs
-
-This post was written by PSE researcher Pierre and originally posted on his [personal blog](https://www.pierredm.xyz/posts/intmax). Thanks to the Intmax team for their helpful review on this post!
-
----
-
 [Intmax](https://www.intmax.io/) has been pioneering L2 transaction-only constructions based on [client-side validation](https://eprint.iacr.org/2025/068.pdf) (CSV), where transaction validation relies on cryptographic proofs rather than blockchain consensus rules. Data is intermittently posted on a dedicated blockchain, primarily for deposits, withdrawals, and account checkpoints.
 
 The Intmax2 [paper](https://eprint.iacr.org/2023/1082) is an instantiation of CSV. It consists of two core primitives: a Plasma-like data availability (DA) mechanism and validity proofs. It demonstrated that such a combination can help L2s achieve quite high TPS numbers. In this piece, we will explore why that is the case and how Intmax operates under the hood.
@@ -120,17 +114,7 @@ Yes, one drawback of such designs is to assume users will safegard their data on
 1.  [Plasma World Map](https://ethresear.ch/t/plasma-world-map-the-hitchhiker-s-guide-to-the-plasma/4333), [Minimal Viable Plasma](https://ethresear.ch/t/minimal-viable-plasma/426), [Roll_up](https://ethresear.ch/t/roll-up-roll-back-snark-side-chain-17000-tps/3675), [Plasma Cash with much less per user data checking](https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298/116?u=pierre)
 2.  We will be working on the `cli` branch
 
-_PSE is an Ethereum Foundation team building free resources_ for people expanding the world of programmable cryptography. _Learn more at [pse.dev](https://pse.dev/), join our [Discord](https://discord.gg/yujxyBdCfM), or [follow us on X](https://x.com/PrivacyScaling)!_
-
----
-
-Subscribe to Privacy and Scaling Explorations
-
-Receive the latest updates directly to your inbox.
-
-Subscribe
-
-Subscribe
+## Verification
 
 |                         |                                                                                                                |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------- |

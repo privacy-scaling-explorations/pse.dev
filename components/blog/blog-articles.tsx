@@ -8,7 +8,7 @@ export const BlogArticles = () => {
   const articles = getArticles()
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {articles.map(
         ({ id, title, image, tldr = "", date, authors, content }: Article) => {
           const url = `/blog/${id}`
