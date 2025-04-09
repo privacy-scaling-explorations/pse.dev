@@ -22,7 +22,7 @@ const articlesDirectory = path.join(process.cwd(), "articles")
 export function getArticles(limit: number = 1000) {
   // Get file names under /articles
   const fileNames = fs.readdirSync(articlesDirectory)
-  const allArticlesData = fileNames.map((fileName) => {
+  const allArticlesData = fileNames.map((fileName: string) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, "")
     if (id.toLowerCase() === "readme") {
@@ -39,7 +39,7 @@ export function getArticles(limit: number = 1000) {
         engines: {
           yaml: {
             // Ensure multiline strings are parsed correctly
-            parse: (str) => {
+            parse: (str: string) => {
               try {
                 // Use js-yaml's safe load to parse the YAML with type assertion
                 return jsYaml.load(str) as object

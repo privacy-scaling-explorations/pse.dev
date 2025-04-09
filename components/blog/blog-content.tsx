@@ -31,7 +31,7 @@ export function BlogImage({ image, alt, description }: BlogImageProps) {
   )
 }
 
-export async function BlogContent({ post }: BlogContentProps) {
+export function BlogContent({ post }: BlogContentProps) {
   const articles = getArticles() ?? []
   const articleIndex = articles.findIndex((article) => article.id === post.id)
 
