@@ -53,38 +53,30 @@ export const ResearchList = ({ lang }: LangProps["params"]) => {
 
   const hasActiveFilters = searchQuery !== "" || queryString !== ""
 
-  // loading state skeleton
   if (!isMounted) {
     return (
-      <div className="grid items-start justify-between w-full grid-cols-1 gap-2 md:grid-cols-4 md:gap-6">
-        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+      <div className="flex flex-col gap-10 lg:px-[100px]">
+        <div className="flex flex-col gap-6 overflow-hidden">
+          <div
+            className={cn(
+              "after:left-[100px] lg:after:left-[200px]",
+              sectionTitleClass()
+            )}
+          >
+            <div className="h-3 lg:h-4 w-[120px] lg:w-[220px] bg-gray-200 animate-pulse rounded-lg"></div>
+          </div>
         </div>
-        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
-        </div>
-        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
-        </div>
-        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+        <div className="grid items-start justify-between w-full grid-cols-1 gap-2 md:grid-cols-3 md:gap-6 ">
+          <div className="min-h-[200px] border border-gray-200 bg-gray-200 animate-pulse rounded-lg overflow-hidden"></div>
+          <div className="min-h-[200px] border border-gray-200 bg-gray-200 animate-pulse rounded-lg overflow-hidden"></div>
+          <div className="min-h-[200px] border border-gray-200 bg-gray-200 animate-pulse rounded-lg overflow-hidden"></div>
+          <div className="min-h-[200px] border border-gray-200 bg-gray-200 animate-pulse rounded-lg overflow-hidden"></div>
         </div>
       </div>
     )
   }
 
   if (noItems) return <NoResults lang={lang} />
-
-  const projectsGroupByStatus = researchs.reduce(
-    (acc, project) => {
-      acc[project.projectStatus] = [
-        ...(acc[project.projectStatus] || []),
-        project,
-      ]
-      return acc
-    },
-    {} as Record<ProjectStatus, ProjectInterface[]>
-  )
 
   const activeResearchs = researchs.filter(
     (research) => research.projectStatus === ProjectStatus.ACTIVE
@@ -106,7 +98,7 @@ export const ResearchList = ({ lang }: LangProps["params"]) => {
               <h3 className={cn(sectionTitleClass())}>{t("activeResearch")}</h3>
             </div>
           )}
-          <div className="grid grid-cols-1 gap-4 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 md:gap-x-6 md:gap-y-10 lg:grid-cols-3">
             {activeResearchs.map((project) => {
               return (
                 <ResearchCard

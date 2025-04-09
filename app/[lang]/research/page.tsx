@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const ResearchPage = async ({ params: { lang } }: any) => {
   const { t } = await useTranslation(lang, "research-page")
   return (
-    <div className="flex flex-col lg:gap-32 pb-[128px]">
+    <div className="flex flex-col gap-10 lg:gap-32 pb-[128px]">
       <div
         className="w-full"
         style={{
