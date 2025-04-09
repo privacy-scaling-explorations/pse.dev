@@ -44,13 +44,13 @@ export function getArticles() {
   return allArticlesData
     .filter(Boolean)
     .sort((a: any, b: any) => {
-      if (a.date > b.date) {
+      if (a.date < b.date) {
         return 1
       } else {
         return -1
       }
     })
-    .filter((article: any) => article.id !== "article-template") as Article[]
+    .filter((article: any) => article.id !== "_article-template") as Article[]
 }
 
 export function getArticleById(slug?: string) {

@@ -24,7 +24,7 @@ export const BlogArticleCard = ({
   const imageUrl = `/articles/${id}/${image}`
   return (
     <div className="flex flex-col h-full">
-      <div className="relative h-48 w-full overflow-hidden">
+      <div className="relative h-48 w-full overflow-hidden bg-gray-100">
         {image && (
           <Image
             src={imageUrl}
