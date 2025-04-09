@@ -32,6 +32,10 @@ const Table = (props: any) => {
   )
 }
 
+const TableRow = (props: any) => {
+  return <tr data-component="table-row">{props.children}</tr>
+}
+
 // Styling for HTML attributes for markdown component
 const REACT_MARKDOWN_CONFIG: Components = {
   a: ({ ...props }) =>
@@ -88,6 +92,15 @@ const REACT_MARKDOWN_CONFIG: Components = {
       ...props,
     }),
   table: Table,
+  tr: TableRow,
+  td: (props) => {
+    const { node, ...rest } = props
+    return <td className="p-4 text-left" {...rest} />
+  },
+  th: (props) => {
+    const { node, ...rest } = props
+    return <th className="p-4 text-left font-medium" {...rest} />
+  },
   pre: ({ ...props }) =>
     createMarkdownElement("pre", {
       className: "bg-tuatara-950 p-4 rounded-lg text-white",

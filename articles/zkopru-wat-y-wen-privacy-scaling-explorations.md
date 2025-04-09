@@ -1,0 +1,11 @@
+---
+authors: ["PSE Team"]
+title: "Zkopru: Wat, Y & Wen - Privacy & Scaling Explorations"
+image: "cover.png"
+tldr: "Originally published on Aug 10, 2021"
+date: "2022-08-26"
+---
+
+# Zkopru: Wat, Y & Wen - Privacy & Scaling Explorations
+
+This post was authored by the PSE Team.
