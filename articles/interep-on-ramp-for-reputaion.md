@@ -4,6 +4,7 @@ title: "Interep: An on-ramp for reputation"
 image: null
 tldr: ""
 date: "2022-09-13"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/w7zCHj0xoxIfhoJIxI-ZeYIXwvNatP1t4w0TsqSIBe4"
 ---
 
 Reputation is built one block at a time, on and off-chain.
@@ -61,7 +62,7 @@ Reddit parameters are defined as the following:
 
 To be included in the Reddit gold reputation level, a user would need to have a premium subscription and a minimum of 10000 karma, 5000 coins, and 3 linked identities.
 
-![https://docs.interep.link/technical-reference/reputation/reddit](https://images.mirror-media.xyz/publication-images/M2iW7n8pkmmqWq6ysASMv.png)
+![https://docs.interep.link/technical-reference/reputation/reddit](/articles/interep-on-ramp-for-reputaion/M2iW7n8pkmmqWq6ysASMv.webp)
 
 https://docs.interep.link/technical-reference/reputation/reddit
 
@@ -87,13 +88,13 @@ A Semaphore group is simply a Merkle tree, with each leaf corresponding to a uni
 
 Platforms and dapps can verify if a user belongs to a group by verifying the users' zk-proofs and be confident that anyone in an Interep group has met the reputation requirements without having to identify individual users.
 
-![https://github.com/interep-project/presentations/blob/main/DevConnect%20Amsterdam%20April%202022.pdf](https://images.mirror-media.xyz/publication-images/3SOeA46pjr3NO8Q_ghtZg.png)
+![https://github.com/interep-project/presentations/blob/main/DevConnect%20Amsterdam%20April%202022.pdf](/articles/interep-on-ramp-for-reputaion/3SOeA46pjr3NO8Q_ghtZg.webp)
 
 https://github.com/interep-project/presentations/blob/main/DevConnect%20Amsterdam%20April%202022.pdf
 
 To join an Interep group, you must first generate a Semaphore ID. Semaphore IDs are always created in the same way: they are derived from a message signed with an Ethereum account. On Interep, the Semaphore ID is generated using information from a provider such as Reddit, Github, Twitter, or POAP NFTs. These are called “deterministic identities” because the identity is generated using a specific message. A Reddit Semaphore ID and a Github Semaphore ID would be two different identities because they were generated using two different messages or inputs.
 
-![https://semaphore.appliedzkp.org/docs/guides/identities#create-deterministic-identities](https://images.mirror-media.xyz/publication-images/q0P-KDV8gkusFw23frDi4.png)
+![https://semaphore.appliedzkp.org/docs/guides/identities#create-deterministic-identities](/articles/interep-on-ramp-for-reputaion/q0P-KDV8gkusFw23frDi4.webp)
 
 https://semaphore.appliedzkp.org/docs/guides/identities#create-deterministic-identities
 

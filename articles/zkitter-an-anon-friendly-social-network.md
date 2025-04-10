@@ -4,6 +4,7 @@ title: "Zkitter: An Anon-friendly Social Network"
 image: "cover.webp"
 tldr: ""
 date: "2023-01-11"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/P4jDH1gLrVQ-DP5VyIKQrlPAJUTDhtXZkFl2vp8ewSg"
 ---
 
 Zkitter is a decentralized social network where users have the option to interact anonymously. The platform provides familiar social media functions such as posting, chatting, following, and liking, but with a private identity layer under the hood.
@@ -56,13 +57,13 @@ Zkitter offers many of the basic functions people have come to expect from a soc
 
 When signing up you can decide whether to create an account using an Ethereum address or [ENS name](https://ens.domains/), which will be displayed as your username, or to create an anonymous account.
 
-![https://www.zkitter.com/signup](https://images.mirror-media.xyz/publication-images/dBqPvJok48PmEavi4ziVB.png)
+![https://www.zkitter.com/signup](/articles/zkitter-an-anon-friendly-social-network/dBqPvJok48PmEavi4ziVB.webp)
 
 https://www.zkitter.com/signup
 
 To join Zkitter anonymously, you need to verify your reputation on an existing social network. [Interep](https://mirror.xyz/privacy-scaling-explorations.eth/w7zCHj0xoxIfhoJIxI-ZeYIXwvNatP1t4w0TsqSIBe4) imports a reputation from an existing platform to help prevent spammers or bots from creating many anonymous accounts. You can currently import your Twitter, Reddit, or Github reputation to Zkitter. Thanks to the magic of ZK proofs, the information from your Twitter account is not linked to your anon identity on Zkitter – Interep only verifies that you meet the reputation criteria and does not collect or store any details about either account.
 
-![https://docs.zkitter.com/faqs/how-to-create-an-anonymous-user](https://images.mirror-media.xyz/publication-images/srqVAqctPfgTFRapL_qCp.png)
+![https://docs.zkitter.com/faqs/how-to-create-an-anonymous-user](/articles/zkitter-an-anon-friendly-social-network/srqVAqctPfgTFRapL_qCp.webp)
 
 https://docs.zkitter.com/faqs/how-to-create-an-anonymous-user
 
@@ -78,7 +79,7 @@ Posting to Zkitter will feel pretty familiar, but with some extra options. You c
 
 Any Zkitter user – anon or publicly known – has the option to chat anonymously.
 
-![https://docs.zkitter.com/faqs/how-to-chat-anonymously](https://images.mirror-media.xyz/publication-images/AjfTdRvCPiIPjnguqjrpV.png)
+![https://docs.zkitter.com/faqs/how-to-chat-anonymously](/articles/zkitter-an-anon-friendly-social-network/AjfTdRvCPiIPjnguqjrpV.webp)
 
 https://docs.zkitter.com/faqs/how-to-chat-anonymously
 
@@ -92,7 +93,7 @@ The base primitive of Zkitter is [Semaphore](https://mirror.xyz/privacy-scaling-
 
 Interep is the anti-Sybil mechanism of Zkitter. Because users are anonymous and anyone can join the network permissionlessly, Zkitter is susceptible to Sybil attacks. Interep allows new users to prove they possess a certain level of reputation from existing social networks.
 
-![https://www.zkitter.com/explore](https://images.mirror-media.xyz/publication-images/a-6ZAmTQi43YjwOUaKBz5.png)
+![https://www.zkitter.com/explore](/articles/zkitter-an-anon-friendly-social-network/a-6ZAmTQi43YjwOUaKBz5.webp)
 
 https://www.zkitter.com/explore
 

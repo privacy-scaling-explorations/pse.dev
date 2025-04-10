@@ -4,6 +4,7 @@ title: "From CEX to CCEX with Summa Part 2"
 image: "cover.webp"
 tldr: "This post was written by [Enrico Bottazzi](https://github.com/enricobottazzi) /n/n Special thanks to Yi-Hsiu Chen (Coinbase), Shashank Agrawal (Coinbase), Stenton Mayne (kn0x1y), Michelle Lai and Kostas Chalkias (Mysten Labs) for review and discussion.  /n/n [Part 1](https://mirror.xyz/privacy-scaling-explorations.eth/_1Y6ExFD_Rs3oDxwx5_kWAj_Tl_L9c0Hm7E6SVJei0A) introduces the main concepts behind the Summa protocol.  /n/n  Part 2 dives into a full Proof of Solvency flow."
 date: "2023-09-14"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/f2ZfkPXZpvc6DUmG5-SyLjjYf78bcOcFeiJX2tb2hS0"
 ---
 
 ## Part 2 - Summa Protocol
@@ -39,7 +40,7 @@ In this phase, the Exchange has to prove ownership of a certain set of addresses
 
 The Exchange needs to sign an off-chain arbitrary message like _"these funds belong to XYZExchange"_ for each of these addresses, and then submit these signatures, together with the addresses and the message, to the SSC.
 
-![](https://images.mirror-media.xyz/publication-images/91YwYrQX4G0dQvsmQhILf.png)
+![](/articles/from-cex-to-ccex-with-summa-part-2/91YwYrQX4G0dQvsmQhILf.webp)
 
 The SSC operates optimistically by storing the triples `{signature, address, message}` within its state **without** performing any verification of their correctness. Any external actor can verify the correctness of those signatures and, if anything wrong is spotted, kick off a dispute.
 
@@ -53,7 +54,7 @@ Up to now, only crypto addresses have been taken into account. But what if the E
 
 In this phase, both the assets and the liabilities are snapshotted at a specific timestamp `t` to kick off a Proof of Solvency Round. Within a round, the Exchange needs to provide a ZK `ProofOfSolvency` that constrains their assets to be greater than their liabilities at `t`. Furthermore, the Exchange is required to generate a `ProofOfInclusion` for each user, which proves that the user has been accounted for correctly within the liabilities tree.
 
-![](https://images.mirror-media.xyz/publication-images/F83GSyDCOEo8yRVKWZCE_.png)
+![](/articles/from-cex-to-ccex-with-summa-part-2/F83GSyDCOEo8yRVKWZCE_.webp)
 
 ### 1\. Snapshot
 
@@ -83,7 +84,7 @@ It is necessary to avoid the liabilities denominated in a cryptocurrency being b
 
 The Proof of Solvency is generated leveraging the following ZK [Circuit](https://github.com/summa-dev/summa-solvency/blob/master/zk_prover/src/circuits/solvency.rs).
 
-![](https://images.mirror-media.xyz/publication-images/ueB3hQDWFAAZhHSZLV2vN.png)
+![](/articles/from-cex-to-ccex-with-summa-part-2/ueB3hQDWFAAZhHSZLV2vN.webp)
 
 **inputs**
 
@@ -119,7 +120,7 @@ Proof of Inclusion means proving that a user, identified by their username and b
 
 The Proof of Inclusion is generated⁴ leveraging the following zk [Circuit](https://github.com/summa-dev/summa-solvency/blob/master/zk_prover/src/circuits/merkle_sum_tree.rs).
 
-![](https://images.mirror-media.xyz/publication-images/ERA8zoNXOyP0Wk7ZQxdpU.png)
+![](/articles/from-cex-to-ccex-with-summa-part-2/ERA8zoNXOyP0Wk7ZQxdpU.webp)
 
 **inputs**
 

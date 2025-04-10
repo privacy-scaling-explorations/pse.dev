@@ -4,6 +4,7 @@ title: "Continuing the Zero Gravity Journey"
 image: "cover.webp"
 tldr: "_This post was written by [George Wiese](https://github.com/georgwiese) and [Artem Grigor](https://github.com/ElusAegis). After Zero Gravity's 1st place finish at [ZK Hack Lisbon in April](https://zkhack.dev/2023/07/11/zk-hack-lisbon/), PSE recognized the potential of the Zero Gravity project and provided a grant for further research in the ZKML area._"
 date: "2023-10-19"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/Jpy-PUcH1tpOWrqSdGS4gCxa72F-aZCssACJnFDD1U0"
 ---
 
 It's been an incredible journey since our team first ventured into the world of zero-knowledge proofs for Weightless Neural Networks (WNNs) at the ZK Hack Lisbon event. For an in-depth look at where we started, we recommend checking out [Ben's insightful post](https://hackmd.io/@benjaminwilson/zero-gravity).

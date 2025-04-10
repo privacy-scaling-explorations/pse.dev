@@ -4,6 +4,7 @@ title: "Semaphore Community Grants: Awarded Projects"
 image: "cover.webp"
 tldr: ""
 date: "2023-01-24"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/5w1v6rxpP-E03rWDr3RliPyFJkptQwIPzet3Vb5jdcI"
 ---
 
 We are thrilled to announce the awarded projects from the recent [Semaphore Community Grants](https://esp.ethereum.foundation/semaphore-grants) round. This grants round invited builders, researchers, developers and privacy advocates to build privacy preserving applications integrating [Semaphore](http://semaphore.appliedzkp.org/), an anonymous signaling protocol.

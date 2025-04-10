@@ -4,6 +4,7 @@ title: "The Power of Crowdsourcing Smart Contract Security for L2 Scaling Soluti
 image: "cover.webp"
 tldr: "This post was authored by [@0xDatapunk](https://github.com/0xDatapunk) at [PSE Security](https://github.com/privacy-scaling-explorations/security)."
 date: "2023-07-18"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/Zjgt8YUAeW8XX5-wc1f6uNI8vx-5q_qBTYR4KFRGpTE"
 ---
 
 ### Introduction
@@ -37,7 +38,7 @@ Recognizing the importance of smart contract security, L2 teams conduct multiple
 
 To validate the security of their smart contracts, Optimism engaged in multiple rounds of auditing with renowned auditing firms specializing in blockchain security. The table below summarizes the audit results, highlighting the identification and severity of vulnerabilities discovered for Optimism’s bedrock.
 
-![](https://images.mirror-media.xyz/publication-images/jDof9Xq_eCuydOVO37pdW.png)
+![](/articles/the-power-of-crowdsourcing-smart-contract-security-for-l2-scaling-solutions/jDof9Xq_eCuydOVO37pdW.webp)
 
 #### **Sherlock competition**
 
@@ -45,9 +46,9 @@ To validate the security of their smart contracts, Optimism engaged in multiple 
 
 Prior to launching the Sherlock competition, Optimism’s confidence in their security measures led them to structure the payout in a unique way. They believed that no high or medium severity bugs could be found, and thus capped the reward pool if only low-severity bugs are found. The reward structure was designed to reflect their confidence in their security measures.
 
-![](https://images.mirror-media.xyz/publication-images/LZ5X_yZmzapEe3FDBeSBs.png)
+![](/articles/the-power-of-crowdsourcing-smart-contract-security-for-l2-scaling-solutions/LZ5X_yZmzapEe3FDBeSBs.webp)
 
-![](https://images.mirror-media.xyz/publication-images/BCksYcQCG4bRdMNqb-nnT.png)
+![](/articles/the-power-of-crowdsourcing-smart-contract-security-for-l2-scaling-solutions/BCksYcQCG4bRdMNqb-nnT.webp)
 
 ##### **Surprising Findings**
 
@@ -55,7 +56,7 @@ Contrary to their initial expectations, the Sherlock competition yielded multipl
 
 The summaries of the competition results are as follows:
 
-![](https://images.mirror-media.xyz/publication-images/6X1TjwgCG_RAxkoPqpt9t.png)
+![](/articles/the-power-of-crowdsourcing-smart-contract-security-for-l2-scaling-solutions/6X1TjwgCG_RAxkoPqpt9t.webp)
 
 #### **The Power of Crowdsourcing Security**
 
@@ -71,17 +72,17 @@ The following links provide detailed findings from the Sherlock competitions con
 
 Similarly, zkSync engaged multiple rounds of audits with well known auditing firms:
 
-![](https://images.mirror-media.xyz/publication-images/EwlhpcaOxZXx1HwBVSrrA.png)
+![](/articles/the-power-of-crowdsourcing-smart-contract-security-for-l2-scaling-solutions/EwlhpcaOxZXx1HwBVSrrA.webp)
 
 However, their engagement with crowdsourcing platforms also revealed and fixed further vulnerabilities.
 
-![](https://images.mirror-media.xyz/publication-images/dZEbDsEj5v9nEwSOjJpWL.png)
+![](/articles/the-power-of-crowdsourcing-smart-contract-security-for-l2-scaling-solutions/dZEbDsEj5v9nEwSOjJpWL.webp)
 
 [zkSync Era System Contracts code4rena contest](https://code4rena.com/reports/2023-03-zksync)[zkSync Secure3 competitive security assessment](https://github.com/Secure3Audit/Secure3Academy/tree/main/audit_reports/zkSync)[zkSync v2 code4rena contest](https://code4rena.com/reports/2022-10-zksync)**Beyond Audits**
 
 While traditional audits and crowdsourcing security through competitions can significantly enhance smart contract security, it is not a panacea. The crowdsourced findings serve as valuable inputs, but they do not guarantee that all vulnerabilities have been identified. To align the interests of various stakeholders, including the project owners and security researchers, Sherlock provides different levels of coverage to its customers for potential exploits, while promising high APRs for its stakers ([more details here](https://docs.sherlock.xyz/coverage/staking-apy/overview)). So far, Sherlock has had two claims against its audited contracts.
 
-![](https://images.mirror-media.xyz/publication-images/iLEqP8F_u_PWi4qxG7OtD.png)
+![](/articles/the-power-of-crowdsourcing-smart-contract-security-for-l2-scaling-solutions/iLEqP8F_u_PWi4qxG7OtD.webp)
 
 The true security of L2 contracts, like any other complex system, remains an ongoing effort and requires a combination of rigorous audits, [proactive bug bounty programs](https://immunefi.com/bounty/optimism/), and continuous vigilance.
 

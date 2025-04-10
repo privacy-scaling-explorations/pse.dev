@@ -14,6 +14,7 @@ export interface Article {
   signature?: string
   publicKey?: string
   hash?: string
+  canonical?: string
 }
 
 const articlesDirectory = path.join(process.cwd(), "articles")
@@ -23,7 +24,6 @@ export function getArticles(limit: number = 1000) {
   // Get file names under /articles
   const fileNames = fs.readdirSync(articlesDirectory)
   const allArticlesData = fileNames.map((fileName: string) => {
-    // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, "")
     if (id.toLowerCase() === "readme") {
       return null
@@ -74,7 +74,6 @@ export function getArticles(limit: number = 1000) {
   return allArticlesData
     .filter(Boolean)
     .sort((a: any, b: any) => {
-      // Convert string dates to Date objects for reliable comparison
       const dateA = new Date(a.date)
       const dateB = new Date(b.date)
 

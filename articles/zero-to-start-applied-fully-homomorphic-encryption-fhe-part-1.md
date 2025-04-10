@@ -4,13 +4,14 @@ title: "Zero to Start: Applied Fully Homomorphic Encryption (FHE) Part 1"
 image: "cover.webp"
 tldr: "This post was written by [0xZoey](https://twitter.com/0xZoey). Special thanks to [Janmajaya](https://twitter.com/Janmajaya_mall), [Enrico](https://twitter.com/backaes?lang=en), and [Owen](https://twitter.com/omurovec) who generously gave their time and expertise to review this piece. Your valuable contributions and feedback have greatly enhanced the quality and depth of this work. /n/n Find [Part 2: Fundamental Concepts, FHE Development, Applied FHE, Challenges and Open Problems](https://mirror.xyz/privacy-scaling-explorations.eth/wQZqa9acMdGS7LTXmKX-fR05VHfkgFf9Wrjso7XxDzs) here…"
 date: "2023-12-21"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/D8UHFW1t48x2liWb5wuP6LDdCRbgUH_8vOFvA0tNDJA"
 ---
 
 ## **What is FHE?**
 
 Present privacy technology ensures secure communication and storage, encrypting our emails during transit and safeguarding databases in storage. However, accessing data for **processing** requires the data to be first decrypted. What if secure processing could occur without compromising data privacy?
 
-![FHE allows computation over encrypted data](https://images.mirror-media.xyz/publication-images/PK_2cdH2q63Dovvnlh777.png)
+![FHE allows computation over encrypted data](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/PK_2cdH2q63Dovvnlh777.webp)
 
 FHE allows computation over encrypted data
 
@@ -20,7 +21,7 @@ This article focuses on the current state of FHE, fundamental concepts, applied 
 
 The idea for FHE was initially proposed in 1978 by Rivest, Adleman, and Dertouzous (the "R" and "A" of [RSA](<https://en.wikipedia.org/wiki/RSA_(cryptosystem)>)). FHE is an extension of public key cryptography; the encryption is "homomorphic" because it works on the principle that for every function performed on unencrypted text (Plaintext), there is an equivalent function for encrypted text (Ciphertext).
 
-![Homomorphic Encryption](https://images.mirror-media.xyz/publication-images/PoAkyRxFZ5v2OieE-iRPS.png)
+![Homomorphic Encryption](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/PoAkyRxFZ5v2OieE-iRPS.webp)
 
 Homomorphic Encryption
 
@@ -33,7 +34,7 @@ There are generally four categories of homomorphic encryption:
 3.  **Leveled homomorphic**: limited operations for both addition and multiplication
 4.  **Fully homomorphic**: unlimited operations for both addition and multiplication (and others).
 
-![](https://images.mirror-media.xyz/publication-images/QkcoPW4EGRdD9wBEpqHb4.png)
+![](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/QkcoPW4EGRdD9wBEpqHb4.webp)
 
 In the past, the difficulty in achieving FHE  was due to the "noise" that accumulated with every subsequent operation. The excess overflow in noise eventually makes decryption impossible. Craig Gentry proposed the first FHE scheme in 2009, where he solved this problem with a method called bootstrapping. Bootstrapping is used to recursively evaluate the decryption circuit to reduce and manage noise accumulation.
 
@@ -47,7 +48,7 @@ Some [general](https://homomorphicencryption.org/wp-content/uploads/2018/10/CCS
 - Encrypted searches: query an encrypted file and only see the result of your specific query without the entire contents of the database revealed, also known as Private Information Retrieval (PIR).
 - Policy Compliance & Identity Management: Secure identity management by enabling the processing of identity-related data without exposure, allowing organizations to comply with regulators' KYC policies.
 
-![General FHE Use Cases](https://images.mirror-media.xyz/publication-images/qZBR43OiJJQubIwL1iIc2.png)
+![General FHE Use Cases](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/qZBR43OiJJQubIwL1iIc2.webp)
 
 General FHE Use Cases
 
@@ -60,7 +61,7 @@ Here are some theoretical blockchain use cases that FHE could facilitate:
 - Scaling: [Leveraging](https://www.fhenix.io/fhe-rollups-scaling-confidential-smart-contracts-on-ethereum-and-beyond-whitepaper/) [FHE Rollups](https://www.fhenix.io/wp-content/uploads/2023/11/FHE_Rollups_Whitepaper.pdf) presents a scalable approach to execute private smart contracts utilizing the security derived from Ethereum for state transitions
 - [Private Blockchains](https://eprint.iacr.org/2022/1119.pdf): encrypted chain states that are programmatically decrypted via consensus using Threshold FHE.
 
-![FHE: Blockchain Use Cases](https://images.mirror-media.xyz/publication-images/duTnCuiIvMfqdk3ZERSe2.png)
+![FHE: Blockchain Use Cases](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/duTnCuiIvMfqdk3ZERSe2.webp)
 
 FHE: Blockchain Use Cases
 
@@ -72,23 +73,23 @@ The terms ZKPs, MPC, and FHE have often been misused and interchanged and have b
 
 To briefly summarize how the three concepts are connected:
 
-**[Multi-Party Computation (MPC)](https://www.youtube.com/watch?v=aDL_KScy6hA&t=571s)**: MPC, when described as a ***general function***, is any setup where mutually distrustful parties can individually provide inputs (private to others) to collaboratively compute a public outcome.  MPC can be used as the term used to describe the ***technology*** itself, where randomized data shares from each individual are delegated for compute across servers.
+**[Multi-Party Computation (MPC)](https://www.youtube.com/watch?v=aDL_KScy6hA&t=571s)**: MPC, when described as a **_general function_**, is any setup where mutually distrustful parties can individually provide inputs (private to others) to collaboratively compute a public outcome.  MPC can be used as the term used to describe the **_technology_** itself, where randomized data shares from each individual are delegated for compute across servers.
 
-![MPC](https://images.mirror-media.xyz/publication-images/poh6Brvlh1qyBiYpgPxyP.png)
+![MPC](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/poh6Brvlh1qyBiYpgPxyP.webp)
 
 MPC
 
-To add to the confusion, it is also often used to describe MPC ***use cases***, most notably in the context of [Distributed Key Generation](https://en.wikipedia.org/wiki/Distributed_key_generation) (DKG) and [Threshold Signature Schemes](https://link.springer.com/referenceworkentry/10.1007/0-387-23483-7_429#:~:text=Threshold%20signatures%20are%20digital%20signatures,structure%20of%20a%20threshold%20scheme.) (TSS).
+To add to the confusion, it is also often used to describe MPC **_use cases_**, most notably in the context of [Distributed Key Generation](https://en.wikipedia.org/wiki/Distributed_key_generation) (DKG) and [Threshold Signature Schemes](https://link.springer.com/referenceworkentry/10.1007/0-387-23483-7_429#:~:text=Threshold%20signatures%20are%20digital%20signatures,structure%20of%20a%20threshold%20scheme.) (TSS).
 
-Three leading technologies form the [building blocks](https://open.spotify.com/episode/4zfrPFbPWZvn6fXwrrEa5f?si=9ab56d47510f4da0) of MPC ***applications***: [Garbled Circuits (GC)](https://www.youtube.com/watch?v=La6LkUZ4P_s), Linear Secret Sharing Schemes (LSSS), and Fully Homomorphic Encryption (FHE). These can be used both conjunctively or exclusively.
+Three leading technologies form the [building blocks](https://open.spotify.com/episode/4zfrPFbPWZvn6fXwrrEa5f?si=9ab56d47510f4da0) of MPC **_applications_**: [Garbled Circuits (GC)](https://www.youtube.com/watch?v=La6LkUZ4P_s), Linear Secret Sharing Schemes (LSSS), and Fully Homomorphic Encryption (FHE). These can be used both conjunctively or exclusively.
 
-![MPC & ZKPs](https://images.mirror-media.xyz/publication-images/XiqL4MvjssDILJ59mDR5_.png)
+![MPC & ZKPs](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/XiqL4MvjssDILJ59mDR5_.webp)
 
 MPC & ZKPs
 
 **Zero-Knowledge Proofs (ZKPs):** A method that allows a single party (prover) to prove to another party (verifier) knowledge about a piece of data without revealing the data itself. Using both public and private inputs, ZKPs enable the prover to present a true or false output to the verifier.
 
-![ZKPs](https://images.mirror-media.xyz/publication-images/8YgbCNa_VDgqwUo3y5qaG.png)
+![ZKPs](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/8YgbCNa_VDgqwUo3y5qaG.webp)
 
 ZKPs
 
@@ -98,11 +99,11 @@ Note the difference in ZKPs, FHE, and MPCs, where the input element of each prim
 
 - In ZKPs, private data contained in the input is only *visible to the prover*
 - In MPC, private data contained in each input is only *visible to the owner*
-- In FHE, private data contained in the input is encrypted and is ***never revealed***
+- In FHE, private data contained in the input is encrypted and is **_never revealed_**
 
 While MPC is network bound, FHE and ZKPs are compute bound. The three primitives also differ regarding relative computation costs and interactiveness required between parties.
 
-![ZKPs, MPC, FHE, computation costs and interactiveness](https://images.mirror-media.xyz/publication-images/fkjwJBfIJ2VkIGLKsqK1D.png)
+![ZKPs, MPC, FHE, computation costs and interactiveness](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/fkjwJBfIJ2VkIGLKsqK1D.webp)
 
 ZKPs, MPC, FHE, computation costs and interactiveness
 
@@ -145,7 +146,7 @@ There are also limitations to the size of unsigned integers available in the fhE
 
 In the last five years, significant advancements have been made to make FHE more usable. Shruthi Gorantala's [framework](https://youtu.be/Q3glyMsaWIE?si=TbhlNxGsozbalIHU&t=1278) for thinking about FHE development as a hierarchy of needs is particularly helpful. The performance improvements listed above address deficiency needs and are contained in Layers 1-3 within the FHE tech stack. For FHE to realize its full potential, we also need to address the growth needs listed in Layers 4-5.
 
-![FHE Hierarchy of Needs](https://images.mirror-media.xyz/publication-images/ZQ48QaY9vXvlwn-4Eh2B9.png)
+![FHE Hierarchy of Needs](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/ZQ48QaY9vXvlwn-4Eh2B9.webp)
 
 FHE Hierarchy of Needs
 

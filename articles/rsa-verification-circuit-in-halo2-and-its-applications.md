@@ -4,6 +4,7 @@ title: "RSA Verification Circuit in Halo2 and its Applications"
 image: null
 tldr: "This post was authored by grantee **Sora Suegami** ([Twitter](https://twitter.com/SoraSue77), [Github](https://github.com/SoraSuegami))"
 date: "2022-11-14"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/mmkG4uB2PR_peGucULAa7zHag-jz1Y5biZH8W6K2LYM"
 ---
 
 ## Introduction
@@ -36,7 +37,7 @@ For example, we consider a 2048-bit big integer that consists of 32 64-bit limbs
 
 This is because the big integer multiplication is computed in the same way as polynomial multiplication. Formally, for two big integers _**a = a₀x⁰ +**_ _**a₁x¹ + ⋯ + a₃₁x³¹**_ and _**b₀x⁰ +**_ _**b₁x¹ + ⋯ +b₃₁x³¹**_, where _**x=2⁶⁴**_, their multiplication is defined as follows.
 
-![](https://images.mirror-media.xyz/publication-images/ZdsDrBBUuNyHcZNu76dVj.png)
+![](/articles/rsa-verification-circuit-in-halo2-and-its-applications/ZdsDrBBUuNyHcZNu76dVj.webp)
 
 To convert the Muled type big integer back into the Fresh type one, our circuit provides a refresh function that creates a big integer equal to the given big integer where each limb value is 64-bit with increasing the number of limbs. By refreshing the product with that function, multiplication can be performed multiple times.
 
@@ -49,7 +50,7 @@ To verify the first condition, the (not modular) multiplication function is used
 
 By repeating the modular multiplication described above, the modular power _**aᵉ**_ **mod _n_** for an exponent big integer _**e**_ is computed. Formally, it is implemented as follows.
 
-1.  Decompose _**e**_ into _**n**_ bits (_**e₀**_,***a₁,…,eₙ***₋***₁***).
+1.  Decompose _**e**_ into _**n**_ bits (_**e₀**_,**_a₁,…,eₙ_**₋**_₁_**).
 2.  Let _**y = 1**_ be a modular power result.
 3.  For ***i*∈** _**{0,…,n−1}**_, update _**y**_ to _**eᵢya²^ⁱ + (1−e₁)y**_.
 
@@ -91,7 +92,7 @@ In the following, we present two situations where the ZK-Mail can be used.
 5.  The contract calls the ZK-Mail contract with the provided data. It verifies the ZKP proof using Alice’s public key and email address registered in advance.
 6.  If the proof passes the verification, the price oracle contract accepts the provided name and price data.
 
-![](https://images.mirror-media.xyz/publication-images/9Y4bJxpPnxxhdegr0P6LF.png)
+![](/articles/rsa-verification-circuit-in-halo2-and-its-applications/9Y4bJxpPnxxhdegr0P6LF.webp)
 
 ### Scenario 2: Email as transaction data for the contract wallet
 
@@ -124,4 +125,4 @@ In the following, we present two situations where the ZK-Mail can be used.
 7.  The contract calls the ZK-Mail contract with the provided data. It verifies the ZKP proof using Alice’s public key and Bob’s email address registered in advance.
 8.  If the proof passes the verification, the contract wallet transfers Bob’s 1 ETH to the wallet corresponding to the email address of [friend@alice.com](http://mailto:friend@alice.com/). (In detail, the contract wallet has storage where the hash of the email address is mapped to the ETH balance. It decreases 1 from the balance of Hash([bob@alice.com](http://mailto:bob@alice.com/)) and increases that of Hash([friend@alice.com](http://mailto:friend@alice.com/)) by the same amount.)
 
-![](https://images.mirror-media.xyz/publication-images/wqZkchwlp5eKjrHxEQDMp.png)
+![](/articles/rsa-verification-circuit-in-halo2-and-its-applications/wqZkchwlp5eKjrHxEQDMp.webp)

@@ -4,11 +4,12 @@ title: "Secure Multi-Party Computation"
 image: "cover.webp"
 tldr: "This post was written by [Brechy](https://github.com/brech1). Thanks [Nam Ngo](https://github.com/namnc) for the feedback and review!"
 date: "2024-08-06"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/v_KNOV_NwQwKV0tb81uBS4m-rbs-qJGvCx7WvwP4sDg"
 ---
 
 Secure multi-party computation (MPC) enables a group of participants to collaborate on a specific task that requires their data as input, ensuring the privacy of their inputs and the correctness of the output.
 
-![](https://images.mirror-media.xyz/publication-images/Kek3E-J1uGuMT7Cj-SYqo.png)
+![](/articles/secure-multi-party-computation/Kek3E-J1uGuMT7Cj-SYqo.webp)
 
 This allows performing operations on private information without disclosing it or involving a trusted third party. The only data each party receives is the function's result.
 
@@ -77,7 +78,7 @@ Multiple parties can combine and analyze datasets without disclosing private inf
 
 Many protocols use a circuit to represent the function being computed. The circuit's structure and operations remain constant and are not influenced by user inputs. As a result, the runtime of the protocol does not disclose any information about the inputs.
 
-![](https://images.mirror-media.xyz/publication-images/02PrsVGP55vTaEOeac28r.png)
+![](/articles/secure-multi-party-computation/02PrsVGP55vTaEOeac28r.webp)
 
 A simple circuit:
 
@@ -124,7 +125,7 @@ The compiled circuit will consist of four arithmetic multiplication gates:
 
 ### Circuit Diagram
 
-![](https://images.mirror-media.xyz/publication-images/0n_GrMSZOLlaK9QmICESR.png)
+![](/articles/secure-multi-party-computation/0n_GrMSZOLlaK9QmICESR.webp)
 
 For this example, it might have been quicker to manually construct the gates. However, we now have a function that can serve as a building block for actual matrix multiplication or more complex operations.
 
@@ -134,7 +135,7 @@ Oblivious transfer (OT) is a cryptographic two-party protocol. It allows the rec
 
 Let's review a basic example, the **1-out-of-2 oblivious transfer**. In this protocol, the sender has two messages, 𝑚 0 and 𝑚 1 . The receiver wants to learn one of these messages, 𝑚 𝑏 , without the sender knowing which message was chosen.
 
-![](https://images.mirror-media.xyz/publication-images/C-_iyr8RuoKAaFhMwSU-h.png)
+![](/articles/secure-multi-party-computation/C-_iyr8RuoKAaFhMwSU-h.webp)
 
 1-out-of-2 Oblivious Transfer protocol
 
@@ -162,7 +163,7 @@ Let's review a basic example, the **1-out-of-2 oblivious transfer**. In this pro
 
 Garbled circuits (GCs) were introduced by Andrew Yao in the 1980s as a technique for secure **two-party computation (2PC)**. The GC protocol involves two parties, the garbler and the evaluator, who work together to securely evaluate a function represented as a Boolean circuit. The function consists of AND and XOR gates, and each party contributes part of the input.
 
-![](https://images.mirror-media.xyz/publication-images/SiLbmmhQPfgfdjITGQnAA.png)
+![](/articles/secure-multi-party-computation/SiLbmmhQPfgfdjITGQnAA.webp)
 
 _Garbled Circuit protocol_
 
@@ -172,21 +173,21 @@ Here's a step-by-step overview of how the GC protocol works for a simple circuit
 
 Our circuit will be constructed with only one AND gate. The truth table shows the output for all possible input combinations:
 
-![](https://images.mirror-media.xyz/publication-images/xoTM5PYnM42abFV5xDvtn.png)
+![](/articles/secure-multi-party-computation/xoTM5PYnM42abFV5xDvtn.webp)
 
 ### Garbling
 
 Garbling is a process by which the truth table is obfuscated. The garbler picks four random strings, or **labels:**
 
-![](https://images.mirror-media.xyz/publication-images/slKxMPXbpepuMk2KINjc0.png)
+![](/articles/secure-multi-party-computation/slKxMPXbpepuMk2KINjc0.webp)
 
 The garbler then uses every pair of labels corresponding to a possible scenario to encrypt the output corresponding to that scenario.
 
-![](https://images.mirror-media.xyz/publication-images/Br-ye9lyqq6ZKWEhqRjz7.png)
+![](/articles/secure-multi-party-computation/Br-ye9lyqq6ZKWEhqRjz7.webp)
 
 The two relevant labels are put through a key derivation function 𝐻 to derive a symmetric encryption key, and that key is used to encrypt 𝑎 ∧ 𝑏 . Then the garbled gate consists of the four resulting ciphertexts, in a random order.
 
-![](https://images.mirror-media.xyz/publication-images/qbwHH7Sb-pjnwWJf3m4es.png)
+![](/articles/secure-multi-party-computation/qbwHH7Sb-pjnwWJf3m4es.webp)
 
 ### Evaluation
 

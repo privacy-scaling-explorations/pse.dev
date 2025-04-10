@@ -4,6 +4,7 @@ title: "Mopro: Comparison of Circom Provers"
 image: "cover.webp"
 tldr: "This post was written by [Vivian Jeng](https://mirror.xyz/privacy-scaling-explorations.eth/GLbuCflH0hu_DncKxiC2No5w3LZJAGw4QaCB-HYD5e0), a developer on the Mopro team."
 date: "2025-01-21"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/GLbuCflH0hu_DncKxiC2No5w3LZJAGw4QaCB-HYD5e0"
 ---
 
 [Mopro](https://github.com/zkmopro/mopro) is a toolkit designed to make mobile proving simple and efficient. With the growing dominance of mobile app users over web app users, and the observation that `snarkjs` is less performant compared to native provers like `rapidsnark`, we recognized the need to optimize proving speed for mobile devices. To address this, one of Mopro's primary goals is to evaluate various provers across different platforms to identify the most effective solution, ensuring we focus on the best-performing prover for mobile environments.
@@ -90,11 +91,11 @@ Here, we present a table comparing different witness generators and proof genera
 
 In this comparison, we use `circom-witnesscalc` as a representative for both `circom-witness-rs` and `circom-witnesscalc`, as they share fundamentally similar implementations and characteristics.
 
-![Comparison of witness generators](https://images.mirror-media.xyz/publication-images/QQlHHr5UHsiYu4QrJLsAZ.png)
+![Comparison of witness generators](/articles/mopro-comparison-of-circom-provers/QQlHHr5UHsiYu4QrJLsAZ.webp)
 
 Comparison of witness generators
 
-![Comparison of proof generators](https://images.mirror-media.xyz/publication-images/UkNa-hAgUN5E7GAOjFbGE.png)
+![Comparison of proof generators](/articles/mopro-comparison-of-circom-provers/UkNa-hAgUN5E7GAOjFbGE.webp)
 
 Comparison of proof generators
 

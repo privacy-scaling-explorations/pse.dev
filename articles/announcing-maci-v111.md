@@ -4,6 +4,7 @@ title: "Announcing MACI v1.1.1"
 image: "cover.webp"
 tldr: "This post was authored by [Alessandro](https://github.com/ctrlc03) and [Chao](https://github.com/chaosma)"
 date: "2023-01-18"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/ltCt68hslI5jmMf1AnfkrP2eUwkeZ8_fgkHc_WyD9Nc"
 ---
 
 We are pleased to announce the release of an updated version of MACI - Minimal Anti-Collusion Infrastructure v1.1.1.
@@ -16,7 +17,7 @@ MACI is an application that provides collusion resistance for on-chain voting pr
 
 MACI revolves around the need for a trusted coordinator. The coordinator is in charge of setting up the system, publishing its public key, and computing the tally of the votes. Below are the main properties of MACI:
 
-![](https://images.mirror-media.xyz/publication-images/9GxuqUkAqCpsIiIRaFe7x.png)
+![](/articles/announcing-maci-v111/9GxuqUkAqCpsIiIRaFe7x.webp)
 
 Since its inception, MACI has been adopted by different projects, most notably [clr.fund](https://github.com/clrfund) and [QFI](https://github.com/quadratic-funding/qfi/tree/feat/code-freeze). These projects prove how effective MACI can be, especially when integrated with applications that are otherwise prone to collusion, such as funding Public Goods.
 
@@ -39,7 +40,7 @@ All of these issues have been successfully resolved, on top of fixing minor issu
 
 The following sections provide a quick introduction to the newest features introduced in MACI’s codebase.
 
-![](https://images.mirror-media.xyz/publication-images/Gfn-Vu6lKKsJ750LQIXxA.png)
+![](/articles/announcing-maci-v111/Gfn-Vu6lKKsJ750LQIXxA.webp)
 
 ### Top Up Credit
 

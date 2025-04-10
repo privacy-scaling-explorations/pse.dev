@@ -4,19 +4,20 @@ title: "From CEX to CCEX with Summa Part 1"
 image: "cover.webp"
 tldr: "This post was written by [Enrico Bottazzi](https://github.com/enricobottazzi) /n/n Special thanks to Yi-Hsiu Chen (Coinbase), Shashank Agrawal (Coinbase), Stenton Mayne (kn0x1y), Michelle Lai and Kostas Chalkias (Mysten Labs) for review and discussion. /n/n Part 1 introduces the main concepts behind the Summa protocol and can be skipped if already familiar to the reader. /n/n [Part 2](https://mirror.xyz/privacy-scaling-explorations.eth/f2ZfkPXZpvc6DUmG5-SyLjjYf78bcOcFeiJX2tb2hS0) dives into a full Proof of Solvency flow."
 date: "2023-09-14"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/_1Y6ExFD_Rs3oDxwx5_kWAj_Tl_L9c0Hm7E6SVJei0A"
 ---
 
 ## Part 1 - Introduction
 
 In 1494 [Luca Pacioli](https://en.wikipedia.org/wiki/Luca_Pacioli), a Franciscan Friar, published _Summa de arithmetica, geometria, Proportioni et proportionalita_. The book laid out for the first time in history the principles of double-entry bookkeeping and paved the way for the creation of the study field known as accounting.
 
-![](https://images.mirror-media.xyz/publication-images/FIFNNkC2YB8uvr3wjAV0E.jpg)
+![](/articles/from-cex-to-ccex-with-summa-part-1/FIFNNkC2YB8uvr3wjAV0E.webp)
 
 More than 5 centuries later, book authentication still relies on the same principles. The financial integrity of the businesses is guaranteed by government licenses or manual background checks performed by some authorities or auditors.
 
 In the context of cryptocurrencies, the fragility of such a financial paradigm becomes evident every time a major centralized exchange (CEX) blows up.
 
-![](https://images.mirror-media.xyz/publication-images/W2GtQw6kUenW4f7kCWd-Y.png)
+![](/articles/from-cex-to-ccex-with-summa-part-1/W2GtQw6kUenW4f7kCWd-Y.webp)
 
 In November 2022, Vitalik shared a [blog post](https://vitalik.ca/general/2022/11/19/proof_of_solvency.html) where he envisioned a transition from the "don't be evil" aspiring-good-guy CEX to a more secure cryptographically constrained exchange (CCEX).
 
@@ -42,7 +43,7 @@ The role of a Centralized Exchange (Exchange) is to collect deposits from users 
 
 The deposit of a user into an Exchange is not necessarily recorded on the blockchain, usually only being recorded on the Exchange’s servers. While this allows saving blockchain transaction fees for the users, a malicious Exchange could unilaterally modify the record of a user balance without the user’s consent and without leaving any cryptographic trace of the manipulation. These deposits are defined as **liabilities** of the Exchange because they are owed by the Exchange to its customers.
 
-![](https://images.mirror-media.xyz/publication-images/INvah5glHUj9sWKgUpk_8.png)
+![](/articles/from-cex-to-ccex-with-summa-part-1/INvah5glHUj9sWKgUpk_8.webp)
 
 The relation between a user and an Exchange is based on a trust agreement that for every deposit, the Exchange will hold a corresponding amount of (the same!) cryptocurrency within their wallet. As long as the Exchange abides by this trust-based agreement, the Exchange is **solvent** and users are confident that they can safely withdraw at any time.
 
@@ -53,7 +54,7 @@ Whenever trust is involved, there are many ways it could go wrong. Two relevant 
 
 A Proof of Solvency protocol provides a solution for that. The cryptographic constraint that must be met by the Exchange is
 
-![](https://images.mirror-media.xyz/publication-images/zX6JjpoXE48utjJitckri.png)
+![](/articles/from-cex-to-ccex-with-summa-part-1/zX6JjpoXE48utjJitckri.webp)
 
 in which _n_ are all the addresses controlled by the Exchange holding a specific asset, and _m_ are all the users of the Exchange that have invested in that asset. Note that:
 
@@ -70,7 +71,7 @@ Let us consider a scenario in which Alice wants to publicly commit to a predicti
 
 Alice can take her winner prediction "BenjaminPavard", run a hash function on top of this, and publish the resulting output (hash digest) on her Twitter profile. At this point, no one can learn Alice's prediction just from the hash digest.
 
-![](https://images.mirror-media.xyz/publication-images/_uLicpcXlCPnFB2Y40Jd5.png)
+![](/articles/from-cex-to-ccex-with-summa-part-1/_uLicpcXlCPnFB2Y40Jd5.webp)
 
 In fact, to decrease the likelihood that someone unmasks Alice's hash and discovers her prediction, it would be safer to add some random large number (technically known as _salt_) together with the prediction as hash input, in order to avoid brute-force and [Rainbow Table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
 
@@ -87,7 +88,7 @@ Merkle Trees are especially useful when you want to prove the existence (typical
 
 Summa makes use of a modified version of a Merkle Tree as a cryptographic commitment scheme which is a **[Merkle Sum Tree](https://github.com/summa-dev/summa-solvency/blob/master/zk_prover/src/merkle_sum_tree/mst.rs)**. In the context of Summa, the data entries to the Merkle Sum Tree are the liabilities of the Exchange, while the _Merkle Root_ contains a commitment to the state of the Exchange's liabilities.
 
-![](https://images.mirror-media.xyz/publication-images/5LLmG0yppR3mjvIZFjf6U.png)
+![](/articles/from-cex-to-ccex-with-summa-part-1/5LLmG0yppR3mjvIZFjf6U.webp)
 
 The core properties of a Merkle Sum Tree are:
 
@@ -109,7 +110,7 @@ Let's consider the case in which an Exchange wants to prove to user Carl that he
 3.  The Exchange generates a Merkle Proof of Inclusion for Carl. That is, all the nodes (in blue) that Carl needs to verify his inclusion in the tree
 4.  Carl computes his corresponding leaf node starting from his data (username and ETH balance) at time _t_ and performs the subsequent hashing with the nodes provided in the Merkle Proof until he gets to the Merkle Root. If the resulting Merkle Root matches the one committed by the Exchange at step 2, Carl can be confident that his account has been accounted for correctly in the database at time _t_. The operation of verifying the correct inclusion in the tree is described in the following pseudo-algorithm.
 
-![](https://images.mirror-media.xyz/publication-images/XM9utrZ7Z-MtocwVU-Yux.png)
+![](/articles/from-cex-to-ccex-with-summa-part-1/XM9utrZ7Z-MtocwVU-Yux.webp)
 
 ```python
 def verify_merkle_proof(leaf_data, merkle_proof, committed_root): current_node = compute_leaf_node(leaf_data) for proof_node in merkle_proof: # Decide which child (left or right) the current node is # This information can be part of the merkle_proof or determined otherwise if is_left_child(current_node, proof_node): current_node = compute_internal_node(current_node, proof_node) else: current_node = compute_internal_node(proof_node, current_node) return current_node == committed_root leaf_data_for_carl = ("Carl", 10) # This would be Carl's username and ETH balance at time t assert verify_merkle_proof(leaf_data_for_carl, merkle_proof, committed_root)
@@ -135,11 +136,11 @@ A computation is defined as any set of rules (or **constraints**) that can be en
 
 A computation can be as simple as performing the sum of 2 numbers.
 
-![](https://images.mirror-media.xyz/publication-images/bNUf8fJ3hhNZUC0Fjo31z.png)
+![](/articles/from-cex-to-ccex-with-summa-part-1/bNUf8fJ3hhNZUC0Fjo31z.webp)
 
 A more complex computation is validating blockchain transactions and bundling them into a block.
 
-![](https://images.mirror-media.xyz/publication-images/nxXaAGAgoGQ3wUs1x_YxZ.png)
+![](/articles/from-cex-to-ccex-with-summa-part-1/nxXaAGAgoGQ3wUs1x_YxZ.webp)
 
 You can see that a computation is made of a list of inputs, a program that sets the constraints of the computation, and a list of outputs (it can be more than one).
 
@@ -149,7 +150,7 @@ More formally, given a computation with constraints known by everyone, a Prover 
 
 The naive way to achieve such **Computational Integrity Guarantee** is for the Verifier to rerun the same computation with the same inputs and check that the output matches.
 
-![](https://images.mirror-media.xyz/publication-images/YyQ7OXyLwYeS9LoD0rjN9.png)
+![](/articles/from-cex-to-ccex-with-summa-part-1/YyQ7OXyLwYeS9LoD0rjN9.webp)
 
 Such an approach has two main issues:
 
@@ -158,7 +159,7 @@ Such an approach has two main issues:
 
 zkSNARKs elegantly solve these 2 issues by providing a new protocol to run any arbitrary computation that, together with the output, also returns a proof π. Such proof, despite being very tiny and faster to verify than running the original computation, carries enough information to provide the **Computational Integrity Guarantee**.
 
-![](https://images.mirror-media.xyz/publication-images/dNRWawjIRWEOoFXhV8uQK.png)
+![](/articles/from-cex-to-ccex-with-summa-part-1/dNRWawjIRWEOoFXhV8uQK.webp)
 
 The Verifier doesn't need to re-run the whole algorithm again but only needs to run a lightweight program using π as input. While the time required by the original computation grows proportionally to its complexity or the size of the inputs, the time to verify a zkSNARK proof grows logarithmically with the complexity/input size, or is even constant.
 

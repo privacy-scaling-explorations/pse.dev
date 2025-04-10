@@ -4,6 +4,7 @@ title: "ZKOPRU on Testnet - Privacy & Scaling Explorations"
 image: null
 tldr: "Exciting news! ZKOPRU is now live on the Görli testnet. We show you how to use it."
 date: "2022-08-26"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/EB0KcMY0k9ucN8iQSBeOYksoupDYRBQ4ZffhRt477FE"
 ---
 
 Originally published on Nov 30, 2021:

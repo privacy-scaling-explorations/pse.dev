@@ -4,6 +4,7 @@ title: "p0tion V1.0 Release"
 image: "cover.webp"
 tldr: "P0tion was built with love by: MACI, Trusted Setup, RLN, and Design Teams at PSE."
 date: "2023-08-08"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/TuLZRdgCQsydC8JJgCNH4F7GzifRBQ6fr31DHGLFVWM"
 ---
 
 We are excited to unveil p0tion V1, a versatile and comprehensive toolkit designed to streamline Groth16 zk-application development and enable them to become production-ready.  The goal is to facilitate Phase 2 Trusted Setup ceremonies for multiple circuits simultaneously, making the entire process more efficient and scalable.

@@ -4,6 +4,7 @@ title: "AnonKlub: Reflections on Our Journey in Privacy-Preserving Solutions"
 image: "cover.webp"
 tldr: "This post was written by the AnonKlub team."
 date: "2024-10-01"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/7VTKFVR4PM75WtNnBzuQSBZW-UYoJOsnzBBQmB9MWbY"
 ---
 
 One year and half ago, we embarked on an ambitious journey to explore the potential of zk-ECDSA in bringing enhanced privacy to the Ethereum ecosystem. This research initiative was introduced to the community through a **[blog post detailing the state of zk-ECDSA and its promising applications](https://mirror.xyz/privacy-scaling-explorations.eth/djxf2g9VzUcss1e-gWIL2DSRD4stWggtTOcgsv1RlxY)**.
@@ -18,7 +19,7 @@ AnonKlub began with the ambitious goal of leveraging zk-ECDSA to create privacy-
 
 Over the course of the project, we managed to generate anonymous Ethereum address ownership proofs using three distinct proving frameworks: Circom, Spartan/Sapir, and Halo2.
 
-![The AnonKlub architecture (https://anonklub.github.io/#/architecture)](https://images.mirror-media.xyz/publication-images/zMN7BV3cKC4pol4SIyGKG.png)
+![The AnonKlub architecture (https://anonklub.github.io/#/architecture)](/articles/anonklub-reflections-on-our-journey-in-privacy-preserving-solutions/zMN7BV3cKC4pol4SIyGKG.webp)
 
 The AnonKlub architecture (https://anonklub.github.io/#/architecture)
 
@@ -41,15 +42,15 @@ One of the most valuable lessons from our AnonKlub journey came from our framewo
 
 Our journey through three different frameworks highlighted the challenges in balancing these requirements.
 
-![Benchmarking Results of ZK Frameworks Used](https://images.mirror-media.xyz/publication-images/_mhlWZpoF_CiMB9Zy9TA4.png)
+![Benchmarking Results of ZK Frameworks Used](/articles/anonklub-reflections-on-our-journey-in-privacy-preserving-solutions/_mhlWZpoF_CiMB9Zy9TA4.webp)
 
 Benchmarking Results of ZK Frameworks Used
 
-![Halo2 Proving Time Breakdown (no GPU)](https://images.mirror-media.xyz/publication-images/3y1L8xxdN52vkAJOXbNji.png)
+![Halo2 Proving Time Breakdown (no GPU)](/articles/anonklub-reflections-on-our-journey-in-privacy-preserving-solutions/3y1L8xxdN52vkAJOXbNji.webp)
 
 Halo2 Proving Time Breakdown (no GPU)
 
-![Privacy vs Performance Trade-Offs Of Different ZK Frameworks Used](https://images.mirror-media.xyz/publication-images/TqCXT1IJ7_dwQp9Xemqa-.png)
+![Privacy vs Performance Trade-Offs Of Different ZK Frameworks Used](/articles/anonklub-reflections-on-our-journey-in-privacy-preserving-solutions/TqCXT1IJ7_dwQp9Xemqa-.webp)
 
 Privacy vs Performance Trade-Offs Of Different ZK Frameworks Used
 

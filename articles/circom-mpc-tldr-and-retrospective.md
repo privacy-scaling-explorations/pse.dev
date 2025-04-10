@@ -4,6 +4,7 @@ title: "Circom MPC: TL;DR and Retrospective"
 image: "cover.webp"
 tldr: "This post was authored by the Circom MPC research team."
 date: "2025-03-06"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/qelA6kAr-CMq-dgmvFUKMMqxf6GoDaP8Cs-5sRWYfO4"
 ---
 
 Circom-MPC is a PSE Research project that enables the use of the Circom language to develop MPC applications. In this project, we envisioned MPC as a [broader paradigm](https://mirror.xyz/privacy-scaling-explorations.eth/qelA6kAr-CMq-dgmvFUKMMqxf6GoDaP8Cs-5sRWYfO4#MPC-as-a-Paradigm), where MPC serves as an umbrella for generic techniques such as Zero-Knowledge Proof, Garbled Circuit, Secret-Sharing, or Fully Homomorphic Encryption.
@@ -33,35 +34,35 @@ In what follows we explain:
 
 Secure Multiparty Computation (MPC), as it is defined, allows mutually distrustful parties to jointly compute a functionality while keeping the inputs of the participants private.
 
-![](https://images.mirror-media.xyz/publication-images/OTTH9ND7SQMh-i4fIIgXE.png)
+![](/articles/circom-mpc-tldr-and-retrospective/OTTH9ND7SQMh-i4fIIgXE.webp)
 
 An MPC protocol can be either application-specific or generic:
 
-![](https://images.mirror-media.xyz/publication-images/do3fC19CfKHw3rOHMuFV2.png)
+![](/articles/circom-mpc-tldr-and-retrospective/do3fC19CfKHw3rOHMuFV2.webp)
 
 While it is clear that Threshold Signature exemplifies application-specific MPC, one can think of generic MPC as an efficient MPC protocol for a Virtual Machine (VM) functionality that takes the joint function as a common program and the private inputs as parameters to the program and the secure execution of the program is within the said VM.
 
 _For readers who are familiar with Zero-Knowledge Proof (ZKP), MPC is a generalization of ZKP in which the MPC consists of two parties namely the Prover and the Verifier, where only the Prover has a secret input which is the witness._
 
-![](https://images.mirror-media.xyz/publication-images/AQpIQQuDUa4K6vWqK4tCI.png)
+![](/articles/circom-mpc-tldr-and-retrospective/AQpIQQuDUa4K6vWqK4tCI.webp)
 
 And yes, Fully Homomorphic Encryption (FHE) is among techniques (along side Garbled-Circuit and Secret-Sharing) that can be used for MPC construction in the most straightforward mental model:
 
-![](https://images.mirror-media.xyz/publication-images/gBQ4obkZZ9je05-isHPj1.png)
+![](/articles/circom-mpc-tldr-and-retrospective/gBQ4obkZZ9je05-isHPj1.webp)
 
 ## Programmable MPC
 
 That said, MPC is not a primitive but a [collection of techniques](https://mpc.cs.berkeley.edu/) aimed to achieve the above purpose. Efficient MPC protocols exist for specific functionalities from simple statistical aggregation such as mean aggregation (for ads), Private Set Intersection (PSI) to complex ones such as RAM (called [Oblivious-RAM](https://en.wikipedia.org/wiki/Oblivious_RAM)) and even Machine Learning (ML).
 
-![](https://images.mirror-media.xyz/publication-images/pHw15k09c5DAsNqwacm54.png)
+![](/articles/circom-mpc-tldr-and-retrospective/pHw15k09c5DAsNqwacm54.webp)
 
 As each technique GC/SS/FHE and specialized MPC has its own advantage, it is typical to combine them into one's privacy preserving protocol for efficiency:
 
-![](https://images.mirror-media.xyz/publication-images/UA0OIa7kBB8k54ripH50P.png)
+![](/articles/circom-mpc-tldr-and-retrospective/UA0OIa7kBB8k54ripH50P.webp)
 
 In what follows, we present work that enables the use of Circom as a front-end language for developing privacy-preserving systems, starting with the MP-SPDZ backend.
 
-![](https://images.mirror-media.xyz/publication-images/Pu6FYJqTnT4r478Ydn_u0.png)
+![](/articles/circom-mpc-tldr-and-retrospective/Pu6FYJqTnT4r478Ydn_u0.webp)
 
 _[Detailed explanation of Progammable-MPC with Circom-MPC.](https://docs.google.com/presentation/d/1dPvNyrBWyqyX2oTGcnM52ldpISGrhwEhIZXJPwYWE6I/edit#slide=id.g2818c557dad_0_261)_
 
@@ -201,12 +202,12 @@ deactivate
 
 Below we provide benchmark for each different layer separately, a model that combines different layers will yield corresponding combined performance.
 
-![](https://images.mirror-media.xyz/publication-images/_gT634uo_O9kx4ogisxtj.png)
+![](/articles/circom-mpc-tldr-and-retrospective/_gT634uo_O9kx4ogisxtj.webp)
 
-![](https://images.mirror-media.xyz/publication-images/1EZeKTAV2tO1M-t1kwtk2.png)
+![](/articles/circom-mpc-tldr-and-retrospective/1EZeKTAV2tO1M-t1kwtk2.webp)
 
 Accuracy of the circuits compared to Keras reference implementation:
 
-![](https://images.mirror-media.xyz/publication-images/RWD7aoy3r8bs-uMc0d45D.png)
+![](/articles/circom-mpc-tldr-and-retrospective/RWD7aoy3r8bs-uMc0d45D.webp)
 
 Our above benchmark only gives a taste of how performance looks for MPC-ML; any interested party can understand approximate performance of a model that combines different layers.

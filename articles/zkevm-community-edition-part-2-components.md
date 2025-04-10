@@ -4,6 +4,7 @@ title: "zkEVM Community Edition Part 2: Components"
 image: "cover.webp"
 tldr: "This series of articles intends to provide an overview of the zkEVM Community Edition in a way that is broadly accessible. Part 2 is a summary of the common components used in most zkEVMs."
 date: "2023-05-23"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/AW854RXMqS3SU8WCA7Yz-LVnTXCOjpwhmwUq30UNi1Q"
 ---
 
 _[Part 1: Introduction](https://mirror.xyz/privacy-scaling-explorations.eth/I5BzurX-T6slFaPbA4i3hVrO7U2VkBR45eO-N3CSnSg)_
@@ -34,7 +35,7 @@ The zkEVM uses [zkSNARKs](https://blog.ethereum.org/2016/12/05/zksnarks-in-a-nut
 
 [zkSNARKs stand for Zero-Knowledge Succinct Non-interactive ARguments of Knowledge](https://z.cash/technology/zksnarks/). Zero-knowledge refers to the protocol’s capacity to prove a statement is true “without revealing any information beyond the validity of the statement itself.” Though the ZK part tends to get the most attention, it is in fact optional and unnecessary for zkEVMs. The most relevant property is succinctness.
 
-![https://www.youtube.com/watch?v=h-94UhJLeck](https://images.mirror-media.xyz/publication-images/Sd2dQ6Q8Y2nPIgO0cqr9j.png)
+![https://www.youtube.com/watch?v=h-94UhJLeck](/articles/zkevm-community-edition-part-2-components/Sd2dQ6Q8Y2nPIgO0cqr9j.webp)
 
 https://www.youtube.com/watch?v=h-94UhJLeck
 
@@ -56,13 +57,13 @@ SNARKs are created using [arithmetic circuits](https://en.wikipedia.org/wiki/Ari
 
 A circuit defines the relation between public (revealed) and private (hidden) inputs. A circuit is designed so that only a specific set of inputs can satisfy it. If a prover can satisfy the circuit, then it is enough to convince the verifier that they know the private inputs without having to reveal them. This is the zero-knowledge part of zkSNARKs. The inputs do not need to be made public to prove they are known.
 
-![https://archive.devcon.org/archive/watch/6/eli5-zero-knowledge/?tab=YouTube](https://images.mirror-media.xyz/publication-images/rvCrquqQ87uVWOD6dvtg_.png)
+![https://archive.devcon.org/archive/watch/6/eli5-zero-knowledge/?tab=YouTube](/articles/zkevm-community-edition-part-2-components/rvCrquqQ87uVWOD6dvtg_.webp)
 
 https://archive.devcon.org/archive/watch/6/eli5-zero-knowledge/?tab=YouTube
 
 To create a SNARK, you must first convert a function to circuit form. Writing a circuit breaks down the function into its simplest arithmetic logic of addition and multiplication. Because addition can express linear computations and multiplication can express exponential computations, these two simple operations become highly expressive when stacked together and applied to polynomials.
 
-![Polynomials are math expressions with “many terms.” ](https://images.mirror-media.xyz/publication-images/gizYcrA2NKJ4Ow11FlxqJ.png)
+![Polynomials are math expressions with “many terms.” ](/articles/zkevm-community-edition-part-2-components/gizYcrA2NKJ4Ow11FlxqJ.webp)
 
 Polynomials are math expressions with “many terms.”
 
@@ -70,7 +71,7 @@ In the context of this article, it is only necessary to know that polynomials ha
 
 With the basic mathematical building blocks of polynomials, addition, and multiplication, circuits can turn nearly any statement into a ZK proof. In circuit form, statements become testable: verifiable and provable.
 
-![Visualization of a simple arithmetic circuit https://node101.io/blog/a_non_mathematical_introduction_to_zero_knowledge_proofs](https://images.mirror-media.xyz/publication-images/G1B3_UHeZ8CLMErT4K3pr.png)
+![Visualization of a simple arithmetic circuit https://node101.io/blog/a_non_mathematical_introduction_to_zero_knowledge_proofs](/articles/zkevm-community-edition-part-2-components/G1B3_UHeZ8CLMErT4K3pr.webp)
 
 Visualization of a simple arithmetic circuit https://node101.io/blog/a\_non\_mathematical\_introduction\_to\_zero\_knowledge\_proofs
 
@@ -81,7 +82,7 @@ In a circuit, gates represent arithmetic operations (addition or multiplication)
 
 The input wires are _a_ and _b_; and can be made public or kept private. The output wire is _c_. The circuit itself and output _c_ is public and known to both the prover and verifier.
 
-![Example of a slightly more complex circuit https://nmohnblatt.github.io/zk-jargon-decoder/definitions/circuit.html](https://images.mirror-media.xyz/publication-images/R9tDApVpc4eEEVAVoiFYo.png)
+![Example of a slightly more complex circuit https://nmohnblatt.github.io/zk-jargon-decoder/definitions/circuit.html](/articles/zkevm-community-edition-part-2-components/R9tDApVpc4eEEVAVoiFYo.webp)
 
 Example of a slightly more complex circuit https://nmohnblatt.github.io/zk-jargon-decoder/definitions/circuit.html
 

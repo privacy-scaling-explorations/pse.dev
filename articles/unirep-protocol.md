@@ -4,6 +4,7 @@ title: "UniRep Protocol"
 image: "cover.webp"
 tldr: ""
 date: "2023-01-04"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/FCVVfy-TQ6R7_wavKj1lCr5dd1zqRvwjnDOYRM5NtsE"
 ---
 
 Anonymity gives people a clean slate to express themselves, unconnected to an existing identity. Reputation provides context: it reveals an aspect about a person’s history in relation to others. [UniRep protocol](https://github.com/unirep) adds reputation to anonymity, allowing people to provide relational context without revealing specifics of their history.
@@ -26,7 +27,7 @@ UniRep users are always in control of how their reputation is used: only they ca
 
 The UniRep protocol evolved from an [ethresearch proposal by Barry WhiteHat](https://ethresear.ch/t/anonymous-reputation-risking-and-burning/3926) for a system where users could be banned or have their reputation destroyed even if they are anonymous. The proposal outlined a mechanism for giving positive and negative reputation in a way that the user must accept while maintaining privacy. To guarantee reputation is non-repudiable (cannot be refused) UniRep employs a system of epochs, temporary identities, and the migration of reputation and user information from one state to the next via ZK proofs.
 
-![](https://images.mirror-media.xyz/publication-images/4jSmWwzhXMTHRcMhVm1Hv.png)
+![](/articles/unirep-protocol/4jSmWwzhXMTHRcMhVm1Hv.webp)
 
 ## Temporary identities
 
@@ -46,7 +47,7 @@ When users first sign up, their data is entered into a [State Tree](https://deve
 
 Since epoch keys are temporary, the reputations they accumulate must be migrated to a new Merkle tree. When users transition into the new epoch, they receive new epoch keys and the old epoch keys become invalid. In the background, their reputation follows them to the next iteration of an attester’s State Tree via ZK proofs. Moving to the new State Tree means creating a [User State Transition Proof](https://developer.unirep.io/docs/circuits-api/circuits#user-state-transition-proof) verifying the user followed all the rules of the protocol. The proofs show there was no cheating: no omitting negative attestations or adding fraudulent positive attestations.
 
-![](https://images.mirror-media.xyz/publication-images/X1povaSYYwUDI4HdZL_Rw.png)
+![](/articles/unirep-protocol/X1povaSYYwUDI4HdZL_Rw.webp)
 
 The user generates a User State Transition proof containing a new state tree leaf containing the attester ID, the user’s [Semaphore identity nullifier](https://semaphore.appliedzkp.org/docs/guides/identities), sum of the user’s positive and negative reputation from the previous epoch, timestamp and “graffiti” - a value given to the user by the attester. This new leaf is provided to the smart contract, which verifies the proof and inserts it into the new State Tree.
 

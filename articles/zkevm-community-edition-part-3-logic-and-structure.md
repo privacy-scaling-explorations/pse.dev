@@ -4,6 +4,7 @@ title: "zkEVM Community Edition Part 3: Logic and Structure"
 image: "cover.webp"
 tldr: "This series intends to provide an overview of the zkEVM Community Edition in a way that is broadly accessible. Part 3 reviews the general logic and structure of the zkEVM Community Edition."
 date: "2023-05-23"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/shl8eMBiObd6_AUBikXZrjKD4fibI6xUZd7d9Yv5ezE"
 ---
 
 _[Part 1: Introduction](https://mirror.xyz/privacy-scaling-explorations.eth/I5BzurX-T6slFaPbA4i3hVrO7U2VkBR45eO-N3CSnSg)_
@@ -42,7 +43,7 @@ To create an aggregate proof system, the zkEVM uses a custom [fork of HALO2](htt
 
 In the current implementation, the system generates two proofs. The first proof is created from a comprehensive circuit that encompasses all subcomponents necessary to verify an Ethereum block. The second proof verifies the first proof and produces a smaller, more manageable proof that is suitable for on-chain storage and verification.
 
-![https://privacy-scaling-explorations.github.io/zkevm-docs/design/recursion.html](https://images.mirror-media.xyz/publication-images/34TA7Yi1E9BNf7gvImSy7.png)
+![https://privacy-scaling-explorations.github.io/zkevm-docs/design/recursion.html](/articles/zkevm-community-edition-part-3-logic-and-structure/34TA7Yi1E9BNf7gvImSy7.webp)
 
 https://privacy-scaling-explorations.github.io/zkevm-docs/design/recursion.html
 
@@ -66,11 +67,11 @@ The Community Edition adopts a dual table approach – an idea invented by the b
 2.  Read/Write Trace keeps track of all the memory accesses (the same ones that appear in the execution trace), but they are sorted by memory location first, and timestamp second. This spatial sorting verifies that each successive memory access at the same location contains the correct value.
 3.  Finally a permutation check is performed on the memory accesses from both sides to guarantee that the same entries appear on both sides. All this guarantees that every time a memory location is read in the execution trace, it will contain the same value that was previously written at that location, no matter how many steps ago that happened.
 
-![](https://images.mirror-media.xyz/publication-images/JaNR4LpLmaFxdzyfJ8Ea7.png)
+![](/articles/zkevm-community-edition-part-3-logic-and-structure/JaNR4LpLmaFxdzyfJ8Ea7.webp)
 
 The zkEVM Community Edition is a rapidly evolving design. Each circuit iterates over and validates different parts of the computation required to process an Ethereum block, and they are all coordinated from the EVM Circuit which processes the steps (opcodes) of each transaction.
 
-![](https://images.mirror-media.xyz/publication-images/WHGAPSvjJMhCp45mrzwwa.png)
+![](/articles/zkevm-community-edition-part-3-logic-and-structure/WHGAPSvjJMhCp45mrzwwa.webp)
 
 The [EVM Circuit](https://github.com/privacy-scaling-explorations/zkevm-specs/blob/83ad4ed571e3ada7c18a411075574110dfc5ae5a/specs/evm-proof.md) is only concerned with execution. Specifically, the EVM Circuit validates [geth execution traces](https://geth.ethereum.org/docs/dapp/tracing) and verifies the transactions in the block have the correct execution results. This is usually done one opcode at a time to check each individual step in the transaction and to confirm the correct opcode was called at the correct time. The EVM Circuit is the final check to confirm the transaction and the State Circuit are valid.
 
@@ -116,7 +117,7 @@ The [EVM Circuit](https://github.com/privacy-scaling-explorations/zkevm-specs/bl
 
 Writing optimal circuits means creating a system of polynomial equations with the minimum number of sufficient constraints. Though crucial infrastructure and tooling for writing circuits have been developed in recent years, circuit programming languages are still relatively unknown and low-level. Until [simpler languages](https://zkresear.ch/t/lookup-singularity/65) or more automated systems are developed, writing circuits optimally will remain a challenging problem to solve, even for experienced developers. The ability to audit circuits is also a valuable skill in this field.
 
-![](https://images.mirror-media.xyz/publication-images/olZ-qNCw3tmZH5otPdKF_.png)
+![](/articles/zkevm-community-edition-part-3-logic-and-structure/olZ-qNCw3tmZH5otPdKF_.webp)
 
 However, the zkEVM community aims to be inclusive and supportive of individuals who are interested in learning and contributing. If you have a background in Rust or experience with other zkSNARK tooling like circom, you already have a good foundation for understanding the concepts behind the zkEVM. With a dedicated learning phase of 1-2 months, you should be well-equipped to make valuable contributions.
 

@@ -4,6 +4,7 @@ title: "Zero to Start: Applied Fully Homomorphic Encryption (FHE) Part 2"
 image: "cover.webp"
 tldr: "This post was written by [0xZoey](https://twitter.com/0xZoey), with contributions from Chance. /n This is an extension of [Part 1: An Introduction to FHE, ZKPs & MPC, and The State of FHE Development](https://mirror.xyz/privacy-scaling-explorations.eth/D8UHFW1t48x2liWb5wuP6LDdCRbgUH_8vOFvA0tNDJA)."
 date: "2023-12-21"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/wQZqa9acMdGS7LTXmKX-fR05VHfkgFf9Wrjso7XxDzs"
 ---
 
 ## **Fundamental Concepts**
@@ -12,7 +13,7 @@ date: "2023-12-21"
 
 Threshold cryptography involves splitting a single cryptographic key into “shares” across multiple parties. You may already be familiar with Threshold Signatures Schemes (TSS), which are most commonly used in MPC wallets. The required threshold of parties to collaborate to gain access to the private key is usually predefined. This is different from a multi-sig scenario where multiple “whole” keys are used.
 
-![Threshold Cryptography vs Multi-Sig](https://images.mirror-media.xyz/publication-images/wfpyPpbJRvjEtiiMA2BSK.png)
+![Threshold Cryptography vs Multi-Sig](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/wfpyPpbJRvjEtiiMA2BSK.webp)
 
 Threshold Cryptography vs Multi-Sig
 
@@ -31,7 +32,7 @@ With Threshold-FHE, trust is placed with a group of private key holders; in [FH
 - The second party performs a function using FHE on the ciphertext and their own input, producing a second ciphertext.
 - The second ciphertext is returned to the first person who performs the decryption.
 
-![FHE-MPC](https://images.mirror-media.xyz/publication-images/2Q7CXhkswBJb3Yp1Y77Er.png)
+![FHE-MPC](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/2Q7CXhkswBJb3Yp1Y77Er.webp)
 
 FHE-MPC
 
@@ -48,7 +49,7 @@ Lattice-based cryptography provides the mathematical framework that underpins ev
 
 Think of [lattice-based cryptography](https://www.youtube.com/watch?v=K026C5YaB3A) as two vectors forming a pattern over a grid. As we add more vectors across multiple dimensions, this pattern becomes increasingly complex.
 
-![Lattice-Based Cryptography](https://images.mirror-media.xyz/publication-images/1hOeDx2ijeoP2fjQyIWhR.png)
+![Lattice-Based Cryptography](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/1hOeDx2ijeoP2fjQyIWhR.webp)
 
 Lattice-Based Cryptography
 
@@ -64,15 +65,15 @@ In FHE, noise refers to the distortion or error accumulating during homomorphic 
 
 The [diagram](https://homomorphicencryption.org/wp-content/uploads/2018/10/CCS-HE-Tutorial-Slides.pdf?ref=blog.sunscreen.tech) below represents fresh encryption, where each component can be expressed as a coefficient in a polynomial or a vector. The height of the element represents the size of the coefficients. Note that in the first step, the initial noise is small.
 
-![](https://images.mirror-media.xyz/publication-images/sB_dnGBjpaiXUWrKLkFnM.png)
+![](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/sB_dnGBjpaiXUWrKLkFnM.webp)
 
 As the number of computations (operations) increases, we see a corresponding growth in noise. The growth in noise can be described as exponential, polynomial, linear, constant, or logarithmic.
 
-![](https://images.mirror-media.xyz/publication-images/4hvv268J3cUZaeoYQCL20.png)
+![](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/4hvv268J3cUZaeoYQCL20.webp)
 
 When working with FHE, the primary goal is to manage the noise reservoir. When there is an excessive number of operations, we experience noise overflow, at which point decryption becomes impossible.
 
-![](https://images.mirror-media.xyz/publication-images/SHHKJ9JkqJkIBw6yCBose.png)
+![](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/SHHKJ9JkqJkIBw6yCBose.webp)
 
 Noise management techniques in FHE aim to control or reduce the noise level to maintain the correctness of computations. The main types of noise management include
 
@@ -84,7 +85,7 @@ Noise management techniques in FHE aim to control or reduce the noise level to m
 
 Bootstrapping is the key technique used to manage noise overflow. When bootstrapping, the initial private key is encrypted as the bootstrapping key, allowing you to use it in a decryption circuit. This is secure as long as one assumes circular security.
 
-![Bootstrapping](https://images.mirror-media.xyz/publication-images/CHT9FELAjHHTvA0bXuXEq.png)
+![Bootstrapping](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/CHT9FELAjHHTvA0bXuXEq.webp)
 
 Bootstrapping
 
@@ -100,7 +101,7 @@ Relinerization is a technique to transform quadratic equations into linear ones,
 
 The development of FHE [schemes](https://queue.acm.org/detail.cfm?id=3561800) in the last decade has been rapid, with TFHE and BGV being the most popular blockchain applications. We focus on three main schemes in this article, but [many](https://github.com/jonaschn/awesome-he) others exist. Like any programming language, each comes with its unique properties suited for various use cases.
 
-![Generations of FHE Schemes](https://images.mirror-media.xyz/publication-images/BVTrv4k2df5KQNhuQ1yG-.png)
+![Generations of FHE Schemes](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/BVTrv4k2df5KQNhuQ1yG-.webp)
 
 Generations of FHE Schemes
 
@@ -122,7 +123,7 @@ CKKS (2016) is most appropriate for applications working with real numbers, such
 
 Here is a high-level [comparison](https://www.youtube.com/watch?v=VJZSGM4DdZ0) of the three most relevant FHE schemes:
 
-![FHE Scheme Comparisons](https://images.mirror-media.xyz/publication-images/fD4DfgunYv-8mOXw4eWnV.png)
+![FHE Scheme Comparisons](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/fD4DfgunYv-8mOXw4eWnV.webp)
 
 FHE Scheme Comparisons
 
@@ -184,7 +185,7 @@ In a privacy-preserving [dark pool](https://www.ifaamas.org/Proceedings/aamas20
 2.  The exchange uses FHE to find a match in the order book without knowing the order type, amount, or price.
 3.  Once a match is found, the order is executed on the public market.
 
-![Dark Pools: Order Matching using FHE](https://images.mirror-media.xyz/publication-images/GOkAOvsRMVxarQtvfdlag.png)
+![Dark Pools: Order Matching using FHE](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/GOkAOvsRMVxarQtvfdlag.webp)
 
 Dark Pools: Order Matching using FHE
 
@@ -226,7 +227,7 @@ Some other fhEVM novel use cases are being explored by the community [here](htt
 
 The open problems for FHE fall into three categories: usability, composability, and performance. Expanding the scope of feasible computations remains a challenge, and different schemes excel in different areas, but generally, there needs to be more standardization between schemes. Performance issues predominantly revolve around data efficiency due to large ciphertext and bootstrapping key sizes. Note that most challenges are often scheme-specific; we only discuss them at a high level for simplicity.
 
-![Applied FHE Challenges](https://images.mirror-media.xyz/publication-images/xNITwo9-6vXmdx_85xOih.png)
+![Applied FHE Challenges](/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/xNITwo9-6vXmdx_85xOih.webp)
 
 Applied FHE Challenges
 

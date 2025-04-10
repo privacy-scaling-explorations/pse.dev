@@ -4,6 +4,7 @@ title: "Bandada is live!"
 image: "cover.webp"
 tldr: "This post was written by the Bandada team. /n/n We are happy to announce the public release of Bandada V1! Try our [app](https://bandada.pse.dev/) out or run it yourself locally [v1.0.0-alpha](https://github.com/privacy-scaling-explorations/bandada/releases/tag/v1.0.0-alpha)"
 date: "2023-08-23"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/p3Mtft28FG1ctgeUARVEKLTK_KexnWC6T4CUHaQark4"
 ---
 
 ## **Background**
@@ -62,7 +63,7 @@ In Spanish, "Bandada" means "flock" or "group” of birds or animals moving toge
 
 Bandada consists of a back-end to store the groups and provide the **[API](https://github.com/privacy-scaling-explorations/bandada/blob/docs/readme-files/apps/api)**, two front-ends: the **[dashboard](https://github.com/privacy-scaling-explorations/bandada/blob/docs/readme-files/apps/dashboard)** to manage groups and members and a **[demo](https://github.com/privacy-scaling-explorations/bandada/blob/docs/readme-files/apps/client)** application to allow end-users to join the groups, and the **[contracts](https://github.com/privacy-scaling-explorations/bandada/blob/docs/readme-files/apps/contracts).** Additionally, it also provides a set of JavaScript libraries to support developers.
 
-![](https://images.mirror-media.xyz/publication-images/YLKtfrsyR1gTNXMjHh8ec.png)
+![](/articles/bandada-is-live/YLKtfrsyR1gTNXMjHh8ec.webp)
 
 The groups are currently binary Merkle trees compatible with the [Semaphore protocol,](https://semaphore.appliedzkp.org/) but additional data structures will be integrated in the future.
 

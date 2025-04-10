@@ -4,6 +4,7 @@ title: "Rate Limiting Nullifier: A spam-protection mechanism for anonymous envir
 image: null
 tldr: "In this post we describe a mechanism that can be used to prevent spam in anonymous environments. We provide a technical overview, some examples and use cases. The goal is to get more people excited about the idea and hopefully implement it in practice."
 date: "2022-08-29"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/aKjLmLVyunELnGObrzPlbhXWu5lZI9QU-P3OuBK8mOY"
 ---
 
 Originally published on Aug 30, 2021:

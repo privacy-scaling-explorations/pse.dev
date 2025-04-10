@@ -4,6 +4,7 @@ title: "Beyond Zero-Knowledge: What's Next in Programmable Cryptography?"
 image: "cover.webp"
 tldr: "_This post was written by [kichong](https://twitter.com/kichongtran) with helpful feedback and comments from [sinu](https://twitter.com/sinu_eth) and [jmall](https://twitter.com/Janmajaya_mall)._"
 date: "2023-11-09"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/xXcRj5QfvA_qhkiZCVg46Gn9uX8P_Ld-DXlqY51roPY"
 ---
 
 MPC, FHE, iO. If these combinations of letters make little sense to you, then you’re in the right place. This post attempts to review, at a high level, the world of programmable cryptography beyond the borders of zero-knowledge (ZK).
@@ -14,7 +15,7 @@ This post makes no claims, conclusions, or predictions. This is no deep dive. At
 
 While encryption has been around for thousands of years, programmable cryptography is a modern technology. Described as “[general-purpose cryptography … \[or\] an expressive language for claims”](https://archive.devcon.org/archive/watch/6/zkps-and-programmable-cryptography/?tab=YouTube), it’s the idea that a cryptographic primitive like a ZK proof could be made flexible and adaptive enough that a developer could program nearly any function on top of it. That there can exist an unbroken chain of logic from someone clicking a button on a website to the mathematical proof that guarantees the security of a cryptographic operation.
 
-![https://youtu.be/qAfprVCBhdQ?t=1024](https://images.mirror-media.xyz/publication-images/6I3pxfsamZF_nsL_X3k6T.png)
+![https://youtu.be/qAfprVCBhdQ?t=1024](/articles/beyond-zero-knowledge-whats-next-in-programmable-cryptography/6I3pxfsamZF_nsL_X3k6T.webp)
 
 https://youtu.be/qAfprVCBhdQ?t=1024
 
@@ -34,11 +35,11 @@ To better understand the general landscape of programmable cryptography, let’s
 
 The simplest way to reason about cryptography is what information is kept hidden or secret. And what the system proves or reveals.
 
-![](https://images.mirror-media.xyz/publication-images/-AAI15NdLONUuc7SGb9Jt.png)
+![](/articles/beyond-zero-knowledge-whats-next-in-programmable-cryptography/-AAI15NdLONUuc7SGb9Jt.webp)
 
 You can also think of each of these systems as standing in for an imaginary mutual friend. [Wikipedia calls this friend “Tony”.](https://en.wikipedia.org/wiki/Secure_multi-party_computation#Definition_and_overview) Tony is infallible, incorruptible, and totally trustworthy. Tony’s job is to keep secrets. In the table below, think of the “Private Elements” as what secrets Tony can be trusted to keep, the “Use Cases” as tasks Tony could perform reasonably well, and the “Practicality” as how skillfully Tony could perform these tasks today.
 
-![](https://images.mirror-media.xyz/publication-images/lj84zAzL24ghhq-rWsuW2.png)
+![](/articles/beyond-zero-knowledge-whats-next-in-programmable-cryptography/lj84zAzL24ghhq-rWsuW2.webp)
 
 The tables above are intended to give a rough idea for different areas of programmable cryptography. Now, let’s go a bit deeper and review what MPC, FHE, and iO do along with some interesting tidbits about each field.
 
@@ -66,7 +67,7 @@ Fully Homomorphic Encryption (FHE) allows computations on encrypted data. It can
 
 Though there are no famous thought experiments like the Millionaire’s Problem for MPC, FHE does solve a fundamental security weakness: [“the need to decrypt before processing data.”](https://blog.cryptographyengineering.com/2012/01/02/very-casual-introduction-to-fully/)
 
-![https://www.zama.ai/post/the-revolution-of-fhe](https://images.mirror-media.xyz/publication-images/p7FPMhbZ6Hx4lWf-OdWpy.png)
+![https://www.zama.ai/post/the-revolution-of-fhe](/articles/beyond-zero-knowledge-whats-next-in-programmable-cryptography/p7FPMhbZ6Hx4lWf-OdWpy.webp)
 
 https://www.zama.ai/post/the-revolution-of-fhe
 
@@ -92,7 +93,7 @@ Indistinguishability Obfuscation (iO) is considered the most powerful cryptograp
 
 According to Amit Sahai, the professor known for [explaining ZK proofs to kids](https://www.youtube.com/watch?v=fOGdb1CTu5c), and one of the researchers who devised a way [build iO on well-founded assumptions](https://eprint.iacr.org/2020/1003), iO works on a fundamentally different paradigm than previous cryptographic systems. IO assumes the adversary can already read your mind (a metaphor for your computer). Your secrets are already known so can’t be hidden. The only thing you can do is obfuscate what the adversary can already see.
 
-![https://youtu.be/v2RR_c5hn1E](https://images.mirror-media.xyz/publication-images/0JS-dJVwLCjsLtdvd9dOR.png)
+![https://youtu.be/v2RR_c5hn1E](/articles/beyond-zero-knowledge-whats-next-in-programmable-cryptography/0JS-dJVwLCjsLtdvd9dOR.webp)
 
 https://youtu.be/v2RR\_c5hn1E
 
@@ -114,7 +115,7 @@ Then, in 2020, [Jain, Lin, and Sahai proposed](https://eprint.iacr.org/2020/1003
 
 Each cryptographic system is made of different mathematical assumptions and cryptographic techniques. No single breakthrough solves all the problems in a system. Instead, discoveries follow an unpredictable series of small steps and big leaps that alter existing assumptions and techniques, which in turn lead to more breakthroughs and discoveries. And for every discovery that worked, many more did not.
 
-![](https://images.mirror-media.xyz/publication-images/jAMju2X2AJnMDj5mit-AN.png)
+![](/articles/beyond-zero-knowledge-whats-next-in-programmable-cryptography/jAMju2X2AJnMDj5mit-AN.webp)
 
 In a presentation on iO, Sahai described the field as being in the “[untamed wilderness](https://youtu.be/v2RR_c5hn1E?t=1317),” where it wasn’t even clear what was not understood and what the right problems to solve were.
 

@@ -4,6 +4,7 @@ title: "Self-Sovereign Identity & Programmable Cryptography: Challenges Ahead"
 image: "cover.webp"
 tldr: "This post was written by [0xZoey](https://twitter.com/0xZoey), with contributions from Chance."
 date: "2025-01-23"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/zRM7qQSt_igfoSxdSa0Pts9MFdAoD96DD3m43bPQJT8"
 ---
 
 ## Introduction
@@ -12,7 +13,7 @@ Self-Sovereign Identity (SSI) and its implementation through decentralized ledge
 
 Similar to decentralization, the fulfillment of fundamental “SSI” properties by current stacks currently exists on a wide spectrum. It is not uncommon for identity stacks to be agnostic to the choice of a digital wallet or verifiable data registry (distributed ledger), however, the interactions between information query, storage, and retrieval are often opaque. The flexibility and lack of oversight on how each stack is used in production and real-world applications means that some of these properties are lost in implementation, making understanding the technical nuance of SSI all the more critical.
 
-![](https://images.mirror-media.xyz/publication-images/gtJT_j23v1kndU--QGd5t.png)
+![](/articles/self-sovereign-identity-programmable-cryptography-challenges-ahead/gtJT_j23v1kndU--QGd5t.webp)
 
 Through extensive ecosystem consultation and research conducted by the zkID team at PSE over the past year, this article aims to contribute to the broader dialogue on SSI development. Enhanced industry collaboration can accelerate progress toward a unified vision of decentralized digital identity.
 
@@ -27,9 +28,9 @@ Self-sovereign Identity is more than a technological concept - it's a philosophi
 
 We highlight only a few [fundamental properties of SSI](https://ieeexplore.ieee.org/document/8776589) here most relevant to cryptography, but there are many more, each falling into foundational, security, controllability, flexibility, and sustainability categories and further subdivided into defined criteria. In our initial research, we attempted to evaluate stacks based on a standard [framework](https://www.notion.so/Evaluation-Framework-for-SSI-Solutions-8eceb793a5b442cb8da65acc3c337d5c?pvs=21), using these fundamental properties, in addition to [Digital Public Good Alliance’s Criteria](https://www.digitalpublicgoods.net/submission-guide), [Decentralized Identity Foundation’s](https://identity.foundation/) standards, [OpenSource Observer](https://www.opensource.observer/) Github Metrics, and an internal assessment of the cryptographic primitives used. The framework and the result of our research can be found [here](https://www.notion.so/pse-team/2e1e89e5192e409cacbfe3ea115baff4?v=92680356554a42cb981f41edd4a71820).
 
-![](https://images.mirror-media.xyz/publication-images/3wiWgZTDjpVYH-NcanezK.png)
+![](/articles/self-sovereign-identity-programmable-cryptography-challenges-ahead/3wiWgZTDjpVYH-NcanezK.webp)
 
-![](https://images.mirror-media.xyz/publication-images/kDZIiTNGTNAL-uH8qaOF5.png)
+![](/articles/self-sovereign-identity-programmable-cryptography-challenges-ahead/kDZIiTNGTNAL-uH8qaOF5.webp)
 
 The use of digital signatures is prevalent across digital identities, but the use of [programmable cryptography](https://0xparc.org/blog/programmable-cryptography-1) is severely underutilized. Several standard bodies are exploring Zero-Knowledge Proofs (ZKPs) through various working groups including:
 
@@ -41,7 +42,7 @@ The use of digital signatures is prevalent across digital identities, but the us
 
 It is worth mentioning that Verfiable Credential and Verfiable Presentation are [agnostic to proof types](https://www.w3.org/TR/vc-data-model-2.0/#proofs-signatures) and can be secured using both digital signatures and zero-knowledge proofs
 
-![Verifiable Credential Proof Example](https://images.mirror-media.xyz/publication-images/KeEf5rlvIwkRNSMphJKoD.png)
+![Verifiable Credential Proof Example](/articles/self-sovereign-identity-programmable-cryptography-challenges-ahead/KeEf5rlvIwkRNSMphJKoD.webp)
 
 Verifiable Credential Proof Example
 
@@ -92,7 +93,7 @@ Client-side proving enables users to generate cryptographic proofs directly on t
 
 The table below demonstrates the state of client-side proving with benchmarks provided by [mopro](https://github.com/zkmopro/mopro/blob/main/README.md#performance).
 
-![](https://images.mirror-media.xyz/publication-images/6XqnETQESzvlG0ZRaMrZm.png)
+![](/articles/self-sovereign-identity-programmable-cryptography-challenges-ahead/6XqnETQESzvlG0ZRaMrZm.webp)
 
 For widespread adoption, the performance of client-side proof generation must become efficient enough to run smoothly on the most common mobile hardware used by the target population, for practicality and accessibility. The development of client-side proving technologies faces these current bottlenecks:
 
@@ -152,7 +153,7 @@ There is significant room for innovation in the expression of cryptographic prog
 
 ## Standards and Interoperability
 
-![https://xkcd.com/927/](https://images.mirror-media.xyz/publication-images/rsacxwKWrnEcRNoLsgDGZ.png)
+![https://xkcd.com/927/](/articles/self-sovereign-identity-programmable-cryptography-challenges-ahead/rsacxwKWrnEcRNoLsgDGZ.webp)
 
 https://xkcd.com/927/
 

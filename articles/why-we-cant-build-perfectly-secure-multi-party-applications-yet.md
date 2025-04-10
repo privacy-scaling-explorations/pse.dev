@@ -4,6 +4,7 @@ title: "Why We Can't Build Perfectly Secure Multi-Party Applications (yet)"
 image: "cover.webp"
 tldr: "This post was written by PSE researcher Enrico Bottazzi. Thanks to Pia Park for discussions and reviews."
 date: "2025-01-14"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/nXUhkZ84ckZi_5mYRFCCKgkLVFAmM2ECdEFCQul2jPs"
 ---
 
 In this post, we’ll explore why building secure multi-party applications, which aim to compute a function over inputs from different parties while keeping those inputs private, is impossible today. We use Multi-party Trade Credit Set-off (MTCS) as an example, showing how technologies like multi-party computation and fully homomorphic encryption fall short of perfect security due to a fundamental tradeoff between security and liveness. The current solution involves a delegated security model, but it’s not ideal. Are there any robust patches to this problem, or will we have to wait for indistinguishability obfuscation?
@@ -12,7 +13,7 @@ In this post, we’ll explore why building secure multi-party applications, whic
 
 Multilateral Trade Credit Set-off (MTCS) is a process run by a service provider that collects trade credit data (i.e. obligations from a firm to pay another firm) from a network of firms and detects cycles of debts that can be removed from the system. The process yields liquidity savings for the participants, who can discharge their debts without relying on expensive loans.
 
-![Trade credit network before and after MTCS](https://images.mirror-media.xyz/publication-images/R8q8o6EwgXE3RimPPHMhu.png)
+![Trade credit network before and after MTCS](/articles/why-we-cant-build-perfectly-secure-multi-party-applications-yet/R8q8o6EwgXE3RimPPHMhu.webp)
 
 Trade credit network before and after MTCS
 
@@ -28,7 +29,7 @@ A secure multi-party application is an application in which a function has to be
 
 In the real world, these applications are usually built leveraging a third party that performs the function and is **trusted** to keep the data for themselves and not do anything malicious with it. This is also the case for MTCS: Slovenia has been running it country-wide since 1991. The process is run every month by having the national firms submit their invoice to a government agency, which performs the clearing by having access to the entire trade credit graph. The low [participation rate](https://www.ajpes.si/Bonitetne_storitve/Vecstranski_pobot/Porocila#b671) (1500 firms, 0.2% of the total, in 2022) suggests that Slovenian firms might feel more comfortable in keeping their sensitive trade credit data for themselves and not join the process, despite the benefits that it yields. In the following sections, we'll iteratively try to build such a secure multi-party app, that does not depend on a single trusted third party.
 
-![MTCS via a trusted third party](https://images.mirror-media.xyz/publication-images/ZJT8oZgkydYe6GS_DzIaJ.png)
+![MTCS via a trusted third party](/articles/why-we-cant-build-perfectly-secure-multi-party-applications-yet/ZJT8oZgkydYe6GS_DzIaJ.webp)
 
 MTCS via a trusted third party
 
@@ -50,13 +51,13 @@ This brings us to the same problem we encountered before: one negligent (or mali
 
 A perfect security model, "trust no one but yourself," presents limitations given the interaction needed between the $n$ protocol participants. Given that a secure MTCS protocol should support tens of thousands of firms, the price of this security level is too high for a practical instantiation. Sora describes this as a tradeoff between safety and liveness.
 
-![Where x-axis represents the probability of success based on liveness assumptions. Source: https://speakerdeck.com/sorasuegami/ideal-obfuscation-io](https://images.mirror-media.xyz/publication-images/f7BtryGDapIIIC4fXczn5.png)
+![Where x-axis represents the probability of success based on liveness assumptions. Source: https://speakerdeck.com/sorasuegami/ideal-obfuscation-io](/articles/why-we-cant-build-perfectly-secure-multi-party-applications-yet/f7BtryGDapIIIC4fXczn5.webp)
 
 Where x-axis represents the probability of success based on liveness assumptions. Source: https://speakerdeck.com/sorasuegami/ideal-obfuscation-io
 
 And indeed, the solution we proposed in the paper does not achieve a perfect security model. Instead, we rely on a client-to-server MPC protocol in which the computation (and the security) of the security is delegated to three servers. The strongest security assumption can guarantee that the privacy of the firm's data is safe as long as at least one of the servers is honest. However, the firms cannot do much to prevent the server managers from secretly meeting and gathering their shares to reconstruct any data involved. To make things even worse, there is no immediate way to detect this malicious action and keep the servers accountable for any misbehaviour.
 
-![MTCS via MPC](https://images.mirror-media.xyz/publication-images/DrwIYwRjsbbqkZ5bwaS5I.png)
+![MTCS via MPC](/articles/why-we-cant-build-perfectly-secure-multi-party-applications-yet/DrwIYwRjsbbqkZ5bwaS5I.webp)
 
 MTCS via MPC
 

@@ -4,6 +4,7 @@ title: "Announcing Anon Aadhaar"
 image: "cover.webp"
 tldr: "_This post was written by the Anon Aadhaar team._ /n/n _We’re excited to announce the public release of Anon Aadhaar!_"
 date: "2023-09-21"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/6R8kACTYp9mF3eIpLZMXs8JAQmTyb6Uy8KnZqzmDFZI"
 ---
 
 ### What is Anon Aadhaar?
@@ -28,7 +29,7 @@ A healthy society enables people to voice their concerns, opinions and ideas wit
 
 In the broader context, Anon Aadhaar supports [proof of personhood](https://vitalik.ca/general/2023/07/24/biometric.html) by adding a convenient privacy layer. We can talk about a “forth column” that leverages existing PKI and public government ID programs to enhance digital interactions.
 
-![](https://images.mirror-media.xyz/publication-images/ZfpBm9HmDYDgP8rTYnA_9.png)
+![](/articles/announcing-anon-aadhaar/ZfpBm9HmDYDgP8rTYnA_9.webp)
 
 _Table modified from [https://vitalik.ca/general/2023/07/24/biometric.html](https://vitalik.ca/general/2023/07/24/biometric.html)_
 

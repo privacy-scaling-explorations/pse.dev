@@ -15,9 +15,10 @@ Edit the frontmatter section at the top of the file:
 ---
 authors: ["Your Name"] # Add your name or multiple authors in an array
 title: "Your Article Title" # The title of your article
-image: "cover.webp" # Image used as cover
+image: "/articles/my-new-article/cover.webp" # Image used as cover
 tldr: "A brief summary of your article" #Short summary
 date: "YYYY-MM-DD" # Publication date in ISO format
+canonical: "mirror.xyz/my-new-article" # (Optional) The original source URL, this tells search engines the primary version of the content
 ---
 ```
 
@@ -57,9 +58,15 @@ Before submitting, make sure to:
 1. Check that your markdown formatting is correct
 2. Verify all images are displaying properly
 
+## Step 5: PR Review process
+
+Open Pull request following the previews step and for any help
+
+- Suggest to tag: @kalidiagne, @b1gk4t, @AtHeartEngineer for PR review.
+- If question, please reach out in discord channel #website-pse
+
 ## Important Notes
 
 - The folder name in `/public/articles` must **exactly match** your markdown filename (without the .md extension)
-- Images will be automatically pulled from the matching folder when rendering the article
 - Use descriptive file names for your additional images
 - Optimize your images for web before adding them to keep page load times fast

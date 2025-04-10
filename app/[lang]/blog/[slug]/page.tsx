@@ -4,6 +4,7 @@ import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
 import { Markdown } from "@/components/ui/markdown"
 import { getArticles, getArticleById } from "@/lib/blog"
+import { Metadata } from "next"
 
 export const generateStaticParams = async () => {
   const articles = await getArticles()
@@ -12,7 +13,7 @@ export const generateStaticParams = async () => {
   }))
 }
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   const post = await getArticleById(params.slug)
 
   const imageUrl =
@@ -20,13 +21,22 @@ export async function generateMetadata({ params }: any) {
       ? `/articles/${post?.id}/${post?.image}`
       : "/og-image.png"
 
-  return {
+  const metadata: Metadata = {
     title: post?.title,
     description: post?.tldr,
     openGraph: {
       images: [{ url: imageUrl, width: 1200, height: 630 }],
     },
   }
+
+  // Add canonical URL if post has canonical property
+  if (post && "canonical" in post) {
+    metadata.alternates = {
+      canonical: post.canonical as string,
+    }
+  }
+
+  return metadata
 }
 
 export default function BlogArticle({ params }: any) {
@@ -53,6 +63,19 @@ export default function BlogArticle({ params }: any) {
                       day: "numeric",
                       year: "numeric",
                     })}
+                  </div>
+                )}
+                {post?.canonical && (
+                  <div className="text-sm italic text-gray-500 mt-1">
+                    This post was originally posted in{" "}
+                    <a
+                      href={post.canonical}
+                      target="_blank"
+                      rel="noopener noreferrer canonical"
+                      className="text-primary hover:underline"
+                    >
+                      {new URL(post.canonical).hostname.replace(/^www\./, "")}
+                    </a>
                   </div>
                 )}
                 {post?.tldr && <Markdown>{post?.tldr}</Markdown>}

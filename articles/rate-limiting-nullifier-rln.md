@@ -4,6 +4,7 @@ title: "Rate-Limiting Nullifier (RLN)"
 image: "cover.webp"
 tldr: "This post was authored by [@curryrasul](https://twitter.com/curryrasul)."
 date: "2023-08-01"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/iCLmH1JVb7fDqp6Mms2NR001m2_n5OOSHsLF2QrxDnQ"
 ---
 
 We’re pleased to announce the “production-ready” release of **[Rate-Limiting Nullifier](https://github.com/Rate-Limiting-Nullifier)** (RLN) protocol.

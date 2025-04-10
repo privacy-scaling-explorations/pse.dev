@@ -4,6 +4,7 @@ title: "Web2 Nullifiers using vOPRF"
 image: "cover.webp"
 tldr: "This post was written by PSE researcher Rasul Ibragimov. Big thanks to Lev Soukhanov for explaining the majority of this to me - without him, this blog post wouldn't exist."
 date: "2025-01-30"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/L4LSAWflNocKolhV6ZVaqt3KDxdSjFPNSv0U5SCc__0"
 ---
 
 ## Abstract

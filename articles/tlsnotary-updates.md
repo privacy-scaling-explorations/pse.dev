@@ -4,6 +4,7 @@ title: "TLSNotary Updates"
 image: "cover.webp"
 tldr: "This post was written by [sinu](https://github.com/sinui0)."
 date: "2023-09-19"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/T4MR2PgBzBmN2I3dhDJpILXkQsqZp1Bp8GSm_Oo3Vnw"
 ---
 
 ## Introduction
@@ -14,7 +15,7 @@ It enables privacy-preserving **data provenance and data portability**, empoweri
 
 To do this, TLSNotary leverages secure multi-party computation (MPC) to authenticate data communicated between a Prover and a TLS-enabled web server, as depicted in Figure 1.
 
-![Figure 1: Simple Overview](https://images.mirror-media.xyz/publication-images/937hO8dmgvBOQi2wKCiQI.png)
+![Figure 1: Simple Overview](/articles/tlsnotary-updates/937hO8dmgvBOQi2wKCiQI.webp)
 
 Figure 1: Simple Overview
 
@@ -22,7 +23,7 @@ Importantly, the protocol supports _selective disclosure_ of data to a Verifier.
 
 Selective disclosure may involve simple redactions, or more advanced techniques such as a zero-knowledge proof that a number in the data is within a specific range, without disclosing its exact value.
 
-![Figure 2: Selective Disclosure](https://images.mirror-media.xyz/publication-images/72bmC4nzUBIDIaSFsx7zD.png)
+![Figure 2: Selective Disclosure](/articles/tlsnotary-updates/72bmC4nzUBIDIaSFsx7zD.webp)
 
 Figure 2: Selective Disclosure
 
@@ -47,7 +48,7 @@ A Notary is a special kind of verifier which allows the Prover to do just that. 
 
 Of course, we still need to support selective disclosure of the data to _someone_. How do we do that if a Notary is to know nothing? Fortunately this is still possible to do in a relatively simple way.
 
-![Figure 3: Notaries](https://images.mirror-media.xyz/publication-images/rVdi2SRQeDMui5D9EpLy7.png)
+![Figure 3: Notaries](/articles/tlsnotary-updates/rVdi2SRQeDMui5D9EpLy7.webp)
 
 Figure 3: Notaries
 
@@ -67,7 +68,7 @@ Even so, implementing a protocol like TLSNotary pushes up against the bounds of 
 
 For example, the dominant cost of our protocol comes from performing binary computation using Garbled Circuits. Modern techniques such as free-XOR\[1\] and half-gates\[2\] still comes with a cost of ~200kB of communication to evaluate a single AES block (the most widely used cipher in TLS) in the semi-honest setting. Extrapolating, it costs ~50MB to encrypt only 4kB of data! Doing so with malicious security can easily add an order of magnitude to this cost figure, rendering such pursuits practically infeasible.
 
-![Figure 4: 2PC AES with Garbled Circuits](https://images.mirror-media.xyz/publication-images/iVGzdByXRwBQPxjtLgcvN.png)
+![Figure 4: 2PC AES with Garbled Circuits](/articles/tlsnotary-updates/iVGzdByXRwBQPxjtLgcvN.webp)
 
 Figure 4: 2PC AES with Garbled Circuits
 
@@ -81,7 +82,7 @@ An alternative approach to this problem is to side-step the need to use expensiv
 
 Rather than having the Prover connect directly to the Server and operating the connection cooperatively with the Verifier, instead, the Verifier is situated in-between the Prover and Server, as shown in Figure 5.
 
-![Figure 5: Proxy Mode](https://images.mirror-media.xyz/publication-images/mkFlgTetsnz11qEMVw_xo.png)
+![Figure 5: Proxy Mode](/articles/tlsnotary-updates/mkFlgTetsnz11qEMVw_xo.webp)
 
 Figure 5: Proxy Mode
 

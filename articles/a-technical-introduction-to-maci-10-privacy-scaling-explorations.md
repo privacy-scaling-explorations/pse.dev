@@ -4,6 +4,7 @@ title: "A Technical Introduction to MACI 1.0 - Privacy & Scaling Explorations"
 image: null
 tldr: ""
 date: "2022-08-29"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/IlWP_ITvmeZ2-elTJl44SCEGlBiemKt3uxXv2A6Dqy4"
 ---
 
 ![](https://miro.medium.com/max/1400/0*aWsBozO7zkpxbwpH.png)

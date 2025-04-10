@@ -4,6 +4,7 @@ title: "Semaphore v3 Announcement"
 image: "cover.webp"
 tldr: ""
 date: "2023-02-09"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/Yi4muh-vzDZmIqJIcM9Mawu2e7jw8MRnwxvhFcyfns8"
 ---
 
 Semaphore V3 is live!

@@ -4,6 +4,7 @@ title: "Semaphore V2 is Live! - Privacy & Scaling Explorations"
 image: null
 tldr: ""
 date: "2022-08-26"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/ImQNsJsJuDf_VFDm9EUr4njAuf3unhAGiPu5MzpDIjI"
 ---
 
 ![](https://miro.medium.com/max/1250/1*GuIWf2BJoiNQ4q9Oj2snqQ.png)

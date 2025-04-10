@@ -4,6 +4,7 @@ title: "A Technical Introduction to Arbitrum's Optimistic Rollup"
 image: null
 tldr: ""
 date: "2022-08-29"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/UlHGv9KIk_2MOHr7POfwZAXP01k221hZwQsLCF63cLQ"
 ---
 
 ![](https://miro.medium.com/max/1392/1*6CesZrI_Az8ZQ3Zff0y6gw.png)

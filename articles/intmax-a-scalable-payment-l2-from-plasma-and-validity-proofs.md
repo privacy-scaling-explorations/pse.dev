@@ -4,6 +4,7 @@ title: "Intmax: a scalable payment L2 from plasma and validity proofs"
 image: "cover.webp"
 tldr: "This post was written by PSE researcher Pierre and originally posted on his [personal blog](https://www.pierredm.xyz/posts/intmax). Thanks to the Intmax team for their helpful review on this post!"
 date: "2025-03-04"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/__VLZrfjSScx42E786k-Ba4YptQfv8ujCWY_DuN1k4o"
 ---
 
 [Intmax](https://www.intmax.io/) has been pioneering L2 transaction-only constructions based on [client-side validation](https://eprint.iacr.org/2025/068.pdf) (CSV), where transaction validation relies on cryptographic proofs rather than blockchain consensus rules. Data is intermittently posted on a dedicated blockchain, primarily for deposits, withdrawals, and account checkpoints.
@@ -20,7 +21,7 @@ Many plasma designs have been proposed in the past ([original plasma](https://ww
 
 Given today's DA scarcity and relatively [low TPS numbers](https://l2beat.com/scaling/activity), there are strong incentives to revisit these designs while leveraging the best of both validity proofs and plasma DA. This research is particularly relevant for ecosystems with expensive blockspace and emerging L2s, such as Bitcoin.
 
-![DA scarcity is starting to hit, we have been regularly reaching the blob target for a few months now. See https://dune.com/hildobby/blobs.](https://images.mirror-media.xyz/publication-images/fm-nMw5onjaqpw6QOLypf.png)
+![DA scarcity is starting to hit, we have been regularly reaching the blob target for a few months now. See https://dune.com/hildobby/blobs.](/articles/intmax-a-scalable-payment-l2-from-plasma-and-validity-proofs/fm-nMw5onjaqpw6QOLypf.webp)
 
 ## Preventing data withholding with BLS Signatures
 

@@ -4,6 +4,7 @@ title: "Retrospective: Trusted Setups and P0tion Project"
 image: "cover.webp"
 tldr: "This post was written by the PSE Trusted Setup Team."
 date: "2025-01-15"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/Cf9nYvSlATGks8IcFaHQe3H5mgZ_Va767Zk5I8jPYXk"
 ---
 
 ## Chronological look back
@@ -24,7 +25,7 @@ In a two-phase trusted setup, the second phase is circuit-specific; but the firs
 
 The result was the [Perpetual Powers of Tau ceremony](https://github.com/privacy-scaling-explorations/perpetualpowersoftau), focusing on producing phase-1 files crucial for all zkSNARKs. This ongoing ceremony has been running since 2019, with 85 contributors to date. Contributing to PPoT involves managing complex 100GB files, which requires contributors to have enough technical knowledge to spin up a server large enough to compute the contribution. It also requires the contributor to know how to install the right tools, download the files and upload the files after they finished their contribution.
 
-![From PPoT announcement post by Wei Jie Koh https://medium.com/coinmonks/announcing-the-perpetual-powers-of-tau-ceremony-to-benefit-all-zk-snark-projects-c3da86af8377](https://images.mirror-media.xyz/publication-images/zciGzID2rP9dzeGIART7u.png)
+![From PPoT announcement post by Wei Jie Koh https://medium.com/coinmonks/announcing-the-perpetual-powers-of-tau-ceremony-to-benefit-all-zk-snark-projects-c3da86af8377](/articles/retrospective-trusted-setups-and-p0tion-project/zciGzID2rP9dzeGIART7u.webp)
 
 From PPoT announcement post by Wei Jie Koh https://medium.com/coinmonks/announcing-the-perpetual-powers-of-tau-ceremony-to-benefit-all-zk-snark-projects-c3da86af8377
 
@@ -36,7 +37,7 @@ A pivotal moment for the project was the implementation of the [KZG Ceremony](ht
 
 We developed a [user-friendly web application](https://ceremony.ethereum.org/) to invite broad community participation, with a user-friendly process that guided contributors through the ceremony step by step, automating and abstracting away the complex operations of computation and toxic waste disposal. PSE’s design team created a beautiful user interface that made participating in the ceremony feel more like a sacred ritual than collective math.
 
-![ceremony.ethereum.org landing page at the time the ceremony was active](https://images.mirror-media.xyz/publication-images/01yqkaXXNPa8RfDHylN4M.png)
+![ceremony.ethereum.org landing page at the time the ceremony was active](/articles/retrospective-trusted-setups-and-p0tion-project/01yqkaXXNPa8RfDHylN4M.webp)
 
 ceremony.ethereum.org landing page at the time the ceremony was active
 
@@ -48,7 +49,7 @@ In response to internal needs, the team took on the development of [p0tion](http
 
 The p0tion toolkit utilizes a mix of cloud functions and virtual machines for efficiency in running secure Groth16 zk-applications via automated Phase 2 ceremonies. We focused on streamlining the process of executing a trusted setup, as well as creating a [unified interface](https://ceremony.pse.dev/) for ceremonies implemented with p0tion.
 
-![Trusted setup for ZKEmail circuits on ceremony.pse.dev](https://images.mirror-media.xyz/publication-images/5cWrHa_ezgv98uSrlyspq.png)
+![Trusted setup for ZKEmail circuits on ceremony.pse.dev](/articles/retrospective-trusted-setups-and-p0tion-project/5cWrHa_ezgv98uSrlyspq.webp)
 
 Trusted setup for ZKEmail circuits on ceremony.pse.dev
 

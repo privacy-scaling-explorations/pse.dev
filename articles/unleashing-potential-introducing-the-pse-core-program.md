@@ -4,6 +4,7 @@ title: "Unleashing Potential: Introducing the PSE Core Program"
 image: "cover.webp"
 tldr: "This post was written by the PSE EcoDev Team."
 date: "2024-04-24"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/PvNKlzp8Xlaic_DeIFEW20-ai4eN1AqJO26d4YRqWwM"
 ---
 
 Hey there, curious minds! Are you ready to dive into the world of practical skills and open-source project contributions? Well, buckle up because we're about to embark on an exciting journey through the **PSE Core Program**!

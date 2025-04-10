@@ -2,8 +2,9 @@
 authors: ["PSE Team"]
 title: "zkEVM Community Edition Part 1: Introduction"
 image: "cover.webp"
-tldr: "T"
+tldr: ""
 date: "2023-05-23"
+canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/I5BzurX-T6slFaPbA4i3hVrO7U2VkBR45eO-N3CSnSg"
 ---
 
 The task of making Ethereum faster, cheaper, and easier to verify is a globally distributed effort with many moving parts. Developing zkEVMs is one piece of the effort with the majority of zkEVM projects being built as Layer 2 scaling solutions. A zkEVM capable of validating L1 blocks is on a long – and often changing – roadmap for scaling Ethereum that has been referenced as part of [“The Splurge”](https://twitter.com/VitalikButerin/status/1466411377107558402), [“ZK-SNARKing everything” on the rollup centric roadmap,](https://www.reddit.com/r/ethereum/comments/j3px5s/a_rollupcentric_ethereum_roadmap_vitalik/) [“enshrined rollups”](https://www.reddit.com/r/ethereum/comments/vrx9xe/comment/if7auu7/), and most recently [“The Verge”](https://twitter.com/VitalikButerin/status/1588669782471368704).
@@ -40,7 +41,7 @@ So far, the majority of zkEVM projects have focused on building bytecode and lan
 
 Vitalik Buterin categorized zkEVMs into different “types”, each with different pros and cons. “Type 1” zkEVMs aim to deliver an experience closest to Ethereum as it is today but face challenges regarding proving time and centralization risk, while “Type 4” have the lowest cost and centralization risks but are less compatible with existing infrastructure.
 
-![https://vitalik.ca/general/2022/08/04/zkevm.html](https://images.mirror-media.xyz/publication-images/03QchdJlYoLxWmEbflSoo.png)
+![https://vitalik.ca/general/2022/08/04/zkevm.html](/articles/zkevm-community-edition-part-1-introduction/03QchdJlYoLxWmEbflSoo.webp)
 
 https://vitalik.ca/general/2022/08/04/zkevm.html
 
