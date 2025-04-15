@@ -11,26 +11,55 @@ export const plasmaFold: ProjectInterface = {
     en: {
       tldr: "Integrating folding schemes into plasma-based L2 solutions for efficient and scalable Ethereum transactions.",
       description: `
-### Leveraging Folding Schemes for Efficient L2 Solutions  
+## Plasma Fold
 
-Our project builds on the external [intmax](https://www.intmax.io/) design by integrating folding schemes into their plasma-based L2 approach. While intmax uses client-side validation with minimal on-chain data and validity proofs to achieve high throughput, its reliance on resource-intensive proving can strain low-end devices. Folding schemes—with low recursive overhead and minimal memory usage—offer a powerful solution to streamline this process.
+**Reimagining Plasma with Folding Schemes**
 
-### Overview & Key Contributions  
+Plasma Fold is an experimental Layer 2 (L2) design that combines the original Plasma architecture with modern zero-knowledge folding schemes to dramatically scale Ethereum transaction throughput. By leveraging recent advances in Incremental Verifiable Computation (IVC) and folding-based proof systems, Plasma Fold achieves high-speed client-side proving while keeping on-chain data to a minimum.
 
-By combining plasma's efficient data availability with folding schemes, our approach significantly reduces the resource demands on client devices. This integration:  
+Unlike traditional rollups that post extensive transaction data to L1, Plasma Fold operates using a *minimal data availability* model inspired by Intmax, where only essential metadata—like tree roots and signer indices—are recorded onchain. Validity is ensured through user-generated proofs, making this model far more efficient for resource-constrained environments.
 
-- **Optimizes Client-Side Proving:** Folding schemes accelerate proof generation while cutting down memory requirements, making the system more accessible.  
-- **Maintains a Low On-Chain Footprint:** Leveraging plasma's lightweight data posting for deposits, withdrawals, and checkpoints ensures fast, secure transaction processing.  
-- **Boosts Throughput:** The synergy between folding schemes and plasma validity proofs could dramatically enhance transaction-per-second rates.
+## Why Plasma Fold?
 
-### Objectives & Impact  
+Most L2s today struggle to scale without relying on increasingly expensive data availability solutions (e.g., blobs). Plasma Fold offers a low-cost, high-throughput alternative. Inspired by Vitalik Buterin’s vision of a Plasma-EVM hybrid, Plasma Fold explores the use of folding schemes to support lightweight client-side proving—ideal for mobile or browser-based clients. In theory, this architecture could enable transaction rates in the range of 90k–260k TPS, matching or exceeding centralized systems like VISA.
 
-Our goal is to design and benchmark a client-friendly zk/plasma scaling solution for Ethereum. By reducing the computational load, we aim to make scalable L2 solutions practical for a wide range of devices.
+## Key Innovations
 
-### Additional Resources  
+- **Client-Side Proving with Folding Schemes:** Users generate recursive ZK proofs on their devices to attest to their own balances and transactions, minimizing trust and computation on the L1.
+- **UTXO-Based Design with IVC:** Transactions are modeled as UTXO trees, allowing users to maintain and prove their own balances incrementally across time.
+- **Minimal Onchain Footprint:** Only block roots, nullifier indices, and signer bitmaps are posted on L1—greatly reducing gas costs and data needs.
+- **Instant Exits & Offline-Friendliness:** Users can exit the system at any time using a locally stored proof. They do not need to stay online between blocks unless actively transacting.
+- **Composable and Future-Proof:** Designed to eventually support multiple assets, order books, and potentially even programmable features.
 
-- [intmax: Plasma-based L2 scaling](https://www.intmax.io/)  
-- [Deep dive into intmax](https://www.pierredm.xyz/posts/intmax)  
+## Status
+
+- **Stage:** Research and Prototyping
+- **Current Focus:** Implementing and benchmarking core circuits
+- **Target Output:** A technical paper and reference implementation
+- **Team Lead:** Pierre Daix-Moreux
+- **Collaborators:** Chengru
+
+## Timeline & Milestones
+
+- **Q2 2025:** Initial circuit design and benchmarks against Plonky2
+- **Q2–Q3 2025:** Drafting formal paper; collaborative review with Intmax
+- **Q3 2025:** Reference implementation using Sonobe’s Nova-based tooling
+- **Beyond:** Explore multi-asset support, privacy enhancements, and programmability
+
+## Learn More
+
+- [Technical Write-Up on Intmax2](https://www.pierredm.xyz/posts/intmax)
+- [GitHub – Sonobe](https://github.com/privacy-scaling-explorations/sonobe)
+
+## Get Involved
+
+Plasma Fold is part of the Privacy & Scaling Explorations initiative. If you’re interested in collaborating, contributing research, or running your own Plasma Fold client, we’d love to hear from you.
+
+On X: [@xyz_pierre](https://twitter.com/xyz_pierre)
+
+Email: Pierre Daix-Moreux [pierre@pse.dev](mailto:pierre@pse.dev), Chengru Zhang [winderica@pse.dev](mailto:winderica@pse.dev)
+
+Join the conversation on [PSE Discord](https://discord.com/invite/sF5CT5rzrR)
       `,
     },
   },
@@ -45,6 +74,5 @@ Our goal is to design and benchmark a client-friendly zk/plasma scaling solution
     ],
     themes: ["scalability", "L2 solutions", "zk proofs"],
     types: ["research", "development"],
-    builtWith: ["plasma", "zk proofs", "folding schemes"],
   },
 }
