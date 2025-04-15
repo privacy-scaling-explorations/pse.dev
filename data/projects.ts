@@ -53,6 +53,7 @@ import { machinaIo } from "./projects/machina-iO"
 import { plasmaFold } from "./projects/plasma_fold"
 import { vOPRF } from "./projects/vOPRF"
 import { mpz } from "./projects/mpz"
+import { clientSideProving } from "./projects/client-side-proving"
 
 /**
  * List of Projects
@@ -60,6 +61,7 @@ import { mpz } from "./projects/mpz"
  * Every 'description' props supports markdown syntax https://www.markdownguide.org/basic-syntax/
  */
 export const projects: ProjectInterface[] = [
+  clientSideProving,
   pse_halo2,
   sonobe,
   rln,

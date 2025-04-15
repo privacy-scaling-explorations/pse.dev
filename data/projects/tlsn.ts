@@ -22,6 +22,7 @@ export const tlsn: ProjectInterface = {
   content,
   image: "tlsn.webp",
   name: "TLSNotary",
+  license: "MIT or Apache-2.0",
   links: {
     github: "https://github.com/tlsnotary",
     website: "https://tlsnotary.org/",
