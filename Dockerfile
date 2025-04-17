@@ -1,4 +1,4 @@
-FROM node:18-alpine3.18 as builder
+FROM node:20-alpine as builder
 RUN apk add --no-cache git curl
 
 WORKDIR /builder
@@ -10,7 +10,7 @@ COPY . .
 RUN yarn build
 
 # Create image by copying build artifacts
-FROM node:18-alpine3.18 as runner
+FROM node:20-alpine as runner
 
 USER node
 
