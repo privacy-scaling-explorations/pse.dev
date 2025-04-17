@@ -9,19 +9,19 @@ const content: ProjectContent = {
   en: {
     tldr: "Fostering SSI with zero-knowledge and privacy-driven solutions.",
     description:
-      "ZK-ID is a dedicated team committed to advancing self-sovereign identity (SSI) technologies and driving privacy-focused solutions in the digital identity space, utilizing the PSE team's expertise in zero-knowledge technologies",
+      "zkID is a dedicated team committed to advancing self-sovereign identity (SSI) technologies and driving privacy-focused solutions in the digital identity space, utilizing the PSE team's expertise in zero-knowledge technologies",
   },
 }
 
 export const zkID: ProjectInterface = {
   id: "zk-id",
   projectStatus: ProjectStatus.ACTIVE,
-  category: ProjectCategory.RESEARCH,
+  category: ProjectCategory.DEVTOOLS,
   section: "pse",
   content,
   image: "",
-  imageAlt: "ZK Identity Explorations",
-  name: "ZK-ID",
+  imageAlt: "ZK Identity",
+  name: "zkID",
   tags: {
     keywords: ["Identity", "Credentials", "Standards", "SSI"],
     themes: ["research"],
