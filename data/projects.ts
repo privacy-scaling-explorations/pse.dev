@@ -52,6 +52,7 @@ import { postQuantumCryptography } from "./projects/post-quantum-cryptography"
 import { machinaIo } from "./projects/machina-iO"
 import { plasmaFold } from "./projects/plasma_fold"
 import { vOPRF } from "./projects/vOPRF"
+import { mpz } from "./projects/mpz"
 import { clientSideProving } from "./projects/client-side-proving"
 
 /**
@@ -113,4 +114,5 @@ export const projects: ProjectInterface[] = [
   machinaIo,
   plasmaFold,
   vOPRF,
+  mpz
 ]
