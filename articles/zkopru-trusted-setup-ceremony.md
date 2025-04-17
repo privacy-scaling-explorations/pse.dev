@@ -56,7 +56,7 @@ Click Launch Ceremony
 
 Wait until you see this
 
-## Troubeshooting
+## Troubleshooting
 
 If the twitter button doesnt show up in your browser you can try this: Refresh > Menu >Logout, then Login, and launch again. It won’t run any circuits, but it might pick up your hashes and allow you to tweet.
 
