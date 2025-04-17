@@ -4,6 +4,7 @@ RUN apk add --no-cache git curl
 WORKDIR /builder
 
 COPY package.json yarn.lock ./
+RUN corepack enable
 RUN yarn install
 
 COPY . .
