@@ -62,7 +62,7 @@ In this [post](https://ethresear.ch/t/pairwise-coordination-subsidies-a-new-quad
 
 Please refer to this [post](https://hackmd.io/@chaosma/H1_9xmT2K) for a more detailed explanation of the implementation.
 
-Finally, please note that currently it is not possible to generate the `zkeys` for the subsidy circuit with with the `vote options` parameter larger than 5252. This issue is documented [here](https://github.com/privacy-scaling-explorations/maci/issues/584) and the team will focus on finding a solution to be able to support larger vote options.
+Finally, please note that currently it is not possible to generate the `zkeys` for the subsidy circuit with the `vote options` parameter larger than 5252. This issue is documented [here](https://github.com/privacy-scaling-explorations/maci/issues/584) and the team will focus on finding a solution to be able to support larger vote options.
 
 ### Coordinator Service
 

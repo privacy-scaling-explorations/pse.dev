@@ -45,7 +45,7 @@ The following are some of the breakthroughs the team made throughout the life of
 - **Summa Version 1** made improvements over previous PoR systems by including the verifier directly in the contract. This increased the transparency of the verifying contract, ensuring that users were using one standard verifier when verifying their inclusion proofs, and also improved UX and security by reducing the need to run additional local software.
 - **Summa Version 2**
 
-  - Offered a novel alternative to merkle trees via the use of the univariate sumcheck protocol, which provided a significant improvement of commitment performance. This was achieved through the development of a more optimised and readable solidity KZG verifier to handle using using univariate polynomials in a smart contract.
+  - Offered a novel alternative to merkle trees via the use of the univariate sumcheck protocol, which provided a significant improvement of commitment performance. This was achieved through the development of a more optimised and readable solidity KZG verifier to handle using univariate polynomials in a smart contract.
   - Used a technique called [Amortized KZG](https://hackmd.io/@summa/HJ-dtmNdT), developed by another team within PSE, to enable batch proofing. This allowed for the verification of customer groups numbering fewer than approximately 10 million, effectively thwarting a profiling attack for groups of this size.
 
 - **Summa Version 3** showed a significant improvement over v1 and v2 when it came to generating inclusion proof performance. A benchmark comparison can be seen [here](https://hackmd.io/wt4NkeUWSWi2ym6DNcsT-Q#Performance-Comparison-by-Summa-versions).

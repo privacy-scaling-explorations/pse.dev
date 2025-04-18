@@ -110,7 +110,7 @@ There are many dapps already using Semaphore in categories spanning voting, soci
 **Gaming / DeFi**
 
 - [Chain Statements](https://ethglobal.com/showcase/chain-statements-kdurw) is a way to generate statements for your crypto funds using ZKPs privately and permissionlessly.
-- [zkIdentity](https://github.com/sigridjineth/zkIdentity) is a private identity claim system with zero-knowledge for DarkForest.eth. It allows a a previous winner claim prizes without revealing the recipient's Ethereum address.
+- [zkIdentity](https://github.com/sigridjineth/zkIdentity) is a private identity claim system with zero-knowledge for DarkForest.eth. It allows a previous winner claim prizes without revealing the recipient's Ethereum address.
 
 **Interoperability**
 
