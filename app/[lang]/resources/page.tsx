@@ -1,7 +1,6 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 
 import { LangProps } from "@/types/common"
@@ -173,21 +172,13 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
   const { t: common } = useTranslation(lang, "common")
 
   return (
-    <Divider.Section className="bg-white">
-      <PageHeader
-        title={t("title")}
-        subtitle={t("subtitle")}
-        image={
-          <div className="m-auto flex h-[320px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[343px]">
-            <Image
-              width={343}
-              height={320}
-              src="/icons/resource-illustration.webp"
-              alt="illustrations"
-            />
-          </div>
-        }
-        actions={
+    <div className="flex flex-col">
+      <div className="w-full bg-page-header-gradient">
+        <AppContent className="flex flex-col gap-4 py-10 w-full">
+          <Label.PageTitle label={t("title")} />
+          <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
+            {t("subtitle")}
+          </h6>
           <Link
             href={siteConfig.addGithubResource}
             target="_blank"
@@ -204,58 +195,60 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
               </div>
             </Button>
           </Link>
-        }
-      />
-      <div className="flex justify-center">
-        <AppContent className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[4fr_1fr]">
-          <div className="flex flex-col gap-6">
-            <article className="flex flex-col space-y-8 ">
-              <ResourcesContent
-                components={{
-                  ResourceItem: (props: ResourceItemProps) => (
-                    <ResourceItem {...props} />
-                  ),
-                  ResourceCard: (props: ResourceCardProps) => (
-                    <ResourceCard {...props} />
-                  ),
-                }}
-              />
-            </article>
-          </div>
-          <section className="relative hidden md:block ">
-            <div className="sticky right-0 top-16 ml-auto">
-              <ResourceNav lang={lang} />
-            </div>
-          </section>
         </AppContent>
       </div>
-      <Banner
-        title={
-          <h3 className="py-2 font-display text-[18px] font-bold text-tuatara-950 md:text-3xl">
-            {t("addResourceQuestion")}
-          </h3>
-        }
-      >
-        <Link
-          href={siteConfig.links.discord}
-          className="pb-6"
-          target="_blank"
-          rel="noreferrer"
-          passHref
-        >
-          <Button>
-            <div className="flex items-center gap-1">
-              <Icons.discord size={18} />
-              <span className="text-[14px] uppercase">
-                {common("connectWithUsOnPlatform", {
-                  platform: "Discord",
-                })}
-              </span>
-              <Icons.externalUrl size={20} />
+      <Divider.Section className="bg-white">
+        <div className="flex justify-center">
+          <AppContent className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[4fr_1fr]">
+            <div className="flex flex-col gap-6">
+              <article className="flex flex-col space-y-8 ">
+                <ResourcesContent
+                  components={{
+                    ResourceItem: (props: ResourceItemProps) => (
+                      <ResourceItem {...props} />
+                    ),
+                    ResourceCard: (props: ResourceCardProps) => (
+                      <ResourceCard {...props} />
+                    ),
+                  }}
+                />
+              </article>
             </div>
-          </Button>
-        </Link>
-      </Banner>
-    </Divider.Section>
+            <section className="relative hidden md:block ">
+              <div className="sticky right-0 top-16 ml-auto">
+                <ResourceNav lang={lang} />
+              </div>
+            </section>
+          </AppContent>
+        </div>
+        <Banner
+          title={
+            <h3 className="py-2 font-display text-[18px] font-bold text-tuatara-950 md:text-3xl">
+              {t("addResourceQuestion")}
+            </h3>
+          }
+        >
+          <Link
+            href={siteConfig.links.discord}
+            className="pb-6"
+            target="_blank"
+            rel="noreferrer"
+            passHref
+          >
+            <Button>
+              <div className="flex items-center gap-1">
+                <Icons.discord size={18} />
+                <span className="text-[14px] uppercase">
+                  {common("connectWithUsOnPlatform", {
+                    platform: "Discord",
+                  })}
+                </span>
+                <Icons.externalUrl size={20} />
+              </div>
+            </Button>
+          </Link>
+        </Banner>
+      </Divider.Section>
+    </div>
   )
 }

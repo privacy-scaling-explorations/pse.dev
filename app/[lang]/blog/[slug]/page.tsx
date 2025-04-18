@@ -1,10 +1,12 @@
 import { blogArticleCardTagCardVariants } from "@/components/blog/blog-article-card"
 import { BlogContent } from "@/components/blog/blog-content"
 import { AppContent } from "@/components/ui/app-content"
+import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Markdown } from "@/components/ui/markdown"
 import { getArticles, getArticleById } from "@/lib/blog"
 import { Metadata } from "next"
+import Link from "next/link"
 
 export const generateStaticParams = async () => {
   const articles = await getArticles()
@@ -81,6 +83,18 @@ export default function BlogArticle({ params }: any) {
                 {post?.tldr && <Markdown>{post?.tldr}</Markdown>}
               </div>
             ) : null}
+            {(post?.tags ?? [])?.length > 0 && (
+              <div className="flex flex-col gap-2">
+                <span className="text-sm italic text-tuatara-950">Tags:</span>
+                <div className="flex gap-2">
+                  {post?.tags?.map((tag) => (
+                    <Link key={tag} href={`/${params.lang}/blog?tag=${tag}`}>
+                      <Button size="xs">{tag}</Button>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </AppContent>
         </div>
       </div>

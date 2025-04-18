@@ -55,7 +55,7 @@ export const ResearchList = ({ lang }: LangProps["params"]) => {
 
   if (!isMounted) {
     return (
-      <div className="flex flex-col gap-10 lg:px-[100px]">
+      <div className="flex flex-col gap-10">
         <div className="flex flex-col gap-6 overflow-hidden">
           <div
             className={cn(
@@ -90,7 +90,7 @@ export const ResearchList = ({ lang }: LangProps["params"]) => {
     <div className="relative grid items-start justify-between grid-cols-1">
       <div
         data-section="active-researchs"
-        className="flex flex-col justify-between gap-10 lg:px-[100px]"
+        className="flex flex-col justify-between gap-10"
       >
         <div className={cn("flex w-full flex-col gap-10")}>
           {!hasActiveFilters && (

@@ -8,7 +8,7 @@ import { Button } from "../ui/button"
 import { Icons } from "../icons"
 
 export async function BlogRecentArticles({ lang }: { lang: any }) {
-  const articles = getArticles(5)
+  const articles = getArticles({ limit: 5 })
   const { t } = await useTranslation(lang, "blog-page")
 
   const lastArticle = articles[0]

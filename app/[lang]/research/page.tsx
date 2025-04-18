@@ -17,14 +17,9 @@ export const metadata: Metadata = {
 const ResearchPage = async ({ params: { lang } }: any) => {
   const { t } = await useTranslation(lang, "research-page")
   return (
-    <div className="flex flex-col gap-10 lg:gap-32 pb-[128px]">
-      <div
-        className="w-full"
-        style={{
-          background: "linear-gradient(180deg, #C2E8F5 -17.44%, #FFF 62.5%)",
-        }}
-      >
-        <AppContent className="flex flex-col gap-4 pt-10 w-full lg:px-[200px]">
+    <div className="flex flex-col gap-10 lg:gap-32 pb-[128px] ">
+      <div className="w-full bg-page-header-gradient">
+        <AppContent className="flex flex-col gap-4 py-10 w-full">
           <Label.PageTitle label={t("title")} />
           <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
             {t("subtitle")}

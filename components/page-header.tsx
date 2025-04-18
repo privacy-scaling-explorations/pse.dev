@@ -11,6 +11,7 @@ type PageHeaderProps = {
   image?: ReactNode
   contentWidth?: number
   showDivider?: boolean
+  size?: "small" | "large"
 }
 
 const PageHeader = ({
@@ -20,6 +21,7 @@ const PageHeader = ({
   children,
   image,
   showDivider = true,
+  size = "small",
 }: PageHeaderProps) => {
   return (
     <div className="flex h-full w-full items-center bg-cover-gradient md:h-[600px]">
@@ -27,7 +29,7 @@ const PageHeader = ({
         <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:gap-28">
           <div className="flex w-full flex-col justify-center gap-6 md:max-w-[700px] md:gap-8 lg:gap-14">
             <div className="flex flex-col gap-4 md:gap-8">
-              <Label.PageTitle label={title} />
+              <Label.PageTitle label={title} size={size} />
               {subtitle && (
                 <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px]">
                   {subtitle}

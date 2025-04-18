@@ -22,7 +22,7 @@ export const HomepageHeader = ({ lang }: { lang: any }) => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, cubicBezier: "easeOut" }}
         >
-          <Label.PageTitle label={t("headerTitle")} />
+          <Label.PageTitle size="large" label={t("headerTitle")} />
         </motion.h1>
       }
       subtitle={t("headerSubtitle")}
