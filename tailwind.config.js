@@ -31,6 +31,8 @@ module.exports = {
           "linear-gradient(180deg, #C2E8F5 -17.44%, #FFF 17.72%)",
         "research-card-gradient":
           "linear-gradient(84deg, #FFF -1.95%, #EAFAFF 59.98%, #FFF 100.64%)",
+        "page-header-gradient":
+          "linear-gradient(180deg, #C2E8F5 -17.44%, #FFF 62.5%)",
       },
       colors: {
         corduroy: "#4A5754",

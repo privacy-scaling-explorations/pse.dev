@@ -20,7 +20,7 @@ export default async function ProjectsPage({ params: { lang } }: any) {
 
   return (
     <div className="flex flex-col">
-      <div className="w-full bg-cover-gradient border-b border-tuatara-300">
+      <div className="w-full bg-page-header-gradient">
         <AppContent className="flex flex-col gap-4 py-10 w-full">
           <Label.PageTitle label={t("title")} />
           <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">

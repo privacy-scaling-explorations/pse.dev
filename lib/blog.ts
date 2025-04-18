@@ -15,12 +15,14 @@ export interface Article {
   publicKey?: string
   hash?: string
   canonical?: string
+  tags?: string[]
 }
 
 const articlesDirectory = path.join(process.cwd(), "articles")
 
 // Get all articles from /articles
-export function getArticles(limit: number = 1000) {
+export function getArticles(options?: { limit?: number; tag?: string }) {
+  const { limit = 1000, tag } = options ?? {}
   // Get file names under /articles
   const fileNames = fs.readdirSync(articlesDirectory)
   const allArticlesData = fileNames.map((fileName: string) => {
@@ -53,9 +55,18 @@ export function getArticles(limit: number = 1000) {
         },
       })
 
+      // Ensure tags are always an array, combining 'tags' and 'tag'
+      const tags = [
+        ...(Array.isArray(matterResult.data?.tags)
+          ? matterResult.data.tags
+          : []),
+        ...(matterResult.data?.tag ? [matterResult.data.tag] : []),
+      ]
+
       return {
         id,
         ...matterResult.data,
+        tags: tags, // Assign the combined and normalized tags array
         content: matterResult.content,
       }
     } catch (error) {
@@ -66,14 +77,23 @@ export function getArticles(limit: number = 1000) {
         title: `Error processing ${id}`,
         content: "This article could not be processed due to an error.",
         date: new Date().toISOString().split("T")[0],
+        tags: [],
       }
     }
   })
 
+  let filteredArticles = allArticlesData.filter(Boolean) as Article[]
+
+  // Filter by tag if provided
+  if (tag) {
+    filteredArticles = filteredArticles.filter((article) =>
+      article.tags?.includes(tag)
+    )
+  }
+
   // Sort posts by date
-  return allArticlesData
-    .filter(Boolean)
-    .sort((a: any, b: any) => {
+  return filteredArticles
+    .sort((a, b) => {
       const dateA = new Date(a.date)
       const dateB = new Date(b.date)
 
@@ -81,11 +101,13 @@ export function getArticles(limit: number = 1000) {
       return dateB.getTime() - dateA.getTime()
     })
     .slice(0, limit)
-    .filter((article: any) => article.id !== "_article-template") as Article[]
+    .filter((article) => article.id !== "_article-template")
 }
 
 export function getArticleById(slug?: string) {
-  const articles = getArticles()
+  // Note: This might need adjustment if you expect getArticleById to also have tags
+  // Currently relies on the base getArticles() which fetches all tags
+  const articles = getArticles() // Fetch all articles to find the one by ID
 
   return articles.find((article) => article.id === slug)
 }

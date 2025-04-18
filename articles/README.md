@@ -19,6 +19,7 @@ image: "/articles/my-new-article/cover.webp" # Image used as cover
 tldr: "A brief summary of your article" #Short summary
 date: "YYYY-MM-DD" # Publication date in ISO format
 canonical: "mirror.xyz/my-new-article" # (Optional) The original source URL, this tells search engines the primary version of the content
+tags: ["tag1", "tag2"] # (Optional) Add relevant tags as an array of strings to categorize the article
 ---
 ```
 
