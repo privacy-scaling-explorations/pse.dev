@@ -40,7 +40,7 @@ _Table modified from [https://vitalik.ca/general/2023/07/24/biometric.html](http
 - SDK to directly integrate with your dapp
 - PCD package to leverage this framework
 - React package to quickly integrate your front-end
-- Example app to try it and and fork
+- Example app to try it and fork
 - Proving time ~30s (avg on browser)
 
 ### What it contains

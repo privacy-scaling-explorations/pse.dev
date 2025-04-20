@@ -19,7 +19,7 @@ MACI 1.0 was audited by [Hashcloak](https://hashcloak.com/). All vulnerabilities
 
 ## About MACI
 
-MACI is a set of smart contracts and zero-knowledge circuits upon which which developers can build collusion-resistant applications, such as voting systems or quadratic funding platforms. MACI per se is not a user-facing application. Rather, developers may build applications on top of it. In turn, such applications can benefit from the following properties:
+MACI is a set of smart contracts and zero-knowledge circuits upon which developers can build collusion-resistant applications, such as voting systems or quadratic funding platforms. MACI per se is not a user-facing application. Rather, developers may build applications on top of it. In turn, such applications can benefit from the following properties:
 
 Comment
 
