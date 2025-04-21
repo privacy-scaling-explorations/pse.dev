@@ -1,9 +1,13 @@
 import { useTranslation } from "@/app/i18n"
-import { BlogArticles } from "@/components/blog/blog-articles"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
-import { getArticles } from "@/lib/blog"
 import { Metadata } from "next"
+import { Suspense } from "react"
+import { Article, getArticles } from "@/lib/blog"
+import { BlogArticleCard } from "@/components/blog/blog-article-card"
+import Link from "next/link"
+
+export const dynamic = "force-dynamic"
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -15,14 +19,54 @@ interface BlogPageProps {
   searchParams?: { [key: string]: string | string[] | undefined }
 }
 
+const ArticlesGrid = ({
+  articles,
+  lang,
+}: {
+  articles: Article[]
+  lang: string
+}) => {
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {articles.length === 0 && (
+        <p className="col-span-full text-center text-gray-500">
+          No articles found for this tag.
+        </p>
+      )}
+      {articles.map(
+        ({ id, title, image, tldr = "", date, authors, content }: Article) => {
+          const url = `/${lang}/blog/${id}`
+          return (
+            <Link
+              className="flex-1 w-full h-full group hover:opacity-90 transition-opacity duration-300 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-900/10"
+              key={id}
+              href={url}
+              rel="noreferrer"
+            >
+              <BlogArticleCard
+                id={id}
+                image={image}
+                title={title}
+                date={date}
+                authors={authors}
+                content={content}
+              />
+            </Link>
+          )
+        }
+      )}
+    </div>
+  )
+}
+
 const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
   const { t } = await useTranslation(lang, "blog-page")
 
-  // Get the tag from searchParams
   const tag = searchParams?.tag as string | undefined
-
-  // Fetch articles, filtering by tag if present
-  const articles = await getArticles({ tag })
+  const articles =
+    getArticles({
+      tag,
+    }) ?? []
 
   return (
     <div className="flex flex-col">
@@ -41,8 +85,15 @@ const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
       </div>
 
       <AppContent className="flex flex-col gap-10 py-10">
-        {/* Pass fetched articles and lang to the component */}
-        <BlogArticles articles={articles} lang={lang} />
+        <Suspense
+          fallback={
+            <div className="flex justify-center py-10">Loading articles...</div>
+          }
+        >
+          {articles.map((article, index) => (
+            <ArticlesGrid key={index} articles={articles} lang={lang} />
+          ))}
+        </Suspense>
       </AppContent>
     </div>
   )

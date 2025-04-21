@@ -8,6 +8,8 @@ import { getArticles, getArticleById } from "@/lib/blog"
 import { Metadata } from "next"
 import Link from "next/link"
 
+export const dynamic = "force-dynamic"
+
 export const generateStaticParams = async () => {
   const articles = await getArticles()
   return articles.map(({ id }) => ({
