@@ -15,7 +15,6 @@ export default async function AboutPage({ params: { lang } }: any) {
   const { t } = await useTranslation(lang, "about-page")
   const { t: common } = await useTranslation(lang, "common")
 
-  // @ts-expect-error - This is a workaround to get the principles from the translation file
   const principles: any[] =
     (t("principles", {
       returnObjects: true,
