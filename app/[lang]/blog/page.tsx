@@ -7,6 +7,8 @@ import { Article, getArticles } from "@/lib/blog"
 import { BlogArticleCard } from "@/components/blog/blog-article-card"
 import Link from "next/link"
 
+export const dynamic = "force-dynamic"
+
 export const metadata: Metadata = {
   title: "Blog",
   description: "",
