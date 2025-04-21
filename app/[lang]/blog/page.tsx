@@ -2,7 +2,7 @@ import { useTranslation } from "@/app/i18n"
 import { BlogArticles } from "@/components/blog/blog-articles"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
-import { getArticles } from "@/lib/blog"
+import { Article, getArticles } from "@/lib/blog"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -18,11 +18,14 @@ interface BlogPageProps {
 const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
   const { t } = await useTranslation(lang, "blog-page")
 
-  // Get the tag from searchParams
   const tag = searchParams?.tag as string | undefined
 
-  // Fetch articles, filtering by tag if present
-  const articles = await getArticles({ tag })
+  let articles: Article[] = []
+  try {
+    articles = await getArticles({ tag })
+  } catch (error) {
+    console.error("Error fetching blog articles:", error)
+  }
 
   return (
     <div className="flex flex-col">

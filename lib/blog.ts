@@ -23,20 +23,43 @@ const articlesDirectory = path.join(process.cwd(), "articles")
 // Get all articles from /articles
 export function getArticles(options?: { limit?: number; tag?: string }) {
   const { limit = 1000, tag } = options ?? {}
-  // Get file names under /articles
-  const fileNames = fs.readdirSync(articlesDirectory)
+
+  if (!fs.existsSync(articlesDirectory)) {
+    console.error(`Articles directory not found at ${articlesDirectory}`)
+    return []
+  }
+
+  let fileNames = []
+  try {
+    fileNames = fs.readdirSync(articlesDirectory)
+  } catch (error) {
+    console.error(`Error reading articles directory: ${error}`)
+    return []
+  }
+
   const allArticlesData = fileNames.map((fileName: string) => {
     const id = fileName.replace(/\.md$/, "")
     if (id.toLowerCase() === "readme") {
       return null
     }
 
-    // Read markdown file as string
     const fullPath = path.join(articlesDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, "utf8")
+
+    let fileContents
+    try {
+      fileContents = fs.readFileSync(fullPath, "utf8")
+    } catch (error) {
+      console.error(`Error reading file ${fileName}: ${error}`)
+      return {
+        id,
+        title: `Error reading ${id}`,
+        content: "This article could not be read due to an error.",
+        date: new Date().toISOString().split("T")[0],
+        tags: [],
+      }
+    }
 
     try {
-      // Use matter with options to handle multiline strings
       const matterResult = matter(fileContents, {
         engines: {
           yaml: {
@@ -65,9 +88,11 @@ export function getArticles(options?: { limit?: number; tag?: string }) {
 
       return {
         id,
+        title: matterResult.data.title || `Article ${id}`,
+        content: matterResult.content || "",
+        date: matterResult.data.date || new Date().toISOString().split("T")[0],
         ...matterResult.data,
         tags: tags, // Assign the combined and normalized tags array
-        content: matterResult.content,
       }
     } catch (error) {
       console.error(`Error processing ${fileName}:`, error)
@@ -97,6 +122,9 @@ export function getArticles(options?: { limit?: number; tag?: string }) {
       const dateA = new Date(a.date)
       const dateB = new Date(b.date)
 
+      if (isNaN(dateA.getTime())) return 1
+      if (isNaN(dateB.getTime())) return -1
+
       // Sort in descending order (newest first)
       return dateB.getTime() - dateA.getTime()
     })
@@ -105,11 +133,17 @@ export function getArticles(options?: { limit?: number; tag?: string }) {
 }
 
 export function getArticleById(slug?: string) {
-  // Note: This might need adjustment if you expect getArticleById to also have tags
-  // Currently relies on the base getArticles() which fetches all tags
-  const articles = getArticles() // Fetch all articles to find the one by ID
+  if (!slug) return null
 
-  return articles.find((article) => article.id === slug)
+  try {
+    // Note: This might need adjustment if you expect getArticleById to also have tags
+    // Currently relies on the base getArticles() which fetches all tags
+    const articles = getArticles() // Fetch all articles to find the one by ID
+    return articles.find((article) => article.id === slug)
+  } catch (error) {
+    console.error(`Error in getArticleById for slug ${slug}:`, error)
+    return null
+  }
 }
 
 const lib = { getArticles, getArticleById }
