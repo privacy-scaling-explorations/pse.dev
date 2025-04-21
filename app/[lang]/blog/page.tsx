@@ -17,13 +17,13 @@ interface BlogPageProps {
   searchParams?: { [key: string]: string | string[] | undefined }
 }
 
-function ArticlesGrid({
+const ArticlesGrid = ({
   articles,
   lang,
 }: {
   articles: Article[]
   lang: string
-}) {
+}) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {articles.length === 0 && (
@@ -57,20 +57,14 @@ function ArticlesGrid({
   )
 }
 
-async function ArticlesList({ lang, tag }: { lang: string; tag?: string }) {
-  const articles = await getArticles({
-    tag,
-    limit: undefined,
-  })
-
-  return <ArticlesGrid articles={articles} lang={lang} />
-}
-
 const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
   const { t } = await useTranslation(lang, "blog-page")
 
-  // Get the tag from searchParams
   const tag = searchParams?.tag as string | undefined
+  const articles =
+    getArticles({
+      tag,
+    }) ?? []
 
   return (
     <div className="flex flex-col">
@@ -94,7 +88,9 @@ const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
             <div className="flex justify-center py-10">Loading articles...</div>
           }
         >
-          <ArticlesList lang={lang} tag={tag} />
+          {articles.map((article, index) => (
+            <ArticlesGrid key={index} articles={articles} lang={lang} />
+          ))}
         </Suspense>
       </AppContent>
     </div>
