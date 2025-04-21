@@ -15,16 +15,6 @@ interface BlogPageProps {
   searchParams?: { [key: string]: string | string[] | undefined }
 }
 
-async function ArticlesContainer({
-  lang,
-  tag,
-}: {
-  lang: string
-  tag?: string
-}) {
-  return <BlogArticles lang={lang} tag={tag} />
-}
-
 const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
   const { t } = await useTranslation(lang, "blog-page")
 
@@ -53,7 +43,7 @@ const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
             <div className="flex justify-center py-10">Loading articles...</div>
           }
         >
-          <ArticlesContainer lang={lang} tag={tag} />
+          <BlogArticles lang={lang} tag={tag} />
         </Suspense>
       </AppContent>
     </div>
