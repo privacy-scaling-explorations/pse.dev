@@ -7,12 +7,20 @@ interface BlogArticlesProps {
   tag?: string
 }
 
-export async function BlogArticles({ lang, tag }: BlogArticlesProps) {
-  const articles = getArticles({
+async function fetchArticles(tag?: string) {
+  return getArticles({
     tag,
     limit: undefined,
   })
+}
 
+function ArticlesGrid({
+  articles,
+  lang,
+}: {
+  articles: Article[]
+  lang: string
+}) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {articles.length === 0 && (
@@ -45,4 +53,9 @@ export async function BlogArticles({ lang, tag }: BlogArticlesProps) {
       )}
     </div>
   )
+}
+
+export async function BlogArticles({ lang, tag }: BlogArticlesProps) {
+  const articles = await fetchArticles(tag)
+  return <ArticlesGrid articles={articles} lang={lang} />
 }
