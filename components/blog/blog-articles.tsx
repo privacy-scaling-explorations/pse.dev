@@ -1,13 +1,18 @@
-import { Article } from "@/lib/blog"
+import { Article, getArticles } from "@/lib/blog"
 import Link from "next/link"
 import { BlogArticleCard } from "./blog-article-card"
 
 interface BlogArticlesProps {
-  articles: Article[]
-  lang: string // Add lang prop for correct linking
+  lang: string
+  tag?: string
 }
 
-export const BlogArticles = ({ articles, lang }: BlogArticlesProps) => {
+export async function BlogArticles({ lang, tag }: BlogArticlesProps) {
+  const articles = getArticles({
+    tag,
+    limit: undefined,
+  })
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {articles.length === 0 && (

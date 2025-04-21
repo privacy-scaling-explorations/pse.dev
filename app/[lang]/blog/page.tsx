@@ -2,8 +2,8 @@ import { useTranslation } from "@/app/i18n"
 import { BlogArticles } from "@/components/blog/blog-articles"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
-import { getArticles } from "@/lib/blog"
 import { Metadata } from "next"
+import { Suspense } from "react"
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -20,9 +20,6 @@ const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
 
   // Get the tag from searchParams
   const tag = searchParams?.tag as string | undefined
-
-  // Fetch articles, filtering by tag if present
-  const articles = await getArticles({ tag })
 
   return (
     <div className="flex flex-col">
@@ -41,8 +38,13 @@ const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
       </div>
 
       <AppContent className="flex flex-col gap-10 py-10">
-        {/* Pass fetched articles and lang to the component */}
-        <BlogArticles articles={articles} lang={lang} />
+        <Suspense
+          fallback={
+            <div className="flex justify-center py-10">Loading articles...</div>
+          }
+        >
+          <BlogArticles lang={lang} tag={tag} />
+        </Suspense>
       </AppContent>
     </div>
   )
