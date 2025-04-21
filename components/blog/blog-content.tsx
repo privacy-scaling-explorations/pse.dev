@@ -1,10 +1,14 @@
+"use client"
+
 import Blog, { Article, getArticles } from "@/lib/blog"
 import Link from "next/link"
 import { AppContent } from "../ui/app-content"
 import { Markdown } from "../ui/markdown"
 import { BlogArticleCard } from "./blog-article-card"
+
 interface BlogContentProps {
   post: Article
+  lang?: string
 }
 
 interface BlogImageProps {
@@ -31,7 +35,7 @@ export function BlogImage({ image, alt, description }: BlogImageProps) {
   )
 }
 
-export function BlogContent({ post }: BlogContentProps) {
+export function BlogContent({ post, lang = "en" }: BlogContentProps) {
   const articles = getArticles() ?? []
   const articleIndex = articles.findIndex((article) => article.id === post.id)
 
@@ -56,8 +60,8 @@ export function BlogContent({ post }: BlogContentProps) {
                 More articles
               </span>
               <Link
-                href="/blog"
-                className="text-black font-bold  text-base leading-6 hover:underline hover:text-anakiwa-500"
+                href={`/${lang}/blog`}
+                className="text-black font-bold text-base leading-6 hover:underline hover:text-anakiwa-500"
               >
                 View all
               </Link>
@@ -73,7 +77,7 @@ export function BlogContent({ post }: BlogContentProps) {
                   content,
                   authors,
                 }: Article) => {
-                  const url = `/blog/${id}`
+                  const url = `/${lang}/blog/${id}`
                   return (
                     <Link
                       href={url}

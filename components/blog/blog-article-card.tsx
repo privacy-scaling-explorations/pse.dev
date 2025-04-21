@@ -1,3 +1,5 @@
+"use client"
+
 import { Article } from "@/lib/blog"
 import { cn } from "@/lib/utils"
 import { cva } from "class-variance-authority"

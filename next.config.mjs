@@ -25,8 +25,38 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx", "md"],
   reactStrictMode: true,
   experimental: {
-    
     mdxRs: true,
+  },
+  async redirects() {
+    return [
+      {
+        source: "/blog",
+        destination: "/en/blog",
+        permanent: true,
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
+        source: "/_next/data/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=60, s-maxage=60, stale-while-revalidate=3600",
+          },
+        ],
+      },
+    ];
   },
 }
 

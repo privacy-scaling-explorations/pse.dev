@@ -1,3 +1,5 @@
+"use client"
+
 import { Article } from "@/lib/blog"
 import Link from "next/link"
 import { BlogArticleCard } from "./blog-article-card"

@@ -6,8 +6,9 @@ import { cookieName, fallbackLng, languages } from "./app/i18n/settings"
 acceptLanguage.languages(languages as any)
 
 export const config = {
-  //matcher: "/:lang*",
-  matcher: ["/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js).*)"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|_next/data|articles|assets|favicon.ico|sw.js).*))",
+  ],
 }
 const PUBLIC_FILE = /\.(.*)$/
 
@@ -19,15 +20,19 @@ export function middleware(req: any) {
   if (!lang) lang = acceptLanguage.get(req.headers.get("Accept-Language"))
   if (!lang) lang = fallbackLng
 
-  // Keep the file from public folder
+  if (req.nextUrl.pathname.includes("/_next/data")) {
+    return NextResponse.next()
+  }
+
   if (PUBLIC_FILE.test(req.nextUrl.pathname)) {
-    return
+    return NextResponse.next()
   }
 
   // Redirect if lang in path is not supported
   if (
     !languages.some((loc) => req.nextUrl.pathname.startsWith(`/${loc}`)) &&
-    !req.nextUrl.pathname.startsWith("/_next")
+    !req.nextUrl.pathname.startsWith("/_next") &&
+    !req.nextUrl.pathname.startsWith("/api")
   ) {
     return NextResponse.redirect(
       new URL(`/${lang}${req.nextUrl.pathname}`, req.url)

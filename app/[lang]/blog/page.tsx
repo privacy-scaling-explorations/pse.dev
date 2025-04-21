@@ -5,9 +5,17 @@ import { Label } from "@/components/ui/label"
 import { Article, getArticles } from "@/lib/blog"
 import { Metadata } from "next"
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "",
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: string }
+}): Promise<Metadata> {
+  const { t } = await useTranslation(params.lang, "blog-page")
+
+  return {
+    title: t("title") || "Blog",
+    description: t("subtitle") || "",
+  }
 }
 
 interface BlogPageProps {

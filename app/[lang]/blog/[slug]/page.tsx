@@ -124,7 +124,7 @@ export default async function BlogArticle({ params }: any) {
           </div>
         </div>
         <div className="pt-10 md:pt-16 pb-32">
-          <BlogContent post={post} />
+          <BlogContent post={post} lang={params.lang} />
         </div>
       </div>
     )
