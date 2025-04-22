@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 
 import { siteConfig } from "@/config/site"
 import { getProjectById } from "@/lib/projectsUtils"
-import { ProjectStatus } from "@/lib/types"
+import { ProjectCategory, ProjectStatus } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { AppContent } from "@/components/ui/app-content"
 import { Markdown, createMarkdownElement } from "@/components/ui/markdown"
@@ -43,6 +43,8 @@ export const ProjectContent = ({
 
   const projectStatusMessage =
     ProjectStatusMessageMap?.[project?.projectStatus as ProjectStatus]
+
+  const isResearchProject = project?.category === ProjectCategory.RESEARCH
 
   if (!project?.id) {
     router.push("/404")
@@ -235,11 +237,13 @@ export const ProjectContent = ({
                   </div>
                 </div>
               </div>
-              <WikiCard
-                className="lg:sticky lg:top-20"
-                project={project}
-                lang={lang}
-              />
+              {!isResearchProject && (
+                <WikiCard
+                  className="lg:sticky lg:top-20"
+                  project={project}
+                  lang={lang}
+                />
+              )}
               <div data-section-id="edit-this-page" className="lg:col-start-2">
                 <Link
                   href={editPageURL}
