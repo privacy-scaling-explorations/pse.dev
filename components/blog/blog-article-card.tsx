@@ -24,7 +24,7 @@ export const BlogArticleCard = ({
 }: Article) => {
   const imageUrl = `/articles/${id}/${image}`
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full w-full">
       <div className="relative h-48 w-full overflow-hidden bg-gray-100">
         {!!image && (
           <Image
@@ -37,7 +37,7 @@ export const BlogArticleCard = ({
         )}
       </div>
 
-      <div className="p-5 flex flex-col gap-5 lg:gap-8 min-h-[180px]">
+      <div className="p-5 flex flex-col flex-grow gap-5 lg:gap-8 min-h-[180px]">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-1">
             <Image
