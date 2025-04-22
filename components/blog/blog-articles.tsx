@@ -33,21 +33,22 @@ function ArticlesGrid({
           // Use lang parameter for correct article URL
           const url = `/${lang}/blog/${id}`
           return (
-            <Link
-              className="flex-1 w-full h-full group hover:opacity-90 transition-opacity duration-300 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-900/10"
-              key={id}
-              href={url}
-              rel="noreferrer"
-            >
-              <BlogArticleCard
-                id={id}
-                image={image}
-                title={title}
-                date={date}
-                authors={authors}
-                content={content}
-              />
-            </Link>
+            <div key={id} className="flex h-full">
+              <Link
+                className="flex-1 w-full hover:opacity-90 transition-opacity duration-300 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-900/10"
+                href={url}
+                rel="noreferrer"
+              >
+                <BlogArticleCard
+                  id={id}
+                  image={image}
+                  title={title}
+                  date={date}
+                  authors={authors}
+                  content={content}
+                />
+              </Link>
+            </div>
           )
         }
       )}
