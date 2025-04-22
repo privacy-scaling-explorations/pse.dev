@@ -13,7 +13,7 @@ const content: ProjectContent = {
 p0tion is an agnostic-from-ceremony public good toolkit, with the aim of making Groth16 zk-applications scale and become production-ready in a safe and secure manner by running Phase 2 Trusted Setup ceremonies.
 
 ### Status
-This project has been sunset and it is entering to a long term support phase (no further development). p0tion toolkit is availabe for developers to use and run their own trusted setups ceremonies. We encourage the community to fork and continue the improvement of this toolkit.
+This project has been sunset and it is entering a long term support phase (no further development). p0tion toolkit is available for developers to use and run their own trusted setups ceremonies. We encourage the community to fork and continue the improvement of this toolkit.
 
 ### Resources
 

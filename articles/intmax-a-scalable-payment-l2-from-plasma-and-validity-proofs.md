@@ -50,7 +50,7 @@ Intmax's has one of the lowest onchain data footprint among all L2s. This direct
 
 ## Main algorithms
 
-Intmax uses [plonky2](https://github.com/0xPolygonZero/plonky2) to entangle proofs together to yield one single balance proof. This means that Intmax's code is a bit involved. We lay out here in a somewhat detailed, yet informal fashion the main algorithms used by intmax's plasma according to the [code](https://github.com/InternetMaximalism/intmax2-zkp/tree/cli)2^22, instead of the paper. The implementation contains interesting details, which probably in the name of succintness, were not included in the paper.
+Intmax uses [plonky2](https://github.com/0xPolygonZero/plonky2) to entangle proofs together to yield one single balance proof. This means that Intmax's code is a bit involved. We lay out here in a somewhat detailed, yet informal fashion the main algorithms used by intmax's plasma according to the [code](https://github.com/InternetMaximalism/intmax2-zkp/tree/cli)2^22, instead of the paper. The implementation contains interesting details, which probably in the name of succinctness, were not included in the paper.
 
 One pattern of Intmax's PCD flow is for users to (1) update their balance proof to show the state of the account right before a plasma action happened, (2) generate a transition proof attesting to the validity of the transition of the account private state when the plasma action is applied and (3) generate a new public balance proof attesting to the balance of the user once the action has been processed. We now review how the balance proof is updated according to each action triggered by an Intmax plasma user.
 
@@ -68,7 +68,7 @@ A deposit consists in a user sending funds to the Intmax rollup contract, an agg
 
 A transfer involves a sender and an aggregator communicating over a block proposal. Once the block proposal has been signed by the sender and posted onchain by the aggregator, the sender is able to update his balance proof and convince the receiver of the transaction's validity.
 
-1.  Sender makes a transaction request to the aggregator. a. Generates a [transfer tree](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L183) TttransferT^{transfer}\_{t}Tttransfer​*b. Generates a [spent witness](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L189) *wtspentw^{spent}\_{t}wtspent​, used later on to prove a valid send operation. c. Generates a [spent proof](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L197) πtspent attestingstesting to the user's transaction validity. d. [Sends a transaction request](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L203) (containing the nonce and the transfer tree root) to the aggregator.
+1.  Sender makes a transaction request to the aggregator. a. Generates a [transfer tree](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L183) TttransferT^{transfer}\_{t}Tttransfer​*b. Generates a [spent witness](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L189) *wtspentw^{spent}\_{t}wtspent​, used later on to prove a valid send operation. c. Generates a [spent proof](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L197) πtspent attesting to the user's transaction validity. d. [Sends a transaction request](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L203) (containing the nonce and the transfer tree root) to the aggregator.
 2.  Aggregator builds block and sends transaction inclusion merkle proof πtinclusion to senders.
 3.  Sender finalizes the transaction: a. Checks the transaction merkle inclusion proof πtinclusion* b. [BLS signs](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L285) the transaction merkle inclusion proof *πtinclusion c. Sends transaction data (πtspent,πtinclusion) to the transaction receiver
 4.  Builder posts BproposalB^{proposal}Bproposal onchain along with [aggregated signatures](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L286) from senders
@@ -93,7 +93,7 @@ Withdraws are akin to regular transfers, but occur between an Intmax account and
 
 1.  The client syncs with withdrawals requests that have been done so far and picks the one relevant to the user from an [encrypted vault](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L401) storing withdrawals proofs.
 2.  If needed, the user updates his balance proof πtbalance _by applying the withdrawal transfer_ TtwithdrawT^{withdraw}\_{t}Ttwithdraw​ which occurred at block BtB_tBt​.
-3.  The user generates a [withdrawal proof](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L630) πtwithdraw using a withdrawal witness wtwithdraw*t \_attesting to a transfer occuring from an intmax to an L1 address and included within block* BtB_tBt​*. The withdrawal proof* πtwithdraw is sent to a withdrawal aggregator.
+3.  The user generates a [withdrawal proof](https://github.com/InternetMaximalism/intmax2-zkp/blob/233a26eb1d8b2580f66136a95319ad99eb1f62f2/src/mock/client.rs#L630) πtwithdraw using a withdrawal witness wtwithdraw*t \_attesting to a transfer occurring from an intmax to an L1 address and included within block* BtB_tBt​*. The withdrawal proof* πtwithdraw is sent to a withdrawal aggregator.
 4.  A withdrawal aggregator chains together withdrawal proofs πtwithdraw,0,...,πtwithdraw,k and verifies them on the L1, triggering effective funds withdrawals on the rollup contract.
 
 ## Common questions
@@ -108,7 +108,7 @@ No. Validity proofs prevent a sender from doing so since he will need to provide
 
 1.  Does it mean users have to keep their data on their device?
 
-Yes, one drawback of such designs is to assume users will safegard their data on their local devices. To alleviate some of the risks attached to this (keys aren't the only thing you should keep safely in this model), the initial intmax implementation features a server vault in charge of storing (not yet) encrypted users data.
+Yes, one drawback of such designs is to assume users will safeguard their data on their local devices. To alleviate some of the risks attached to this (keys aren't the only thing you should keep safely in this model), the initial intmax implementation features a server vault in charge of storing (not yet) encrypted users data.
 
 ## Footnotes
 

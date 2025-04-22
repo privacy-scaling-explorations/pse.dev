@@ -46,7 +46,7 @@ _For readers who are familiar with Zero-Knowledge Proof (ZKP), MPC is a generali
 
 ![](/articles/circom-mpc-tldr-and-retrospective/AQpIQQuDUa4K6vWqK4tCI.webp)
 
-And yes, Fully Homomorphic Encryption (FHE) is among techniques (along side Garbled-Circuit and Secret-Sharing) that can be used for MPC construction in the most straightforward mental model:
+And yes, Fully Homomorphic Encryption (FHE) is among techniques (alongside Garbled-Circuit and Secret-Sharing) that can be used for MPC construction in the most straightforward mental model:
 
 ![](/articles/circom-mpc-tldr-and-retrospective/gBQ4obkZZ9je05-isHPj1.webp)
 
