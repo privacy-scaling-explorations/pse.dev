@@ -14,49 +14,72 @@ export const vOPRF: ProjectInterface = {
     en: {
       tldr: "Enabling pseudonymous systems for Web2 identities using verifiable Oblivious PseudoRandom Functions (vOPRFs).",
       description: `
-### Overview  
+# Web2-ID Nullifiers using vOPRF
 
-The Web2-ID Nullifiers project enables **pseudonymous systems for Web2 identities** using verifiable Oblivious PseudoRandom Functions (vOPRFs). It addresses the lack of **nullifiers** in Web2 IDs, which are essential for anonymous protocols. The project aims to build an infrastructure, like Semaphore, for Web2-ID registration and reuse across applications.
+## Project Overview
 
-### Features and Capabilities  
+Web2-ID Nullifiers is a cryptographic infrastructure project that enables pseudonymous systems for Web2 identities (like email or social accounts) using **verifiable Oblivious PseudoRandom Functions (vOPRFs)**. The project addresses the absence of native nullifiers in Web2 IDs—essential for enabling anonymous voting, forum participation, and other on-chain, privacy-preserving applications—by enabling secure, private nullifier generation tied to Web2 identity proofs (e.g., from zkEmail or TLSNotary).
 
-- **Implements a vOPRF protocol** for private, deterministic randomness generation.  
-- Uses a **multi-party computation (MPC) network** to enhance security.  
-- Employs **ZK proofs** to verify Web2 identity without revealing it.  
-- Aims to create a **global registry** for Web2 identities.  
-- Generates **nullifiers for Web2 IDs**, crucial for pseudonymous protocols.  
-- Integrates with **Web2-Web3 bridges** like ZK Email and TLS Notary.  
+## Objective
 
-### Developer Capabilities  
+The goal is to create a secure, scalable protocol and supporting infrastructure that allows Web2 identities to be used pseudonymously across decentralized applications. This includes building a global registry akin to a "Web2 Semaphore," allowing users to reuse nullifiers without revealing their identity and without requiring trusted parties.
 
-- Build **pseudonymous systems** for applications like anonymous voting and forums.  
-- Create **privacy-preserving applications** for anonymous interaction with Web2 services.  
-- Integrate the vOPRF protocol with existing infrastructure.  
+## Project Status
 
-### Applications  
+- **Stage:** MVP Development
+- **Status:** Active
+- **Team Lead:** Rasul Ibragimov
+- **Team Members:** Aditya Bisht (joining full-time in May)
 
-- **Anonymous Voting** with Web2 identities.  
-- **Anonymous Airdrops** to users based on Web2 identities (e.g., GitHub).  
-- **Pseudonymous Forums** with limited accounts and spam prevention.  
+## Technical Approach
 
-### Key Concepts  
+The vOPRF protocol enables deterministic yet private randomness generation. Nullifiers are computed via MPC-based OPRF, using ZK proofs to tie identity commitments (from protocols like zkEmail) to blinded requests. The design protects user identity while ensuring nullifier uniqueness and verifiability.
 
-- **Nullifiers:** Prevent double-spending or multiple voting.  
-- **vOPRF:** Allows private, deterministic randomness generation.  
-- **MPC:** Enhances security via multi-party computation.  
-- **ZK Proofs:** Verifies statements without revealing information.  
+Key elements include:
 
-### Links  
+- **ZK proofs** for identity commitment verification without revealing the underlying identity
+- **MPC-based OPRF networks** to prevent single points of trust
+- **Global Registry Contract** for reusability across applications
 
-- [Discussion on EthResearch](https://ethresear.ch/t/web2-nullifiers-using-voprf/21762)  
-- [Blog post by Rasul](https://curryrasul.com/blog/web2-nullifiers/)  
-      `,
+## Milestones
+
+- **February 2025:** Full protocol spec and ethresearch post published
+    - See [ethresearch pos](https://ethresear.ch/t/web2-nullifiers-using-voprf/21762)t and full description of protocol [on Github](https://github.com/privacy-scaling-explorations/vOPRF-ID) and [this presentation](https://x.com/PrivacyScaling/status/1903084082529010174)
+- **March 2025:** Initial implementation (vOPRF + zk circuits) completed see https://github.com/privacy-scaling-explorations/vOPRF-ID
+- **May 2025:** Launch of PoC—fork of Stealthnote enabling pseudonymous posting via Web2-derived nullifiers
+- **July 2025 (planned):** Production-ready OPRF server with key rotation and node monitoring
+- **Q3 2025 (planned):** Global Registry MVP for Web2-IDs
+
+## Applications
+
+The protocol enables a broad range of applications requiring privacy and pseudonymity:
+
+- **Anonymous voting** using Google or email accounts, without sign-ups or wallets
+- **Pseudonymous forums** tied to organizational emails (e.g., @ethereum.org)
+- **Anonymous airdrops** for GitHub users, Reddit accounts, etc.
+- **Web2-on-chain identity bridging** across zkEmail, TLSNotary, Anon Aadhaar, and more
+
+## Publications
+
+- [Part I: Web2 Nullifiers using vOPRF](https://curryrasul.com/blog/web2-nullifiers/)
+- [Part II: Web2 Nullifiers pt. II](https://hackmd.io/Mp4MQT41RGCyLvnuQtgbnw)
+- [Research post on Ethereum Research](https://ethresear.ch/t/web2-nullifiers-using-voprf/21762)
+
+## Resources
+
+- **GitHub Repository:** [vOPRF-ID](https://github.com/privacy-scaling-explorations/vOPRF-ID)
+- **Project Plan:** [HackMD](https://hackmd.io/v1W_X9FcSNi1978i_Rv2Tw)
+
+## Contact
+
+- **Magamedrasul Ibragimov:** [curryrasul@pse.dev](mailto:curryrasul@pse.dev) | [@curryrasul](https://twitter.com/curryrasul)
+- **Join** the [PSE Discord](https://discord.com/invite/sF5CT5rzrR)`,
     },
   },
   tags: {
     keywords: ["vOPRF", "nullifiers", "Web2", "privacy", "ZK proofs", "MPC"],
     themes: ["privacy", "identity", "zero-knowledge proofs"],
     types: ["research", "development"],
-    builtWith: ["vOPRF", "MPC", "ZK proofs"],
+    
   },
 }
