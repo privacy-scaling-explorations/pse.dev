@@ -22,34 +22,22 @@ export const BlogArticleCard = ({
   date,
   authors,
 }: Article) => {
-  const imageUrl = `/articles/${id}/${image}`
+  const imageUrl =
+    (image ?? "")?.length > 0 ? `/articles/${id}/${image}` : "/fallback.webp"
   return (
     <div className="flex flex-col h-full w-full">
       <div className="relative h-48 w-full overflow-hidden bg-gray-100">
-        {!!image && (
-          <Image
-            src={imageUrl}
-            alt={title}
-            fill
-            className="object-cover"
-            quality={90}
-          />
-        )}
+        <Image
+          src={imageUrl}
+          alt={title}
+          fill
+          className="object-cover"
+          quality={90}
+        />
       </div>
 
       <div className="p-5 flex flex-col flex-grow gap-5 lg:gap-8 min-h-[180px]">
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-1">
-            <Image
-              src="/logos/pse-logo-bg.svg"
-              alt="Privacy and Scaling Explorations"
-              width={24}
-              height={24}
-            />
-            <span className="text-black/50 font-medium text-sm">
-              Privacy and Scaling Explorations
-            </span>
-          </div>
           <h2 className="text-2xl font-bold leading-7 text-black duration-200 cursor-pointer hover:text-anakiwa-500">
             {title}
           </h2>

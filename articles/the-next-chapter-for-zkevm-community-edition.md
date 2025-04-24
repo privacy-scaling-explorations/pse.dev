@@ -1,7 +1,8 @@
 ---
 authors: ["PSE Team"]
 title: "The next chapter for zkEVM Community Edition"
-image: "cover.webp"
+image: "the-next-chapter-for-zkevm-community-edition-cover.webp"
+coverImage: true
 tldr: ""
 date: "2024-06-05"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/hqLMwLfKmQLj773QCRLTOT-Z8sSUaTEfQpBSdTbitbs"

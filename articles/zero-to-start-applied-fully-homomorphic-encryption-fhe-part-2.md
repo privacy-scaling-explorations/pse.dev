@@ -1,7 +1,7 @@
 ---
 authors: ["0xZoey"]
 title: "Zero to Start: Applied Fully Homomorphic Encryption (FHE) Part 2"
-image: "cover.webp"
+image: "zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2-cover-1.webp"
 tldr: "This post was written by [0xZoey](https://twitter.com/0xZoey), with contributions from Chance. /n This is an extension of [Part 1: An Introduction to FHE, ZKPs & MPC, and The State of FHE Development](https://mirror.xyz/privacy-scaling-explorations.eth/D8UHFW1t48x2liWb5wuP6LDdCRbgUH_8vOFvA0tNDJA)."
 date: "2023-12-21"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/wQZqa9acMdGS7LTXmKX-fR05VHfkgFf9Wrjso7XxDzs"

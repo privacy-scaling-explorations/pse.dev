@@ -1,7 +1,8 @@
 ---
 authors: ["PSE EcoDev Team"]
 title: "Unleashing Potential: Introducing the PSE Core Program"
-image: "cover.webp"
+image: "unleashing-potential-introducing-the-pse-core-program-cover.webp"
+coverImage: true
 tldr: "This post was written by the PSE EcoDev Team."
 date: "2024-04-24"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/PvNKlzp8Xlaic_DeIFEW20-ai4eN1AqJO26d4YRqWwM"

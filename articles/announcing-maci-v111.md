@@ -1,7 +1,7 @@
 ---
 authors: ["Alessandro", "Chao"]
 title: "Announcing MACI v1.1.1"
-image: "cover.webp"
+image: ""
 tldr: "This post was authored by [Alessandro](https://github.com/ctrlc03) and [Chao](https://github.com/chaosma)"
 date: "2023-01-18"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/ltCt68hslI5jmMf1AnfkrP2eUwkeZ8_fgkHc_WyD9Nc"

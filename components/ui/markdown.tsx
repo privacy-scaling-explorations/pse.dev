@@ -108,10 +108,10 @@ const remarkCustomNewlines = () => {
 }
 
 // Styling for HTML attributes for markdown component
-const REACT_MARKDOWN_CONFIG: Components = {
+const REACT_MARKDOWN_CONFIG = (darkMode: boolean): Components => ({
   a: ({ ...props }) =>
     createMarkdownElement("a", {
-      className: "text-anakiwa-500 hover:text-orange duration-200",
+      className: `${darkMode ? "text-anakiwa-300" : "text-anakiwa-500"} hover:text-orange duration-200`,
       target: "_blank",
       ...props,
     }),
@@ -147,7 +147,7 @@ const REACT_MARKDOWN_CONFIG: Components = {
     }),
   p: ({ ...props }) =>
     createMarkdownElement("p", {
-      className: "text-tuatara-700 font-sans text-base font-normal",
+      className: `${darkMode ? "text-white" : "text-tuatara-700 "} font-sans text-base font-normal`,
       ...props,
     }),
   ul: ({ ordered, ...props }) =>
@@ -189,19 +189,24 @@ const REACT_MARKDOWN_CONFIG: Components = {
       className: "w-auto w-auto mx-auto rounded-lg object-cover",
       ...props,
     }),
-}
+})
 
 interface MarkdownProps {
   children: string
   components?: Components // components overrides the default components
+  darkMode?: boolean
 }
 
-export const Markdown = ({ children, components }: MarkdownProps) => {
+export const Markdown = ({
+  children,
+  components,
+  darkMode = false,
+}: MarkdownProps) => {
   return (
     <ReactMarkdown
       skipHtml={false}
       components={{
-        ...REACT_MARKDOWN_CONFIG,
+        ...REACT_MARKDOWN_CONFIG(darkMode),
         ...components,
       }}
       remarkPlugins={[remarkGfm, remarkMath, remarkCustomNewlines]}

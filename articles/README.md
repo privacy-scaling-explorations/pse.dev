@@ -15,7 +15,8 @@ Edit the frontmatter section at the top of the file:
 ---
 authors: ["Your Name"] # Add your name or multiple authors in an array
 title: "Your Article Title" # The title of your article
-image: "/articles/my-new-article/cover.webp" # Image used as cover
+image: "/articles/my-new-article/cover.webp" # Image used as cover,  Keep in mind the image size, where possible use .webp format, possibly images less then 200/300kb
+coverImage: true # Image will be set as cover in the blog page, if not set the default is false
 tldr: "A brief summary of your article" #Short summary
 date: "YYYY-MM-DD" # Publication date in ISO format
 canonical: "mirror.xyz/my-new-article" # (Optional) The original source URL, this tells search engines the primary version of the content
@@ -51,6 +52,7 @@ Write your article content using Markdown formatting:
 2. Add your images to this folder:
    - Any additional images you want to use in your article should be placed in this folder
    - Reference images in your article using just the file name and the extensions of it
+   -
 
 ## Step 4: Preview Your Article
 

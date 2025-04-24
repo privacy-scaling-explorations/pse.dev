@@ -16,6 +16,7 @@ export interface Article {
   hash?: string
   canonical?: string
   tags?: string[]
+  coverImage?: boolean
 }
 
 const articlesDirectory = path.join(process.cwd(), "articles")
@@ -66,7 +67,8 @@ export function getArticles(options?: { limit?: number; tag?: string }) {
       return {
         id,
         ...matterResult.data,
-        tags: tags, // Assign the combined and normalized tags array
+        coverImage: matterResult.data?.coverImage ?? false,
+        tags: tags,
         content: matterResult.content,
       }
     } catch (error) {

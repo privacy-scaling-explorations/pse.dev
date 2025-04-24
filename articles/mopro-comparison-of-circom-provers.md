@@ -1,7 +1,8 @@
 ---
 authors: ["Vivian Jeng"]
 title: "Mopro: Comparison of Circom Provers"
-image: "cover.webp"
+image: "mopro-comparison-of-circom-provers-cover.webp"
+coverImage: true
 tldr: "This post was written by [Vivian Jeng](https://mirror.xyz/privacy-scaling-explorations.eth/GLbuCflH0hu_DncKxiC2No5w3LZJAGw4QaCB-HYD5e0), a developer on the Mopro team."
 date: "2025-01-21"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/GLbuCflH0hu_DncKxiC2No5w3LZJAGw4QaCB-HYD5e0"

@@ -30,7 +30,6 @@ function ArticlesGrid({
       )}
       {articles.map(
         ({ id, title, image, tldr = "", date, authors, content }: Article) => {
-          // Use lang parameter for correct article URL
           const url = `/${lang}/blog/${id}`
           return (
             <div key={id} className="flex h-full">
