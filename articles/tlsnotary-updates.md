@@ -64,7 +64,7 @@ The Prover and Verifier securely secret-share the TLS session keys such that nei
 
 Under the hood we employ primitives such as [Garbled Circuits](https://en.wikipedia.org/wiki/Garbled_circuit), [Oblivious Transfer](https://en.wikipedia.org/wiki/Oblivious_transfer#1%E2%80%932_oblivious_transfer) and Oblivious Linear Evaluation (OLE) to do this. These primitives have historically suffered from high resource costs in terms of both compute and bandwidth requirements, particularly in adversarial settings which require malicious security. Fortunately, over the past decade or so, there have been many breakthroughs in concrete efficiency which have brought MPC closer to a practical reality for many applications.
 
-Even so, implementing a protocol like TLSNotary pushes up against the bounds of practical feasability in the malicious setting.
+Even so, implementing a protocol like TLSNotary pushes up against the bounds of practical feasibility in the malicious setting.
 
 For example, the dominant cost of our protocol comes from performing binary computation using Garbled Circuits. Modern techniques such as free-XOR\[1\] and half-gates\[2\] still comes with a cost of ~200kB of communication to evaluate a single AES block (the most widely used cipher in TLS) in the semi-honest setting. Extrapolating, it costs ~50MB to encrypt only 4kB of data! Doing so with malicious security can easily add an order of magnitude to this cost figure, rendering such pursuits practically infeasible.
 
