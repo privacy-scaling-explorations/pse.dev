@@ -1,9 +1,10 @@
 ---
 authors: ["PSE Team"]
 title: "Certificate Transparency Using NewtonPIR"
-image: "cover.webp"
+image: "certificate-transparency-using-newtonpir-cover.webp"
 tldr: "This post was written by PSE grantee Vishal Kulkarni."
 date: "2025-01-28"
+coverImage: true
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/V0PIyv1d_e_WPsAVhBP7zkDvn0XACY63uSvFFxBvjrk"
 ---
 

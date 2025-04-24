@@ -8,7 +8,7 @@ import { Button } from "../ui/button"
 import { Icons } from "../icons"
 
 export async function BlogRecentArticles({ lang }: { lang: any }) {
-  const articles = getArticles({ limit: 5 })
+  const articles = getArticles({ limit: 6 })
   const { t } = await useTranslation(lang, "blog-page")
 
   const lastArticle = articles[0]
@@ -24,8 +24,8 @@ export async function BlogRecentArticles({ lang }: { lang: any }) {
             {t("recentArticles")}
           </h3>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <div className="flex flex-col gap-5 lg:col-span-2">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto">
+            <div className="flex flex-col gap-5 lg:col-span-3">
               <Image
                 src={imageUrl}
                 alt={lastArticle.title}
@@ -50,7 +50,7 @@ export async function BlogRecentArticles({ lang }: { lang: any }) {
                 )}
               </Link>
             </div>
-            <div className="flex flex-col gap-6 lg:col-span-1">
+            <div className="flex flex-col gap-6 lg:col-span-2">
               {otherArticles.map((article, index) => (
                 <Link
                   key={article.id}
@@ -67,7 +67,7 @@ export async function BlogRecentArticles({ lang }: { lang: any }) {
                   )}
                 </Link>
               ))}
-              <Link href="/blog">
+              <Link href="/blog" className="mt-auto">
                 <Button className="uppercase">
                   <div className="flex items-center gap-2">
                     <span>{t("seeMore")}</span>

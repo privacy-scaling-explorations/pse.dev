@@ -1,9 +1,10 @@
 ---
 authors: ["AnonKlub Team"]
 title: "AnonKlub: Reflections on Our Journey in Privacy-Preserving Solutions"
-image: "cover.webp"
+image: "anonklub-reflections-on-our-journey-in-privacy-preserving-solutions-cover.webp"
 tldr: "This post was written by the AnonKlub team."
 date: "2024-10-01"
+coverImage: true
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/7VTKFVR4PM75WtNnBzuQSBZW-UYoJOsnzBBQmB9MWbY"
 ---
 

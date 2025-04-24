@@ -1,7 +1,8 @@
 ---
 authors: ["Enrico Bottazzi"]
 title: "Why We Can't Build Perfectly Secure Multi-Party Applications (yet)"
-image: "cover.webp"
+image: "why-we-cant-build-perfectly-secure-multi-party-applications-yet-cover.webp"
+coverImage: true
 tldr: "This post was written by PSE researcher Enrico Bottazzi. Thanks to Pia Park for discussions and reviews."
 date: "2025-01-14"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/nXUhkZ84ckZi_5mYRFCCKgkLVFAmM2ECdEFCQul2jPs"
