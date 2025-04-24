@@ -65,7 +65,7 @@ Here's some ways that can be useful:
 - Arrange optimal asset swaps (eg sports players / trading cards / corporate assets / NFTs) using hidden valuations
 - Find out if you qualify for an insurance policy without sharing your health data and without requiring the insurer to reveal the policy requirements
 - Quantify how much you have in common with someone and then figure out the commonalities together (or choose not to)
-- Create an embarassing songs playlist for a party where each song is liked by >=N people
+- Create an embarrassing songs playlist for a party where each song is liked by >=N people
 
 For a bit more of an introduction to MPC, see Barry Whitehat's talk
 [2PC is for Lovers](https://www.youtube.com/watch?v=PzcDqegGoKI). The
