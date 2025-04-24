@@ -40,7 +40,7 @@ Traditional PIR protocols were too heavy for on-chain use. Recent schemes—e.g.
 - ✅ ZK-Kit LeanIMT Rust implementation  
 - 🔄 PIR proof-of-concept fetching 32-byte records from a 2²⁰-element DB  
 - 🔜 Benchmarks  
-- 🔜 Post & L&S session (CLI tool TBD)
+- 🔜 Post & L&S session
 
 #### Use-cases Enabled  
 - **World-scale anonymous voting** without delegating proofs to a company server.  
