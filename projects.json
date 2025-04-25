@@ -1,0 +1,442 @@
+[
+  {
+    "objectID": "scaling-semaphore",
+    "title": "Scaling Semaphore",
+    "description": "A scalable implementation of the Semaphore protocol",
+    "url": "https://pse.dev/en/projects/scaling-semaphore",
+    "tags": ["Privacy", "Scaling", "Zero Knowledge"],
+    "type": "project"
+  },
+  {
+    "objectID": "client-side-proving",
+    "title": "Client Side Proving",
+    "description": "Client-side zero-knowledge proof generation for web applications",
+    "url": "https://pse.dev/en/projects/client-side-proving",
+    "tags": ["Zero Knowledge", "Web", "Performance"],
+    "type": "project"
+  },
+  {
+    "objectID": "pse-halo2",
+    "title": "PSE Halo2",
+    "description": "PSE's implementation of the Halo2 zero-knowledge proof system",
+    "url": "https://pse.dev/en/projects/pse-halo2",
+    "tags": ["Zero Knowledge", "Cryptography", "Toolkit"],
+    "type": "project"
+  },
+  {
+    "objectID": "sonobe",
+    "title": "Sonobe",
+    "description": "Modular zero-knowledge proof system for rapid prototyping",
+    "url": "https://pse.dev/en/projects/sonobe",
+    "tags": ["Zero Knowledge", "Modular", "Development"],
+    "type": "project"
+  },
+  {
+    "objectID": "rln",
+    "title": "RLN",
+    "description": "Rate-Limiting Nullifier for spam protection in decentralized applications",
+    "url": "https://pse.dev/en/projects/rln",
+    "tags": ["Privacy", "Anti-Spam", "Protocol"],
+    "type": "project"
+  },
+  {
+    "objectID": "zkitter",
+    "title": "Zkitter",
+    "description": "Privacy-focused social media platform using zero-knowledge proofs",
+    "url": "https://pse.dev/en/projects/zkitter",
+    "tags": ["Social Media", "Privacy", "Zero Knowledge"],
+    "type": "project"
+  },
+  {
+    "objectID": "mopro",
+    "title": "Mopro",
+    "description": "Mobile-optimized zero-knowledge proof generation",
+    "url": "https://pse.dev/en/projects/mopro",
+    "tags": ["Mobile", "Zero Knowledge", "Performance"],
+    "type": "project"
+  },
+  {
+    "objectID": "mpc-stats",
+    "title": "MPC Stats",
+    "description": "Analytics and statistics for multi-party computation protocols",
+    "url": "https://pse.dev/en/projects/mpc-stats",
+    "tags": ["MPC", "Analytics", "Research"],
+    "type": "project"
+  },
+  {
+    "objectID": "maci",
+    "title": "MACI",
+    "description": "Minimum Anti-Collusion Infrastructure for secure and private voting",
+    "url": "https://pse.dev/en/projects/maci",
+    "tags": ["Voting", "Privacy", "Anti-Collusion"],
+    "type": "project"
+  },
+  {
+    "objectID": "wax",
+    "title": "Wallet Account eXperiments - WAX",
+    "description": "Experimental wallet account solutions for improved key management",
+    "url": "https://pse.dev/en/projects/wax",
+    "tags": ["Wallet", "Key Management", "Scaling"],
+    "type": "project"
+  },
+  {
+    "objectID": "discreetly",
+    "title": "Discreetly",
+    "description": "Privacy-preserving communication platform",
+    "url": "https://pse.dev/en/projects/discreetly",
+    "tags": ["Privacy", "Communication", "Security"],
+    "type": "project"
+  },
+  {
+    "objectID": "cryptkeeper",
+    "title": "CryptKeeper",
+    "description": "Browser extension for secure, portable anonymous identity management",
+    "url": "https://pse.dev/en/projects/cryptkeeper",
+    "tags": ["Identity", "Privacy", "Browser Extension"],
+    "type": "project"
+  },
+  {
+    "objectID": "semaphore",
+    "title": "Semaphore",
+    "description": "Zero-knowledge protocol for anonymous signaling and voting",
+    "url": "https://pse.dev/en/projects/semaphore",
+    "tags": ["Privacy", "Zero Knowledge", "Voting"],
+    "type": "project"
+  },
+  {
+    "objectID": "pse-security",
+    "title": "PSE Security",
+    "description": "Security research and auditing for privacy and cryptography projects",
+    "url": "https://pse.dev/en/projects/pse-security",
+    "tags": ["Security", "Auditing", "Research"],
+    "type": "project"
+  },
+  {
+    "objectID": "zkevm-community",
+    "title": "zkEVM Community",
+    "description": "Community resources for zero-knowledge Ethereum Virtual Machine",
+    "url": "https://pse.dev/en/projects/zkevm-community",
+    "tags": ["zkEVM", "Community", "Ethereum"],
+    "type": "project"
+  },
+  {
+    "objectID": "bandada",
+    "title": "Bandada",
+    "description": "Zero-knowledge group management system",
+    "url": "https://pse.dev/en/projects/bandada",
+    "tags": ["Group Management", "Zero Knowledge", "Privacy"],
+    "type": "project"
+  },
+  {
+    "objectID": "dsl-working-group",
+    "title": "DSL Working Group",
+    "description": "Domain-specific language development for zero-knowledge applications",
+    "url": "https://pse.dev/en/projects/dsl-working-group",
+    "tags": ["DSL", "Zero Knowledge", "Development"],
+    "type": "project"
+  },
+  {
+    "objectID": "zkml",
+    "title": "ZKML",
+    "description": "Zero-knowledge machine learning for private AI applications",
+    "url": "https://pse.dev/en/projects/zkml",
+    "tags": ["Machine Learning", "Zero Knowledge", "AI"],
+    "type": "project"
+  },
+  {
+    "objectID": "trusted-setups",
+    "title": "Trusted Setups",
+    "description": "Infrastructure and coordination for cryptographic trusted setup ceremonies",
+    "url": "https://pse.dev/en/projects/trusted-setups",
+    "tags": ["Trusted Setup", "Cryptography", "Coordination"],
+    "type": "project"
+  },
+  {
+    "objectID": "tlsn",
+    "title": "TLSN",
+    "description": "TLS Notary for verifiable proof of web communications",
+    "url": "https://pse.dev/en/projects/tlsn",
+    "tags": ["TLS", "Verification", "Web Security"],
+    "type": "project"
+  },
+  {
+    "objectID": "eigen-trust",
+    "title": "EigenTrust",
+    "description": "Decentralized trust management system",
+    "url": "https://pse.dev/en/projects/eigen-trust",
+    "tags": ["Trust", "Reputation", "Decentralized"],
+    "type": "project"
+  },
+  {
+    "objectID": "anon-klub",
+    "title": "Anon Klub",
+    "description": "Anonymous group management and interaction system",
+    "url": "https://pse.dev/en/projects/anon-klub",
+    "tags": ["Anonymity", "Groups", "Privacy"],
+    "type": "project"
+  },
+  {
+    "objectID": "summa",
+    "title": "Summa",
+    "description": "Cryptographic proof aggregation for improved scalability",
+    "url": "https://pse.dev/en/projects/summa",
+    "tags": ["Proof Aggregation", "Scalability", "Zero Knowledge"],
+    "type": "project"
+  },
+  {
+    "objectID": "anon-aadhaar",
+    "title": "Anon Aadhaar",
+    "description": "Privacy-preserving verification of Aadhaar identity documents",
+    "url": "https://pse.dev/en/projects/anon-aadhaar",
+    "tags": ["Identity", "Privacy", "Verification"],
+    "type": "project"
+  },
+  {
+    "objectID": "channel-4",
+    "title": "Channel 4",
+    "description": "Secure communication channel with zero-knowledge properties",
+    "url": "https://pse.dev/en/projects/channel-4",
+    "tags": ["Communication", "Security", "Zero Knowledge"],
+    "type": "project"
+  },
+  {
+    "objectID": "pollen-labs",
+    "title": "Pollen Labs",
+    "description": "Privacy technology research and development",
+    "url": "https://pse.dev/en/projects/pollen-labs",
+    "tags": ["Privacy", "Research", "Development"],
+    "type": "project"
+  },
+  {
+    "objectID": "unirep-protocol",
+    "title": "UniRep Protocol",
+    "description": "Universal reputation system with privacy-preserving properties",
+    "url": "https://pse.dev/en/projects/unirep-protocol",
+    "tags": ["Reputation", "Privacy", "Protocol"],
+    "type": "project"
+  },
+  {
+    "objectID": "powers-of-tau",
+    "title": "Perpetual Powers of Tau",
+    "description": "Ongoing trusted setup ceremony for zero-knowledge applications",
+    "url": "https://pse.dev/en/projects/powers-of-tau",
+    "tags": ["Trusted Setup", "Zero Knowledge", "Infrastructure"],
+    "type": "project"
+  },
+  {
+    "objectID": "ecip-halo2",
+    "title": "ECIP Halo2",
+    "description": "Ethereum Classic Improvement Proposal for Halo2 integration",
+    "url": "https://pse.dev/en/projects/ecip-halo2",
+    "tags": ["Ethereum Classic", "Halo2", "Protocol"],
+    "type": "project"
+  },
+  {
+    "objectID": "coco",
+    "title": "Coco",
+    "description": "Coordination tools for cryptographic ceremonies",
+    "url": "https://pse.dev/en/projects/coco",
+    "tags": ["Coordination", "Cryptography", "Ceremony"],
+    "type": "project"
+  },
+  {
+    "objectID": "interep",
+    "title": "Interep",
+    "description": "Interoperable reputation system with privacy features",
+    "url": "https://pse.dev/en/projects/interep",
+    "tags": ["Reputation", "Privacy", "Interoperability"],
+    "type": "project"
+  },
+  {
+    "objectID": "zkopru",
+    "title": "Zkopru",
+    "description": "Zero-knowledge optimistic rollup for Ethereum scaling",
+    "url": "https://pse.dev/en/projects/zkopru",
+    "tags": ["Rollup", "Scaling", "Zero Knowledge"],
+    "type": "project"
+  },
+  {
+    "objectID": "zk-kit",
+    "title": "ZK Kit",
+    "description": "Toolkit for building zero-knowledge applications",
+    "url": "https://pse.dev/en/projects/zk-kit",
+    "tags": ["Toolkit", "Zero Knowledge", "Development"],
+    "type": "project"
+  },
+  {
+    "objectID": "p256",
+    "title": "P256",
+    "description": "Implementation of the P-256 elliptic curve for cryptographic applications",
+    "url": "https://pse.dev/en/projects/p256",
+    "tags": ["Elliptic Curve", "Cryptography", "Implementation"],
+    "type": "project"
+  },
+  {
+    "objectID": "p0tion",
+    "title": "P0tion",
+    "description": "Privacy-preserving randomness generation system",
+    "url": "https://pse.dev/en/projects/p0tion",
+    "tags": ["Randomness", "Privacy", "Protocol"],
+    "type": "project"
+  },
+  {
+    "objectID": "jubmoji",
+    "title": "Jubmoji",
+    "description": "Mobile-based anonymous credentials system",
+    "url": "https://pse.dev/en/projects/jubmoji",
+    "tags": ["Credentials", "Mobile", "Privacy"],
+    "type": "project"
+  },
+  {
+    "objectID": "cursive",
+    "title": "Cursive",
+    "description": "Secure NFC-based authentication system",
+    "url": "https://pse.dev/en/projects/cursive",
+    "tags": ["NFC", "Authentication", "Security"],
+    "type": "project"
+  },
+  {
+    "objectID": "zkp2p",
+    "title": "ZKP2P",
+    "description": "Zero-knowledge peer-to-peer protocol for private transactions",
+    "url": "https://pse.dev/en/projects/zkp2p",
+    "tags": ["P2P", "Zero Knowledge", "Privacy"],
+    "type": "project"
+  },
+  {
+    "objectID": "voice-deck",
+    "title": "Voice Deck",
+    "description": "Privacy-preserving voice communication platform",
+    "url": "https://pse.dev/en/projects/voice-deck",
+    "tags": ["Voice", "Privacy", "Communication"],
+    "type": "project"
+  },
+  {
+    "objectID": "zk-email",
+    "title": "ZK Email",
+    "description": "Zero-knowledge email authentication and verification system",
+    "url": "https://pse.dev/en/projects/zk-email",
+    "tags": ["Email", "Authentication", "Zero Knowledge"],
+    "type": "project"
+  },
+  {
+    "objectID": "chiquito",
+    "title": "Chiquito",
+    "description": "Lightweight zero-knowledge proof system",
+    "url": "https://pse.dev/en/projects/chiquito",
+    "tags": ["Zero Knowledge", "Lightweight", "Development"],
+    "type": "project"
+  },
+  {
+    "objectID": "maci-platform",
+    "title": "MACI Platform",
+    "description": "Platform for deploying MACI-based voting systems",
+    "url": "https://pse.dev/en/projects/maci-platform",
+    "tags": ["Voting", "Privacy", "Platform"],
+    "type": "project"
+  },
+  {
+    "objectID": "openpassport",
+    "title": "Open Passport",
+    "description": "Open standard for digital identity verification",
+    "url": "https://pse.dev/en/projects/openpassport",
+    "tags": ["Identity", "Verification", "Standard"],
+    "type": "project"
+  },
+  {
+    "objectID": "zk-id",
+    "title": "ZK ID",
+    "description": "Zero-knowledge identity verification system",
+    "url": "https://pse.dev/en/projects/zk-id",
+    "tags": ["Identity", "Zero Knowledge", "Verification"],
+    "type": "project"
+  },
+  {
+    "objectID": "excubiae",
+    "title": "Excubiae",
+    "description": "Privacy-preserving monitoring and alerting system",
+    "url": "https://pse.dev/en/projects/excubiae",
+    "tags": ["Monitoring", "Privacy", "Security"],
+    "type": "project"
+  },
+  {
+    "objectID": "circom-mpc",
+    "title": "Circom MPC",
+    "description": "Multi-party computation system using Circom circuit design",
+    "url": "https://pse.dev/en/projects/circom-mpc",
+    "tags": ["MPC", "Circom", "Zero Knowledge"],
+    "type": "project"
+  },
+  {
+    "objectID": "publicly-verifiable-garbled-circuit",
+    "title": "Publicly Verifiable Garbled Circuit",
+    "description": "Cryptographic system for verifiable computation",
+    "url": "https://pse.dev/en/projects/publicly-verifiable-garbled-circuit",
+    "tags": ["Garbled Circuit", "Verification", "Cryptography"],
+    "type": "project"
+  },
+  {
+    "objectID": "mpc-framework",
+    "title": "MPC Framework",
+    "description": "Framework for building multi-party computation applications",
+    "url": "https://pse.dev/en/projects/mpc-framework",
+    "tags": ["MPC", "Framework", "Development"],
+    "type": "project"
+  },
+  {
+    "objectID": "private-proof-delegation",
+    "title": "Private Proof Delegation",
+    "description": "System for delegating zero-knowledge proof generation",
+    "url": "https://pse.dev/en/projects/private-proof-delegation",
+    "tags": ["Proof Delegation", "Zero Knowledge", "Privacy"],
+    "type": "project"
+  },
+  {
+    "objectID": "pod2",
+    "title": "Pod2",
+    "description": "Privacy-oriented data storage system",
+    "url": "https://pse.dev/en/projects/pod2",
+    "tags": ["Data Storage", "Privacy", "Security"],
+    "type": "project"
+  },
+  {
+    "objectID": "post-quantum-cryptography",
+    "title": "Post-Quantum Cryptography",
+    "description": "Cryptographic systems resistant to quantum computing attacks",
+    "url": "https://pse.dev/en/projects/post-quantum-cryptography",
+    "tags": ["Post-Quantum", "Cryptography", "Security"],
+    "type": "project"
+  },
+  {
+    "objectID": "machina-iO",
+    "title": "Machina iO",
+    "description": "Indistinguishability obfuscation system for secure computation",
+    "url": "https://pse.dev/en/projects/machina-io",
+    "tags": ["Obfuscation", "Security", "Cryptography"],
+    "type": "project"
+  },
+  {
+    "objectID": "plasma-fold",
+    "title": "Plasma Fold",
+    "description": "Layer 2 scaling solution for Ethereum",
+    "url": "https://pse.dev/en/projects/plasma-fold",
+    "tags": ["Layer 2", "Scaling", "Ethereum"],
+    "type": "project"
+  },
+  {
+    "objectID": "vOPRF",
+    "title": "vOPRF",
+    "description": "Verifiable Oblivious Pseudorandom Function implementation",
+    "url": "https://pse.dev/en/projects/voprf",
+    "tags": ["OPRF", "Cryptography", "Verification"],
+    "type": "project"
+  },
+  {
+    "objectID": "mpz",
+    "title": "MPZ",
+    "description": "Multi-party zero-knowledge proof system",
+    "url": "https://pse.dev/en/projects/mpz",
+    "tags": ["Multi-party", "Zero Knowledge", "Protocol"],
+    "type": "project"
+  }
+]
