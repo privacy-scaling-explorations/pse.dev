@@ -92,7 +92,7 @@ function NoResults() {
 
 const LoadingIndicator = () => {
   return (
-    <div className="h-12 w-full rounded-md bg-gray-100 animate-pulse border border-gray-200"></div>
+    <div className="h-12 w-full rounded-md bg-gray-100 animate-pulse border border-gray-300"></div>
   )
 }
 
@@ -319,14 +319,14 @@ export const SearchModal = ({ open, setOpen }: SearchModalProps) => {
   }
 
   return (
-    <Modal open={open} setOpen={setOpen}>
+    <Modal open={open} setOpen={setOpen} className="bg-page-header-gradient">
       <div className="pt-8">
         <Input
           type="text"
           placeholder="Search projects, blog posts, research papers..."
           value={searchQuery}
           onChange={handleSearchInputChange}
-          className="w-full p-2 border text-black border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+          className="w-full p-2 text-black"
           autoFocus
         />
       </div>
