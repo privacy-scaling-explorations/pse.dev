@@ -172,6 +172,12 @@
   @apply block;
 }
 
+span.katex {
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding: 10px 0;
+}
 /*Accordion hover state content*/
 @media screen and (max-width: 768px) {
   .accordion.hover-icon > [data-state='closed'] [data-icon='plus'] {

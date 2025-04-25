@@ -1,7 +1,7 @@
 ---
 authors: ["Nico"]
 title: "Learnings from the KZG Ceremony"
-image: "cover.webp"
+image: "learnings-from-the-kzg-ceremony-cover.webp"
 tldr: "This post was authored by [Nico](https://github.com/NicoSerranoP/), a frontend developer working in the [Privacy & Scaling Explorations Team (PSE)](https://appliedzkp.org/). Nico summarizes the learnings and challenges he faced during the development and deployment of the [KZG Ceremony](https://ceremony.ethereum.org/)."
 date: "2023-07-11"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/naTdx-u7kyirczTLSAnWwH6ZdedfTQu1yCWQj1m_n-E"

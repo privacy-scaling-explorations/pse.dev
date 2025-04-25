@@ -1,7 +1,7 @@
 ---
 authors: ["@0xDatapunk"]
 title: "The Power of Crowdsourcing Smart Contract Security for L2 Scaling Solutions"
-image: "cover.webp"
+image: ""
 tldr: "This post was authored by [@0xDatapunk](https://github.com/0xDatapunk) at [PSE Security](https://github.com/privacy-scaling-explorations/security)."
 date: "2023-07-18"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/Zjgt8YUAeW8XX5-wc1f6uNI8vx-5q_qBTYR4KFRGpTE"

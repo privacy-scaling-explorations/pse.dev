@@ -57,7 +57,7 @@ export function BlogContent({ post }: BlogContentProps) {
               </span>
               <Link
                 href="/blog"
-                className="text-black font-bold  text-base leading-6 hover:underline hover:text-anakiwa-500"
+                className="text-black font-bold text-base leading-6 hover:underline hover:text-anakiwa-500"
               >
                 View all
               </Link>
@@ -75,21 +75,26 @@ export function BlogContent({ post }: BlogContentProps) {
                 }: Article) => {
                   const url = `/blog/${id}`
                   return (
-                    <Link
-                      href={url}
+                    <div
                       key={id}
-                      className="flex-1 w-full h-full group hover:opacity-90 transition-opacity duration-300 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-900/10"
+                      className="flex flex-col min-h-[400px] w-full"
                     >
-                      <BlogArticleCard
-                        id={id}
-                        image={image}
-                        title={title}
-                        date={date}
-                        content={content}
-                        authors={authors}
-                        tldr={tldr}
-                      />
-                    </Link>
+                      <Link
+                        href={url}
+                        className="flex h-full w-full group hover:opacity-90 transition-opacity duration-300 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-900/10"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <BlogArticleCard
+                          id={id}
+                          image={image}
+                          title={title}
+                          date={date}
+                          content={content}
+                          authors={authors}
+                          tldr={tldr}
+                        />
+                      </Link>
+                    </div>
                   )
                 }
               )}
