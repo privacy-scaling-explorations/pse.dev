@@ -172,11 +172,10 @@
   @apply block;
 }
 
-span.katex {
-  text-align: center;
+
+.katex-display {
   width: 100%;
-  display: block;
-  padding: 10px 0;
+  float: left;
 }
 /*Accordion hover state content*/
 @media screen and (max-width: 768px) {
