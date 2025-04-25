@@ -327,10 +327,11 @@ export const SearchModal = ({ open, setOpen }: SearchModalProps) => {
           value={searchQuery}
           onChange={handleSearchInputChange}
           className="w-full p-2 text-black"
+          disabled={directSearchMode}
           autoFocus
         />
       </div>
-      <div className="max-h-[60vh] overflow-y-auto mt-4">
+      <div className="max-h-[80vh] lg:max-h-[60vh] overflow-y-auto mt-4">
         {directSearchMode ? (
           <DirectSearchResults query={searchQuery} setOpen={setOpen} />
         ) : (

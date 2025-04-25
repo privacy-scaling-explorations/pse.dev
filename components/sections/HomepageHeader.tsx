@@ -32,7 +32,7 @@ export const HomepageHeader = ({ lang }: { lang: any }) => {
         </div>
       }
       actions={
-        <div className="flex flex-col lg:flex-row gap-10">
+        <div className="flex flex-col gap-4 lg:flex-row lg:gap-10">
           <Link href={"/research"} className="flex items-center gap-2 group">
             <Button className="w-full sm:w-auto">
               <div className="flex items-center gap-1">
