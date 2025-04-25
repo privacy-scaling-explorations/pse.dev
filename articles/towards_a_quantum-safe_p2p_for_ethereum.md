@@ -6,8 +6,6 @@ tldr: "Integrating post‑quantum cryptography into Ethereum’s P2P stack is cu
 date: "2025-04-22"
 ---
 
-# Towards a Quantum-Safe P2P for Ethereum
-
 ## Motivation
 
 As quantum computing continues to evolve, there is increasing interest in understanding how Ethereum’s existing peer-to-peer (P2P) networking stack might adapt to emerging post-quantum (PQ) cryptographic standards. PSE members Adria and Guorong undertook a brief exploratory project to assess what adopting PQ algorithms in Ethereum’s P2P layer would entail. This exploration aimed primarily at gaining clarity around potential challenges and identifying realistic directions for future PQ-focused efforts. Ultimately, the project highlighted significant practical limitations, providing valuable insights that we hope will help inform further PQ initiatives.

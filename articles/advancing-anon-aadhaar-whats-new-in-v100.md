@@ -8,8 +8,6 @@ canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/YnqHAxpjoWl4e_K2
 tags: ["test"]
 ---
 
-### **Introducing Anon Aadhaar v1.0.0**
-
 [Anon Aadhaar](https://github.com/anon-aadhaar/anon-aadhaar) is a protocol that enables [Aadhaar](https://en.wikipedia.org/wiki/Aadhaar) holders to prove their identity anonymously. It works by verifying the Aadhaar card's issuer signature, which is issued by the Indian government in formats like *PDF*, _XML_, and _Secure QR_ code. These digital versions are signed using RSA, involving a pair of keys: a private key for signing data and a public key for verification.
 
 Our protocol leverages the [UIDAI's](https://uidai.gov.in/en/about-uidai.html) (government authority) RSA signature, enabling us to verify the documents as anyone could. The novelty of our approach is the use of a SNARK proof in the verification process, which hides sensitive data from the verifier, maintaining the same level of verification while enhancing privacy.
