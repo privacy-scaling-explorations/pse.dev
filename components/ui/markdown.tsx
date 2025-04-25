@@ -3,8 +3,7 @@
 import React from "react"
 import ReactMarkdown, { Components } from "react-markdown"
 import remarkGfm from "remark-gfm"
-import remarkMath from "remark-math"
-import rehypeKatex from "rehype-katex"
+import katex from "katex"
 import "katex/dist/katex.min.css"
 
 const generateSectionId = (text: string) => {
@@ -107,6 +106,144 @@ const remarkCustomNewlines = () => {
   }
 }
 
+// Custom math components
+const KaTeXBlock = ({ math }: { math: string }) => {
+  const mathRef = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (mathRef.current) {
+      try {
+        katex.render(math.trim(), mathRef.current, {
+          displayMode: true,
+          throwOnError: false,
+        })
+      } catch (error) {
+        console.error("KaTeX block render error:", error)
+        if (mathRef.current) {
+          mathRef.current.textContent = math
+        }
+      }
+    }
+  }, [math])
+
+  return <div ref={mathRef} className="my-4" />
+}
+
+const KaTeXInline = ({ math }: { math: string }) => {
+  const mathRef = React.useRef<HTMLSpanElement>(null)
+
+  React.useEffect(() => {
+    if (mathRef.current) {
+      try {
+        katex.render(math.trim(), mathRef.current, {
+          displayMode: false,
+          throwOnError: false,
+        })
+      } catch (error) {
+        console.error("KaTeX inline render error:", error)
+        if (mathRef.current) {
+          mathRef.current.textContent = math
+        }
+      }
+    }
+  }, [math])
+
+  return <span ref={mathRef} className="inline-block align-middle" />
+}
+
+// Define a simple regex to extract math content from our markdown
+const extractMathBlocks = (content: string) => {
+  const blockMathRegex = /\$\$([\s\S]*?)\$\$/g
+  const inlineMathRegex = /\$(.*?)\$/g
+
+  const mathBlocks: {
+    start: number
+    end: number
+    content: string
+    isBlock: boolean
+  }[] = []
+
+  let match
+  while ((match = blockMathRegex.exec(content)) !== null) {
+    mathBlocks.push({
+      start: match.index,
+      end: match.index + match[0].length,
+      content: match[1],
+      isBlock: true,
+    })
+  }
+
+  while ((match = inlineMathRegex.exec(content)) !== null) {
+    // Make sure this isn't already part of a block math section
+    const isInsideBlockMath = mathBlocks.some(
+      (block) => match!.index > block.start && match!.index < block.end
+    )
+
+    if (!isInsideBlockMath) {
+      mathBlocks.push({
+        start: match.index,
+        end: match.index + match[0].length,
+        content: match[1],
+        isBlock: false,
+      })
+    }
+  }
+
+  mathBlocks.sort((a, b) => a.start - b.start)
+
+  return mathBlocks
+}
+
+const MathText = ({ text }: { text: string }) => {
+  const parts: React.ReactNode[] = []
+  let lastIndex = 0
+
+  if (/^\$(.*?)\$$/m.test(text.trim())) {
+    const mathContent = text.trim().slice(1, -1)
+    return <KaTeXInline math={mathContent} />
+  }
+
+  try {
+    // Regular expression to match dollar signs that aren't escaped with a backslash
+    const inlineMathRegex = /(?<![\\])\$((?:[^$\\]|\\$|\\[^$])+?)\$/g
+    let match
+
+    while ((match = inlineMathRegex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        parts.push(text.slice(lastIndex, match.index))
+      }
+
+      const mathContent = match[1].trim()
+      parts.push(
+        <KaTeXInline key={`inline-math-${match.index}`} math={mathContent} />
+      )
+
+      lastIndex = match.index + match[0].length
+    }
+
+    if (lastIndex < text.length) {
+      parts.push(text.slice(lastIndex))
+    }
+
+    if (parts.length === 0 && text.includes("$")) {
+      return <>{text}</>
+    }
+
+    return <>{parts}</>
+  } catch (error) {
+    console.error("Error processing inline math:", error)
+    return <>{text}</>
+  }
+}
+
+// Helper to check if text contains unescaped math delimiters
+const containsMath = (text: string): boolean => {
+  if (!text.includes("$")) return false
+
+  const inlineMathRegex = /(?<![\\])\$((?:[^$\\]|\\$|\\[^$])+?)\$/g
+  return inlineMathRegex.test(text)
+}
+
 // Styling for HTML attributes for markdown component
 const REACT_MARKDOWN_CONFIG = (darkMode: boolean): Components => ({
   a: ({ ...props }) =>
@@ -145,11 +282,61 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): Components => ({
       className: "text-neutral-800 text-md font-bold",
       ...props,
     }),
-  p: ({ ...props }) =>
-    createMarkdownElement("p", {
-      className: `${darkMode ? "text-white" : "text-tuatara-700 "} font-sans text-base font-normal`,
+  p: ({ node, children, ...props }) => {
+    const text = React.Children.toArray(children)
+      .map((child) => {
+        if (typeof child === "string") return child
+        // @ts-expect-error - children props vary
+        if (child?.props?.children) return child.props.children
+        return ""
+      })
+      .join("")
+
+    if (text.includes("$")) {
+      return createMarkdownElement("p", {
+        className: `${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal`,
+        children: <MathText text={text} />,
+        ...props,
+      })
+    }
+
+    return createMarkdownElement("p", {
+      className: `${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal`,
+      children,
       ...props,
-    }),
+    })
+  },
+  // Handle math in list items
+  li: ({ node, children, ...props }) => {
+    const text = React.Children.toArray(children)
+      .map((child) => {
+        if (typeof child === "string") return child
+        // @ts-expect-error - children props vary
+        if (child?.props?.children) return child.props.children
+        return ""
+      })
+      .join("")
+
+    if (containsMath(text)) {
+      return (
+        <li
+          className="text-tuatara-700 font-sans text-base font-normal"
+          {...props}
+        >
+          <MathText text={text} />
+        </li>
+      )
+    }
+
+    return (
+      <li
+        className="text-tuatara-700 font-sans text-base font-normal"
+        {...props}
+      >
+        {children}
+      </li>
+    )
+  },
   ul: ({ ordered, ...props }) =>
     createMarkdownElement(ordered ? "ol" : "ul", {
       className:
@@ -166,18 +353,63 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): Components => ({
   tr: TableRow,
   thead: TableHead,
   td: (props) => {
-    const { node, ...rest } = props
-    return <td className="p-4 text-left" {...rest} />
+    const { node, children, ...rest } = props
+
+    // Convert children to text to check for math
+    const text = React.Children.toArray(children)
+      .map((child) => {
+        if (typeof child === "string") return child
+        // @ts-expect-error - children props vary
+        if (child?.props?.children) return child.props.children
+        return ""
+      })
+      .join("")
+
+    // Check if there's math content
+    if (containsMath(text)) {
+      return (
+        <td className="p-4 text-left" {...rest}>
+          <MathText text={text} />
+        </td>
+      )
+    }
+
+    return (
+      <td className="p-4 text-left" {...rest}>
+        {children}
+      </td>
+    )
   },
   th: (props) => {
-    const { node, ...rest } = props
-    if (
-      !props.children ||
-      (Array.isArray(props.children) && props.children.length === 0)
-    ) {
+    const { node, children, ...rest } = props
+    if (!children || (Array.isArray(children) && children.length === 0)) {
       return null
     }
-    return <th className="p-4 text-left font-medium" {...rest} />
+
+    // Convert children to text to check for math
+    const text = React.Children.toArray(children)
+      .map((child) => {
+        if (typeof child === "string") return child
+        // @ts-expect-error - children props vary
+        if (child?.props?.children) return child.props.children
+        return ""
+      })
+      .join("")
+
+    // Check if there's math content
+    if (containsMath(text)) {
+      return (
+        <th className="p-4 text-left font-medium" {...rest}>
+          <MathText text={text} />
+        </th>
+      )
+    }
+
+    return (
+      <th className="p-4 text-left font-medium" {...rest}>
+        {children}
+      </th>
+    )
   },
   pre: ({ ...props }) =>
     createMarkdownElement("pre", {
@@ -202,17 +434,76 @@ export const Markdown = ({
   components,
   darkMode = false,
 }: MarkdownProps) => {
-  return (
-    <ReactMarkdown
-      skipHtml={false}
-      components={{
+  const [content, setContent] = React.useState<React.ReactNode[]>([])
+
+  React.useEffect(() => {
+    if (!children) {
+      setContent([])
+      return
+    }
+
+    try {
+      const blockMathRegex = /\$\$([\s\S]*?)\$\$/g
+      const blockParts = children.split(blockMathRegex)
+
+      const mathComponents = {
         ...REACT_MARKDOWN_CONFIG(darkMode),
         ...components,
-      }}
-      remarkPlugins={[remarkGfm, remarkMath, remarkCustomNewlines]}
-      rehypePlugins={[rehypeKatex as any]}
-    >
-      {children}
-    </ReactMarkdown>
-  )
+      }
+
+      if (blockParts.length === 1) {
+        setContent([
+          <ReactMarkdown
+            key="markdown"
+            skipHtml={false}
+            components={mathComponents}
+            remarkPlugins={[remarkGfm, remarkCustomNewlines]}
+          >
+            {children}
+          </ReactMarkdown>,
+        ])
+        return
+      }
+
+      const parts: React.ReactNode[] = []
+
+      blockParts.forEach((part, index) => {
+        if (index % 2 === 0) {
+          if (part.trim()) {
+            parts.push(
+              <ReactMarkdown
+                key={`text-${index}`}
+                skipHtml={false}
+                components={mathComponents}
+                remarkPlugins={[remarkGfm, remarkCustomNewlines]}
+              >
+                {part}
+              </ReactMarkdown>
+            )
+          }
+        } else {
+          parts.push(<KaTeXBlock key={`block-math-${index}`} math={part} />)
+        }
+      })
+
+      setContent(parts)
+    } catch (error) {
+      console.error("Error processing markdown with math:", error)
+      setContent([
+        <ReactMarkdown
+          key="fallback"
+          skipHtml={false}
+          components={{
+            ...REACT_MARKDOWN_CONFIG(darkMode),
+            ...components,
+          }}
+          remarkPlugins={[remarkGfm, remarkCustomNewlines]}
+        >
+          {children}
+        </ReactMarkdown>,
+      ])
+    }
+  }, [children, darkMode, components])
+
+  return <>{content}</>
 }
