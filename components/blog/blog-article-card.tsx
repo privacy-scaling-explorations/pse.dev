@@ -26,7 +26,7 @@ export const BlogArticleCard = ({
     (image ?? "")?.length > 0 ? `/articles/${id}/${image}` : "/fallback.webp"
   return (
     <div className="flex flex-col h-full w-full">
-      <div className="relative h-48 w-full overflow-hidden bg-gray-100">
+      <div className="relative h-48 w-full overflow-hidden bg-gray-100 flex-shrink-0">
         <Image
           src={imageUrl}
           alt={title}

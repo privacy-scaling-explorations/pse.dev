@@ -53,7 +53,7 @@ export default function BlogArticle({ params }: any) {
       ? `/articles/${post?.id}/${post?.image}`
       : undefined
 
-  const imageAsCover = post?.coverImage ?? false
+  const imageAsCover = true
 
   if (!post) return null
   return (
@@ -63,7 +63,7 @@ export default function BlogArticle({ params }: any) {
           className={cn(
             "absolute inset-0 bg-cover",
             imageAsCover
-              ? "bg-cover after:content-[''] after:absolute after:inset-0 after:bg-black after:opacity-10 bg-center"
+              ? "bg-cover after:content-[''] after:absolute after:inset-0 after:bg-black after:opacity-20 bg-center"
               : "bg-cover-gradient"
           )}
           style={{
