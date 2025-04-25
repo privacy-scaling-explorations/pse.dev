@@ -15,6 +15,7 @@ interface ModalProps {
   children?: ReactNode
   footer?: ReactNode
   size?: "lg" | "md" | "xl"
+  className?: string
 }
 
 interface ModalWrapperProps {
@@ -27,7 +28,7 @@ const ModalContent = ({ children, className = "" }: ModalWrapperProps) => {
 }
 
 const modalContentVariants = cva(
-  "data-[state=open]:animate-content-show flex flex-col bg-white rounded-b-none rounded-t-lg md:rounded-lg shadow-sm top-3 bottom-0 fixed md:-translate-y-1/2 md:-translate-x-1/2 md:top-1/2 md:left-1/2 md:h-full md:max-h-[60vh] focus:outline-none z-50",
+  "data-[state=open]:animate-content-show flex flex-col bg-white rounded-b-none rounded-t-lg md:rounded-lg shadow-sm top-3 bottom-0 fixed md:-translate-y-1/2 md:-translate-x-1/2 md:top-1/2 md:left-1/2 md:h-full md:max-h-[80vh] focus:outline-none z-50",
   {
     variants: {
       size: {
@@ -49,11 +50,12 @@ const Modal = ({
   size,
   open,
   setOpen,
+  className = "",
 }: ModalProps) => (
   <Dialog.Root open={open} onOpenChange={setOpen}>
     <Dialog.Portal>
-      <Dialog.Overlay className="fixed inset-0 z-50 bg-black opacity-40 data-[state=open]:animate-overlay-show" />
-      <Dialog.Content className={cn(modalContentVariants({ size }))}>
+      <Dialog.Overlay className="fixed inset-0 z-50 bg-black opacity-80 data-[state=open]:animate-overlay-show" />
+      <Dialog.Content className={cn(modalContentVariants({ size }), className)}>
         {title && (
           <Dialog.Title>
             <ModalContent className="border-b border-b-tuatara-200 text-center">
@@ -62,7 +64,7 @@ const Modal = ({
           </Dialog.Title>
         )}
 
-        <ModalContent className="h-full overflow-scroll md:h-[82vh]">
+        <ModalContent className="h-full overflow-auto md:h-[100VH]">
           {children}
         </ModalContent>
 
@@ -73,12 +75,12 @@ const Modal = ({
         )}
 
         <Dialog.Close>
-          <button
+          <div
             className="absolute right-4 top-4 inline-flex w-5 cursor-pointer"
             aria-label="Close"
           >
             <Icons.close />
-          </button>
+          </div>
         </Dialog.Close>
       </Dialog.Content>
     </Dialog.Portal>

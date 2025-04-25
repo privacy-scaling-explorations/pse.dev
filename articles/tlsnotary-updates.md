@@ -2,7 +2,6 @@
 authors: ["sinu"]
 title: "TLSNotary Updates"
 image: "tlsnotary-updates-cover.webp"
-coverImage: true
 tldr: "This post was written by [sinu](https://github.com/sinui0)."
 date: "2023-09-19"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/T4MR2PgBzBmN2I3dhDJpILXkQsqZp1Bp8GSm_Oo3Vnw"

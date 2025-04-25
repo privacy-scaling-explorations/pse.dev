@@ -2,7 +2,6 @@
 authors: ["Summa Team"]
 title: "Retrospective: Summa"
 image: "retrospective-summa-cover.webp"
-coverImage: true
 tldr: "This post was authored by the Summa team."
 date: "2025-02-10"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/HRlshQwWxo66EMt3lwk6PSuDkitJCr_-ltCETZHNeu0"

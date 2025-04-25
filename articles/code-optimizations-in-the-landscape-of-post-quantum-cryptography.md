@@ -4,7 +4,6 @@ title: "Code Optimizations in the Landscape of Post-Quantum Cryptography"
 image: "code-optimizations-in-the-landscape-of-post-quantum-cryptography-cover.webp"
 tldr: "This post was written by PSE researcher Miha Stopar."
 date: "2025-04-07"
-coverImage: true
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/BKI3tyauHIiUCYHgma-EHeSRXNTNDtLUQV9VNGQWLUg"
 ---
 

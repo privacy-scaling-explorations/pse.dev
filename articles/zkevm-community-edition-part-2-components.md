@@ -2,7 +2,6 @@
 authors: ["PSE Team"]
 title: "zkEVM Community Edition Part 2: Components"
 image: "zkevm-community-edition-part-2-components-cover.webp"
-coverImage: true
 tldr: "This series of articles intends to provide an overview of the zkEVM Community Edition in a way that is broadly accessible. Part 2 is a summary of the common components used in most zkEVMs."
 date: "2023-05-23"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/AW854RXMqS3SU8WCA7Yz-LVnTXCOjpwhmwUq30UNi1Q"

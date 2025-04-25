@@ -22,6 +22,8 @@ const buttonVariants = cva(
         black: "bg-tuatara-950 text-white hover:bg-black",
         white: "bg-zinc-50 text-black hover:bg-zinc-100",
         blue: "bg-anakiwa-950 text-white",
+        search:
+          "bg-[#F6F7F7] hover:bg-[#E9ECEF] text-gray-500 border border-gray-200 rounded-md",
       },
       size: {
         default: "h-10 py-2 px-4",
