@@ -153,9 +153,6 @@ const KaTeXInline = ({ math }: { math: string }) => {
 
 // Define a simple regex to extract math content from our markdown
 const extractMathBlocks = (content: string) => {
-  const blockMathRegex = /\$\$([\s\S]*?)\$\$/g
-  const inlineMathRegex = /\$(.*?)\$/g
-
   const mathBlocks: {
     start: number
     end: number
@@ -163,7 +160,9 @@ const extractMathBlocks = (content: string) => {
     isBlock: boolean
   }[] = []
 
-  let match
+  const blockMathRegex = /\$\$([\s\S]*?)\$\$/g
+  let match: RegExpExecArray | null
+
   while ((match = blockMathRegex.exec(content)) !== null) {
     mathBlocks.push({
       start: match.index,
@@ -173,17 +172,20 @@ const extractMathBlocks = (content: string) => {
     })
   }
 
-  while ((match = inlineMathRegex.exec(content)) !== null) {
+  const inlineMathRegex = /\$(.*?)\$/g
+  let inlineMatch: RegExpExecArray | null
+  while ((inlineMatch = inlineMathRegex.exec(content)) !== null) {
     // Make sure this isn't already part of a block math section
     const isInsideBlockMath = mathBlocks.some(
-      (block) => match!.index > block.start && match!.index < block.end
+      (block) =>
+        inlineMatch!.index > block.start && inlineMatch!.index < block.end
     )
 
     if (!isInsideBlockMath) {
       mathBlocks.push({
-        start: match.index,
-        end: match.index + match[0].length,
-        content: match[1],
+        start: inlineMatch.index,
+        end: inlineMatch.index + inlineMatch[0].length,
+        content: inlineMatch[1],
         isBlock: false,
       })
     }
@@ -206,7 +208,7 @@ const MathText = ({ text }: { text: string }) => {
   try {
     // Regular expression to match dollar signs that aren't escaped with a backslash
     const inlineMathRegex = /(?<![\\])\$((?:[^$\\]|\\$|\\[^$])+?)\$/g
-    let match
+    let match: RegExpExecArray | null
 
     while ((match = inlineMathRegex.exec(text)) !== null) {
       if (match.index > lastIndex) {
