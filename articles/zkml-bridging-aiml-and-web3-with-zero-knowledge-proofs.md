@@ -2,7 +2,6 @@
 authors: ["drCathieSo.eth"]
 title: "ZKML: Bridging AI/ML and Web3 with Zero-Knowledge Proofs"
 image: "zkml-bridging-aiml-and-web3-with-zero-knowledge-proofs-cover.webp"
-coverImage: true
 tldr: "This post was authored by [drCathieSo.eth](https://twitter.com/drCathieSo_eth) and was originally published [here](https://hackmd.io/@cathie/zkml)."
 date: "2023-05-02"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/K88lOS4XegJGzMoav9K5bLuT9Zhn3Hz2KkhB3ITq-m8"

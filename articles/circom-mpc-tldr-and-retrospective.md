@@ -4,7 +4,6 @@ title: "Circom MPC: TL;DR and Retrospective"
 image: "circom-mpc-tldr-and-retrospective-cover.webp"
 tldr: "This post was authored by the Circom MPC research team."
 date: "2025-03-06"
-coverImage: true
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/qelA6kAr-CMq-dgmvFUKMMqxf6GoDaP8Cs-5sRWYfO4"
 ---
 

@@ -16,7 +16,6 @@ export interface Article {
   hash?: string
   canonical?: string
   tags?: string[]
-  coverImage?: boolean
 }
 
 const articlesDirectory = path.join(process.cwd(), "articles")
@@ -67,7 +66,6 @@ export function getArticles(options?: { limit?: number; tag?: string }) {
       return {
         id,
         ...matterResult.data,
-        coverImage: matterResult.data?.coverImage ?? false,
         tags: tags,
         content: matterResult.content,
       }

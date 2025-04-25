@@ -1,7 +1,6 @@
 ---
 authors: ["Brechy"]
 title: "Secure Multi-Party Computation"
-coverImage: true
 image: "secure-multi-party-computation-cover.webp"
 tldr: "This post was written by [Brechy](https://github.com/brech1). Thanks [Nam Ngo](https://github.com/namnc) for the feedback and review!"
 date: "2024-08-06"
