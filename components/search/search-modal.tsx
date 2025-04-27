@@ -8,11 +8,9 @@ import {
   useGlobalSearch,
   useIndexSearch,
   filterSearchHitsByTerm,
-  searchConfig,
+  useSearchConfig,
 } from "@/hooks/useGlobalSearch"
 import { CategoryTag } from "../ui/categoryTag"
-
-const { allIndexes, searchClient } = searchConfig
 
 interface SearchModalProps {
   open: boolean
@@ -37,6 +35,11 @@ interface SearchHit {
     [key: string]: string | undefined
   }
   [key: string]: any
+}
+
+interface IndexResult {
+  indexName: string
+  hits: SearchHit[]
 }
 
 function Hit({
@@ -129,14 +132,14 @@ function DirectSearchResults({
 
   return (
     <div>
-      {data.results.map((indexResult) => (
+      {data.results.map((indexResult: IndexResult) => (
         <div key={indexResult.indexName}>
           {indexResult.hits.length > 0 && (
             <div className="mb-4">
               <div className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">
                 {indexResult.indexName}
               </div>
-              {indexResult.hits.map((hit) => (
+              {indexResult.hits.map((hit: SearchHit) => (
                 <Hit
                   key={hit.objectID}
                   hit={hit}
@@ -220,7 +223,7 @@ function IndexSearchResults({
 
   return (
     <div>
-      {hits.map((hit) => (
+      {hits.map((hit: SearchHit) => (
         <Hit
           key={hit.objectID}
           hit={hit}
@@ -232,6 +235,34 @@ function IndexSearchResults({
   )
 }
 
+const CustomSearchResult = ({
+  results,
+  setOpen,
+}: {
+  results: IndexResult[]
+  setOpen: (open: boolean) => void
+}) => (
+  <div>
+    {results.map((indexResult: IndexResult) => (
+      <div key={indexResult.indexName} className="mb-6">
+        <div className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">
+          {indexResult.indexName.replace(/-/g, " ")}
+        </div>
+        <div>
+          {indexResult.hits.map((hit: SearchHit) => (
+            <Hit
+              key={hit.objectID}
+              hit={hit}
+              setOpen={setOpen}
+              indexName={indexResult.indexName}
+            />
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+)
+
 const MultiIndexSearchView = ({
   searchQuery,
   setOpen,
@@ -239,6 +270,8 @@ const MultiIndexSearchView = ({
   searchQuery: string
   setOpen: (open: boolean) => void
 }) => {
+  const { allIndexes } = useSearchConfig()
+
   if (searchQuery.trim() === "") {
     return (
       <div className="text-center p-8 text-gray-500">
@@ -249,7 +282,7 @@ const MultiIndexSearchView = ({
 
   // Filter out empty indexes to prevent rendering issues
   const visibleIndexes = allIndexes.filter(
-    (index) => index && index.trim() !== ""
+    (index: string) => index && index.trim() !== ""
   )
 
   if (visibleIndexes.length === 0) {
@@ -258,7 +291,7 @@ const MultiIndexSearchView = ({
 
   return (
     <div>
-      {visibleIndexes.map((indexName) => (
+      {visibleIndexes.map((indexName: string) => (
         <div key={indexName} className="mb-6">
           <div className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">
             {indexName.replace(/-/g, " ")}
@@ -277,15 +310,7 @@ const MultiIndexSearchView = ({
 export const SearchModal = ({ open, setOpen }: SearchModalProps) => {
   const [searchQuery, setSearchQuery] = useState("")
   const [directSearchMode, setDirectSearchMode] = useState(false)
-
-  useEffect(() => {
-    if (!searchClient || allIndexes.length === 0) {
-      console.warn(
-        "Algolia credentials (NEXT_PUBLIC_ALGOLIA_APP_ID, NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY) or indexes are not configured. Search will not work."
-      )
-      setDirectSearchMode(true)
-    }
-  }, [])
+  const { allIndexes } = useSearchConfig()
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -310,7 +335,7 @@ export const SearchModal = ({ open, setOpen }: SearchModalProps) => {
     }
   }, [open])
 
-  if (!searchClient || allIndexes.length === 0) {
+  if (allIndexes.length === 0) {
     return null
   }
 

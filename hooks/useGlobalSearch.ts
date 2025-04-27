@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query"
-import algoliasearch, { SearchIndex } from "algoliasearch/lite"
 
 type SearchHit = {
   objectID: string
@@ -26,26 +25,27 @@ type IndexResult = {
   hits: SearchHit[]
 }
 
-const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || ""
-const apiKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || ""
-const additionalIndexes = process.env.NEXT_PUBLIC_ALGOLIA_ADDITIONAL_INDEXES
-  ? process.env.NEXT_PUBLIC_ALGOLIA_ADDITIONAL_INDEXES.split(",").map((index) =>
-      index.trim()
-    )
-  : []
+// Fetch available indexes from the API
+export const useSearchIndexes = () => {
+  return useQuery({
+    queryKey: ["searchIndexes"],
+    queryFn: async () => {
+      try {
+        const response = await fetch("/api/search/indexes")
 
-const allIndexes = [...additionalIndexes].filter(Boolean) ?? [
-  "blog",
-  "projects",
-]
+        if (!response.ok) {
+          return { indexes: ["blog", "projects"] }
+        }
 
-const searchClient = appId && apiKey ? algoliasearch(appId, apiKey) : null
-
-const transformQuery = (query: string) => {
-  if (query.toLowerCase().includes("intmax")) {
-    return query.replace(/intmax/i, '"intmax"')
-  }
-  return query
+        const data = await response.json()
+        return data
+      } catch (error) {
+        console.error("Failed to fetch search indexes:", error)
+        return { indexes: ["blog", "projects"] }
+      }
+    },
+    staleTime: 1000 * 60 * 60, // Cache for 1 hour
+  })
 }
 
 export const useGlobalSearch = ({
@@ -55,6 +55,9 @@ export const useGlobalSearch = ({
   query: string
   hitsPerPage?: number
 }) => {
+  const { data: indexData } = useSearchIndexes()
+  const allIndexes = indexData?.indexes || []
+
   return useQuery({
     queryKey: ["globalSearch", query, hitsPerPage, allIndexes],
     queryFn: async () => {
@@ -62,44 +65,26 @@ export const useGlobalSearch = ({
         return { results: [], status: "empty" }
       }
 
-      if (!searchClient) {
-        throw new Error(
-          "Search client not initialized - missing Algolia credentials"
-        )
-      }
-
       try {
-        const transformedQuery = transformQuery(query)
-
-        const searchPromises = allIndexes.map((indexName) => {
-          return searchClient
-            .initIndex(indexName)
-            .search<SearchHit>(transformedQuery, { hitsPerPage })
-            .then((response) => ({
-              indexName,
-              hits: response.hits,
-            }))
-            .catch((err) => {
-              console.error(`Search error for index ${indexName}:`, err)
-              return { indexName, hits: [] as SearchHit[] }
-            })
+        const params = new URLSearchParams({
+          query,
+          hitsPerPage: hitsPerPage.toString(),
         })
 
-        const indexResults = await Promise.all(searchPromises)
-        const nonEmptyResults = indexResults.filter(
-          (result) => result.hits && result.hits.length > 0
-        )
+        const response = await fetch(`/api/search?${params.toString()}`)
 
-        return {
-          results: nonEmptyResults,
-          status: "success",
+        if (!response.ok) {
+          const errorData = await response.json()
+          throw new Error(errorData.error || "Search failed")
         }
+
+        return await response.json()
       } catch (error: any) {
         console.error("Global search error:", error)
         throw new Error(error.message || "Search failed")
       }
     },
-    enabled: Boolean(query) && query.trim() !== "" && Boolean(searchClient),
+    enabled: Boolean(query) && query.trim() !== "",
     staleTime: 1000 * 60 * 5,
     retry: 2,
   })
@@ -121,33 +106,27 @@ export const useIndexSearch = ({
         return { hits: [], status: "empty" }
       }
 
-      if (!searchClient) {
-        throw new Error(
-          "Search client not initialized - missing Algolia credentials"
-        )
-      }
-
       try {
-        const transformedQuery = transformQuery(query)
-        const index = searchClient.initIndex(indexName)
-        const response = await index.search<SearchHit>(transformedQuery, {
-          hitsPerPage,
+        const params = new URLSearchParams({
+          query,
+          index: indexName,
+          hitsPerPage: hitsPerPage.toString(),
         })
 
-        return {
-          hits: response.hits,
-          status: "success",
+        const response = await fetch(`/api/search?${params.toString()}`)
+
+        if (!response.ok) {
+          const errorData = await response.json()
+          throw new Error(errorData.error || `Search in ${indexName} failed`)
         }
+
+        return await response.json()
       } catch (error: any) {
         console.error(`Index search error for ${indexName}:`, error)
         throw new Error(error.message || `Search in ${indexName} failed`)
       }
     },
-    enabled:
-      Boolean(query) &&
-      query.trim() !== "" &&
-      Boolean(searchClient) &&
-      Boolean(indexName),
+    enabled: Boolean(query) && query.trim() !== "" && Boolean(indexName),
     staleTime: 1000 * 60 * 5,
     retry: 2,
   })
@@ -169,9 +148,10 @@ export const filterSearchHitsByTerm = (hits: SearchHit[], term: string) => {
   })
 }
 
-export const searchConfig = {
-  allIndexes,
-  appId,
-  apiKey,
-  searchClient,
+// Export a helper hook that ensures we have the indexes loaded
+export const useSearchConfig = () => {
+  const { data } = useSearchIndexes()
+  return {
+    allIndexes: data?.indexes || [],
+  }
 }
