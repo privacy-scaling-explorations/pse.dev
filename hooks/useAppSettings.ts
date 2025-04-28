@@ -31,7 +31,7 @@ export function useAppSettings(lang: LocaleTypes) {
     },
     {
       title: t("menu.programs"),
-      href: "/programs",
+      href: "/blog/unleashing-potential-introducing-the-pse-core-program",
       onlyFooter: true,
     },
     {
