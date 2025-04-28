@@ -2,7 +2,6 @@ import "@/styles/globals.css"
 import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
-
 import { languages } from "./i18n/settings"
 import { QueryClientProvider, useQueryClient } from "@tanstack/react-query"
 import { QueryClientProviderLayout } from "@/components/layouts/QueryProviderLayout"
@@ -18,6 +17,12 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

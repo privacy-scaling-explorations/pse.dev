@@ -1,8 +1,6 @@
 import "@/styles/globals.css"
-import { Metadata } from "next"
 import Script from "next/script"
 
-import { siteConfig } from "@/config/site"
 import { fontDisplay, fontSans } from "@/lib/fonts"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -12,29 +10,6 @@ import { fallbackLng, languages } from "../i18n/settings"
 
 export async function generateStaticParams() {
   return languages.map((language) => ({ language }))
-}
-
-export const metadata: Metadata = {
-  metadataBase: new URL("https://pse.dev"),
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/apple-touch-icon.png",
-  },
-  openGraph: {
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
-  },
 }
 
 interface RootLayoutProps {
