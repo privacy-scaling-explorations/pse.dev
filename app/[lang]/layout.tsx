@@ -1,8 +1,6 @@
 import "@/styles/globals.css"
-import { Metadata } from "next"
 import Script from "next/script"
 
-import { siteConfig } from "@/config/site"
 import { fontDisplay, fontSans } from "@/lib/fonts"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
