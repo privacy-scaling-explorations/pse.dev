@@ -1,7 +1,7 @@
 ---
 authors: [""]
 title: "Examle Title"
-image: "cover.png"
+image: "/articles/[article_folder]/cover.web"
 tldr: ""
 date: "2024-04-07"
 ---

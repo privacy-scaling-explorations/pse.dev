@@ -1,7 +1,7 @@
 ---
 authors: ["Anon Aadhaar team"]
 title: "Announcing Anon Aadhaar"
-image: "announcing-anon-aadhaar-cover.webp"
+image: "/articles/announcing-anon-aadhaar/announcing-anon-aadhaar-cover.webp"
 tldr: "_This post was written by the Anon Aadhaar team._ /n/n _We’re excited to announce the public release of Anon Aadhaar!_"
 date: "2023-09-21"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/6R8kACTYp9mF3eIpLZMXs8JAQmTyb6Uy8KnZqzmDFZI"

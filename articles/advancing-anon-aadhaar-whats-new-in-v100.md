@@ -1,7 +1,7 @@
 ---
 authors: ["Anon Aadhaar Team"]
 title: "Advancing Anon Aadhaar: what's new in v1.0.0"
-image: "advancing-anon-aadhaar-whats-new-in-v100-cover.webp"
+image: "/articles/advancing-anon-aadhaar-whats-new-in-v100/advancing-anon-aadhaar-whats-new-in-v100-cover.webp"
 tldr: "This post was written by the Anon Aadhaar team. If you’re new to Anon Aadhaar make sure to read our [initial announcement post](https://mirror.xyz/privacy-scaling-explorations.eth/6R8kACTYp9mF3eIpLZMXs8JAQmTyb6Uy8KnZqzmDFZI)."
 date: "2024-02-14"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/YnqHAxpjoWl4e_K2opKPN4OAy5EU4sIJYYYHFCjkNOE"
