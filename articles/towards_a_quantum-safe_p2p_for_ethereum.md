@@ -1,7 +1,7 @@
 ---
 authors: ["Adria Bienvenido, Guorong Du"]
 title: "Towards a Quantum-Safe P2P for Ethereum"
-image: "towards_a_quantum-safe_p2p_for_ethereum-cover.webp"
+image: "/articles/towards_a_quantum-safe_p2p_for_ethereum/towards_a_quantum-safe_p2p_for_ethereum-cover.webp"
 tldr: "Integrating post‑quantum cryptography into Ethereum’s P2P stack is currently impractical—PQ keys and signatures are too large for UDP‑based discovery and transport—though future research on QUIC migration, composite keys, and protocol redesign may offer viable paths forward."
 date: "2025-04-22"
 ---

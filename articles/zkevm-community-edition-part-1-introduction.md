@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "zkEVM Community Edition Part 1: Introduction"
-image: "zkevm-community-edition-part-1-introduction-cover-1.webp"
+image: "/articles/zkevm-community-edition-part-1-introduction/zkevm-community-edition-part-1-introduction-cover-1.webp"
 tldr: ""
 date: "2023-05-23"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/I5BzurX-T6slFaPbA4i3hVrO7U2VkBR45eO-N3CSnSg"

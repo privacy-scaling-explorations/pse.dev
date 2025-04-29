@@ -1,7 +1,7 @@
 ---
 authors: ["Brechy"]
 title: "Secure Multi-Party Computation"
-image: "secure-multi-party-computation-cover.webp"
+image: "/articles/secure-multi-party-computation/secure-multi-party-computation-cover.webp"
 tldr: "This post was written by [Brechy](https://github.com/brech1). Thanks [Nam Ngo](https://github.com/namnc) for the feedback and review!"
 date: "2024-08-06"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/v_KNOV_NwQwKV0tb81uBS4m-rbs-qJGvCx7WvwP4sDg"

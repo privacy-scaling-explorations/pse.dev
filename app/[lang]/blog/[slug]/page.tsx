@@ -22,15 +22,13 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const post = await getArticleById(params.slug)
 
   const imageUrl =
-    (post?.image ?? "")?.length > 0
-      ? `/articles/${post?.id}/${post?.image}`
-      : "/og-image.png"
+    post && (post?.image ?? "")?.length > 0 ? post?.image : "/og-image.png"
 
   const metadata: Metadata = {
     title: post?.title,
     description: post?.tldr,
     openGraph: {
-      images: [{ url: imageUrl, width: 1200, height: 630 }],
+      images: [{ url: imageUrl as string, width: 1200, height: 630 }],
     },
   }
 
@@ -48,10 +46,7 @@ export default function BlogArticle({ params }: any) {
   const slug = params.slug
   const post = getArticleById(slug)
 
-  const imageUrl =
-    (post?.image ?? "")?.length > 0
-      ? `/articles/${post?.id}/${post?.image}`
-      : undefined
+  const imageUrl = (post?.image ?? "")?.length > 0 ? post?.image : undefined
 
   const imageAsCover = true
 

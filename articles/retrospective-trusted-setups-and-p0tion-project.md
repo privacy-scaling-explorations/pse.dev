@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Trusted Setup Team"]
 title: "Retrospective: Trusted Setups and P0tion Project"
-image: "retrospective-trusted-setups-and-p0tion-project-cover.webp"
+image: "/articles/retrospective-trusted-setups-and-p0tion-project/retrospective-trusted-setups-and-p0tion-project-cover.webp"
 tldr: "This post was written by the PSE Trusted Setup Team."
 date: "2025-01-15"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/Cf9nYvSlATGks8IcFaHQe3H5mgZ_Va767Zk5I8jPYXk"

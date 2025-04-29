@@ -1,7 +1,7 @@
 ---
 authors: ["Blake M Scurr"]
 title: "The zk-ECDSA Landscape"
-image: "the-zk-ecdsa-landscape-cover.webp"
+image: "/articles/the-zk-ecdsa-landscape/the-zk-ecdsa-landscape-cover.webp"
 tldr: "This post was authored by grantee [Blake M Scurr](https://github.com/BlakeMScurr). His mandate was to explore zk-ECDSA, build applications with zk-ECDSA, and contribute to ZKPs to make this vision come true."
 date: "2023-04-18"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/djxf2g9VzUcss1e-gWIL2DSRD4stWggtTOcgsv1RlxY"

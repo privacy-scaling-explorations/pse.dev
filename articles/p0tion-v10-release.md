@@ -1,7 +1,7 @@
 ---
 authors: ["MACI Team", "Trusted Setup Team", "RLN Team", "Design Team"]
 title: "p0tion V1.0 Release"
-image: "cover.webp"
+image: "/articles/p0tion-v10-release/cover.webp"
 tldr: "P0tion was built with love by: MACI, Trusted Setup, RLN, and Design Teams at PSE."
 date: "2023-08-08"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/TuLZRdgCQsydC8JJgCNH4F7GzifRBQ6fr31DHGLFVWM"

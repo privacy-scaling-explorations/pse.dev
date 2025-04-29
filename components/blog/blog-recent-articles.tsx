@@ -13,8 +13,6 @@ export async function BlogRecentArticles({ lang }: { lang: any }) {
   const lastArticle = articles[0]
   const otherArticles = articles.slice(1)
 
-  const imageUrl = `/articles/${lastArticle.id}/${lastArticle.image}`
-
   return (
     <div className="py-10 lg:py-16">
       <AppContent>
@@ -27,12 +25,12 @@ export async function BlogRecentArticles({ lang }: { lang: any }) {
               <div
                 className="flex flex-col gap-5 w-full items-center aspect-video after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-20 group-hover:after:opacity-50 transition-opacity duration-200 after:z-[0]"
                 style={{
-                  backgroundImage: `url(${imageUrl})`,
+                  backgroundImage: `url(${lastArticle.image ?? "/fallback.webp"})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
               >
-                <div className="duration-200 flex flex-col gap-[10px] text-left px-5 lg:px-16 py-6 lg:py-16 relative z-[1]">
+                <div className="duration-200 flex flex-col gap-[10px] text-left px-5 lg:px-16 py-6 lg:py-16 relative z-[1] w-full">
                   <Link
                     href={`/blog/${lastArticle.id}`}
                     className="text-4xl font-bold text-white font-display hover:text-anakiwa-400 transition-colors"

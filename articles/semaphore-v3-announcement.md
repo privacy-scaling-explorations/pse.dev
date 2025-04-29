@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Semaphore v3 Announcement"
-image: "cover.webp"
+image: "/articles/semaphore-v3-announcement/cover.webp"
 tldr: ""
 date: "2023-02-09"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/Yi4muh-vzDZmIqJIcM9Mawu2e7jw8MRnwxvhFcyfns8"
