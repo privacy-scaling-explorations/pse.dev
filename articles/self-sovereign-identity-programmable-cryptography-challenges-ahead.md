@@ -1,7 +1,7 @@
 ---
 authors: ["0xZoey"]
 title: "Self-Sovereign Identity & Programmable Cryptography: Challenges Ahead"
-image: "self-sovereign-identity-programmable-cryptography-challenges-ahead-cover.webp"
+image: "/articles/self-sovereign-identity-programmable-cryptography-challenges-ahead/self-sovereign-identity-programmable-cryptography-challenges-ahead-cover.webp"
 tldr: "This post was written by [0xZoey](https://twitter.com/0xZoey), with contributions from Chance."
 date: "2025-01-23"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/zRM7qQSt_igfoSxdSa0Pts9MFdAoD96DD3m43bPQJT8"

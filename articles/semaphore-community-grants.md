@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Semaphore Community Grants"
-image: "cover.webp"
+image: "/articles/semaphore-community-grants/cover.webp"
 tldr: ""
 date: "2022-09-21"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/g5WjOtK4R3rYfLKyqpSXsbNBcj36jzsjgnV2KT2rthM"

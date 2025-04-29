@@ -1,7 +1,7 @@
 ---
 authors: ["kichong"]
 title: "Beyond Zero-Knowledge: What's Next in Programmable Cryptography?"
-image: "beyond-zero-knowledge-whats-next-in-programmable-cryptography-cover.webp"
+image: "/articles/beyond-zero-knowledge-whats-next-in-programmable-cryptography/beyond-zero-knowledge-whats-next-in-programmable-cryptography-cover.webp"
 tldr: "_This post was written by [kichong](https://twitter.com/kichongtran) with helpful feedback and comments from [sinu](https://twitter.com/sinu_eth) and [jmall](https://twitter.com/Janmajaya_mall)._"
 date: "2023-11-09"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/xXcRj5QfvA_qhkiZCVg46Gn9uX8P_Ld-DXlqY51roPY"

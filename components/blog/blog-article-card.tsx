@@ -22,8 +22,7 @@ export const BlogArticleCard = ({
   date,
   authors,
 }: Article) => {
-  const imageUrl =
-    (image ?? "")?.length > 0 ? `/articles/${id}/${image}` : "/fallback.webp"
+  const imageUrl = image && (image ?? "")?.length > 0 ? image : "/fallback.webp"
   return (
     <div className="flex flex-col h-full w-full">
       <div className="relative h-48 w-full overflow-hidden bg-gray-100 flex-shrink-0">

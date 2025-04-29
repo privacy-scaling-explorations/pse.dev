@@ -1,7 +1,7 @@
 ---
 authors: ["Bandada Team"]
 title: "Bandada is live!"
-image: "bandada-is-live-cover.webp"
+image: "/articles/bandada-is-live/bandada-is-live-cover.webp"
 tldr: "This post was written by the Bandada team. /n/n We are happy to announce the public release of Bandada V1! Try our [app](https://bandada.pse.dev/) out or run it yourself locally [v1.0.0-alpha](https://github.com/privacy-scaling-explorations/bandada/releases/tag/v1.0.0-alpha)"
 date: "2023-08-23"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/p3Mtft28FG1ctgeUARVEKLTK_KexnWC6T4CUHaQark4"

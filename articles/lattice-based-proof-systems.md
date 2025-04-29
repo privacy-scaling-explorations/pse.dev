@@ -1,7 +1,7 @@
 ---
 authors: ["Miha Stopar"]
 title: "Lattice-Based Proof Systems"
-image: "lattice-based-proof-systems-cover.webp"
+image: "/articles/lattice-based-proof-systems/lattice-based-proof-systems-cover.webp"
 tldr: "This post was written by PSE researcher Miha Stopar."
 date: "2025-02-18"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/4OyAht_dHsVT1MgcZTwrK2qJ-bwxpINcpBmLNfF4I2E"
