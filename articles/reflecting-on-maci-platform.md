@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"] 
 title: "Reflecting on MACI Platform: What We Built, Learned, and What’s Next"
-image: "/articles/maci-platform-retrospective/cover.webp" 
+image: "/articles/reflecting-on-maci-platform/reflecting-on-maci-platform.png" 
 tldr: "After a year of development and experimentation, the MACI Platform project is being sunset. In this retrospective, we share what we built, what we learned, and how the work can continue."
 date: "2025-05-01" 
 canonical: "" 
@@ -68,7 +68,7 @@ Aside from Devcon and our internal hackathon, most rounds only happened when we 
 We’re officially sunsetting the MACI Platform for a few core reasons:
 
 - **Lack of organic demand**: Gitcoin already serves much of the QF/RPGF space. Demand for privacy in these flows appears low at this stage.
-- **Better MACI integrations elsewhere**: For example, [Gitcoin’s own MACI integration](https://github.com/gitcoinco) is more likely to evolve with user needs.
+- **Better MACI integrations elsewhere**: For example, [Gitcoin’s own MACI integration](https://github.com/gitcoinco/MACI_QF) is more likely to evolve with user needs.
 - **Alternative options emerging**:
   - [MACI Wrapper](https://github.com/yashgo0018/maci-wrapper)
   - [PriVote](https://github.com/PriVote-Project)
@@ -95,7 +95,7 @@ The [MACI protocol](https://github.com/privacy-scaling-explorations/maci) itself
 
 This project wouldn’t have existed without the care, sweat, and imagination of:
 
-**Doris, Cris, Anton, Nico, Hodlon, Andy, Mari, Kali, and John**
+**Sam, Ctrlc03, Doris, Cris, Anton, Nico, Hodlon, Andy, Mari, Kali, and John**
 
 And our partners in the Ethereum and PGF ecosystem who took a bet on using something still experimental. Your support made this a truly generative learning experience.
 
