@@ -11,6 +11,7 @@ import {
   useSearchConfig,
 } from "@/hooks/useGlobalSearch"
 import { CategoryTag } from "../ui/categoryTag"
+import { Markdown } from "../ui/markdown"
 
 interface SearchModalProps {
   open: boolean
@@ -80,7 +81,33 @@ function Hit({
         <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
         <CategoryTag variant="blue">{section}</CategoryTag>
       </div>
-      {snippet && <div className="text-gray-600 text-sm">{snippet}</div>}
+      {snippet && (
+        <Markdown
+          components={{
+            h1: ({ children }) => (
+              <h1 className="text-base font-semibold">{children}</h1>
+            ),
+            h2: ({ children }) => (
+              <h2 className="text-base font-semibold">{children}</h2>
+            ),
+            h3: ({ children }) => (
+              <h3 className="text-base font-semibold">{children}</h3>
+            ),
+            h4: ({ children }) => (
+              <h4 className="text-base font-semibold">{children}</h4>
+            ),
+            h5: ({ children }) => (
+              <h5 className="text-base font-semibold">{children}</h5>
+            ),
+            h6: ({ children }) => (
+              <h6 className="text-base font-semibold">{children}</h6>
+            ),
+            img: ({ src, alt }) => null,
+          }}
+        >
+          {snippet}
+        </Markdown>
+      )}
     </Link>
   )
 }

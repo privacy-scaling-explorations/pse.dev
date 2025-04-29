@@ -3,7 +3,6 @@ import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
 import { languages } from "./i18n/settings"
-import { QueryClientProvider, useQueryClient } from "@tanstack/react-query"
 import { QueryClientProviderLayout } from "@/components/layouts/QueryProviderLayout"
 
 export async function generateStaticParams() {
