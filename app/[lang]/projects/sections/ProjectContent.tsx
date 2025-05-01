@@ -19,7 +19,7 @@ import { ProjectLinkIconMap } from "@/components/mappings/project-links"
 import { WikiSideNavigation } from "@/components/wiki-side-navigation"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
-
+import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
 export const ProjectContent = ({
   id,
   lang = "en",
@@ -261,6 +261,7 @@ export const ProjectContent = ({
             </div>
           </AppContent>
 
+          <ProjectBlogArticles project={project} lang={lang} />
           <DiscoverMoreProjects project={project} lang={lang} />
         </Divider.Section>
       </div>

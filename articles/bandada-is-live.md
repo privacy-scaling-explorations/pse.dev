@@ -2,9 +2,10 @@
 authors: ["Bandada Team"]
 title: "Bandada is live!"
 image: "/articles/bandada-is-live/bandada-is-live-cover.webp"
-tldr: "This post was written by the Bandada team. /n/n We are happy to announce the public release of Bandada V1! Try our [app](https://bandada.pse.dev/) out or run it yourself locally [v1.0.0-alpha](https://github.com/privacy-scaling-explorations/bandada/releases/tag/v1.0.0-alpha)"
+tldr: "This post was written by the Bandada team. /n/n We are happy to announce the public release of Bandada V1! Try our [app](https://bandada.pse.dev/) out or run it yourself locally [v1.0.0-alpha](https://github.com/privacy-scaling-explorations/bandada/releases/tag/v1.0.0-alpha)"
 date: "2023-08-23"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/p3Mtft28FG1ctgeUARVEKLTK_KexnWC6T4CUHaQark4"
+projects: ["bandada", "semaphore"]
 ---
 
 ## **Background**
@@ -19,7 +20,7 @@ Bandada allows you to create groups and establish trust within the participants 
 
 ## Why _Bandada_?
 
-In Spanish, "Bandada" means "flock" or "group” of birds or animals moving together in a coordinated manner.
+In Spanish, "Bandada" means "flock" or "group" of birds or animals moving together in a coordinated manner.
 
 1.  **Representation of Anonymous Groups:** Just like a flock of birds or animals moving together, Bandada aims to create privacy-preserving groups where individuals can act collectively without revealing their identities.
 2.  **Coordinated and Secure Interaction:** Birds in a flock exhibit coordinated movements for navigation, safety, or foraging. Similarly, Bandada enables coordinated and secure interactions among the members of anonymous groups. The infrastructure provided allows for seamless communication and collaboration within these groups without compromising individual identities.
@@ -37,7 +38,7 @@ In Spanish, "Bandada" means "flock" or "group” of birds or animals moving toge
 
 - Group with members who have contributed to a specific GitHub repository
 
-  - “Whitelist” a group of GitHub devs who have contributed to top DAOs repositories.
+  - "Whitelist" a group of GitHub devs who have contributed to top DAOs repositories.
 
 - Group of people with more than X followers on Twitter
 
@@ -79,13 +80,13 @@ Bandada also provides a preset of credential validators that can be extended wit
 
 Check [here](https://www.notion.so/Bandada-Learning-Resources-Project-Ideas-68803d6da8374a4399824e9a93995ff3?pvs=21) for new and upcoming learning resources like tutorials, videos, and additional documentation and growing project ideas to do with Bandada.
 
-Lastly, keep exploring our [Bandada Notion](https://www.notion.so/Bandada-82d0d9d3c6b64b7bb2a09d4c7647c083?pvs=21) where we’ll keep it updated with the latest news.
+Lastly, keep exploring our [Bandada Notion](https://www.notion.so/Bandada-82d0d9d3c6b64b7bb2a09d4c7647c083?pvs=21) where we'll keep it updated with the latest news.
 
 ## Bandada Moonrise
 
 Shortly after this announcement, we´re starting Bandada Moonrise, a focused effort, and campaign to showcase Bandada and gather as much feedback as possible from the community to tailor the future roadmap.
 
-If you’re part of a DAO, Web3, or ZK Dev community and want us to give a presentation, please reach us out!
+If you're part of a DAO, Web3, or ZK Dev community and want us to give a presentation, please reach us out!
 
 ## **What's coming in the future?**
 
@@ -102,6 +103,6 @@ Want to share ideas? Want to help us build Bandada? Reach us by tagging us with 
 
 Also if you contribute to Bandada´s codebase, then you´re eligible to claim a special POAP!
 
-🥳 Check if you´re eligible and get yours here: [https://www.gitpoap.io/eligibility](https://www.gitpoap.io/eligibility)
+🥳 Check if you´re eligible and get yours here: [https://www.gitpoap.io/eligibility](https://www.gitpoap.io/eligibility)
 
 Thanks to all contributors and Bandada supporters! In particular @cedoor, @vplasencia, @saleel, @aguzmant103, @rachelaux, @beyondr, @wanseob, @mari, @kat

@@ -5,6 +5,7 @@ image: "/articles/anonklub-reflections-on-our-journey-in-privacy-preserving-solu
 tldr: "This post was written by the AnonKlub team."
 date: "2024-10-01"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/7VTKFVR4PM75WtNnBzuQSBZW-UYoJOsnzBBQmB9MWbY"
+projects: ["anon-klub"]
 ---
 
 One year and half ago, we embarked on an ambitious journey to explore the potential of zk-ECDSA in bringing enhanced privacy to the Ethereum ecosystem. This research initiative was introduced to the community through a **[blog post detailing the state of zk-ECDSA and its promising applications](https://mirror.xyz/privacy-scaling-explorations.eth/djxf2g9VzUcss1e-gWIL2DSRD4stWggtTOcgsv1RlxY)**.
@@ -56,7 +57,7 @@ Privacy vs Performance Trade-Offs Of Different ZK Frameworks Used
 
 ### **PLUME signature/nullifier scheme adoption hurdles**
 
-Nullifying zk ECDSA proofs is hard. The best candidate for robust and secure nullifier for zk proofs of ecdsa signature is [PLUME](https://blog.aayushg.com/nullifier/). PLUME signatures aren’t standard signatures that mainstream wallets can build out of the box: the PLUME signature scheme is a new feature that needs to be implemented into mainstream wallets. As long as mainstream wallets don’t adopt PLUME, users can’t easily generate “deterministic and verifiable nullifiers on ECDSA”. Meaning they can’t use any applications that would make use of ECDSA zk proofs, such as AnonKlub.
+Nullifying zk ECDSA proofs is hard. The best candidate for robust and secure nullifier for zk proofs of ecdsa signature is [PLUME](https://blog.aayushg.com/nullifier/). PLUME signatures aren't standard signatures that mainstream wallets can build out of the box: the PLUME signature scheme is a new feature that needs to be implemented into mainstream wallets. As long as mainstream wallets don't adopt PLUME, users can't easily generate "deterministic and verifiable nullifiers on ECDSA". Meaning they can't use any applications that would make use of ECDSA zk proofs, such as AnonKlub.
 
 ## Why We're Stopping
 

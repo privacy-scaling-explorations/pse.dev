@@ -20,6 +20,7 @@ tldr: "A brief summary of your article" #Short summary
 date: "YYYY-MM-DD" # Publication date in ISO format
 canonical: "mirror.xyz/my-new-article" # (Optional) The original source URL, this tells search engines the primary version of the content
 tags: ["tag1", "tag2"] # (Optional) Add relevant tags as an array of strings to categorize the article
+projects: ["project-1"]
 ---
 ```
 
@@ -62,7 +63,7 @@ Before submitting, make sure to:
 
 Open Pull request following the previews step and for any help
 
-- Suggest to tag: @kalidiagne, @b1gk4t, @AtHeartEngineer for PR review.
+- Suggest to tag: @kalidiagne, @psedesign, @AtHeartEngineer for PR review.
 - If question, please reach out in discord channel #website-pse
 
 ## Important Notes

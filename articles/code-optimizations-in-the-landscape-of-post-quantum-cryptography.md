@@ -5,6 +5,7 @@ image: "/articles/code-optimizations-in-the-landscape-of-post-quantum-cryptograp
 tldr: "This post was written by PSE researcher Miha Stopar."
 date: "2025-04-07"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/BKI3tyauHIiUCYHgma-EHeSRXNTNDtLUQV9VNGQWLUg"
+projects: ["post-quantum-cryptography"]
 ---
 
 There's no doubt that lattice-based cryptography is currently the most promising branch of post-quantum cryptography. Not only is it highly performant and versatile, it also provides the only known technique to achieve fully homomorphic encryption.
@@ -46,7 +47,7 @@ At the core of lattice-based cryptography lies matrix-vector multiplication. For
 
 Matrix multiplication illustration
 
-For performance reasons, lattice-based cryptography relies on polynomial rings rather than ordinary vectors. I won’t go into the details, but let’s consider the following example.
+For performance reasons, lattice-based cryptography relies on polynomial rings rather than ordinary vectors. I won't go into the details, but let's consider the following example.
 
 ![](/articles/code-optimizations-in-the-landscape-of-post-quantum-cryptography/VEbeKabiB_GT6usoOzVSu.webp)
 
@@ -122,7 +123,7 @@ Let's have a look at some optimizations used in elliptic curve cryptography:
 - Montgomery Reduction: efficiently computes modular reductions without expensive division operations,
 - Montgomery Inversion: avoids divisions entirely when used with Montgomery multiplication,
 - Using Montgomery or Edwards curves: enables efficient arithmetic,
-- Shamir’s Trick: computes $kP+mQ$ simultaneously, reducing the number of operations.
+- Shamir's Trick: computes $kP+mQ$ simultaneously, reducing the number of operations.
 
 It is worth noting that some of these optimizations—such as Montgomery reduction and Montgomery multiplication—also apply to lattice-based cryptography.
 

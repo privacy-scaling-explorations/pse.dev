@@ -5,6 +5,7 @@ image: "/articles/circom-mpc-tldr-and-retrospective/circom-mpc-tldr-and-retrospe
 tldr: "This post was authored by the Circom MPC research team."
 date: "2025-03-06"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/qelA6kAr-CMq-dgmvFUKMMqxf6GoDaP8Cs-5sRWYfO4"
+projects: ["circom-mpc"]
 ---
 
 Circom-MPC is a PSE Research project that enables the use of the Circom language to develop MPC applications. In this project, we envisioned MPC as a [broader paradigm](https://mirror.xyz/privacy-scaling-explorations.eth/qelA6kAr-CMq-dgmvFUKMMqxf6GoDaP8Cs-5sRWYfO4#MPC-as-a-Paradigm), where MPC serves as an umbrella for generic techniques such as Zero-Knowledge Proof, Garbled Circuit, Secret-Sharing, or Fully Homomorphic Encryption.

@@ -16,13 +16,18 @@ export interface Article {
   hash?: string
   canonical?: string
   tags?: string[]
+  projects?: string[]
 }
 
 const articlesDirectory = path.join(process.cwd(), "articles")
 
 // Get all articles from /articles
-export function getArticles(options?: { limit?: number; tag?: string }) {
-  const { limit = 1000, tag } = options ?? {}
+export function getArticles(options?: {
+  limit?: number
+  tag?: string
+  project?: string
+}) {
+  const { limit = 1000, tag, project } = options ?? {}
   // Get file names under /articles
   const fileNames = fs.readdirSync(articlesDirectory)
   const allArticlesData = fileNames.map((fileName: string) => {
@@ -88,6 +93,14 @@ export function getArticles(options?: { limit?: number; tag?: string }) {
   if (tag) {
     filteredArticles = filteredArticles.filter((article) =>
       article.tags?.includes(tag)
+    )
+  }
+
+  // Filter by project if provided
+  if (project) {
+    filteredArticles = filteredArticles.filter(
+      (article) =>
+        Array.isArray(article.projects) && article.projects.includes(project)
     )
   }
 

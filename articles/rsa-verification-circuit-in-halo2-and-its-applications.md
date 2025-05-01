@@ -5,6 +5,7 @@ image: null
 tldr: "This post was authored by grantee **Sora Suegami** ([Twitter](https://twitter.com/SoraSue77), [Github](https://github.com/SoraSuegami))"
 date: "2022-11-14"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/mmkG4uB2PR_peGucULAa7zHag-jz1Y5biZH8W6K2LYM"
+projects: ["pse-halo2", "zk-email"]
 ---
 
 ## Introduction
@@ -60,9 +61,9 @@ Notably, if _**e**_ is fixed in the circuit, we can reduce the number of the mod
 
 As an application of the RSA verification circuit, we are considering ZK-Mail, a smart contract that performs email verification using ZKP. Today, digital signatures, especially RSA signatures, are widely used in email protocols such as S/MIME and DKIM to authenticate email senders. Our main idea is that a smart contract can authenticate those emails by verifying the RSA signatures with ZKP. If they pass the authentication, the smart contract can interpret their contents as oracle data provided by the email senders.
 
-The smart contract described above is also useful as a contract wallet. Instead of using the wallet application to make a transaction, the user sends an email to the operator of the contract wallet specifying the transfer amount and the destination in its email message. The operator generates a ZK proof indicating that the received email has been authorized, submitting it to the smart contract. The smart contract verifies the proof and transfers the user’s assets according to the contents of the email. It allows users to manage their assets on Ethereum without modifying current email systems or installing new tools.
+The smart contract described above is also useful as a contract wallet. Instead of using the wallet application to make a transaction, the user sends an email to the operator of the contract wallet specifying the transfer amount and the destination in its email message. The operator generates a ZK proof indicating that the received email has been authorized, submitting it to the smart contract. The smart contract verifies the proof and transfers the user's assets according to the contents of the email. It allows users to manage their assets on Ethereum without modifying current email systems or installing new tools.
 
-If the user is different from the administrator of the sending email server, the security of the user’s assets depends on trust in the administrator because the administrator can steal them by forging the user’s emails. However, trust in the operator is not necessary. This is because even if the operator modifies the contents of the received emails, the operator cannot forge the signature corresponding to the email sender. In summary, this is a custodial wallet whose security is guaranteed under trust in the email server administrator, allowing users to manage their assets by simply sending emails using their existing email services.
+If the user is different from the administrator of the sending email server, the security of the user's assets depends on trust in the administrator because the administrator can steal them by forging the user's emails. However, trust in the operator is not necessary. This is because even if the operator modifies the contents of the received emails, the operator cannot forge the signature corresponding to the email sender. In summary, this is a custodial wallet whose security is guaranteed under trust in the email server administrator, allowing users to manage their assets by simply sending emails using their existing email services.
 
 In the following, we present two situations where the ZK-Mail can be used.
 
@@ -71,25 +72,25 @@ In the following, we present two situations where the ZK-Mail can be used.
 #### Players and situations
 
 - Alice delivers the latest cryptocurrency prices via email. She attaches her RSA signature to the email following the DKIM protocol.
-- Bob subscribes to Alice’s emails and provides them for some DeFi contracts as price oracle data.
+- Bob subscribes to Alice's emails and provides them for some DeFi contracts as price oracle data.
 
 #### Assumptions
 
-- A public key corresponding to Alice’s domain name (e.g. [alice.com](http://alice.com/)) is published in DNS and not changed.
-- Alice’s public key and email address are registered in the ZK-Mail contract in advance.
+- A public key corresponding to Alice's domain name (e.g. [alice.com](http://alice.com/)) is published in DNS and not changed.
+- Alice's public key and email address are registered in the ZK-Mail contract in advance.
 
 #### Procedures
 
-1.  Bob receives Alice’s latest email.
+1.  Bob receives Alice's latest email.
 2.  Bob extracts the cryptocurrency name and price data from the contents of the email.
-3.  Taking Alice’s RSA signature and the header/contents of the email as private inputs (witnesses), and her public key, her email address, and the cryptocurrency name and price data as public inputs (statements), Bob generates a ZKP proof confirming the following conditions.
+3.  Taking Alice's RSA signature and the header/contents of the email as private inputs (witnesses), and her public key, her email address, and the cryptocurrency name and price data as public inputs (statements), Bob generates a ZKP proof confirming the following conditions.
 
     - The RSA signature is valid for the header/contents and the public key.
-    - The From field in the header is equivalent to the provided email address, i.e., Alice’s email address.
+    - The From field in the header is equivalent to the provided email address, i.e., Alice's email address.
     - The contents include the cryptocurrency name and price data.
 
 4.  Bob provides the price oracle contract with the cryptocurrency name and price data and the ZKP proof.
-5.  The contract calls the ZK-Mail contract with the provided data. It verifies the ZKP proof using Alice’s public key and email address registered in advance.
+5.  The contract calls the ZK-Mail contract with the provided data. It verifies the ZKP proof using Alice's public key and email address registered in advance.
 6.  If the proof passes the verification, the price oracle contract accepts the provided name and price data.
 
 ![](/articles/rsa-verification-circuit-in-halo2-and-its-applications/9Y4bJxpPnxxhdegr0P6LF.webp)
@@ -98,31 +99,31 @@ In the following, we present two situations where the ZK-Mail can be used.
 
 #### Players and situations
 
-- Alice operates an email service. She attaches her RSA signature to her users’ emails following the DKIM protocol. Her domain name is [alice.com](http://alice.com/).
-- Bob is a user of Alice’s email service. His email address is [bob@alice.com](http://mailto:bob@alice.com/).
+- Alice operates an email service. She attaches her RSA signature to her users' emails following the DKIM protocol. Her domain name is [alice.com](http://alice.com/).
+- Bob is a user of Alice's email service. His email address is [bob@alice.com](http://mailto:bob@alice.com/).
 - Carol operates a contract wallet service. Her email address is [carol@wallet.com](http://mailto:carol@wallet.com/).
 
 #### Assumptions
 
-- A public key corresponding to Alice’s domain name (e.g. [alice.com](http://alice.com/)) is published in DNS and does not change.
-- Alice’s public key is registered in the ZK-Mail contract in advance.
-- Bob already registered Carol’s wallet service. His email address is registered in the ZK-Mail contract, and he has 2 ETH in his wallet.
+- A public key corresponding to Alice's domain name (e.g. [alice.com](http://alice.com/)) is published in DNS and does not change.
+- Alice's public key is registered in the ZK-Mail contract in advance.
+- Bob already registered Carol's wallet service. His email address is registered in the ZK-Mail contract, and he has 2 ETH in his wallet.
 - **Alice never attaches her RSA signature to forged emails.**
 
 #### Procedures
 
 1.  Bob wants to transfer 1 ETH to his friend whose email address is [friend@alice.com](http://mailto:friend@alice.com/).
-2.  Bob sends an email to [carol@wallet.com](http://mailto:carol@wallet.com/). Its message is “Transfer 1 ETH to [friend@alice.com](http://mailto:friend@alice.com/)”.
-3.  Alice attaches her RSA signature to the Bob’s email.
+2.  Bob sends an email to [carol@wallet.com](http://mailto:carol@wallet.com/). Its message is "Transfer 1 ETH to [friend@alice.com](http://mailto:friend@alice.com/)".
+3.  Alice attaches her RSA signature to the Bob's email.
 4.  Carol receives the email from Bob. She extracts the transfer amount and the destination (1 ETH and [friend@alice.com](http://mailto:friend@alice.com/) in this case) from the contents of the email.
-5.  Taking Alice’s RSA signature and the header/contents of the email as private inputs (witnesses), and her public key, sender’s email address, and the transfer amount and the destination as public inputs (statements), Carol generates a ZKP proof confirming the following conditions.
+5.  Taking Alice's RSA signature and the header/contents of the email as private inputs (witnesses), and her public key, sender's email address, and the transfer amount and the destination as public inputs (statements), Carol generates a ZKP proof confirming the following conditions.
 
     - The RSA signature is valid for the header/contents and the public key.
     - The From field in the header is equivalent to the provided email address, i.e., [bob@alice.com](http://mailto:bob@alice.com/).
-    - The message in the contents is in the form of “Transfer (transfer amount) to (destination)”.
+    - The message in the contents is in the form of "Transfer (transfer amount) to (destination)".
 
-6.  Carol provides her service’s contract with transaction data including the transfer amount and the destination and the ZKP proof.
-7.  The contract calls the ZK-Mail contract with the provided data. It verifies the ZKP proof using Alice’s public key and Bob’s email address registered in advance.
-8.  If the proof passes the verification, the contract wallet transfers Bob’s 1 ETH to the wallet corresponding to the email address of [friend@alice.com](http://mailto:friend@alice.com/). (In detail, the contract wallet has storage where the hash of the email address is mapped to the ETH balance. It decreases 1 from the balance of Hash([bob@alice.com](http://mailto:bob@alice.com/)) and increases that of Hash([friend@alice.com](http://mailto:friend@alice.com/)) by the same amount.)
+6.  Carol provides her service's contract with transaction data including the transfer amount and the destination and the ZKP proof.
+7.  The contract calls the ZK-Mail contract with the provided data. It verifies the ZKP proof using Alice's public key and Bob's email address registered in advance.
+8.  If the proof passes the verification, the contract wallet transfers Bob's 1 ETH to the wallet corresponding to the email address of [friend@alice.com](http://mailto:friend@alice.com/). (In detail, the contract wallet has storage where the hash of the email address is mapped to the ETH balance. It decreases 1 from the balance of Hash([bob@alice.com](http://mailto:bob@alice.com/)) and increases that of Hash([friend@alice.com](http://mailto:friend@alice.com/)) by the same amount.)
 
 ![](/articles/rsa-verification-circuit-in-halo2-and-its-applications/wqZkchwlp5eKjrHxEQDMp.webp)

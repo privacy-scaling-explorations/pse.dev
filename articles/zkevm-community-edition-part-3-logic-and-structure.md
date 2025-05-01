@@ -5,6 +5,7 @@ image: "/articles/zkevm-community-edition-part-3-logic-and-structure/zkevm-commu
 tldr: "This series intends to provide an overview of the zkEVM Community Edition in a way that is broadly accessible. Part 3 reviews the general logic and structure of the zkEVM Community Edition."
 date: "2023-05-23"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/shl8eMBiObd6_AUBikXZrjKD4fibI6xUZd7d9Yv5ezE"
+projects: ["zkevm-community"]
 ---
 
 _[Part 1: Introduction](https://mirror.xyz/privacy-scaling-explorations.eth/I5BzurX-T6slFaPbA4i3hVrO7U2VkBR45eO-N3CSnSg)_
@@ -25,7 +26,7 @@ EVM opcodes are unfriendly to SNARKs for two main reasons:
 
 1.  256-bit operations vs prime field operations
 
-    The EVM uses different sets of numbers and mathematical operations compared to SNARKs. SNARKs are cheap because they use addition and multiplication over a finite set of numbers called a prime field. In contrast, the EVM uses many arithmetic operations in 256-bit words. Emulating the EVM’s 256-bit operations with the prime field operations used by SNARKs is expensive and requires clever circuit design to be practical.
+    The EVM uses different sets of numbers and mathematical operations compared to SNARKs. SNARKs are cheap because they use addition and multiplication over a finite set of numbers called a prime field. In contrast, the EVM uses many arithmetic operations in 256-bit words. Emulating the EVM's 256-bit operations with the prime field operations used by SNARKs is expensive and requires clever circuit design to be practical.
 
 2.  Variable paths vs fixed paths
 
@@ -85,7 +86,7 @@ The [EVM Circuit](https://github.com/privacy-scaling-explorations/zkevm-specs/bl
 
 [Bytecode Circuit](https://privacy-scaling-explorations.github.io/zkevm-docs/architecture/bytecode-circuit.html#bytecode-circuit):
 
-- Verifies each bytecode has a valid hash. It also serves as a lookup table for the EVM circuit to access data of any “index of bytecode.”
+- Verifies each bytecode has a valid hash. It also serves as a lookup table for the EVM circuit to access data of any "index of bytecode."
 
 [ECDSA Cicruit](https://privacy-scaling-explorations.github.io/zkevm-docs/architecture/ecdsa-circuit.html#ecdsa-cicruit):
 
@@ -101,11 +102,11 @@ The [EVM Circuit](https://github.com/privacy-scaling-explorations/zkevm-specs/bl
 
 **Copy Circuit:**
 
-- Verifies copies of chunks of bytes. For example, from Memory to Bytecode when deploying a contract, or from Tx to Memory when reading a tx calldata. Used by the EVM Circuit as a lookup table to verify byte array copies
+- Verifies copies of chunks of bytes. For example, from Memory to Bytecode when deploying a contract, or from Tx to Memory when reading a tx calldata. Used by the EVM Circuit as a lookup table to verify byte array copies
 
 **Block Circuit:**
 
-- Verifies the block Hash. Used by the EVM Circuit to lookup block fields.
+- Verifies the block Hash. Used by the EVM Circuit to lookup block fields.
 
 **Public Input Circuit:**
 
@@ -121,7 +122,7 @@ Writing optimal circuits means creating a system of polynomial equations with th
 
 However, the zkEVM community aims to be inclusive and supportive of individuals who are interested in learning and contributing. If you have a background in Rust or experience with other zkSNARK tooling like circom, you already have a good foundation for understanding the concepts behind the zkEVM. With a dedicated learning phase of 1-2 months, you should be well-equipped to make valuable contributions.
 
-A consensus level zkEVM that proves the validity of Layer 1 must be a community effort. Not enough skills or resources currently exist for one team to do it alone – and reasonably well. There are many approaches to explore and many gaps in a single team’s capabilities.
+A consensus level zkEVM that proves the validity of Layer 1 must be a community effort. Not enough skills or resources currently exist for one team to do it alone – and reasonably well. There are many approaches to explore and many gaps in a single team's capabilities.
 
 Contributing to zkEVMs means entering a world where the tools are limited, the language is nascent, and the skills required are rare, but overcoming the challenge may create the widest practical application of zero-knowledge cryptography to date. If proofs of validity are used to verify every Ethereum block, then every Ethereum user will benefit from zero-knowledge proofs – a benefit that seems worth the effort.
 
@@ -133,7 +134,7 @@ For those who have found the design of the zkEVM Community Edition interesting o
 
 The zkEVM Community Edition is possible thanks to the contribution of many teams including the [PSE](https://appliedzkp.org/), [Scroll Tech](https://scroll.io/), and [Taiko](https://taiko.xyz/) along with many individual contributors. Teams such as [Zcash](https://electriccoin.co/) have also researched and developed proving systems and libraries that have greatly benefited zkEVM efforts.
 
-The zkEVM Community Edition is an open-source project and can be accessed in the [main repo](https://github.com/privacy-scaling-explorations/zkevm-specs). If you’re interested in helping, you can learn more by visiting the [contribution guidelines](https://github.com/privacy-scaling-explorations/zkevm-circuits/blob/main/CONTRIBUTING.md). The Community Edition is being built in public and its current status can be viewed on the [project board](https://github.com/orgs/privacy-scaling-explorations/projects/3/views/1).
+The zkEVM Community Edition is an open-source project and can be accessed in the [main repo](https://github.com/privacy-scaling-explorations/zkevm-specs). If you're interested in helping, you can learn more by visiting the [contribution guidelines](https://github.com/privacy-scaling-explorations/zkevm-circuits/blob/main/CONTRIBUTING.md). The Community Edition is being built in public and its current status can be viewed on the [project board](https://github.com/orgs/privacy-scaling-explorations/projects/3/views/1).
 
 For any general questions, feel free to ask in the [PSE Discord.](https://discord.com/invite/sF5CT5rzrR)
 

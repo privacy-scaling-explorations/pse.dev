@@ -5,6 +5,7 @@ image: "/articles/zkml-bridging-aiml-and-web3-with-zero-knowledge-proofs/zkml-br
 tldr: "This post was authored by [drCathieSo.eth](https://twitter.com/drCathieSo_eth) and was originally published [here](https://hackmd.io/@cathie/zkml)."
 date: "2023-05-02"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/K88lOS4XegJGzMoav9K5bLuT9Zhn3Hz2KkhB3ITq-m8"
+projects: ["zkml"]
 ---
 
 ## Introduction
@@ -36,7 +37,7 @@ These challenges have created a demand for solutions that can protect the privac
 ZKPs present a promising approach to address the challenges faced by traditional ML bounties. By leveraging the power of ZKPs, ZKML offers a privacy-preserving solution with the following benefits:
 
 1.  **Model privacy**: Developers can participate in bounties without disclosing their entire model architecture and weights, protecting their intellectual property.
-2.  **Transparent verification**: ZKPs enable the verification of model performance without revealing the model’s internals, fostering a transparent and trustless evaluation process.
+2.  **Transparent verification**: ZKPs enable the verification of model performance without revealing the model's internals, fostering a transparent and trustless evaluation process.
 3.  **Data privacy**: ZKPs can be used to verify private data with public models or private models with public data, ensuring that sensitive information remains undisclosed.
 
 Integrating ZKPs into the machine learning process provides a secure and privacy-preserving platform that addresses the limitations of traditional ML bounties. This not only promotes the adoption of machine learning in privacy-sensitive industries but also attracts experienced Web2 developers to explore the possibilities within the Web3 ecosystem.
@@ -53,9 +54,9 @@ keras2circom is a Python tool that transpiles TensorFlow Keras models into circo
 
 ### ZKaggle: A Decentralized Bounty Platform for Machine Learning
 
-ZKaggle’s first version emerged as [a hackathon submission at ETHGlobal FVM Space Warp Hack](https://ethglobal.com/showcase/zkaggle-70g3b). The platform enabled decentralized computing by allowing users to share their processing power and monetize their proprietary machine learning models. With a browser-based frontend, bounty providers could upload their data to Filecoin and create computing tasks with associated rewards. Bounty hunters could browse available bounties, download data, and perform computations locally. Upon completion, they would submit a proof with hashed results on-chain for the bounty provider to review. Once approved, bounty hunters could claim their rewards by providing the pre-image of the hashed results. ZKPs were used to maintain a succinct proof of computation and enable bounty hunters to monetize private models with credibility.
+ZKaggle's first version emerged as [a hackathon submission at ETHGlobal FVM Space Warp Hack](https://ethglobal.com/showcase/zkaggle-70g3b). The platform enabled decentralized computing by allowing users to share their processing power and monetize their proprietary machine learning models. With a browser-based frontend, bounty providers could upload their data to Filecoin and create computing tasks with associated rewards. Bounty hunters could browse available bounties, download data, and perform computations locally. Upon completion, they would submit a proof with hashed results on-chain for the bounty provider to review. Once approved, bounty hunters could claim their rewards by providing the pre-image of the hashed results. ZKPs were used to maintain a succinct proof of computation and enable bounty hunters to monetize private models with credibility.
 
-[ZKaggleV2](https://github.com/socathie/ZKaggleV2) presents an improved version with enhanced features and functionality. In this version, multiple files are aggregated into a single circuit, allowing for more efficient processing. The platform also verifies the accuracy of the computations and incorporates a secure method for transferring model weights from the bounty hunter to the bounty provider using elliptic curve Diffie-Hellman (ECDH) encryption. This added layer of security ensures that only authorized parties can access and utilize the model weights, further solidifying the platform’s commitment to privacy and data protection.
+[ZKaggleV2](https://github.com/socathie/ZKaggleV2) presents an improved version with enhanced features and functionality. In this version, multiple files are aggregated into a single circuit, allowing for more efficient processing. The platform also verifies the accuracy of the computations and incorporates a secure method for transferring model weights from the bounty hunter to the bounty provider using elliptic curve Diffie-Hellman (ECDH) encryption. This added layer of security ensures that only authorized parties can access and utilize the model weights, further solidifying the platform's commitment to privacy and data protection.
 
 ## Code Highlights
 
@@ -75,7 +76,7 @@ template Poly (n) {
 }
 ```
 
-**[keras2circom](https://github.com/socathie/keras2circom): Model Weights “Quantization”**
+**[keras2circom](https://github.com/socathie/keras2circom): Model Weights "Quantization"**
 
 **[keras2circom/keras2circom/circom.py](https://github.com/socathie/keras2circom/blob/main/keras2circom/circom.py)**
 
@@ -186,7 +187,7 @@ template encrypt1000() {
 ...
 ```
 
-To maintain the integrity of the proof during the bounty claim process, **ZKaggleV2** incorporates a universal model weight encryption circuit. This circuit is precompiled and deployed for use across all bounties and models. The existing implementation supports models with up to 1000 weights, and any model with fewer weights can be zero-padded at the end to conform to the required size. This approach ensures a consistent and secure method of handling model weights
+To maintain the integrity of the proof during the bounty claim process, **ZKaggleV2** incorporates a universal model weight encryption circuit. This circuit is precompiled and deployed for use across all bounties and models. The existing implementation supports models with up to 1000 weights, and any model with fewer weights can be zero-padded at the end to conform to the required size. This approach ensures a consistent and secure method of handling model weights
 
 Please visit the respective repositories linked above for full implementation and usage details.
 

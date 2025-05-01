@@ -5,9 +5,10 @@ image: "/articles/introducing-trinity/trinity.webp"
 tldr: "Two-Party Computation for the ZK Era"
 date: "2025-04-28"
 tags: ["zk", "mpc"]
+projects: ["mpz", "mpc-framework", "pse-halo2"]
 ---
 
-# Introducing Trinity: Two-Party Computation for the ZK Era
+### Introducing Trinity: Two-Party Computation for the ZK Era
 
 Trinity is a two-party computation (2PC) protocol designed to minimize interaction rounds, enable input verifiability, and facilitate reusability. It combines three key cryptographic concepts: Extractable Witness Encryption for Laconic Oblivious Transfer (LOT), Garbled Circuits, and PLONK.
 
@@ -17,13 +18,13 @@ The core mechanism unifying these concepts is the KZG polynomial commitment sche
 
 Trinity redefines the role of ZK credentials, extending their use beyond traditional settings (e.g., authentication) to serve as verified private inputs within secure two-party computations (2PC).
 
-We’ve just added it as a new template in [mpc-hello](https://github.com/voltrevo/mpc-hello/tree/main/trinity), and it’s time to show what it brings to the table.
+We've just added it as a new template in [mpc-hello](https://github.com/voltrevo/mpc-hello/tree/main/trinity), and it's time to show what it brings to the table.
 
-To understand Trinity’s novelty, let’s first revisit how traditional secure two-party computation (2PC) works.
+To understand Trinity's novelty, let's first revisit how traditional secure two-party computation (2PC) works.
 
 ### 🧠 A Classic 2PC Flow
 
-Let’s start with a traditional secure two-party computation (2PC). Say Alice and Bob want to compute `a + b`, without revealing their private inputs `a` and `b` to each other.
+Let's start with a traditional secure two-party computation (2PC). Say Alice and Bob want to compute `a + b`, without revealing their private inputs `a` and `b` to each other.
 
 This is typically done using:
 
@@ -35,9 +36,9 @@ This is typically done using:
 
 In most traditional protocols, OT is built using **public key cryptography**.
 
-Let’s say Alice has an input bit `a ∈ {0,1}`:
+Let's say Alice has an input bit `a ∈ {0,1}`:
 
-- Bob (the garbler) prepares two labels for Alice’s input wire: one for 0 and one for 1.
+- Bob (the garbler) prepares two labels for Alice's input wire: one for 0 and one for 1.
 - Alice runs an OT protocol to retrieve only the label that corresponds to her bit, without revealing it.
 - This typically involves public key operations where Bob encrypts both labels, and Alice can only decrypt one.
 
@@ -57,7 +58,7 @@ Specifically, Trinity leverages:
 
 In short, Trinity lets you garble circuits in the usual way, but with reusable, verifiable inputs — perfect for privacy-preserving apps, on-chain protocols, or even MPC-enabled credentials.
 
-Now let’s see how to build with it.
+Now let's see how to build with it.
 
 ### Setup
 
@@ -188,7 +189,7 @@ const resultBytes = currentEvaluator.evaluate(
 const result = booleanArrayToInteger(resultBytes)
 ```
 
-### 🚀 What’s Next?
+### 🚀 What's Next?
 
 This is a minimal example — but Trinity supports:
 

@@ -2,9 +2,10 @@
 authors: ["Anon Aadhaar team"]
 title: "Announcing Anon Aadhaar"
 image: "/articles/announcing-anon-aadhaar/announcing-anon-aadhaar-cover.webp"
-tldr: "_This post was written by the Anon Aadhaar team._ /n/n _We’re excited to announce the public release of Anon Aadhaar!_"
+tldr: "_This post was written by the Anon Aadhaar team._ /n/n _We're excited to announce the public release of Anon Aadhaar!_"
 date: "2023-09-21"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/6R8kACTYp9mF3eIpLZMXs8JAQmTyb6Uy8KnZqzmDFZI"
+projects: ["anon-aadhaar", "bandada", "discreetly"]
 ---
 
 ### What is Anon Aadhaar?
@@ -15,11 +16,11 @@ Anon Aadhaar is a protocol that lets users anonymously prove their Aadhaar (Indi
 
 ### Why Aadhaar cards?
 
-The [Aadhaar program](https://en.wikipedia.org/wiki/Aadhaar) is among the largest digital identity schemes in the world. There are 1.2 billion people enrolled, accounting for around 90% of India’s population.
+The [Aadhaar program](https://en.wikipedia.org/wiki/Aadhaar) is among the largest digital identity schemes in the world. There are 1.2 billion people enrolled, accounting for around 90% of India's population.
 
-Aadhaar cards carry both demographic and biometric data, including the holder’s date of birth and its fingerprint. They are used in a variety of contexts such as loan agreements or housing applications. Bring this onchain in a privacy preserving way opens the possibility for many more applications on Ethereum.
+Aadhaar cards carry both demographic and biometric data, including the holder's date of birth and its fingerprint. They are used in a variety of contexts such as loan agreements or housing applications. Bring this onchain in a privacy preserving way opens the possibility for many more applications on Ethereum.
 
-Anon Aadhaar is one instantiation of the broader “Anonymous Credentials" with the goals of “[proof of citizenship](https://discord.com/channels/943612659163602974/1141757600568971304/1141759379578822707)”, “proof of identity”, “proof of passport”, “proof of personhood”, among others. Our approach leverages government identities, in this case Aadhaar Cards, to enhance digital interactions.
+Anon Aadhaar is one instantiation of the broader "Anonymous Credentials" with the goals of "[proof of citizenship](https://discord.com/channels/943612659163602974/1141757600568971304/1141759379578822707)", "proof of identity", "proof of passport", "proof of personhood", among others. Our approach leverages government identities, in this case Aadhaar Cards, to enhance digital interactions.
 
 ### Importance of Anonymity
 
@@ -27,7 +28,7 @@ A healthy society enables people to voice their concerns, opinions and ideas wit
 
 **Contextual anonymity is key to build trust** and enhance the value of noise to signal.
 
-In the broader context, Anon Aadhaar supports [proof of personhood](https://vitalik.ca/general/2023/07/24/biometric.html) by adding a convenient privacy layer. We can talk about a “forth column” that leverages existing PKI and public government ID programs to enhance digital interactions.
+In the broader context, Anon Aadhaar supports [proof of personhood](https://vitalik.ca/general/2023/07/24/biometric.html) by adding a convenient privacy layer. We can talk about a "forth column" that leverages existing PKI and public government ID programs to enhance digital interactions.
 
 ![](/articles/announcing-anon-aadhaar/ZfpBm9HmDYDgP8rTYnA_9.webp)
 
@@ -55,12 +56,12 @@ Check our [documentation](https://anon-aadhaar-documentation.vercel.app/docs/int
 
 Anonymous protocols are very versatile, so get creating! If you want inspiration here are some ideas:
 
-- **HeyIndia:** a copy of [HeyAnon](https://heyanon.xyz/) app, but need to prove you’re from India in order to post.
+- **HeyIndia:** a copy of [HeyAnon](https://heyanon.xyz/) app, but need to prove you're from India in order to post.
 - **Aadhaar Wallet:** similar to [Myna](https://ethglobal.com/showcase/myna-uxzdd), create an ERC-4337 compatible wallet that uses your Aadhaar card to approve transactions or social recover with other users.
 - **Voting App for Quadratic Voting:** vote if you can prove your citizenship.
-- **Telegram private groups:** where you need to prove you’re an Indian citizen in order to join
+- **Telegram private groups:** where you need to prove you're an Indian citizen in order to join
 - **[Bandada](https://pse.dev/projects/bandada) credential groups**: gatekept by Anon Aadhaar proofs and then integrated to anonymous chats using [Discreetly](https://pse.dev/projects/discreetly).
-- **SSO Server:** anonymously login with your “proof of citizenship” in any website. Explore integrations with Sign in with Ethereum
+- **SSO Server:** anonymously login with your "proof of citizenship" in any website. Explore integrations with Sign in with Ethereum
 - **Payment Channel:** use Anon Aadhaar SDK to create payment channel. Help people can verify another party with zkp. This is only for demo how people can use our SDK.
 - **Loan Approval Platform:** create a platform for secure and anonymous loan approvals based on Aadhaar information.
 - **Ethereum Wallet Recovery:** design a dApp that helps users recover their Ethereum wallets using their Aadhaar credentials.

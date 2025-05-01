@@ -5,15 +5,16 @@ image: ""
 tldr: "This post was authored by [Alessandro](https://github.com/ctrlc03) and [Chao](https://github.com/chaosma)"
 date: "2023-01-18"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/ltCt68hslI5jmMf1AnfkrP2eUwkeZ8_fgkHc_WyD9Nc"
+projects: ["maci"]
 ---
 
 We are pleased to announce the release of an updated version of MACI - Minimal Anti-Collusion Infrastructure v1.1.1.
 
-This new release brings a more secure product, new features, and a much needed documentation refresh. Before we dive into the updates, let’s refresh your memory on what MACI is and what it was created to achieve.
+This new release brings a more secure product, new features, and a much needed documentation refresh. Before we dive into the updates, let's refresh your memory on what MACI is and what it was created to achieve.
 
 ## Background
 
-MACI is an application that provides collusion resistance for on-chain voting processes. It was originally created after Vitalik’s [post](https://ethresear.ch/t/minimal-anti-collusion-infrastructure/5413), and has since been revisited and improved.
+MACI is an application that provides collusion resistance for on-chain voting processes. It was originally created after Vitalik's [post](https://ethresear.ch/t/minimal-anti-collusion-infrastructure/5413), and has since been revisited and improved.
 
 MACI revolves around the need for a trusted coordinator. The coordinator is in charge of setting up the system, publishing its public key, and computing the tally of the votes. Below are the main properties of MACI:
 
@@ -30,7 +31,7 @@ MACI was [audited](https://github.com/privacy-scaling-explorations/maci/blob/v1/
 In more details, the audit revealed two high risk issues within the zk-SNARK circuits:
 
 - Incomplete validation when processing messages
-- Integer overflow which could have allowed users to affect a coordinator’s effort of calculating the subsidy by either making it incorrect or by intercepting the calculation
+- Integer overflow which could have allowed users to affect a coordinator's effort of calculating the subsidy by either making it incorrect or by intercepting the calculation
 
 Another notable security issue was the lack of initialization of the `AccQueue` contract. This contract is used to store messages (votes or topups) for the different polls. Without inserting a zero value hash into the merkle tree contract as the first message during initialization, a malicious user could have performed a denial of service attack on a poll. This could have resulted in the poll results taking a very long time before being tallied by the coordinator.
 
@@ -38,7 +39,7 @@ All of these issues have been successfully resolved, on top of fixing minor issu
 
 ## New Features
 
-The following sections provide a quick introduction to the newest features introduced in MACI’s codebase.
+The following sections provide a quick introduction to the newest features introduced in MACI's codebase.
 
 ![](/articles/announcing-maci-v111/Gfn-Vu6lKKsJ750LQIXxA.webp)
 
@@ -68,7 +69,7 @@ Finally, please note that currently it is not possible to generate the `zkeys` f
 
 MACI now includes a sample [coordinator service](https://github.com/privacy-scaling-explorations/maci/tree/v1/server).
 
-There are two roles in the coordinator service: admin (i.e. MACI coordinator) and user (i.e. a voter). The admin’s responsibility is to ensure that the code remains updated and that the backend services are live. The user can then simply send HTTP requests to the backend server to interact with MACI, for instance, by signing up and publishing a message on chain.
+There are two roles in the coordinator service: admin (i.e. MACI coordinator) and user (i.e. a voter). The admin's responsibility is to ensure that the code remains updated and that the backend services are live. The user can then simply send HTTP requests to the backend server to interact with MACI, for instance, by signing up and publishing a message on chain.
 
 The coordinator service has been wrapped into two docker instances: one for the backend server to accept user requests; one for the Mongodb service to store all necessary information on the current state such as smart contract addresses, zero knowledge proof keys and so on.
 

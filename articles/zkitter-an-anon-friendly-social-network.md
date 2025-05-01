@@ -5,11 +5,12 @@ image: "/articles/zkitter-an-anon-friendly-social-network/cover.webp"
 tldr: ""
 date: "2023-01-11"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/P4jDH1gLrVQ-DP5VyIKQrlPAJUTDhtXZkFl2vp8ewSg"
+projects: ["zkitter", "semaphore", "interep", "rln"]
 ---
 
 Zkitter is a decentralized social network where users have the option to interact anonymously. The platform provides familiar social media functions such as posting, chatting, following, and liking, but with a private identity layer under the hood.
 
-Zkitter was created as a public good for more open and honest conversation. With privacy and anonymity enabled by default – and without the fear of damaging or risking one’s personal reputation – the theory is that users will be able to express themselves more freely on Zkitter compared to mainstream platforms.
+Zkitter was created as a public good for more open and honest conversation. With privacy and anonymity enabled by default – and without the fear of damaging or risking one's personal reputation – the theory is that users will be able to express themselves more freely on Zkitter compared to mainstream platforms.
 
 Zkitter is a social experiment made possible by decentralized blockchains and privacy-preserving [zero-knowledge proofs](https://ethereum.org/en/zero-knowledge-proofs/), and is currently in [alpha testing.](https://www.zkitter.com/explore/)
 
@@ -23,25 +24,25 @@ Semaphore allows Ethereum users to prove their membership of a group and send si
 
 **Interep**
 
-Another challenge with anonymity is [Sybil attacks](https://en.wikipedia.org/wiki/Sybil_attack), where a user creates multiple accounts to spam or gain influence.  Zkitter uses Interep to increase Sybil resistance by leveraging existing reputations. Before creating an anonymous account on Zkitter, anonymous users need to prove they also own a reputation on an existing web2 social network such as Twitter or Reddit.
+Another challenge with anonymity is [Sybil attacks](https://en.wikipedia.org/wiki/Sybil_attack), where a user creates multiple accounts to spam or gain influence. Zkitter uses Interep to increase Sybil resistance by leveraging existing reputations. Before creating an anonymous account on Zkitter, anonymous users need to prove they also own a reputation on an existing web2 social network such as Twitter or Reddit.
 
 **RLN**
 
-Spam can be a serious problem in anonymous environments. In “real life”, or on social networks where users have persistent identities, the threat of reputational damage or banning prevents most people from openly spamming. On anonymous networks, where a user’s actions can’t be traced to their identity, we can’t know who’s spamming – so we can’t punish or ban them.  [RLN](https://mirror.xyz/privacy-scaling-explorations.eth/aKjLmLVyunELnGObrzPlbhXWu5lZI9QU-P3OuBK8mOY) (Rate Limit Nullifier) requires users to put something at stake, either financial or social, and punishes users who violate the spam rules by either slashing or banning them.
+Spam can be a serious problem in anonymous environments. In "real life", or on social networks where users have persistent identities, the threat of reputational damage or banning prevents most people from openly spamming. On anonymous networks, where a user's actions can't be traced to their identity, we can't know who's spamming – so we can't punish or ban them. [RLN](https://mirror.xyz/privacy-scaling-explorations.eth/aKjLmLVyunELnGObrzPlbhXWu5lZI9QU-P3OuBK8mOY) (Rate Limit Nullifier) requires users to put something at stake, either financial or social, and punishes users who violate the spam rules by either slashing or banning them.
 
 **Zkchat**
 
-One of the first use cases for RLN was [“RLN Anonymous Chat”](https://github.com/zkitter/zkitterd/tree/main/lib/zk-chat-server), which later became known as zkchat, a spam resistant instant messaging application for private and anonymous communication. Zkchat powers Zkitter’s chat functionality and the zkchat project is now maintained by Zkitter.
+One of the first use cases for RLN was ["RLN Anonymous Chat"](https://github.com/zkitter/zkitterd/tree/main/lib/zk-chat-server), which later became known as zkchat, a spam resistant instant messaging application for private and anonymous communication. Zkchat powers Zkitter's chat functionality and the zkchat project is now maintained by Zkitter.
 
 ## Experimenting with anonymity
 
-> “Man is least himself when he talks in his own person.
+> "Man is least himself when he talks in his own person.
 >
-> Give him a mask, and he will tell you the truth.”
+> Give him a mask, and he will tell you the truth."
 >
 > \- Oscar Wilde
 
-Zkitter is a social experiment. Philosophically, it is an experiment in whether the Oscar Wilde quote above is true. Does the option of anonymity, by separating reputation from speech, create a space for more open and honest self-expression? What would happen if the option to be anonymous was available as a default and widely considered to be a “normal” thing to do? How might the conversation change when the content of what’s being said is detached from the reputation of the person saying it?
+Zkitter is a social experiment. Philosophically, it is an experiment in whether the Oscar Wilde quote above is true. Does the option of anonymity, by separating reputation from speech, create a space for more open and honest self-expression? What would happen if the option to be anonymous was available as a default and widely considered to be a "normal" thing to do? How might the conversation change when the content of what's being said is detached from the reputation of the person saying it?
 
 As an anon or using a pseudonym, people can say what they really believe, and honest conversation is ultimately the most valuable thing for important topics like governance decisions. Because the stakes are so high, and decisions may potentially last decades or even centuries, debate must be as authentic as possible. Though [DAO](https://ethereum.org/en/dao/) governance may come to mind for most people reading this article; using anonymity, pseudonyms, or aliases to debate controversial topics is not new.
 
@@ -69,11 +70,11 @@ https://docs.zkitter.com/faqs/how-to-create-an-anonymous-user
 
 Once your reputation is verified, instead of a username, your Zkitter posts will simply show your reputation tier.
 
-When you join Zkitter, you will sign a message to generate a [new ECDSA key pair](https://docs.zkitter.com/developers/identity) and write the public key to a [smart contract](https://arbiscan.io/address/0x6b0a11f9aa5aa275f16e44e1d479a59dd00abe58) on Arbitrum. The ECDSA key pair is used to authenticate messages and recover your Zkitter identity – so you aren’t using your Ethereum account private key to sign for actions on Zkitter.
+When you join Zkitter, you will sign a message to generate a [new ECDSA key pair](https://docs.zkitter.com/developers/identity) and write the public key to a [smart contract](https://arbiscan.io/address/0x6b0a11f9aa5aa275f16e44e1d479a59dd00abe58) on Arbitrum. The ECDSA key pair is used to authenticate messages and recover your Zkitter identity – so you aren't using your Ethereum account private key to sign for actions on Zkitter.
 
 **Posting**
 
-Posting to Zkitter will feel pretty familiar, but with some extra options. You can choose whether to post as yourself, or anonymously – even if you don’t have an anonymous account. You can decide who you want to allow replies from, as well as whether the post will appear on the global feed or only on your own. If you’ve connected your Twitter account, you can also mirror your post to Twitter.
+Posting to Zkitter will feel pretty familiar, but with some extra options. You can choose whether to post as yourself, or anonymously – even if you don't have an anonymous account. You can decide who you want to allow replies from, as well as whether the post will appear on the global feed or only on your own. If you've connected your Twitter account, you can also mirror your post to Twitter.
 
 **Chat**
 
