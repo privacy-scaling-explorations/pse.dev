@@ -5,20 +5,21 @@ image: null
 tldr: ""
 date: "2022-08-29"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/UlHGv9KIk_2MOHr7POfwZAXP01k221hZwQsLCF63cLQ"
+projects: []
 ---
 
 ![](https://miro.medium.com/max/1392/1*6CesZrI_Az8ZQ3Zff0y6gw.png)
 
 Originally published on Sep 30, 2021:
 
-Arbitrum is Offchain Labs’ optimistic rollup implementation that aims to greatly increase the throughput of the Ethereum network. This guide is an introduction to how the Arbitrum design works and is meant for anyone looking to get a somewhat technical overview on this layer 2 solution. This article assumes that the reader has some knowledge of Ethereum and optimistic rollups. The following links may be helpful to those who would like more info on optimistic rollups:
+Arbitrum is Offchain Labs' optimistic rollup implementation that aims to greatly increase the throughput of the Ethereum network. This guide is an introduction to how the Arbitrum design works and is meant for anyone looking to get a somewhat technical overview on this layer 2 solution. This article assumes that the reader has some knowledge of Ethereum and optimistic rollups. The following links may be helpful to those who would like more info on optimistic rollups:
 
 1.  [Optimistic Rollups](https://docs.ethhub.io/ethereum-roadmap/layer-2-scaling/optimistic_rollups/)
 2.  [An Incomplete Guide to Rollups](https://vitalik.ca/general/2021/01/05/rollup.html)
 3.  [A Rollup-Centric Ethereum Roadmap](https://ethereum-magicians.org/t/a-rollup-centric-ethereum-roadmap/4698)
 4.  [(Almost) Everything you need to know about the Optimistic Rollup](https://research.paradigm.xyz/rollups)
 
-The Arbitrum network is run by two main types of nodes — batchers and validators. Together these nodes interact with Ethereum mainnet (layer 1, L1) in order to maintain a separate chain with its own state, known as layer 2 (L2). Batchers are responsible for taking user L2 transactions and submitting the transaction data onto L1. Validators on the other hand, are responsible for reading the transaction data on L1, processing the transaction and therefore updating the L2 state. Validators will then post the updated L2 state data to L1 so that anyone can verify the validity of this new state. The transaction and state data that is actually stored on L1 is described in more detail in the ‘Transaction and State Data Storage on L1’ section.
+The Arbitrum network is run by two main types of nodes — batchers and validators. Together these nodes interact with Ethereum mainnet (layer 1, L1) in order to maintain a separate chain with its own state, known as layer 2 (L2). Batchers are responsible for taking user L2 transactions and submitting the transaction data onto L1. Validators on the other hand, are responsible for reading the transaction data on L1, processing the transaction and therefore updating the L2 state. Validators will then post the updated L2 state data to L1 so that anyone can verify the validity of this new state. The transaction and state data that is actually stored on L1 is described in more detail in the 'Transaction and State Data Storage on L1' section.
 
 **Basic Workflow**
 
@@ -28,7 +29,7 @@ The Arbitrum network is run by two main types of nodes — batchers and validato
 4.  Once processed, a new L2 state is generated locally and the validator will post this new state root into an L1 smart contract.
 5.  Then, all other validators will process the same transactions on their local copies of the L2 state.
 6.  They will compare their resultant L2 state root with the original one posted to the L1 smart contract.
-7.  If one of the validators gets a different state root than the one posted to L1, they will begin a challenge on L1 (explained in more detail in the ‘Challenges’ section).
+7.  If one of the validators gets a different state root than the one posted to L1, they will begin a challenge on L1 (explained in more detail in the 'Challenges' section).
 8.  The challenge will require the challenger and the validator that posted the original state root to take turns proving what the correct state root should be.
 9.  Whichever user loses the challenge, gets their initial deposit (stake) slashed. If the original L2 state root posted was invalid, it will be destroyed by future validators and will not be included in the L2 chain.
 
@@ -38,7 +39,7 @@ The following diagram illustrates this basic workflow for steps 1–6.
 
 ## Batcher Nodes and Submitting L2 Transaction Data
 
-There are two different L1 smart contracts that batcher nodes will use to post the transaction data. One is known as the ‘delayed inbox’ while the other is known as the ‘sequencer inbox’. Anyone can send transactions to the delayed inbox, whereas only the sequencer can send transactions to the sequencer inbox. The sequencer inbox pulls in transaction data from the delayed inbox and interweaves it with the other L2 transactions submitted by the sequencer. Therefore, the sequencer inbox is the primary contract where every validator pulls in the latest L2 transaction data.
+There are two different L1 smart contracts that batcher nodes will use to post the transaction data. One is known as the 'delayed inbox' while the other is known as the 'sequencer inbox'. Anyone can send transactions to the delayed inbox, whereas only the sequencer can send transactions to the sequencer inbox. The sequencer inbox pulls in transaction data from the delayed inbox and interweaves it with the other L2 transactions submitted by the sequencer. Therefore, the sequencer inbox is the primary contract where every validator pulls in the latest L2 transaction data.
 
 There are 3 types of batcher nodes — forwarders, aggregators, and sequencers. Users can send their L2 transactions to any of these 3 nodes. Forwarder nodes forward any L2 transactions to a designated address of another node. The designated node can be either a sequencer or an aggregator and is referred to as the aggregator address.
 
@@ -52,7 +53,7 @@ Essentially, batcher nodes are responsible for submitting any L2 transaction dat
 
 ## Validator Nodes and Submitting L2 State Data
 
-The set of smart contracts that enable validators to submit and store L2 state data is known as the rollup. The rollup is essentially a chain of blocks, so in other words, the rollup is the L2 chain. Note that the Arbitrum codebase refers to these blocks as ‘nodes’. However, to prevent confusion with the terms ‘validator nodes’ and ‘batcher nodes’, I will continue to refer to these rollup nodes as blocks throughout the article.
+The set of smart contracts that enable validators to submit and store L2 state data is known as the rollup. The rollup is essentially a chain of blocks, so in other words, the rollup is the L2 chain. Note that the Arbitrum codebase refers to these blocks as 'nodes'. However, to prevent confusion with the terms 'validator nodes' and 'batcher nodes', I will continue to refer to these rollup nodes as blocks throughout the article.
 
 Each block contains a hash of the L2 state data. So, validators will read and process transactions from the sequencer inbox, and then submit the updated L2 state data hash to the rollup smart contract. The rollup, which stores a chain of blocks, will create a new block with this data and add it as the latest block to the chain. When the validator submits the L2 state data to the rollup smart contract, they also specify which block in the current chain is the parent block to this new block.
 
@@ -68,16 +69,16 @@ Once a validator becomes a staker, they can then stake on different blocks. Here
 
 A block will be confirmed — permanently accepted in L1 and never reverted — if all of the following are true:
 
-- The 7 day period has passed since the block’s creation
+- The 7 day period has passed since the block's creation
 - There are no existing challenging blocks
 - At least one staker is staked on it
 
 A block can be rejected (destroyed) if all of the following are true:
 
-- It’s parent block is older than the latest confirmed block (the latest confirmed block is on another branch)
+- It's parent block is older than the latest confirmed block (the latest confirmed block is on another branch)
 - There is a staker staked on a sibling block
 - There are no stakers staked on this block
-- The 7 day period has passed since the block’s creation
+- The 7 day period has passed since the block's creation
 
 Take the following diagram as an example:
 
@@ -123,15 +124,15 @@ Since the smart contracts only have to store hashes in their storage rather than
 
 **The Arbitrum Virtual Machine**
 
-Since Arbitrum L2 transactions are not executed on L1, they don’t have to follow the same exact rules as the EVM for computation. Therefore, the Arbitrum team built their own virtual machine known as the Arbitrum Virtual Machine (AVM). The AVM is very similar to the EVM because a primary goal was to support compatibility with EVM compiled smart contracts. However, there are a few important differences.
+Since Arbitrum L2 transactions are not executed on L1, they don't have to follow the same exact rules as the EVM for computation. Therefore, the Arbitrum team built their own virtual machine known as the Arbitrum Virtual Machine (AVM). The AVM is very similar to the EVM because a primary goal was to support compatibility with EVM compiled smart contracts. However, there are a few important differences.
 
-A major difference between the AVM and EVM is that the AVM must support Arbitrum’s challenges. Challenges, covered in more detail in the next section, require that a step of transaction execution must be provable. Therefore, Arbitrum has introduced the use of CodePoints to their virtual machine. Normally, when code is executed, the instructions are stored in a linear array with a program counter (PC) pointing to the current instruction. Using the program counter to prove which instruction is being executed would take logarithmic time. In order to reduce this time complexity to constant time, the Arbitrum team implemented CodePoints — a pair of the current instruction and the hash of the next codepoint. Every instruction in the array has a codepoint and this allows the AVM to instantly prove which instruction was being executed at that program counter. CodePoints do add some complexity to the AVM, but the Arbitrum system only uses codepoints when it needs to make a proof about transaction execution. Normally, it will use the normal program counter architecture instead.
+A major difference between the AVM and EVM is that the AVM must support Arbitrum's challenges. Challenges, covered in more detail in the next section, require that a step of transaction execution must be provable. Therefore, Arbitrum has introduced the use of CodePoints to their virtual machine. Normally, when code is executed, the instructions are stored in a linear array with a program counter (PC) pointing to the current instruction. Using the program counter to prove which instruction is being executed would take logarithmic time. In order to reduce this time complexity to constant time, the Arbitrum team implemented CodePoints — a pair of the current instruction and the hash of the next codepoint. Every instruction in the array has a codepoint and this allows the AVM to instantly prove which instruction was being executed at that program counter. CodePoints do add some complexity to the AVM, but the Arbitrum system only uses codepoints when it needs to make a proof about transaction execution. Normally, it will use the normal program counter architecture instead.
 
-There are quite a few other important differences that are well documented on Arbitrum’s site — [Why AVM Differs from EVM](https://developer.offchainlabs.com/docs/inside_arbitrum#why-avm-differs-from-evm)
+There are quite a few other important differences that are well documented on Arbitrum's site — [Why AVM Differs from EVM](https://developer.offchainlabs.com/docs/inside_arbitrum#why-avm-differs-from-evm)
 
 **ArbOS**
 
-ArbOS is Arbitrum’s own operating system. It is responsible for managing and tracking the resources of smart contracts used during execution. So, ArbOS keeps an account table that keeps track of the state for each account. Additionally, it operates the funding model for validators participating in the rollup protocol.
+ArbOS is Arbitrum's own operating system. It is responsible for managing and tracking the resources of smart contracts used during execution. So, ArbOS keeps an account table that keeps track of the state for each account. Additionally, it operates the funding model for validators participating in the rollup protocol.
 
 The AVM has built in instructions to aid the execution of ArbOS and its ability to track resources. This support for ArbOS in the AVM allows ArbOS to implement certain rules of execution at layer 2 instead of in the rollup smart contracts on layer 1. Any computation moved from layer 1 to layer 2 saves gas and lowers expenses.
 
@@ -147,15 +148,15 @@ This process continues until the contested part of execution is only one instruc
 
 ## Conclusion
 
-**How does this raise Ethereum’s transaction per second and lower transaction costs?**
+**How does this raise Ethereum's transaction per second and lower transaction costs?**
 
 Arbitrum, along with all optimistic rollups, greatly improves the scalability of the Ethereum network and therefore lowers the gas costs (holding throughput constant). In L1 every Ethereum full node in the network will process the transaction, and since the network contains so many nodes, computation becomes very expensive. With Arbitrum, transactions will only be processed by a small set of nodes — the sequencer, aggregators, and validators. So, the computation of each transaction has been moved off of L1 while only the transaction calldata remains on L1. This clears a lot of space on L1 and allows many more transactions to be processed. The greater throughput reduces the gas costs since the competition for getting a transaction added to a block is lower.
 
-**Anything special about Abritrum’s implementation of optimistic rollups?**
+**Anything special about Abritrum's implementation of optimistic rollups?**
 
-Arbitrum’s design gives many advantages that other rollup implementations don’t have because of its use of interactive proving. Interactive proving provides a great number of benefits, such as no limits on contract size, that are outlined in good detail on Arbitrum’s site — [Why Interactive Proving is Better](https://developer.offchainlabs.com/docs/inside_arbitrum#why-interactive-proving-is-better). With Arbitrum’s successful mainnet launch (though still early), it’s clear that the project has achieved an incredible feat.
+Arbitrum's design gives many advantages that other rollup implementations don't have because of its use of interactive proving. Interactive proving provides a great number of benefits, such as no limits on contract size, that are outlined in good detail on Arbitrum's site — [Why Interactive Proving is Better](https://developer.offchainlabs.com/docs/inside_arbitrum#why-interactive-proving-is-better). With Arbitrum's successful mainnet launch (though still early), it's clear that the project has achieved an incredible feat.
 
-If you’re interested in reading more on Arbitrum’s optimistic rollup, their documentation covers a lot more ground and is easy to read.
+If you're interested in reading more on Arbitrum's optimistic rollup, their documentation covers a lot more ground and is easy to read.
 
 - [Arbitrum Doc — Inside Arbitrum](https://developer.offchainlabs.com/docs/inside_arbitrum)
 - [Arbitrum Doc — Rollup Protocol](https://developer.offchainlabs.com/docs/rollup_protocol)

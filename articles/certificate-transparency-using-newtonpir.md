@@ -5,6 +5,7 @@ image: "/articles/certificate-transparency-using-newtonpir/certificate-transpare
 tldr: "This post was written by PSE grantee Vishal Kulkarni."
 date: "2025-01-28"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/V0PIyv1d_e_WPsAVhBP7zkDvn0XACY63uSvFFxBvjrk"
+projects: ["pse-security"]
 ---
 
 ## Introduction
@@ -45,12 +46,12 @@ Signed Certificate Timestamp (SCT) is a cryptographic proof that a digital certi
 
 ### 1\. Opt-Out Auditing (Current Chrome Approach)
 
-Rather than client directly interacting with the CT log server Google’s solution involves an SCT auditor which maintains a global set of all valid SCTs for active certificates. Allows clients to check if an SCT is valid without directly revealing which SCT they are verifying.
+Rather than client directly interacting with the CT log server Google's solution involves an SCT auditor which maintains a global set of all valid SCTs for active certificates. Allows clients to check if an SCT is valid without directly revealing which SCT they are verifying.
 
 #### How it Works
 
 - Client calculates the hash of the SCT
-- Clients reveal the first 20 bits of an SCT’s hash to the auditor.
+- Clients reveal the first 20 bits of an SCT's hash to the auditor.
 - The auditor provides all matching SCTs (around 1000), achieving k-anonymity (with k=1000).
 - Drawback: Partial SCT hash leakage can still compromise privacy.
 
@@ -123,7 +124,7 @@ The querying process includes the following steps:
 
 - Step 3: Client Decryption
 
-  - The client decrypts the server’s response using their secret key to retrieve the certificate at the requested index.
+  - The client decrypts the server's response using their secret key to retrieve the certificate at the requested index.
 
 ### Steps for Integrating NewtonPIR into CT
 
@@ -149,7 +150,7 @@ The querying process includes the following steps:
 - Client Validation:
 
   - The client decrypts the response to retrieve the certificate.
-  - Optionally, verify the certificate’s SCT and ensure its correctness.
+  - Optionally, verify the certificate's SCT and ensure its correctness.
 
 ## Technical Architecture of PIR-CT
 
@@ -227,6 +228,6 @@ In this example, I used a simple method with a hashmap, but checking the SCT of 
 
 ## Conclusion
 
-So, does this enable fully private web search? Not entirely. While it prevents the client’s browser history from being visible to the CT server, the source server can still identify who is accessing the page, and attackers can use metadata or [fingerprinting](https://www.recordedfuture.com/threat-intelligence-101/vulnerability-management-threat-hunting/fingerprinting-in-cybersecurity) to determine the user’s identity.
+So, does this enable fully private web search? Not entirely. While it prevents the client's browser history from being visible to the CT server, the source server can still identify who is accessing the page, and attackers can use metadata or [fingerprinting](https://www.recordedfuture.com/threat-intelligence-101/vulnerability-management-threat-hunting/fingerprinting-in-cybersecurity) to determine the user's identity.
 
-This blog provides only a basic overview of how PIR can be applied to CT to address a privacy concern. There may be other PIR schemes that could perform better in this context. I’d love to hear your feedback and suggestions for improvement! Join the conversation [here](https://forum.pse.dev/post/1/21).
+This blog provides only a basic overview of how PIR can be applied to CT to address a privacy concern. There may be other PIR schemes that could perform better in this context. I'd love to hear your feedback and suggestions for improvement! Join the conversation [here](https://forum.pse.dev/post/1/21).

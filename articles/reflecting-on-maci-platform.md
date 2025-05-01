@@ -16,8 +16,6 @@ tags:
   ]
 ---
 
-# Reflecting on MACI Platform: What We Built, Learned, and What’s Next
-
 Over the past year, we’ve been on a journey to explore how [MACI](https://github.com/privacy-scaling-explorations/maci) could power more democratic, privacy-preserving voting in real-world funding scenarios. The MACI Platform was our experiment in bringing those ideals into practice. Today, we’re sharing what we built, what we learned, and why we’ve decided to sunset the project—along with some parting thoughts on where the opportunity still lies.
 
 ---

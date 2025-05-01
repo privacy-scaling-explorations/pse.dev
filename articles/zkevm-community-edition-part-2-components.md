@@ -5,6 +5,7 @@ image: "/articles/zkevm-community-edition-part-2-components/zkevm-community-edit
 tldr: "This series of articles intends to provide an overview of the zkEVM Community Edition in a way that is broadly accessible. Part 2 is a summary of the common components used in most zkEVMs."
 date: "2023-05-23"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/AW854RXMqS3SU8WCA7Yz-LVnTXCOjpwhmwUq30UNi1Q"
+projects: ["zkevm-community"]
 ---
 
 _[Part 1: Introduction](https://mirror.xyz/privacy-scaling-explorations.eth/I5BzurX-T6slFaPbA4i3hVrO7U2VkBR45eO-N3CSnSg)_
@@ -13,11 +14,11 @@ _[Part 3: Logic and Structure](https://mirror.xyz/privacy-scaling-explorations.e
 
 Before diving deeper into how the zkEVM Community Edition works, it is necessary to understand some basic concepts that are common among zkEVM projects. The following section is not technically complete and is written as a simplified introduction to zkSNARKs, opcodes, and arithmetic circuits.
 
-At a high level, the EVM state transitions from one block to the next via instructions called opcodes. To prove the EVM transitioned correctly, a ZK proof must be generated for each block and constructing this ZK proof means representing each opcode or change in the EVM as a circuit. Building a zkEVM requires finding optimal ways to efficiently translate opcodes into circuit form. Let’s break down what this all means.
+At a high level, the EVM state transitions from one block to the next via instructions called opcodes. To prove the EVM transitioned correctly, a ZK proof must be generated for each block and constructing this ZK proof means representing each opcode or change in the EVM as a circuit. Building a zkEVM requires finding optimal ways to efficiently translate opcodes into circuit form. Let's break down what this all means.
 
 ## Zero-knowledge proofs
 
-> “\[Zero knowledge proofs\] deliver *scalability* by exponentially compressing the amount of computation needed to verify the integrity of a large batch of transactions.”            [\- Eli Ben-Sasson](https://nakamoto.com/cambrian-explosion-of-crypto-proofs/)
+> "\[Zero knowledge proofs\] deliver _scalability_ by exponentially compressing the amount of computation needed to verify the integrity of a large batch of transactions."            [\- Eli Ben-Sasson](https://nakamoto.com/cambrian-explosion-of-crypto-proofs/)
 
 A ZK proof involves two parties: the prover and the verifier. In a zkEVM, the prover generates the proof of validity. The verifier checks if the proof was done correctly.
 
@@ -25,7 +26,7 @@ An L1 proof of validity confirms every transaction on Mainnet Ethereum. For a [Z
 
 Zero-knowledge proofs offer the same level of security as re-executing transactions to verify their correctness. However, they require less computation and resources during the verification process. This means that more people can participate in maintaining the network by running nodes and contributing to consensus.
 
-Nodes using specialized hardware will be required to generate proofs of validity, but once the proof is posted on-chain, nearly any node will be able to verify the proof with a low-resource cryptographic operation.
+Nodes using specialized hardware will be required to generate proofs of validity, but once the proof is posted on-chain, nearly any node will be able to verify the proof with a low-resource cryptographic operation.
 
 A zkEVM makes it theoretically possible to run an Ethereum [node on your phone](https://youtu.be/hBupNf1igbY?t=590).
 
@@ -33,7 +34,7 @@ A zkEVM makes it theoretically possible to run an Ethereum [node on your phone](
 
 The zkEVM uses [zkSNARKs](https://blog.ethereum.org/2016/12/05/zksnarks-in-a-nutshell): a type of ZK protocol that is general purpose and capable of turning nearly any computation into a ZK proof. Before zkSNARKs, building ZK proofs was a highly specialized math problem that required a skilled cryptographer to create a unique ZK protocol for every new function. The discovery of zkSNARKs turned the creation of ZK protocols from a specialized math problem to a [generalized programming task](https://archive.devcon.org/archive/watch/6/zkps-and-programmable-cryptography/?tab=YouTube).
 
-[zkSNARKs stand for Zero-Knowledge Succinct Non-interactive ARguments of Knowledge](https://z.cash/technology/zksnarks/). Zero-knowledge refers to the protocol’s capacity to prove a statement is true “without revealing any information beyond the validity of the statement itself.” Though the ZK part tends to get the most attention, it is in fact optional and unnecessary for zkEVMs. The most relevant property is succinctness.
+[zkSNARKs stand for Zero-Knowledge Succinct Non-interactive ARguments of Knowledge](https://z.cash/technology/zksnarks/). Zero-knowledge refers to the protocol's capacity to prove a statement is true "without revealing any information beyond the validity of the statement itself." Though the ZK part tends to get the most attention, it is in fact optional and unnecessary for zkEVMs. The most relevant property is succinctness.
 
 ![https://www.youtube.com/watch?v=h-94UhJLeck](/articles/zkevm-community-edition-part-2-components/Sd2dQ6Q8Y2nPIgO0cqr9j.webp)
 
@@ -63,9 +64,9 @@ https://archive.devcon.org/archive/watch/6/eli5-zero-knowledge/?tab=YouTube
 
 To create a SNARK, you must first convert a function to circuit form. Writing a circuit breaks down the function into its simplest arithmetic logic of addition and multiplication. Because addition can express linear computations and multiplication can express exponential computations, these two simple operations become highly expressive when stacked together and applied to polynomials.
 
-![Polynomials are math expressions with “many terms.” ](/articles/zkevm-community-edition-part-2-components/gizYcrA2NKJ4Ow11FlxqJ.webp)
+![Polynomials are math expressions with "many terms." ](/articles/zkevm-community-edition-part-2-components/gizYcrA2NKJ4Ow11FlxqJ.webp)
 
-Polynomials are math expressions with “many terms.”
+Polynomials are math expressions with "many terms."
 
 In the context of this article, it is only necessary to know that polynomials have two useful properties: they are easy to work with and can efficiently encode a lot of information without needing to reveal all the information it represents. In other words, polynomials can be succinct: they can represent a complex computation yet remain short and fast to verify. For a complete explanation of how zkSNARKs work and why polynomials are used, [this paper](https://arxiv.org/pdf/1906.07221.pdf) is a good resource. For a practical explanation of how polynomial commitments schemes are applied in Ethereum scaling solutions, check out [this blog post](https://scroll.io/blog/kzg).
 
@@ -88,12 +89,12 @@ Example of a slightly more complex circuit https://nmohnblatt.github.io/zk-jargo
 
 In the image above, the circuit expects:
 
-- Inputs are *x*₀, *x*₁, and *x*₂
+- Inputs are *x*₀, *x*₁, and *x*₂
 - Output is *y = 5x*₀ *\+ 3(x*₁ *\+ x*₂)
 
 For a prover to demonstrate they know the private inputs without revealing them to the verifier, they must be able to complete the circuit and reach the same output known to both parties. Circuits are designed so that only the correct inputs can go through all the gates and arrive at the same publicly known output. Each step is iterative and must be done in a predetermined order to satisfy the circuit logic. In a sufficiently designed circuit, there should be no feasible way a prover can make it through the circuit without knowing the correct inputs.
 
-In the zkEVM Community Edition, circuits must prove that each transaction, all the opcodes used in the transaction, and the sequence of the operations are correct. As building circuits is a new and rapidly evolving field, there is still no “right way” to define the computation the circuit is trying to verify. To be practical, circuits must also be written efficiently in a way that minimizes the number of steps required while still being capable of satisfying the verifier. The difficulty of building a zkEVM is compounded by the fact that the skills required to build the necessary components are rare.
+In the zkEVM Community Edition, circuits must prove that each transaction, all the opcodes used in the transaction, and the sequence of the operations are correct. As building circuits is a new and rapidly evolving field, there is still no "right way" to define the computation the circuit is trying to verify. To be practical, circuits must also be written efficiently in a way that minimizes the number of steps required while still being capable of satisfying the verifier. The difficulty of building a zkEVM is compounded by the fact that the skills required to build the necessary components are rare.
 
 The Community Edition is an attempt to overcome both the technical and organizational challenges of building a consensus-level compatible zkEVM. The goal is to create a public good that serves as a common point of collaboration for the zkEVM community.
 
@@ -101,7 +102,7 @@ The Community Edition is an attempt to overcome both the technical and organizat
 
 The zkEVM Community Edition is possible thanks to the contribution of many teams including the [PSE](https://appliedzkp.org/), [Scroll Tech](https://scroll.io/), and [Taiko](https://taiko.xyz/) along with many individual contributors. Teams such as [Zcash](https://electriccoin.co/) have also researched and developed proving systems and libraries that have greatly benefited zkEVM efforts.
 
-The zkEVM Community Edition is an open-source project and can be accessed in the [main repo](https://github.com/privacy-scaling-explorations/zkevm-specs). If you’re interested in helping, you can learn more by visiting the [contribution guidelines](https://github.com/privacy-scaling-explorations/zkevm-circuits/blob/main/CONTRIBUTING.md). The Community Edition is being built in public and its current status can be viewed on the [project board](https://github.com/orgs/privacy-scaling-explorations/projects/3/views/1).
+The zkEVM Community Edition is an open-source project and can be accessed in the [main repo](https://github.com/privacy-scaling-explorations/zkevm-specs). If you're interested in helping, you can learn more by visiting the [contribution guidelines](https://github.com/privacy-scaling-explorations/zkevm-circuits/blob/main/CONTRIBUTING.md). The Community Edition is being built in public and its current status can be viewed on the [project board](https://github.com/orgs/privacy-scaling-explorations/projects/3/views/1).
 
 For any general questions, feel free to ask in the [PSE Discord.](https://discord.com/invite/sF5CT5rzrR)
 
