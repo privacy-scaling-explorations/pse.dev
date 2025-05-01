@@ -5,6 +5,7 @@ image: "/articles/secure-multi-party-computation/secure-multi-party-computation-
 tldr: "This post was written by [Brechy](https://github.com/brech1). Thanks [Nam Ngo](https://github.com/namnc) for the feedback and review!"
 date: "2024-08-06"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/v_KNOV_NwQwKV0tb81uBS4m-rbs-qJGvCx7WvwP4sDg"
+projects: ["mpz", "tlsn", "mpc-framework"]
 ---
 
 Secure multi-party computation (MPC) enables a group of participants to collaborate on a specific task that requires their data as input, ensuring the privacy of their inputs and the correctness of the output.
@@ -36,7 +37,7 @@ Specialized protocols are designed and optimized for a specific functionality. T
 
 ### Generic Protocols
 
-Generic protocols can compute any function that can be represented as a fixed-size circuit. Yao’s Garbled Circuits protocol is an example of a generic protocol. They can be applied to a wide range of problems.
+Generic protocols can compute any function that can be represented as a fixed-size circuit. Yao's Garbled Circuits protocol is an example of a generic protocol. They can be applied to a wide range of problems.
 
 ## Secure Protocol Requirements
 
@@ -64,7 +65,7 @@ Let's explore some real world use cases.
 
 ### Privacy Preserving Machine Learning
 
-It's possible to enhance privacy during the machine learning training and inference phases. During training, multiple parties can collaboratively train a model without disclosing their individual datasets. For inference, it can ensure that both the client's input data and the server's model remain confidential. This allows clients to receive model outputs without exposing their data and ensures that the provider’s model remains private.
+It's possible to enhance privacy during the machine learning training and inference phases. During training, multiple parties can collaboratively train a model without disclosing their individual datasets. For inference, it can ensure that both the client's input data and the server's model remain confidential. This allows clients to receive model outputs without exposing their data and ensures that the provider's model remains private.
 
 ### Threshold Cryptography
 
@@ -102,9 +103,9 @@ template matrixElementMul (m,n) {
     signal input b[m][n];
     signal output out[m][n];
 
-    for (var i=0; i &lt; m; i++) {
-        for (var j=0; j &lt; n; j++) {
-            out[i][j] &lt;== a[i][j] * b[i][j];
+    for (var i=0; i < m; i++) {
+        for (var j=0; j < n; j++) {
+            out[i][j] <== a[i][j] * b[i][j];
         }
     }
 }
@@ -131,7 +132,7 @@ For this example, it might have been quicker to manually construct the gates. Ho
 
 ## Oblivious Transfer
 
-Oblivious transfer (OT) is a cryptographic two-party protocol. It allows the receiving party to [obliviously](https://www.oxfordlearnersdictionaries.com/definition/english/obliviously) select one of the sending party’s inputs . The protocol’s privacy guarantees ensure that the sender does not learn the choice of the receiver and the receiver does not learn the non selected inputs.
+Oblivious transfer (OT) is a cryptographic two-party protocol. It allows the receiving party to [obliviously](https://www.oxfordlearnersdictionaries.com/definition/english/obliviously) select one of the sending party's inputs . The protocol's privacy guarantees ensure that the sender does not learn the choice of the receiver and the receiver does not learn the non selected inputs.
 
 Let's review a basic example, the **1-out-of-2 oblivious transfer**. In this protocol, the sender has two messages, 𝑚 0 and 𝑚 1 . The receiver wants to learn one of these messages, 𝑚 𝑏 , without the sender knowing which message was chosen.
 
@@ -195,13 +196,13 @@ Once the evaluator receives the garbled gate, it needs to decrypt exactly one ci
 
 In order to do this, it needs to receive from the garbler $W_{a}^A$ and $W_{b}^B$.
 
-Since the garbler knows 𝑎 , he can send the evaluator $W_{a}^A$. The labels are all random, independent, and identically distributed, so the evaluator won’t learn anything about 𝑎 from $W_{a}^A$
+Since the garbler knows 𝑎 , he can send the evaluator $W_{a}^A$. The labels are all random, independent, and identically distributed, so the evaluator won't learn anything about 𝑎 from $W_{a}^A$
 
-However, getting $W_{b}^B$ to the evaluator is harder. The garbler can’t send both $W_{0}^B$ and $W_{1}^B$ to the evaluator because that will allow them to decrypt two ciphertexts in the garbled gate. Similarly, the evaluator can’t simply ask for the one they want because they don’t want the garbler to learn 𝑏 .
+However, getting $W_{b}^B$ to the evaluator is harder. The garbler can't send both $W_{0}^B$ and $W_{1}^B$ to the evaluator because that will allow them to decrypt two ciphertexts in the garbled gate. Similarly, the evaluator can't simply ask for the one they want because they don't want the garbler to learn 𝑏 .
 
 So, the garbler and the evaluator use Oblivious Transfer, which allows the evaluator to learn only $W_{b}^B$ without revealing 𝑏 to the garbler.
 
-Note that in order for this to work, the evaluator needs to know when decryption succeeds and when it doesn’t. Otherwise, there’s no way for them to know which ciphertext yields the correct answer.
+Note that in order for this to work, the evaluator needs to know when decryption succeeds and when it doesn't. Otherwise, there's no way for them to know which ciphertext yields the correct answer.
 
 ### Example Walkthrough
 
@@ -336,7 +337,7 @@ Therefore, while real-time applications of MPC currently seem unfeasible, use ca
 MPC can be integrated with zero-knowledge proofs and fully homomorphic encryption to enhance security and functionality. Consider exploring the following resources on the [PSE Blog](https://mirror.xyz/privacy-scaling-explorations.eth/):
 
 - [Zero to Start: Applied Fully Homomorphic Encryption](https://mirror.xyz/privacy-scaling-explorations.eth/D8UHFW1t48x2liWb5wuP6LDdCRbgUH_8vOFvA0tNDJA)
-- [Beyond Zero-Knowledge: What’s Next in Programmable Cryptography?](https://mirror.xyz/privacy-scaling-explorations.eth/xXcRj5QfvA_qhkiZCVg46Gn9uX8P_Ld-DXlqY51roPY)
+- [Beyond Zero-Knowledge: What's Next in Programmable Cryptography?](https://mirror.xyz/privacy-scaling-explorations.eth/xXcRj5QfvA_qhkiZCVg46Gn9uX8P_Ld-DXlqY51roPY)
 
 ## Conclusion
 
@@ -347,9 +348,8 @@ Secure multi-party computation is a powerful cryptographic tool that allows mult
 These are some MPC projects we're building at [PSE](https://pse.dev/):
 
 - [mpz](https://github.com/privacy-scaling-explorations/mpz): Collection of multi-party computation libraries written in Rust :crab:.
-- [tls-notary](https://github.com/tlsnotary/tlsn): Data provenance and privacy with secure multi-party computation.
-- [circom-2-arithc](https://github.com/namnc/circom-2-arithc): Circom to Arithmetic Circuit compiler.
-- [circom-2-arithc-ts](https://github.com/voltrevo/circom-2-arithc-ts): Circom to Arithmetic Circuit compiler TypeScript library.
+- [tlsn](https://github.com/tlsnotary/tlsn): Data provenance and privacy with secure multi-party computation.
+- [mpc-framework](https://github.com/voltrevo/circom-2-arithc-ts): Circom to Arithmetic Circuit compiler TypeScript library.
 
 And this is a great list of software libraries and frameworks to start building:
 
@@ -364,4 +364,4 @@ And this is a great list of software libraries and frameworks to start building:
 5.  Ishai Yuval, Prabhakaran Manoj, and Sahai Amit. "Founding Cryptography on Oblivious Transfer – Efficiently." [PDF](https://iacr.org/archive/crypto2008/51570574/51570574.pdf), 2008.
 6.  Lindell Yehuda. "Secure Multiparty Computation (MPC)." [PDF](https://eprint.iacr.org/2020/300.pdf), 2020.
 7.  Mann Zoltán Ádám, Weinert Christian, Chabal Daphnee, and Bos Joppe W. "Towards Practical Secure Neural Network Inference: The Journey So Far and the Road Ahead." [PDF](https://eprint.iacr.org/2022/1483.pdf), 2022.
-8.  Yakoubov Sophia. "A Gentle Introduction to Yao’s Garbled Circuits." [PDF](https://web.mit.edu/sonka89/www/papers/2017ygc.pdf), 2017.
+8.  Yakoubov Sophia. "A Gentle Introduction to Yao's Garbled Circuits." [PDF](https://web.mit.edu/sonka89/www/papers/2017ygc.pdf), 2017.

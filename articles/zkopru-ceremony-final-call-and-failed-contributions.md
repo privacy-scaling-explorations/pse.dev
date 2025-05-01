@@ -2,9 +2,10 @@
 authors: ["PSE Team"]
 title: "Zkopru Ceremony: Final Call and Failed Contributions"
 image: null
-tldr: "We will end the ceremony on Friday. It was largely a success but we had a few cases of failed contributions. If your first run didn’t succeed you can now head back to our [website](https://zkopru.network/)_ to fix it"
+tldr: "We will end the ceremony on Friday. It was largely a success but we had a few cases of failed contributions. If your first run didn't succeed you can now head back to our [website](https://zkopru.network/)_ to fix it"
 date: "2022-08-26"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/X7O6_Y33NY-nNfzpV5HZRvups2qimQnQ9ef0OD1U8RY"
+projects: ["zkopru"]
 ---
 
 ![](https://miro.medium.com/max/1400/1*_TJxTYbsHsjKY_XJQhxthA.png)
@@ -15,11 +16,11 @@ As mentioned in our [previous post](https://thore-hildebrandt.medium.com/zkopru-
 
 ## Reasons for Failed Contributions
 
-We found three causes for failures and enabled affected accounts to do a second run on these circuits. Participants may not be aware that something went wrong in scenario 1&2 so it’s worth heading to our [website](https://zkopru.network/) to see if it allows you a second run.
+We found three causes for failures and enabled affected accounts to do a second run on these circuits. Participants may not be aware that something went wrong in scenario 1&2 so it's worth heading to our [website](https://zkopru.network/) to see if it allows you a second run.
 
 Note that the ceremony is secure as long as at least one participant was not malicious. We provide the option for a second run to make sure no one feels censored.
 
-**1\. Conflicting Contributions**We found that most cases occurred during initial periods of high traffic when two or more contributors joined at around the same time. The rate of contribution slowed after that, and we deployed a fix. A contributor may have failures in one or more circuits, but have successful contributions in others. Only the failed contributions have been reset to allow re-run. Each contribution builds on the latest verified contribution, but in this case, both contributors built on the same one. So the contribution looks valid but doesn’t appear in the verification transcript. Similar to an uncle block in Ethereum.
+**1\. Conflicting Contributions**We found that most cases occurred during initial periods of high traffic when two or more contributors joined at around the same time. The rate of contribution slowed after that, and we deployed a fix. A contributor may have failures in one or more circuits, but have successful contributions in others. Only the failed contributions have been reset to allow re-run. Each contribution builds on the latest verified contribution, but in this case, both contributors built on the same one. So the contribution looks valid but doesn't appear in the verification transcript. Similar to an uncle block in Ethereum.
 
 **2\. Chaining from 0**In a small number of cases a contributor chained from contribution 0, effectively restarting the chain. These cases have also been identified and reset. The code now has a sanity check to prevent this from occurring.
 

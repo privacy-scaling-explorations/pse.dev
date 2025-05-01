@@ -5,23 +5,24 @@ image: "/articles/retrospective-trusted-setups-and-p0tion-project/retrospective-
 tldr: "This post was written by the PSE Trusted Setup Team."
 date: "2025-01-15"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/Cf9nYvSlATGks8IcFaHQe3H5mgZ_Va767Zk5I8jPYXk"
+projects: ["p0tion", "powers-of-tau", "trusted-setups"]
 ---
 
 ## Chronological look back
 
 ### **Early Stages and Foundation**
 
-PSE’s Trusted Setups team began two years ago with a focus on understanding and implementing trusted setup ceremonies, which are crucial in generating secure cryptographic keys for production-ready zkSNARKs circuits. The team was formed to continue work on ongoing projects as well as starting to work on new initiatives.
+PSE's Trusted Setups team began two years ago with a focus on understanding and implementing trusted setup ceremonies, which are crucial in generating secure cryptographic keys for production-ready zkSNARKs circuits. The team was formed to continue work on ongoing projects as well as starting to work on new initiatives.
 
-In a trusted setup ceremony, multiple participants collaborate to compute the cryptographic parameters for the circuit, each contributing their own entropy - some [secret](https://www.youtube.com/watch?v=I4cDAqeEmpU), [randomly](https://web.archive.org/web/20230501054531/https:/proofof.cat/) [generated](https://web.archive.org/web/20230504180930/https:/hackmd.io/axUX8pFUQD-yCiBzQEDrYQ?view) [value](https://www.vice.com/en/article/power-tau-zcash-radioactive-toxic-waste/) - that is [destroyed](https://x.com/saint_rat/status/1647601259724275713) after the computation is complete. As long as at least one participant runs the computation securely and properly disposes of their “toxic waste”, the setup is secure.
+In a trusted setup ceremony, multiple participants collaborate to compute the cryptographic parameters for the circuit, each contributing their own entropy - some [secret](https://www.youtube.com/watch?v=I4cDAqeEmpU), [randomly](https://web.archive.org/web/20230501054531/https:/proofof.cat/) [generated](https://web.archive.org/web/20230504180930/https:/hackmd.io/axUX8pFUQD-yCiBzQEDrYQ?view) [value](https://www.vice.com/en/article/power-tau-zcash-radioactive-toxic-waste/) - that is [destroyed](https://x.com/saint_rat/status/1647601259724275713) after the computation is complete. As long as at least one participant runs the computation securely and properly disposes of their "toxic waste", the setup is secure.
 
-Historically, trusted setups have been difficult and time-consuming, requiring teams to implement infrastructure and coordinate participation for each new zkSNARK, often across two separate phases. The time, resources and technical expertise required to run a trusted setup ceremony placed a big burden on teams working on zero knowledge protocols - [this podcast](https://radiolab.org/podcast/ceremony) famously documents the elaborate precautions taken to secure Zcash’s 2016 trusted setup ceremony.
+Historically, trusted setups have been difficult and time-consuming, requiring teams to implement infrastructure and coordinate participation for each new zkSNARK, often across two separate phases. The time, resources and technical expertise required to run a trusted setup ceremony placed a big burden on teams working on zero knowledge protocols - [this podcast](https://radiolab.org/podcast/ceremony) famously documents the elaborate precautions taken to secure Zcash's 2016 trusted setup ceremony.
 
 Our team identified a need for accessible and replicable tools that would help teams run trusted setups with less overhead. We quickly developed expertise in this niche but critical area, laying the groundwork for innovative tools to make trusted setups easier and more efficient.
 
 ### **Perpetual Powers of Tau**
 
-In a two-phase trusted setup, the second phase is circuit-specific; but the first phase can be used by any number of projects as long as they trust that it’s secure. Our team took on the challenge of implementing a Phase 1 ceremony that could be trusted by anyone who might want to build on it. Since a setup is secure as long as any one participant has behaved honestly, that meant creating a ceremony that could stay open indefinitely and accept any number of contributions. This way, anyone who wanted to build on the setup but wasn’t confident in its integrity could ensure it was secure for their project by simply making their own contribution.
+In a two-phase trusted setup, the second phase is circuit-specific; but the first phase can be used by any number of projects as long as they trust that it's secure. Our team took on the challenge of implementing a Phase 1 ceremony that could be trusted by anyone who might want to build on it. Since a setup is secure as long as any one participant has behaved honestly, that meant creating a ceremony that could stay open indefinitely and accept any number of contributions. This way, anyone who wanted to build on the setup but wasn't confident in its integrity could ensure it was secure for their project by simply making their own contribution.
 
 The result was the [Perpetual Powers of Tau ceremony](https://github.com/privacy-scaling-explorations/perpetualpowersoftau), focusing on producing phase-1 files crucial for all zkSNARKs. This ongoing ceremony has been running since 2019, with 85 contributors to date. Contributing to PPoT involves managing complex 100GB files, which requires contributors to have enough technical knowledge to spin up a server large enough to compute the contribution. It also requires the contributor to know how to install the right tools, download the files and upload the files after they finished their contribution.
 
@@ -35,7 +36,7 @@ Since Perpetual Powers of Tau began, the team has successfully coordinated, prep
 
 A pivotal moment for the project was the implementation of the [KZG Ceremony](https://blog.ethereum.org/2024/01/23/kzg-wrap), essential for [EIP 4844](https://eips.ethereum.org/EIPS/eip-4844) (Proto-Danksharding). This Ethereum core upgrade aimed to reduce gas prices by creating a separate market for data storage, benefiting layer 2 protocols.
 
-We developed a [user-friendly web application](https://ceremony.ethereum.org/) to invite broad community participation, with a user-friendly process that guided contributors through the ceremony step by step, automating and abstracting away the complex operations of computation and toxic waste disposal. PSE’s design team created a beautiful user interface that made participating in the ceremony feel more like a sacred ritual than collective math.
+We developed a [user-friendly web application](https://ceremony.ethereum.org/) to invite broad community participation, with a user-friendly process that guided contributors through the ceremony step by step, automating and abstracting away the complex operations of computation and toxic waste disposal. PSE's design team created a beautiful user interface that made participating in the ceremony feel more like a sacred ritual than collective math.
 
 ![ceremony.ethereum.org landing page at the time the ceremony was active](/articles/retrospective-trusted-setups-and-p0tion-project/01yqkaXXNPa8RfDHylN4M.webp)
 
@@ -92,7 +93,7 @@ The team worked on different projects and solutions. Each one of them presented 
 
 Overall we learned the importance of a clear and structured roadmap and project management process. We also learned that it's far more efficient and beneficial to get early feedback on a work-in-progress rather than waiting to present a finished but potentially misguided solution.
 
-**Besides the previous recommendation of implementing a structured project management approach, we recommend encouraging a culture of early code review, even on incomplete work: a discussion on a “half-baked” code is better than no discussion that leads to the development of an off-target solution.**
+**Besides the previous recommendation of implementing a structured project management approach, we recommend encouraging a culture of early code review, even on incomplete work: a discussion on a "half-baked" code is better than no discussion that leads to the development of an off-target solution.**
 
 ### Technical Considerations
 
@@ -118,7 +119,7 @@ As we conclude active development, these trusted setup projects are entering a L
 - [KZG ceremony](https://github.com/zkparty/trusted-setup-frontend)
 
   - No further development planned
-  - Website [www.ceremony.ethereum.org](http://www.ceremony.ethereum.org/) will stay up and running for users to check the contributors’ list and the final transcript
+  - Website [www.ceremony.ethereum.org](http://www.ceremony.ethereum.org/) will stay up and running for users to check the contributors' list and the final transcript
   - Codebase will remain public, but developers are generally recommended to use p0tion as a more general tool for all ceremonies
 
 - [p0tion](https://github.com/privacy-scaling-explorations/p0tion)

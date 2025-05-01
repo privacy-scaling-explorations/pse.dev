@@ -5,11 +5,12 @@ image: "/articles/unleashing-potential-introducing-the-pse-core-program/unleashi
 tldr: "This post was written by the PSE EcoDev Team."
 date: "2024-04-24"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/PvNKlzp8Xlaic_DeIFEW20-ai4eN1AqJO26d4YRqWwM"
+projects: ["semaphore", "bandada", "tlsn", "zk-email"]
 ---
 
 Hey there, curious minds! Are you ready to dive into the world of practical skills and open-source project contributions? Well, buckle up because we're about to embark on an exciting journey through the **PSE Core Program**!
 
-In today’s digital landscape, privacy and security are paramount. That’s where Zero Knowledge (ZK) technologies come into play. By allowing parties to verify information without revealing any underlying data, ZK protocols offer a revolutionary solution to protect sensitive information in a world where data breaches and privacy violations are all too common.
+In today's digital landscape, privacy and security are paramount. That's where Zero Knowledge (ZK) technologies come into play. By allowing parties to verify information without revealing any underlying data, ZK protocols offer a revolutionary solution to protect sensitive information in a world where data breaches and privacy violations are all too common.
 
 With ZK protocols, individuals can engage in transactions, authenticate identities, and share information without compromising their privacy. It's a game-changer for industries ranging from finance and healthcare to communications and beyond.
 

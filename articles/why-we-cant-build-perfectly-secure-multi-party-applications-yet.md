@@ -5,9 +5,10 @@ image: "/articles/why-we-cant-build-perfectly-secure-multi-party-applications-ye
 tldr: "This post was written by PSE researcher Enrico Bottazzi. Thanks to Pia Park for discussions and reviews."
 date: "2025-01-14"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/nXUhkZ84ckZi_5mYRFCCKgkLVFAmM2ECdEFCQul2jPs"
+projects: ["mpc-framework"]
 ---
 
-In this post, we’ll explore why building secure multi-party applications, which aim to compute a function over inputs from different parties while keeping those inputs private, is impossible today. We use Multi-party Trade Credit Set-off (MTCS) as an example, showing how technologies like multi-party computation and fully homomorphic encryption fall short of perfect security due to a fundamental tradeoff between security and liveness. The current solution involves a delegated security model, but it’s not ideal. Are there any robust patches to this problem, or will we have to wait for indistinguishability obfuscation?
+In this post, we'll explore why building secure multi-party applications, which aim to compute a function over inputs from different parties while keeping those inputs private, is impossible today. We use Multi-party Trade Credit Set-off (MTCS) as an example, showing how technologies like multi-party computation and fully homomorphic encryption fall short of perfect security due to a fundamental tradeoff between security and liveness. The current solution involves a delegated security model, but it's not ideal. Are there any robust patches to this problem, or will we have to wait for indistinguishability obfuscation?
 
 ### Multilateral Trade Credit Set-off
 

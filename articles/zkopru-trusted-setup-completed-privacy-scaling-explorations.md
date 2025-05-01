@@ -5,6 +5,7 @@ image: null
 tldr: "The public participation part of our ceremony has finished, we provide verification details, stats and announce a random beacon"
 date: "2022-08-26"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/dQec_qe4VOcKoVH9OH42Ef9WuSqyAJ6S40jRrZ_Mw7g"
+projects: ["zkopru"]
 ---
 
 Originally published on Apr 21, 2021:
@@ -17,7 +18,7 @@ The public participation part of our ceremony is now complete! It ran for 22 day
 
 ## **Statistics**
 
-By some metrics our trusted setup was the largest ever conducted, we had 5147 contributions across the 16 circuits albeit “only” by 369 individuals. A total computation time of 190,5h (7days) went into the ceremony and the average participant spent 36 minutes. We also had quite number of failed contributions and therefore [gave affected participants an additional week](https://thore-hildebrandt.medium.com/zkopru-ceremony-final-call-and-failed-contributions-5a787cb4885e) to do a second run.
+By some metrics our trusted setup was the largest ever conducted, we had 5147 contributions across the 16 circuits albeit "only" by 369 individuals. A total computation time of 190,5h (7days) went into the ceremony and the average participant spent 36 minutes. We also had quite number of failed contributions and therefore [gave affected participants an additional week](https://thore-hildebrandt.medium.com/zkopru-ceremony-final-call-and-failed-contributions-5a787cb4885e) to do a second run.
 
 ![](https://miro.medium.com/max/916/1*FZtgLoyw52l_fC-YGxyX8g.png)
 
