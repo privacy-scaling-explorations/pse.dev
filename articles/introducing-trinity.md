@@ -18,7 +18,7 @@ The core mechanism unifying these concepts is the KZG polynomial commitment sche
 
 Trinity redefines the role of ZK credentials, extending their use beyond traditional settings (e.g., authentication) to serve as verified private inputs within secure two-party computations (2PC).
 
-We've just added it as a new template in [mpc-hello](https://github.com/voltrevo/mpc-hello/tree/main/trinity), and it's time to show what it brings to the table.
+We've just added it as a new template in [mpc-hello](https://github.com/privacy-scaling-explorations/mpc-hello), and it's time to show what it brings to the table.
 
 To understand Trinity's novelty, let's first revisit how traditional secure two-party computation (2PC) works.
 
