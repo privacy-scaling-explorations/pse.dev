@@ -1,7 +1,7 @@
 ---
 authors: ["Yanis Meziane"]
 title: "Introducing Trinity"
-image: "trinity.webp"
+image: "trinity.png"
 tldr: "Two-Party Computation for the ZK Era"
 date: "2025-04-28"
 tags: ["zk", "mpc"]
@@ -50,7 +50,7 @@ Trinity follows the same broad structure — but introduces key innovations to m
 Specifically, Trinity leverages:
 
 - 🔑 **Laconic OT**: Based on the [Witness Encryption for KZG](https://eprint.iacr.org/2024/264) paper, Trinity replaces traditional OT with a KZG-based commitment scheme.
-- 🧩 **Garbled Circuits**: Powered by the [mpz](https://github.com/privacy-scaling-explorations/mpz) library. 
+- 🧩 **Garbled Circuits**: Powered by the [mpz](https://github.com/privacy-scaling-explorations/mpz) library.
 - 📦 **KZG Commitments**:
   - Alice commits to her input using a polynomial commitment (KZG), without targeting Bob specifically. These commitments are reusable across sessions or peers.
   - Since some ZK provers (like [Halo2](https://github.com/privacy-scaling-explorations/halo2)) use KZG already, this means Alice can also **prove** her committed input in zero-knowledge — if she wants.
