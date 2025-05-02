@@ -5,6 +5,7 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
 import { Icons } from "../icons"
+import { ArticleInEvidenceCard } from "./article-in-evidance-card"
 
 export async function BlogRecentArticles({ lang }: { lang: any }) {
   const articles = getArticles({ limit: 4 })
@@ -22,42 +23,13 @@ export async function BlogRecentArticles({ lang }: { lang: any }) {
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
             <div className="inset-0 relative lg:col-span-3">
-              <div
-                className="flex flex-col gap-5 w-full items-center aspect-video after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-20 group-hover:after:opacity-50 transition-opacity duration-200 after:z-[0]"
-                style={{
-                  backgroundImage: `url(${lastArticle.image ?? "/fallback.webp"})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <div className="duration-200 flex flex-col gap-[10px] text-left px-5 lg:px-16 py-6 lg:py-16 relative z-[1] w-full">
-                  <Link
-                    href={`/blog/${lastArticle.id}`}
-                    className="text-4xl font-bold text-white font-display hover:text-anakiwa-400 transition-colors"
-                  >
-                    {lastArticle.title}
-                  </Link>
-                  <span className="text-sm font-sans text-white/80 uppercase">
-                    {lastArticle.authors?.join(", ")}
-                  </span>
-                  {lastArticle.tldr && (
-                    <span className="text-base font-sans text-white/80 font-normal line-clamp-2 lg:line-clamp-3">
-                      {lastArticle.tldr}
-                    </span>
-                  )}
-                  <Link href={`/blog/${lastArticle.id}`} className="ml-auto">
-                    <Button
-                      className="uppercase ml-auto mt-4"
-                      variant="secondary"
-                    >
-                      <div className="flex items-center gap-2">
-                        <span className="!text-center">{t("readMore")}</span>
-                        <Icons.arrowRight className="w-4 h-4" />
-                      </div>
-                    </Button>
-                  </Link>
-                </div>
-              </div>
+              <ArticleInEvidenceCard
+                article={lastArticle}
+                showReadMore
+                showDate={false}
+                variant="xl"
+                size="xl"
+              />
             </div>
 
             <div className="flex flex-col gap-6 lg:col-span-2">

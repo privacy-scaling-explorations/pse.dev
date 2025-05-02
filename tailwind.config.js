@@ -1,6 +1,3 @@
-// eslint-disable-next-line no-undef, @typescript-eslint/no-require-imports
-const { fontFamily } = require("tailwindcss/defaultTheme")
-
 /** @type {import('tailwindcss').Config} */
 // eslint-disable-next-line no-undef
 module.exports = {
@@ -102,8 +99,9 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        display: ["var(--font-display)", "Space Grotesk"],
+        sans: ["var(--font-sans)"],
+        display: ["var(--font-display)"],
+        inter: ["var(--font-inter)"],
       },
       keyframes: {
         "accordion-down": {
