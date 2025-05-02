@@ -1,7 +1,7 @@
 ---
 authors: ["Yanis Meziane"]
 title: "Introducing Trinity"
-image: "trinity.png"
+image: "/articles/introducing-trinity/trinity.png"
 tldr: "Two-Party Computation for the ZK Era"
 date: "2025-04-28"
 tags: ["zk", "mpc"]
