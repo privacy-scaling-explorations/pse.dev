@@ -309,9 +309,20 @@ const MultiIndexSearchView = ({
     return <DirectSearchResults query={searchQuery} setOpen={setOpen} />
   }
 
+  // Sort indexes to ensure projects appear first, followed by blog
+  const sortedIndexes = [...visibleIndexes].sort((a, b) => {
+    if (a.toLowerCase().includes("project")) return -1
+    if (b.toLowerCase().includes("project")) return 1
+
+    if (a.toLowerCase().includes("blog")) return 1
+    if (b.toLowerCase().includes("blog")) return -1
+
+    return a.localeCompare(b)
+  })
+
   return (
     <div>
-      {visibleIndexes.map((indexName: string) => (
+      {sortedIndexes.map((indexName: string) => (
         <div key={indexName} className="mb-6">
           <div className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">
             {indexName.replace(/-/g, " ")}
