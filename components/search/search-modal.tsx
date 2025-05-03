@@ -84,25 +84,18 @@ function Hit({
       {snippet && (
         <Markdown
           components={{
-            h1: ({ children }) => (
-              <h1 className="text-base font-semibold">{children}</h1>
-            ),
-            h2: ({ children }) => (
-              <h2 className="text-base font-semibold">{children}</h2>
-            ),
-            h3: ({ children }) => (
-              <h3 className="text-base font-semibold">{children}</h3>
-            ),
-            h4: ({ children }) => (
-              <h4 className="text-base font-semibold">{children}</h4>
-            ),
-            h5: ({ children }) => (
-              <h5 className="text-base font-semibold">{children}</h5>
-            ),
-            h6: ({ children }) => (
-              <h6 className="text-base font-semibold">{children}</h6>
-            ),
+            h1: ({ children }) => null,
+            h2: ({ children }) => null,
+            h3: ({ children }) => null,
+            h4: ({ children }) => null,
+            h5: ({ children }) => null,
+            h6: ({ children }) => null,
             img: ({ src, alt }) => null,
+            a: ({ href, children }) => (
+              <span className="text-tuatara-700 font-sans text-base font-normal">
+                {children}
+              </span>
+            ),
           }}
         >
           {snippet}
@@ -316,9 +309,20 @@ const MultiIndexSearchView = ({
     return <DirectSearchResults query={searchQuery} setOpen={setOpen} />
   }
 
+  // Sort indexes to ensure projects appear first, followed by blog
+  const sortedIndexes = [...visibleIndexes].sort((a, b) => {
+    if (a.toLowerCase().includes("project")) return -1
+    if (b.toLowerCase().includes("project")) return 1
+
+    if (a.toLowerCase().includes("blog")) return 1
+    if (b.toLowerCase().includes("blog")) return -1
+
+    return a.localeCompare(b)
+  })
+
   return (
     <div>
-      {visibleIndexes.map((indexName: string) => (
+      {sortedIndexes.map((indexName: string) => (
         <div key={indexName} className="mb-6">
           <div className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">
             {indexName.replace(/-/g, " ")}

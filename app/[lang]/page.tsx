@@ -11,7 +11,9 @@ function BlogSection({ lang }: { lang: string }) {
   return (
     <Suspense
       fallback={
-        <div className="py-10 lg:py-16">Loading recent articles...</div>
+        <div className="py-10 lg:py-16 text-center">
+          Loading recent articles...
+        </div>
       }
     >
       {/* @ts-expect-error - This is a valid server component pattern */}

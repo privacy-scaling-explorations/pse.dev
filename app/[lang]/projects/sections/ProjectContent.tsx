@@ -235,6 +235,8 @@ export const ProjectContent = ({
                     </div>
                     <ProjectExtraLinks project={project} lang={lang} />
                   </div>
+
+                  <ProjectBlogArticles project={project} lang={lang} />
                 </div>
               </div>
               {!isResearchProject && (
@@ -261,7 +263,6 @@ export const ProjectContent = ({
             </div>
           </AppContent>
 
-          <ProjectBlogArticles project={project} lang={lang} />
           <DiscoverMoreProjects project={project} lang={lang} />
         </Divider.Section>
       </div>

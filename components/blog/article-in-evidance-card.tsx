@@ -1,22 +1,13 @@
-import { useTranslation } from "@/app/i18n"
-import { AppContent } from "../ui/app-content"
-import { getArticles, Article } from "@/lib/blog"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { Button } from "../ui/button"
-import { Icons } from "../icons"
+"use client"
 
-const ArticleInEvidenceCard = ({
-  article,
-  showReadMore = false,
-  size = "lg",
-  variant = "default",
-  className,
-  asLink = false,
-  titleClassName = "",
-  contentClassName = "",
-  showDate = true,
-}: {
+import { Icons } from "../icons"
+import { Button } from "../ui/button"
+import { Article } from "@/lib/blog"
+import { cn } from "@/lib/utils"
+import Link from "next/link"
+import { useTranslation } from "react-i18next"
+
+interface ArticleInEvidenceCardProps {
   article: Article
   showReadMore?: boolean
   size?: "sm" | "lg" | "xl"
@@ -26,7 +17,39 @@ const ArticleInEvidenceCard = ({
   titleClassName?: string
   contentClassName?: string
   showDate?: boolean
+}
+
+const AsLinkWrapper = ({
+  children,
+  href,
+  asLink,
+}: {
+  children: React.ReactNode
+  href: string
+  asLink: boolean
 }) => {
+  return asLink ? (
+    <Link className="group" href={href}>
+      {children}
+    </Link>
+  ) : (
+    <>{children}</>
+  )
+}
+
+export const ArticleInEvidenceCard = async ({
+  article,
+  showReadMore = false,
+  size = "lg",
+  variant = "default",
+  className,
+  asLink = false,
+  titleClassName = "",
+  contentClassName = "",
+  showDate = true,
+}: ArticleInEvidenceCardProps) => {
+  const { t } = useTranslation("blog-page")
+
   const hideTldr = variant === "compact"
 
   const formatDate = (dateString: string) => {
@@ -36,24 +59,6 @@ const ArticleInEvidenceCard = ({
       day: "numeric",
       year: "numeric",
     })
-  }
-
-  const AsLinkWrapper = ({
-    children,
-    href,
-    asLink,
-  }: {
-    children: React.ReactNode
-    href: string
-    asLink: boolean
-  }) => {
-    return asLink ? (
-      <Link className="group" href={href}>
-        {children}
-      </Link>
-    ) : (
-      <>{children}</>
-    )
   }
 
   return (
@@ -121,7 +126,7 @@ const ArticleInEvidenceCard = ({
             <Link href={`/blog/${article.id}`} className="ml-auto">
               <Button className="uppercase ml-auto mt-4" variant="secondary">
                 <div className="flex items-center gap-2">
-                  <span className="!text-center">Read More</span>
+                  <span className="!text-center">{t("readMore")}</span>
                   <Icons.arrowRight className="w-4 h-4" />
                 </div>
               </Button>
@@ -130,63 +135,5 @@ const ArticleInEvidenceCard = ({
         </div>
       </div>
     </AsLinkWrapper>
-  )
-}
-
-export async function BlogRecentArticles({ lang }: { lang: any }) {
-  const articles = getArticles({ limit: 4 })
-  const { t } = await useTranslation(lang, "blog-page")
-
-  const lastArticle = articles[0]
-  const otherArticles = articles.slice(1)
-
-  return (
-    <div className="py-10 lg:py-16">
-      <AppContent>
-        <div className="flex flex-col gap-10">
-          <h3 className="text-base font-bold font-sans text-center uppercase tracking-[3.36px]">
-            {t("recentArticles")}
-          </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
-            <div className="inset-0 relative lg:col-span-3">
-              <ArticleInEvidenceCard
-                article={lastArticle}
-                showReadMore
-                showDate={false}
-                variant="xl"
-                size="xl"
-              />
-            </div>
-
-            <div className="flex flex-col gap-6 lg:col-span-2">
-              {otherArticles.map((article, index) => (
-                <Link
-                  key={article.id}
-                  href={`/blog/${article.id}`}
-                  className={cn("group border-b pb-4")}
-                >
-                  <h4 className="text-xl font-medium text-tuatara-950 duration-200 group-hover:text-anakiwa-500 transition-colors">
-                    {article.title}
-                  </h4>
-                  {article.authors && (
-                    <span className="text-sm font-sans text-tuatara-400 uppercase">
-                      {article.authors?.join(", ")}
-                    </span>
-                  )}
-                </Link>
-              ))}
-              <Link href="/blog" className="mt-auto">
-                <Button className="uppercase">
-                  <div className="flex items-center gap-2">
-                    <span>{t("seeMore")}</span>
-                    <Icons.arrowRight className="w-4 h-4" />
-                  </div>
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </AppContent>
-    </div>
   )
 }

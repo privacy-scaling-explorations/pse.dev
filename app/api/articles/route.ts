@@ -1,19 +1,34 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { getArticles } from "@/lib/blog"
 
-export async function GET(request: Request) {
+// Cache control
+export const revalidate = 60 // Revalidate cache after 60 seconds
+export const dynamic = "force-dynamic" // Ensure the route is always evaluated
+
+export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
-  const project = searchParams.get("project")
-  const limit = searchParams.get("limit")
-    ? parseInt(searchParams.get("limit") || "100")
-    : undefined
   const tag = searchParams.get("tag") || undefined
+  const limit = searchParams.get("limit")
+    ? parseInt(searchParams.get("limit") as string, 10)
+    : undefined
+  const project = searchParams.get("project") || undefined
 
-  const articles = getArticles({
-    project: project || undefined,
-    limit,
-    tag,
-  })
+  try {
+    const articles = getArticles({
+      tag,
+      limit,
+      project,
+    })
 
-  return NextResponse.json({ articles })
+    return NextResponse.json({
+      articles,
+      success: true,
+    })
+  } catch (error) {
+    console.error("Error fetching articles:", error)
+    return NextResponse.json(
+      { error: "Failed to fetch articles", success: false },
+      { status: 500 }
+    )
+  }
 }

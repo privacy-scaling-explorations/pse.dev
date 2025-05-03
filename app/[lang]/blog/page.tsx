@@ -3,11 +3,16 @@ import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
 import { Metadata } from "next"
 import { Suspense } from "react"
-import { Article, getArticles } from "@/lib/blog"
-import { BlogArticleCard } from "@/components/blog/blog-article-card"
-import Link from "next/link"
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query"
+import ArticlesList from "@/components/blog/ArticlesList"
 
 export const dynamic = "force-dynamic"
+
+export const revalidate = 60 // Revalidate every 60 seconds
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -19,55 +24,38 @@ interface BlogPageProps {
   searchParams?: { [key: string]: string | string[] | undefined }
 }
 
-const ArticlesGrid = ({
-  articles,
-  lang,
-}: {
-  articles: Article[]
-  lang: string
-}) => {
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {articles.length === 0 && (
-        <p className="col-span-full text-center text-gray-500">
-          No articles found for this tag.
-        </p>
-      )}
-      {articles.map(
-        ({ id, title, image, tldr = "", date, authors, content }: Article) => {
-          const url = `/${lang}/blog/${id}`
-          return (
-            <div key={id} className="flex h-full">
-              <Link
-                className="flex-1 w-full hover:opacity-90 transition-opacity duration-300 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-900/10"
-                href={url}
-                rel="noreferrer"
-              >
-                <BlogArticleCard
-                  id={id}
-                  image={image}
-                  title={title}
-                  date={date}
-                  authors={authors}
-                  content={content}
-                />
-              </Link>
-            </div>
-          )
-        }
-      )}
-    </div>
-  )
-}
-
 const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
   const { t } = await useTranslation(lang, "blog-page")
-
   const tag = searchParams?.tag as string | undefined
-  const articles =
-    getArticles({
-      tag,
-    }) ?? []
+
+  // Initialize QueryClient at request time
+  const queryClient = new QueryClient()
+
+  // Prefetch the query with a simpler approach
+  await queryClient.prefetchQuery({
+    queryKey: ["articles", tag],
+    queryFn: async () => {
+      try {
+        const params = new URLSearchParams()
+        if (tag) params.append("tag", tag)
+
+        // Use a relative URL to avoid environment-specific issues
+        const response = await fetch(`/api/articles?${params.toString()}`, {
+          next: { revalidate },
+        })
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch articles: ${response.status}`)
+        }
+
+        const data = await response.json()
+        return data.articles || []
+      } catch (error) {
+        console.error("Error fetching articles:", error)
+        return []
+      }
+    },
+  })
 
   return (
     <div className="flex flex-col">
@@ -85,13 +73,15 @@ const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
         </AppContent>
       </div>
 
-      <AppContent className="flex flex-col gap-10 py-10">
+      <AppContent className="flex flex-col gap-10 lg:gap-16 pb-10 lg:py-10 lg:max-w-[978px]">
         <Suspense
           fallback={
             <div className="flex justify-center py-10">Loading articles...</div>
           }
         >
-          <ArticlesGrid articles={articles} lang={lang} />
+          <HydrationBoundary state={dehydrate(queryClient)}>
+            <ArticlesList lang={lang} tag={tag} />
+          </HydrationBoundary>
         </Suspense>
       </AppContent>
     </div>

@@ -1,14 +1,14 @@
-import { useTranslation } from "@/app/i18n"
-import { AppContent } from "../ui/app-content"
-import { getArticles, Article } from "@/lib/blog"
-import Link from "next/link"
+"use client"
+
+import { useQuery } from "@tanstack/react-query"
+import { Article } from "@/lib/blog"
+import { ArticleListCard } from "./article-list-card"
 import { cn } from "@/lib/utils"
-import { Button } from "../ui/button"
-import { Icons } from "../icons"
+import Link from "next/link"
+import { useTranslation } from "react-i18next"
 
 const ArticleInEvidenceCard = ({
   article,
-  showReadMore = false,
   size = "lg",
   variant = "default",
   className,
@@ -27,6 +27,8 @@ const ArticleInEvidenceCard = ({
   contentClassName?: string
   showDate?: boolean
 }) => {
+  const { t } = useTranslation("blog-page")
+
   const hideTldr = variant === "compact"
 
   const formatDate = (dateString: string) => {
@@ -117,76 +119,97 @@ const ArticleInEvidenceCard = ({
               {article.tldr}
             </span>
           )}
-          {showReadMore && (
-            <Link href={`/blog/${article.id}`} className="ml-auto">
-              <Button className="uppercase ml-auto mt-4" variant="secondary">
-                <div className="flex items-center gap-2">
-                  <span className="!text-center">Read More</span>
-                  <Icons.arrowRight className="w-4 h-4" />
-                </div>
-              </Button>
-            </Link>
-          )}
         </div>
       </div>
     </AsLinkWrapper>
   )
 }
 
-export async function BlogRecentArticles({ lang }: { lang: any }) {
-  const articles = getArticles({ limit: 4 })
-  const { t } = await useTranslation(lang, "blog-page")
+async function fetchArticles(tag?: string) {
+  try {
+    const params = new URLSearchParams()
+    if (tag) params.append("tag", tag)
+
+    const response = await fetch(`/api/articles?${params.toString()}`, {
+      cache: "default",
+    })
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch articles: ${response.status}`)
+    }
+
+    const data = await response.json()
+    return data.articles || []
+  } catch (error) {
+    console.error("Error fetching articles:", error)
+    return []
+  }
+}
+
+interface ArticlesListProps {
+  lang: string
+  tag?: string
+}
+
+const ArticlesList = ({ lang, tag }: ArticlesListProps) => {
+  const {
+    data: articles = [],
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["articles", tag],
+    queryFn: () => fetchArticles(tag),
+  })
+
+  if (isLoading || articles.length === 0) {
+    return <div className="flex justify-center py-10">Loading articles...</div>
+  }
+
+  if (isError) {
+    return (
+      <div className="py-10 text-center">
+        <p className="text-lg text-red-600">Error loading articles</p>
+      </div>
+    )
+  }
 
   const lastArticle = articles[0]
-  const otherArticles = articles.slice(1)
+  const featuredArticles = articles.slice(1, 5)
+  const otherArticles = articles.slice(5)
 
   return (
-    <div className="py-10 lg:py-16">
-      <AppContent>
-        <div className="flex flex-col gap-10">
-          <h3 className="text-base font-bold font-sans text-center uppercase tracking-[3.36px]">
-            {t("recentArticles")}
-          </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
-            <div className="inset-0 relative lg:col-span-3">
+    <div className="flex flex-col gap-10 lg:gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch">
+        <ArticleInEvidenceCard
+          article={lastArticle}
+          size="sm"
+          className="h-full"
+          asLink
+        />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 lg:col-span-2 h-full">
+          {featuredArticles?.map((article: Article) => {
+            return (
               <ArticleInEvidenceCard
-                article={lastArticle}
-                showReadMore
-                showDate={false}
-                variant="xl"
-                size="xl"
+                key={article.id}
+                article={article}
+                variant="compact"
+                size="sm"
+                className="h-full"
+                asLink
               />
-            </div>
-
-            <div className="flex flex-col gap-6 lg:col-span-2">
-              {otherArticles.map((article, index) => (
-                <Link
-                  key={article.id}
-                  href={`/blog/${article.id}`}
-                  className={cn("group border-b pb-4")}
-                >
-                  <h4 className="text-xl font-medium text-tuatara-950 duration-200 group-hover:text-anakiwa-500 transition-colors">
-                    {article.title}
-                  </h4>
-                  {article.authors && (
-                    <span className="text-sm font-sans text-tuatara-400 uppercase">
-                      {article.authors?.join(", ")}
-                    </span>
-                  )}
-                </Link>
-              ))}
-              <Link href="/blog" className="mt-auto">
-                <Button className="uppercase">
-                  <div className="flex items-center gap-2">
-                    <span>{t("seeMore")}</span>
-                    <Icons.arrowRight className="w-4 h-4" />
-                  </div>
-                </Button>
-              </Link>
-            </div>
-          </div>
+            )
+          })}
         </div>
-      </AppContent>
+      </div>
+      <div className="flex flex-col gap-5 lg:gap-14">
+        {otherArticles.map((article: Article) => {
+          return (
+            <ArticleListCard key={article.id} lang={lang} article={article} />
+          )
+        })}
+      </div>
     </div>
   )
 }
+
+export default ArticlesList
