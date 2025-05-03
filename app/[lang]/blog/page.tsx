@@ -10,7 +10,8 @@ import {
 } from "@tanstack/react-query"
 import ArticlesList from "@/components/blog/ArticlesList"
 
-// Enable ISR with revalidation
+export const dynamic = "force-dynamic"
+
 export const revalidate = 60 // Revalidate every 60 seconds
 
 export const metadata: Metadata = {
@@ -30,7 +31,7 @@ const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
   // Initialize QueryClient at request time
   const queryClient = new QueryClient()
 
-  // Prefetch the query
+  // Prefetch the query with a simpler approach
   await queryClient.prefetchQuery({
     queryKey: ["articles", tag],
     queryFn: async () => {
@@ -38,10 +39,10 @@ const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
         const params = new URLSearchParams()
         if (tag) params.append("tag", tag)
 
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/api/articles?${params.toString()}`,
-          { next: { revalidate } }
-        )
+        // Use a relative URL to avoid environment-specific issues
+        const response = await fetch(`/api/articles?${params.toString()}`, {
+          next: { revalidate },
+        })
 
         if (!response.ok) {
           throw new Error(`Failed to fetch articles: ${response.status}`)

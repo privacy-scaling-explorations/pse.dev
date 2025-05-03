@@ -131,10 +131,9 @@ async function fetchArticles(tag?: string) {
     const params = new URLSearchParams()
     if (tag) params.append("tag", tag)
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SITE_URL || "https://pse.dev"}/api/articles?${params.toString()}`,
-      { cache: "no-store" }
-    )
+    const response = await fetch(`/api/articles?${params.toString()}`, {
+      cache: "default",
+    })
 
     if (!response.ok) {
       throw new Error(`Failed to fetch articles: ${response.status}`)
