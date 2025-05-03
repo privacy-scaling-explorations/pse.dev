@@ -84,25 +84,18 @@ function Hit({
       {snippet && (
         <Markdown
           components={{
-            h1: ({ children }) => (
-              <h1 className="text-base font-semibold">{children}</h1>
-            ),
-            h2: ({ children }) => (
-              <h2 className="text-base font-semibold">{children}</h2>
-            ),
-            h3: ({ children }) => (
-              <h3 className="text-base font-semibold">{children}</h3>
-            ),
-            h4: ({ children }) => (
-              <h4 className="text-base font-semibold">{children}</h4>
-            ),
-            h5: ({ children }) => (
-              <h5 className="text-base font-semibold">{children}</h5>
-            ),
-            h6: ({ children }) => (
-              <h6 className="text-base font-semibold">{children}</h6>
-            ),
+            h1: ({ children }) => null,
+            h2: ({ children }) => null,
+            h3: ({ children }) => null,
+            h4: ({ children }) => null,
+            h5: ({ children }) => null,
+            h6: ({ children }) => null,
             img: ({ src, alt }) => null,
+            a: ({ href, children }) => (
+              <span className="text-tuatara-700 font-sans text-base font-normal">
+                {children}
+              </span>
+            ),
           }}
         >
           {snippet}
