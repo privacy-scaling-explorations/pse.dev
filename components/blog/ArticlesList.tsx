@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
 
-// Create a client-compatible version of ArticleInEvidenceCard
 const ArticleInEvidenceCard = ({
   article,
   size = "lg",
@@ -162,7 +161,7 @@ const ArticlesList = ({ lang, tag }: ArticlesListProps) => {
     queryFn: () => fetchArticles(tag),
   })
 
-  if (isLoading) {
+  if (isLoading || articles.length === 0) {
     return <div className="flex justify-center py-10">Loading articles...</div>
   }
 
@@ -170,14 +169,6 @@ const ArticlesList = ({ lang, tag }: ArticlesListProps) => {
     return (
       <div className="py-10 text-center">
         <p className="text-lg text-red-600">Error loading articles</p>
-      </div>
-    )
-  }
-
-  if (articles.length === 0) {
-    return (
-      <div className="py-10 text-center">
-        <p className="text-lg text-gray-600">No articles found</p>
       </div>
     )
   }
