@@ -26,6 +26,21 @@ export const Icons = {
       />
     </svg>
   ),
+  play: (props: LucideProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="43"
+      height="43"
+      viewBox="0 0 43 43"
+      fill="none"
+      {...props}
+    >
+      <path
+        d="M21.1172 0.689941C9.51873 0.689941 0.117188 10.0915 0.117188 21.6899C0.117188 33.2884 9.51873 42.6899 21.1172 42.6899C32.7156 42.6899 42.1172 33.2884 42.1172 21.6899C42.1172 10.0915 32.7156 0.689941 21.1172 0.689941ZM15.3793 30.8233V12.5566L31.1988 21.6899L15.3793 30.8233Z"
+        fill="#E3533A"
+      />
+    </svg>
+  ),
   eventLocation: (props: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

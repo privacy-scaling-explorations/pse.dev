@@ -1,6 +1,7 @@
 import { Divider } from "@/components/divider"
 import { NewsSection } from "@/components/sections/NewsSection"
 import { WhatWeDo } from "@/components/sections/WhatWeDo"
+import { HomepageVideoFeed } from "@/components/sections/HomepageVideoFeed"
 
 import { BlogRecentArticles } from "@/components/blog/blog-recent-articles"
 import { HomepageHeader } from "@/components/sections/HomepageHeader"
@@ -29,6 +30,8 @@ export default function IndexPage({ params: { lang } }: any) {
         <HomepageHeader lang={lang} />
 
         <BlogSection lang={lang} />
+
+        <HomepageVideoFeed lang={lang} />
 
         <WhatWeDo lang={lang} />
 
