@@ -5,6 +5,20 @@ image: null
 tldr: ""
 date: "2022-09-13"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/w7zCHj0xoxIfhoJIxI-ZeYIXwvNatP1t4w0TsqSIBe4"
+tags:
+  [
+    "interep",
+    "reputation",
+    "privacy",
+    "identity",
+    "ethereum",
+    "semaphore",
+    "sybil resistance",
+    "zero-knowledge proofs",
+    "web3",
+    "social networks",
+  ]
+projects: ["interep", "semaphore"]
 ---
 
 Reputation is built one block at a time, on and off-chain.

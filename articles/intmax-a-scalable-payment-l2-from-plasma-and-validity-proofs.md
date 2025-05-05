@@ -5,6 +5,18 @@ image: "/articles/intmax-a-scalable-payment-l2-from-plasma-and-validity-proofs/i
 tldr: "This post was written by PSE researcher Pierre and originally posted on his [personal blog](https://www.pierredm.xyz/posts/intmax). Thanks to the Intmax team for their helpful review on this post!"
 date: "2025-03-04"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/__VLZrfjSScx42E786k-Ba4YptQfv8ujCWY_DuN1k4o"
+tags:
+  [
+    "intmax",
+    "plasma",
+    "l2",
+    "scaling",
+    "zero-knowledge proofs",
+    "validity proofs",
+    "plonky2",
+    "data availability",
+  ]
+projects: ["intmax"]
 ---
 
 [Intmax](https://www.intmax.io/) has been pioneering L2 transaction-only constructions based on [client-side validation](https://eprint.iacr.org/2025/068.pdf) (CSV), where transaction validation relies on cryptographic proofs rather than blockchain consensus rules. Data is intermittently posted on a dedicated blockchain, primarily for deposits, withdrawals, and account checkpoints.

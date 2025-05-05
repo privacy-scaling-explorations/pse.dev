@@ -5,6 +5,19 @@ image: "/articles/retrospective-trusted-setups-and-p0tion-project/retrospective-
 tldr: "This post was written by the PSE Trusted Setup Team."
 date: "2025-01-15"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/Cf9nYvSlATGks8IcFaHQe3H5mgZ_Va767Zk5I8jPYXk"
+tags:
+  [
+    "trusted setups",
+    "p0tion",
+    "powers of tau",
+    "kzg",
+    "zero-knowledge proofs",
+    "cryptography",
+    "ethereum",
+    "groth16",
+    "security",
+    "infrastructure/protocol",
+  ]
 projects: ["p0tion", "powers-of-tau", "trusted-setups"]
 ---
 

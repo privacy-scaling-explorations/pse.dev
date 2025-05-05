@@ -5,7 +5,17 @@ image: "/articles/advancing-anon-aadhaar-whats-new-in-v100/advancing-anon-aadhaa
 tldr: "This post was written by the Anon Aadhaar team. If you're new to Anon Aadhaar make sure to read our [initial announcement post](https://mirror.xyz/privacy-scaling-explorations.eth/6R8kACTYp9mF3eIpLZMXs8JAQmTyb6Uy8KnZqzmDFZI)."
 date: "2024-02-14"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/YnqHAxpjoWl4e_K2opKPN4OAy5EU4sIJYYYHFCjkNOE"
-tags: ["test"]
+tags:
+  [
+    "anonaadhaar",
+    "privacy",
+    "zero-knowledge proofs",
+    "digital identity",
+    "identity",
+    "circom",
+    "ethereum",
+    "cryptography",
+  ]
 projects: ["anon-aadhaar", "zk-email", "bandada"]
 ---
 

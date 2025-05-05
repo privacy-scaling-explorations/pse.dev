@@ -5,6 +5,20 @@ image: null
 tldr: ""
 date: "2022-08-29"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/S04tvQuLbRjf_9ZrzDTE0T2aho9_GoSuok5NEFyHNO4"
+tags:
+  [
+    "unirep",
+    "privacy",
+    "reputation",
+    "zero-knowledge proofs",
+    "identity",
+    "semaphore",
+    "ethereum",
+    "social",
+    "anonymity/privacy",
+    "infrastructure/protocol",
+  ]
+projects: ["unirep", "semaphore"]
 ---
 
 Originally published on Aug 26, 2021:

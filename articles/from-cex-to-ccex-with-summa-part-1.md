@@ -5,6 +5,20 @@ image: "/articles/from-cex-to-ccex-with-summa-part-1/from-cex-to-ccex-with-summa
 tldr: "This post was written by [Enrico Bottazzi](https://github.com/enricobottazzi) /n/n Special thanks to Yi-Hsiu Chen (Coinbase), Shashank Agrawal (Coinbase), Stenton Mayne (kn0x1y), Michelle Lai and Kostas Chalkias (Mysten Labs) for review and discussion. /n/n Part 1 introduces the main concepts behind the Summa protocol and can be skipped if already familiar to the reader. /n/n [Part 2](https://mirror.xyz/privacy-scaling-explorations.eth/f2ZfkPXZpvc6DUmG5-SyLjjYf78bcOcFeiJX2tb2hS0) dives into a full Proof of Solvency flow."
 date: "2023-09-14"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/_1Y6ExFD_Rs3oDxwx5_kWAj_Tl_L9c0Hm7E6SVJei0A"
+tags:
+  [
+    "summa",
+    "proof of solvency",
+    "zero-knowledge proofs",
+    "merkle tree",
+    "cryptography",
+    "privacy",
+    "security",
+    "centralized exchange",
+    "computational integrity",
+    "infrastructure/protocol",
+  ]
+projects: ["summa"]
 ---
 
 ## Part 1 - Introduction

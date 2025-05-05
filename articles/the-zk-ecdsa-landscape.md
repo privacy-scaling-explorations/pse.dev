@@ -5,6 +5,20 @@ image: "/articles/the-zk-ecdsa-landscape/the-zk-ecdsa-landscape-cover.webp"
 tldr: "This post was authored by grantee [Blake M Scurr](https://github.com/BlakeMScurr). His mandate was to explore zk-ECDSA, build applications with zk-ECDSA, and contribute to ZKPs to make this vision come true."
 date: "2023-04-18"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/djxf2g9VzUcss1e-gWIL2DSRD4stWggtTOcgsv1RlxY"
+tags:
+  [
+    "zk-ecdsa",
+    "privacy",
+    "zero-knowledge proofs",
+    "ethereum",
+    "circom",
+    "cryptography",
+    "nullifiers",
+    "PLUME",
+    "identity",
+    "signature verification",
+  ]
+projects: ["anon-klub"]
 ---
 
 ## Introduction
@@ -141,4 +155,4 @@ For on-chain nullifiers especially, the proving time is very high, so we wanted 
 
 ## Conclusion
 
-The frontier for private applications on Ethereum is about to burst wide open. The cryptography and optimisations are almost solved. Now we need a new wave of projects with sleek UX focused on solving real problems for Ethereum’s users. If you want to make any of the use cases above a reality, check out [our repo](https://github.com/privacy-scaling-explorations/e2e-zk-ecdsa) to get started.
+The frontier for private applications on Ethereum is about to burst wide open. The cryptography and optimisations are almost solved. Now we need a new wave of projects with sleek UX focused on solving real problems for Ethereum's users. If you want to make any of the use cases above a reality, check out [our repo](https://github.com/privacy-scaling-explorations/e2e-zk-ecdsa) to get started.

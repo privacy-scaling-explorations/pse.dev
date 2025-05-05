@@ -5,6 +5,19 @@ image: "/articles/semaphore-community-grants/cover.webp"
 tldr: ""
 date: "2022-09-21"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/g5WjOtK4R3rYfLKyqpSXsbNBcj36jzsjgnV2KT2rthM"
+tags:
+  [
+    "semaphore",
+    "privacy",
+    "zero-knowledge proofs",
+    "grants",
+    "anonymity/privacy",
+    "identity",
+    "ethereum",
+    "public goods",
+    "social",
+    "toolkits",
+  ]
 ---
 
 **The [Privacy and Scaling Explorations Team](https://appliedzkp.org/) is sponsoring a dedicated round of grants for applications that integrate the [Semaphore](https://semaphore.appliedzkp.org/) anonymous signaling protocol. Semaphore provides zero-knowledge primitives that enable developers to build powerful privacy preserving applications. With this grant round, we’re encouraging builders to try out these tools in real-world applications that matter to your communities.**

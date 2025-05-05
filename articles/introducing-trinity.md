@@ -4,7 +4,23 @@ title: "Introducing Trinity"
 image: "/articles/introducing-trinity/trinity.png"
 tldr: "Two-Party Computation for the ZK Era"
 date: "2025-04-28"
-tags: ["zk", "mpc"]
+tags:
+  [
+    "mpc",
+    "zero-knowledge proofs",
+    "privacy",
+    "cryptography",
+    "kzg",
+    "halo2",
+    "garbled circuit",
+    "zero knowledge",
+    "2pc",
+    "plonk",
+    "computational integrity",
+    "private transactions",
+    "security",
+    "infrastructure/protocol",
+  ]
 projects: ["mpz", "mpc-framework", "pse-halo2"]
 ---
 

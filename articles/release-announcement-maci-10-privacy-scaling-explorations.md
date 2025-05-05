@@ -5,6 +5,20 @@ image: null
 tldr: ""
 date: "2022-08-29"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/V0QkCAtsYUd5y7RO7L5OAwmawhY9LTJ7jlOZ4KW1J7M"
+tags:
+  [
+    "maci",
+    "privacy",
+    "zero-knowledge proofs",
+    "collusion resistance",
+    "voting",
+    "quadratic funding",
+    "ethereum",
+    "zk-snarks",
+    "governance",
+    "infrastructure/protocol",
+  ]
+projects: ["maci"]
 ---
 
 ![](https://miro.medium.com/max/1400/1*cG0UuKR3QU0xMr8xBAq4Qg.png)

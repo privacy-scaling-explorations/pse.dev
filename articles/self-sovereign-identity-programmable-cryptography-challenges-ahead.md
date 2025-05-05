@@ -5,6 +5,20 @@ image: "/articles/self-sovereign-identity-programmable-cryptography-challenges-a
 tldr: "This post was written by [0xZoey](https://twitter.com/0xZoey), with contributions from Chance."
 date: "2025-01-23"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/zRM7qQSt_igfoSxdSa0Pts9MFdAoD96DD3m43bPQJT8"
+tags:
+  [
+    "self-sovereign identity",
+    "ssi",
+    "privacy",
+    "cryptography",
+    "zero-knowledge proofs",
+    "verifiable credentials",
+    "digital identity",
+    "identity",
+    "standards",
+    "ethereum",
+  ]
+projects: ["zkid"]
 ---
 
 ## Introduction

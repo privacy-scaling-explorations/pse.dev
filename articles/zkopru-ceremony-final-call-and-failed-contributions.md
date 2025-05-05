@@ -5,6 +5,17 @@ image: null
 tldr: "We will end the ceremony on Friday. It was largely a success but we had a few cases of failed contributions. If your first run didn't succeed you can now head back to our [website](https://zkopru.network/)_ to fix it"
 date: "2022-08-26"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/X7O6_Y33NY-nNfzpV5HZRvups2qimQnQ9ef0OD1U8RY"
+tags:
+  [
+    "zkopru",
+    "trusted setup",
+    "ceremony",
+    "zero-knowledge proofs",
+    "privacy",
+    "cryptography",
+    "ethereum",
+    "security",
+  ]
 projects: ["zkopru"]
 ---
 

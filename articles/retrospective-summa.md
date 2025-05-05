@@ -5,6 +5,20 @@ image: "/articles/retrospective-summa/retrospective-summa-cover.webp"
 tldr: "This post was authored by the Summa team."
 date: "2025-02-10"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/HRlshQwWxo66EMt3lwk6PSuDkitJCr_-ltCETZHNeu0"
+tags:
+  [
+    "summa",
+    "proof of reserves",
+    "zero-knowledge proofs",
+    "cryptography",
+    "privacy",
+    "security",
+    "centralized exchange",
+    "halo2",
+    "ethereum",
+    "infrastructure/protocol",
+  ]
+projects: ["summa"]
 ---
 
 ### History and Goals of the project

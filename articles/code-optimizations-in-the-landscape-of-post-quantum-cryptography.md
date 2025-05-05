@@ -5,6 +5,19 @@ image: "/articles/code-optimizations-in-the-landscape-of-post-quantum-cryptograp
 tldr: "This post was written by PSE researcher Miha Stopar."
 date: "2025-04-07"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/BKI3tyauHIiUCYHgma-EHeSRXNTNDtLUQV9VNGQWLUg"
+tags:
+  [
+    "post-quantum cryptography",
+    "pqc",
+    "cryptography",
+    "optimization",
+    "security",
+    "algorithms",
+    "zero-knowledge proofs",
+    "elliptic curves",
+    "research",
+    "infrastructure/protocol",
+  ]
 projects: ["post-quantum-cryptography"]
 ---
 

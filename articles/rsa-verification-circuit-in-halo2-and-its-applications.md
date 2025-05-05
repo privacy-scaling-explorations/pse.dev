@@ -5,6 +5,18 @@ image: null
 tldr: "This post was authored by grantee **Sora Suegami** ([Twitter](https://twitter.com/SoraSue77), [Github](https://github.com/SoraSuegami))"
 date: "2022-11-14"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/mmkG4uB2PR_peGucULAa7zHag-jz1Y5biZH8W6K2LYM"
+tags:
+  [
+    "rsa",
+    "halo2",
+    "zero-knowledge proofs",
+    "cryptography",
+    "circuits",
+    "security",
+    "zkp",
+    "modular exponentiation",
+    "digital signatures",
+  ]
 projects: ["pse-halo2", "zk-email"]
 ---
 

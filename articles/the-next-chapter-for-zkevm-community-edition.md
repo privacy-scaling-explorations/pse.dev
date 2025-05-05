@@ -5,6 +5,20 @@ image: "/articles/the-next-chapter-for-zkevm-community-edition/the-next-chapter-
 tldr: ""
 date: "2024-06-05"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/hqLMwLfKmQLj773QCRLTOT-Z8sSUaTEfQpBSdTbitbs"
+tags:
+  [
+    "zkevm",
+    "zero-knowledge proofs",
+    "ethereum",
+    "scaling",
+    "cryptography",
+    "rollups",
+    "zkvm",
+    "research",
+    "infrastructure/protocol",
+    "proof systems",
+  ]
+projects: ["zkevm"]
 ---
 
 We are excited to share some updates on our road to building a zkEVM, as we generalize our exploration towards the design and implementation of a general-purpose zkVM.

@@ -5,6 +5,17 @@ image: null
 tldr: "The public participation part of our ceremony has finished, we provide verification details, stats and announce a random beacon"
 date: "2022-08-26"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/dQec_qe4VOcKoVH9OH42Ef9WuSqyAJ6S40jRrZ_Mw7g"
+tags:
+  [
+    "zkopru",
+    "trusted setup",
+    "ceremony",
+    "zero-knowledge proofs",
+    "privacy",
+    "scaling",
+    "ethereum",
+    "security",
+  ]
 projects: ["zkopru"]
 ---
 

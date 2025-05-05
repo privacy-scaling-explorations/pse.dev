@@ -5,6 +5,19 @@ image: "/articles/unirep-protocol/cover.webp"
 tldr: ""
 date: "2023-01-04"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/FCVVfy-TQ6R7_wavKj1lCr5dd1zqRvwjnDOYRM5NtsE"
+tags:
+  [
+    "unirep",
+    "semaphore",
+    "privacy",
+    "reputation",
+    "zero-knowledge proofs",
+    "anonymity/privacy",
+    "identity",
+    "ethereum",
+    "social",
+    "infrastructure/protocol",
+  ]
 projects: ["unirep", "semaphore"]
 ---
 

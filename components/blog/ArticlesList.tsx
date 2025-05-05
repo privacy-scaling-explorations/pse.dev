@@ -174,33 +174,39 @@ const ArticlesList = ({ lang, tag }: ArticlesListProps) => {
   }
 
   const lastArticle = articles[0]
-  const featuredArticles = articles.slice(1, 5)
-  const otherArticles = articles.slice(5)
+  const featuredArticles = !tag ? articles.slice(1, 5) : []
+  const otherArticles = !tag ? articles.slice(5) : articles
+
+  const hasTag = tag !== undefined
+
+  console.log("hasTag", hasTag)
 
   return (
     <div className="flex flex-col gap-10 lg:gap-16">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch">
-        <ArticleInEvidenceCard
-          article={lastArticle}
-          size="sm"
-          className="h-full"
-          asLink
-        />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 lg:col-span-2 h-full">
-          {featuredArticles?.map((article: Article) => {
-            return (
-              <ArticleInEvidenceCard
-                key={article.id}
-                article={article}
-                variant="compact"
-                size="sm"
-                className="h-full"
-                asLink
-              />
-            )
-          })}
+      {!hasTag && (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch">
+          <ArticleInEvidenceCard
+            article={lastArticle}
+            size="sm"
+            className="h-full"
+            asLink
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 lg:col-span-2 h-full">
+            {featuredArticles?.map((article: Article) => {
+              return (
+                <ArticleInEvidenceCard
+                  key={article.id}
+                  article={article}
+                  variant="compact"
+                  size="sm"
+                  className="h-full"
+                  asLink
+                />
+              )
+            })}
+          </div>
         </div>
-      </div>
+      )}
       <div className="flex flex-col gap-5 lg:gap-14">
         {otherArticles.map((article: Article) => {
           return (

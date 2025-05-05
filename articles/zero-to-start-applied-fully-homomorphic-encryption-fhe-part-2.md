@@ -5,6 +5,19 @@ image: "/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-2/
 tldr: "This post was written by [0xZoey](https://twitter.com/0xZoey), with contributions from Chance. /n This is an extension of [Part 1: An Introduction to FHE, ZKPs & MPC, and The State of FHE Development](https://mirror.xyz/privacy-scaling-explorations.eth/D8UHFW1t48x2liWb5wuP6LDdCRbgUH_8vOFvA0tNDJA)."
 date: "2023-12-21"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/wQZqa9acMdGS7LTXmKX-fR05VHfkgFf9Wrjso7XxDzs"
+tags:
+  [
+    "fhe",
+    "cryptography",
+    "privacy",
+    "lattice-based cryptography",
+    "threshold cryptography",
+    "mpc",
+    "security",
+    "ethereum",
+    "private transactions",
+    "education",
+  ]
 projects: ["mpc-framework", "pse-security", "post-quantum-cryptography"]
 ---
 
