@@ -5,6 +5,19 @@ image: "/articles/tlsnotary-updates/tlsnotary-updates-cover.webp"
 tldr: "This post was written by [sinu](https://github.com/sinui0)."
 date: "2023-09-19"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/T4MR2PgBzBmN2I3dhDJpILXkQsqZp1Bp8GSm_Oo3Vnw"
+tags:
+  [
+    "tlsn",
+    "mpc",
+    "secure multi-party computation",
+    "privacy",
+    "data portability",
+    "cryptography",
+    "selective disclosure",
+    "security",
+    "zero-knowledge proofs",
+    "infrastructure/protocol",
+  ]
 projects: ["tlsn"]
 ---
 

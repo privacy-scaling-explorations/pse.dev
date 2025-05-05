@@ -5,6 +5,17 @@ image: null
 tldr: ""
 date: "2022-08-29"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/IlWP_ITvmeZ2-elTJl44SCEGlBiemKt3uxXv2A6Dqy4"
+tags:
+  [
+    "maci",
+    "zero-knowledge proofs",
+    "privacy",
+    "voting/governance",
+    "ethereum",
+    "collusion resistance",
+    "smart contracts",
+    "cryptography",
+  ]
 projects: ["maci"]
 ---
 

@@ -5,6 +5,19 @@ image: null
 tldr: "Use this link to participate in the trusted setup (on a desktop, mobile isn't recommended): [https://mpc.zkopru.network/](https://mpc.zkopru.network/)"
 date: "2022-08-26"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/a2Ut19fwRGNJoCd-IoQadyn3sUMRgGNSfRgHEc4iGhw"
+tags:
+  [
+    "zkopru",
+    "trusted setup",
+    "ceremony",
+    "zero-knowledge proofs",
+    "privacy",
+    "scaling",
+    "optimistic rollup",
+    "ethereum",
+    "security",
+    "cryptography",
+  ]
 projects: ["zkopru"]
 ---
 

@@ -5,6 +5,13 @@ image: "/articles/why-we-cant-build-perfectly-secure-multi-party-applications-ye
 tldr: "This post was written by PSE researcher Enrico Bottazzi. Thanks to Pia Park for discussions and reviews."
 date: "2025-01-14"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/nXUhkZ84ckZi_5mYRFCCKgkLVFAmM2ECdEFCQul2jPs"
+tags:
+  [
+    "mpc",
+    "secure multi-party computation",
+    "fhe",
+    "fully homomorphic encryption",
+  ]
 projects: ["mpc-framework"]
 ---
 

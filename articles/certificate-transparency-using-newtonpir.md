@@ -5,6 +5,19 @@ image: "/articles/certificate-transparency-using-newtonpir/certificate-transpare
 tldr: "This post was written by PSE grantee Vishal Kulkarni."
 date: "2025-01-28"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/V0PIyv1d_e_WPsAVhBP7zkDvn0XACY63uSvFFxBvjrk"
+tags:
+  [
+    "certificate transparency",
+    "newtonpir",
+    "privacy",
+    "security",
+    "private information retrieval",
+    "fhe",
+    "cryptography",
+    "web security",
+    "tls",
+    "zero-knowledge",
+  ]
 projects: ["pse-security"]
 ---
 

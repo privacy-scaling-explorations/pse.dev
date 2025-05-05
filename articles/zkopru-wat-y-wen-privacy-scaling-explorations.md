@@ -5,6 +5,19 @@ image: null
 tldr: "Zkopru is almost ready, we explain what it is and why it's awesome. We also announce a date for the testnet."
 date: "2022-08-26"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/kfuuBPtGtDjl_J2wBq-jrtyURGLmQpUhZfDTuZChEy8"
+tags:
+  [
+    "zkopru",
+    "optimistic rollup",
+    "zero-knowledge proofs",
+    "privacy",
+    "scaling",
+    "ethereum",
+    "l2",
+    "transaction privacy",
+    "utxo",
+    "infrastructure/protocol",
+  ]
 projects: ["zkopru"]
 ---
 

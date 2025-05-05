@@ -5,6 +5,19 @@ image: "/articles/zkevm-community-edition-part-1-introduction/zkevm-community-ed
 tldr: ""
 date: "2023-05-23"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/I5BzurX-T6slFaPbA4i3hVrO7U2VkBR45eO-N3CSnSg"
+tags:
+  [
+    "zkevm",
+    "zero-knowledge proofs",
+    "ethereum",
+    "scaling",
+    "l2",
+    "rollup",
+    "infrastructure/protocol",
+    "proof systems",
+    "virtual machine",
+    "computational integrity",
+  ]
 projects: ["zkevm-community"]
 ---
 

@@ -5,6 +5,19 @@ image: null
 tldr: "Exciting news! ZKOPRU is now live on the Görli testnet. We show you how to use it."
 date: "2022-08-26"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/EB0KcMY0k9ucN8iQSBeOYksoupDYRBQ4ZffhRt477FE"
+tags:
+  [
+    "zkopru",
+    "privacy",
+    "scaling",
+    "zero-knowledge proofs",
+    "l2",
+    "optimistic rollup",
+    "transaction privacy",
+    "ethereum",
+    "wallets",
+    "infrastructure/protocol",
+  ]
 projects: ["zkopru"]
 ---
 

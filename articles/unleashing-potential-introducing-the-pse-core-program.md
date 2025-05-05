@@ -5,6 +5,17 @@ image: "/articles/unleashing-potential-introducing-the-pse-core-program/unleashi
 tldr: "This post was written by the PSE EcoDev Team."
 date: "2024-04-24"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/PvNKlzp8Xlaic_DeIFEW20-ai4eN1AqJO26d4YRqWwM"
+tags:
+  [
+    "education",
+    "zero-knowledge proofs",
+    "privacy",
+    "cryptography",
+    "proof systems",
+    "open-source",
+    "security",
+    "public goods",
+  ]
 projects: ["semaphore", "bandada", "tlsn", "zk-email"]
 ---
 

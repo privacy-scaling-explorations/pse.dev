@@ -5,6 +5,19 @@ image: "/articles/unirep-ceremony-an-invitation-to-the-celestial-call-and-unirep
 tldr: "The initial ideas for this blog post originated from UniRep core contributor [Chance](https://github.com/vimwitch). Additional write up and review by [CJ](https://github.com/CJ-Rose), [Chiali](https://github.com/ChialiT), [Vivian](https://github.com/vivianjeng), [Doris](https://github.com/kittybest), and [Anthony](https://github.com/AnthonyMadia)."
 date: "2023-10-24"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/z-gW2RtgFTV18ZkRGED2XKLn_wDd-SwMSs17vWQwfLs"
+tags:
+  [
+    "unirep",
+    "trusted setup",
+    "ceremony",
+    "privacy",
+    "zero-knowledge proofs",
+    "identity",
+    "reputation",
+    "anonymity/privacy",
+    "cryptography",
+    "infrastructure/protocol",
+  ]
 ---
 
 ## **Introduction**

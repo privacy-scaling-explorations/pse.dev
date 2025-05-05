@@ -5,6 +5,19 @@ image: "/articles/zkitter-an-anon-friendly-social-network/cover.webp"
 tldr: ""
 date: "2023-01-11"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/P4jDH1gLrVQ-DP5VyIKQrlPAJUTDhtXZkFl2vp8ewSg"
+tags:
+  [
+    "zkitter",
+    "semaphore",
+    "interep",
+    "rln",
+    "privacy",
+    "anonymity/privacy",
+    "social",
+    "identity",
+    "zero-knowledge proofs",
+    "sybil",
+  ]
 projects: ["zkitter", "semaphore", "interep", "rln"]
 ---
 

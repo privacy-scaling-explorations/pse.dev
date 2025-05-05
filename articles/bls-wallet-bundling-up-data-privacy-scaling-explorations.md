@@ -5,6 +5,20 @@ image: null
 tldr: ""
 date: "2022-08-26"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/e8Xy1X1phqdqGwkzaLMlyT9BY-8MpLoelYTsJc_DzfU"
+tags:
+  [
+    "bls",
+    "wallet",
+    "scaling",
+    "rollups",
+    "ethereum",
+    "l2",
+    "account abstraction",
+    "cryptography",
+    "infrastructure/protocol",
+    "security",
+  ]
+projects: ["bls-wallet"]
 ---
 
 ![](https://miro.medium.com/max/1400/0*9HpuJbMoePFp4117.png)

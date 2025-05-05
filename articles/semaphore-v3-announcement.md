@@ -5,6 +5,19 @@ image: "/articles/semaphore-v3-announcement/cover.webp"
 tldr: ""
 date: "2023-02-09"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/Yi4muh-vzDZmIqJIcM9Mawu2e7jw8MRnwxvhFcyfns8"
+tags:
+  [
+    "semaphore",
+    "privacy",
+    "zero-knowledge proofs",
+    "anonymity/privacy",
+    "identity",
+    "voting/governance",
+    "ethereum",
+    "security",
+    "toolkits",
+    "infrastructure/protocol",
+  ]
 ---
 
 Semaphore V3 is live!

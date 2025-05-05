@@ -5,6 +5,20 @@ image: null
 tldr: "Originally published on Jan 27, 2022"
 date: "2022-08-29"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/tEf7iYa8l7ECZwN2T57yyiws7h9Uchip30CQvx-JBBQ"
+tags:
+  [
+    "prediction market",
+    "social",
+    "ethereum",
+    "web3",
+    "user experience",
+    "public goods",
+    "community",
+    "curation",
+    "moderation",
+    "infrastructure/protocol",
+  ]
+projects: ["coco"]
 ---
 
 ![](https://miro.medium.com/max/1400/1*vE2c1d46jXgbOVkDLrOMhA.png)

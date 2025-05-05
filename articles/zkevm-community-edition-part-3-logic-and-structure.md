@@ -5,6 +5,19 @@ image: "/articles/zkevm-community-edition-part-3-logic-and-structure/zkevm-commu
 tldr: "This series intends to provide an overview of the zkEVM Community Edition in a way that is broadly accessible. Part 3 reviews the general logic and structure of the zkEVM Community Edition."
 date: "2023-05-23"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/shl8eMBiObd6_AUBikXZrjKD4fibI6xUZd7d9Yv5ezE"
+tags:
+  [
+    "zkevm",
+    "zero-knowledge proofs",
+    "ethereum",
+    "scaling",
+    "circuits",
+    "cryptography",
+    "computational integrity",
+    "halo2",
+    "lookup tables",
+    "proof systems",
+  ]
 projects: ["zkevm-community"]
 ---
 

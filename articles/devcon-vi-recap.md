@@ -5,6 +5,20 @@ image: null
 tldr: ""
 date: "2022-11-16"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/plfDBIpiKZVyNSJWhE9vix76JaJoJ1seDfRAddV7HEc"
+tags:
+  [
+    "zero-knowledge proofs",
+    "semaphore",
+    "privacy",
+    "ethereum",
+    "pse",
+    "zkevm",
+    "zkopru",
+    "interep",
+    "identity",
+    "public goods",
+  ]
+projects: ["semaphore", "zkopru", "interep", "bls-wallet"]
 ---
 
 The potential of [zero-knowledge](https://ethereum.org/en/zero-knowledge-proofs/#what-are-zk-proofs) cryptography was on full display at Devcon VI in Bogota, which featured a [dedicated ZK track](https://archive.devcon.org/archive/playlists/devcon-6-zkps-privacy-identity-infrastructure-and-more/) for the first time ever. Since most of [PSE’s work](https://appliedzkp.org/) has happened in the 3 years since [Devcon V in Osaka](https://archive.devcon.org/archive/watch?edition=5&order=desc&sort=edition), it was also a debut for many of our projects – and many of our team members met for the first time! There was a lot we were excited to share with the community. In this post, we’ll revisit some highlights of our time in Bogota, including talks by PSE team members and the Devcon VI Temporary Anonymous Zone.

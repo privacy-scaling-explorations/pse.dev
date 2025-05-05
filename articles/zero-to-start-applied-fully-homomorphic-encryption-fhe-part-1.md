@@ -5,6 +5,17 @@ image: "/articles/zero-to-start-applied-fully-homomorphic-encryption-fhe-part-1/
 tldr: "This post was written by [0xZoey](https://twitter.com/0xZoey). Special thanks to [Janmajaya](https://twitter.com/Janmajaya_mall), [Enrico](https://twitter.com/backaes?lang=en), and [Owen](https://twitter.com/omurovec) who generously gave their time and expertise to review this piece. Your valuable contributions and feedback have greatly enhanced the quality and depth of this work. /n/n Find [Part 2: Fundamental Concepts, FHE Development, Applied FHE, Challenges and Open Problems](https://mirror.xyz/privacy-scaling-explorations.eth/wQZqa9acMdGS7LTXmKX-fR05VHfkgFf9Wrjso7XxDzs) here…"
 date: "2023-12-21"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/D8UHFW1t48x2liWb5wuP6LDdCRbgUH_8vOFvA0tNDJA"
+tags:
+  [
+    "fhe",
+    "cryptography",
+    "privacy",
+    "security",
+    "ethereum",
+    "education",
+    "post-quantum cryptography",
+    "zero-knowledge proofs",
+  ]
 projects: ["mpc-framework", "pse-security"]
 ---
 

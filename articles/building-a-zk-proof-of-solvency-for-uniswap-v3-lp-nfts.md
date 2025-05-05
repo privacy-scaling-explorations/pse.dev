@@ -5,5 +5,17 @@ image: null
 tldr: ""
 date: "2022-08-29"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/YlUuFfEfTB3Ws_nXqe_zg4ak_rPSM0lE2qGdrXPo_Oc"
+tags:
+  [
+    "zero-knowledge proofs",
+    "zkp",
+    "ethereum",
+    "security",
+    "proof systems",
+    "nft",
+    "liquidity",
+    "zero knowledge",
+    "uniswap",
+  ]
 projects: ["zk-kit"]
 ---

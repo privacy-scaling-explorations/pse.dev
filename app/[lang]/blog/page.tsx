@@ -28,10 +28,8 @@ const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
   const { t } = await useTranslation(lang, "blog-page")
   const tag = searchParams?.tag as string | undefined
 
-  // Initialize QueryClient at request time
   const queryClient = new QueryClient()
 
-  // Prefetch the query with a simpler approach
   await queryClient.prefetchQuery({
     queryKey: ["articles", tag],
     queryFn: async () => {
@@ -39,7 +37,6 @@ const BlogPage = async ({ params: { lang }, searchParams }: BlogPageProps) => {
         const params = new URLSearchParams()
         if (tag) params.append("tag", tag)
 
-        // Use a relative URL to avoid environment-specific issues
         const response = await fetch(`/api/articles?${params.toString()}`, {
           next: { revalidate },
         })

@@ -5,6 +5,20 @@ image: "/articles/mopro-comparison-of-circom-provers/mopro-comparison-of-circom-
 tldr: "This post was written by [Vivian Jeng](https://mirror.xyz/privacy-scaling-explorations.eth/GLbuCflH0hu_DncKxiC2No5w3LZJAGw4QaCB-HYD5e0), a developer on the Mopro team."
 date: "2025-01-21"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/GLbuCflH0hu_DncKxiC2No5w3LZJAGw4QaCB-HYD5e0"
+tags:
+  [
+    "mopro",
+    "circom",
+    "zero-knowledge proofs",
+    "witness generation",
+    "proof generation",
+    "snarkjs",
+    "rapidsnark",
+    "mobile",
+    "performance",
+    "toolkits",
+  ]
+projects: ["mopro"]
 ---
 
 [Mopro](https://github.com/zkmopro/mopro) is a toolkit designed to make mobile proving simple and efficient. With the growing dominance of mobile app users over web app users, and the observation that `snarkjs` is less performant compared to native provers like `rapidsnark`, we recognized the need to optimize proving speed for mobile devices. To address this, one of Mopro's primary goals is to evaluate various provers across different platforms to identify the most effective solution, ensuring we focus on the best-performing prover for mobile environments.

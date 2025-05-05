@@ -5,6 +5,17 @@ image: null
 tldr: ""
 date: "2022-08-29"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/UlHGv9KIk_2MOHr7POfwZAXP01k221hZwQsLCF63cLQ"
+tags:
+  [
+    "arbitrum",
+    "optimistic rollup",
+    "l2",
+    "scaling",
+    "ethereum",
+    "rollup",
+    "infrastructure/protocol",
+    "education",
+  ]
 projects: []
 ---
 
