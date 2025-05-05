@@ -27,8 +27,6 @@ export async function GET() {
       )
     }
 
-    console.log("Retrieving announcements from Discord channel...")
-
     const messagesUrl = `${Routes.channelMessages(CHANNEL_ID)}?limit=${MESSAGES_LIMIT}`
 
     const announcements = await rest.get(messagesUrl as any)

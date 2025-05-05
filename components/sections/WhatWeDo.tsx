@@ -31,7 +31,7 @@ export const WhatWeDo = ({ lang }: LangProps["params"]) => {
 
   return (
     <div className="bg-cover-gradient">
-      <AppContent className="mx-auto">
+      <AppContent className="mx-auto lg:max-w-[1200px] w-full">
         <section className="flex flex-col gap-16 py-16 md:pb-24">
           <div className="flex flex-col text-center">
             <h6 className="py-6 font-sans text-base font-bold uppercase tracking-[4px] text-tuatara-950">

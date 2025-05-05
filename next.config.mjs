@@ -24,6 +24,9 @@ const withMDX = nextMdx({
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx", "md"],
   reactStrictMode: true,
+  images: {
+    domains: ["i.ytimg.com"],
+  },
   experimental: {
     
     mdxRs: true,

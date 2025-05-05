@@ -179,8 +179,6 @@ const ArticlesList = ({ lang, tag }: ArticlesListProps) => {
 
   const hasTag = tag !== undefined
 
-  console.log("hasTag", hasTag)
-
   return (
     <div className="flex flex-col gap-10 lg:gap-16">
       {!hasTag && (
