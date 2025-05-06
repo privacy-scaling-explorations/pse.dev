@@ -2,7 +2,7 @@
 authors: ["PSE Team"]
 title: "Semaphore V2 is Live! - Privacy & Scaling Explorations"
 image: null
-tldr: ""
+tldr: "We’re excited to share that [Semaphore V2](https://github.com/semaphore-protocol/semaphore/releases/tag/v2.0.0) has just been released with lots of improvements to the protocol and developer tooling, thanks to extensive contributions by [Cedoor](https://github.com/cedoor) and [Andrija Novakovic](https://github.com/akinovak)."
 date: "2022-08-26"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/ImQNsJsJuDf_VFDm9EUr4njAuf3unhAGiPu5MzpDIjI"
 tags:
