@@ -135,6 +135,22 @@
     @apply px-4 py-1 text-sm font-medium text-left text-tuatara-700;
   }
 
+  /* Ensure line breaks in table cells work properly */
+  table[data-component='table'] td br {
+    @apply block content-[''] my-1;
+  }
+
+  /* Support for styled div elements in table cells */
+  table[data-component='table'] td div,
+  table[data-component='table'] th div {
+    @apply h-full w-full;
+  }
+
+  /* Style for emphasized content in tables */
+  table[data-component='table'] strong {
+    @apply font-bold;
+  }
+
   table[data-component='table'] tbody > tr:not(:last-child) {
     @apply border-b border-tuatara-300;
   }
@@ -172,6 +188,11 @@
   @apply block;
 }
 
+p.math-only > .katex-math {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
 .katex-display {
   width: 100%;

@@ -3,7 +3,7 @@ import { Metadata } from "next"
 import { ProgramPageContent } from "."
 
 export const metadata: Metadata = {
-  title: "Programs page",
+  title: "ZK education programs",
   description: "Join our free programs to start your journey!",
   openGraph: {
     images: [

@@ -69,12 +69,14 @@ const Accordion = ({
                 }
               )}
             >
-              {typeof label === "string" ? (
+              {size === "sm" ? (
                 <span className="block text-left font-sans text-base font-bold uppercase tracking-[3.36px] text-black md:text-xl md:tracking-[4.2px]">
                   {label}
                 </span>
               ) : (
-                label
+                <span className="text-left font-sans text-base font-medium text-black">
+                  {label}
+                </span>
               )}
               <div
                 className={cn("absolute right-0 flex items-center", {
