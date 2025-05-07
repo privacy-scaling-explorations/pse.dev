@@ -2,7 +2,7 @@
 authors: ["PSE Team"]
 title: "Unirep: A private and non-repudiable reputation system"
 image: null
-tldr: ""
+tldr: "Unirep is a protocol that allows users to receive and give reputation anonymously and prove their own reputation on other platforms that support the protocol."
 date: "2022-08-29"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/S04tvQuLbRjf_9ZrzDTE0T2aho9_GoSuok5NEFyHNO4"
 tags:
@@ -21,9 +21,7 @@ tags:
 projects: ["unirep", "semaphore"]
 ---
 
-Originally published on Aug 26, 2021:
-
-\*tl;dr: \*Unirep is a protocol that allows users to receive and give reputation anonymously and prove their own reputation on other platforms that support the protocol.
+*Originally published on Aug 26, 2021*
 
 ![](https://miro.medium.com/max/1106/0*nr6Aia8myVXSIZ2R)
 
