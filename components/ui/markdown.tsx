@@ -5,6 +5,21 @@ import ReactMarkdown, { Components } from "react-markdown"
 import remarkGfm from "remark-gfm"
 import katex from "katex"
 import "katex/dist/katex.min.css"
+import rehypeRaw from "rehype-raw"
+import { TableRowCard } from "../cards/table-row-card"
+import { Accordion } from "./accordion"
+
+// Extend the Components type to include our custom component
+interface CustomComponents extends Components {
+  "table-row-card": React.ComponentType<{
+    node: any
+    children: string
+  }>
+  accordion: React.ComponentType<{
+    node: any
+    children: string
+  }>
+}
 
 const generateSectionId = (text: string) => {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, "-")
@@ -41,17 +56,27 @@ const TableRow = (props: any) => {
 }
 
 const TableHead = (props: any) => {
+  // Skip rendering the thead completely if there are no children
+  if (!props.children || props.children.length === 0) {
+    return null
+  }
+
   const isEmpty = React.Children.toArray(props.children).every((child: any) => {
     if (!child.props || !child.props.children) return true
 
     if (child.props.children) {
       const thChildren = React.Children.toArray(child.props.children)
-      return thChildren.every(
-        (thChild: any) =>
-          !thChild.props ||
-          !thChild.props.children ||
-          thChild.props.children.length === 0
-      )
+      if (thChildren.length === 0) return true
+
+      return thChildren.every((thChild: any) => {
+        // Check if the th child is empty or contains only whitespace
+        if (!thChild) return true
+        if (typeof thChild === "string") return thChild.trim() === ""
+        if (!thChild.props || !thChild.props.children) return true
+        if (typeof thChild.props.children === "string")
+          return thChild.props.children.trim() === ""
+        return false
+      })
     }
     return true
   })
@@ -61,6 +86,14 @@ const TableHead = (props: any) => {
   }
 
   return <thead>{props.children}</thead>
+}
+
+const TableBody = (props: any) => {
+  if (!props.children || props.children.length === 0) {
+    return null
+  }
+
+  return <tbody>{props.children}</tbody>
 }
 
 // Custom plugin to handle /n as newline
@@ -113,7 +146,8 @@ const KaTeXBlock = ({ math }: { math: string }) => {
   React.useEffect(() => {
     if (mathRef.current) {
       try {
-        katex.render(math.trim(), mathRef.current, {
+        const processedMath = preprocessMathContent(math.trim())
+        katex.render(processedMath, mathRef.current, {
           displayMode: true,
           throwOnError: false,
         })
@@ -126,7 +160,7 @@ const KaTeXBlock = ({ math }: { math: string }) => {
     }
   }, [math])
 
-  return <div ref={mathRef} className="my-4" />
+  return <div ref={mathRef} className="my-4 flex justify-center" />
 }
 
 const KaTeXInline = ({ math }: { math: string }) => {
@@ -135,7 +169,9 @@ const KaTeXInline = ({ math }: { math: string }) => {
   React.useEffect(() => {
     if (mathRef.current) {
       try {
-        katex.render(math.trim(), mathRef.current, {
+        // Pre-process the math content to replace "mod" with "\pmod"
+        const processedMath = preprocessMathContent(math.trim())
+        katex.render(processedMath, mathRef.current, {
           displayMode: false,
           throwOnError: false,
         })
@@ -148,7 +184,25 @@ const KaTeXInline = ({ math }: { math: string }) => {
     }
   }, [math])
 
-  return <span ref={mathRef} className="inline-block align-middle" />
+  return <span ref={mathRef} className="inline-block align-middle katex-math" />
+}
+
+// Preprocess math content to improve rendering
+const preprocessMathContent = (mathContent: string): string => {
+  // Replace pattern "x ; mod ; q" or "x \mod q" with "\pmod{q}"
+  const modRegex = /([^\\])(;?\s*mod\s*;?\s*)([^{])/g
+  const processedMath = mathContent.replace(
+    modRegex,
+    (match, before, mod, after) => {
+      return `${before}\\pmod{${after}}`
+    }
+  )
+
+  // Also handle cases like "\mod q" or "\mod{q}"
+  const modCommandRegex = /\\mod\s+([^{])/g
+  return processedMath.replace(modCommandRegex, (match, after) => {
+    return `\\pmod{${after}}`
+  })
 }
 
 // Define a simple regex to extract math content from our markdown
@@ -246,8 +300,58 @@ const containsMath = (text: string): boolean => {
   return inlineMathRegex.test(text)
 }
 
+const rehypeProcessBrTags = () => {
+  return (tree: any) => {
+    const visit = (node: any) => {
+      if (
+        node.type === "element" &&
+        (node.tagName === "td" || node.tagName === "th")
+      ) {
+        // Look for text nodes that contain \n or <br> and convert them
+        if (node.children) {
+          for (let i = 0; i < node.children.length; i++) {
+            const child = node.children[i]
+            if (child.type === "text" && child.value) {
+              if (child.value.includes("\n")) {
+                const parts = child.value.split("\n")
+                const newChildren: any[] = []
+
+                parts.forEach((part: string, index: number) => {
+                  newChildren.push({ type: "text", value: part })
+
+                  // Add <br> element except after the last part
+                  if (index < parts.length - 1) {
+                    newChildren.push({
+                      type: "element",
+                      tagName: "br",
+                      properties: {},
+                      children: [],
+                    })
+                  }
+                })
+
+                node.children.splice(i, 1, ...newChildren)
+                // Adjust i based on the new length of children we've inserted
+                i += newChildren.length - 1
+              }
+            }
+          }
+        }
+      }
+
+      if (node.children) {
+        node.children.forEach(visit)
+      }
+
+      return node
+    }
+
+    return visit(tree)
+  }
+}
+
 // Styling for HTML attributes for markdown component
-const REACT_MARKDOWN_CONFIG = (darkMode: boolean): Components => ({
+const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
   a: ({ ...props }) =>
     createMarkdownElement("a", {
       className: `${darkMode ? "text-anakiwa-300" : "text-anakiwa-500"} hover:text-orange duration-200`,
@@ -294,9 +398,18 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): Components => ({
       })
       .join("")
 
+    let isMathOnly = false
+
+    if (text.trim().startsWith("$") && text.trim().endsWith("$")) {
+      const innerContent = text.trim().slice(1, -1)
+      if (!innerContent.includes("$")) {
+        isMathOnly = true
+      }
+    }
+
     if (text.includes("$")) {
       return createMarkdownElement("p", {
-        className: `${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal`,
+        className: `${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal ${isMathOnly ? "math-only" : ""}`,
         children: <MathText text={text} />,
         ...props,
       })
@@ -354,6 +467,34 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): Components => ({
   table: Table,
   tr: TableRow,
   thead: TableHead,
+  tbody: TableBody,
+  "table-row-card": ({ node, children }: { node: any; children: string }) => {
+    try {
+      const content = JSON.parse(children)
+      return <TableRowCard items={content} />
+    } catch (error) {
+      console.error("Error parsing table-row-card content:", error)
+      return <div>Error rendering table row card</div>
+    }
+  },
+  accordion: ({ node, children }: { node: any; children: string }) => {
+    try {
+      const content = JSON.parse(children)
+      return (
+        <Accordion
+          type={content.type || "multiple"}
+          size={content.size || "xs"}
+          defaultValue={content.defaultValue}
+          items={content.items}
+          iconOnHover={content.iconOnHover}
+          id={content.id}
+        />
+      )
+    } catch (error) {
+      console.error("Error parsing accordion content:", error)
+      return <div>Error rendering accordion</div>
+    }
+  },
   td: (props) => {
     const { node, children, ...rest } = props
 
@@ -367,12 +508,30 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): Components => ({
       })
       .join("")
 
+    // Handle line breaks in table cells by replacing <br> with actual line breaks
+    const hasBrTags = typeof text === "string" && text.includes("<br>")
+
+    // Check if there's HTML content with style attribute in the cell
+    const hasHtmlContent =
+      typeof text === "string" && (text.includes("<div style=") || hasBrTags)
+
     // Check if there's math content
     if (containsMath(text)) {
       return (
         <td className="p-4 text-left" {...rest}>
           <MathText text={text} />
         </td>
+      )
+    }
+
+    if (hasHtmlContent) {
+      const processedText = hasBrTags ? text.replace(/<br>/g, "<br/>") : text
+      return (
+        <td
+          className="p-4 text-left"
+          {...rest}
+          dangerouslySetInnerHTML={{ __html: processedText }}
+        />
       )
     }
 
@@ -398,12 +557,29 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): Components => ({
       })
       .join("")
 
-    // Check if there's math content
+    // Handle line breaks in table headers by replacing <br> with actual line breaks
+    const hasBrTags = typeof text === "string" && text.includes("<br>")
+
+    // Check if there's HTML content with style attribute in the cell
+    const hasHtmlContent =
+      typeof text === "string" && (text.includes("<div style=") || hasBrTags)
+
     if (containsMath(text)) {
       return (
         <th className="p-4 text-left font-medium" {...rest}>
           <MathText text={text} />
         </th>
+      )
+    }
+
+    if (hasHtmlContent) {
+      const processedText = hasBrTags ? text.replace(/<br>/g, "<br/>") : text
+      return (
+        <th
+          className="p-4 text-left font-medium"
+          {...rest}
+          dangerouslySetInnerHTML={{ __html: processedText }}
+        />
       )
     }
 
@@ -453,11 +629,14 @@ export const Markdown = ({
         ...components,
       }
 
+      const rehypePlugins = [rehypeRaw as any, rehypeProcessBrTags as any]
+
       if (blockParts.length === 1) {
         setContent([
           <ReactMarkdown
             key="markdown"
             skipHtml={false}
+            rehypePlugins={rehypePlugins}
             components={mathComponents}
             remarkPlugins={[remarkGfm, remarkCustomNewlines]}
           >
@@ -476,6 +655,7 @@ export const Markdown = ({
               <ReactMarkdown
                 key={`text-${index}`}
                 skipHtml={false}
+                rehypePlugins={rehypePlugins}
                 components={mathComponents}
                 remarkPlugins={[remarkGfm, remarkCustomNewlines]}
               >
@@ -495,6 +675,7 @@ export const Markdown = ({
         <ReactMarkdown
           key="fallback"
           skipHtml={false}
+          rehypePlugins={[rehypeRaw as any, rehypeProcessBrTags as any]}
           components={{
             ...REACT_MARKDOWN_CONFIG(darkMode),
             ...components,

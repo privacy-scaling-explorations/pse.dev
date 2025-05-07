@@ -3,11 +3,12 @@ import { BlogContent } from "@/components/blog/blog-content"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import { createMarkdownElement, Markdown } from "@/components/ui/markdown"
+import { Markdown } from "@/components/ui/markdown"
 import { getArticles, getArticleById } from "@/lib/blog"
 import { cn } from "@/lib/utils"
 import { Metadata } from "next"
 import Link from "next/link"
+import { notFound } from "next/navigation"
 
 export const dynamic = "force-dynamic"
 
@@ -21,6 +22,13 @@ export const generateStaticParams = async () => {
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const post = await getArticleById(params.slug)
 
+  if (!post) {
+    return {
+      title: "Article Not Found",
+      description: "The requested article could not be found",
+    }
+  }
+
   const imageUrl =
     post && (post?.image ?? "")?.length > 0 ? post?.image : "/og-image.png"
 
@@ -32,7 +40,6 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     },
   }
 
-  // Add canonical URL if post has canonical property
   if (post && "canonical" in post) {
     metadata.alternates = {
       canonical: post.canonical as string,
@@ -46,11 +53,14 @@ export default function BlogArticle({ params }: any) {
   const slug = params.slug
   const post = getArticleById(slug)
 
+  if (!post) {
+    notFound()
+  }
+
   const imageUrl = (post?.image ?? "")?.length > 0 ? post?.image : undefined
 
   const imageAsCover = true
 
-  if (!post) return null
   return (
     <div className="flex flex-col">
       <div className="flex items-start justify-center z-0 relative">

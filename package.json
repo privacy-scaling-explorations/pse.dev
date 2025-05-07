@@ -53,6 +53,7 @@
     "react-slick": "^0.30.3",
     "react-use": "^17.4.0",
     "rehype-katex": "^7.0.1",
+    "rehype-raw": "^7.0.0",
     "remark-gfm": "^3.0.1",
     "remark-math": "^6.0.0",
     "sharp": "^0.33.2",

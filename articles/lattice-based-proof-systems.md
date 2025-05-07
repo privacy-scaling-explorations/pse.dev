@@ -11,10 +11,10 @@ Post-quantum cryptography (PQC) is important because it addresses the potential 
 
 Quantum computers leverage the principles of quantum mechanics to perform calculations exponentially faster than classical computers in certain cases. Two algorithms, in particular, pose significant threats:
 
-- [Shor’s Algorithm](https://en.wikipedia.org/wiki/Shor%27s_algorithm): Efficiently solves integer factorization and discrete logarithm problems, which are the basis of widely used cryptographic protocols like RSA, DSA, and Diffie-Hellman.
-- [Grover’s Algorithm](https://en.wikipedia.org/wiki/Grover%27s_algorithm): Reduces the security of symmetric-key algorithms by effectively halving the key length (e.g., a 128-bit AES key would offer only 64 bits of security against Grover’s algorithm).
+- [Shor's Algorithm](https://en.wikipedia.org/wiki/Shor%27s_algorithm): Efficiently solves integer factorization and discrete logarithm problems, which are the basis of widely used cryptographic protocols like RSA, DSA, and Diffie-Hellman.
+- [Grover's Algorithm](https://en.wikipedia.org/wiki/Grover%27s_algorithm): Reduces the security of symmetric-key algorithms by effectively halving the key length (e.g., a 128-bit AES key would offer only 64 bits of security against Grover's algorithm).
 
-If large-scale, fault-tolerant quantum computers become practical, many of today’s encryption, digital signature, and key exchange protocols would be rendered insecure.
+If large-scale, fault-tolerant quantum computers become practical, many of today's encryption, digital signature, and key exchange protocols would be rendered insecure.
 
 Lattice-based cryptography is a promising area within modern cryptography. It is likely the most versatile and performant subfield of PQC. For example, the folding scheme [LatticeFold](https://eprint.iacr.org/2024/257.pdf) is believed to be as efficient as the fastest traditional elliptic curve-based folding schemes.
 
@@ -69,19 +69,19 @@ The discrete logarithm problem is to find $x$ given $g^x$. There is a somewhat a
 
 The system of linear equations
 
-$Ax = h \; mod \; q$
+$$Ax = h \pmod{q}$$
 
 where $A \in \mathbb{Z}^{m \times n}_q$ and $h \in \mathbb{Z}^n_q$ can be solved in polynomial time with [Gaussian elimination](https://en.wikipedia.org/wiki/Gaussian_elimination).
 
 But variations of this problem can be hard. For example, when we require that the norm of$x$ is smaller than some bound $B$. Note that the bound needs to be smaller than $q$; otherwise, $(q, 0, ..., 0)$ is a trivial solution.
 
-The SIS problem $SIS(m, n, q, B)$ is the problem of finding $x = (x_1, ..., x_n)$ such that     
+The SIS problem $SIS(m, n, q, B)$ is the problem of finding $x = (x_1, ..., x_n)$ such that
 
-$Ax = 0 \; mod \; q$
+$$Ax = 0 \pmod{q}$$
 
 and
 
-$||x|| \leq B$
+$$||x|| \leq B$$
 
 Can we do Schnorr-like ZKP for such $x$?
 
@@ -89,11 +89,11 @@ Can we do Schnorr-like ZKP for such $x$?
 
 Let's have $x_1$ such that
 
-$Ax_1 = h_1 \; mod \; q$
+$$Ax_1 = h_1 \pmod{q}$$
 
 and
 
-$||x_1|| \leq B$
+$$||x_1|| \leq B$$
 
 Would the following protocol work?
 
@@ -109,7 +109,7 @@ This is one of the reasons why the ring $\mathbb{Z}_q[x]/(x^n + 1)$ is used—it
 
 In the last step, the verifier must verify whether $z_1$ is small as well.
 
-However, that’s not the end of the problems with the lattice-based version of Schnorr.
+However, that's not the end of the problems with the lattice-based version of Schnorr.
 
 Now, if this is a proof of knowledge of $x$, we can extract the value $x$ from the prover. This is typically done by rewinding: we run the prover as a black box twice and obtain two transcripts: $y$, $d_1$, $z_1 = y + x d_1$ and $y$, $d_2$, $z_2 = y + x d_2$. We get:
 

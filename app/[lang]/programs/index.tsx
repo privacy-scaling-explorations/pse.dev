@@ -18,6 +18,7 @@ import { Divider } from "@/components/divider"
 import { Icons } from "@/components/icons"
 import { PageHeader } from "@/components/page-header"
 import { useTranslation } from "@/app/i18n/client"
+import { TableRowCard } from "@/components/cards/table-row-card"
 
 type ProgramDetailProps = {
   region?: string
@@ -277,37 +278,22 @@ export const ProgramPageContent = ({ lang }: any) => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-0 md:mt-4 md:gap-10">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col gap-10">
                     <AccordionLabel label={t("common.curriculum")} />
-                    <Card
-                      className="mt-10 divide-y divide-tuatara-300"
-                      padding="none"
-                      variant="transparent"
-                    >
-                      {curriculum.map(({ title, items }, index) => (
-                        <div
-                          key={index}
-                          className="grid grid-cols-1 divide-tuatara-300 md:grid-cols-[1fr_2.5fr] md:divide-x"
-                        >
-                          <div className="flex h-[96px] items-center justify-center border-b border-tuatara-300 bg-anakiwa-100 p-2 text-center md:border-none">
-                            <span className="max-w-[136px] text-xs font-bold uppercase tracking-[2.5px] text-tuatara-950">
-                              {t("common.week", {
-                                week: index,
-                              })}
-                              <br />
-                              {title}
-                            </span>
-                          </div>
-                          <div className="flex items-center py-2">
-                            <ul className="ml-10 list-disc">
-                              {items.map((label: string, index: number) => {
-                                return <li key={index}>{label}</li>
-                              })}
-                            </ul>
-                          </div>
-                        </div>
-                      ))}
-                    </Card>
+                    <TableRowCard
+                      items={curriculum.map(({ title, items }, index) => ({
+                        title: (
+                          <span>
+                            {t("common.week", {
+                              week: index,
+                            })}
+                            <br />
+                            {title}
+                          </span>
+                        ),
+                        items,
+                      }))}
+                    />
                   </div>
 
                   <div className="flex flex-col">
@@ -318,13 +304,9 @@ export const ProgramPageContent = ({ lang }: any) => {
                         className="!border-anakiwa-300"
                         size="xs"
                         items={coreProgramFaq.map(
-                          ({ question, answer }, index) => {
+                          ({ question: label, answer }, index) => {
                             return {
-                              label: (
-                                <span className="text-left font-sans text-base font-medium leading-6 text-black">
-                                  {question}
-                                </span>
-                              ),
+                              label,
                               value: index.toString(),
                               children: (
                                 <span
@@ -459,13 +441,9 @@ export const ProgramPageContent = ({ lang }: any) => {
                       className="!border-anakiwa-300"
                       size="xs"
                       items={accelerationProgramFaq.map(
-                        ({ question, answer }, index) => {
+                        ({ question: label, answer }, index) => {
                           return {
-                            label: (
-                              <span className="text-left font-sans text-base font-medium text-black">
-                                {question}
-                              </span>
-                            ),
+                            label,
                             value: index.toString(),
                             children: (
                               <span className="flex flex-col gap-3 text-base text-tuatara-950">
