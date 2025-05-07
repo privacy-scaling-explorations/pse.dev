@@ -2,7 +2,7 @@
 authors: ["PSE Team"]
 title: "BLS Wallet: Bundling up data - Privacy & Scaling Explorations"
 image: null
-tldr: ""
+tldr: "BLS Wallet is an end-to-end system allowing wallets, dapps, and L2 nodes to easily plug the moon math magic of BLS signatures directly into their code."
 date: "2022-08-26"
 canonical: "https://mirror.xyz/privacy-scaling-explorations.eth/e8Xy1X1phqdqGwkzaLMlyT9BY-8MpLoelYTsJc_DzfU"
 tags:
