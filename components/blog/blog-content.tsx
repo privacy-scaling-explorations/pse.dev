@@ -3,8 +3,12 @@ import Link from "next/link"
 import { AppContent } from "../ui/app-content"
 import { Markdown } from "../ui/markdown"
 import { BlogArticleCard } from "./blog-article-card"
+import { BlogArticleRelatedProjects } from "./blog-article-related-projects"
+import { LocaleTypes } from "@/app/i18n/settings"
+
 interface BlogContentProps {
   post: Article
+  lang: LocaleTypes
 }
 
 interface BlogImageProps {
@@ -31,7 +35,7 @@ export function BlogImage({ image, alt, description }: BlogImageProps) {
   )
 }
 
-export function BlogContent({ post }: BlogContentProps) {
+export function BlogContent({ post, lang }: BlogContentProps) {
   const articles = getArticles() ?? []
   const articleIndex = articles.findIndex((article) => article.id === post.id)
 
@@ -101,6 +105,11 @@ export function BlogContent({ post }: BlogContentProps) {
             </div>
           </div>
         )}
+
+        <BlogArticleRelatedProjects
+          projectsIds={post.projects ?? []}
+          lang={lang}
+        />
       </div>
     </AppContent>
   )

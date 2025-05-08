@@ -4,14 +4,8 @@ import { LocaleTypes } from "@/app/i18n/settings"
 import { ProjectInterface } from "@/lib/types"
 import { AppContent } from "../ui/app-content"
 import { Article } from "@/lib/blog"
-import { useEffect, useState } from "react"
 import { ArticleListCard } from "./article-list-card"
-
-async function fetchArticles(project: string) {
-  const response = await fetch(`/api/articles?project=${project}`)
-  const data = await response.json()
-  return data.articles
-}
+import { useGetProjectRelatedArticles } from "@/hooks/useGetProjectRelatedArticles"
 
 export const ProjectBlogArticles = ({
   project,
@@ -20,28 +14,17 @@ export const ProjectBlogArticles = ({
   project: ProjectInterface
   lang: LocaleTypes
 }) => {
-  const [articles, setArticles] = useState<Article[]>([])
-  const [loading, setLoading] = useState(true)
+  const { articles, loading } = useGetProjectRelatedArticles({
+    projectId: project.id,
+  })
 
-  useEffect(() => {
-    const getArticles = async () => {
-      try {
-        const data = await fetchArticles(project.id)
-        setArticles(data)
-      } catch (error) {
-        console.error("Error fetching articles:", error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    getArticles()
-  }, [project.id])
-
-  // Show loading state
   if (loading) {
     return (
-      <div className="py-10 lg:py-16 w-full">
+      <div
+        id="related-articles"
+        data-section-id="related-articles"
+        className="py-10 lg:py-16 w-full"
+      >
         <AppContent>
           <div className="flex flex-col gap-10">
             <h3 className="text-base font-bold font-sans text-left uppercase tracking-[3.36px]">
@@ -49,8 +32,17 @@ export const ProjectBlogArticles = ({
             </h3>
             <div className="grid grid-cols-1 gap-8">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="flex h-full animate-pulse">
-                  <div className="flex-1 w-full rounded-xl overflow-hidden bg-slate-200 h-64"></div>
+                <div
+                  key={i}
+                  className="grid grid-cols-[80px_1fr] lg:grid-cols-[120px_1fr] items-center gap-4 lg:gap-10"
+                >
+                  <div className="size-[80px] lg:size-[120px] rounded-full bg-slate-200 animate-pulse"></div>
+                  <div className="flex flex-col gap-2">
+                    <div className="h-5 w-full bg-slate-200 animate-pulse"></div>
+                    <div className="h-4 w-full bg-slate-200 animate-pulse"></div>
+                    <div className="h-4 w-2/3 bg-slate-200 animate-pulse "></div>
+                    <div className="h-2 w-14 bg-slate-200 animate-pulse "></div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -65,7 +57,11 @@ export const ProjectBlogArticles = ({
   }
 
   return (
-    <div className="py-10 lg:py-16 w-full">
+    <div
+      id="related-articles"
+      data-section-id="related-articles"
+      className="py-10 lg:py-16 w-full"
+    >
       <div className="flex flex-col gap-10">
         <h3 className="text-[22px] font-bold text-tuatara-700">
           Related articles
