@@ -20,7 +20,7 @@ Our team works and distributes grants across the identity ecosystem to draft tec
 Our vision is a future where digital identity infrastructure is **privacy-preserving.** We are working to ensure that **privacy is** built into global digital identity systems *by default*. As governments make foundational decisions on how identity is issued, verified, and protected, we see an opportunity for EF and PSE to: 
 
 - Embed **zero-knowledge proofs (ZKPs)** at the core of these systems
-- Define the underlying [blockchain and distributed ledger](https://github.com/orgs/eu-digital-identity-wallet/projects/29/views/1?pane=issue&itemId=86398709&issue=eu-digital-identity-wallet%7Ceudi-doc-standards-and-technical-specifications%7C202) technology used as trust registries
+- Define the underlying [blockchain and distributed ledger](https://github.com/orgs/eu-digital-identity-wallet/projects/29/views/1?pane=issue&itemId=86398709&issue=eu-digital-identity-wallet%7Ceudi-doc-standards-and-technical-specifications%7C202) technology used as trust registries and guiding [GPDR policies](https://www.edpb.europa.eu/system/files/2025-04/edpb_guidelines_202502_blockchain_en.pdf)
 
 ### Why It Is Urgent
 
@@ -32,11 +32,11 @@ We are in a rare window of influence. Over the next 12 to 18 months:
 - **Public-private partnerships are forming**. Major technology monopolies ([Google](https://datatracker.ietf.org/doc/draft-google-cfrg-libzk/), [Microsoft](https://github.com/microsoft/crescent-credentials), [Orange](https://csrc.nist.gov/csrc/media/presentations/2024/wpec2024-3b3/images-media/wpec2024-3b3-slides-antoine-jacques--BBS-sharp-eIDAS2.pdf), etc.) are positioning themselves to define and deploy identity solutions - from non-credibly neutral stances.
 - **Once deployed, systems are sticky.** National identity systems are expensive, complex, and politically sensitive to overhaul. As we have learned from our experience working with other countries, if ZKPs are not integrated now, retrofitting them later will be slow, bureaucratic, and unlikely to succeed.
 
-### What We Are Doing
+### What We Do
 
 zkID operates across [three strategic workstreams](https://www.notion.so/zkID-Team-Strategy-Proposal-db3c5788dc7a4916a33e580a79177053?pvs=21) to ensure zero-knowledge proofs (ZKPs) are embedded in digital identity systems of the future:
 
-### 1. **Proliferate Programmable ZKP Standards**
+1. **Proliferate Programmable ZKP Standards**
 
 We work with standard bodies to embed ZKPs into emerging identity frameworks to ensure interoperability. Our [grant](https://hackmd.io/@therealyingtong/zkid-grant-proposal)-backed efforts include:
 
@@ -48,13 +48,13 @@ We work with standard bodies to embed ZKPs into emerging identity frameworks to 
 
 Standards like the IETF and EUDI framework are **global signaling mechanisms.** Dozens of countries reference the EUDI frameworks to shape their own identity regulations. If we can ensure ZKPs are part of the EUDI ARF spec, we create downstream pressure to adopt privacy-preserving architecture across multiple jurisdictions.
 
-### 2. **Research, Prototype, Subtraction**
+2. **Research, Prototype, Subtraction**
 
 We [research](https://www.notion.so/Evaluation-Framework-for-SSI-Solutions-8eceb793a5b442cb8da65acc3c337d5c?pvs=21) and build standards compliant, [**minimal and modular PoCs**](https://github.com/adria0/seediq-playground) like the [ZKP Wallet Unit](https://www.notion.so/External-zkID-ZKP-Wallet-Unit-Proposal-1bad57e8dd7e80c98d73fc7e7666375d?pvs=21). This is done in collaboration with governments, to ensure practical real-world ZKP integration pathways.
 
 By delivering vendor-neutral, open-source PoCs, zkID aims to provide tangible working proof in production-ready environments.,
 
-### 3. **Education and Strategic Outreach**
+3. **Education and Strategic Outreach**
 
 We publish research, [articles](https://mirror.xyz/privacy-scaling-explorations.eth/zRM7qQSt_igfoSxdSa0Pts9MFdAoD96DD3m43bPQJT8), [analysis](https://www.notion.so/Evaluation-Framework-for-SSI-Solutions-8eceb793a5b442cb8da65acc3c337d5c?pvs=21), lead [workshops](https://docs.google.com/presentation/d/1YROCEHK_t10wo5CukgYWmS1nuYKZi46NJBu-XZ8zXiw/edit#slide=id.p), and run [technical engagements](https://docs.google.com/presentation/d/1C4D8zK4gAdafgIEW-2m_qDyyT39gWo0mmFYpwmA8N3M/edit#slide=id.g338a079cb64_0_15).
 
