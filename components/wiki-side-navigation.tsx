@@ -37,14 +37,16 @@ const SideNavigationItem = ({
     <li
       key={id}
       className={cn(
-        "flex min-h-8 items-center border-l-2 border-l-anakiwa-200 px-2 duration-200 cursor-pointer w-full",
+        "flex min-h-8 items-center border-l-2 border-l-anakiwa-200 px-2 duration-200 cursor-pointer w-full pb-2",
         {
           "border-l-anakiwa-500 text-anakiwa-500 font-medium":
             activeSection === id,
         }
       )}
     >
-      <button onClick={onClick}>{text}</button>
+      <button onClick={onClick} className="text-left">
+        {text}
+      </button>
     </li>
   )
 }

@@ -53,6 +53,11 @@ export function BlogContent({ post, lang }: BlogContentProps) {
           <Markdown>{post?.content ?? ""}</Markdown>
         </div>
 
+        <BlogArticleRelatedProjects
+          projectsIds={post.projects ?? []}
+          lang={lang}
+        />
+
         {moreArticles?.length > 0 && (
           <div className="flex flex-col gap-8">
             <div className="flex items-center justify-between">
@@ -105,11 +110,6 @@ export function BlogContent({ post, lang }: BlogContentProps) {
             </div>
           </div>
         )}
-
-        <BlogArticleRelatedProjects
-          projectsIds={post.projects ?? []}
-          lang={lang}
-        />
       </div>
     </AppContent>
   )

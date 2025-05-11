@@ -4,7 +4,8 @@ import { ProjectInterface } from "./types"
 
 export const getProjectById = (id: string | number, lang = "en") => {
   const project: ProjectInterface =
-    projects.filter((project) => String(project.id) === id)[0] ?? {}
+    projects.filter((project) => String(project.id?.toLowerCase()) === id)[0] ??
+    {}
 
   const content = project?.content?.[lang]
 

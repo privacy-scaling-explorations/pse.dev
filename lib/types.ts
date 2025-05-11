@@ -116,6 +116,7 @@ export interface ProjectContent {
 export interface ProjectInterface {
   id: string
   hasWiki?: boolean // show project with wiki page template
+  youTubeLinks?: string[]
   license?: string
   content: ProjectContent //  project tldr and description with support for multiple language
   category?: ProjectCategory // project category used as filter to replace section

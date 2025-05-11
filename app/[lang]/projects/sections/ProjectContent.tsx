@@ -20,6 +20,7 @@ import { WikiSideNavigation } from "@/components/wiki-side-navigation"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
 import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
+
 export const ProjectContent = ({
   id,
   lang = "en",

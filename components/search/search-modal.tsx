@@ -12,6 +12,7 @@ import {
 } from "@/hooks/useGlobalSearch"
 import { CategoryTag } from "../ui/categoryTag"
 import { Markdown } from "../ui/markdown"
+import React from "react"
 
 interface SearchModalProps {
   open: boolean
@@ -69,7 +70,9 @@ function Hit({
   const content = hit.content || hit.description || hit.excerpt || ""
 
   const snippet =
-    content.length > 150 ? content.substring(0, 150) + "..." : content
+    content.length > 200
+      ? content.substring(0, 200).replace(/\S+$/, "") + "..."
+      : content
 
   return (
     <Link
@@ -91,11 +94,26 @@ function Hit({
             h5: ({ children }) => null,
             h6: ({ children }) => null,
             img: ({ src, alt }) => null,
-            a: ({ href, children }) => (
-              <span className="text-tuatara-700 font-sans text-base font-normal">
-                {children}
-              </span>
-            ),
+            a: ({ href, children }) => {
+              let textContent = ""
+
+              React.Children.forEach(children, (child) => {
+                if (typeof child === "string") {
+                  textContent += child
+                } else if (React.isValidElement(child)) {
+                  const childText = child.props?.children
+                  if (typeof childText === "string") {
+                    textContent += childText
+                  }
+                }
+              })
+
+              return (
+                <span className="text-tuatara-700 font-sans text-base font-normal">
+                  {textContent}
+                </span>
+              )
+            },
           }}
         >
           {snippet}
