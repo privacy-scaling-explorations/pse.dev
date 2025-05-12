@@ -31,7 +31,7 @@ export const ArticleListCard = ({
   return (
     <div className="flex h-full">
       <div
-        className="flex-1 w-full group cursor-pointer"
+        className="full group cursor-pointer hover:scale-105 duration-300"
         onClick={() => {
           router.push(url)
         }}
