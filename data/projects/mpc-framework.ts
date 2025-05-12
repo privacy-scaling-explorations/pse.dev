@@ -9,7 +9,7 @@ export const mpcFramework: ProjectInterface = {
   section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   links: {
-    github: "https://github.com/voltrevo/mpc-framework",
+    github: "https://github.com/privacy-scaling-explorations/mpc-framework",
     website: "https://mpc.pse.dev/",
     telegram: "https://t.me/+FKnOHTkvmX02ODVl",
   },
@@ -59,7 +59,7 @@ inputs private.
 Here's some ways that can be useful:
 
 - Provide analysis on patient data to researchers without revealing the patient data
-- Play [Rock Paper Scissors Lizard Spock](https://voltrevo.github.io/mpc-lizard-spock/) while keeping your move secret
+- Play [Rock Paper Scissors Lizard Spock](https://github.com/privacy-scaling-explorations/mpc-lizard-spock) while keeping your move secret
 - Hold an auction while keeping the bids secret (only the winning bidder and price is revealed)
 - [Match employers and job-seekers that each have hidden criteria](https://github.com/cursive-team/pz-hiring)
 - Arrange optimal asset swaps (eg sports players / trading cards / corporate assets / NFTs) using hidden valuations
@@ -70,32 +70,76 @@ Here's some ways that can be useful:
 For a bit more of an introduction to MPC, see Barry Whitehat's talk
 [2PC is for Lovers](https://www.youtube.com/watch?v=PzcDqegGoKI). The
 lovers' app described in the talk has been implemented using mpc-framework
-[here](https://voltrevo.github.io/2pc-is-for-lovers/).
+[here](https://mpc.pse.dev/apps/2pc-is-for-lovers).
 
 For a more technical introduction, see [Computerphile's video on Garbled Circuits](https://www.youtube.com/watch?v=FMZ-HARN0gI). For a deeper dive: [Pragmatic MPC](https://securecomputation.org/).
         `,
     },
   },
+  team: [
+    {
+      name: "Andrew Morris",
+      email: "andrew.morris@pse.dev",
+      image: "/avatars/andrew.png",
+      links: {
+        github: "https://github.com/voltrevo",
+        twitter: "https://x.com/voltrevo",
+      },
+    },
+    {
+      name: "Yanis Meziane",
+      email: "yanis@pse.dev",
+      image: "/avatars/yanis.png",
+      links:{
+        github: "https://github.com/Meyanis95",
+        twitter: "https://x.com/yanis_mezn",
+      }
+    },
+  ],
   tags: {
-    keywords: ["MPC", "TypeScript"],
-    themes: [],
+    keywords: ["MPC", "TypeScript", "privacy", "Garbled Circuits", "iZK"],
+    themes: ["buildWith", "play", "research"],
     types: [],
-    builtWith: [],
+    builtWith: ["ValueScript", "Summon", "MPZ", "EMP-Toolkit"],
   },
   extraLinks: {
+    buildWith: [
+      {
+        label: "Create MPC-powered apps in Typescript",
+        url: "https://github.com/privacy-scaling-explorations/mpc-framework"
+      },
+      {
+        label: "Generate circuits with Summon",
+        url: "https://github.com/privacy-scaling-explorations/summon"
+      },
+    ],
+    research: [
+      {
+        label: "Trinity: 2PC with Laconic OT + Garbled Circuits + PLONK",
+        url: "https://github.com/privacy-scaling-explorations/Trinity",
+      },
+      {
+        label: "Authenticated Garbling",
+        url: "https://hackmd.io/@a37205y_SL2LtEA1y2OWhQ/Sy4-nZ3lyx",
+      },
+    ],
     play: [
       {
         label: "Hello world in MPC",
-        url: "https://voltrevo.github.io/mpc-hello/",
+        url: "https://github.com/privacy-scaling-explorations/mpc-hello",
       },
       {
-        label: "Hello world in MPC",
-        url: "https://github.com/voltrevo/mpc-lizard-spock",
+        label: "Lizard Spock in MPC",
+        url: "https://github.com/privacy-scaling-explorations/mpc-lizard-spock",
       },
       {
         label: "In-browser MPC demo",
         url: "https://github.com/voltrevo/mpc-framework-browser-demo",
       },
-    ],
+      {
+        label: "More demos",
+        url: "https://mpc.pse.dev/showcase",
+      },
+    ]
   },
 }
