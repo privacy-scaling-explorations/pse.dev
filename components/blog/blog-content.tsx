@@ -5,6 +5,7 @@ import { Markdown } from "../ui/markdown"
 import { BlogArticleCard } from "./blog-article-card"
 import { BlogArticleRelatedProjects } from "./blog-article-related-projects"
 import { LocaleTypes } from "@/app/i18n/settings"
+import { ArticleListCard } from "./article-list-card"
 
 interface BlogContentProps {
   post: Article
@@ -53,6 +54,11 @@ export function BlogContent({ post, lang }: BlogContentProps) {
           <Markdown>{post?.content ?? ""}</Markdown>
         </div>
 
+        <BlogArticleRelatedProjects
+          projectsIds={post.projects ?? []}
+          lang={lang}
+        />
+
         {moreArticles?.length > 0 && (
           <div className="flex flex-col gap-8">
             <div className="flex items-center justify-between">
@@ -66,50 +72,20 @@ export function BlogContent({ post, lang }: BlogContentProps) {
                 View all
               </Link>
             </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              {moreArticles.map(
-                ({
-                  id,
-                  title,
-                  image,
-                  tldr = "",
-                  date,
-                  content,
-                  authors,
-                }: Article) => {
-                  const url = `/blog/${id}`
-                  return (
-                    <div
-                      key={id}
-                      className="flex flex-col min-h-[400px] w-full"
-                    >
-                      <Link
-                        href={url}
-                        className="flex h-full w-full group hover:opacity-90 transition-opacity duration-300 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-900/10"
-                        style={{ display: "flex", flexDirection: "column" }}
-                      >
-                        <BlogArticleCard
-                          id={id}
-                          image={image}
-                          title={title}
-                          date={date}
-                          content={content}
-                          authors={authors}
-                          tldr={tldr}
-                        />
-                      </Link>
-                    </div>
-                  )
-                }
-              )}
+            <div className="flex flex-col gap-10">
+              {moreArticles.map((article: Article) => {
+                return (
+                  <ArticleListCard
+                    key={article.id}
+                    lang={lang}
+                    article={article}
+                    lineClamp
+                  />
+                )
+              })}
             </div>
           </div>
         )}
-
-        <BlogArticleRelatedProjects
-          projectsIds={post.projects ?? []}
-          lang={lang}
-        />
       </div>
     </AppContent>
   )

@@ -56,15 +56,32 @@ MachinaIO can transform blockchain and cryptographic applications, such as trust
 
 - **GitHub Repository:** [Machina iO](https://github.com/MachinaIO/)
 - **Project Plan:** [HackMD Plan](https://hackmd.io/@MachinaIO/H1w5iwmDke)
-
-### Contact
-
-- **Enrico Bottazzi:** [enrico@pse.dev](mailto:enrico@pse.dev)
-- **Sora Suegami:** [sorasuegami@pse.dev](mailto:sorasuegami@pse.dev)
-- [**PSE Discord**](https://discord.com/invite/sF5CT5rzrR)
-- On X: [@machina__io](https://x.com/machina__io)      `,
+    `,
     },
   },
+  links: {
+    twitter: "https://x.com/machina__io",
+    github: "https://github.com/MachinaIO/",
+    website: "https://hackmd.io/@MachinaIO/H1w5iwmDke",
+  },
+  team: [
+    {
+      name: "Enrico Bottazzi",
+      email: "enrico@pse.dev",
+    },
+    {
+      name: "Sora Suegami",
+      email: "sorasuegami@pse.dev",
+    },
+    {
+      name: "Pia",
+      email: "pia@pse.dev",
+    },
+    {
+      name: "Pia",
+      email: "pia@pse.dev",
+    },
+  ],
   tags: {
     keywords: [
       "indistinguishability obfuscation",
@@ -76,6 +93,5 @@ MachinaIO can transform blockchain and cryptographic applications, such as trust
     ],
     themes: ["cryptography", "privacy", "scalability"],
     types: ["research", "development"],
-    
   },
 }

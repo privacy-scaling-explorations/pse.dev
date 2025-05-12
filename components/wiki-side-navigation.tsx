@@ -37,14 +37,16 @@ const SideNavigationItem = ({
     <li
       key={id}
       className={cn(
-        "flex min-h-8 items-center border-l-2 border-l-anakiwa-200 px-2 duration-200 cursor-pointer w-full",
+        "flex min-h-8 items-center border-l-2 border-l-anakiwa-200 px-2 duration-200 cursor-pointer w-full pb-2",
         {
           "border-l-anakiwa-500 text-anakiwa-500 font-medium":
             activeSection === id,
         }
       )}
     >
-      <button onClick={onClick}>{text}</button>
+      <button onClick={onClick} className="text-left">
+        {text}
+      </button>
     </li>
   )
 }
@@ -156,9 +158,14 @@ export const WikiSideNavigation = ({
     },
   }
 
-  const { extraLinks = {} } = project
+  const { extraLinks = {}, team = [], youtubeLinks = [] } = project
 
   const hasRelatedArticles = articles.length > 0 && !loading
+  const hasTeam = Array.isArray(team) && team.length > 0
+  const hasYoutubeVideos =
+    Array.isArray(youtubeLinks) && youtubeLinks.length > 0
+
+  console.log(hasTeam, hasYoutubeVideos, youtubeLinks)
 
   if (sections.length === 0 || content.length === 0) return null
 
@@ -193,6 +200,27 @@ export const WikiSideNavigation = ({
               />
             )
           })}
+
+          {hasYoutubeVideos && (
+            <SideNavigationItem
+              key="youtube-videos"
+              onClick={() => scrollToSection("youtube-videos")}
+              activeSection={activeSection}
+              text={t("youtubeVideos") || "YouTube Videos"}
+              id="youtube-videos"
+            />
+          )}
+
+          {hasTeam && (
+            <SideNavigationItem
+              key="team"
+              onClick={() => scrollToSection("team")}
+              activeSection={activeSection}
+              text={t("projectTeam") || "Team"}
+              id="team"
+            />
+          )}
+
           {hasRelatedArticles && (
             <SideNavigationItem
               key="related-articles"
