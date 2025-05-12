@@ -7,9 +7,11 @@ import { useRouter } from "next/navigation"
 export const ArticleListCard = ({
   lang,
   article,
+  lineClamp = false,
 }: {
   lang: string
   article: Article
+  lineClamp?: boolean
 }) => {
   const url = `/${lang}/blog/${article.id}`
 
@@ -20,6 +22,11 @@ export const ArticleListCard = ({
   })
 
   const router = useRouter()
+
+  const tldr = lineClamp
+    ? (article.tldr || "").replace(/\n/g, " ").substring(0, 120) +
+      (article.tldr && article.tldr.length > 120 ? "..." : "")
+    : article.tldr || ""
 
   return (
     <div className="flex h-full">
@@ -88,7 +95,7 @@ export const ArticleListCard = ({
                     img: ({ src, alt }) => null,
                   }}
                 >
-                  {article.tldr || ""}
+                  {tldr}
                 </Markdown>
               </div>
             </div>
