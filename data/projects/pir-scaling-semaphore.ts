@@ -2,15 +2,14 @@ import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const scalingSemaphore: ProjectInterface = {
   id: "scaling-semaphore-pir",
-  image: "",                    // add cover image or leave blank
+  image: "", // add cover image or leave blank
   name: "Scaling Semaphore – PIR Merkle-Path Retrieval",
   section: "pse",
   projectStatus: ProjectStatus.ACTIVE,
   category: ProjectCategory.RESEARCH,
   content: {
     en: {
-      tldr:
-        "Private Information Retrieval lets Semaphore users fetch their Merkle path from a server without revealing which identity they own, enabling truly private proofs for groups with millions of members.",
+      tldr: "Private Information Retrieval lets Semaphore users fetch their Merkle path from a server without revealing which identity they own, enabling truly private proofs for groups with millions of members.",
       description: `
 ### Scaling Semaphore – Private Merkle-Path Retrieval with PIR  
 
@@ -59,6 +58,15 @@ Traditional PIR protocols were too heavy for on-chain use. Recent schemes—e.g.
       `,
     },
   },
+  links: {
+    discord: "https://discord.com/invite/sF5CT5rzrR",
+  },
+  team: [
+    {
+      name: "Brechy",
+      email: "brechy@pse.dev",
+    },
+  ],
   tags: {
     keywords: [
       "Semaphore",

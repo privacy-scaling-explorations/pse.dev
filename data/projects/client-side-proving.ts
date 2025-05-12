@@ -1,14 +1,14 @@
 import {
-    ProjectCategory,
-    ProjectContent,
-    ProjectInterface,
-    ProjectStatus,
-  } from "@/lib/types"
-  
-  const content: ProjectContent = {
-    en: {
-      tldr: "Developing efficient zero-knowledge proving systems for mobile devices, enabling private digital ID and secure communication with minimal resources.",
-      description: `
+  ProjectCategory,
+  ProjectContent,
+  ProjectInterface,
+  ProjectStatus,
+} from "@/lib/types"
+
+const content: ProjectContent = {
+  en: {
+    tldr: "Developing efficient zero-knowledge proving systems for mobile devices, enabling private digital ID and secure communication with minimal resources.",
+    description: `
   ### Project Overview
   
   The Client-Side Proving project aims to develop practical and efficient zero-knowledge (ZK) proving systems tailored specifically for mobile devices. By exploring various proving systems - including Binius, Spartan, Plonky2, Scribe, and WHIR - we provide benchmarks, insights, and optimized implementations that enable performant client-side applications.
@@ -58,25 +58,32 @@ import {
   
   Benchmark findings and technical write-ups will be released regularly, highlighting the project's research outcomes and performance evaluations.
   `,
+  },
+}
+
+export const clientSideProving: ProjectInterface = {
+  id: "client-side-proving",
+  category: ProjectCategory.RESEARCH,
+  section: "pse",
+  content,
+  projectStatus: ProjectStatus.ACTIVE,
+  image: "",
+  license: "MIT",
+  name: "Client-Side Proving",
+  team: [
+    {
+      name: "Alex Kuzmin",
+      email: "alex.kuzmin@pse.dev",
     },
-  }
-  
-  export const clientSideProving: ProjectInterface = {
-    id: "client-side-proving",
-    category: ProjectCategory.RESEARCH,
-    section: "pse",
-    content,
-    projectStatus: ProjectStatus.ACTIVE,
-    image: "",
-    license: "MIT",
-    name: "Client-Side Proving",
-   
-    tags: {
-      keywords: ["Zero Knowledge", "Mobile", "Privacy", "Digital Identity"],
-      themes: ["build", "research"],
-      types: ["Legos/dev tools", "Benchmarking", "Proof systems"],
-      
+    {
+      name: "Guorong Du",
+      email: "dgr009@pse.dev",
     },
-    extraLinks: {},
-  }
-  
+  ],
+  tags: {
+    keywords: ["Zero Knowledge", "Mobile", "Privacy", "Digital Identity"],
+    themes: ["build", "research"],
+    types: ["Legos/dev tools", "Benchmarking", "Proof systems"],
+  },
+  extraLinks: {},
+}

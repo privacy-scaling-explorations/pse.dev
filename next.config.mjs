@@ -25,7 +25,7 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx", "md"],
   reactStrictMode: true,
   images: {
-    domains: ["i.ytimg.com"],
+    domains: ["i.ytimg.com", "img.youtube.com"],
   },
   experimental: {
     

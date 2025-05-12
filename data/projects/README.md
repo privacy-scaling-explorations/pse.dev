@@ -100,6 +100,51 @@ This is the result
 
 ![Project links](/public/project/example-project-detail.jpg)
 
+## Adding YouTube Videos to a Project
+
+Add YouTube videos to your project by including a `youtubeLinks` array:
+
+```js
+export const projectName: ProjectInterface = {
+  // other properties...
+  youtubeLinks: [
+    "https://www.youtube.com/watch?v=XXXXXXXXXXX",
+    "https://youtu.be/XXXXXXXXXXX",
+    "XXXXXXXXXXX" // Just the YouTube video ID
+  ],
+}
+```
+
+The videos will appear as clickable thumbnails with titles on the project page:
+
+![YouTube Videos](/public/project/example-project-video.png)
+
+## Adding Team Members to a Project
+
+Add team members to your project using the `team` array:
+
+```js
+export const projectName: ProjectInterface = {
+  // other properties...
+  team: [
+    {
+      name: "John Doe",
+      role: "Lead Developer",
+      image: "/team/john-doe.jpg", // Optional
+      email: "john.doe@example.com", // Optional
+      links: { // Optional
+        github: "https://github.com/johndoe",
+        twitter: "https://twitter.com/johndoe"
+      }
+    }
+  ],
+}
+```
+
+Supported link types: `github`, `website`, `discord`, `twitter`, `youtube`, `telegram`
+
+![Project Team Members](/public/project/example-project-team.png)
+
 ### Project detail now supports markdown
 
 Please note the keyword and theme is curated by the comms & design team. If you wish to change, please create a PR.

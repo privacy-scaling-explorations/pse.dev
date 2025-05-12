@@ -113,10 +113,20 @@ export interface ProjectContent {
     description: string
   }
 }
+
+export interface ProjectTeamMember {
+  name: string
+  role?: string
+  image?: string
+  links?: ProjectLinkType
+  email?: string
+}
+
 export interface ProjectInterface {
   id: string
   hasWiki?: boolean // show project with wiki page template
-  youTubeLinks?: string[]
+  youtubeLinks?: string[]
+  team?: ProjectTeamMember[]
   license?: string
   content: ProjectContent //  project tldr and description with support for multiple language
   category?: ProjectCategory // project category used as filter to replace section

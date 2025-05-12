@@ -85,8 +85,21 @@ export const privateProofDelegation: ProjectInterface = {
   image: "",
   imageAlt: "Private proof delegation",
   name: "Private proof delegation",
+  team: [
+    {
+      name: "Takamichi Tsutsumi",
+      email: "tkmct@pse.dev",
+    },
+    {
+      name: "Wanseob Lim",
+      email: "wanseob@pse.dev",
+    },
+    {
+      name: "Shouki Tsuda",
+      email: "shouki@pse.dev",
+    },
+  ],
   links: {
-    
     github:
       "https://github.com/privacy-scaling-explorations/private-proof-delegation-docs",
   },

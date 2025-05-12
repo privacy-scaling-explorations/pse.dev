@@ -20,6 +20,8 @@ import { WikiSideNavigation } from "@/components/wiki-side-navigation"
 import { useTranslation } from "@/app/i18n/client"
 import { LocaleTypes } from "@/app/i18n/settings"
 import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
+import { ProjectYouTubeVideos } from "@/components/sections/ProjectYouTubeVideos"
+import { ProjectTeamMembers } from "@/components/project/project-team"
 
 export const ProjectContent = ({
   id,
@@ -232,8 +234,25 @@ export const ProjectContent = ({
                           {content?.description}
                         </Markdown>
                       )}
+
+                      {project?.youtubeLinks &&
+                        project.youtubeLinks.length > 0 && (
+                          <div className="mt-5">
+                            <ProjectYouTubeVideos
+                              youtubeLinks={project.youtubeLinks}
+                              lang={lang}
+                            />
+                          </div>
+                        )}
+
+                      {project?.team && project.team.length > 0 && (
+                        <div className="mt-5">
+                          <ProjectTeamMembers team={project.team} lang={lang} />
+                        </div>
+                      )}
                       <ProjectTags project={project} lang={lang} />
                     </div>
+
                     <ProjectExtraLinks project={project} lang={lang} />
                   </div>
 
