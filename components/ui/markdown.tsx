@@ -461,7 +461,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
   ol: ({ ordered, ...props }) =>
     createMarkdownElement(ordered ? "ol" : "ul", {
       className:
-        "ml-6 list-disc text-tuatara-700 font-sans text-base font-normal",
+        "list-decimal text-tuatara-700 font-sans text-base font-normal mt-3",
       ...props,
     }),
   table: Table,
