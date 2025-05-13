@@ -18,7 +18,7 @@ tags:
     "standards",
     "ethereum",
   ]
-projects: ["zkid"]
+projects: ["zk-id"]
 ---
 
 ## Introduction
