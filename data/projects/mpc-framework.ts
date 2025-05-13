@@ -79,7 +79,6 @@ For a more technical introduction, see [Computerphile's video on Garbled Circuit
   team: [
     {
       name: "Andrew Morris",
-      email: "andrew.morris@pse.dev",
       image: "/avatars/andrew.png",
       links: {
         github: "https://github.com/voltrevo",
@@ -88,7 +87,6 @@ For a more technical introduction, see [Computerphile's video on Garbled Circuit
     },
     {
       name: "Yanis Meziane",
-      email: "yanis@pse.dev",
       image: "/avatars/yanis.png",
       links:{
         github: "https://github.com/Meyanis95",
