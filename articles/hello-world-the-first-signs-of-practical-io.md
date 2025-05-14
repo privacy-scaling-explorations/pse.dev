@@ -1,10 +1,10 @@
 ---
 authors: ["Sora Suegami", "Enrico Bottazzi", "Pia Park"]
 title: "Hello, World: the first signs of practical iO"
-image: null
+image: "/articles/hello-world-the-first-signs-of-practical-io/cover.webp"
 tldr: "Machina iO shares the first end-to-end implementation and benchmarks of Diamond iO, demonstrating that lattice-based indistinguishability obfuscation can be made concrete and efficient."
 date: "2025-05-12"
-canonical: "https://machinaio.github.io/website/blog/hello-world-practical-io"
+canonical: "https://machina-io.com/posts/hello_world_first.html"
 tags:
   ["indistinguishability obfuscation", "cryptography", "Diamond iO", "lattice"]
 projects: ["machina-io"]
