@@ -2,7 +2,7 @@ import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
 
 export const mpcFramework: ProjectInterface = {
   id: "mpc-framework",
-  image: "mpc-illustration.jpg",
+  image: "mpc-framework.png",
   name: "MPC Framework",
   category: ProjectCategory.DEVTOOLS,
   license: "MIT",
@@ -10,7 +10,7 @@ export const mpcFramework: ProjectInterface = {
   projectStatus: ProjectStatus.ACTIVE,
   links: {
     github: "https://github.com/privacy-scaling-explorations/mpc-framework",
-    website: "https://mpc.pse.dev/",
+    website: "https://mpc.pse.dev",
     telegram: "https://t.me/+FKnOHTkvmX02ODVl",
   },
   content: {
@@ -19,17 +19,17 @@ export const mpcFramework: ProjectInterface = {
       description: `
 
 
-A framework that makes MPC easy, in TypeScript. It supports multiple existing circuit generators and MPC backends, but you can also bring your own.
+A framework that makes MPC easy, in TypeScript.
 
 ## Quick Start
 
-Try [a demo app](https://github.com/voltrevo/mpc-hello) or quickly [spin up your own](https://github.com/voltrevo/mpc-framework?tab=readme-ov-file#usage-guide)
+Try [a demo app](https://mpc.pse.dev/apps/hello) or quickly [spin up your own](https://github.com/privacy-scaling-explorations/mpc-framework?tab=readme-ov-file#usage-guide).
 
 ## Overview
 
 To make an MPC app you need three things:
 
-**1) Backend**
+**1) Engine**
 - Implements the underlying cryptography.
 
 **2) Circuit Generator**
@@ -45,7 +45,7 @@ application development easy.
 It includes multiple officially supported components for (1) and (2), templates that include (3),
 and is designed to accommodate new solutions for each component.
 
-The main solution for (2) is [Summon](https://github.com/voltrevo/summon), which is a TypeScript-like
+The main solution for (2) is [Summon](https://github.com/privacy-scaling-explorations/summon), which is a TypeScript-like
 language for generating circuits.
 
 ## What is MPC?
@@ -124,15 +124,11 @@ For a more technical introduction, see [Computerphile's video on Garbled Circuit
     play: [
       {
         label: "Hello world in MPC",
-        url: "https://github.com/privacy-scaling-explorations/mpc-hello",
+        url: "https://mpc.pse.dev/apps/hello",
       },
       {
         label: "Lizard Spock in MPC",
-        url: "https://github.com/privacy-scaling-explorations/mpc-lizard-spock",
-      },
-      {
-        label: "In-browser MPC demo",
-        url: "https://github.com/voltrevo/mpc-framework-browser-demo",
+        url: "https://mpc.pse.dev/apps/lizard-spock",
       },
       {
         label: "More demos",
