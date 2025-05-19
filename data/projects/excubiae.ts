@@ -34,7 +34,7 @@ Excubiae bridges this gap by providing a universal framework for composing and e
 🚀 Version [v0.3.2](https://github.com/privacy-scaling-explorations/excubiae/releases/tag/v0.3.2) has been officially released! Excubiae has reached a fully-fledged MVP, and the focus is now on adoption and integration. 
 
 The roadmap includes:
-- ✅ A set of ready-to-use Checkers & Policies and their respective Factories ("extensions"). We are going to start by porting the [MACI Gatekeepers](https://github.com/privacy-scaling-explorations/maci/tree/dev/packages/contracts/contracts/gatekeepers) as Excubiae Policy-Checker contracts.
+- ✅ A set of ready-to-use Checkers & Policies and their respective Factories ("extensions"). We are going to start by porting the [MACI Gatekeepers](https://github.com/privacy-scaling-explorations/maci/tree/dev/apps/website/versioned_docs/version-v1.2/solidity-docs/gatekeepers) as Excubiae Policy-Checker contracts.
     - The current version supports the porting of MACI's [Semaphore](https://github.com/privacy-scaling-explorations/excubiae/tree/main/packages/contracts/contracts/extensions) gatekeeper as extension. This extension enforces membership proofs for a Semaphore group with frontrunning resistance.
 - ✅ Deployment scripts, guides, and examples for seamless integration.
     - You can already find a [BaseVoting or AdvancedVoting](https://github.com/privacy-scaling-explorations/excubiae/tree/main/packages/contracts/contracts/test/core) examples, plus the Semaphore extension built on the Base core contracts.
