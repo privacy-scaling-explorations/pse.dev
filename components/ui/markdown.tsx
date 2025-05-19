@@ -22,7 +22,11 @@ interface CustomComponents extends Components {
 }
 
 const generateSectionId = (text: string) => {
-  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+  return text
+    .toLowerCase()
+    .replace(/[']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
 }
 
 export const createMarkdownElement = (
@@ -352,12 +356,37 @@ const rehypeProcessBrTags = () => {
 
 // Styling for HTML attributes for markdown component
 const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
-  a: ({ ...props }) =>
-    createMarkdownElement("a", {
-      className: `${darkMode ? "text-anakiwa-300" : "text-anakiwa-500"} hover:text-orange duration-200`,
-      target: "_blank",
-      ...props,
-    }),
+  a: ({ href, children, ...props }) => {
+    // Check if it's an in-page link (starts with #)
+    const isInPageLink = href?.startsWith("#")
+    
+    return (
+      <a
+        className={`${darkMode ? "text-anakiwa-300" : "text-anakiwa-500"} hover:text-orange duration-200`}
+        href={href}
+        target={isInPageLink ? undefined : "_blank"}
+        rel={isInPageLink ? undefined : "noopener noreferrer"}
+        onClick={isInPageLink ? (e: React.MouseEvent<HTMLAnchorElement>) => {
+          e.preventDefault()
+          const sectionId = href?.substring(1) // Remove the # from the href
+          const element = document.querySelector(`[data-section-id="${sectionId}"]`)
+          if (element) {
+            const offset = 80 // Adjust this value based on your header height
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.scrollY - offset
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            })
+          }
+        } : undefined}
+        {...props}
+      >
+        {children}
+      </a>
+    )
+  },
   h1: ({ ...props }) =>
     createMarkdownElement("h1", {
       className: "text-neutral-800 text-4xl md:text-5xl font-bold",
