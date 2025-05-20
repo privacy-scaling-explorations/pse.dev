@@ -1,7 +1,7 @@
 ---
 authors: ["Miha Stopar"]
 title: "Are elliptic curves going to survive the quantum apocalypse?"
-image: "/articles/are-elliptic-curves-going-to-survive-the-quantum-apocalypse/cover.web"
+image: "/articles/are-elliptic-curves-going-to-survive-the-quantum-apocalypse/cover.webp"
 tldr: "Quantum computers will shatter today’s elliptic-curve schemes (and the pairing magic built on them), but curves aren’t dead: isogeny-based constructions—and their higher-dimensional, theta-function cousins—could keep elliptic-style crypto alive and even pave the way for stronger multilinear tools in a post-quantum world."
 date: "2025-05-20"
 ---
