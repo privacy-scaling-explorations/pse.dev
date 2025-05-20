@@ -3,7 +3,7 @@
 title: 'Post-Quantum Signature Aggregation with Falcon + LaBRADOR'
 date: 2025-05-19
 author: PSE Research
-image: null
+image: "/articles/post-quantum-signature-aggregation-with-falcon-and-LaBRADOR/cover.webp"
 tagline: 'Compact lattice-based proofs for Ethereum'
 description: 'Introducing our work on aggregating Falcon signatures using LaBRADOR, a lattice-based proof system optimized for Ethereum.'
 canonical: 'https://ethresear.ch/t/lattice-based-signature-aggregation/22282'
