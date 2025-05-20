@@ -1,9 +1,9 @@
 ---
 authors: ["Takamichi Tsutsumi"]
 title: "TEE based private proof delegation"
-image: null 
+image: null
 tldr: "Intro to trusted execution environment based private proof delegation"
-date: "2025-05-19"
+date: "2025-05-20"
 projects: ["private-proof-delegation"]
 ---
 
@@ -355,11 +355,11 @@ Once attestation confirms that the TEE is in a trusted state, the client needs a
 4. The proving process begins using the securely provisioned input.
 
 ## Proof generation and verification
-Once all the data needed to compute the zk proof, TD guest can now compute the proof. This part is pretty much the same as normal computation because we can run exactly the same binaries as in the normal server. 
+Once all the data needed to compute the zk proof, TD guest can now compute the proof. This part is pretty much the same as normal computation because we can run exactly the same binaries as in the normal server.
 
 When proof is computed, TD guest send the proof back to the client or any third party who wants to verify the proof.
 
-# Benchmarking 
+# Benchmarking
 We took benchmarks of the system architecture described in the previous section. The benchmark targets are **[semaphore](https://semaphore.pse.dev/)** and [proof-of-twitter](https://github.com/zkemail/proof-of-twitter/tree/main) from **[zkemail](https://prove.email/)**. Both are important client applications that utilize zk proof for privacy. The results help assess whether modern TEEs offer a viable foundation for private proof delegation in practice.
 
 The first thing we did was to take benchmarks of the semaphore circuit using [this repo](https://github.com/vplasencia/semaphore-benchmarks).
@@ -414,7 +414,7 @@ Both **Keylime runtime attestation** and **TDX launch attestation** contribute *
 - **Launch-time and runtime attestation are fast enough** to be included in every proving session.
 - They can be embedded into interactive or on-demand proving scenarios without causing significant delay.
 
-However, it's important to note that our benchmarks used a **simple attestation policy** that only performs **signature verification** on the attestation quote. 
+However, it's important to note that our benchmarks used a **simple attestation policy** that only performs **signature verification** on the attestation quote.
 In a production setting, policies may include
 - Validation of **RTMR (Runtime Measurement Register)** values
 - Checks for **specific file measurements** via IMA
@@ -489,7 +489,7 @@ However, circuits that require large memory (e.g., 3 GB for iPhone 15) tend to *
 
 For context, the typical hardware specs used in these mobile benchmarks are
 
-- **iPhone**: 6-core CPU @ 3.33 GHz, 5.7 GiB RAM 
+- **iPhone**: 6-core CPU @ 3.33 GHz, 5.7 GiB RAM
 - **Android**: 7-core CPU @ 2.16 GHz, 3.82 GiB RAM
 
 These constraints illustrate the challenge of using mobile-native proving for larger circuits.
