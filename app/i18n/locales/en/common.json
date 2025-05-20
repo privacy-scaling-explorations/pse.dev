@@ -99,5 +99,9 @@
   "joinOurDiscord": "Join our discord",
   "prevBrandImage": "Previous branding",
   "editThisPage": "Edit this page",
-  "contents": "Contents"
+  "contents": "Contents",
+  "projectVideos": "Project Videos",
+  "errorLoadingVideos": "Error loading videos",
+  "projectTeam": "Team",
+  "youtubeVideos": "YouTube Videos"
 }

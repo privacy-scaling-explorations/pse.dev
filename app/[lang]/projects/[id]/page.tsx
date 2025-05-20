@@ -43,5 +43,5 @@ export async function generateMetadata({
 export default async function ProjectDetailPage({ params }: PageProps) {
   const lang = params?.lang as LocaleTypes
 
-  return <ProjectContent lang={lang} id={params?.id} />
+  return <ProjectContent lang={lang} id={params?.id?.toLowerCase()} />
 }

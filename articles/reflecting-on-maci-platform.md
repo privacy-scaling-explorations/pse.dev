@@ -5,6 +5,7 @@ image: "/articles/reflecting-on-maci-platform/reflecting-on-maci-platform.png"
 tldr: "After a year of development and experimentation, the MACI Platform project is being sunset. In this retrospective, we share what we built, what we learned, and how the work can continue."
 date: "2025-05-01"
 canonical: ""
+projects: ["maci"]
 tags:
   [
     "MACI",
@@ -16,7 +17,7 @@ tags:
   ]
 ---
 
-Over the past year, we’ve been on a journey to explore how [MACI](https://github.com/privacy-scaling-explorations/maci) could power more democratic, privacy-preserving voting in real-world funding scenarios. The MACI Platform was our experiment in bringing those ideals into practice. Today, we’re sharing what we built, what we learned, and why we’ve decided to sunset the project—along with some parting thoughts on where the opportunity still lies.
+Over the past year, we've been on a journey to explore how [MACI](https://github.com/privacy-scaling-explorations/maci) could power more democratic, privacy-preserving voting in real-world funding scenarios. The MACI Platform was our experiment in bringing those ideals into practice. Today, we're sharing [what we built](#what-we-built), [what we learned](#what-we-learned), and [why we've decided to sunset the project](#why-were-sunsetting)—along with some parting thoughts on where the opportunity still lies.
 
 ---
 

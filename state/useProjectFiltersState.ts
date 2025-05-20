@@ -132,8 +132,14 @@ export const filterProjects = ({
   searchPattern = "",
   activeFilters = {},
   findAnyMatch = false,
-  projects: projectList = projects,
+  projects: projectListItems = projects,
 }: SearchMatchByParamsProps) => {
+  const projectList = projectListItems.map((project: any) => {
+    return {
+      ...project,
+      id: project?.id?.toLowerCase(), // force lowercase id
+    }
+  })
   // keys that will be used for search
   const keys = [
     "name",
@@ -225,7 +231,12 @@ const sortProjectByFn = ({
     return sortedProjectList.filter((project) => project.category === category)
   }
 
-  return sortedProjectList
+  return sortedProjectList.map((project: any) => {
+    return {
+      id: project?.id?.toLowerCase(), // force lowercase id
+      ...project,
+    }
+  })
 }
 
 export const useProjectFiltersState = create<
@@ -320,6 +331,7 @@ export const useProjectFiltersState = create<
         projects: sortProjectByFn({
           projects: filteredProjects,
           sortBy: state.sortBy,
+          ignoreCategories: [], // when filtering, show all projects regardless of category
         }),
       }
     })

@@ -2,13 +2,16 @@
 import Link from "next/link"
 import { Markdown } from "../ui/markdown"
 import { Article } from "@/lib/blog"
+import { useRouter } from "next/navigation"
 
 export const ArticleListCard = ({
   lang,
   article,
+  lineClamp = false,
 }: {
   lang: string
   article: Article
+  lineClamp?: boolean
 }) => {
   const url = `/${lang}/blog/${article.id}`
 
@@ -18,9 +21,22 @@ export const ArticleListCard = ({
     year: "numeric",
   })
 
+  const router = useRouter()
+
+  const tldr = lineClamp
+    ? (article.tldr || "").replace(/\n/g, " ").substring(0, 120) +
+      (article.tldr && article.tldr.length > 120 ? "..." : "")
+    : article.tldr || ""
+
   return (
     <div className="flex h-full">
-      <Link className="flex-1 w-full group" href={url} rel="noreferrer">
+      <div
+        className="full group cursor-pointer hover:scale-105 duration-300"
+        onClick={() => {
+          router.push(url)
+        }}
+        rel="noreferrer"
+      >
         <div className="grid grid-cols-[80px_1fr] lg:grid-cols-[120px_1fr] items-center gap-4 lg:gap-10">
           <div
             className="size-[80px] lg:size-[120px] rounded-full bg-slate-200"
@@ -32,7 +48,7 @@ export const ArticleListCard = ({
           ></div>
           <div className="flex flex-col gap-2 lg:gap-5">
             <div className="flex flex-col gap-2 order-2 lg:order-1">
-              <span className="text-xs font-display lg:text-[22px] font-bold text-tuatara-950 group-hover:text-anakiwa-500 duration-200 leading-none">
+              <span className="text-xs font-display lg:text-[22px] font-bold text-tuatara-950 group-hover:text-anakiwa-500 group-hover:underline duration-200 leading-none">
                 {article.title}
               </span>
               <span className="lg:uppercase text-tuatara-400 lg:text-sm text-[10px] leading-none font-inter">
@@ -79,7 +95,7 @@ export const ArticleListCard = ({
                     img: ({ src, alt }) => null,
                   }}
                 >
-                  {article.tldr || ""}
+                  {tldr}
                 </Markdown>
               </div>
             </div>
@@ -91,7 +107,7 @@ export const ArticleListCard = ({
             </span>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   )
 }

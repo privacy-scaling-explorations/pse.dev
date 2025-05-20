@@ -53,16 +53,23 @@ Most L2s today struggle to scale without relying on increasingly expensive data 
 
 ## Get Involved
 
-Plasma Fold is part of the Privacy & Scaling Explorations initiative. If you’re interested in collaborating, contributing research, or running your own Plasma Fold client, we’d love to hear from you.
-
-On X: [@xyz_pierre](https://twitter.com/xyz_pierre)
-
-Email: Pierre Daix-Moreux [pierre@pse.dev](mailto:pierre@pse.dev), Chengru Zhang [winderica@pse.dev](mailto:winderica@pse.dev)
-
 Join the conversation on [PSE Discord](https://discord.com/invite/sF5CT5rzrR)
       `,
     },
   },
+  team: [
+    {
+      name: "Pierre Daix-Moreux",
+      email: "pierre@pse.dev",
+      links: {
+        twitter: "https://twitter.com/xyz_pierre",
+      },
+    },
+    {
+      name: "Chengru Zhang",
+      email: "winderica@pse.dev",
+    },
+  ],
   tags: {
     keywords: [
       "plasma",

@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { useTranslation } from "@/app/i18n/client"
 
 import { Icons } from "./icons"
+import { useGetProjectRelatedArticles } from "@/hooks/useGetProjectRelatedArticles"
 
 interface Section {
   level: number
@@ -21,6 +22,35 @@ interface WikiSideNavigationProps {
   project?: any
 }
 
+const SideNavigationItem = ({
+  text,
+  id,
+  activeSection,
+  onClick,
+}: {
+  text: string
+  id: string
+  activeSection: string | null
+  onClick: () => void
+}) => {
+  return (
+    <li
+      key={id}
+      className={cn(
+        "flex min-h-8 items-center border-l-2 border-l-anakiwa-200 px-2 duration-200 cursor-pointer w-full pb-2",
+        {
+          "border-l-anakiwa-500 text-anakiwa-500 font-medium":
+            activeSection === id,
+        }
+      )}
+    >
+      <button onClick={onClick} className="text-left">
+        {text}
+      </button>
+    </li>
+  )
+}
+
 export const WikiSideNavigation = ({
   className,
   lang = "en",
@@ -32,7 +62,10 @@ export const WikiSideNavigation = ({
   const [activeSection, setActiveSection] = useState<string | null>(null)
   const observerRef = useRef<IntersectionObserver | null>(null)
 
-  // Extract sections from content
+  const { articles, loading } = useGetProjectRelatedArticles({
+    projectId: project.id,
+  })
+
   useEffect(() => {
     if (!content) return
     const sectionsRegex = /^(#{1,3})\s(.+)/gm
@@ -51,7 +84,6 @@ export const WikiSideNavigation = ({
     }
 
     setSections(extractedSections)
-    // Set the first section as active by default
     if (extractedSections.length > 0) {
       setActiveSection(extractedSections[0].id)
     }
@@ -85,7 +117,7 @@ export const WikiSideNavigation = ({
         observerRef.current.disconnect()
       }
     }
-  }, [sections])
+  }, [sections, loading])
 
   const scrollToSection = (sectionId: string) => {
     const element = document.querySelector(`[data-section-id="${sectionId}"]`)
@@ -126,7 +158,14 @@ export const WikiSideNavigation = ({
     },
   }
 
-  const { extraLinks = {} } = project
+  const { extraLinks = {}, team = [], youtubeLinks = [] } = project
+
+  const hasRelatedArticles = articles.length > 0 && !loading
+  const hasTeam = Array.isArray(team) && team.length > 0
+  const hasYoutubeVideos =
+    Array.isArray(youtubeLinks) && youtubeLinks.length > 0
+
+  console.log(hasTeam, hasYoutubeVideos, youtubeLinks)
 
   if (sections.length === 0 || content.length === 0) return null
 
@@ -138,23 +177,13 @@ export const WikiSideNavigation = ({
         </h6>
         <ul className="pt-4 font-sans text-black text-normal">
           {sections.map((section, index) => (
-            <li
+            <SideNavigationItem
               key={index}
-              className={cn(
-                "flex h-8 items-center border-l-2 border-l-anakiwa-200 px-3 duration-200 cursor-pointer ",
-                {
-                  "border-l-anakiwa-500 text-anakiwa-500 font-medium":
-                    activeSection === section.id,
-                }
-              )}
-            >
-              <button
-                onClick={() => scrollToSection(section.id)}
-                className="w-full overflow-hidden text-left line-clamp-1"
-              >
-                {section.text}
-              </button>
-            </li>
+              activeSection={activeSection}
+              text={section.text}
+              id={section.id}
+              onClick={() => scrollToSection(section.id)}
+            />
           ))}
           {Object.entries(ExtraLinkLabelMapping).map(([key]) => {
             const links = extraLinks[key as ProjectExtraLinkType] ?? []
@@ -162,34 +191,52 @@ export const WikiSideNavigation = ({
             const { label } = ExtraLinkLabelMapping?.[key as any] ?? {}
             if (!links.length) return null // no links hide the section
             return (
-              <li
+              <SideNavigationItem
                 key={key}
                 onClick={() => scrollToSection(key)}
-                className={cn(
-                  "flex h-8 items-center border-l-2 border-l-anakiwa-200 px-3 duration-200  cursor-pointer",
-                  {
-                    "border-l-anakiwa-500 text-anakiwa-500 font-medium":
-                      activeSection === key,
-                  }
-                )}
-              >
-                {label}
-              </li>
+                activeSection={activeSection}
+                text={label}
+                id={key}
+              />
             )
           })}
-          <li
+
+          {hasYoutubeVideos && (
+            <SideNavigationItem
+              key="youtube-videos"
+              onClick={() => scrollToSection("youtube-videos")}
+              activeSection={activeSection}
+              text={t("youtubeVideos") || "YouTube Videos"}
+              id="youtube-videos"
+            />
+          )}
+
+          {hasTeam && (
+            <SideNavigationItem
+              key="team"
+              onClick={() => scrollToSection("team")}
+              activeSection={activeSection}
+              text={t("projectTeam") || "Team"}
+              id="team"
+            />
+          )}
+
+          {hasRelatedArticles && (
+            <SideNavigationItem
+              key="related-articles"
+              onClick={() => scrollToSection("related-articles")}
+              activeSection={activeSection}
+              text="Related articles"
+              id="related-articles"
+            />
+          )}
+          <SideNavigationItem
             key="edit"
             onClick={() => scrollToSection("edit-this-page")}
-            className={cn(
-              "flex h-8 items-center border-l-2 border-l-anakiwa-200 px-3 duration-200  cursor-pointer",
-              {
-                "border-l-anakiwa-500 text-anakiwa-500 font-medium":
-                  activeSection === "edit-this-page",
-              }
-            )}
-          >
-            Edit this page
-          </li>
+            activeSection={activeSection}
+            text="Edit this page"
+            id="edit-this-page"
+          />
         </ul>
       </aside>
     </div>

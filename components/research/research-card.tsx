@@ -83,14 +83,14 @@ export default function ProjectCard({
         projectCardVariants({ showLinks, border, className })
       )}
       onClick={() => {
-        router.push(`/projects/${id}`)
+        router.push(`/projects/${id?.toLowerCase()}`)
       }}
     >
       {showBanner && (
         <div
           className="relative flex flex-col border-b border-black/10 cursor-pointer"
           onClick={() => {
-            router.push(`/projects/${id}`)
+            router.push(`/projects/${id?.toLowerCase()}`)
           }}
         >
           <Image

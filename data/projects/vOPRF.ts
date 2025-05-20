@@ -73,13 +73,18 @@ The protocol enables a broad range of applications requiring privacy and pseudon
 ## Contact
 
 - **Magamedrasul Ibragimov:** [curryrasul@pse.dev](mailto:curryrasul@pse.dev) | [@curryrasul](https://twitter.com/curryrasul)
-- **Join** the [PSE Discord](https://discord.com/invite/sF5CT5rzrR)`,
+- **Join** the  PSE Discord](https://discord.com/invite/sF5CT5rzrR)`,
     },
   },
+  team: [
+    {
+      name: "Magamedrasul Ibragimov",
+      email: "curryrasul@pse.dev",
+    },
+  ],
   tags: {
     keywords: ["vOPRF", "nullifiers", "Web2", "privacy", "ZK proofs", "MPC"],
     themes: ["privacy", "identity", "zero-knowledge proofs"],
     types: ["research", "development"],
-    
   },
 }
