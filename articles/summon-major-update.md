@@ -11,6 +11,10 @@ canonical: "https://mpc.pse.dev/blog/summon-major-update"
 
 I’m excited to share the biggest Summon update yet. 🎉
 
+## Wait - What's Summon?
+
+[Summon](https://github.com/privacy-scaling-explorations/summon) is a dialect of TypeScript for generating boolean circuits! We use this to great effect in [MPC Framework](https://mpc.pse.dev/), since it requires the computation inside the MPC cryptography to be a boolean circuit. It's so much more than a TypeScript library - it's a very special runtime that transforms branching (`if/else/for/while/switch`) into flat circuitry.
+
 ## 1 · Streamlined IO with `Summon.IO`
 
 ### Before
