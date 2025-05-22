@@ -6,6 +6,7 @@ authors: ["Andrew Morris"]
 date: 2025-05-21
 tags: [summon, mpc, typescript, privacy, developer-tools, release-notes, circuits, cryptography, compiler]
 projects: ["mpc-framework"]
+canonical: "https://mpc.pse.dev/blog/summon-major-update"
 ---
 
 I’m excited to share the biggest Summon update yet. 🎉
