@@ -50,10 +50,9 @@ MachinaIO can transform blockchain and cryptographic applications, such as trust
 ### Publications
 
 - **MachinaIO Paper:** [Diamond iO: A Straightforward Construction of Indistinguishability Obfuscation from Lattices](https://eprint.iacr.org/2025/236)
-- Additional articles detailing the project's progress and implementations will be released periodically.
+- Hello world: The first sign of practical iO ([blogpost](https://pse.dev/en/blog/hello-world-the-first-signs-of-practical-io))
 
 ### Resources
-
 - **GitHub Repository:** [Machina iO](https://github.com/MachinaIO/)
 - **Project Plan:** [HackMD Plan](https://hackmd.io/@MachinaIO/H1w5iwmDke)
     `,

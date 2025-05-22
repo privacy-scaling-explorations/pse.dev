@@ -34,8 +34,10 @@ Traditional cryptography relied on ECC, which enables various cryptographic prim
 - Multivariate cryptography
 - Isogeny-based cryptography
 
-### Links
-- Post quantum TXs in The Verge [ethresear.ch post](https://ethresear.ch/t/post-quantum-txs-in-the-verge/21763)
+### Publications
+- Post Quantum signature aggregation with Falcon and LaBRADOR ([ethresear.ch post](https://pse.dev/en/blog/post-quantum-signature-aggregation-with-falcon-and-LaBRADOR))
+- Are elliptic curves going to survive the quantum apocalypse? ([blogpost](https://pse.dev/en/blog/are-elliptic-curves-going-to-survive-the-quantum-apocalypse))
+- Post quantum TXs in The Verge ([ethresear.ch post](https://ethresear.ch/t/post-quantum-txs-in-the-verge/21763))
 
 ### Our Commitment to PQC at PSE
 
