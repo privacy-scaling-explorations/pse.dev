@@ -1,5 +1,5 @@
 ---
-authors: ["Kevin Chia","Jern Kun","Kazumune Masaki"] # Add your name or multiple authors in an array
+authors: ["Your Name"] # Add your name or multiple authors in an array
 title: "Your Article Title" # The title of your article
 image: "/articles/articles-name-folder/cover.webp" # Image used as cover,  Keep in mind the image size, where possible use .webp format, possibly images less then 200/300kb
 tldr: "A brief summary of your article" #Short summary
