@@ -1,14 +1,13 @@
 ---
 authors: ["Takamichi Tsutsumi"]
 title: "TEE based private proof delegation"
-image: null
+image: "/articles/tee-based-ppd/cover.png"
 tldr: "Intro to trusted execution environment based private proof delegation"
 date: "2025-05-20"
 projects: ["private-proof-delegation"]
 ---
 
 ## tl;dr
-We built a TEE-based system for secure zero-knowledge proof delegation using Intel TDX. It allows clients to privately outsource large proving tasks without leaking inputs. Unlike mobile-native proving, which is constrained by hardware limits, TEE-based proving can scale to larger statements today — and continue to scale as proof systems improve. As a hardware-backed solution, TEE remains compatible with future advancements in software (e.g., faster proof systems, better engineering) and won't be invalidated by them, as long as the trust model is acceptable.
 We built a TEE-based system for secure zero-knowledge proof delegation using Intel TDX. It allows clients to privately outsource large proving tasks without leaking inputs. Unlike mobile-native proving, which is constrained by hardware limits, TEE-based proving can scale to larger statements today — and continue to scale as proof systems improve. As a hardware-backed solution, TEE remains compatible with future advancements in software (e.g., faster proof systems, better engineering) and won't be invalidated by them, as long as the trust model is acceptable.
 
 ➡️ [Jump to Benchmarking section](#Benchmarking) to see how it performs in practice.
@@ -189,7 +188,7 @@ TEE-based private proof delegation system involves a few additional components c
 ![TEE based PPD architecture](/articles/tee-based-ppd/tee-ppd.png)
 *Architecture diagram*
 
-In the architecture diagram above, we can see several comopnents, including
+In the architecture diagram above, we can see several components, including
 - Client
 - TD Host
 - TD Guest (Prover)
@@ -198,7 +197,7 @@ In the architecture diagram above, we can see several comopnents, including
 
 **Client** is a party who wants to have a zk proof about a statement using their private input. Typically this party computes the proof by itself, but somehow it wants to delegate the proving computation to external parties.
 
-**TD Host** is a host OS running on a server that runs the TEE VM inside. In Intel TDX, the TEE VM is called trusted domain (TD); therefore, we call this host OS a TD host. TD host is physically running the TEE VM (TD guest) on the machine, but the OS, firmware, and supervisors cannot access the data inside the guest VM thanks to the TEE functionality, such as memory encryption. The TD guest is isolated from the TD host.
+**TD Host** is a host OS running on a server that runs the TEE VM inside. In Intel TDX, the TEE VM is called trusted domain (TD); therefore, we call this host OS a TD host. TD host physically runs the TEE VM (TD guest) on the machine, but the OS, firmware, and supervisors cannot access the data inside the guest VM thanks to the TEE functionality, such as memory encryption. The TD guest is isolated from the TD host.
 
 **TD Guest (Prover)** is a TEE VM running inside the TD host. This party actually computes the zk proof on behalf of the client. In order to make the safe transfer of the secret data, TD guest and client have to establish a secure communication channel so that no one else can read the data passed between the two parties. TD guest will decrypt the data passed through the channel, run the proof computation, and send the proof data back to the client. At the beginning, the TD guest is asked to generate TD quote for the remote attestation by the client. They get a quote and send its data to the attestation provider to securely attest to its state.
 
@@ -355,9 +354,9 @@ Once attestation confirms that the TEE is in a trusted state, the client needs a
 4. The proving process begins using the securely provisioned input.
 
 ## Proof generation and verification
-Once all the data needed to compute the zk proof, TD guest can now compute the proof. This part is pretty much the same as normal computation because we can run exactly the same binaries as in the normal server.
+Once all the data needed to compute the zk proof, the TD guest can now compute the proof. This part is pretty much the same as normal computation because we can run exactly the same binaries as in the normal server.
 
-When proof is computed, TD guest send the proof back to the client or any third party who wants to verify the proof.
+When proof is computed, TD guest sends the proof back to the client or any third party who wants to verify the proof.
 
 # Benchmarking
 We took benchmarks of the system architecture described in the previous section. The benchmark targets are **[semaphore](https://semaphore.pse.dev/)** and [proof-of-twitter](https://github.com/zkemail/proof-of-twitter/tree/main) from **[zkemail](https://prove.email/)**. Both are important client applications that utilize zk proof for privacy. The results help assess whether modern TEEs offer a viable foundation for private proof delegation in practice.
@@ -394,7 +393,7 @@ In our scenario, we measure the E2E performance, including
 | Total               | 3166ms | 2803ms | 2809ms | 2926ms |
 
 ## zk-email benchmarks
-We use proof-of-twitter circuit as our benchmark target. This demonstrates the real-world use case for TEE-based private proof delegation. The benchmark was taken for the E2E setting, as in the semaphore benchmark.
+We use the proof-of-twitter circuit as our benchmark target. This demonstrates a real-world use case for TEE-based private proof delegation. The benchmark was taken for the E2E setting, as in the semaphore benchmark.
 
 |                     | 1       | 2       | 3       | Avg.    |
 | ------------------- | ------- | ------- | ------- | ------- |
