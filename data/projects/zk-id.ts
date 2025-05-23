@@ -38,13 +38,14 @@ zkID operates across [three strategic workstreams](https://www.notion.so/zkID-Te
 
 1) **Proliferate Programmable ZKP Standards**
 
-We work with standard bodies to embed ZKPs into emerging identity frameworks to ensure interoperability. Our [grant](https://hackmd.io/@therealyingtong/zkid-grant-proposal)-backed efforts include:
+We work with standard bodies to embed ZKPs into emerging identity frameworks to ensure interoperability. Our [grant](https://hackmd.io/@therealyingtong/zkid-infopage)-backed efforts include:
 
 - [Technical reviews](https://docs.google.com/presentation/d/1C4D8zK4gAdafgIEW-2m_qDyyT39gWo0mmFYpwmA8N3M/edit#slide=id.g338a079cb64_0_15) of implementations from Orange, Google, and Microsoft
 - [Technical reviews](https://hackmd.io/@therealyingtong/vc-formats) of verifiable credential data models
-- Drafting a IETF [standard on Programmable ZKPs](https://docs.google.com/presentation/d/1HqFtSiS2hVHaSS8-u-8iecVFeMehMGBtZJnnbnXj83c/edit#slide=id.p)
+- Drafting a IETF [standard on Programmable ZKPs](https://therealyingtong.github.io/draft-zkproof-polycommit/draft-zkproof-polycommit.html)
 - Participating in [DIF](https://github.com/decentralized-identity/zkp-self-attestations) and [W3C](https://docs.google.com/presentation/d/1HqFtSiS2hVHaSS8-u-8iecVFeMehMGBtZJnnbnXj83c/edit#slide=id.p) standards working groups
 - Shaping specifications within the [EUDI technical framework](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/discussions/408)
+- Draft [informal technical specifications](https://github.com/zkspecs/zkspecs) on zk protocols 
 
 Standards like the IETF and EUDI framework are **global signaling mechanisms.** Dozens of countries reference the EUDI frameworks to shape their own identity regulations. If we can ensure ZKPs are part of the EUDI ARF spec, we create downstream pressure to adopt privacy-preserving architecture across multiple jurisdictions.
 
@@ -78,7 +79,7 @@ export const zkID: ProjectInterface = {
   imageAlt: "ZK Identity",
   name: "zkID",
   links: {
-    github: "https://github.com/zkspecs/zkspecs",
+    github: "https://github.com/privacy-scaling-explorations/zkID",
   },
   tags: {
     keywords: [
