@@ -22,7 +22,7 @@ export const pod2: ProjectInterface = {
   category: ProjectCategory.DEVTOOLS,
   section: "collaboration",
   content,
-  image: "pod.webp",
+  image: "pod2.png",
   name: "POD2",
   links: {
     github: "https://github.com/0xPARC/pod2",
