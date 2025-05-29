@@ -75,7 +75,7 @@ export const zkID: ProjectInterface = {
   category: ProjectCategory.DEVTOOLS,
   section: "pse",
   content,
-  image: "",
+  image: "zk-id.png",
   imageAlt: "ZK Identity",
   name: "zkID",
   links: {
