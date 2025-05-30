@@ -22,7 +22,7 @@ export const mpz: ProjectInterface = {
   category: ProjectCategory.DEVTOOLS,
   section: "pse",
   content,
-  image: "",
+  image: "mpz.png",
   name: "mpz",
   license: "MIT or Apache-2.0",
   links: {
