@@ -13,7 +13,7 @@ const content: ProjectContent = {
 
 zkID is a strategic initiative of the Ethereum Foundation, in collaboration with Privacy and Scaling Explorations (PSE), focused on advancing the use of Zero Knowledge Proofs (ZKPs) in digital identity systems. We contribute to PSE by leading research, coordination, education, and development efforts that enable privacy-preserving, interoperable, and standards-aligned identity infrastructure.
 
-Our team works and distributes grants across the identity ecosystem to draft technical standards, maintain open-source resources, and prototype infrastructure that aligns with evolving regulatory frameworks. By stewarding collaboration between researchers, developers, governments, and institutions, zkID bridges foundational cryptographic research with real-world deployment and impact. The potential for real-world impact of zkID is clear: the way identity systems are designed and deployed will shape how billions of people prove who they are, access essential services, and participate in public life.
+Our team works and distributes grants across the identity ecosystem to draft technical standards, maintain open-source resources, and prototype infrastructure that aligns with evolving regulatory frameworks. By stewarding collaboration between researchers, developers, governments, and institutions, zkID bridges foundational cryptographic research with real-world deployment and impact. 
 
 ### Vision
 
@@ -42,7 +42,8 @@ We work with standard bodies to embed ZKPs into emerging identity frameworks to 
 
 - [Technical reviews](https://docs.google.com/presentation/d/1C4D8zK4gAdafgIEW-2m_qDyyT39gWo0mmFYpwmA8N3M/edit#slide=id.g338a079cb64_0_15) of implementations from Orange, Google, and Microsoft
 - [Technical reviews](https://hackmd.io/@therealyingtong/vc-formats) of verifiable credential data models
-- Drafting a IETF [standard on Programmable ZKPs](https://therealyingtong.github.io/draft-zkproof-polycommit/draft-zkproof-polycommit.html)
+- Drafting an IETF [standard on Programmable ZKPs](https://datatracker.ietf.org/doc/draft-zkproof-polycommit/)
+- [Engage](https://www.youtube.com/watch?v=LyvqyeSAvL0) the wider zkp community on standards collaboration 
 - Participating in [DIF](https://github.com/decentralized-identity/zkp-self-attestations) and [W3C](https://docs.google.com/presentation/d/1HqFtSiS2hVHaSS8-u-8iecVFeMehMGBtZJnnbnXj83c/edit#slide=id.p) standards working groups
 - Shaping specifications within the [EUDI technical framework](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/discussions/408)
 - Draft [informal technical specifications](https://github.com/zkspecs/zkspecs) on zk protocols 
@@ -51,7 +52,7 @@ Standards like the IETF and EUDI framework are **global signaling mechanisms.** 
 
 2) **Research, Prototype, Subtraction**
 
-We [research](https://www.notion.so/Evaluation-Framework-for-SSI-Solutions-8eceb793a5b442cb8da65acc3c337d5c?pvs=21) and build standards compliant, [**minimal and modular PoCs**](https://github.com/adria0/seediq-playground) like the [ZKP Wallet Unit](https://www.notion.so/External-zkID-ZKP-Wallet-Unit-Proposal-1bad57e8dd7e80c98d73fc7e7666375d?pvs=21). This is done in collaboration with governments, to ensure practical real-world ZKP integration pathways.
+We [research](https://www.notion.so/Evaluation-Framework-for-SSI-Solutions-8eceb793a5b442cb8da65acc3c337d5c?pvs=21) and build standards-compliant, [**minimal and modular PoCs**](https://github.com/adria0/seediq-playground) like the [ZKP Wallet Unit](https://www.notion.so/External-zkID-ZKP-Wallet-Unit-Proposal-1bad57e8dd7e80c98d73fc7e7666375d?pvs=21). This is done in collaboration with governments, to ensure practical real-world ZKP integration pathways.
 
 By delivering vendor-neutral, open-source PoCs, zkID aims to provide tangible working proof in production-ready environments.
 
