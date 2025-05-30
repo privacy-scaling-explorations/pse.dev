@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Comms Team"]
 title: "PSE May 2025 newsletter" 
-image: "/articles/pse-may-2025-newsletter/cover.webp" 
+image: "/articles/pse-may-2025/cover.webp" 
 tldr: "Check out what PSE teams have been focused on in May 2025!" 
 date: "2025-05-30"
 tags: ["newsletter",
