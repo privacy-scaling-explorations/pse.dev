@@ -8,6 +8,20 @@ import "katex/dist/katex.min.css"
 import rehypeRaw from "rehype-raw"
 import { TableRowCard } from "../cards/table-row-card"
 import { Accordion } from "./accordion"
+import Prism from "prismjs"
+import "prismjs/themes/prism-tomorrow.css"
+import "prismjs/components/prism-javascript"
+import "prismjs/components/prism-typescript"
+import "prismjs/components/prism-jsx"
+import "prismjs/components/prism-tsx"
+import "prismjs/components/prism-json"
+import "prismjs/components/prism-bash"
+import "prismjs/components/prism-css"
+import "prismjs/components/prism-markdown"
+import "prismjs/components/prism-yaml"
+import "prismjs/components/prism-python"
+import "prismjs/components/prism-rust"
+import "prismjs/components/prism-solidity"
 
 // Extend the Components type to include our custom component
 interface CustomComponents extends Components {
@@ -354,33 +368,65 @@ const rehypeProcessBrTags = () => {
   }
 }
 
+const CodeBlock = ({
+  className,
+  children,
+}: {
+  className?: string
+  children: string
+}) => {
+  const language = className ? className.replace(/language-/, "") : "text"
+  const codeRef = React.useRef<HTMLElement>(null)
+
+  React.useEffect(() => {
+    if (codeRef.current) {
+      Prism.highlightElement(codeRef.current)
+    }
+  }, [children])
+
+  return (
+    <pre className="relative rounded-lg bg-tuatara-950 overflow-hidden">
+      <code ref={codeRef} className={`bg-tuatara-950 language-${language}`}>
+        {children}
+      </code>
+    </pre>
+  )
+}
+
 // Styling for HTML attributes for markdown component
 const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
   a: ({ href, children, ...props }) => {
     // Check if it's an in-page link (starts with #)
     const isInPageLink = href?.startsWith("#")
-    
+
     return (
       <a
         className={`${darkMode ? "text-anakiwa-300" : "text-anakiwa-500"} hover:text-orange duration-200`}
         href={href}
         target={isInPageLink ? undefined : "_blank"}
         rel={isInPageLink ? undefined : "noopener noreferrer"}
-        onClick={isInPageLink ? (e: React.MouseEvent<HTMLAnchorElement>) => {
-          e.preventDefault()
-          const sectionId = href?.substring(1) // Remove the # from the href
-          const element = document.querySelector(`[data-section-id="${sectionId}"]`)
-          if (element) {
-            const offset = 80 // Adjust this value based on your header height
-            const elementPosition = element.getBoundingClientRect().top
-            const offsetPosition = elementPosition + window.scrollY - offset
+        onClick={
+          isInPageLink
+            ? (e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.preventDefault()
+                const sectionId = href?.substring(1) // Remove the # from the href
+                const element = document.querySelector(
+                  `[data-section-id="${sectionId}"]`
+                )
+                if (element) {
+                  const offset = 80 // Adjust this value based on your header height
+                  const elementPosition = element.getBoundingClientRect().top
+                  const offsetPosition =
+                    elementPosition + window.scrollY - offset
 
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth"
-            })
-          }
-        } : undefined}
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                  })
+                }
+              }
+            : undefined
+        }
         {...props}
       >
         {children}
@@ -417,6 +463,21 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
       className: "text-neutral-800 text-md font-bold",
       ...props,
     }),
+  code: ({ node, inline, className, children, ...props }) => {
+    const match = /language-(\w+)/.exec(className || "")
+    return !inline ? (
+      <CodeBlock className={className} {...props}>
+        {String(children).replace(/\n$/, "")}
+      </CodeBlock>
+    ) : (
+      <code
+        className="bg-tuatara-950 px-1.5 py-0.5 rounded-md text-white"
+        {...props}
+      >
+        {children}
+      </code>
+    )
+  },
   p: ({ node, children, ...props }) => {
     const text = React.Children.toArray(children)
       .map((child) => {
@@ -618,11 +679,6 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
       </th>
     )
   },
-  pre: ({ ...props }) =>
-    createMarkdownElement("pre", {
-      className: "bg-tuatara-950 p-4 rounded-lg text-white",
-      ...props,
-    }),
   img: ({ ...props }) =>
     createMarkdownElement("img", {
       className: "w-auto w-auto mx-auto rounded-lg object-cover",

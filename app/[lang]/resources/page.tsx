@@ -50,7 +50,7 @@ const ResourceItem = ({
       href={url}
       target="_blank"
       rel="noreferrer noopener"
-      className="group pb-3 duration-500 group-hover:transition"
+      className="group pb-3 duration-500 group-hover:transition self-start"
     >
       <div className="flex items-center gap-1">
         <div className="flex space-x-3">
@@ -228,9 +228,10 @@ export default function ResourcePage({ params: { lang } }: LangProps) {
             </h3>
           }
         >
+          <div className="pb-6"></div>
           <Link
             href={siteConfig.links.discord}
-            className="pb-6"
+            className="w-fit mx-auto"
             target="_blank"
             rel="noreferrer"
             passHref

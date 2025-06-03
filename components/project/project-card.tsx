@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils"
 import { LocaleTypes } from "@/app/i18n/settings"
 
 import { ProjectLink } from "../mappings/project-link"
+import Link from "next/link"
 
 interface ProjectCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -100,14 +101,11 @@ export default function ProjectCard({
       )}
       <div className="flex flex-col justify-between h-full gap-8 p-4 bg-white rounded-b-lg">
         <div className="flex flex-col justify-start gap-2">
-          <h1
-            className="text-2xl font-bold leading-7 text-black duration-200 cursor-pointer hover:text-anakiwa-500"
-            onClick={() => {
-              router.push(`/projects/${id}`)
-            }}
-          >
-            {name}
-          </h1>
+          <Link href={`/projects/${id}`}>
+            <h1 className="text-2xl font-bold leading-7 text-black duration-200 cursor-pointer hover:text-anakiwa-500">
+              {name}
+            </h1>
+          </Link>
           {projectContent?.tldr && (
             <div className="flex flex-col h-24 gap-4">
               <p className="text-slate-900/80 line-clamp-4">

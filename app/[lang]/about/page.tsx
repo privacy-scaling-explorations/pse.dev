@@ -32,6 +32,7 @@ export default async function AboutPage({ params: { lang } }: any) {
             href={siteConfig.links.discord}
             target="_blank"
             rel="noreferrer"
+            className="self-start"
             passHref
           >
             <Button>
@@ -82,6 +83,7 @@ export default async function AboutPage({ params: { lang } }: any) {
             href={siteConfig.links.discord}
             target="_blank"
             rel="noreferrer"
+            className="w-fit mx-auto"
             passHref
           >
             <Button>

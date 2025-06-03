@@ -30,11 +30,9 @@ export const ArticleListCard = ({
 
   return (
     <div className="flex h-full">
-      <div
+      <Link
         className="full group cursor-pointer hover:scale-105 duration-300"
-        onClick={() => {
-          router.push(url)
-        }}
+        href={url}
         rel="noreferrer"
       >
         <div className="grid grid-cols-[80px_1fr] lg:grid-cols-[120px_1fr] items-center gap-4 lg:gap-10">
@@ -107,7 +105,7 @@ export const ArticleListCard = ({
             </span>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   )
 }

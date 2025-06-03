@@ -83,7 +83,7 @@ export const ProjectContent = ({
                   <div className="flex flex-col">
                     <div className="flex flex-col gap-6 text-left">
                       <Link
-                        className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950"
+                        className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950 mr-auto"
                         href={`/${lang}/projects`}
                       >
                         <Icons.arrowLeft />

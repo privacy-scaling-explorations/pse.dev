@@ -6,6 +6,21 @@ import { ArticleListCard } from "./article-list-card"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
+import { cva } from "class-variance-authority"
+
+const ArticleTitle = cva(
+  "text-white font-display hover:text-anakiwa-400 transition-colors group-hover:text-anakiwa-400",
+  {
+    variants: {
+      variant: {
+        compact:
+          "text-[20px] font-semibold lg:font-bold lg:text-lg line-clamp-2 mt-auto",
+        default: "text-[20px] font-semibold lg:font-bold line-clamp-3 mt-auto",
+        xl: "text-[20px] font-bold lg:!text-[40px] lg:!leading-[44px] mt-auto",
+      },
+    },
+  }
+)
 
 const ArticleInEvidenceCard = ({
   article,
@@ -54,7 +69,7 @@ const ArticleInEvidenceCard = ({
         {children}
       </Link>
     ) : (
-      <>{children}</>
+      <div className="group">{children}</div>
     )
   }
 
@@ -90,23 +105,18 @@ const ArticleInEvidenceCard = ({
               {formatDate(article.date)}
             </span>
           )}
-          <Link
-            href={`/blog/${article.id}`}
-            className={cn(
-              " text-white font-display hover:text-anakiwa-400 transition-colors",
-              {
-                "text-[20px] font-semibold lg:font-bold lg:text-lg line-clamp-2 mt-auto":
-                  variant === "compact",
-                "text-[20px] font-semibold lg:font-bold line-clamp-3 mt-auto":
-                  variant === "default",
-                "text-[20px] font-bold lg:!text-[40px] lg:!leading-[44px] mt-auto":
-                  variant === "xl",
-              },
-              titleClassName
-            )}
-          >
-            {article.title}
-          </Link>
+          {asLink === false ? (
+            <Link
+              href={`/blog/${article.id}`}
+              className={cn(ArticleTitle({ variant }), titleClassName)}
+            >
+              {article.title}
+            </Link>
+          ) : (
+            <span className={cn(ArticleTitle({ variant }), titleClassName)}>
+              {article.title}
+            </span>
+          )}
           <span className="text-sm text-white/80 uppercase font-inter">
             {article.authors?.join(", ")}
           </span>
