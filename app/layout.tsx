@@ -59,6 +59,16 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: {
+    types: {
+      "application/rss+xml": [
+        {
+          url: "/api/rss",
+          title: "RSS Feed for Privacy & Scaling Explorations",
+        },
+      ],
+    },
+  },
 }
 
 interface RootLayoutProps {

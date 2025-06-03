@@ -235,6 +235,18 @@ export const Icons = {
       />
     </svg>
   ),
+  rss: (props: LucideProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={props.size || 18}
+      height={props.size || 18}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20H16.83A12.73 12.73 0 0 0 4 7.17V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9H12.1A7.34 7.34 0 0 0 4 12.1V10.1z" />
+    </svg>
+  ),
   readme: (props: LucideProps) => (
     <svg
       width={props.size}

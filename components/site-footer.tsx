@@ -156,7 +156,6 @@ export function SiteFooter({ lang }: LangProps["params"]) {
                   }
                 />
               </Link>
-
               <Link
                 href={siteConfig.links.youtube}
                 className="flex items-center gap-2"
@@ -168,6 +167,22 @@ export function SiteFooter({ lang }: LangProps["params"]) {
                   icon={
                     <div className="w-4">
                       <Icons.youtube className="w-full" />
+                    </div>
+                  }
+                />
+              </Link>
+
+              <Link
+                href="/api/rss"
+                className="flex items-center gap-2"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <ItemLabel
+                  label="RSS"
+                  icon={
+                    <div className="w-4">
+                      <Icons.rss className="w-full" />
                     </div>
                   }
                 />

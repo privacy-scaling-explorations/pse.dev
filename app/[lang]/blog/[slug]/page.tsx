@@ -61,6 +61,11 @@ export default function BlogArticle({ params }: any) {
 
   const imageAsCover = true
 
+  const isNewsletter =
+    post?.title?.toLowerCase().includes("newsletter") ||
+    post?.tags?.includes("newsletter") ||
+    post?.tldr?.toLowerCase()?.includes("newsletter")
+
   return (
     <div className="flex flex-col">
       <div className="flex items-start justify-center z-0 relative">
@@ -150,7 +155,11 @@ export default function BlogArticle({ params }: any) {
         </div>
       </div>
       <div className="pt-10 md:pt-16 pb-32">
-        <BlogContent post={post} lang={params.lang} />
+        <BlogContent
+          post={post}
+          lang={params.lang}
+          isNewsletter={isNewsletter}
+        />
       </div>
     </div>
   )
