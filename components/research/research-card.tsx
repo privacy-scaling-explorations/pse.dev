@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils"
 import { LocaleTypes } from "@/app/i18n/settings"
 
 import { ProjectLink } from "../mappings/project-link"
+import Link from "next/link"
 
 interface ProjectCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -77,14 +78,12 @@ export default function ProjectCard({
   const { content: projectContent } = getProjectById(id, lang)
 
   return (
-    <div
+    <Link
+      href={`/projects/${id?.toLowerCase()}`}
       className={cn(
         "group cursor-pointer",
         projectCardVariants({ showLinks, border, className })
       )}
-      onClick={() => {
-        router.push(`/projects/${id?.toLowerCase()}`)
-      }}
     >
       {showBanner && (
         <div
@@ -178,6 +177,6 @@ export default function ProjectCard({
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

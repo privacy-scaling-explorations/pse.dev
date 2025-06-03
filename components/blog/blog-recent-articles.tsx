@@ -118,8 +118,8 @@ const ArticleInEvidenceCard = ({
             </span>
           )}
           {showReadMore && (
-            <Link href={`/blog/${article.id}`} className="ml-auto">
-              <Button className="uppercase ml-auto mt-4" variant="secondary">
+            <Link href={`/blog/${article.id}`} className="ml-auto mt-4">
+              <Button className="uppercase ml-auto" variant="secondary">
                 <div className="flex items-center gap-2">
                   <span className="!text-center">Read More</span>
                   <Icons.arrowRight className="w-4 h-4" />

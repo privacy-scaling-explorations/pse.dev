@@ -18,7 +18,7 @@ tags:
     "infrastructure/protocol",
     "proof systems",
   ]
-projects: ["zkevm"]
+projects: ["zkevm-community"]
 ---
 
 We are excited to share some updates on our road to building a zkEVM, as we generalize our exploration towards the design and implementation of a general-purpose zkVM.

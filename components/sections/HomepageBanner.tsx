@@ -21,6 +21,7 @@ export const HomepageBanner = ({ lang }: { lang: any }) => {
         target="_blank"
         rel="noreferrer"
         passHref
+        className="mx-auto"
       >
         <Button>
           <div className="flex items-center gap-2">
