@@ -10,6 +10,7 @@ import { ArticleListCard } from "./article-list-card"
 interface BlogContentProps {
   post: Article
   lang: LocaleTypes
+  isNewsletter?: boolean
 }
 
 interface BlogImageProps {
@@ -36,7 +37,11 @@ export function BlogImage({ image, alt, description }: BlogImageProps) {
   )
 }
 
-export function BlogContent({ post, lang }: BlogContentProps) {
+export function BlogContent({
+  post,
+  lang,
+  isNewsletter = false,
+}: BlogContentProps) {
   const articles = getArticles() ?? []
   const articleIndex = articles.findIndex((article) => article.id === post.id)
 
@@ -54,10 +59,12 @@ export function BlogContent({ post, lang }: BlogContentProps) {
           <Markdown>{post?.content ?? ""}</Markdown>
         </div>
 
-        <BlogArticleRelatedProjects
-          projectsIds={post.projects ?? []}
-          lang={lang}
-        />
+        {!isNewsletter && (
+          <BlogArticleRelatedProjects
+            projectsIds={post.projects ?? []}
+            lang={lang}
+          />
+        )}
 
         {moreArticles?.length > 0 && (
           <div className="flex flex-col gap-8">

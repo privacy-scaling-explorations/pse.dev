@@ -4173,6 +4173,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"feed@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "feed@npm:5.1.0"
+  dependencies:
+    xml-js: "npm:^1.6.11"
+  checksum: 10/c0b7cd6e6a5d5406f871cdaf4487d273c00e35f3c04975bb9095e10cc5234ec1b797d11a37f6502476d212e1ba0854f3de7302c4750bdeb7aec3aedcd4e50426
+  languageName: node
+  linkType: hard
+
 "file-entry-cache@npm:^8.0.0":
   version: 8.0.0
   resolution: "file-entry-cache@npm:8.0.0"
@@ -6857,6 +6866,7 @@ __metadata:
     eslint-config-prettier: "npm:^8.8.0"
     eslint-plugin-react: "npm:^7.37.4"
     eslint-plugin-tailwindcss: "npm:^3.18.0"
+    feed: "npm:^5.1.0"
     framer-motion: "npm:^10.12.17"
     fuse.js: "npm:^6.6.2"
     globals: "npm:^15.14.0"
@@ -8076,6 +8086,13 @@ __metadata:
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
   checksum: 10/7eaf7a0cf37cc27b42fb3ef6a9b1df6e93a1c6d98c6c6702b02fe262d5fcbd89db63320793b99b21cb5348097d0a53de81bd5f4e8b86e20cc9412e3f1cfb4e83
+  languageName: node
+  linkType: hard
+
+"sax@npm:^1.2.4":
+  version: 1.4.1
+  resolution: "sax@npm:1.4.1"
+  checksum: 10/b1c784b545019187b53a0c28edb4f6314951c971e2963a69739c6ce222bfbc767e54d320e689352daba79b7d5e06d22b5d7113b99336219d6e93718e2f99d335
   languageName: node
   linkType: hard
 
@@ -9710,6 +9727,17 @@ __metadata:
     utf-8-validate:
       optional: true
   checksum: 10/018e04ec95561d88248d53a2eaf094b4ae131e9b062f2679e6e8a62f04649bc543448f1e038125225ac6bbb25f54c1e65d7a2cc9dbc1e28b43e5e6b7162ad88e
+  languageName: node
+  linkType: hard
+
+"xml-js@npm:^1.6.11":
+  version: 1.6.11
+  resolution: "xml-js@npm:1.6.11"
+  dependencies:
+    sax: "npm:^1.2.4"
+  bin:
+    xml-js: ./bin/cli.js
+  checksum: 10/55ce342a47bf14a138a3fcea0c9e325b81484cfc1a8aac78df13b4d6ca01f20e32820572bc3e927cd9b61b9da9cdee4657cb2f304e460343d8d85d6a3659d749
   languageName: node
   linkType: hard
 
