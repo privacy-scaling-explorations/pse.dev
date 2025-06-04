@@ -84,9 +84,11 @@ export const WikiCard = ({
                 project.image ? project.image : "fallback.webp"
               }`}
               alt={`${project.name} banner`}
-              width={290}
-              height={140}
-              className="bg-cover "
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={false}
+              quality={85}
             />
             {!project?.image && (
               <span className="absolute w-full px-5 text-3xl font-bold text-center text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
@@ -142,9 +144,11 @@ export const WikiCard = ({
               <Image
                 src={`/project-banners/${previousBrandImage}`}
                 alt={`${project.name} banner`}
-                width={290}
-                height={140}
-                className="bg-cover "
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={false}
+                quality={85}
               />
               {!project?.image && (
                 <span className="absolute w-full px-5 text-3xl font-bold text-center text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">

@@ -43,7 +43,15 @@ There are several public and private values associated with a user’s identity:
 - \*\*Identity secret: \*\*a secret value representing the user’s identity, derived by hashing together the identity trapdoor and identity nullifier.
 - **Identity commitment:** a public value which is a hash of the identity secret.
 
-![](https://miro.medium.com/max/1400/1*G9baILs1-B72x6d_vtk48Q.png)
+```js
+import { Identity } from "@semaphore-protocol/identity"
+
+const identity = new Identity()
+
+const trapdoor = identity.getTrapdoor()
+const nullifier = identity.getNullifier()
+const commitment = identity.generateCommitment()
+```
 
 Generating a Semaphore identity
 
@@ -57,7 +65,11 @@ In Semaphore, a “group” can mean many things. It might be people who have an
 
 For example, you might require an email address from a particular university in order to join a group. Rather than storing that email in a database and using it to log in, tying all of their activity to their identity, a user proves only that they have the credential. There is no stored record of which email address was used. Members of the group can be confident that they are interacting with fellow students or colleagues, even though individual identities are unknown.
 
-![](https://miro.medium.com/max/1400/1*6wqqbPLpPorkASikjxFckQ.png)
+```js
+group.addMember(identityCommitment)
+// or
+group.addMembers(identityCommitments)
+```
 
 Adding members to a Semaphore group
 
@@ -100,7 +112,27 @@ On a more technical level, Semaphore combines **zero knowledge proofs** and **Et
 
 [Zero knowledge proofs](https://semaphore.appliedzkp.org/docs/guides/proofs) are the key to Semaphore’s ability to provide sybil- and spam-resistant private credentials. Every signal sent by a user contains proofs of the user’s group membership and the validity of the signal. Proofs are generated off-chain, and can be verified either on-chain or off-chain.
 
-![](https://miro.medium.com/max/1400/1*zh-7ipm9aQHU6RpkokFMAQ.png)
+```js
+import { generateProof, verifyProof } from "@semaphore-protocol/proof"
+
+const externalNullifier = BigInt(1)
+const signal = "Hello world"
+
+const fullProof = await generateProof(
+  identity,
+  group,
+  externalNullifier,
+  signal,
+  {
+    zkeyFilePath: "./semaphore.zkey",
+    wasmFilePath: "./semaphore.wasm",
+  }
+)
+
+const verificationKey = JSON.parse(fs.readFileSync("./semaphore.json", "utf-8"))
+
+await verifyProof(verificationKey, fullProof)
+```
 
 Semaphore proof
 

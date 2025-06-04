@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Markdown } from "@/components/ui/markdown"
 import { getArticles, getArticleById } from "@/lib/blog"
-import { cn } from "@/lib/utils"
+import { cn, getBackgroundImage } from "@/lib/utils"
 import { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -57,7 +57,7 @@ export default function BlogArticle({ params }: any) {
     notFound()
   }
 
-  const imageUrl = (post?.image ?? "")?.length > 0 ? post?.image : undefined
+  const imageUrl = getBackgroundImage(post?.image)
 
   const imageAsCover = true
 
@@ -77,7 +77,10 @@ export default function BlogArticle({ params }: any) {
               : "bg-cover-gradient"
           )}
           style={{
-            backgroundImage: imageAsCover ? `url(${imageUrl})` : undefined,
+            backgroundImage:
+              imageAsCover && imageUrl?.length > 0
+                ? `url(${imageUrl})`
+                : undefined,
           }}
         />
         <div className="flex items-start justify-center z-0 bg-cover border-tuatara-300 border-b w-full">
