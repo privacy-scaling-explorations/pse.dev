@@ -116,7 +116,7 @@ A key observation enabling our approach is that all private inputs from the Veri
 
 Malicious secure protocols typically aim to prevent _any_ leakage of any parties inputs, employing techniques such as authenticated garbling or variants of cut-and-choose, which add significant compute and/or communication overhead.
 
-For our needs, we implemented a novel\* variant of so-called Dual Execution, which we dubbed Dual Execution with Asymmetric Privacy (DEAP). Is there a better name for it? Probably. Nonetheless, you can read our informal [explanation of it here](https://docs.tlsnotary.org/mpc/deap.html).
+For our needs, we implemented a novel\* variant of so-called Dual Execution, which we dubbed Dual Execution with Asymmetric Privacy (DEAP). Is there a better name for it? Probably. Nonetheless, you can read our informal [explanation of it here](https://tlsnotary.org/docs/mpc/deap).
 
 The jist of it is this: During the TLS session one party, the Prover, acts as the Garbler while also committing to their inputs prior to learning the output of the circuit. Later, these commitments are used to prove the Prover acted honestly (or at least leakage was statistically bounded), and aborting otherwise.
 
