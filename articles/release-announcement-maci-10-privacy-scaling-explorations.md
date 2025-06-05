@@ -79,7 +79,7 @@ Finally, MACI is important because as crypto communities are increasingly adopti
 
 ## What’s new?
 
-In this release, we rearchitected MACI’s smart contracts to allow for greater flexiblity and separation of concerns. In particular, we support multiple polls within a single instance of MACI. This allows the coordinator to run and tally many elections either subsequently or concurrently.
+In this release, we rearchitected MACI’s smart contracts to allow for greater flexibility and separation of concerns. In particular, we support multiple polls within a single instance of MACI. This allows the coordinator to run and tally many elections either subsequently or concurrently.
 
 ![](https://miro.medium.com/max/1400/0*i0MnnOBj18B_62Zt)
 
