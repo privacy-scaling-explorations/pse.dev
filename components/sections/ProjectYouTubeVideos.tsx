@@ -44,6 +44,7 @@ const VideoCard = ({ videoId }: VideoCardProps) => {
           src={thumbnailUrl}
           alt={title || "YouTube video"}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{ objectFit: "cover" }}
           className="transition-transform duration-300 scale-105 group-hover:scale-110"
           onError={(e) => {
