@@ -50,40 +50,58 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Server Components",
-    "Radix UI",
+    "Privacy & Scaling Explorations",
+    "Zero Knowledge Proofs",
+    "ZK Proofs",
+    "Cryptography",
+    "Ethereum",
+    "Blockchain",
+    "Privacy",
+    "Scaling",
+    "Open Source",
+    "Research",
+    "Development",
+    "zkEVM",
+    "Rollups",
+    "Account Abstraction",
+    "Fully Homomorphic Encryption",
+    "Multi-Party Computation",
+    "Programmable Cryptography",
+    "Ethereum Foundation",
+    "Cryptographic Research",
+    "Privacy Tools",
+    "Scaling Solutions",
+    "Cryptographic Primitives",
+    "Zero Knowledge",
+    "ZK Technology",
+    "Cryptographic Infrastructure",
   ],
   authors: [
     {
-      name: "PSE",
+      name: "Privacy + Scaling Explorations",
       url: "https://pse.dev",
     },
   ],
-  creator: "PSE",
+  creator: "Privacy + Scaling Explorations",
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [`${siteConfig.url}/og.jpg`],
-    creator: "@pse",
+  alternates: {
+    types: {
+      "application/rss+xml": [
+        {
+          url: "/api/rss",
+          title: "RSS Feed for Privacy & Scaling Explorations",
+        },
+      ],
+    },
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-  manifest: `${siteConfig.url}/site.webmanifest`,
 }
 
 export const viewport: Viewport = {
