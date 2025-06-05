@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/site-config"
 import { AnnounceInterface } from "@/lib/types"
 import { convertDirtyStringToHtml } from "@/lib/utils"
 import { useTranslation } from "@/app/i18n/client"

@@ -1,7 +1,7 @@
 import "@/styles/globals.css"
 import { Metadata, Viewport } from "next"
 
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/site-config"
 import { languages } from "./i18n/settings"
 import { QueryClientProviderLayout } from "@/components/layouts/QueryProviderLayout"
 

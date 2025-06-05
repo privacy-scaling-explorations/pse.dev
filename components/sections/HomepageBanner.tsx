@@ -3,7 +3,7 @@
 import { Banner } from "../banner"
 import { useTranslation } from "@/app/i18n/client"
 import { Icons } from "../icons"
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/site-config"
 import Link from "next/link"
 import { Button } from "../ui/button"
 

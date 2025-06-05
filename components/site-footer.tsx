@@ -5,7 +5,7 @@ import Link from "next/link"
 
 import { LangProps } from "@/types/common"
 import { NavItem } from "@/types/nav"
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/site-config"
 import { cn } from "@/lib/utils"
 import { useAppSettings } from "@/hooks/useAppSettings"
 import { useTranslation } from "@/app/i18n/client"

@@ -1,6 +1,6 @@
 "use client"
 
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/site-config"
 import { useAppSettings } from "@/hooks/useAppSettings"
 import { MainNav } from "@/components/main-nav"
 import { LocaleTypes, enabledLanguagesItems } from "@/app/i18n/settings"

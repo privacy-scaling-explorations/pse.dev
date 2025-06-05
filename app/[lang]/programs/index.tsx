@@ -8,7 +8,7 @@ import { coreProgramFaq } from "@/data/programs/coreProgramFaq"
 import { ReactNode } from "react-markdown/lib/ast-to-react"
 import { twMerge } from "tailwind-merge"
 
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/site-config"
 import { cn } from "@/lib/utils"
 import { Accordion } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"

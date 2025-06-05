@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/site-config"
 import { getProjectById } from "@/lib/projectsUtils"
 import { ProjectCategory, ProjectStatus } from "@/lib/types"
 import { cn } from "@/lib/utils"

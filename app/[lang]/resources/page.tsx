@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import Link from "next/link"
 
 import { LangProps } from "@/types/common"
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/site-config"
 import { cn } from "@/lib/utils"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"

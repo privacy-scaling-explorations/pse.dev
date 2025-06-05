@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/site-config"
 import { Accordion } from "@/components/ui/accordion"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"

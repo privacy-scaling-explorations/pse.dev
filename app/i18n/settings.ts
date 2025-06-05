@@ -1,6 +1,6 @@
 import type { InitOptions } from "i18next"
 
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/site-config"
 
 export const fallbackLng = "en"
 
