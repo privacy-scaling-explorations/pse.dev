@@ -50,13 +50,13 @@ export const tlsn: ProjectInterface = {
     play: [
       {
         label: "Getting started",
-        url: "https://docs.tlsnotary.org/quick_start/index.html",
+        url: "https://tlsnotary.org/docs/quick_start/",
       },
     ],
     learn: [
       {
         label: "Documentation",
-        url: "https://docs.tlsnotary.org",
+        url: "https://tlsnotary.org/docs",
       },
     ],
   },
