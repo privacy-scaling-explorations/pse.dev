@@ -22,7 +22,7 @@ export const mpz: ProjectInterface = {
   category: ProjectCategory.DEVTOOLS,
   section: "pse",
   content,
-  image: "mpz.png",
+  image: "mpz-cover.png",
   name: "mpz",
   license: "MIT or Apache-2.0",
   links: {
@@ -30,15 +30,9 @@ export const mpz: ProjectInterface = {
   },
   tags: {
     themes: ["build", "play"],
-    types: [
-      "Legos/dev tools",
-      "Infrastructure/protocol"
-    ],
+    types: ["Legos/dev tools", "Infrastructure/protocol"],
     builtWith: ["rust"],
-    keywords: [
-      "Anonymity/privacy",
-      "mpc",
-    ],
+    keywords: ["Anonymity/privacy", "mpc"],
   },
   extraLinks: {
     play: [
