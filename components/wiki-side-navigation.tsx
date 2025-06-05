@@ -165,8 +165,6 @@ export const WikiSideNavigation = ({
   const hasYoutubeVideos =
     Array.isArray(youtubeLinks) && youtubeLinks.length > 0
 
-  console.log(hasTeam, hasYoutubeVideos, youtubeLinks)
-
   if (sections.length === 0 || content.length === 0) return null
 
   return (

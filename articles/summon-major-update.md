@@ -4,7 +4,18 @@ image: "/articles/summon-major-update/cover.jpg"
 tldr: I’m excited to share the biggest Summon update yet. 🎉
 authors: ["Andrew Morris"]
 date: 2025-05-21
-tags: [summon, mpc, typescript, privacy, developer-tools, release-notes, circuits, cryptography, compiler]
+tags:
+  [
+    summon,
+    mpc,
+    typescript,
+    privacy,
+    developer-tools,
+    release-notes,
+    circuits,
+    cryptography,
+    compiler,
+  ]
 projects: ["mpc-framework"]
 canonical: "https://mpc.pse.dev/blog/summon-major-update"
 ---
@@ -19,13 +30,44 @@ I’m excited to share the biggest Summon update yet. 🎉
 
 ### Before
 
-![old summon example](/articles/summon-major-update/old-light.png)
+```js
+export default function main(a: number, b: number) {
+    const plus = a + b;
+    const gt = a > b;
+
+    return [plus, gt];
+}
+
+// and separately provide mpcSettings:
+const mpcSettings = [
+    {
+        name: 'alice',
+        inputs: ['a'],
+        outputs: ['main[0]', 'main[1]'],
+    },
+    {
+        name: 'bob',
+        inputs: ['b'],
+        outputs: ['main[0]', 'main[1]'],
+    },
+];
+```
 
 ### After
 
-![new summon example](/articles/summon-major-update/new-light.png)
+```js
+default function main(io: Summon.IO) {
+    const a = io.input('alice', 'a', summon.number());
+    const b = io.input('bob', 'b', summon.number());
 
-*Shorter, self‑contained, and each output has a real name.*
+    io.outputPublic('plus', a + b);
+    io.outputPublic('gt', a > b);
+}
+
+// mpcSettings is generated automatically
+```
+
+_Shorter, self‑contained, and each output has a real name._
 
 Per-party outputs are also coming, and will fit neatly into this API: `io.output(partyName, outputName, value)`.
 
@@ -51,15 +93,36 @@ This also sets us up to support arrays/etc and grow into comprehensive typing à
 
 Need a single program that adapts to many input sizes/participants? Public inputs let you accept these at **compile time**:
 
-![public inputs](/articles/summon-major-update/public-inputs-light.png)
+```js
+const N = io.inputPublic('N', summon.number());
+let votes: boolean[] = [];
+
+for (let i = 0; i < N; i++) {
+    const vote = io.input(`party${i}`, `vote${i}`, summon.bool());
+    votes.push(vote);
+}
+```
 
 Pass them via CLI:
 
-![summonc command](/articles/summon-major-update/summonc-cmd-light.png)
+```bash
+summonc program.ts \
+  --public-inputs '{ "N": 10 }' \
+  --boolify-width 8
+```
 
 or the `summon-ts` API:
 
-![summon-ts command](/articles/summon-major-update/summon-ts-cmd-light.png)
+```js
+const { circuit } = summon.compile({
+  path: "program.ts",
+  boolifyWidth: 8,
+  publicInputs: { N: 10 },
+  files: {
+    /* ... */
+  },
+})
+```
 
 See it in action: **JumboSwap** [circuit](https://github.com/privacy-scaling-explorations/jumboswap/blob/3f81b87/src/circuit/main.ts).
 
@@ -67,20 +130,26 @@ See it in action: **JumboSwap** [circuit](https://github.com/privacy-scaling-ex
 
 Merging has to occur whenever your program branches on signals:
 
-![merge program](/articles/summon-major-update/merge-program-light.png)
+```js
+const value = cond ? x : y
+```
 
 Circuits can't evaluate only one side of this like CPUs do, so the Summon compiler has to emit wires for both branches and then merge them together like this:
 
-![merge strat](/articles/summon-major-update/merge-strat-light.png)
+```js
+value = merge(condA, x, condB, y)
+//      = (condA * x) + (condB * y) // old method
+//      = (condA * x) XOR (condB * y) // new method
+```
 
 So, `+` became `XOR` which is great because `XOR` is almost free, but why is this allowed?
 
-The key is that `condA` and `condB` cannot be true simultaneously. In this example we have `condB == !condA`, but we don't have to rely on that. These conditions are *always* non-overlapping - there is only ever one "real" branch with `cond == 1`. This means each bit of the addition cannot produce a carry and is equivalent to `XOR`, because `XOR` is 1-bit addition.
+The key is that `condA` and `condB` cannot be true simultaneously. In this example we have `condB == !condA`, but we don't have to rely on that. These conditions are _always_ non-overlapping - there is only ever one "real" branch with `cond == 1`. This means each bit of the addition cannot produce a carry and is equivalent to `XOR`, because `XOR` is 1-bit addition.
 
 This caused some real speedups in our demos:
 
-* [**JumboSwap**](https://mpc.pse.dev/apps/jumboswap): ≈4× faster
-* [**Lizard‑Spock**](https://mpc.pse.dev/apps/lizard-spock): ≈20 % faster
+- [**JumboSwap**](https://mpc.pse.dev/apps/jumboswap): ≈4× faster
+- [**Lizard‑Spock**](https://mpc.pse.dev/apps/lizard-spock): ≈20 % faster
 
 ## Join Us!
 

@@ -6,6 +6,7 @@ import { BlogArticleCard } from "./blog-article-card"
 import { BlogArticleRelatedProjects } from "./blog-article-related-projects"
 import { LocaleTypes } from "@/app/i18n/settings"
 import { ArticleListCard } from "./article-list-card"
+import Image from "next/image"
 
 interface BlogContentProps {
   post: Article
@@ -22,9 +23,19 @@ interface BlogImageProps {
 export function BlogImage({ image, alt, description }: BlogImageProps) {
   return (
     <div className="flex flex-col">
-      <img src={image} alt={alt} className="mb-1" />
+      <div className="relative w-full aspect-video">
+        <Image
+          src={image}
+          alt={alt || ""}
+          fill
+          className="object-cover rounded-lg"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={false}
+          quality={85}
+        />
+      </div>
       {alt && (
-        <span className="font-semibold text-black text-center capitalize text-sm">
+        <span className="font-semibold text-black text-center capitalize text-sm mt-2">
           {alt}
         </span>
       )}

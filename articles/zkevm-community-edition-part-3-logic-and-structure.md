@@ -21,9 +21,9 @@ tags:
 projects: ["zkevm-community"]
 ---
 
-_[Part 1: Introduction](https://mirror.xyz/privacy-scaling-explorations.eth/I5BzurX-T6slFaPbA4i3hVrO7U2VkBR45eO-N3CSnSg)_
+_[Part 1: Introduction](/blog/zkevm-community-edition-part-1-introduction)_
 
-_[Part 2: Components](https://mirror.xyz/privacy-scaling-explorations.eth/AW854RXMqS3SU8WCA7Yz-LVnTXCOjpwhmwUq30UNi1Q)_
+_[Part 2: Components](/blog/zkevm-community-edition-part-2-components)_
 
 The zkEVM Community Edition has the challenge of creating proofs to validate EVM execution as it is today. To make this feasible, a system of interconnected circuits has been designed to prove the correctness of EVM opcodes while dealing with the inefficiencies of converting EVM opcodes to ZK proofs.
 

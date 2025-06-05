@@ -76,7 +76,32 @@ Reddit parameters are defined as the following:
 
 To be included in the Reddit gold reputation level, a user would need to have a premium subscription and a minimum of 10000 karma, 5000 coins, and 3 linked identities.
 
-![https://docs.interep.link/technical-reference/reputation/reddit](/articles/interep-on-ramp-for-reputaion/M2iW7n8pkmmqWq6ysASMv.webp)
+```json
+[
+  {
+    "parameter": "premiumSubscription",
+    "value": true
+  },
+  {
+    "parameter": "karma",
+    "value": {
+      "min": 10000
+    }
+  },
+  {
+    "parameter": "coins",
+    "value": {
+      "min": 5000
+    }
+  },
+  {
+    "parameter": "linkedIdentities",
+    "value": {
+      "min": 3
+    }
+  }
+]
+```
 
 https://docs.interep.link/technical-reference/reputation/reddit
 
@@ -108,7 +133,9 @@ https://github.com/interep-project/presentations/blob/main/DevConnect%20Amsterda
 
 To join an Interep group, you must first generate a Semaphore ID. Semaphore IDs are always created in the same way: they are derived from a message signed with an Ethereum account. On Interep, the Semaphore ID is generated using information from a provider such as Reddit, Github, Twitter, or POAP NFTs. These are called “deterministic identities” because the identity is generated using a specific message. A Reddit Semaphore ID and a Github Semaphore ID would be two different identities because they were generated using two different messages or inputs.
 
-![https://semaphore.appliedzkp.org/docs/guides/identities#create-deterministic-identities](/articles/interep-on-ramp-for-reputaion/q0P-KDV8gkusFw23frDi4.webp)
+```js
+const identity = new Identity("secret-message")
+```
 
 https://semaphore.appliedzkp.org/docs/guides/identities#create-deterministic-identities
 

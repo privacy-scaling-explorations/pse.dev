@@ -28,7 +28,14 @@ export const HomepageHeader = ({ lang }: { lang: any }) => {
       subtitle={t("headerSubtitle")}
       image={
         <div className="m-auto flex h-[320px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[380px]">
-          <Image src={PSELogo} alt="pselogo" style={{ objectFit: "cover" }} />
+          <Image
+            src={PSELogo}
+            alt="pselogo"
+            className="object-cover"
+            priority
+            quality={90}
+            sizes="(max-width: 768px) 280px, (max-width: 1200px) 380px, 380px"
+          />
         </div>
       }
       actions={

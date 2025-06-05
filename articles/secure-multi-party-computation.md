@@ -110,7 +110,7 @@ A compiler converts a program written in a specialized, high-level language to a
 
 Let's consider an example where our function performs matrix element-wise multiplication, and our input and output are 2x2 matrices. We can use Circom and the [circom-2-arithc](https://github.com/namnc/circom-2-arithc/) compiler to create our circuit.
 
-```
+```js
 template matrixElementMul (m,n) {
     signal input a[m][n];
     signal input b[m][n];

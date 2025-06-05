@@ -63,7 +63,30 @@ BLS Wallet bundles can contain both simple transactions (“send money from acco
 
 An operation must contain the nonce of the smart contract wallet, a BLS signature, and the action(s) to be executed including the address of the smart contract to be called and the function to call.
 
-![](https://miro.medium.com/max/1400/0*cFBuQg8ulyjy6Q49)
+```js
+const bundle = wallet.sign({
+  nonce: await wallet.Nonce(),
+  // All actions in this operation are atomic
+  actions: [
+    {
+      ethValue: 0,
+      contractAddress: erc20Contract.address,
+      encodedFunction: erc20Contract.address.interface.encodeFunctionData(
+        "approve",
+        [dexContract.address, amount]
+      ),
+    },
+    {
+      ethValue: 0,
+      contractAddress: dexContract.address,
+      encodedFunction: dexContract.address.interface.encodeFunctionData(
+        "swap",
+        [erc20Contract.address, amount, otherERC20Contract.address]
+      ),
+    },
+  ],
+})
+```
 
 Example of a single operation bundle
 

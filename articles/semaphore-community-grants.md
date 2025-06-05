@@ -26,8 +26,7 @@ tags:
 
 Whether it’s talking confidentially with friends, anonymously broadcasting messages, or simply wanting to choose which aspects of our identity we reveal in which contexts, privacy allows us to express ourselves freely and without fear. Privacy is a tool that should be accessible to as many people as possible, and PSE’s goal is to foster a collaborative community to make access to privacy a reality in everyday life.
 
-\*\*  
-\*\*If you’re a developer with an idea to use Semaphore for good, we want to hear from you!
+**If you’re a developer with an idea to use Semaphore for good, we want to hear from you!**
 
 ## Semaphore as a privacy layer
 

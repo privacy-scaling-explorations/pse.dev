@@ -70,16 +70,16 @@ export const Devcon7Slider = () => {
   return (
     <AnySlider {...settings}>
       {images.map((image, index) => (
-        <div
-          key={index}
-          className="relative h-[320px] w-full bg-cover bg-center overflow-hidden"
-          style={{ backgroundImage: `url(${image})` }}
-        >
+        <div key={index} className="relative h-[320px] w-full overflow-hidden">
           <Image
             src={image}
             alt={`Devcon 7 Overview ${index + 1}`}
             fill
-            className="object-cover w-full"
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={index < 2}
+            quality={85}
+            loading={index < 2 ? "eager" : "lazy"}
           />
         </div>
       ))}

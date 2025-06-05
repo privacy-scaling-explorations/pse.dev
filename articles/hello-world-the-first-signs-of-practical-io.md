@@ -46,7 +46,7 @@ While all of these differences (except for the first one) are introduced to redu
 
 In our benchmarking scenario, the obfuscator sets a [public circuit](https://github.com/MachinaIO/diamond-io/blob/e7e87dd8422db0f8ccf634fdb3c658c2c1eef82e/dio/src/circuit.rs) $C$ with variable arithmetic depth (addition and multiplication layers) and variable input size. As part of the obfuscation algorithm, the obfuscator samples a binary vector hardcoded key $k$ and embeds it inside the obfuscated circuit. The obfuscated circuit is then published such that any evaluator can run it over their dynamically chosen input $x$ to obtain $C(k, x)$ without any interaction with the obfuscator and without learning $k$ (beyond what could be inferred from $C(k, x)$).
 
-```
+```js
 // public circuit C
 let mut public_circuit = PolyCircuit::new();
 

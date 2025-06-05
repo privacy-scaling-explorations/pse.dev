@@ -21,9 +21,9 @@ tags:
 projects: ["zkevm-community"]
 ---
 
-_[Part 1: Introduction](https://mirror.xyz/privacy-scaling-explorations.eth/I5BzurX-T6slFaPbA4i3hVrO7U2VkBR45eO-N3CSnSg)_
+_[Part 1: Introduction](/blog/zkevm-community-edition-part-1-introduction)_
 
-_[Part 3: Logic and Structure](https://mirror.xyz/privacy-scaling-explorations.eth/shl8eMBiObd6_AUBikXZrjKD4fibI6xUZd7d9Yv5ezE)_
+_[Part 3: Logic and Structure](/blog/zkevm-community-edition-part-3-logic-and-structure)_
 
 Before diving deeper into how the zkEVM Community Edition works, it is necessary to understand some basic concepts that are common among zkEVM projects. The following section is not technically complete and is written as a simplified introduction to zkSNARKs, opcodes, and arithmetic circuits.
 

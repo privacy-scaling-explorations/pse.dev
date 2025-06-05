@@ -72,7 +72,7 @@ const LanguageSwitcher = ({ lang }: LangProps["params"]) => {
   )
 }
 
-export function SiteHeaderMobile({ lang }: LangProps["params"]) {
+export const SiteHeaderMobile = ({ lang }: LangProps["params"]) => {
   const [header, setHeader] = useState(false)
   const { t } = useTranslation(lang, "common")
 

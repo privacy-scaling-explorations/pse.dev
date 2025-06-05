@@ -1,7 +1,7 @@
 ---
 authors: ["Kyle Charbonnet"]
 title: "PSE Security: What’s New"
-image: "/articles/pse-security-whats-new/cover.webp"
+image: null
 tldr: "Explore the latest work from the PSE Security team on improving L2 and ZK security across Ethereum. Learn about tools like the ZK Bug Tracker, Bridge Bug Tracker, and advances in static analysis and formal verification."
 date: "2023-04-25"
 canonical: "http://web.archive.org/web/20240616003122/https://mirror.xyz/privacy-scaling-explorations.eth/BaqGMfBhEZR1cvTJlA9E3Xu5ZhD7IthLiUK-Q75rQMM"
@@ -14,6 +14,7 @@ projects: ["pse-security"]
 This post was authored by **Kyle Charbonnet**, team lead of PSE Security.
 
 ## Table of Contents
+
 - [What is the PSE Security Team?](#what-is-the-pse-security-team)
 - [L2 Security](#l2-security)
 - [ZK Security](#zk-security)
@@ -105,8 +106,8 @@ Both the **ZK Bug Tracker** and **Bridge Bug Tracker** are open to community con
 
 ## Team Members
 
-- **Kyle Charbonnet** – Team Lead  
-- **Yufei Li** – L2 Security Engineer  
+- **Kyle Charbonnet** – Team Lead
+- **Yufei Li** – L2 Security Engineer
 - **Mridul Garg** – ZK Security Engineer
 
 ---

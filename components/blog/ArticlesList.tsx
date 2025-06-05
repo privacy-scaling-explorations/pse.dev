@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { Article } from "@/lib/blog"
 import { ArticleListCard } from "./article-list-card"
-import { cn } from "@/lib/utils"
+import { cn, getBackgroundImage } from "@/lib/utils"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
 import { cva } from "class-variance-authority"
@@ -73,6 +73,8 @@ const ArticleInEvidenceCard = ({
     )
   }
 
+  const backgroundImage = getBackgroundImage(article?.image)
+
   return (
     <AsLinkWrapper href={`/blog/${article.id}`} asLink={asLink}>
       <div
@@ -84,7 +86,9 @@ const ArticleInEvidenceCard = ({
           className
         )}
         style={{
-          backgroundImage: `url(${article.image ?? "/fallback.webp"})`,
+          backgroundImage: backgroundImage
+            ? `url(${backgroundImage})`
+            : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center centers",
         }}
@@ -159,9 +163,14 @@ async function fetchArticles(tag?: string) {
 interface ArticlesListProps {
   lang: string
   tag?: string
+  fallback?: React.ReactNode
 }
 
-const ArticlesList = ({ lang, tag }: ArticlesListProps) => {
+const ArticlesList: React.FC<ArticlesListProps> = ({
+  lang,
+  tag,
+  fallback = null,
+}: ArticlesListProps) => {
   const {
     data: articles = [],
     isLoading,
@@ -172,7 +181,7 @@ const ArticlesList = ({ lang, tag }: ArticlesListProps) => {
   })
 
   if (isLoading || articles.length === 0) {
-    return <div className="flex justify-center py-10">Loading articles...</div>
+    return <>{fallback}</>
   }
 
   if (isError) {

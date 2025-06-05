@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { Markdown } from "../ui/markdown"
 import { Article } from "@/lib/blog"
-import { useRouter } from "next/navigation"
+import { getBackgroundImage } from "@/lib/utils"
 
 export const ArticleListCard = ({
   lang,
@@ -21,12 +21,12 @@ export const ArticleListCard = ({
     year: "numeric",
   })
 
-  const router = useRouter()
-
   const tldr = lineClamp
     ? (article.tldr || "").replace(/\n/g, " ").substring(0, 120) +
       (article.tldr && article.tldr.length > 120 ? "..." : "")
     : article.tldr || ""
+
+  const backgroundImage = getBackgroundImage(article?.image)
 
   return (
     <div className="flex h-full">
@@ -39,7 +39,9 @@ export const ArticleListCard = ({
           <div
             className="size-[80px] lg:size-[120px] rounded-full bg-slate-200"
             style={{
-              backgroundImage: `url(${article.image})`,
+              backgroundImage: backgroundImage
+                ? `url(${backgroundImage})`
+                : undefined,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

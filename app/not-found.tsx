@@ -4,6 +4,8 @@ import "@/styles/globals.css"
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { Metadata } from "next"
+import { AppContent } from "@/components/ui/app-content"
 
 import { LangProps } from "@/types/common"
 import { fontDisplay, fontSans } from "@/lib/fonts"
@@ -12,6 +14,10 @@ import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 
 import { useTranslation } from "./i18n/client"
+
+export const metadata: Metadata = {
+  title: "404: Page Not Found",
+}
 
 export default function NotFound({ lang }: LangProps["params"]) {
   const { t } = useTranslation(lang, "common")

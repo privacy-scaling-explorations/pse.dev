@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import { ReadonlyURLSearchParams } from "next/navigation"
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
@@ -38,9 +39,18 @@ export function convertDirtyStringToHtml(string: string) {
   if (!string) return ""
   return string
     .replace(/\n/g, "<br />")
+
     .replace(urlPattern, '<a href="$&">$&</a>')
     .replace(pseudoUrlPattern, '$1<a href="http://$2">$2</a>')
     .toLowerCase()
+}
+
+// Get background image or return fallback image
+export function getBackgroundImage(image: string | null | undefined = null) {
+  if (!image) return "/fallback.webp"
+  if (image === "") return "/fallback.webp"
+  if (image === null) return "/fallback.webp"
+  return image
 }
 
 export function removeProtocol(url: string) {

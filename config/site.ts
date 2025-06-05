@@ -6,6 +6,7 @@ export const siteConfig = {
   name: "Privacy & Scaling Explorations",
   description:
     "Enhancing Ethereum through cryptographic research and collective experimentation.",
+  url: "https://pse.dev",
   links: {
     twitter: "https://twitter.com/privacyscaling",
     github: "https://github.com/privacy-scaling-explorations",
