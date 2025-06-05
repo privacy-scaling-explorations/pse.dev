@@ -119,25 +119,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <QueryClientProviderLayout>
       <html lang="en" className={fonts.map((font) => font.className).join(" ")}>
-        <head>
-          <link
-            rel="preconnect"
-            href="https://fonts.googleapis.com"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/fallback.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-        </head>
         <body className="min-h-screen bg-background antialiased">
           {children}
         </body>

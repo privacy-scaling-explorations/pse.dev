@@ -37,7 +37,6 @@ const nextConfig = {
   },
   experimental: {
     mdxRs: true,
-    optimizeCss: true,
     optimizePackageImports: ["@heroicons/react", "lucide-react"],
   },
   swcMinify: true,
