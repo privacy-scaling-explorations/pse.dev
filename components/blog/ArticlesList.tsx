@@ -166,7 +166,11 @@ interface ArticlesListProps {
   fallback?: React.ReactNode
 }
 
-const ArticlesList = ({ lang, tag, fallback = null }: ArticlesListProps) => {
+const ArticlesList: React.FC<ArticlesListProps> = ({
+  lang,
+  tag,
+  fallback = null,
+}: ArticlesListProps) => {
   const {
     data: articles = [],
     isLoading,
@@ -177,7 +181,7 @@ const ArticlesList = ({ lang, tag, fallback = null }: ArticlesListProps) => {
   })
 
   if (isLoading || articles.length === 0) {
-    return fallback
+    return <>{fallback}</>
   }
 
   if (isError) {
