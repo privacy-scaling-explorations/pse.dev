@@ -63,7 +63,7 @@ Finally, in early 2021 we were very fortunate to bring on [Cory Dickson](http://
 
 It is very difficult for naive voting systems, particularly those which are integrated into smart contract platforms, to prevent collusion. For instance, if a simple Ethereum transaction represents a vote, a briber can easily examine its calldata, tell how its sender voted, and reward or punish them accordingly.
 
-More broadly, collusion resistance is particulary important for cryptoeconomic systems. Vitalik Buterin describes the motivations behind MACI in _[On Collusion](https://vitalik.ca/general/2019/04/03/collusion.html)_. He argues that systems that use cryptoeconomic incentive mechanisms to align participants’ behaviour can be vulnerable to collusion attacks, such as bribery. In [another post](https://vitalik.ca/general/2021/05/25/voting2.html), he elaborates:
+More broadly, collusion resistance is particularly important for cryptoeconomic systems. Vitalik Buterin describes the motivations behind MACI in _[On Collusion](https://vitalik.ca/general/2019/04/03/collusion.html)_. He argues that systems that use cryptoeconomic incentive mechanisms to align participants’ behaviour can be vulnerable to collusion attacks, such as bribery. In [another post](https://vitalik.ca/general/2021/05/25/voting2.html), he elaborates:
 
 > _if you can prove how you voted, selling your vote becomes very easy. Provability of votes would also enable forms of coercion where the coercer demands to see some kind of proof of voting for their preferred candidate._
 
@@ -79,7 +79,7 @@ Finally, MACI is important because as crypto communities are increasingly adopti
 
 ## What’s new?
 
-In this release, we rearchitected MACI’s smart contracts to allow for greater flexiblity and separation of concerns. In particular, we support multiple polls within a single instance of MACI. This allows the coordinator to run and tally many elections either subsequently or concurrently.
+In this release, we rearchitected MACI’s smart contracts to allow for greater flexibility and separation of concerns. In particular, we support multiple polls within a single instance of MACI. This allows the coordinator to run and tally many elections either subsequently or concurrently.
 
 ![](https://miro.medium.com/max/1400/0*i0MnnOBj18B_62Zt)
 
