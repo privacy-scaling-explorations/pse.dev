@@ -41,7 +41,7 @@ export interface Article {
   id: string
   title: string
   image: string
-  tldr: string
+  tldr?: string
   content: string
   date: string
   authors: string[]

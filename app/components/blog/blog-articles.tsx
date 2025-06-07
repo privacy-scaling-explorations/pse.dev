@@ -28,29 +28,20 @@ function ArticlesGrid({
           No articles found for this tag.
         </p>
       )}
-      {articles.map(
-        ({ id, title, image, tldr = "", date, authors, content }: Article) => {
-          const url = `/${lang}/blog/${id}`
-          return (
-            <div key={id} className="flex h-full">
-              <Link
-                className="flex-1 w-full hover:opacity-90 transition-opacity duration-300 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-900/10"
-                href={url}
-                rel="noreferrer"
-              >
-                <BlogArticleCard
-                  id={id}
-                  image={image}
-                  title={title}
-                  date={date}
-                  authors={authors}
-                  content={content}
-                />
-              </Link>
-            </div>
-          )
-        }
-      )}
+      {articles.map((article: Article) => {
+        const url = `/${lang}/blog/${article.id}`
+        return (
+          <div key={article.id} className="flex h-full">
+            <Link
+              className="flex-1 w-full hover:opacity-90 transition-opacity duration-300 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-900/10"
+              href={url}
+              rel="noreferrer"
+            >
+              <BlogArticleCard {...article} />
+            </Link>
+          </div>
+        )
+      })}
     </div>
   )
 }

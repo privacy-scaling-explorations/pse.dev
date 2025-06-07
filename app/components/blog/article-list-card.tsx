@@ -1,14 +1,14 @@
 "use client"
 import Link from "next/link"
 import { Markdown } from "../ui/markdown"
-import { Article } from "@/lib/markdownContentFetch"
+import { MarkdownContent } from "@/lib/markdownContentFetch"
 import { getBackgroundImage } from "@/lib/utils"
 
 export const ArticleListCard = ({
   article,
   lineClamp = false,
 }: {
-  article: Article
+  article: MarkdownContent
   lineClamp?: boolean
 }) => {
   const url = `/blog/${article.id}`

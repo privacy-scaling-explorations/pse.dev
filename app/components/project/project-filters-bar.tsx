@@ -75,7 +75,7 @@ export const ThemesStatusMapping = {
   },
 }
 
-export default async function ProjectFiltersBar() {
+export default function ProjectFiltersBar() {
   const [showModal, setShowModal] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()

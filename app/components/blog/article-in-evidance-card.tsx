@@ -37,7 +37,7 @@ const AsLinkWrapper = ({
   )
 }
 
-export const ArticleInEvidenceCard = async ({
+export const ArticleInEvidenceCard = ({
   article,
   showReadMore = false,
   size = "lg",
@@ -125,7 +125,7 @@ export const ArticleInEvidenceCard = async ({
               <Button className="uppercase ml-auto" variant="secondary">
                 <div className="flex items-center gap-2">
                   <span className="!text-center">
-                    {LABELS.COMMON.READ_MORE}
+                    {LABELS.BLOG_PAGE.READ_MORE}
                   </span>
                   <Icons.arrowRight className="w-4 h-4" />
                 </div>
