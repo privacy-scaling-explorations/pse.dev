@@ -16,7 +16,6 @@ function BlogSection() {
         </div>
       }
     >
-      {/* @ts-expect-error - This is a valid server component pattern */}
       <BlogRecentArticles />
     </Suspense>
   )
