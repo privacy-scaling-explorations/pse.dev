@@ -56,3 +56,28 @@ export function getBackgroundImage(image: string | null | undefined = null) {
 export function removeProtocol(url: string) {
   return url?.replace(/^https?:\/\//, "")
 }
+
+/**
+ * Interpolates a string with placeholders using the provided parameters
+ * @param text - The string with placeholders in the format {{key}}
+ * @param params - An object with key-value pairs to replace the placeholders
+ * @returns The interpolated string
+ *
+ * @example
+ * interpolate("Repost on {{socialName}}", { socialName: "facebook" })
+ * // Returns: "Repost on facebook"
+ *
+ * interpolate("Hello {{name}}, you have {{count}} messages", { name: "John", count: 5 })
+ * // Returns: "Hello John, you have 5 messages"
+ */
+export function interpolate(
+  text: string,
+  params?: Record<string, string | number>
+): string {
+  if (!params || !text) return text
+
+  return text.replace(/\{\{(\w+)\}\}/g, (_, key) => {
+    const param = params[key]
+    return param !== undefined ? String(param) : `{{${key}}}`
+  })
+}

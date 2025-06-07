@@ -1,11 +1,12 @@
-import { projects } from "@/data/projects"
+"use client"
+
 import Fuse from "fuse.js"
-import i18next from "i18next"
 import { create } from "zustand"
 
 import { ProjectCategory, ProjectInterface } from "@/lib/types"
 import { uniq } from "@/lib/utils"
-import { LocaleTypes, fallbackLng } from "@/app/i18n/settings"
+import { LABELS } from "@/app/labels"
+import { getProjects } from "@/lib/markdownContentFetch"
 
 export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
 export type ProjectFilter =
@@ -29,16 +30,11 @@ export const SortByFnMapping: Record<
   relevance: (a, b) => b?.score - a?.score, // sort from most relevant to least relevant
 }
 
-export const FilterLabelMapping = (
-  lang?: LocaleTypes
-): Record<ProjectFilter, string> => {
-  const t = i18next.getFixedT(lang ?? fallbackLng, "common")
-  return {
-    keywords: t("filterLabels.keywords"),
-    builtWith: t("filterLabels.builtWith"),
-    themes: t("filterLabels.themes"),
-    fundingSource: t("filterLabels.fundingSource"),
-  }
+export const FilterLabelMapping: Record<ProjectFilter, string> = {
+  keywords: LABELS.COMMON.FILTER_LABELS.KEYWORDS,
+  builtWith: LABELS.COMMON.FILTER_LABELS.BUILT_WITH,
+  themes: LABELS.COMMON.FILTER_LABELS.THEMES,
+  fundingSource: LABELS.COMMON.FILTER_LABELS.FUNDING_SOURCE,
 }
 
 export const FilterTypeMapping: Partial<
@@ -49,6 +45,7 @@ export const FilterTypeMapping: Partial<
   themes: "button",
   fundingSource: "checkbox",
 }
+
 interface ProjectStateProps {
   sortBy: ProjectSortBy
   projects: ProjectInterface[]
@@ -58,6 +55,8 @@ interface ProjectStateProps {
   queryString: string
   searchQuery: string
   currentCategory: ProjectCategory | null
+  isLoading: boolean
+  error: Error | null
 }
 
 interface SearchMatchByParamsProps {
@@ -72,6 +71,7 @@ interface toggleFilterProps {
   value: string
   searchQuery?: string
 }
+
 interface ProjectActionsProps {
   toggleFilter: ({ tag, value, searchQuery }: toggleFilterProps) => void
   setFilterFromQueryString: (filters: Partial<FiltersProps>) => void
@@ -79,6 +79,9 @@ interface ProjectActionsProps {
   onSelectTheme: (theme: string, searchPattern?: string) => void
   sortProjectBy: (sortBy: ProjectSortBy) => void
   setCurrentCategory: (section: ProjectCategory | null) => void
+  setProjects: (projects: ProjectInterface[]) => void
+  setLoading: (loading: boolean) => void
+  setError: (error: Error | null) => void
 }
 
 const createURLQueryString = (params: Partial<FiltersProps>): string => {
@@ -90,7 +93,7 @@ const createURLQueryString = (params: Partial<FiltersProps>): string => {
   return qs
 }
 
-const getProjectFilters = (): FiltersProps => {
+const getProjectFilters = (projects: ProjectInterface[]): FiltersProps => {
   const filters: FiltersProps = {
     themes: ["play", "build", "research"],
     keywords: [],
@@ -132,7 +135,7 @@ export const filterProjects = ({
   searchPattern = "",
   activeFilters = {},
   findAnyMatch = false,
-  projects: projectListItems = projects,
+  projects: projectListItems = [],
 }: SearchMatchByParamsProps) => {
   const projectList = projectListItems.map((project: any) => {
     return {
@@ -204,10 +207,11 @@ export const filterProjects = ({
   const result = fuse.search(query)?.map(({ item, score }) => {
     return {
       ...item,
-      score, // 0 indicates a perfect match, while a score of 1 indicates a complete mismatch.
-    }
+      score: score || 0,
+    } as ProjectInterfaceScore
   })
-  return result ?? []
+
+  return result || []
 }
 
 const sortProjectByFn = ({
@@ -241,101 +245,51 @@ const sortProjectByFn = ({
 
 export const useProjectFiltersState = create<
   ProjectStateProps & ProjectActionsProps
->()((set) => ({
+>((set, get) => ({
   currentCategory: null,
   sortBy: DEFAULT_PROJECT_SORT_BY,
-  projects: sortProjectByFn({
-    projects,
-    ignoreCategories: [ProjectCategory.RESEARCH],
-  }),
-  researchs: sortProjectByFn({
-    projects,
-    sortBy: DEFAULT_PROJECT_SORT_BY,
-    category: ProjectCategory.RESEARCH,
-    ignoreCategories: [ProjectCategory.DEVTOOLS, ProjectCategory.APPLICATION],
-  }),
+  projects: [],
+  researchs: [],
   queryString: "",
   searchQuery: "",
-  filters: getProjectFilters(), // list of filters with all possible values from projects
+  isLoading: false,
+  error: null,
+  filters: {
+    themes: ["play", "build", "research"],
+    keywords: [],
+    builtWith: [],
+    fundingSource: [],
+  }, // initial empty filters, will be populated when projects are loaded
   activeFilters: {}, // list of filters active in the current view by the user
   toggleFilter: ({ tag: filterKey, value, searchQuery }: toggleFilterProps) =>
     set((state: any) => {
-      if (!filterKey) return
-      const values: string[] = state?.activeFilters?.[filterKey] ?? []
-      const index = values?.indexOf(value)
-      if (index > -1) {
-        values.splice(index, 1)
-      } else {
-        values.push(value)
-      }
+      const currentFilters = state.activeFilters[filterKey] || []
+      const isFiltered = currentFilters.includes(value)
 
-      const activeFiltersNormalized = values.filter(Boolean)
+      const newFilters = isFiltered
+        ? currentFilters.filter((item: string) => item !== value)
+        : [...currentFilters, value]
 
-      const activeFilters: Partial<FiltersProps> = {
+      const updatedActiveFilters = {
         ...state.activeFilters,
-        [filterKey]: activeFiltersNormalized,
+        [filterKey]: newFilters,
       }
-      const queryString = createURLQueryString(activeFilters)
+
       const filteredProjects = filterProjects({
-        searchPattern: searchQuery ?? "",
-        activeFilters,
+        searchPattern: searchQuery || state.searchQuery,
+        activeFilters: updatedActiveFilters,
+        projects: state.projects,
       })
+
+      const queryString = createURLQueryString(updatedActiveFilters)
 
       return {
         ...state,
-        activeFilters,
+        activeFilters: updatedActiveFilters,
         queryString,
-        projects: sortProjectByFn({
-          projects: filteredProjects,
-          sortBy: state.sortBy,
-        }),
+        projects: filteredProjects,
       }
     }),
-  onSelectTheme: (theme: string, searchQuery = "") => {
-    set((state: any) => {
-      // toggle theme when it's already selected
-      const themes = state?.activeFilters?.themes?.includes(theme)
-        ? []
-        : [theme]
-
-      const activeFilters = {
-        ...state.activeFilters,
-        themes,
-      }
-
-      const filteredProjects = filterProjects({
-        searchPattern: searchQuery ?? "",
-        activeFilters,
-      })
-
-      return {
-        ...state,
-        activeFilters,
-        projects: sortProjectByFn({
-          projects: filteredProjects,
-          sortBy: state.sortBy,
-        }),
-        searchQuery,
-      }
-    })
-  },
-  onFilterProject: (searchPattern: string) => {
-    set((state: any) => {
-      const filteredProjects = filterProjects({
-        searchPattern,
-        activeFilters: state.activeFilters,
-      })
-
-      return {
-        ...state,
-        projects: sortProjectByFn({
-          projects: filteredProjects,
-          sortBy: state.sortBy,
-          ignoreCategories: [], // when filtering, show all projects regardless of category
-        }),
-      }
-    })
-  },
   setFilterFromQueryString: (filters: Partial<FiltersProps>) => {
     set((state: any) => {
       return {
@@ -345,28 +299,133 @@ export const useProjectFiltersState = create<
       }
     })
   },
+
+  onFilterProject: (searchPattern: string) =>
+    set((state: any) => {
+      const filteredProjects = filterProjects({
+        searchPattern,
+        activeFilters: state.activeFilters,
+        projects: state.projects,
+      })
+
+      return {
+        ...state,
+        searchQuery: searchPattern,
+        projects: filteredProjects,
+      }
+    }),
+
+  onSelectTheme: (theme: string, searchPattern?: string) =>
+    set((state: any) => {
+      const activeThemeFilters = state.activeFilters.themes || []
+
+      const updatedActiveFilters = {
+        ...state.activeFilters,
+        themes: activeThemeFilters.includes(theme)
+          ? activeThemeFilters.filter(
+              (activeTheme: string) => activeTheme !== theme
+            )
+          : [...activeThemeFilters, theme],
+      }
+
+      const queryString = createURLQueryString(updatedActiveFilters)
+
+      const filteredProjects = filterProjects({
+        searchPattern: searchPattern || state.searchQuery,
+        activeFilters: updatedActiveFilters,
+        projects: state.projects,
+      })
+
+      return {
+        ...state,
+        activeFilters: updatedActiveFilters,
+        queryString,
+        projects: filteredProjects,
+      }
+    }),
+
   sortProjectBy(sortBy: ProjectSortBy) {
     set((state: any) => {
+      const sortedProjects = sortProjectByFn({
+        projects: state.projects,
+        sortBy,
+        category: state.currentCategory,
+      })
+
+      const sortedResearch = sortProjectByFn({
+        projects: state.projects,
+        sortBy,
+        category: ProjectCategory.RESEARCH,
+        ignoreCategories: [
+          ProjectCategory.DEVTOOLS,
+          ProjectCategory.APPLICATION,
+        ],
+      })
+
       return {
         ...state,
         sortBy,
-        projects: sortProjectByFn({
-          projects: state.projects,
-          sortBy,
-        }),
+        projects: sortedProjects,
+        researchs: sortedResearch,
       }
     })
   },
   setCurrentCategory(category: ProjectCategory | null) {
     set((state: any) => {
+      const sortedProjects = sortProjectByFn({
+        projects: state.projects,
+        sortBy: state.sortBy,
+        category,
+      })
+
       return {
         ...state,
-        projects: projects.filter((project) => {
-          if (category == null) return true // return all projects
-          return project?.category === category
-        }),
         currentCategory: category,
+        projects: sortedProjects,
+      }
+    })
+  },
+  setProjects: (projects: ProjectInterface[]) => {
+    set((state: any) => {
+      const filters = getProjectFilters(projects)
+      const researchs = sortProjectByFn({
+        projects,
+        sortBy: state.sortBy,
+        category: ProjectCategory.RESEARCH,
+        ignoreCategories: [
+          ProjectCategory.DEVTOOLS,
+          ProjectCategory.APPLICATION,
+        ],
+      })
+
+      return {
+        ...state,
+        projects,
+        researchs,
+        filters,
+      }
+    })
+  },
+  setLoading: (loading: boolean) => {
+    set((state: any) => {
+      return {
+        ...state,
+        isLoading: loading,
+      }
+    })
+  },
+  setError: (error: Error | null) => {
+    set((state: any) => {
+      return {
+        ...state,
+        error,
       }
     })
   },
 }))
+
+// Helper function to initialize state with projects data
+export const initializeProjectsState = (projects: ProjectInterface[]) => {
+  const { setProjects } = useProjectFiltersState.getState()
+  setProjects(projects)
+}

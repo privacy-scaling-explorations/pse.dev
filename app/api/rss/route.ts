@@ -4,13 +4,9 @@ import { generateRssFeed } from "@/lib/rss"
 export const dynamic = "force-dynamic"
 export const revalidate = 3600 // Revalidate every hour
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
-    const { searchParams } = new URL(request.url)
-    const lang = searchParams.get("lang") || "en"
-
-    console.log("Generating RSS feed for language:", lang)
-    const feed = await generateRssFeed(lang)
+    const feed = await generateRssFeed()
     console.log("RSS feed generated successfully")
 
     return new NextResponse(feed, {

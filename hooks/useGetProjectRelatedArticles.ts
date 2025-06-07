@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Article } from "@/lib/blog"
+import { Article } from "@/lib/markdownContentFetch"
 
 interface UseGetProjectRelatedArticlesProps {
   projectId: string

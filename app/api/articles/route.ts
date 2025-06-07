@@ -1,5 +1,5 @@
+import { getArticles } from "@/lib/markdownContentFetch"
 import { NextRequest, NextResponse } from "next/server"
-import { getArticles } from "@/lib/blog"
 
 // Cache control
 export const revalidate = 60 // Revalidate cache after 60 seconds
@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
   const project = searchParams.get("project") || undefined
 
   try {
-    const articles = getArticles({
+    const articles = await getArticles({
       tag,
       limit,
       project,

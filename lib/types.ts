@@ -128,6 +128,7 @@ export interface ProjectInterface {
   youtubeLinks?: string[]
   team?: ProjectTeamMember[]
   license?: string
+  tldr?: string
   content: ProjectContent //  project tldr and description with support for multiple language
   category?: ProjectCategory // project category used as filter to replace section
   section: ProjectSection // 'pse', 'grant', 'collaboration', 'archived'
