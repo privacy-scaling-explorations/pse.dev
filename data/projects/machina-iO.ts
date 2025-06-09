@@ -76,10 +76,6 @@ MachinaIO can transform blockchain and cryptographic applications, such as trust
       name: "Pia",
       email: "pia@pse.dev",
     },
-    {
-      name: "Pia",
-      email: "pia@pse.dev",
-    },
   ],
   tags: {
     keywords: [
