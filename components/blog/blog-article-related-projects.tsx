@@ -13,9 +13,10 @@ export const BlogArticleRelatedProjects = ({
   projectsIds,
   lang,
 }: BlogArticleRelatedProjectsProps) => {
-  const { projects: allProjects } = useProjectFiltersState((state) => state)
+  const { projects: allProjects, researchs: allResearchs } =
+    useProjectFiltersState((state) => state)
 
-  const projects = allProjects.filter((project) =>
+  const projects = [...allProjects, ...allResearchs].filter((project) =>
     projectsIds.includes(project.id)
   )
 
