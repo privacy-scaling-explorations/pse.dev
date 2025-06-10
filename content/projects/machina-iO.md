@@ -29,8 +29,6 @@ team:
     email: "sorasuegami@pse.dev"
   - name: "Pia"
     email: "pia@pse.dev"
-  - name: "Pia"
-    email: "pia@pse.dev"
 ---
 
 ### Project Overview
