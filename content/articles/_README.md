@@ -4,7 +4,7 @@ This document explains how to add new articles to into pse.dev blog section.
 
 ## Step 1: Create the Article File
 
-1. Duplicate the `_article-template.md` file in the `articles` directory
+1. Duplicate the `_article-template.md` file in the `content/articles` directory
 2. Rename it to match your article's title using kebab-case (e.g., `my-new-article.md`)
 
 ## Step 2: Fill in the Article Information
