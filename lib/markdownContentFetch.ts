@@ -1,19 +1,14 @@
 import { ProjectInterface } from "./types"
 
-// Conditional dynamic imports for server-side only
-async function getServerModules() {
-  if (typeof window !== "undefined") {
-    return null
-  }
+// Direct imports for server-side (production-ready)
+import fs from "fs"
+import path from "path"
+import matter from "gray-matter"
+import * as jsYaml from "js-yaml"
 
-  const [fs, path, matter, jsYaml] = await Promise.all([
-    import("fs"),
-    import("path"),
-    import("gray-matter"),
-    import("js-yaml"),
-  ])
-
-  return { fs, path, matter: matter.default, jsYaml }
+// Check if we're on server-side
+function isServerSide() {
+  return typeof window === "undefined"
 }
 
 // Base interface for all markdown content
@@ -72,24 +67,24 @@ export async function getMarkdownFiles(
   options?: FetchMarkdownOptions
 ): Promise<MarkdownContent[]> {
   // Return empty array if running on client-side
-  if (typeof window !== "undefined") {
+  if (!isServerSide()) {
     console.warn(
       "getMarkdownFiles called on client-side, returning empty array"
     )
     return []
   }
-
-  const modules = await getServerModules()
-  if (!modules) return []
-
-  const { fs, path, matter, jsYaml } = modules
   const { limit = 1000, tag, project } = options ?? {}
 
-  const contentDirectory = path.join(process.cwd(), folderName)
+  // Use absolute path resolution for better Vercel compatibility
+  const contentDirectory = path.resolve(process.cwd(), folderName)
 
   // Check if directory exists
   if (!fs.existsSync(contentDirectory)) {
-    console.warn(`Directory ${folderName} does not exist`)
+    console.error(
+      `Directory ${folderName} does not exist at ${contentDirectory}`
+    )
+    // Log current working directory for debugging
+    console.error(`Current working directory: ${process.cwd()}`)
     return []
   }
 
@@ -116,9 +111,16 @@ export async function getMarkdownFiles(
               parse: (str: string) => {
                 try {
                   // Use js-yaml's safe load to parse the YAML with type assertion
-                  return jsYaml.load(str) as object
+                  return jsYaml.load(str, {
+                    schema: jsYaml.DEFAULT_SCHEMA,
+                    filename: fileName,
+                  }) as object
                 } catch (e) {
-                  console.error(`Error parsing frontmatter in ${fileName}:`, e)
+                  console.error(
+                    `Error parsing YAML frontmatter in ${fileName}:`,
+                    e
+                  )
+                  console.error("YAML content preview:", str.substring(0, 200))
                   // Fallback to empty object if parsing fails
                   return {}
                 }
@@ -218,7 +220,7 @@ export async function getMarkdownFileById(
   id: string
 ): Promise<MarkdownContent | undefined> {
   // Return undefined if running on client-side
-  if (typeof window !== "undefined") {
+  if (!isServerSide()) {
     console.warn(
       "getMarkdownFileById called on client-side, returning undefined"
     )

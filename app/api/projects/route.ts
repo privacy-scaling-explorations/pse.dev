@@ -322,8 +322,16 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     })
   } catch (error) {
     console.error("Error fetching projects:", error)
+    console.error(
+      "Error details:",
+      error instanceof Error ? error.message : String(error)
+    )
     return NextResponse.json(
-      { error: "Failed to fetch projects", success: false },
+      {
+        error: "Failed to fetch projects",
+        success: false,
+        details: error instanceof Error ? error.message : String(error),
+      },
       { status: 500 }
     )
   }
