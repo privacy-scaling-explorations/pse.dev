@@ -7,14 +7,10 @@ import { ProjectCategory, ProjectInterface } from "@/lib/types"
 export const revalidate = 60 // Revalidate cache after 60 seconds
 export const dynamic = "force-dynamic" // Ensure the route is always evaluated
 
-export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
-export type ProjectFilter =
-  | "keywords"
-  | "builtWith"
-  | "themes"
-  | "fundingSource"
-export type FiltersProps = Record<ProjectFilter, string[]>
-export const DEFAULT_PROJECT_SORT_BY: ProjectSortBy = "asc"
+type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
+type ProjectFilter = "keywords" | "builtWith" | "themes" | "fundingSource"
+type FiltersProps = Record<ProjectFilter, string[]>
+const DEFAULT_PROJECT_SORT_BY: ProjectSortBy = "asc"
 
 interface ProjectInterfaceScore extends ProjectInterface {
   score: number
