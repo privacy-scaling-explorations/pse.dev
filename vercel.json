@@ -1,8 +1,7 @@
 {
   "functions": {
     "app/api/**": {
-      "maxDuration": 30,
-      "includeFiles": "content/**"
+      "maxDuration": 30
     }
   },
   "regions": ["iad1"],
@@ -11,5 +10,6 @@
       "NEXT_TELEMETRY_DISABLED": "1"
     }
   },
+  "buildCommand": "next build && cp -r content .next/standalone/",
   "crons": []
 }

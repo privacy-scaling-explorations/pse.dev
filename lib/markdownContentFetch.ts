@@ -127,11 +127,20 @@ export async function getMarkdownFiles(
 
   // Try multiple potential paths where content might be in Vercel
   const potentialPaths = [
-    // Standard development path - check this first
-    path.resolve(process.cwd(), folderName),
-    // Vercel standalone build paths
+    // Vercel standalone build paths (prioritize these since we copy content here)
     path.resolve(process.cwd(), ".next", "standalone", folderName),
+    path.resolve(
+      process.cwd(),
+      ".next",
+      "standalone",
+      "content",
+      folderName.replace("content/", "")
+    ),
+    // Standard development path
+    path.resolve(process.cwd(), folderName),
+    // Other Vercel paths
     path.resolve(process.cwd(), ".next", "server", folderName),
+    path.resolve(process.cwd(), ".next", folderName),
     // Public directory (fallback option)
     path.resolve(process.cwd(), "public", folderName),
     path.resolve(process.cwd(), ".next", "standalone", "public", folderName),
@@ -142,8 +151,6 @@ export async function getMarkdownFiles(
     path.resolve(__dirname, "..", folderName),
     path.resolve(__dirname, "..", "..", folderName),
     path.resolve(__dirname, "..", "..", "..", folderName),
-    // Check in .next directory structure
-    path.resolve(process.cwd(), ".next", folderName),
   ]
 
   console.log("Trying potential paths:")
