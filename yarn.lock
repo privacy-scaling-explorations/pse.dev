@@ -1751,21 +1751,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.79.2":
-  version: 5.79.2
-  resolution: "@tanstack/query-core@npm:5.79.2"
-  checksum: 10/59991b2bb3ee2e5116249798e500affc7d7bf601a99c0a4a05c52014dd941efdffcedd74165515c5903647fb8ee9e3f28358bafc6adf4ad66f20cc9606dff3d6
+"@tanstack/query-core@npm:5.80.6":
+  version: 5.80.6
+  resolution: "@tanstack/query-core@npm:5.80.6"
+  checksum: 10/25b887f531f705332e07d0c1f77904a4f7318f3e22d9376305151f254bfda1caabcaa73ff66b59d09c3e6de26ba352737f512674317416cb54fb8e8f21150ef1
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^5.74.4":
-  version: 5.79.2
-  resolution: "@tanstack/react-query@npm:5.79.2"
+"@tanstack/query-devtools@npm:5.80.0":
+  version: 5.80.0
+  resolution: "@tanstack/query-devtools@npm:5.80.0"
+  checksum: 10/b698895cd2fd0a861ad7a6403e8f583cb77602fceeb100401f048f3d40679a9845a2e6b341fd71e93d34a32fcc6bc9cb9074a186ea5f559ce8ebfb48da2e5018
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query-devtools@npm:^5":
+  version: 5.80.6
+  resolution: "@tanstack/react-query-devtools@npm:5.80.6"
   dependencies:
-    "@tanstack/query-core": "npm:5.79.2"
+    "@tanstack/query-devtools": "npm:5.80.0"
+  peerDependencies:
+    "@tanstack/react-query": ^5.80.6
+    react: ^18 || ^19
+  checksum: 10/e8eb034dc650ef8ccd32c227435226352d0b1f215b1b97885450d597f18fcf17d8e72ca0688bec19384f4903d1386218119c0ce90dfc1f9cac6585559c5f0c45
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.80.6":
+  version: 5.80.6
+  resolution: "@tanstack/react-query@npm:5.80.6"
+  dependencies:
+    "@tanstack/query-core": "npm:5.80.6"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10/fff04926d6443b01746207d2734bcf246e7adf2a711c75834cc64abdb4e75220ad508ef90571f230ae3d64300a56daa36b4f9ba8b62f89b293f2049f9f505de4
+  checksum: 10/1dc0ac2ddf0627ae85982594091c9859b6d6cbca1511b86ee4b18a456697d7b2855e75a431d8afe6c6071b3260ae05f4ee86aa7e2e7ead2ef4ee909efc2b4509
   languageName: node
   linkType: hard
 
@@ -6810,7 +6829,8 @@ __metadata:
     "@radix-ui/react-dialog": "npm:^1.0.4"
     "@radix-ui/react-dropdown-menu": "npm:^2.0.5"
     "@radix-ui/react-slot": "npm:^1.0.2"
-    "@tanstack/react-query": "npm:^5.74.4"
+    "@tanstack/react-query": "npm:^5.80.6"
+    "@tanstack/react-query-devtools": "npm:^5"
     "@types/js-yaml": "npm:^4.0.9"
     "@types/node": "npm:^17.0.45"
     "@types/prismjs": "npm:^1.26.5"

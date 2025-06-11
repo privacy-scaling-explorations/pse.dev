@@ -3,9 +3,8 @@
 import React, { useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import NoResultIcon from "@/public/icons/no-result.svg"
-import { useProjectFiltersState } from "@/state/useProjectFiltersState"
-import { useGetProjects } from "@/hooks/useFetchContent"
 import { cva } from "class-variance-authority"
+import { useProjectFiltersContext } from "@/contexts/project-filters-context"
 
 import {
   ProjectInterface,
@@ -48,43 +47,23 @@ export const ProjectList = () => {
   const [isManualScroll, setIsManualScroll] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  // Fetch projects data from API
-  const {
-    data: projectsData,
-    isLoading: projectsLoading,
-    error: projectsError,
-  } = useGetProjects({})
-
+  // Use context instead of direct hook usage and URL reading
   const {
     projects,
+    isLoading: projectsLoading,
+    activeFilters,
     searchQuery,
-    queryString,
-    setProjects,
-    setLoading,
-    setError,
-  } = useProjectFiltersState((state) => state)
-
-  // Initialize projects state when data is fetched
-  useEffect(() => {
-    setLoading(projectsLoading)
-    if (projectsError) {
-      setError(projectsError)
-    } else if (projectsData) {
-      setProjects(projectsData)
-      setError(null)
-    }
-  }, [
-    projectsData,
-    projectsLoading,
-    projectsError,
-    setProjects,
-    setLoading,
-    setError,
-  ])
+  } = useProjectFiltersContext()
 
   const noItems = projects?.length === 0
 
-  const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null) // sections are constant so useRef might be better here
+  // Check if there are active filters (keep existing logic)
+  const haveActiveFilters = Object.entries(activeFilters).some(
+    ([, values]) => values?.length > 0
+  )
+  const hasActiveFilters = searchQuery !== "" || haveActiveFilters
+
+  const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null)
 
   useEffect(() => {
     setIsMounted(true)
@@ -113,8 +92,8 @@ export const ProjectList = () => {
       const top = element?.offsetTop ?? 0
 
       if (element) {
-        setActiveId(id) // active clicked id
-        setIsManualScroll(true) // tell the window event listener to ignore this scrolling
+        setActiveId(id)
+        setIsManualScroll(true)
         window?.scrollTo({
           behavior: "smooth",
           top: (top ?? 0) - SCROLL_OFFSET,
@@ -125,37 +104,33 @@ export const ProjectList = () => {
     }
   }, [])
 
-  const hasActiveFilters = searchQuery !== "" || queryString !== ""
-
-  // loading state skeleton
+  // Loading state skeleton - show when initially loading or fetching new results
   if (!isMounted || projectsLoading) {
     return (
-      <div className="grid items-start justify-between w-full grid-cols-1 gap-2 md:grid-cols-4 md:gap-6">
-        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+      <div className="flex flex-col gap-10 pt-10">
+        <div className="flex flex-col gap-6 overflow-hidden w-full">
+          <div className="grid grid-cols-[100px_1fr] gap-2 w-full">
+            <div className="h-4 w-full animate-pulse bg-gray-300"></div>
+            <div className={cn(sectionTitleClass(), "w-full")}></div>
+          </div>
+          <span className="font-sans text-base italic text-tuatara-950 bg-gray-300 w-2/3 h-4 animate-pulse">
+            {searchQuery}
+          </span>
         </div>
-        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+        <div className="grid items-start justify-between w-full grid-cols-1 gap-2 md:grid-cols-4 md:gap-6">
+          <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+          </div>
+          <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+          </div>
+          <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+          </div>
+          <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
+          </div>
         </div>
-        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
-        </div>
-        <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-300 animate-pulse h-[180px] w-full"></div>
-        </div>
-      </div>
-    )
-  }
-
-  if (projectsError) {
-    return (
-      <div className="flex flex-col gap-2 pt-24 pb-40 text-center">
-        <span className="text-2xl font-bold font-display text-red-600">
-          Error loading projects
-        </span>
-        <span className="text-lg font-normal text-tuatara-950">
-          Please try again later
-        </span>
       </div>
     )
   }
@@ -180,7 +155,7 @@ export const ProjectList = () => {
     {} as Record<ProjectStatus, ProjectInterface[]>
   )
 
-  // show all projects without sections if there are active filters
+  // Show all projects without sections if there are active filters
   if (hasActiveFilters) {
     return (
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">

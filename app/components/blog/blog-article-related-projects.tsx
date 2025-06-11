@@ -1,6 +1,6 @@
 "use client"
 
-import { useProjectFiltersState } from "@/state/useProjectFiltersState"
+import { useGetProjects } from "@/hooks/useFetchContent"
 import ProjectCard from "../project/project-card"
 
 interface BlogArticleRelatedProjectsProps {
@@ -8,15 +8,17 @@ interface BlogArticleRelatedProjectsProps {
 }
 
 export const BlogArticleRelatedProjects = ({
-  projectsIds,
+  projectsIds = [],
 }: BlogArticleRelatedProjectsProps) => {
-  const { projects: allProjects } = useProjectFiltersState((state) => state)
+  const {
+    data: projects = [],
+    isLoading,
+    error,
+  } = useGetProjects({
+    ids: projectsIds,
+  })
 
-  const projects = allProjects.filter((project) =>
-    projectsIds.includes(project.id)
-  )
-
-  if (projects.length === 0) return null
+  if (error || projects.length === 0) return null
 
   return (
     <div className="flex flex-col gap-8">

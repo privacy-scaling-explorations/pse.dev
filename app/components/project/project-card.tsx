@@ -71,8 +71,6 @@ export default function ProjectCard({
 
   const { data: project, isLoading, isError } = useGetProject(id ?? "")
 
-  console.log("project", project)
-
   return (
     <div
       className={cn(

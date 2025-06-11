@@ -62,6 +62,8 @@ export function BlogContent({
     Boolean
   ) as MarkdownContent[]
 
+  const projectsIds = post?.projects?.map((project) => project) ?? []
+
   return (
     <AppContent className="max-w-[978px]">
       <div className="flex flex-col gap-10">
@@ -70,7 +72,7 @@ export function BlogContent({
         </div>
 
         {!isNewsletter && (
-          <BlogArticleRelatedProjects projectsIds={post?.projects ?? []} />
+          <BlogArticleRelatedProjects projectsIds={projectsIds} />
         )}
 
         {moreArticles?.length > 0 && (

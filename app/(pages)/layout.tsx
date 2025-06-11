@@ -84,38 +84,36 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <QueryClientProviderLayout>
-      <html lang="en" suppressHydrationWarning>
-        <Script id="matomo-tracking" strategy="afterInteractive">
-          {`
-             var _paq = window._paq = window._paq || [];
-             /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-             _paq.push(['trackPageView']);
-             _paq.push(['enableLinkTracking']);
-             (function() {
-               var u="https://psedev.matomo.cloud/";
-               _paq.push(['setTrackerUrl', u+'matomo.php']);
-               _paq.push(['setSiteId', '1']);
-               var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-               g.async=true; g.src='//cdn.matomo.cloud/psedev.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-             })();
-          `}
-        </Script>
-        <body
-          suppressHydrationWarning
-          className={`${baseFont.className} ${fonts.map((font) => font.variable).join(" ")} min-h-screen bg-background antialiased`}
-        >
-          <QueryClientProviderLayout>
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-              <SiteFooter />
-            </div>
-          </QueryClientProviderLayout>
+    <html lang="en" suppressHydrationWarning>
+      <Script id="matomo-tracking" strategy="afterInteractive">
+        {`
+           var _paq = window._paq = window._paq || [];
+           /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+           _paq.push(['trackPageView']);
+           _paq.push(['enableLinkTracking']);
+           (function() {
+             var u="https://psedev.matomo.cloud/";
+             _paq.push(['setTrackerUrl', u+'matomo.php']);
+             _paq.push(['setSiteId', '1']);
+             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+             g.async=true; g.src='//cdn.matomo.cloud/psedev.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+           })();
+        `}
+      </Script>
+      <body
+        suppressHydrationWarning
+        className={`${baseFont.className} ${fonts.map((font) => font.variable).join(" ")} min-h-screen bg-background antialiased`}
+      >
+        <QueryClientProviderLayout>
+          <div className="relative flex min-h-screen flex-col">
+            <SiteHeader />
+            <div className="flex-1">{children}</div>
+            <SiteFooter />
+          </div>
+        </QueryClientProviderLayout>
 
-          <TailwindIndicator />
-        </body>
-      </html>
-    </QueryClientProviderLayout>
+        <TailwindIndicator />
+      </body>
+    </html>
   )
 }

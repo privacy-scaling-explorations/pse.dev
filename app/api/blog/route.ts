@@ -1,41 +1,31 @@
 import { NextResponse } from "next/server"
-import fs from "fs"
-import path from "path"
-import matter from "gray-matter"
-import jsYaml from "js-yaml"
+import { getArticles } from "@/lib/markdownContentFetch"
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const limit = searchParams.get("limit")
-    ? parseInt(searchParams.get("limit")!)
-    : undefined
+  try {
+    const { searchParams } = new URL(request.url)
+    const limit = searchParams.get("limit")
+      ? parseInt(searchParams.get("limit")!)
+      : undefined
 
-  const articlesDirectory = path.join(process.cwd(), "content/blog")
-  const filenames = fs.readdirSync(articlesDirectory)
+    const articles = await getArticles({ limit })
 
-  const articles = filenames
-    .filter((filename) => filename.endsWith(".md"))
-    .map((filename) => {
-      const filePath = path.join(articlesDirectory, filename)
-      const fileContents = fs.readFileSync(filePath, "utf8")
-      const { data } = matter(fileContents, {
-        engines: {
-          yaml: (s) => jsYaml.load(s, { schema: jsYaml.JSON_SCHEMA }) as object,
-        },
-      })
+    // Transform to match the expected API response format
+    const responseData = articles.map((article) => ({
+      id: article.id,
+      title: article.title,
+      date: article.date,
+      authors: article.authors,
+      image: article.image,
+      tldr: article.tldr,
+    }))
 
-      return {
-        id: filename.replace(/\.md$/, ""),
-        title: data.title,
-        date: data.date,
-        authors: data.authors,
-        image: data.image,
-        tldr: data.tldr,
-      }
-    })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-
-  const limitedArticles = limit ? articles.slice(0, limit) : articles
-
-  return NextResponse.json(limitedArticles)
+    return NextResponse.json(responseData)
+  } catch (error) {
+    console.error("Error fetching articles:", error)
+    return NextResponse.json(
+      { error: "Failed to fetch articles" },
+      { status: 500 }
+    )
+  }
 }

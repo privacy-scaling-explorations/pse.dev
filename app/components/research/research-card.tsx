@@ -14,7 +14,6 @@ import { cn } from "@/lib/utils"
 
 import { ProjectLink } from "../mappings/project-link"
 import Link from "next/link"
-import { useGetProject } from "@/hooks/useFetchContent"
 
 interface ProjectCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -59,7 +58,7 @@ export const ProjectStatusColorMapping: Record<ProjectStatus, string> = {
   maintained: "#FFEC9E",
 }
 
-export default function ProjectCard({
+export const ResearchCard = ({
   project: projectItem,
   showLinks = false,
   showBanner = false,
@@ -68,15 +67,13 @@ export default function ProjectCard({
   showStatus = true,
   className,
   contentClassName,
-}: ProjectCardProps) {
+}: ProjectCardProps) => {
   const router = useRouter()
   const [projectContent, setProjectContent] =
     React.useState<MarkdownContent | null>(null)
 
-  const { id, image, links, name, imageAlt, projectStatus, cardTags } =
+  const { id, image, links, name, imageAlt, projectStatus, cardTags, tldr } =
     projectItem ?? {}
-
-  const { data: project, isLoading, isError } = useGetProject(id)
 
   return (
     <Link
@@ -121,13 +118,9 @@ export default function ProjectCard({
           <h1 className="text-2xl font-bold leading-7 duration-200 cursor-pointer text-anakiwa-700 line-clamp-2">
             {name}
           </h1>
-          {projectContent?.tldr && (
+          {(tldr ?? "")?.length > 0 && (
             <div className="flex flex-col h-24 gap-4">
-              <p className="text-slate-900/80 line-clamp-3">
-                {typeof projectContent.tldr === "string"
-                  ? projectContent.tldr
-                  : JSON.stringify(projectContent.tldr)}
-              </p>
+              <p className="text-slate-900/80 line-clamp-3">{tldr}</p>
             </div>
           )}
         </div>

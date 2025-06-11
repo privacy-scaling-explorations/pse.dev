@@ -2,15 +2,12 @@
 
 import { HtmlHTMLAttributes } from "react"
 import Link from "next/link"
-import {
-  FilterLabelMapping,
-  ProjectFilter,
-} from "@/state/useProjectFiltersState"
 
 import { ProjectInterface } from "@/lib/types"
 
 import { CategoryTag } from "../ui/categoryTag"
 import { LABELS } from "@/app/labels"
+import { ProjectFilter } from "@/hooks/useFetchContent"
 
 interface TagsProps extends HtmlHTMLAttributes<HTMLDivElement> {
   label: string
@@ -27,6 +24,13 @@ const TagsWrapper = ({ label, children }: TagsProps) => {
 
 type IProjectTags = {
   project: ProjectInterface
+}
+
+const FilterLabelMapping: Record<ProjectFilter, string> = {
+  keywords: LABELS.COMMON.FILTER_LABELS.KEYWORDS,
+  builtWith: LABELS.COMMON.FILTER_LABELS.BUILT_WITH,
+  themes: LABELS.COMMON.FILTER_LABELS.THEMES,
+  fundingSource: LABELS.COMMON.FILTER_LABELS.FUNDING_SOURCE,
 }
 
 export function ProjectTags({ project }: IProjectTags) {

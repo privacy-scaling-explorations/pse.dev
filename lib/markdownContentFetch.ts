@@ -127,18 +127,36 @@ export async function getMarkdownFiles(
           },
         })
 
-        // Ensure tags are always an array, combining 'tags' and 'tag'
-        const tags = [
-          ...(Array.isArray(matterResult.data?.tags)
-            ? matterResult.data.tags
-            : []),
-          ...(matterResult.data?.tag ? [matterResult.data.tag] : []),
-        ]
+        // Handle tags properly - preserve object structure for projects, array for articles
+        let processedTags = matterResult.data?.tags
+
+        // If tags is an array (legacy format), keep it as array
+        if (Array.isArray(matterResult.data?.tags)) {
+          processedTags = [
+            ...matterResult.data.tags,
+            ...(matterResult.data?.tag ? [matterResult.data.tag] : []),
+          ]
+        }
+        // If tags is an object (new project format), preserve the object structure
+        else if (
+          typeof matterResult.data?.tags === "object" &&
+          matterResult.data?.tags !== null
+        ) {
+          processedTags = matterResult.data.tags
+        }
+        // If no tags but there's a single tag field, create array
+        else if (matterResult.data?.tag) {
+          processedTags = [matterResult.data.tag]
+        }
+        // Default to empty array
+        else {
+          processedTags = []
+        }
 
         return {
           id,
           ...matterResult.data,
-          tags: tags,
+          tags: processedTags,
           content: matterResult.content,
         }
       } catch (error) {
@@ -158,9 +176,20 @@ export async function getMarkdownFiles(
 
   // Filter by tag if provided
   if (tag) {
-    filteredContent = filteredContent.filter((content) =>
-      content.tags?.includes(tag)
-    )
+    filteredContent = filteredContent.filter((content) => {
+      // Handle array format (legacy articles)
+      if (Array.isArray(content.tags)) {
+        return content.tags.includes(tag)
+      }
+      // Handle object format (projects)
+      if (typeof content.tags === "object" && content.tags !== null) {
+        // Check all tag categories for the tag
+        return Object.values(content.tags).some((tagArray) =>
+          Array.isArray(tagArray) ? tagArray.includes(tag) : false
+        )
+      }
+      return false
+    })
   }
 
   // Filter by project if provided

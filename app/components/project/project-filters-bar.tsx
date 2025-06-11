@@ -2,17 +2,11 @@
 
 import React, { ChangeEvent, ReactNode, useEffect, useState } from "react"
 import Image from "next/image"
-import { useRouter, useSearchParams } from "next/navigation"
 import FiltersIcon from "@/public/icons/filters.svg"
-import {
-  FilterLabelMapping,
-  FilterTypeMapping,
-  ProjectFilter,
-  useProjectFiltersState,
-} from "@/state/useProjectFiltersState"
-import { queryStringToObject } from "@/lib/utils"
 import { cn } from "@/lib/utils"
 import { LABELS } from "@/app/labels"
+import { useProjectFiltersContext } from "@/contexts/project-filters-context"
+import type { ProjectFilter } from "@/contexts/project-filters-context"
 
 import { Icons } from "../icons"
 import Badge from "../ui/badge"
@@ -23,14 +17,27 @@ import { Input } from "../ui/input"
 import { Modal } from "../ui/modal"
 import { useDebounce } from "react-use"
 import {
-  ProjectSections,
-  ProjectSectionLabelMapping,
   ProjectStatus,
   ProjectCategories,
-  ProjectCategory,
   ProjectStatusLabelMapping,
 } from "@/lib/types"
-import { getProjects } from "@/lib/markdownContentFetch"
+import { useGetProjectsFilters } from "@/hooks/useFetchContent"
+
+export const FilterLabelMapping: Record<ProjectFilter, string> = {
+  keywords: LABELS.COMMON.FILTER_LABELS.KEYWORDS,
+  builtWith: LABELS.COMMON.FILTER_LABELS.BUILT_WITH,
+  themes: LABELS.COMMON.FILTER_LABELS.THEMES,
+  fundingSource: LABELS.COMMON.FILTER_LABELS.FUNDING_SOURCE,
+}
+
+export const FilterTypeMapping: Partial<
+  Record<ProjectFilter, "checkbox" | "button">
+> = {
+  keywords: "checkbox",
+  builtWith: "checkbox",
+  themes: "button",
+  fundingSource: "checkbox",
+}
 
 interface FilterWrapperProps {
   label: string
@@ -64,71 +71,69 @@ export const ThemesButtonMapping = {
   },
 }
 
-export const ThemesStatusMapping = {
-  active: {
-    label: LABELS.COMMON.STATUS.ACTIVE,
-    icon: <Icons.checkActive />,
-  },
-  inactive: {
-    label: LABELS.COMMON.STATUS.INACTIVE,
-    icon: <Icons.archived />,
-  },
+const SectionLinkBadge = ({
+  section,
+  isActive,
+  onClick,
+}: {
+  section: string
+  isActive: boolean
+  onClick: () => void
+}) => {
+  return (
+    <CategoryTag
+      className={cn(
+        "transition-colors cursor-pointer",
+        isActive
+          ? "bg-anakiwa-600 text-white"
+          : "bg-transparent text-tuatara-950 hover:bg-anakiwa-100"
+      )}
+      onClick={onClick}
+    >
+      {section}
+    </CategoryTag>
+  )
 }
 
 export default function ProjectFiltersBar() {
   const [showModal, setShowModal] = useState(false)
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const [searchQuery, setSearchQuery] = useState("")
-  const [filterCount, setFilterCount] = useState(0)
+  const [localSearchQuery, setLocalSearchQuery] = useState("")
 
+  const { data: filters = [], isLoading: isLoadingFilters } =
+    useGetProjectsFilters()
+
+  console.log("filters =>", filters)
+  // Use context instead of managing state locally
   const {
-    filters,
-    toggleFilter,
-    queryString,
     activeFilters,
+    searchQuery: contextSearchQuery,
+    toggleFilterSimple,
+    clearAllFilters,
     onFilterProject,
-    currentCategory,
-    setCurrentCategory,
-  } = useProjectFiltersState((state) => state)
+  } = useProjectFiltersContext()
 
+  // Sync local search query with context
   useEffect(() => {
-    if (!queryString) return
-    router.push(`/projects?${queryString}`)
-  }, [queryString, router])
+    setLocalSearchQuery(contextSearchQuery)
+  }, [contextSearchQuery])
 
-  useEffect(() => {
-    // set active filters from url
-    useProjectFiltersState.setState({
-      activeFilters: queryStringToObject(searchParams),
-    })
-  }, [searchParams])
+  // Calculate filter count from context
+  const filterCount = Object.values(activeFilters).reduce((acc, curr) => {
+    return acc + curr.length
+  }, 0)
 
-  useEffect(() => {
-    const count = Object.values(activeFilters).reduce((acc, curr) => {
-      return acc + curr.length
-    }, 0)
-    setFilterCount(count)
-  }, [activeFilters])
-
-  const clearAllFilters = () => {
-    useProjectFiltersState.setState({
-      activeFilters: {},
-      queryString: "",
-      projects: [],
-    })
-    setSearchQuery("") // clear input
-    router.push("/projects")
-  }
-
+  // Debounced search - now uses context method
   useDebounce(
     () => {
-      onFilterProject(searchQuery)
+      if (localSearchQuery !== contextSearchQuery) {
+        onFilterProject(localSearchQuery)
+      }
     },
-    500, // debounce timeout in ms when user is typing
-    [searchQuery]
+    500,
+    [localSearchQuery, contextSearchQuery, onFilterProject]
   )
-  const hasActiveFilters = filterCount > 0 || searchQuery.length > 0
+
+  const hasActiveFilters = filterCount > 0 || localSearchQuery.length > 0
 
   return (
     <>
@@ -159,94 +164,81 @@ export default function ProjectFiltersBar() {
         setOpen={setShowModal}
       >
         <div className="flex flex-col divide-y divide-tuatara-200">
-          {Object.entries(filters).map(([key, items]) => {
-            const filterLabel = FilterLabelMapping?.[key as ProjectFilter] ?? ""
-            const type = FilterTypeMapping?.[key as ProjectFilter]
-            const hasItems = items.length > 0
-
+          {Object.entries(filters as any).map(([key, items]) => {
+            const label = FilterLabelMapping[key as ProjectFilter]
+            const type = FilterTypeMapping[key as ProjectFilter]
             const hasActiveThemeFilters =
               (activeFilters?.themes ?? [])?.length > 0
 
-            if (key === "themes" && !hasActiveThemeFilters) return null
+            if (!(items as any[])?.length) return null
+
+            if (
+              ["themes", "fundingSource"].includes(key) &&
+              !hasActiveThemeFilters
+            )
+              return null
 
             return (
-              hasItems && (
-                <FilterWrapper key={key} label={filterLabel}>
-                  <div
-                    className={cn("gap-y-2", {
-                      "grid grid-cols-1 gap-2 md:grid-cols-3":
-                        type === "checkbox",
-                      "flex gap-x-4 flex-wrap": type === "button",
-                    })}
-                  >
-                    {items.map((item, index) => {
-                      const isActive =
-                        activeFilters?.[key as ProjectFilter]?.includes(item)
+              <FilterWrapper key={key} label={label}>
+                <div
+                  className={cn("gap-y-2", {
+                    "grid grid-cols-1 gap-2 md:grid-cols-3":
+                      type === "checkbox",
+                    "flex gap-x-4 flex-wrap": type === "button",
+                  })}
+                >
+                  {(items as any[]).map((item: any, index: any) => {
+                    const isActive =
+                      activeFilters?.[key as ProjectFilter]?.includes(item) ||
+                      false
 
-                      if (type === "checkbox") {
-                        return (
-                          <Checkbox
-                            key={item}
-                            onClick={() =>
-                              toggleFilter({
-                                tag: key as ProjectFilter,
-                                value: item,
-                                searchQuery,
-                              })
-                            }
-                            name={item}
-                            label={item}
-                            checked={isActive}
-                          />
-                        )
-                      }
+                    if (type === "checkbox") {
+                      return (
+                        <Checkbox
+                          key={item}
+                          onClick={() =>
+                            toggleFilterSimple(key as ProjectFilter, item)
+                          }
+                          name={item}
+                          label={item}
+                          checked={isActive}
+                        />
+                      )
+                    }
 
-                      if (type === "button") {
-                        const { icon, label } =
-                          ThemesButtonMapping[
-                            item as keyof typeof ThemesButtonMapping
-                          ]
-                        if (!isActive) return null
-                        return (
-                          <div key={index}>
-                            <CategoryTag
-                              variant="selected"
-                              closable
-                              onClose={() => {
-                                toggleFilter({
-                                  tag: "themes",
-                                  value: item,
-                                  searchQuery,
-                                })
-                              }}
-                            >
-                              <div className="flex items-center gap-2">
-                                {icon}
-                                <span className="font-sans text-sm md:text-base">
-                                  {label}
-                                </span>
-                              </div>
-                            </CategoryTag>
-                          </div>
-                        )
-                      }
+                    if (type === "button") {
+                      return (
+                        <SectionLinkBadge
+                          key={item}
+                          section={item}
+                          isActive={isActive}
+                          onClick={() =>
+                            toggleFilterSimple(key as ProjectFilter, item)
+                          }
+                        />
+                      )
+                    }
 
-                      return null
-                    })}
-                  </div>
-                </FilterWrapper>
-              )
+                    return null
+                  })}
+                </div>
+              </FilterWrapper>
             )
           })}
+
           <FilterWrapper
             className="hidden"
             label={LABELS.COMMON.FILTER_LABELS.FUNDING_SOURCE}
           >
-            {ProjectSections.map((section) => {
-              const label = ProjectSectionLabelMapping[section]
-              return <Checkbox key={section} name={section} label={label} />
+            {Object.keys(ProjectCategories).map((section: string) => {
+              const label =
+                ProjectCategories[section as keyof typeof ProjectCategories]
+              return (
+                <Checkbox key={section} name={section} label={String(label)} />
+              )
             })}
           </FilterWrapper>
+
           <FilterWrapper
             className="hidden"
             label={LABELS.COMMON.FILTER_LABELS.PROJECT_STATUS}
@@ -260,49 +252,14 @@ export default function ProjectFiltersBar() {
         </div>
       </Modal>
       <div className="flex flex-col gap-4">
-        <nav className="container px-4 mx-auto">
-          <ul className="flex space-x-6">
-            <div
-              className={cn(
-                "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
-                currentCategory == null
-                  ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
-                  : ""
-              )}
-              onClick={() => setCurrentCategory(null)}
-            >
-              All
-            </div>
-            {ProjectCategories.map((key) => {
-              if (key === ProjectCategory.RESEARCH) return null // Research category has now it's own page
-              return (
-                <div
-                  key={key}
-                  className={cn(
-                    "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
-                    currentCategory === key
-                      ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
-                      : ""
-                  )}
-                  onClick={() => setCurrentCategory(key as ProjectCategory)}
-                >
-                  {key}
-                </div>
-              )
-            })}
-          </ul>
-        </nav>
         <div className="flex flex-col gap-6">
           <div className="grid items-center justify-between grid-cols-1 gap-3 md:grid-cols-5 md:gap-12">
             <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">
               <Input
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  setSearchQuery(e?.target?.value)
-                  useProjectFiltersState.setState({
-                    searchQuery: e?.target?.value,
-                  })
+                  setLocalSearchQuery(e?.target?.value)
                 }}
-                value={searchQuery}
+                value={localSearchQuery}
                 placeholder={LABELS.COMMON.SEARCH_PROJECT_PLACEHOLDER}
               />
               <div className="flex items-center gap-3">

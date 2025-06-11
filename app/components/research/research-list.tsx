@@ -1,23 +1,16 @@
 "use client"
 
-import React, { useCallback, useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import NoResultIcon from "@/public/icons/no-result.svg"
-import { useProjectFiltersState } from "@/state/useProjectFiltersState"
 import { cva } from "class-variance-authority"
 
-import {
-  ProjectInterface,
-  ProjectSection,
-  ProjectSectionLabelMapping,
-  ProjectSections,
-  ProjectStatus,
-  ProjectStatusDescriptionMapping,
-} from "@/lib/types"
+import { ProjectStatus } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { LABELS } from "@/app/labels"
-
-import ResearchCard from "./research-card"
+import { ResearchCard } from "./research-card"
+import { useGetProjects } from "@/hooks/useFetchContent"
+import Link from "next/link"
 
 const sectionTitleClass = cva(
   "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-['']"
@@ -39,17 +32,15 @@ const NoResults = () => {
   )
 }
 
-const ProjectStatusOrderList = ["active", "inactive"]
-
 export const ResearchList = () => {
   const SCROLL_OFFSET = -400
   const [activeId, setActiveId] = useState("")
   const [isManualScroll, setIsManualScroll] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  const { projects, searchQuery, queryString } = useProjectFiltersState(
-    (state) => state
-  )
+  const { data: projects = [], isLoading: isLoadingProjects } = useGetProjects({
+    category: "research" as any,
+  })
 
   const noItems = projects?.length === 0
 
@@ -76,28 +67,7 @@ export const ResearchList = () => {
     }
   }, [SCROLL_OFFSET, isManualScroll])
 
-  const scrollToId = useCallback((id: string) => {
-    if (typeof window !== "undefined") {
-      const element = document.getElementById(id)
-      const top = element?.offsetTop ?? 0
-
-      if (element) {
-        setActiveId(id) // active clicked id
-        setIsManualScroll(true) // tell the window event listener to ignore this scrolling
-        window?.scrollTo({
-          behavior: "smooth",
-          top: (top ?? 0) - SCROLL_OFFSET,
-        })
-      }
-
-      setTimeout(() => setIsManualScroll(false), 800)
-    }
-  }, [])
-
-  const hasActiveFilters = searchQuery !== "" || queryString !== ""
-
-  // loading state skeleton
-  if (!isMounted) {
+  if (!isMounted || isLoadingProjects) {
     return (
       <div className="grid items-start justify-between w-full grid-cols-1 gap-2 md:grid-cols-4 md:gap-6">
         <div className="min-h-[380px] border border-gray-200 rounded-lg overflow-hidden">
@@ -116,120 +86,64 @@ export const ResearchList = () => {
     )
   }
 
-  console.log("projects", projects)
-
   if (noItems) return <NoResults />
 
-  const projectsGroupByStatus = projects.reduce(
-    (acc, project) => {
-      acc[project.projectStatus] = [
-        ...(acc[project.projectStatus] || []),
-        project,
-      ]
-      return acc
-    },
-    {} as Record<ProjectStatus, ProjectInterface[]>
+  const activeResearchs = projects.filter(
+    (research) => research.projectStatus === ProjectStatus.ACTIVE
   )
 
-  // show all projects without sections if there are active filters
-  if (hasActiveFilters) {
-    return (
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
-        {projects.map((project) => (
-          <ResearchCard
-            key={project?.id}
-            project={project}
-            showBanner
-            showLinks
-            border
-          />
-        ))}
-      </div>
-    )
-  }
+  const pastResearchs = projects.filter(
+    (research) => research.projectStatus !== ProjectStatus.ACTIVE
+  )
 
   return (
     <div className="relative grid items-start justify-between grid-cols-1">
-      <div className="flex flex-col">
-        {ProjectStatusOrderList.map((status, index) => {
-          const projects = projectsGroupByStatus[status as ProjectStatus] ?? []
-          const description =
-            ProjectStatusDescriptionMapping?.[status as ProjectStatus]
-
-          const hasProjects = projects?.length > 0
-
-          if (!hasProjects) return null // no projects for this status, hide the section
-
-          const statusLabel =
-            status === "active"
-              ? LABELS.COMMON.ACTIVE_RESEARCH
-              : LABELS.COMMON.PAST_RESEARCH
-
-          return (
-            <div
-              key={index}
-              data-section={status}
-              className="flex justify-between gap-10"
-            >
-              <div className={cn("flex w-full flex-col gap-10 pt-10")}>
-                {!hasActiveFilters && (
-                  <div className="flex flex-col gap-6 overflow-hidden">
-                    <h3 className={cn(sectionTitleClass())}>{statusLabel}</h3>
-                    <span className="font-sans text-base italic text-tuatara-950">
-                      {description}
-                    </span>
-                  </div>
-                )}
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
-                  {projects.map((project) => (
-                    <ResearchCard
-                      key={project?.id}
-                      project={project}
-                      showBanner
-                      showLinks
-                      border
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-
-      <div id="sidebar" className="sticky hidden p-8 top-20 bg-white/30">
-        <div className="flex flex-col gap-4">
-          <h6 className="text-lg font-bold font-display text-tuatara-700">
-            {LABELS.COMMON.ON_THIS_PAGE}
-          </h6>
-          <ul className="font-sans text-black text-normal">
-            {ProjectSections.map((id: ProjectSection) => {
-              const label = ProjectSectionLabelMapping[id]
-
-              if (!label) return null // no label for this section
-
-              const active = id === activeId
-
+      <div
+        data-section="active-researchs"
+        className="flex flex-col justify-between gap-10"
+      >
+        <div className={cn("flex w-full flex-col gap-10")}>
+          <div className="flex flex-col gap-6 overflow-hidden">
+            <h3 className={cn(sectionTitleClass())}>
+              {LABELS.RESEARCH_PAGE.ACTIVE_RESEARCH}
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 gap-4 md:gap-x-6 md:gap-y-10 lg:grid-cols-3">
+            {activeResearchs.map((project) => {
               return (
-                <li
-                  key={id}
-                  onClick={() => {
-                    scrollToId(id)
-                  }}
-                  data-id={id}
-                  className={cn(
-                    "flex h-8 cursor-pointer items-center border-l-2 border-l-anakiwa-200 px-3 duration-200",
-                    {
-                      "border-l-anakiwa-500 text-anakiwa-500 font-medium":
-                        active,
-                    }
-                  )}
-                >
-                  {label}
-                </li>
+                <ResearchCard
+                  key={project?.id}
+                  project={project}
+                  className="h-[180px]"
+                  showBanner={false}
+                  showLinks={false}
+                  showCardTags={false}
+                  showStatus={false}
+                  border
+                />
               )
             })}
-          </ul>
+          </div>
+        </div>
+        <div className={cn("flex w-full flex-col gap-10 pt-10")}>
+          <div className="flex flex-col gap-6 overflow-hidden">
+            <h3 className={cn(sectionTitleClass())}>
+              {LABELS.RESEARCH_PAGE.PAST_RESEARCH}
+            </h3>
+          </div>
+          <div className="flex flex-col gap-5">
+            {pastResearchs.map((project) => {
+              return (
+                <Link
+                  href={`/projects/${project?.id}`}
+                  key={project?.id}
+                  className="text-neutral-950 border-b-[2px] border-b-anakiwa-500 text-sm font-medium w-fit hover:text-anakiwa-500 duration-200"
+                >
+                  {project.name}
+                </Link>
+              )
+            })}
+          </div>
         </div>
       </div>
     </div>

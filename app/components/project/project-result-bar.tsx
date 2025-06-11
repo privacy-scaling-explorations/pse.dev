@@ -4,8 +4,8 @@ import {
   DEFAULT_PROJECT_SORT_BY,
   ProjectFilter,
   ProjectSortBy,
-  useProjectFiltersState,
-} from "@/state/useProjectFiltersState"
+  useProjectFiltersContext,
+} from "@/contexts/project-filters-context"
 
 import { LABELS } from "@/app/labels"
 import { interpolate } from "@/lib/utils"
@@ -17,7 +17,7 @@ const labelClass = "h-5 text-xs text-base md:h-6 text-slate-900/70 md:text-sm"
 
 export const ProjectResultBar = () => {
   const { activeFilters, toggleFilter, projects, sortProjectBy, sortBy } =
-    useProjectFiltersState((state) => state)
+    useProjectFiltersContext()
 
   const haveActiveFilters = Object.entries(activeFilters).some(
     ([, values]) => values?.length > 0

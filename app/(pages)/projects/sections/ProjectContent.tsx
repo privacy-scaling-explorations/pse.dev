@@ -13,7 +13,6 @@ import { Markdown, createMarkdownElement } from "@/components/ui/markdown"
 import { WikiCard } from "@/components/cards/wiki-card"
 import { Divider } from "@/components/divider"
 import { Icons } from "@/components/icons"
-import DiscoverMoreProjects from "@/components/project/discover-more-projects"
 import { ProjectTags } from "@/components/project/project-detail-tags"
 import ProjectExtraLinks from "@/components/project/project-extra-links"
 import { ProjectLinkIconMap } from "@/components/mappings/project-links"
@@ -22,6 +21,7 @@ import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
 import { ProjectYouTubeVideos } from "@/components/sections/ProjectYouTubeVideos"
 import { ProjectTeamMembers } from "@/components/project/project-team"
 import { LABELS } from "@/app/labels"
+import { DiscoverMoreProjects } from "@/app/components/project/discover-more-projects"
 
 export const ProjectContent = ({ id }: { id: string }) => {
   const router = useRouter()

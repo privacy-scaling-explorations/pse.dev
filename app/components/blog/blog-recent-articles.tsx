@@ -5,8 +5,8 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
 import { Icons } from "../icons"
-import { useEffect, useState } from "react"
 import { LABELS } from "@/app/labels"
+import { useGetBlogArticles } from "@/hooks/useFetchContent"
 
 export type Article = {
   id: string
@@ -145,25 +145,40 @@ const ArticleInEvidenceCard = ({
 }
 
 export function BlogRecentArticles() {
-  const [articles, setArticles] = useState<Article[]>([])
+  const {
+    data: articles = [],
+    isLoading,
+    error,
+  } = useGetBlogArticles({ limit: 4 })
   const lastArticle = articles[0]
   const otherArticles = articles.slice(1)
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const response = await fetch("/api/blog?limit=4")
-        const data = await response.json()
-        setArticles(data)
-      } catch (error) {
-        console.error("Error fetching articles:", error)
-      }
-    }
+  if (isLoading) {
+    return (
+      <div className="py-10 lg:py-16">
+        <AppContent className="w-full">
+          <div className="flex flex-col gap-10 w-full">
+            <h3 className="text-base font-bold font-sans text-center uppercase tracking-[3.36px]">
+              {LABELS.BLOG_PAGE.RECENT_ARTICLES as string}
+            </h3>
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative w-full">
+              <div className="lg:col-span-3 min-h-[200px] lg:min-h-[380px] bg-gray-200 animate-pulse rounded"></div>
+              <div className="lg:col-span-2 flex flex-col gap-6">
+                {[...Array(3)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="lg:min-h-[110px] h-16 bg-gray-200 animate-pulse rounded"
+                  ></div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </AppContent>
+      </div>
+    )
+  }
 
-    fetchArticles()
-  }, [])
-
-  if (!articles.length) {
+  if (error || !articles.length) {
     return null
   }
 
@@ -186,7 +201,7 @@ export function BlogRecentArticles() {
             </div>
 
             <div className="flex flex-col gap-6 lg:col-span-2">
-              {otherArticles.map((article, index) => (
+              {otherArticles.map((article: Article, index: number) => (
                 <Link
                   key={article.id}
                   href={`/blog/${article.id}`}

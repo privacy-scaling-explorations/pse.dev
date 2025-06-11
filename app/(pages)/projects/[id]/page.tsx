@@ -55,7 +55,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function ProjectDetailPage({ params }: PageProps) {
+export default function ProjectDetailPage({ params }: PageProps) {
   // For server-side rendering, we don't need to prefetch since the client component
   // will handle data fetching through React Query and API routes
   const projectId = params?.id

@@ -7,6 +7,7 @@ import ProjectFiltersBar from "@/components/project/project-filters-bar"
 import { ProjectList } from "@/components/project/project-list"
 import { ProjectResultBar } from "@/components/project/project-result-bar"
 import { LABELS } from "@/app/labels"
+import { ProjectFiltersProvider } from "@/contexts/project-filters-context"
 
 export const metadata: Metadata = {
   title: "Project Library",
@@ -16,25 +17,27 @@ export const metadata: Metadata = {
 
 export default async function ProjectsPage() {
   return (
-    <div className="flex flex-col">
-      <div className="w-full bg-page-header-gradient">
-        <AppContent className="flex flex-col gap-4 py-10 w-full">
-          <Label.PageTitle label={LABELS.PROJECTS_PAGE.TITLE} />
-          <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
-            {LABELS.PROJECTS_PAGE.SUBTITLE}
-          </h6>
+    <ProjectFiltersProvider>
+      <div className="flex flex-col">
+        <div className="w-full bg-page-header-gradient">
+          <AppContent className="flex flex-col gap-4 py-10 w-full">
+            <Label.PageTitle label={LABELS.PROJECTS_PAGE.TITLE} />
+            <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
+              {LABELS.PROJECTS_PAGE.SUBTITLE}
+            </h6>
+          </AppContent>
+        </div>
+
+        <AppContent className="flex flex-col gap-10 py-10">
+          <Suspense fallback={<div>Loading...</div>}>
+            <div className="flex flex-col gap-4">
+              <ProjectFiltersBar />
+              <ProjectResultBar />
+            </div>
+          </Suspense>
+          <ProjectList />
         </AppContent>
       </div>
-
-      <AppContent className="flex flex-col gap-10 py-10">
-        <Suspense fallback={<div>Loading...</div>}>
-          <div className="flex flex-col gap-4">
-            <ProjectFiltersBar />
-            <ProjectResultBar />
-          </div>
-        </Suspense>
-        <ProjectList />
-      </AppContent>
-    </div>
+    </ProjectFiltersProvider>
   )
 }

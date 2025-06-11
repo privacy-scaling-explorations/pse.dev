@@ -17,7 +17,7 @@ const ResearchPage = async () => {
         <AppContent className="flex flex-col gap-4 py-10 w-full">
           <Label.PageTitle label={LABELS.RESEARCH_PAGE.TITLE} />
           <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
-            {LABELS.RESEARCH_PAGE.DESCRIPTION}
+            {LABELS.RESEARCH_PAGE.SUBTITLE}
           </h6>
         </AppContent>
       </div>
