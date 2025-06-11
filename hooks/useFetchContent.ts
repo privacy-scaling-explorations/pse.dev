@@ -89,12 +89,9 @@ export const prefetchBlogArticles = async (
         if (tag) params.append("tag", tag)
         if (limit) params.append("limit", limit.toString())
 
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/blog?${params.toString()}`,
-          {
-            next: { revalidate },
-          }
-        )
+        const response = await fetch(`/api/blog?${params.toString()}`, {
+          next: { revalidate },
+        })
 
         if (!response.ok) {
           throw new Error(`Failed to fetch articles: ${response.status}`)
@@ -315,12 +312,9 @@ export const prefetchProjects = async (
           })
         }
 
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/projects?${params.toString()}`,
-          {
-            next: { revalidate },
-          }
-        )
+        const response = await fetch(`/api/projects?${params.toString()}`, {
+          next: { revalidate },
+        })
 
         if (!response.ok) {
           throw new Error(`Failed to fetch projects: ${response.status}`)
