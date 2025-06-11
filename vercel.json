@@ -10,5 +10,6 @@
       "NEXT_TELEMETRY_DISABLED": "1"
     }
   },
+  "includeFiles": ["content/**"],
   "crons": []
 }

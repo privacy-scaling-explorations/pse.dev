@@ -16,7 +16,6 @@ import {
   Twitter,
 } from "@/components/svgs/social-medias"
 
-import { Icons } from "./icons"
 import { LABELS } from "@/app/labels"
 import { interpolate } from "@/lib/utils"
 
@@ -60,9 +59,10 @@ export const SiteHeaderMobile = () => {
               return (
                 <NextLink
                   key={index}
-                  href={item?.external ? item.href : `/${item.href}`}
+                  href={item.href}
                   onClick={() => setHeader(false)}
                   className="border-b-2 border-white p-4 uppercase"
+                  target={item?.external ? "_blank" : undefined}
                 >
                   {item.title}
                 </NextLink>

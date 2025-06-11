@@ -50,6 +50,4 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 tsconfig.tsbuildinfo
-
-# Copied content for deployment (generated from content/ directory)
 public/content/

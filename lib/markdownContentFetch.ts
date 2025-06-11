@@ -102,20 +102,38 @@ export async function getMarkdownFiles(
   // List all directories in current working directory for debugging
   try {
     const rootFiles = fs.readdirSync(process.cwd())
-    console.log("Files/directories in root:", rootFiles)
+    console.log("Files/directories in root:", rootFiles.slice(0, 10)) // Limit output
+
+    // Check specifically for public directory
+    const publicPath = path.join(process.cwd(), "public")
+    if (fs.existsSync(publicPath)) {
+      const publicFiles = fs.readdirSync(publicPath)
+      console.log("Files in public directory:", publicFiles)
+
+      // Check for content in public
+      const publicContentPath = path.join(publicPath, "content")
+      if (fs.existsSync(publicContentPath)) {
+        const contentFiles = fs.readdirSync(publicContentPath)
+        console.log("Files in public/content:", contentFiles)
+      } else {
+        console.log("public/content does not exist")
+      }
+    } else {
+      console.log("public directory does not exist")
+    }
   } catch (debugError) {
     console.error("Debug listing error:", debugError)
   }
 
   // Try multiple potential paths where content might be in Vercel
   const potentialPaths = [
-    // Public directory (always included in Vercel) - check this first
-    path.resolve(process.cwd(), "public", folderName),
-    // Standard development path
+    // Standard development path - check this first
     path.resolve(process.cwd(), folderName),
     // Vercel standalone build paths
     path.resolve(process.cwd(), ".next", "standalone", folderName),
     path.resolve(process.cwd(), ".next", "server", folderName),
+    // Public directory (fallback option)
+    path.resolve(process.cwd(), "public", folderName),
     path.resolve(process.cwd(), ".next", "standalone", "public", folderName),
     // Alternative build paths
     path.resolve(process.cwd(), "dist", folderName),
