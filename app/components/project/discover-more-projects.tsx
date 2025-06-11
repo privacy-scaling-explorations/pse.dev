@@ -14,7 +14,7 @@ interface Props {
   limit?: number
 }
 
-export const DiscoverMoreProjects = ({ project, limit = 3 }: Props) => {
+export const DiscoverMoreProjects = ({ project, limit = 2 }: Props) => {
   // Get projects with similar tags or themes
   const keywords = useMemo(
     () => project.tags?.keywords?.slice(0, 3) || [],
@@ -28,15 +28,17 @@ export const DiscoverMoreProjects = ({ project, limit = 3 }: Props) => {
   const { data: projects = [], isLoading } = useGetProjects({
     keywords,
     themes,
-    limit: limit + 1, // Get one extra to filter out current project
-    findAnyMatch: true, // Find any match for broader results
+    limit: limit + 1,
+    findAnyMatch: true,
   })
 
-  // Filter out current project and limit results
   const relatedProjects = useMemo(() => {
     return projects
-      .filter((p: ProjectInterface) => p.id !== project.id) // Exclude current project
-      .slice(0, limit) // Limit the results
+      .filter(
+        (p: ProjectInterface) =>
+          p.id?.toLowerCase() !== project.id?.toLowerCase()
+      ) // Exclude current project
+      .slice(0, limit)
   }, [projects, project.id, limit])
 
   if (isLoading) {
