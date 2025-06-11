@@ -22,6 +22,7 @@ import {
   ProjectStatusLabelMapping,
 } from "@/lib/types"
 import { useGetProjectsFilters } from "@/hooks/useFetchContent"
+import { IThemeStatus } from "@/types/common"
 
 export const FilterLabelMapping: Record<ProjectFilter, string> = {
   keywords: LABELS.COMMON.FILTER_LABELS.KEYWORDS,
@@ -43,6 +44,17 @@ interface FilterWrapperProps {
   label: string
   children?: ReactNode
   className?: string
+}
+
+export const ThemesStatusMapping: IThemeStatus = {
+  active: {
+    label: LABELS.COMMON.STATUS.ACTIVE,
+    icon: <Icons.checkActive />,
+  },
+  inactive: {
+    label: LABELS.COMMON.STATUS.INACTIVE,
+    icon: <Icons.archived />,
+  },
 }
 
 const FilterWrapper = ({ label, children, className }: FilterWrapperProps) => {
