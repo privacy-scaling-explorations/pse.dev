@@ -1,7 +1,8 @@
 {
   "functions": {
     "app/api/**": {
-      "maxDuration": 30
+      "maxDuration": 30,
+      "includeFiles": "content/**"
     }
   },
   "regions": ["iad1"],
@@ -10,6 +11,5 @@
       "NEXT_TELEMETRY_DISABLED": "1"
     }
   },
-  "includeFiles": ["content/**"],
   "crons": []
 }
