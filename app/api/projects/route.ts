@@ -1,7 +1,12 @@
-import Fuse from "fuse.js"
 import { getProjects } from "@/lib/markdownContentFetch"
 import { NextRequest, NextResponse } from "next/server"
 import { ProjectCategory, ProjectInterface } from "@/lib/types"
+
+// Dynamic import for Fuse.js to reduce bundle size
+async function getFuse() {
+  const { default: Fuse } = await import("fuse.js")
+  return Fuse
+}
 
 // Cache control
 export const revalidate = 60 // Revalidate cache after 60 seconds
@@ -33,7 +38,7 @@ interface SearchMatchByParamsProps {
   projects?: ProjectInterface[]
 }
 
-const filterProjects = ({
+const filterProjects = async ({
   searchPattern = "",
   activeFilters = {},
   findAnyMatch = false,
@@ -97,6 +102,7 @@ const filterProjects = ({
     }
   }
 
+  const Fuse = await getFuse()
   const fuse = new Fuse(projectList, {
     threshold: 0.3,
     useExtendedSearch: true,
@@ -106,12 +112,14 @@ const filterProjects = ({
     keys,
   })
 
-  const result = fuse.search(query)?.map(({ item, score }) => {
-    return {
-      ...item,
-      score: score || 0,
-    } as ProjectInterfaceScore
-  })
+  const result = fuse
+    .search(query)
+    ?.map(({ item, score }: { item: any; score?: number }) => {
+      return {
+        ...item,
+        score: score || 0,
+      } as ProjectInterfaceScore
+    })
 
   return result || []
 }
@@ -278,7 +286,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       filteredProjects.length > 0 &&
       (searchPattern || Object.keys(activeFilters).length > 0)
     ) {
-      filteredProjects = filterProjects({
+      filteredProjects = await filterProjects({
         searchPattern,
         activeFilters,
         findAnyMatch,
@@ -307,7 +315,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     // Get available filters for the response
     const availableFilters = getProjectFilters(allProjects)
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       projects: filteredProjects,
       filters: availableFilters,
       success: true,
@@ -320,13 +328,24 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         ids: hasIdsParameter ? ids : undefined,
       },
     })
+
+    // Add cache headers for better performance
+    response.headers.set(
+      "Cache-Control",
+      "s-maxage=60, stale-while-revalidate=300"
+    )
+    response.headers.set("CDN-Cache-Control", "max-age=60")
+    response.headers.set("Vercel-CDN-Cache-Control", "max-age=3600")
+
+    return response
   } catch (error) {
     console.error("Error fetching projects:", error)
     console.error(
       "Error details:",
       error instanceof Error ? error.message : String(error)
     )
-    return NextResponse.json(
+
+    const errorResponse = NextResponse.json(
       {
         error: "Failed to fetch projects",
         success: false,
@@ -334,5 +353,13 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       },
       { status: 500 }
     )
+
+    // Don't cache error responses
+    errorResponse.headers.set(
+      "Cache-Control",
+      "no-cache, no-store, must-revalidate"
+    )
+
+    return errorResponse
   }
 }

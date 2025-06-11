@@ -25,6 +25,9 @@ const withMDX = nextMdx({
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx", "md"],
   reactStrictMode: true,
+  output: "standalone",
+  poweredByHeader: false,
+  compress: true,
   images: {
     remotePatterns: [
       {
@@ -48,7 +51,19 @@ const nextConfig = {
   },
   experimental: {
     mdxRs: true,
-    optimizePackageImports: ["@heroicons/react", "lucide-react"],
+    optimizePackageImports: ["@heroicons/react", "lucide-react", "fuse.js"],
+    serverComponentsExternalPackages: ["gray-matter", "js-yaml"],
+  },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      // Externalize large server-only packages
+             config.externals.push({
+         "gray-matter": "commonjs gray-matter",
+         "js-yaml": "commonjs js-yaml",
+         "fuse.js": "commonjs fuse.js"
+       })
+    }
+    return config
   },
   swcMinify: true,
 }
