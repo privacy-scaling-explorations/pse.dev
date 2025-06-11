@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server"
 import { getArticles } from "@/lib/markdownContentFetch"
 
-export async function GET(request: Request) {
+// Cache control
+export const revalidate = 60 // Revalidate cache after 60 seconds
+export const dynamic = "force-dynamic" // Ensure the route is always evaluated
+
+export async function GET(request: Request): Promise<NextResponse> {
   try {
     const { searchParams } = new URL(request.url)
     const limit = searchParams.get("limit")
