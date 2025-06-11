@@ -11,6 +11,7 @@ import { SiteFooter } from "@/components/site-footer"
 import { baseFont, fonts } from "@/lib/fonts"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pse.dev"),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
@@ -58,6 +59,10 @@ export const metadata: Metadata = {
         height: 630,
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.png"],
   },
   alternates: {
     types: {

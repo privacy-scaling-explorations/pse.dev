@@ -45,6 +45,10 @@ export async function generateMetadata({
           },
         ],
       },
+      twitter: {
+        card: "summary_large_image",
+        images: [imageUrl],
+      },
     }
   } catch (error) {
     console.error("Error generating metadata:", error)

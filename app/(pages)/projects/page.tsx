@@ -17,27 +17,27 @@ export const metadata: Metadata = {
 
 export default async function ProjectsPage() {
   return (
-    <ProjectFiltersProvider>
-      <div className="flex flex-col">
-        <div className="w-full bg-page-header-gradient">
-          <AppContent className="flex flex-col gap-4 py-10 w-full">
-            <Label.PageTitle label={LABELS.PROJECTS_PAGE.TITLE} />
-            <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
-              {LABELS.PROJECTS_PAGE.SUBTITLE}
-            </h6>
-          </AppContent>
-        </div>
+    <div className="flex flex-col">
+      <div className="w-full bg-page-header-gradient">
+        <AppContent className="flex flex-col gap-4 py-10 w-full">
+          <Label.PageTitle label={LABELS.PROJECTS_PAGE.TITLE} />
+          <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
+            {LABELS.PROJECTS_PAGE.SUBTITLE}
+          </h6>
+        </AppContent>
+      </div>
 
-        <AppContent className="flex flex-col gap-10 py-10">
-          <Suspense fallback={<div>Loading...</div>}>
+      <AppContent className="flex flex-col gap-10 py-10">
+        <Suspense fallback={<div>Loading...</div>}>
+          <ProjectFiltersProvider>
             <div className="flex flex-col gap-4">
               <ProjectFiltersBar />
               <ProjectResultBar />
             </div>
-          </Suspense>
-          <ProjectList />
-        </AppContent>
-      </div>
-    </ProjectFiltersProvider>
+            <ProjectList />
+          </ProjectFiltersProvider>
+        </Suspense>
+      </AppContent>
+    </div>
   )
 }

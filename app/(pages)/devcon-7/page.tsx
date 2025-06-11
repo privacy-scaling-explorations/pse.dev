@@ -19,6 +19,10 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/devcon-7-cover.png"],
+  },
 }
 
 export default async function DevconPage() {

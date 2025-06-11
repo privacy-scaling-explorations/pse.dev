@@ -39,6 +39,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     openGraph: {
       images: [{ url: imageUrl as string, width: 1200, height: 630 }],
     },
+    twitter: {
+      card: "summary_large_image",
+      images: [imageUrl as string],
+    },
   }
 
   if (post && "canonical" in post) {

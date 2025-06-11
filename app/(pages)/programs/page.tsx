@@ -14,6 +14,10 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/programs-page-banner.png"],
+  },
 }
 
 export default function ProgramsPage() {
