@@ -1,14 +1,26 @@
 import { ProjectInterface } from "./types"
 
-// Direct imports for server-side (production-ready)
-import fs from "fs"
-import path from "path"
-import matter from "gray-matter"
-import * as jsYaml from "js-yaml"
+// Production-ready dynamic imports for server-side only
+async function getServerModules() {
+  // Only import on server-side to avoid bundling in client
+  if (typeof window !== "undefined") {
+    return null
+  }
 
-// Check if we're on server-side
-function isServerSide() {
-  return typeof window === "undefined"
+  try {
+    const [{ default: fs }, { default: path }, { default: matter }, jsYaml] =
+      await Promise.all([
+        import("fs"),
+        import("path"),
+        import("gray-matter"),
+        import("js-yaml"),
+      ])
+
+    return { fs, path, matter, jsYaml }
+  } catch (error) {
+    console.error("Failed to load server modules:", error)
+    return null
+  }
 }
 
 // Base interface for all markdown content
@@ -67,12 +79,20 @@ export async function getMarkdownFiles(
   options?: FetchMarkdownOptions
 ): Promise<MarkdownContent[]> {
   // Return empty array if running on client-side
-  if (!isServerSide()) {
+  if (typeof window !== "undefined") {
     console.warn(
       "getMarkdownFiles called on client-side, returning empty array"
     )
     return []
   }
+
+  const modules = await getServerModules()
+  if (!modules) {
+    console.error("Failed to load server modules")
+    return []
+  }
+
+  const { fs, path, matter, jsYaml } = modules
   const { limit = 1000, tag, project } = options ?? {}
 
   // Use absolute path resolution for better Vercel compatibility
@@ -220,7 +240,7 @@ export async function getMarkdownFileById(
   id: string
 ): Promise<MarkdownContent | undefined> {
   // Return undefined if running on client-side
-  if (!isServerSide()) {
+  if (typeof window !== "undefined") {
     console.warn(
       "getMarkdownFileById called on client-side, returning undefined"
     )
