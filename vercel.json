@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "app/api/**": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["iad1"],
+  "build": {
+    "env": {
+      "NEXT_TELEMETRY_DISABLED": "1"
+    }
+  },
+  "crons": []
+}

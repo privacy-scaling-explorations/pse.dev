@@ -114,7 +114,6 @@ export default function ProjectFiltersBar() {
   const { data: filters = [], isLoading: isLoadingFilters } =
     useGetProjectsFilters()
 
-  console.log("filters =>", filters)
   // Use context instead of managing state locally
   const {
     activeFilters,

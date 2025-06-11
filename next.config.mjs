@@ -57,11 +57,11 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     if (isServer) {
       // Externalize large server-only packages
-             config.externals.push({
-         "gray-matter": "commonjs gray-matter",
-         "js-yaml": "commonjs js-yaml",
-         "fuse.js": "commonjs fuse.js"
-       })
+      config.externals.push({
+        "gray-matter": "commonjs gray-matter",
+        "js-yaml": "commonjs js-yaml",
+        "fuse.js": "commonjs fuse.js"
+      })
     }
     return config
   },

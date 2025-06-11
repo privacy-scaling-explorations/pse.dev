@@ -98,15 +98,74 @@ export async function getMarkdownFiles(
   // Use absolute path resolution for better Vercel compatibility
   const contentDirectory = path.resolve(process.cwd(), folderName)
 
+  // Debug logging for production
+  console.log("Current working directory:", process.cwd())
+  console.log("Looking for directory:", contentDirectory)
+  console.log("Folder name:", folderName)
+
+  // List all directories in current working directory for debugging
+  try {
+    const rootFiles = fs.readdirSync(process.cwd())
+    console.log("Files/directories in root:", rootFiles)
+
+    // Check if content directory exists
+    const contentExists = fs.existsSync(path.join(process.cwd(), "content"))
+    console.log("Content directory exists:", contentExists)
+
+    if (contentExists) {
+      const contentFiles = fs.readdirSync(path.join(process.cwd(), "content"))
+      console.log("Files in content directory:", contentFiles)
+    }
+  } catch (debugError) {
+    console.error("Debug listing error:", debugError)
+  }
+
   // Check if directory exists
   if (!fs.existsSync(contentDirectory)) {
     console.error(
       `Directory ${folderName} does not exist at ${contentDirectory}`
     )
-    // Log current working directory for debugging
-    console.error(`Current working directory: ${process.cwd()}`)
+
+    // Try alternative paths that might work in Vercel
+    const alternativePaths = [
+      path.join(process.cwd(), ".next", "server", folderName),
+      path.join(process.cwd(), "public", folderName),
+      path.join(__dirname, "..", folderName),
+      path.join(__dirname, "..", "..", folderName),
+    ]
+
+    console.log("Trying alternative paths:")
+    for (const altPath of alternativePaths) {
+      console.log(`Checking: ${altPath}`)
+      if (fs.existsSync(altPath)) {
+        console.log(`Found alternative path: ${altPath}`)
+        // Use the working alternative path
+        return getMarkdownFilesFromPath(altPath, modules, {
+          limit,
+          tag,
+          project,
+        })
+      }
+    }
+
     return []
   }
+
+  return getMarkdownFilesFromPath(contentDirectory, modules, {
+    limit,
+    tag,
+    project,
+  })
+}
+
+// Helper function to process files from a given path
+async function getMarkdownFilesFromPath(
+  contentDirectory: string,
+  modules: any,
+  options: { limit: number; tag?: string; project?: string }
+): Promise<MarkdownContent[]> {
+  const { fs, path, matter, jsYaml } = modules
+  const { limit, tag, project } = options
 
   // Get file names under the specified folder
   const fileNames = fs.readdirSync(contentDirectory)
