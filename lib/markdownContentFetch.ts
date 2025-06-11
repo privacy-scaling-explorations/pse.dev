@@ -95,63 +95,66 @@ export async function getMarkdownFiles(
   const { fs, path, matter, jsYaml } = modules
   const { limit = 1000, tag, project } = options ?? {}
 
-  // Use absolute path resolution for better Vercel compatibility
-  const contentDirectory = path.resolve(process.cwd(), folderName)
-
   // Debug logging for production
   console.log("Current working directory:", process.cwd())
-  console.log("Looking for directory:", contentDirectory)
-  console.log("Folder name:", folderName)
+  console.log("Looking for directory:", folderName)
 
   // List all directories in current working directory for debugging
   try {
     const rootFiles = fs.readdirSync(process.cwd())
     console.log("Files/directories in root:", rootFiles)
-
-    // Check if content directory exists
-    const contentExists = fs.existsSync(path.join(process.cwd(), "content"))
-    console.log("Content directory exists:", contentExists)
-
-    if (contentExists) {
-      const contentFiles = fs.readdirSync(path.join(process.cwd(), "content"))
-      console.log("Files in content directory:", contentFiles)
-    }
   } catch (debugError) {
     console.error("Debug listing error:", debugError)
   }
 
-  // Check if directory exists
-  if (!fs.existsSync(contentDirectory)) {
-    console.error(
-      `Directory ${folderName} does not exist at ${contentDirectory}`
-    )
+  // Try multiple potential paths where content might be in Vercel
+  const potentialPaths = [
+    // Public directory (always included in Vercel) - check this first
+    path.resolve(process.cwd(), "public", folderName),
+    // Standard development path
+    path.resolve(process.cwd(), folderName),
+    // Vercel standalone build paths
+    path.resolve(process.cwd(), ".next", "standalone", folderName),
+    path.resolve(process.cwd(), ".next", "server", folderName),
+    path.resolve(process.cwd(), ".next", "standalone", "public", folderName),
+    // Alternative build paths
+    path.resolve(process.cwd(), "dist", folderName),
+    path.resolve(process.cwd(), "build", folderName),
+    // Relative to current file
+    path.resolve(__dirname, "..", folderName),
+    path.resolve(__dirname, "..", "..", folderName),
+    path.resolve(__dirname, "..", "..", "..", folderName),
+    // Check in .next directory structure
+    path.resolve(process.cwd(), ".next", folderName),
+  ]
 
-    // Try alternative paths that might work in Vercel
-    const alternativePaths = [
-      path.join(process.cwd(), ".next", "server", folderName),
-      path.join(process.cwd(), "public", folderName),
-      path.join(__dirname, "..", folderName),
-      path.join(__dirname, "..", "..", folderName),
-    ]
+  console.log("Trying potential paths:")
+  let workingPath: string | null = null
 
-    console.log("Trying alternative paths:")
-    for (const altPath of alternativePaths) {
-      console.log(`Checking: ${altPath}`)
-      if (fs.existsSync(altPath)) {
-        console.log(`Found alternative path: ${altPath}`)
-        // Use the working alternative path
-        return getMarkdownFilesFromPath(altPath, modules, {
-          limit,
-          tag,
-          project,
-        })
+  for (const potentialPath of potentialPaths) {
+    console.log(`Checking: ${potentialPath}`)
+    try {
+      if (fs.existsSync(potentialPath)) {
+        const files = fs.readdirSync(potentialPath)
+        if (files.length > 0) {
+          console.log(
+            `Found working path: ${potentialPath} with ${files.length} files`
+          )
+          workingPath = potentialPath
+          break
+        }
       }
+    } catch (error) {
+      console.log(`Error checking ${potentialPath}:`, error)
     }
+  }
 
+  if (!workingPath) {
+    console.error(`No working path found for ${folderName}`)
     return []
   }
 
-  return getMarkdownFilesFromPath(contentDirectory, modules, {
+  return getMarkdownFilesFromPath(workingPath, modules, {
     limit,
     tag,
     project,
