@@ -202,7 +202,7 @@ const filterProjectsByIds = (
   )
 }
 
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<NextResponse> {
   const { searchParams } = new URL(request.url)
 
   // Check if only filters are requested
