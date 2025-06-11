@@ -34,7 +34,7 @@ Key features include:
 
 - **Selective Disclosure**: If your app request to reveal one of the field from the identity the circuit will reveal it in its output. There only four fields that could be revealed (Age > 18, Gender, State, Pincode). Note that by default the Prover will reveal nothing from the ID.
 - **Nullifier**: Nullifier is a unique identifiers derived from data fields, used to prevent double-spending or duplicate proofs without revealing the actual data.
-- **Timestamp**: The timestamp of the signature associated with the data is converted into a UNIX UTC format, enabling Timebased One Time Passord verification at the verifier level.
+- **Timestamp**: The timestamp of the signature associated with the data is converted into a UNIX UTC format, enabling Timebased One Time Password verification at the verifier level.
 
 The protocol is served through an SDK containing:
 

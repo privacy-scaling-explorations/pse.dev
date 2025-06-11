@@ -10,11 +10,7 @@ interface BlogArticleRelatedProjectsProps {
 export const BlogArticleRelatedProjects = ({
   projectsIds = [],
 }: BlogArticleRelatedProjectsProps) => {
-  const {
-    data: projects = [],
-    isLoading,
-    error,
-  } = useGetProjects({
+  const { data: projects = [], error } = useGetProjects({
     ids: projectsIds,
   })
 
