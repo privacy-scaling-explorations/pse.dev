@@ -1,30 +1,27 @@
 "use client"
 
-import { LangProps } from "@/types/common"
-import { useTranslation } from "@/app/i18n/client"
+import { LABELS } from "@/app/labels"
 
 import { Icons } from "../icons"
 import { AppContent } from "../ui/app-content"
 
 type WhatWeDoContent = { title: string; description: string; icon: any }
 
-export const WhatWeDo = ({ lang }: LangProps["params"]) => {
-  const { t } = useTranslation(lang, "what-we-do-section")
-
+export const WhatWeDo = () => {
   const content: WhatWeDoContent[] = [
     {
-      title: t("privacy.title"),
-      description: t("privacy.description"),
+      title: LABELS.WHAT_WE_DO_SECTION.PRIVACY.TITLE,
+      description: LABELS.WHAT_WE_DO_SECTION.PRIVACY.DESCRIPTION,
       icon: Icons.privacy,
     },
     {
-      title: t("scaling.title"),
-      description: t("scaling.description"),
+      title: LABELS.WHAT_WE_DO_SECTION.SCALING.TITLE,
+      description: LABELS.WHAT_WE_DO_SECTION.SCALING.DESCRIPTION,
       icon: Icons.scaling,
     },
     {
-      title: t("explorations.title"),
-      description: t("explorations.description"),
+      title: LABELS.WHAT_WE_DO_SECTION.EXPLORATIONS.TITLE,
+      description: LABELS.WHAT_WE_DO_SECTION.EXPLORATIONS.DESCRIPTION,
       icon: Icons.explorations,
     },
   ]
@@ -35,10 +32,10 @@ export const WhatWeDo = ({ lang }: LangProps["params"]) => {
         <section className="flex flex-col gap-16 py-16 md:pb-24">
           <div className="flex flex-col text-center">
             <h6 className="py-6 font-sans text-base font-bold uppercase tracking-[4px] text-tuatara-950">
-              {t("whatWeDo")}
+              {LABELS.WHAT_WE_DO_SECTION.WHAT_WE_DO}
             </h6>
             <h3 className="font-display text-[18px] font-bold text-tuatara-950 md:text-3xl">
-              {t("whatWeDoDescription")}
+              {LABELS.WHAT_WE_DO_SECTION.WHAT_WE_DO_DESCRIPTION}
             </h3>
           </div>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">

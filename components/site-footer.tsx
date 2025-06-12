@@ -3,12 +3,11 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { LangProps } from "@/types/common"
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { useAppSettings } from "@/hooks/useAppSettings"
-import { useTranslation } from "@/app/i18n/client"
+import { LABELS } from "@/app/labels"
 
 import { Icons } from "./icons"
 import { AppContent } from "./ui/app-content"
@@ -45,10 +44,8 @@ const LinksWrapper = ({
   return <div className={cn("flex flex-col gap-4", className)}>{children}</div>
 }
 
-export function SiteFooter({ lang }: LangProps["params"]) {
-  const { t } = useTranslation(lang, "common")
-
-  const { MAIN_NAV } = useAppSettings(lang)
+export function SiteFooter() {
+  const { MAIN_NAV } = useAppSettings()
 
   return (
     <footer className="flex flex-col">
@@ -63,7 +60,7 @@ export function SiteFooter({ lang }: LangProps["params"]) {
               className="h-36 w-36"
             />
             <span className="text-center font-sans text-sm leading-[21px] md:text-left">
-              {t("footer.description")}
+              {LABELS.COMMON.FOOTER.DESCRIPTION}
             </span>
           </div>
           <div className="order-2 grid grid-cols-1 justify-between gap-10 uppercase lg:grid-cols-5 lg:gap-0">
@@ -76,7 +73,7 @@ export function SiteFooter({ lang }: LangProps["params"]) {
                   !onlyHeader && (
                     <Link
                       key={indexKey}
-                      href={external ? href : `/${lang}${href}`}
+                      href={href}
                       target={external ? "_blank" : undefined}
                     >
                       <ItemLabel label={title} />
@@ -99,7 +96,7 @@ export function SiteFooter({ lang }: LangProps["params"]) {
                 rel="noreferrer"
                 className="flex items-center gap-2"
               >
-                <ItemLabel label={t("menu.jobs")} external />
+                <ItemLabel label={LABELS.COMMON.MENU.JOBS} external />
               </Link>
               <Link
                 href={siteConfig.links.report}
@@ -107,7 +104,7 @@ export function SiteFooter({ lang }: LangProps["params"]) {
                 rel="noreferrer"
                 className="flex items-center gap-2"
               >
-                <ItemLabel label={t("menu.report")} external />
+                <ItemLabel label={LABELS.COMMON.MENU.REPORT} external />
               </Link>
               <Link
                 href={siteConfig.links.firstGoodIssue}
@@ -115,7 +112,10 @@ export function SiteFooter({ lang }: LangProps["params"]) {
                 rel="noreferrer"
                 className="flex items-center gap-2"
               >
-                <ItemLabel label={t("menu.firstGoodIssue")} external />
+                <ItemLabel
+                  label={LABELS.COMMON.MENU.FIRST_GOOD_ISSUE}
+                  external
+                />
               </Link>
             </LinksWrapper>
             <LinksWrapper>
@@ -201,14 +201,14 @@ export function SiteFooter({ lang }: LangProps["params"]) {
                 target="_blank"
                 rel="noreferrer"
               >
-                <ItemLabel label={t("footer.privacyPolicy")} />
+                <ItemLabel label={LABELS.COMMON.FOOTER.PRIVACY_POLICY} />
               </Link>
               <Link
                 href={siteConfig.links.termOfUse}
                 target="_blank"
                 rel="noreferrer"
               >
-                <ItemLabel label={t("footer.termsOfUse")} />
+                <ItemLabel label={LABELS.COMMON.FOOTER.TERMS_OF_USE} />
               </Link>
             </LinksWrapper>
           </div>

@@ -6,7 +6,6 @@ import NoResultIcon from "@/public/icons/no-result.svg"
 import { useProjectFiltersState } from "@/state/useProjectFiltersState"
 import { cva } from "class-variance-authority"
 
-import { LangProps } from "@/types/common"
 import {
   ProjectInterface,
   ProjectSection,
@@ -16,7 +15,7 @@ import {
   ProjectStatusDescriptionMapping,
 } from "@/lib/types"
 import { cn } from "@/lib/utils"
-import { useTranslation } from "@/app/i18n/client"
+import { LABELS } from "@/app/labels"
 
 import ProjectCard from "./project-card"
 
@@ -24,19 +23,17 @@ const sectionTitleClass = cva(
   "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-['']"
 )
 
-const NoResults = ({ lang }: LangProps["params"]) => {
-  const { t } = useTranslation(lang, "common")
-
+const NoResults = () => {
   return (
     <div className="flex flex-col gap-2 pt-24 pb-40 text-center">
       <div className="mx-auto">
         <Image className="h-9 w-9" src={NoResultIcon} alt="no result icon" />
       </div>
       <span className="text-2xl font-bold font-display text-tuatara-950">
-        {t("noResults")}
+        {LABELS.COMMON.NO_RESULTS}
       </span>
       <span className="text-lg font-normal text-tuatara-950">
-        {t("noResultsDescription")}
+        {LABELS.COMMON.NO_RESULTS_DESCRIPTION}
       </span>
     </div>
   )
@@ -44,8 +41,7 @@ const NoResults = ({ lang }: LangProps["params"]) => {
 
 const ProjectStatusOrderList = ["active", "maintained", "inactive"]
 
-export const ProjectList = ({ lang }: LangProps["params"]) => {
-  const { t } = useTranslation(lang, "resources-page")
+export const ProjectList = () => {
   const SCROLL_OFFSET = -400
   const [activeId, setActiveId] = useState("")
   const [isManualScroll, setIsManualScroll] = useState(false)
@@ -120,7 +116,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
     )
   }
 
-  if (noItems) return <NoResults lang={lang} />
+  if (noItems) return <NoResults />
 
   const projectsGroupByStatus = projects.reduce(
     (acc, project) => {
@@ -141,7 +137,6 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
           <ProjectCard
             key={project?.id}
             project={project}
-            lang={lang}
             showBanner
             showLinks
             border
@@ -183,7 +178,6 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
                     <ProjectCard
                       key={project?.id}
                       project={project}
-                      lang={lang}
                       showBanner
                       showLinks
                       border
@@ -199,7 +193,7 @@ export const ProjectList = ({ lang }: LangProps["params"]) => {
       <div id="sidebar" className="sticky hidden p-8 top-20 bg-white/30">
         <div className="flex flex-col gap-4">
           <h6 className="text-lg font-bold font-display text-tuatara-700">
-            {t("onThisPage")}
+            {LABELS.RESOURCES_PAGE.ON_THIS_PAGE}
           </h6>
           <ul className="font-sans text-black text-normal">
             {ProjectSections.map((id: ProjectSection) => {

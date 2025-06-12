@@ -1,6 +1,5 @@
 "use client"
 
-import { LocaleTypes } from "@/app/i18n/settings"
 import { ProjectInterface } from "@/lib/types"
 import { AppContent } from "../ui/app-content"
 import { Article } from "@/lib/blog"
@@ -9,10 +8,8 @@ import { useGetProjectRelatedArticles } from "@/hooks/useGetProjectRelatedArticl
 
 export const ProjectBlogArticles = ({
   project,
-  lang,
 }: {
   project: ProjectInterface
-  lang: LocaleTypes
 }) => {
   const { articles, loading } = useGetProjectRelatedArticles({
     projectId: project.id,
@@ -73,9 +70,7 @@ export const ProjectBlogArticles = ({
             </p>
           )}
           {articles.map((article: Article) => {
-            return (
-              <ArticleListCard key={article.id} lang={lang} article={article} />
-            )
+            return <ArticleListCard key={article.id} article={article} />
           })}
         </div>
       </div>

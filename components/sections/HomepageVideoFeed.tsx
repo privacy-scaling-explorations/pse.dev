@@ -1,6 +1,6 @@
 "use client"
 
-import { useTranslation } from "@/app/i18n/client"
+import { LABELS } from "@/app/labels"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -65,9 +65,8 @@ const VideoCardSkeleton = () => {
     </div>
   )
 }
-export const HomepageVideoFeed = ({ lang }: { lang: string }) => {
-  const { t } = useTranslation(lang, "homepage")
 
+export const HomepageVideoFeed = () => {
   const { data: videos = [], isLoading, isError } = useYoutube()
 
   return (
@@ -75,7 +74,7 @@ export const HomepageVideoFeed = ({ lang }: { lang: string }) => {
       <AppContent className="flex flex-col gap-8 lg:max-w-[1200px] w-full">
         <div className="col-span-1 lg:col-span-4">
           <h2 className="text-base text-center font-sans font-bold text-white">
-            {t("videos") || "VIDEOS"}
+            {LABELS.HOMEPAGE.VIDEOS}
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-8 lg:divide-x divide-[#626262]">
@@ -86,7 +85,7 @@ export const HomepageVideoFeed = ({ lang }: { lang: string }) => {
               <div className="flex flex-col gap-4 items-center w-full">
                 <VideoCardSkeleton />
                 <p className="text-center text-destructive">
-                  {t("errorLoadingVideos") || "Error loading videos"}
+                  {LABELS.HOMEPAGE.ERROR_LOADING_VIDEOS}
                 </p>
               </div>
             ) : (
@@ -100,8 +99,7 @@ export const HomepageVideoFeed = ({ lang }: { lang: string }) => {
           <div className="lg:col-span-1">
             <div className="lg:p-6 flex flex-col gap-8">
               <span className="text-base text-white">
-                {t("checkOutOurYoutube") ||
-                  "Check out our YouTube to learn the latest in advanced cryptography."}
+                {LABELS.HOMEPAGE.CHECK_OUT_OUR_YOUTUBE}
               </span>
               <Link
                 href="https://www.youtube.com/@privacyscalingexplorations-1"
@@ -112,7 +110,7 @@ export const HomepageVideoFeed = ({ lang }: { lang: string }) => {
                 <Button className="w-full" variant="orange">
                   <div className="flex items-center gap-1">
                     <span className="text-base font-medium uppercase">
-                      {t("visitOurChannel") || "VISIT OUR CHANNEL"}
+                      {LABELS.HOMEPAGE.VISIT_OUR_CHANNEL}
                     </span>
                     <ArrowRight className="h-5 w-5 duration-200 ease-in-out group-hover:translate-x-2" />
                   </div>

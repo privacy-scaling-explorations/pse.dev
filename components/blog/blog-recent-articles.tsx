@@ -1,4 +1,4 @@
-import { useTranslation } from "@/app/i18n"
+import { LABELS } from "@/app/labels"
 import { AppContent } from "../ui/app-content"
 import { getArticles, Article } from "@/lib/blog"
 import Link from "next/link"
@@ -133,9 +133,8 @@ const ArticleInEvidenceCard = ({
   )
 }
 
-export async function BlogRecentArticles({ lang }: { lang: any }) {
+export async function BlogRecentArticles() {
   const articles = getArticles({ limit: 4 })
-  const { t } = await useTranslation(lang, "blog-page")
 
   const lastArticle = articles[0]
   const otherArticles = articles.slice(1)
@@ -145,7 +144,7 @@ export async function BlogRecentArticles({ lang }: { lang: any }) {
       <AppContent>
         <div className="flex flex-col gap-10">
           <h3 className="text-base font-bold font-sans text-center uppercase tracking-[3.36px]">
-            {t("recentArticles")}
+            {LABELS.BLOG_PAGE.RECENT_ARTICLES}
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
             <div className="inset-0 relative lg:col-span-3">
@@ -178,7 +177,7 @@ export async function BlogRecentArticles({ lang }: { lang: any }) {
               <Link href="/blog" className="mt-auto">
                 <Button className="uppercase">
                   <div className="flex items-center gap-2">
-                    <span>{t("seeMore")}</span>
+                    <span>{LABELS.BLOG_PAGE.SEE_MORE}</span>
                     <Icons.arrowRight className="w-4 h-4" />
                   </div>
                 </Button>

@@ -3,14 +3,12 @@
 import { useState } from "react"
 import NextImage from "next/image"
 import NextLink from "next/link"
-import Link from "next/link"
 import CloseVector from "@/public/icons/close-fill.svg"
 import HeaderVector from "@/public/icons/menu-burger.svg"
 
-import { LangProps } from "@/types/common"
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
+import { interpolate } from "@/lib/utils"
 import { useAppSettings } from "@/hooks/useAppSettings"
 import {
   Discord,
@@ -18,65 +16,12 @@ import {
   Mirror,
   Twitter,
 } from "@/components/svgs/social-medias"
-import { useTranslation } from "@/app/i18n/client"
-import { languageList } from "@/app/i18n/settings"
+import { LABELS } from "@/app/labels"
 
-import { Icons } from "./icons"
-
-const LanguageSwitcher = ({ lang }: LangProps["params"]) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const { activeLanguageLabel } = useAppSettings(lang)
-
-  if (!siteConfig?.showLanguageSwitcher) return null
-
-  return (
-    <div className="flex flex-col border-b-2 border-white px-[14px] py-[16px] pt-0">
-      <button
-        onClick={() => {
-          setIsOpen(!isOpen)
-        }}
-        type="button"
-        className="flex items-center gap-2 uppercase"
-      >
-        <Icons.globe className="text-white" size={22} fill="white" />
-        <span className="text-base font-medium uppercase text-white">
-          {activeLanguageLabel}
-        </span>
-        <Icons.arrowDown />
-      </button>
-      {isOpen && (
-        <div className="ml-8 mt-4 flex flex-col gap-1">
-          {languageList?.map(({ label, key: languageKey, enabled }, index) => {
-            const showLanguage = siteConfig.showOnlyEnabledLanguages && !enabled
-
-            if (showLanguage) return null // skip disabled languages
-            const isActive = languageKey === lang
-            return (
-              <Link
-                className={cn(
-                  "py-2 uppercase",
-                  isActive
-                    ? "font-medium text-anakiwa-500"
-                    : "font-normal text-white"
-                )}
-                href={`/${languageKey}`}
-                key={index}
-              >
-                {label}
-              </Link>
-            )
-          })}
-        </div>
-      )}
-    </div>
-  )
-}
-
-export const SiteHeaderMobile = ({ lang }: LangProps["params"]) => {
+export const SiteHeaderMobile = () => {
   const [header, setHeader] = useState(false)
-  const { t } = useTranslation(lang, "common")
 
-  const { MAIN_NAV } = useAppSettings(lang)
+  const { MAIN_NAV } = useAppSettings()
 
   return (
     <div className="flex items-center md:hidden">
@@ -113,17 +58,15 @@ export const SiteHeaderMobile = ({ lang }: LangProps["params"]) => {
               return (
                 <NextLink
                   key={index}
-                  href={item?.external ? item.href : `/${lang}${item.href}`}
+                  href={item.href}
                   onClick={() => setHeader(false)}
+                  target={item?.external ? "_blank" : undefined}
                   className="border-b-2 border-white p-4 uppercase"
                 >
                   {item.title}
                 </NextLink>
               )
             })}
-            <div className="mt-4">
-              <LanguageSwitcher lang={lang} />
-            </div>
           </div>
           <div className="flex h-full w-full flex-col items-center justify-end gap-5 py-[40px] text-sm">
             <div className="flex gap-5">
@@ -158,11 +101,11 @@ export const SiteHeaderMobile = ({ lang }: LangProps["params"]) => {
               </NextLink>
             </div>
             <div className="flex gap-5 text-white">
-              <h1>{t("footer.privacyPolicy")}</h1>
-              <h1>{t("footer.termsOfUse")}</h1>
+              <h1>{LABELS.COMMON.FOOTER.PRIVACY_POLICY}</h1>
+              <h1>{LABELS.COMMON.FOOTER.TERMS_OF_USE}</h1>
             </div>
             <h1 className="text-center text-gray-400">
-              {t("lastUpdatedAt", {
+              {interpolate(LABELS.COMMON.LAST_UPDATED_AT, {
                 date: "January 16, 2024",
               })}
             </h1>

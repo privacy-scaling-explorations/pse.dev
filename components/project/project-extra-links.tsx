@@ -8,14 +8,12 @@ import {
   ProjectExtraLinkType,
   ProjectInterface,
 } from "@/lib/types"
-import { useTranslation } from "@/app/i18n/client"
-import { LocaleTypes } from "@/app/i18n/settings"
+import { LABELS } from "@/app/labels"
 
 import { Icons } from "../icons"
 
 interface ProjectExtraLinksProps {
   project: ProjectInterface
-  lang: LocaleTypes
 }
 
 interface ExtraLinkItemsProps {
@@ -23,11 +21,7 @@ interface ExtraLinkItemsProps {
   links: ActionLinkTypeLink[]
 }
 
-export default function ProjectExtraLinks({
-  project,
-  lang,
-}: ProjectExtraLinksProps) {
-  const { t } = useTranslation(lang, "common")
+export default function ProjectExtraLinks({ project }: ProjectExtraLinksProps) {
   const { extraLinks = {} } = project
   const hasExtraLinks = Object.keys(extraLinks).length > 0
 
@@ -39,19 +33,19 @@ export default function ProjectExtraLinks({
     }
   > = {
     buildWith: {
-      label: t("buildWithThisTool"),
+      label: LABELS.COMMON.BUILD_WITH_THIS_TOOL,
       icon: <Icons.hammer />,
     },
     play: {
-      label: t("tryItOut"),
+      label: LABELS.COMMON.TRY_IT_OUT,
       icon: <Icons.hand />,
     },
     research: {
-      label: t("deepDiveResearch"),
+      label: LABELS.COMMON.DEEP_DIVE_RESEARCH,
       icon: <Icons.readme />,
     },
     learn: {
-      label: t("learnMore"),
+      label: LABELS.COMMON.LEARN_MORE,
     },
   }
 

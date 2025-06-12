@@ -33,14 +33,14 @@ function formatDate(dateString: string | undefined): Date {
   }
 }
 
-export async function generateRssFeed(lang: string = "en") {
+export async function generateRssFeed() {
   const feed = new Feed({
     title: "Privacy + Scaling Explorations",
     description:
       "PSE is a research and development lab with a mission of making cryptography useful for human collaboration. We build open source tooling with things like zero-knowledge proofs, multiparty computation, homomorphic encryption, Ethereum, and more.",
     id: SITE_URL,
     link: SITE_URL,
-    language: lang,
+    language: "en",
     image: `${SITE_URL}/favicon.ico`,
     favicon: `${SITE_URL}/favicon.ico`,
     copyright: `All rights reserved ${new Date().getFullYear()}, Privacy & Scaling Explorations`,

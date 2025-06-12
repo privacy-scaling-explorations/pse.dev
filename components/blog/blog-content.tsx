@@ -1,16 +1,13 @@
-import Blog, { Article, getArticles } from "@/lib/blog"
+import { Article, getArticles } from "@/lib/blog"
 import Link from "next/link"
 import { AppContent } from "../ui/app-content"
 import { Markdown } from "../ui/markdown"
-import { BlogArticleCard } from "./blog-article-card"
 import { BlogArticleRelatedProjects } from "./blog-article-related-projects"
-import { LocaleTypes } from "@/app/i18n/settings"
 import { ArticleListCard } from "./article-list-card"
 import Image from "next/image"
 
 interface BlogContentProps {
   post: Article
-  lang: LocaleTypes
   isNewsletter?: boolean
 }
 
@@ -48,11 +45,7 @@ export function BlogImage({ image, alt, description }: BlogImageProps) {
   )
 }
 
-export function BlogContent({
-  post,
-  lang,
-  isNewsletter = false,
-}: BlogContentProps) {
+export function BlogContent({ post, isNewsletter = false }: BlogContentProps) {
   const articles = getArticles() ?? []
   const articleIndex = articles.findIndex((article) => article.id === post.id)
 
@@ -71,10 +64,7 @@ export function BlogContent({
         </div>
 
         {!isNewsletter && (
-          <BlogArticleRelatedProjects
-            projectsIds={post.projects ?? []}
-            lang={lang}
-          />
+          <BlogArticleRelatedProjects projectsIds={post.projects ?? []} />
         )}
 
         {moreArticles?.length > 0 && (
@@ -95,7 +85,6 @@ export function BlogContent({
                 return (
                   <ArticleListCard
                     key={article.id}
-                    lang={lang}
                     article={article}
                     lineClamp
                   />

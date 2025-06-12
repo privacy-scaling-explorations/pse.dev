@@ -5,7 +5,7 @@ import Image from "next/image"
 
 import { ProjectInterface, ProjectSectionLabelMapping } from "@/lib/types"
 import { cn, removeProtocol } from "@/lib/utils"
-import { useTranslation } from "@/app/i18n/client"
+import { LABELS } from "@/app/labels"
 
 import { AppLink } from "../app-link"
 import { ThemesStatusMapping } from "../project/project-filters-bar"
@@ -17,7 +17,6 @@ interface WikiDetailProps {
 }
 
 interface WikiCardProps {
-  lang?: string
   project: ProjectInterface
   className?: string
 }
@@ -59,13 +58,8 @@ const WikiLink = ({ href, external, children }: WikiLinkProps) => {
   )
 }
 
-export const WikiCard = ({
-  project,
-  className = "",
-  lang = "en",
-}: WikiCardProps) => {
-  const { t } = useTranslation(lang, "common")
-  const statusItem = ThemesStatusMapping(lang)
+export const WikiCard = ({ project, className = "" }: WikiCardProps) => {
+  const statusItem = ThemesStatusMapping
 
   const { website } = project.links ?? {}
 
@@ -98,19 +92,16 @@ export const WikiCard = ({
           </div>
           <div className="gap-[10px] px-6 py-4 md:flex md:flex-col">
             <WikiDetail
-              label={t("filterLabels.projectStatus")}
+              label={LABELS.COMMON.FILTER_LABELS.PROJECT_STATUS}
               value={projectStatus}
             />
             {builtWithKeys?.length > 0 && (
               <WikiDetail
-                label={t("filterLabels.builtWith")}
+                label={LABELS.COMMON.FILTER_LABELS.BUILT_WITH}
                 value={
                   <div className="flex flex-col gap-1 ">
                     {builtWithKeys.map((key) => (
-                      <WikiLink
-                        href={`/${lang}/projects?builtWith=${key}`}
-                        key={key}
-                      >
+                      <WikiLink href={`/projects?builtWith=${key}`} key={key}>
                         {key}
                       </WikiLink>
                     ))}
@@ -119,11 +110,11 @@ export const WikiCard = ({
               />
             )}
             <WikiDetail
-              label={t("filterLabels.funding")}
+              label={LABELS.COMMON.FILTER_LABELS.FUNDING}
               value={projectFunding}
             />
             <WikiDetail
-              label={t("filterLabels.license")}
+              label={LABELS.COMMON.FILTER_LABELS.LICENSE}
               value={project?.license}
             />
             {website && (
@@ -158,7 +149,7 @@ export const WikiCard = ({
             </div>
             <div className="flex items-center justify-center py-4 bg-white">
               <span className="text-xs font-normal text-black">
-                {t("prevBrandImage")}
+                {LABELS.COMMON.PREV_BRAND_IMAGE}
               </span>
             </div>
           </Card>

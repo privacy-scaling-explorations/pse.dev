@@ -1,17 +1,14 @@
 "use client"
 
-import { LocaleTypes } from "@/app/i18n/settings"
 import { useProjectFiltersState } from "@/state/useProjectFiltersState"
 import ProjectCard from "../project/project-card"
 
 interface BlogArticleRelatedProjectsProps {
   projectsIds: string[]
-  lang: LocaleTypes
 }
 
 export const BlogArticleRelatedProjects = ({
   projectsIds,
-  lang,
 }: BlogArticleRelatedProjectsProps) => {
   const { projects: allProjects, researchs: allResearchs } =
     useProjectFiltersState((state) => state)
@@ -32,7 +29,6 @@ export const BlogArticleRelatedProjects = ({
           <ProjectCard
             key={project.id}
             project={project}
-            lang={lang}
             showBanner
             border
             showLinks={false}

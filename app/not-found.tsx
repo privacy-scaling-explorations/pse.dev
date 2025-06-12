@@ -5,33 +5,29 @@ import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Metadata } from "next"
-import { AppContent } from "@/components/ui/app-content"
 
-import { LangProps } from "@/types/common"
 import { fontDisplay, fontSans } from "@/lib/fonts"
 import { Button } from "@/components/ui/button"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 
-import { useTranslation } from "./i18n/client"
+import { LABELS } from "./labels"
 
 export const metadata: Metadata = {
   title: "404: Page Not Found",
 }
 
-export default function NotFound({ lang }: LangProps["params"]) {
-  const { t } = useTranslation(lang, "common")
-
+export default function NotFound() {
   return (
     <html
-      lang={lang}
+      lang="en"
       className={`${fontSans.variable} ${fontDisplay.variable}`}
       suppressHydrationWarning
     >
       <head />
       <body className="min-h-screen">
         <div className="relative flex h-screen flex-col bg-anakiwa-50">
-          <SiteHeader lang={lang} />
+          <SiteHeader />
           <div className="container m-auto">
             <div className="-mt-16 flex flex-col gap-7">
               <div className="flex flex-col items-center justify-center gap-3 text-center">
@@ -46,15 +42,15 @@ export default function NotFound({ lang }: LangProps["params"]) {
                 </div>
                 <div className="flex flex-col gap-5">
                   <span className="font-display text-2xl font-bold text-tuatara-950 md:text-6xl">
-                    {t("error.404.title")}
+                    {LABELS.COMMON.ERROR["404"].TITLE}
                   </span>
                   <span className="font-sans text-base font-normal md:text-lg">
-                    {t("error.404.description")}
+                    {LABELS.COMMON.ERROR["404"].DESCRIPTION}
                   </span>
                 </div>
               </div>
               <Link href="/" className="mx-auto">
-                <Button variant="black">{t("goToHome")}</Button>
+                <Button variant="black">{LABELS.COMMON.GO_TO_HOME}</Button>
               </Link>
             </div>
           </div>

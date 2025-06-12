@@ -1,18 +1,10 @@
 import { MainNavProps } from "@/components/main-nav"
-import { useTranslation } from "@/app/i18n/client"
-import { LocaleTypes, fallbackLng, languageList } from "@/app/i18n/settings"
+import { LABELS } from "@/app/labels"
 
-export function useAppSettings(lang: LocaleTypes) {
-  const { t } = useTranslation(lang, "common")
-
-  // get the active language label
-  const activeLanguage =
-    languageList.find((language) => language.key === lang)?.label ??
-    languageList.find((language) => language.key === fallbackLng)?.label
-
+export function useAppSettings() {
   const MAIN_NAV: MainNavProps["items"] = [
     {
-      title: t("menu.home"),
+      title: LABELS.COMMON.MENU.HOME,
       href: "/",
       onlyMobile: true,
     },
@@ -22,28 +14,28 @@ export function useAppSettings(lang: LocaleTypes) {
       onlyFooter: true,
     },
     {
-      title: t("menu.projects"),
+      title: LABELS.COMMON.MENU.PROJECTS,
       href: "/projects",
     },
     {
-      title: t("menu.research"),
+      title: LABELS.COMMON.MENU.RESEARCH,
       href: "/research",
     },
     {
-      title: t("menu.programs"),
+      title: LABELS.COMMON.MENU.PROGRAMS,
       href: "/programs",
       onlyFooter: true,
     },
     {
-      title: t("menu.about"),
+      title: LABELS.COMMON.MENU.ABOUT,
       href: "/about",
     },
     {
-      title: t("menu.resources"),
+      title: LABELS.COMMON.MENU.RESOURCES,
       href: "/resources",
     },
     {
-      title: t("menu.blog"),
+      title: LABELS.COMMON.MENU.BLOG,
       href: "/blog",
       onlyHeader: true,
     },
@@ -51,6 +43,5 @@ export function useAppSettings(lang: LocaleTypes) {
 
   return {
     MAIN_NAV,
-    activeLanguageLabel: activeLanguage,
   }
 }
