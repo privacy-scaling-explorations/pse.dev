@@ -1,12 +1,10 @@
-"use client"
-
 import { AppContent } from "../ui/app-content"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
 import { Icons } from "../icons"
 import { LABELS } from "@/app/labels"
-import { useGetBlogArticles } from "@/hooks/useFetchContent"
+import { getArticles } from "@/lib/markdownContentFetch"
 
 export type Article = {
   id: string
@@ -144,91 +142,68 @@ const ArticleInEvidenceCard = ({
   )
 }
 
-export function BlogRecentArticles() {
-  const {
-    data: articles = [],
-    isLoading,
-    error,
-  } = useGetBlogArticles({ limit: 4 })
-  const lastArticle = articles[0]
-  const otherArticles = articles.slice(1)
+export async function BlogRecentArticles() {
+  try {
+    const articles = await getArticles({ limit: 4 })
 
-  if (isLoading) {
+    if (!articles.length) {
+      return null
+    }
+
+    const lastArticle = articles[0]
+    const otherArticles = articles.slice(1)
+
     return (
       <div className="py-10 lg:py-16">
-        <AppContent className="w-full">
-          <div className="flex flex-col gap-10 w-full">
+        <AppContent>
+          <div className="flex flex-col gap-10">
             <h3 className="text-base font-bold font-sans text-center uppercase tracking-[3.36px]">
               {LABELS.BLOG_PAGE.RECENT_ARTICLES as string}
             </h3>
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative w-full">
-              <div className="lg:col-span-3 min-h-[200px] lg:min-h-[380px] bg-gray-200 animate-pulse rounded"></div>
-              <div className="lg:col-span-2 flex flex-col gap-6">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="lg:min-h-[110px] h-16 bg-gray-200 animate-pulse rounded"
-                  ></div>
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
+              <div className="inset-0 relative lg:col-span-3">
+                <ArticleInEvidenceCard
+                  article={lastArticle}
+                  showReadMore
+                  showDate={false}
+                  variant="xl"
+                  size="xl"
+                />
+              </div>
+
+              <div className="flex flex-col gap-6 lg:col-span-2">
+                {otherArticles.map((article: Article, index: number) => (
+                  <Link
+                    key={article.id}
+                    href={`/blog/${article.id}`}
+                    className={cn("group border-b pb-4")}
+                  >
+                    <h4 className="text-xl font-medium text-tuatara-950 duration-200 group-hover:text-anakiwa-500 transition-colors">
+                      {article.title}
+                    </h4>
+                    {article.authors && (
+                      <span className="text-sm font-sans text-tuatara-400 uppercase">
+                        {article.authors?.join(", ")}
+                      </span>
+                    )}
+                  </Link>
                 ))}
+                <Link href="/blog" className="mt-auto">
+                  <Button className="uppercase">
+                    <div className="flex items-center gap-2">
+                      <span>{LABELS.BLOG_PAGE.SEE_MORE as string}</span>
+                      <Icons.arrowRight className="w-4 h-4" />
+                    </div>
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         </AppContent>
       </div>
     )
-  }
-
-  if (error || !articles.length) {
+  } catch (error) {
+    console.error("Error fetching articles:", error)
     return null
   }
-
-  return (
-    <div className="py-10 lg:py-16">
-      <AppContent>
-        <div className="flex flex-col gap-10">
-          <h3 className="text-base font-bold font-sans text-center uppercase tracking-[3.36px]">
-            {LABELS.BLOG_PAGE.RECENT_ARTICLES as string}
-          </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
-            <div className="inset-0 relative lg:col-span-3">
-              <ArticleInEvidenceCard
-                article={lastArticle}
-                showReadMore
-                showDate={false}
-                variant="xl"
-                size="xl"
-              />
-            </div>
-
-            <div className="flex flex-col gap-6 lg:col-span-2">
-              {otherArticles.map((article: Article, index: number) => (
-                <Link
-                  key={article.id}
-                  href={`/blog/${article.id}`}
-                  className={cn("group border-b pb-4")}
-                >
-                  <h4 className="text-xl font-medium text-tuatara-950 duration-200 group-hover:text-anakiwa-500 transition-colors">
-                    {article.title}
-                  </h4>
-                  {article.authors && (
-                    <span className="text-sm font-sans text-tuatara-400 uppercase">
-                      {article.authors?.join(", ")}
-                    </span>
-                  )}
-                </Link>
-              ))}
-              <Link href="/blog" className="mt-auto">
-                <Button className="uppercase">
-                  <div className="flex items-center gap-2">
-                    <span>{LABELS.BLOG_PAGE.SEE_MORE as string}</span>
-                    <Icons.arrowRight className="w-4 h-4" />
-                  </div>
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </AppContent>
-    </div>
-  )
 }

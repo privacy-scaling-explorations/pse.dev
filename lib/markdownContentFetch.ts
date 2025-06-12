@@ -73,7 +73,7 @@ export interface FetchMarkdownOptions {
   project?: string
 }
 
-// Generic function to get markdown files from any folder
+// Simplified function to get markdown files from any folder
 export async function getMarkdownFiles(
   folderName: string,
   options?: FetchMarkdownOptions
@@ -95,95 +95,30 @@ export async function getMarkdownFiles(
   const { fs, path, matter, jsYaml } = modules
   const { limit = 1000, tag, project } = options ?? {}
 
-  // Debug logging for production
-  console.log("Current working directory:", process.cwd())
-  console.log("Looking for directory:", folderName)
+  // Simple path resolution for server components
+  const contentDirectory = path.resolve(process.cwd(), folderName)
 
-  // List all directories in current working directory for debugging
+  console.log("Looking for directory:", contentDirectory)
+
   try {
-    const rootFiles = fs.readdirSync(process.cwd())
-    console.log("Files/directories in root:", rootFiles.slice(0, 10)) // Limit output
-
-    // Check specifically for public directory
-    const publicPath = path.join(process.cwd(), "public")
-    if (fs.existsSync(publicPath)) {
-      const publicFiles = fs.readdirSync(publicPath)
-      console.log("Files in public directory:", publicFiles)
-
-      // Check for content in public
-      const publicContentPath = path.join(publicPath, "content")
-      if (fs.existsSync(publicContentPath)) {
-        const contentFiles = fs.readdirSync(publicContentPath)
-        console.log("Files in public/content:", contentFiles)
-      } else {
-        console.log("public/content does not exist")
-      }
-    } else {
-      console.log("public directory does not exist")
+    // Check if the directory exists
+    if (!fs.existsSync(contentDirectory)) {
+      console.error(`Directory not found: ${contentDirectory}`)
+      return []
     }
-  } catch (debugError) {
-    console.error("Debug listing error:", debugError)
-  }
 
-  // Try multiple potential paths where content might be in Vercel
-  const potentialPaths = [
-    // Vercel standalone build paths (prioritize these since we copy content here)
-    path.resolve(process.cwd(), ".next", "standalone", folderName),
-    path.resolve(
-      process.cwd(),
-      ".next",
-      "standalone",
-      "content",
-      folderName.replace("content/", "")
-    ),
-    // Standard development path
-    path.resolve(process.cwd(), folderName),
-    // Other Vercel paths
-    path.resolve(process.cwd(), ".next", "server", folderName),
-    path.resolve(process.cwd(), ".next", folderName),
-    // Public directory (fallback option)
-    path.resolve(process.cwd(), "public", folderName),
-    path.resolve(process.cwd(), ".next", "standalone", "public", folderName),
-    // Alternative build paths
-    path.resolve(process.cwd(), "dist", folderName),
-    path.resolve(process.cwd(), "build", folderName),
-    // Relative to current file
-    path.resolve(__dirname, "..", folderName),
-    path.resolve(__dirname, "..", "..", folderName),
-    path.resolve(__dirname, "..", "..", "..", folderName),
-  ]
+    const files = fs.readdirSync(contentDirectory)
+    console.log(`Found ${files.length} files in ${folderName}`)
 
-  console.log("Trying potential paths:")
-  let workingPath: string | null = null
-
-  for (const potentialPath of potentialPaths) {
-    console.log(`Checking: ${potentialPath}`)
-    try {
-      if (fs.existsSync(potentialPath)) {
-        const files = fs.readdirSync(potentialPath)
-        if (files.length > 0) {
-          console.log(
-            `Found working path: ${potentialPath} with ${files.length} files`
-          )
-          workingPath = potentialPath
-          break
-        }
-      }
-    } catch (error) {
-      console.log(`Error checking ${potentialPath}:`, error)
-    }
-  }
-
-  if (!workingPath) {
-    console.error(`No working path found for ${folderName}`)
+    return getMarkdownFilesFromPath(contentDirectory, modules, {
+      limit,
+      tag,
+      project,
+    })
+  } catch (error) {
+    console.error(`Error accessing directory ${folderName}:`, error)
     return []
   }
-
-  return getMarkdownFilesFromPath(workingPath, modules, {
-    limit,
-    tag,
-    project,
-  })
 }
 
 // Helper function to process files from a given path

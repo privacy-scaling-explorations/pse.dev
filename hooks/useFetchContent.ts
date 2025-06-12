@@ -1,5 +1,6 @@
 import { QueryClient, usePrefetchQuery, useQuery } from "@tanstack/react-query"
 import { ProjectInterface, ProjectCategory } from "@/lib/types"
+import type { Article } from "@/lib/markdownContentFetch"
 
 export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
 export type ProjectFilter =
@@ -11,6 +12,7 @@ export type FiltersProps = Record<ProjectFilter, string[]>
 interface UseGetBlogArticlesParams {
   tag?: string
   limit?: number
+  project?: string
   revalidate?: number
 }
 
@@ -35,6 +37,7 @@ interface UseGetProjectsParams {
 export const useGetBlogArticles = ({
   tag = "",
   limit = 1000,
+  project = "",
   revalidate = 3600,
 }: UseGetBlogArticlesParams = {}) => {
   return useQuery({
@@ -43,24 +46,30 @@ export const useGetBlogArticles = ({
       {
         tag,
         limit,
+        project,
       },
     ],
-    queryFn: async () => {
+    queryFn: async (): Promise<Article[]> => {
       try {
-        const params = new URLSearchParams()
-        if (tag) params.append("tag", tag)
-        if (limit) params.append("limit", limit.toString())
-
-        const response = await fetch(`/api/blog?${params.toString()}`, {
-          next: { revalidate },
-        })
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch articles: ${response.status}`)
+        // Only run on server-side
+        if (typeof window !== "undefined") {
+          console.warn(
+            "getArticles cannot run on client-side, returning empty array"
+          )
+          return []
         }
 
-        const data = await response.json()
-        return data || []
+        console.log("Fetching articles with params:", { tag, limit, project })
+
+        const { getArticles } = await import("@/lib/markdownContentFetch")
+        const articles = await getArticles({
+          tag: tag || undefined,
+          limit,
+          project: project || undefined,
+        })
+
+        console.log("Articles fetched:", articles.length)
+        return articles
       } catch (error) {
         console.error("Error fetching articles:", error)
         throw error
@@ -77,7 +86,7 @@ export const useGetBlogArticles = ({
 // Server-side prefetch function for blog articles
 export const prefetchBlogArticles = async (
   queryClient: any,
-  { tag, limit, revalidate = 3600 }: UseGetBlogArticlesParams = {}
+  { tag, limit, project, revalidate = 3600 }: UseGetBlogArticlesParams = {}
 ) => {
   return await queryClient.prefetchQuery({
     queryKey: [
@@ -85,26 +94,36 @@ export const prefetchBlogArticles = async (
       {
         tag,
         limit,
+        project,
       },
     ],
-    queryFn: async () => {
+    queryFn: async (): Promise<Article[]> => {
       try {
-        const params = new URLSearchParams()
-        if (tag) params.append("tag", tag)
-        if (limit) params.append("limit", limit.toString())
-
-        const response = await fetch(`/api/blog?${params.toString()}`, {
-          next: { revalidate },
-        })
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch articles: ${response.status}`)
+        // Only run on server-side
+        if (typeof window !== "undefined") {
+          console.warn(
+            "getArticles cannot run on client-side, returning empty array"
+          )
+          return []
         }
 
-        const data = await response.json()
-        return data || []
+        console.log("Prefetching articles with params:", {
+          tag,
+          limit,
+          project,
+        })
+
+        const { getArticles } = await import("@/lib/markdownContentFetch")
+        const articles = await getArticles({
+          tag: tag || undefined,
+          limit,
+          project: project || undefined,
+        })
+
+        console.log("Articles prefetched:", articles.length)
+        return articles
       } catch (error) {
-        console.error("Error fetching articles:", error)
+        console.error("Error prefetching articles:", error)
         throw error
       }
     },

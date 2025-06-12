@@ -1,7 +1,6 @@
 import { Divider } from "@/components/divider"
 import { WhatWeDo } from "@/components/sections/WhatWeDo"
 import { HomepageVideoFeed } from "@/components/sections/HomepageVideoFeed"
-
 import { BlogRecentArticles } from "@/components/blog/blog-recent-articles"
 import { HomepageHeader } from "@/components/sections/HomepageHeader"
 import { HomepageBanner } from "@/components/sections/HomepageBanner"

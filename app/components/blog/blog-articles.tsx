@@ -7,13 +7,6 @@ interface BlogArticlesProps {
   tag?: string
 }
 
-async function fetchArticles(tag?: string) {
-  return getArticles({
-    tag,
-    limit: undefined,
-  })
-}
-
 function ArticlesGrid({
   articles,
   lang,
@@ -47,6 +40,9 @@ function ArticlesGrid({
 }
 
 export async function BlogArticles({ lang, tag }: BlogArticlesProps) {
-  const articles = await fetchArticles(tag)
+  const articles = await getArticles({
+    tag,
+    limit: undefined,
+  })
   return <ArticlesGrid articles={articles} lang={lang} />
 }

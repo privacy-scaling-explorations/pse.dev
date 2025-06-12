@@ -1,7 +1,4 @@
-"use client"
-
-import { useQuery } from "@tanstack/react-query"
-import { Article } from "@/lib/markdownContentFetch"
+import { Article, getArticles } from "@/lib/markdownContentFetch"
 import { ArticleListCard } from "./article-list-card"
 import { cn, getBackgroundImage } from "@/lib/utils"
 import Link from "next/link"
@@ -136,96 +133,66 @@ const ArticleInEvidenceCard = ({
   )
 }
 
-async function fetchArticles(tag?: string) {
-  try {
-    const params = new URLSearchParams()
-    if (tag) params.append("tag", tag)
-
-    const response = await fetch(`/api/articles?${params.toString()}`, {
-      cache: "default",
-    })
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch articles: ${response.status}`)
-    }
-
-    const data = await response.json()
-    return data.articles || []
-  } catch (error) {
-    console.error("Error fetching articles:", error)
-    return []
-  }
-}
-
 interface ArticlesListProps {
   tag?: string
   fallback?: React.ReactNode
 }
 
-const ArticlesList: React.FC<ArticlesListProps> = ({
+export default async function ArticlesList({
   tag,
   fallback = null,
-}: ArticlesListProps) => {
-  const {
-    data: articles = [],
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: ["articles", tag],
-    queryFn: () => fetchArticles(tag),
-  })
+}: ArticlesListProps) {
+  try {
+    const articles = await getArticles({
+      tag,
+      limit: undefined,
+    })
 
-  if (isLoading || articles.length === 0) {
-    return <>{fallback}</>
-  }
+    if (articles.length === 0) {
+      return <>{fallback}</>
+    }
 
-  if (isError) {
+    const lastArticle = articles[0]
+    const featuredArticles = !tag ? articles.slice(1, 5) : []
+    const otherArticles = !tag ? articles.slice(5) : articles
+
+    const hasTag = tag !== undefined
+
     return (
-      <div className="py-10 text-center">
-        <p className="text-lg text-red-600">Error loading articles</p>
+      <div className="flex flex-col gap-10 lg:gap-16">
+        {!hasTag && (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch">
+            <ArticleInEvidenceCard
+              article={lastArticle}
+              size="sm"
+              className="h-full"
+              asLink
+            />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 lg:col-span-2 h-full">
+              {featuredArticles?.map((article: Article) => {
+                return (
+                  <ArticleInEvidenceCard
+                    key={article.id}
+                    article={article}
+                    variant="compact"
+                    size="sm"
+                    className="h-full"
+                    asLink
+                  />
+                )
+              })}
+            </div>
+          </div>
+        )}
+        <div className="flex flex-col gap-5 lg:gap-14">
+          {otherArticles.map((article: Article) => {
+            return <ArticleListCard key={article.id} article={article} />
+          })}
+        </div>
       </div>
     )
+  } catch (error) {
+    console.error("Error fetching articles:", error)
+    return <>{fallback}</>
   }
-
-  const lastArticle = articles[0]
-  const featuredArticles = !tag ? articles.slice(1, 5) : []
-  const otherArticles = !tag ? articles.slice(5) : articles
-
-  const hasTag = tag !== undefined
-
-  return (
-    <div className="flex flex-col gap-10 lg:gap-16">
-      {!hasTag && (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch">
-          <ArticleInEvidenceCard
-            article={lastArticle}
-            size="sm"
-            className="h-full"
-            asLink
-          />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 lg:col-span-2 h-full">
-            {featuredArticles?.map((article: Article) => {
-              return (
-                <ArticleInEvidenceCard
-                  key={article.id}
-                  article={article}
-                  variant="compact"
-                  size="sm"
-                  className="h-full"
-                  asLink
-                />
-              )
-            })}
-          </div>
-        </div>
-      )}
-      <div className="flex flex-col gap-5 lg:gap-14">
-        {otherArticles.map((article: Article) => {
-          return <ArticleListCard key={article.id} article={article} />
-        })}
-      </div>
-    </div>
-  )
 }
-
-export default ArticlesList
