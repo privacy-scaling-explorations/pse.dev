@@ -50,7 +50,7 @@ export const LABELS = {
   },
   BLOG_TAGS_PAGE: {
     TITLE: "Blog tags",
-    TAG_TITLE: 'Blog posts tagged with: "{{tag}}"',
+    TAG_TITLE: "Blog posts tagged with: '{{tag}}'",
     SUBTITLE:
       "Read our latest articles and stay updated on the latest news in the world of cryptography.",
     BACK_TO_ARTICLES: "Back to articles",
