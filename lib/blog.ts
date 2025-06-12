@@ -15,7 +15,7 @@ export interface Article {
   publicKey?: string
   hash?: string
   canonical?: string
-  tags?: string[]
+  tags?: { id: string; name: string }[]
   projects?: string[]
 }
 
@@ -71,7 +71,13 @@ export function getArticles(options?: {
       return {
         id,
         ...matterResult.data,
-        tags: tags,
+        tags: tags.map((tag) => ({
+          id: tag
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^a-z0-9-]/g, ""),
+          name: tag,
+        })),
         content: matterResult.content,
       }
     } catch (error) {
@@ -92,7 +98,7 @@ export function getArticles(options?: {
   // Filter by tag if provided
   if (tag) {
     filteredArticles = filteredArticles.filter((article) =>
-      article.tags?.includes(tag)
+      article.tags?.some((t) => t.id === tag)
     )
   }
 
@@ -115,6 +121,28 @@ export function getArticles(options?: {
     })
     .slice(0, limit)
     .filter((article) => article.id !== "_article-template")
+}
+
+export const getArticleTags = () => {
+  const articles = getArticles()
+  const allTags =
+    articles
+      .map((article) => article.tags?.map((t) => t.name))
+      .flat()
+      .filter(Boolean) ?? []
+
+  return Array.from(new Set(allTags)) as string[]
+}
+
+export const getArticleTagsWithIds = () => {
+  const tags = getArticleTags()
+  return tags.map((tag) => ({
+    id: tag
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, ""),
+    name: tag,
+  }))
 }
 
 export function getArticleById(slug?: string) {

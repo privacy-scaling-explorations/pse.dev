@@ -13,7 +13,7 @@ export const LABELS = {
       {
         TITLE: "01. Cryptography for people",
         DESCRIPTION: [
-          'Cryptography is everywhere: every time you connect to a secure site, log in with a password or unlock your phone, you\'re seeing cryptography in action. With "programmable" cryptography (like zero knowledge proofs, multi-party computation or homomorphic encryption) we can make verifiable claims about secret information without revealing the information itself.',
+          "Cryptography is everywhere: every time you connect to a secure site, log in with a password or unlock your phone, you're seeing cryptography in action. With 'programmable' cryptography (like zero knowledge proofs, multi-party computation or homomorphic encryption) we can make verifiable claims about secret information without revealing the information itself.",
           " This can be applied to identity management, collusion resistance, anonymous communication and so much more. We're building a library of dev tools, research papers, and prototypes that are open source and free for everyone to use. We hope our resources inspire people to innovate the technologies that their communities need.",
         ],
       },
@@ -47,6 +47,13 @@ export const LABELS = {
     RECENT_ARTICLES: "Recent articles",
     SEE_MORE: "See more",
     READ_MORE: "Read more",
+  },
+  BLOG_TAGS_PAGE: {
+    TITLE: "Blog tags",
+    TAG_TITLE: 'Blog posts tagged with: "{{tag}}"',
+    SUBTITLE:
+      "Read our latest articles and stay updated on the latest news in the world of cryptography.",
+    BACK_TO_ARTICLES: "Back to articles",
   },
   COMMON: {
     SITE_TITLE: "Privacy & Scaling Explorations",

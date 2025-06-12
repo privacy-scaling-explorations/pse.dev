@@ -25,7 +25,7 @@ interface BlogPageProps {
   searchParams?: { [key: string]: string | string[] | undefined }
 }
 
-const LoadingSkeleton = () => {
+export const BlogLoadingSkeleton = () => {
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch">
@@ -94,9 +94,9 @@ const BlogPage = async ({ searchParams }: BlogPageProps) => {
       </div>
 
       <AppContent className="flex flex-col gap-10 lg:gap-16 pb-10 lg:py-10 lg:max-w-[978px]">
-        <Suspense fallback={<LoadingSkeleton />}>
+        <Suspense fallback={<BlogLoadingSkeleton />}>
           <HydrationBoundary state={dehydrate(queryClient)}>
-            <ArticlesList tag={tag} fallback={<LoadingSkeleton />} />
+            <ArticlesList tag={tag} />
           </HydrationBoundary>
         </Suspense>
       </AppContent>

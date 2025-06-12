@@ -10,8 +10,6 @@ tags:
 projects: ["machina-io"]
 ---
 
-# Hello, World: the first signs of practical iO
-
 04.28.2025 | [Sora Suegami](https://x.com/SoraSue77), [Enrico Bottazzi](https://x.com/backaes), [Pia Park](https://x.com/0xpiapark)
 
 Today, we’re excited to announce that **we have successfully implemented [Diamond iO](https://eprint.iacr.org/2025/236)**, a straightforward construction of indistinguishability obfuscation (iO) that we published in February, and **completed its end-to-end workflow**. You can explore the codebase [here](https://github.com/MachinaIO/diamond-io).

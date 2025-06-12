@@ -159,12 +159,10 @@ async function fetchArticles(tag?: string) {
 
 interface ArticlesListProps {
   tag?: string
-  fallback?: React.ReactNode
 }
 
 const ArticlesList: React.FC<ArticlesListProps> = ({
   tag,
-  fallback = null,
 }: ArticlesListProps) => {
   const {
     data: articles = [],
@@ -176,7 +174,7 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
   })
 
   if (isLoading || articles.length === 0) {
-    return <>{fallback}</>
+    return null
   }
 
   if (isError) {
