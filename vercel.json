@@ -3,13 +3,23 @@
     "app/**": {
       "maxDuration": 30,
       "includeFiles": "content/**"
+    },
+    ".next/standalone/**": {
+      "includeFiles": "content/**"
     }
   },
+  "outputDirectory": ".next",
   "regions": ["iad1"],
   "build": {
     "env": {
       "NEXT_TELEMETRY_DISABLED": "1"
     }
   },
+  "rewrites": [
+    {
+      "source": "/content/(.*)",
+      "destination": "/content/$1"
+    }
+  ],
   "crons": []
 }

@@ -5,6 +5,9 @@ import {
   ProjectInterface,
 } from "./types"
 
+// Static content cache for deployment environments where filesystem access is limited
+const staticContentCache: { [key: string]: MarkdownContent[] } = {}
+
 // Production-ready dynamic imports for server-side only
 async function getServerModules() {
   // Only import on server-side to avoid bundling in client
@@ -28,6 +31,27 @@ async function getServerModules() {
   }
 }
 
+// Function to populate static cache at build time
+async function populateStaticCache(folderName: string) {
+  const modules = await getServerModules()
+  if (!modules) return []
+
+  const { fs, path } = modules
+  const contentDirectory = path.resolve(process.cwd(), folderName)
+
+  if (fs.existsSync(contentDirectory)) {
+    console.log(`📦 Populating static cache for ${folderName}`)
+    const content = await getMarkdownFilesFromPath(contentDirectory, modules, {
+      limit: 1000,
+    })
+    staticContentCache[folderName] = content
+    console.log(`✅ Cached ${content.length} items for ${folderName}`)
+    return content
+  }
+
+  return []
+}
+
 // Simplified function to get markdown files from any folder
 export async function getMarkdownFiles(
   folderName: string,
@@ -39,6 +63,12 @@ export async function getMarkdownFiles(
       "getMarkdownFiles called on client-side, returning empty array"
     )
     return []
+  }
+
+  // First, try to get from static cache
+  if (staticContentCache[folderName]) {
+    console.log(`📁 Using cached content for ${folderName}`)
+    return filterAndLimitContent(staticContentCache[folderName], options)
   }
 
   const modules = await getServerModules()
@@ -57,18 +87,48 @@ export async function getMarkdownFiles(
   if (!fs.existsSync(contentDirectory)) {
     console.log(`First path attempt failed: ${contentDirectory}`)
 
-    // Try relative to the Next.js app directory
-    const altPath1 = path.join(process.cwd(), "..", folderName)
-    const altPath2 = path.join(__dirname, "..", "..", folderName)
-    const altPath3 = path.join(process.cwd(), "app", "..", folderName)
+    // For Vercel deployment, try multiple path strategies
+    const altPaths = [
+      // Try relative to current working directory
+      path.join(process.cwd(), "..", folderName),
+      // Try relative to __dirname (built location)
+      path.join(__dirname, "..", "..", "..", "..", folderName),
+      path.join(__dirname, "..", "..", "..", folderName),
+      path.join(__dirname, "..", "..", folderName),
+      // Try from root of Next.js build
+      path.join(process.cwd(), ".next", "..", folderName),
+      // Try from source location if available
+      path.join("/var/task", folderName),
+      path.join("/tmp", folderName),
+      // Try alternative working directory patterns
+      path.join(process.cwd(), "app", "..", folderName),
+      path.join(process.cwd(), "src", "..", folderName),
+    ]
 
-    const possiblePaths = [altPath1, altPath2, altPath3, contentDirectory]
+    console.log(`Trying ${altPaths.length} alternative paths...`)
 
-    for (const testPath of possiblePaths) {
+    for (let i = 0; i < altPaths.length; i++) {
+      const testPath = altPaths[i]
+      console.log(`Path ${i + 1}: ${testPath}`)
       if (fs.existsSync(testPath)) {
         contentDirectory = testPath
         console.log(`✅ Found content directory at: ${contentDirectory}`)
         break
+      }
+    }
+
+    // If still not found, try to populate cache from build time
+    if (!fs.existsSync(contentDirectory)) {
+      console.log("❌ Content directory not found, trying build-time cache...")
+
+      // Try to populate cache at runtime if possible
+      try {
+        await populateStaticCache(folderName)
+        if (staticContentCache[folderName]) {
+          return filterAndLimitContent(staticContentCache[folderName], options)
+        }
+      } catch (error) {
+        console.error("Failed to populate static cache:", error)
       }
     }
   }
@@ -95,7 +155,7 @@ export async function getMarkdownFiles(
           )
         }
       } catch (e) {
-        console.error(`Cannot read directories: ${e}`)
+        console.error("Cannot read directories: " + e)
       }
 
       return []
@@ -112,6 +172,52 @@ export async function getMarkdownFiles(
     console.error(`❌ Error accessing directory ${folderName}:`, error)
     return []
   }
+}
+
+// Helper function to filter and limit content
+function filterAndLimitContent(
+  content: MarkdownContent[],
+  options?: FetchMarkdownOptions
+): MarkdownContent[] {
+  const { limit = 1000, tag, project } = options ?? {}
+
+  let filteredContent = [...content]
+
+  // Filter by tag if provided
+  if (tag) {
+    filteredContent = filteredContent.filter((item) => {
+      // Handle array format (legacy articles)
+      if (Array.isArray(item.tags)) {
+        return item.tags.includes(tag)
+      }
+      // Handle object format (projects)
+      if (typeof item.tags === "object" && item.tags !== null) {
+        // Check all tag categories for the tag
+        return Object.values(item.tags).some((tagArray) =>
+          Array.isArray(tagArray) ? tagArray.includes(tag) : false
+        )
+      }
+      return false
+    })
+  }
+
+  // Filter by project if provided
+  if (project) {
+    filteredContent = filteredContent.filter(
+      (item) => Array.isArray(item.projects) && item.projects.includes(project)
+    )
+  }
+
+  // Sort content by date (if date exists)
+  return filteredContent
+    .sort((a, b) => {
+      const dateA = new Date(a.date || "1970-01-01")
+      const dateB = new Date(b.date || "1970-01-01")
+
+      // Sort in descending order (newest first)
+      return dateB.getTime() - dateA.getTime()
+    })
+    .slice(0, limit)
 }
 
 // Helper function to process files from a given path
