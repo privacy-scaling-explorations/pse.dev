@@ -53,8 +53,6 @@ export async function getMarkdownFiles(
   // Simple path resolution (works on homepage)
   const contentDirectory = path.resolve(process.cwd(), folderName)
 
-  console.log(`📁 Looking for directory: ${contentDirectory}`)
-
   try {
     // Check if the directory exists
     if (!fs.existsSync(contentDirectory)) {
@@ -73,7 +71,6 @@ export async function getMarkdownFiles(
     }
 
     const files = fs.readdirSync(contentDirectory)
-    console.log(`✅ Found ${files.length} files in ${folderName}`)
 
     return getMarkdownFilesFromPath(contentDirectory, modules, {
       limit,

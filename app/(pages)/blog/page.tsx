@@ -53,9 +53,12 @@ const LoadingSkeleton = () => {
 const BlogPage = async ({ searchParams }: BlogPageProps) => {
   const tag = searchParams?.tag as string | undefined
 
-  const articles = await getArticles({
-    tag,
-  })
+  const options: any = {}
+  if (tag) {
+    options.tag = tag
+  }
+
+  const articles = await getArticles(options)
 
   return (
     <div className="flex flex-col">
