@@ -7,10 +7,6 @@ import { Skeleton } from "@/components/skeleton"
 import { LABELS } from "@/app/labels"
 import { getArticles } from "@/lib/markdownContentFetch"
 
-export const dynamic = "force-dynamic"
-
-export const revalidate = 60 // Revalidate every 60 seconds
-
 export const metadata: Metadata = {
   title: "Blog",
   description: "",
@@ -57,10 +53,8 @@ const LoadingSkeleton = () => {
 const BlogPage = async ({ searchParams }: BlogPageProps) => {
   const tag = searchParams?.tag as string | undefined
 
-  // Fetch articles data on the server side
   const articles = await getArticles({
     tag,
-    limit: undefined,
   })
 
   return (

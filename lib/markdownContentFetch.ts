@@ -50,20 +50,30 @@ export async function getMarkdownFiles(
   const { fs, path, matter, jsYaml } = modules
   const { limit = 1000, tag, project } = options ?? {}
 
-  // Simple path resolution for server components
+  // Simple path resolution (works on homepage)
   const contentDirectory = path.resolve(process.cwd(), folderName)
 
-  console.log("Looking for directory:", contentDirectory)
+  console.log(`📁 Looking for directory: ${contentDirectory}`)
 
   try {
     // Check if the directory exists
     if (!fs.existsSync(contentDirectory)) {
-      console.error(`Directory not found: ${contentDirectory}`)
+      console.error(`❌ Directory not found: ${contentDirectory}`)
+      console.error(`Current working directory: ${process.cwd()}`)
+
+      // List contents of current directory for debugging
+      try {
+        const cwdContents = fs.readdirSync(process.cwd())
+        console.error(`Contents of ${process.cwd()}:`, cwdContents.slice(0, 10))
+      } catch (e) {
+        console.error(`Cannot read current directory: ${e}`)
+      }
+
       return []
     }
 
     const files = fs.readdirSync(contentDirectory)
-    console.log(`Found ${files.length} files in ${folderName}`)
+    console.log(`✅ Found ${files.length} files in ${folderName}`)
 
     return getMarkdownFilesFromPath(contentDirectory, modules, {
       limit,
@@ -71,7 +81,7 @@ export async function getMarkdownFiles(
       project,
     })
   } catch (error) {
-    console.error(`Error accessing directory ${folderName}:`, error)
+    console.error(`❌ Error accessing directory ${folderName}:`, error)
     return []
   }
 }

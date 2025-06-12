@@ -11,47 +11,59 @@ import { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
-export const dynamic = "force-dynamic"
-
 export const generateStaticParams = async () => {
-  const articles = await getArticles()
-  return articles.map(({ id }) => ({
-    slug: id,
-  }))
+  try {
+    const articles = await getArticles()
+    return articles.map(({ id }) => ({
+      slug: id,
+    }))
+  } catch (error) {
+    console.error("Error in generateStaticParams:", error)
+    // Return empty array to avoid build failure
+    return []
+  }
 }
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const post = await getArticleById(params.slug)
+  try {
+    const post = await getArticleById(params.slug)
 
-  if (!post) {
+    if (!post) {
+      return {
+        title: "Article Not Found",
+        description: "The requested article could not be found",
+      }
+    }
+
+    const imageUrl =
+      post && (post?.image ?? "")?.length > 0 ? post?.image : "/og-image.png"
+
+    const metadata: Metadata = {
+      title: `${post?.title} - ${LABELS.COMMON.SITE_TITLE}`,
+      description: post?.tldr,
+      openGraph: {
+        images: [{ url: imageUrl as string, width: 1200, height: 630 }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        images: [imageUrl as string],
+      },
+    }
+
+    if (post && "canonical" in post) {
+      metadata.alternates = {
+        canonical: post.canonical as string,
+      }
+    }
+
+    return metadata
+  } catch (error) {
+    console.error("Error generating metadata:", error)
     return {
       title: "Article Not Found",
       description: "The requested article could not be found",
     }
   }
-
-  const imageUrl =
-    post && (post?.image ?? "")?.length > 0 ? post?.image : "/og-image.png"
-
-  const metadata: Metadata = {
-    title: `${post?.title} - ${LABELS.COMMON.SITE_TITLE}`,
-    description: post?.tldr,
-    openGraph: {
-      images: [{ url: imageUrl as string, width: 1200, height: 630 }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      images: [imageUrl as string],
-    },
-  }
-
-  if (post && "canonical" in post) {
-    metadata.alternates = {
-      canonical: post.canonical as string,
-    }
-  }
-
-  return metadata
 }
 
 export default async function BlogArticle({ params }: any) {

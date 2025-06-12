@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 
-import { ProjectInterface } from "@/lib/types"
+import { ProjectInterface, Article } from "@/lib/types"
 
 import { ProjectContent } from "../sections/ProjectContent"
 import { getProjectById, getArticles } from "@/lib/markdownContentFetch"
@@ -66,14 +66,35 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     notFound()
   }
 
+  console.log(`🔍 Project page - fetching data for project: ${projectId}`)
+
   // Fetch project and related articles server-side
-  const [project, relatedArticles] = await Promise.all([
-    getProjectById(projectId),
-    getArticles({ project: projectId }),
-  ])
+  let project: ProjectInterface | null = null
+  let relatedArticles: Article[] = []
+
+  try {
+    console.log("📦 Fetching project...")
+    const fetchedProject = await getProjectById(projectId)
+    project = fetchedProject || null
+    console.log(`✅ Project fetched: ${project?.name || "not found"}`)
+  } catch (error) {
+    console.error("❌ Project fetch failed:", error)
+    project = null
+  }
 
   if (!project) {
+    console.log("⚠️ Project not found, redirecting to 404")
     notFound()
+  }
+
+  try {
+    console.log(`📰 Fetching articles for project: ${projectId}`)
+    relatedArticles = await getArticles({ project: projectId })
+    console.log(`✅ Articles fetched: ${relatedArticles.length} found`)
+  } catch (error) {
+    console.error("❌ Articles fetch failed:", error)
+    console.error("Error details:", error)
+    relatedArticles = []
   }
 
   return (
