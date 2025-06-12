@@ -3,7 +3,7 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { VariantProps, cva } from "class-variance-authority"
 
-import { MarkdownContent } from "@/lib/markdownContentFetch"
+import { MarkdownContent } from "@/hooks/useFetchContent"
 import {
   ProjectInterface,
   ProjectLinkWebsite,

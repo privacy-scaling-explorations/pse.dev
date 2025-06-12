@@ -1,7 +1,5 @@
-"use client"
 import Link from "next/link"
-import { Markdown } from "../ui/markdown"
-import { MarkdownContent } from "@/lib/markdownContentFetch"
+import { MarkdownContent } from "@/hooks/useFetchContent"
 import { getBackgroundImage } from "@/lib/utils"
 
 export const ArticleListCard = ({
@@ -53,48 +51,9 @@ export const ArticleListCard = ({
                 {article.authors?.map((author) => author).join(", ")}
               </span>
               <div className="hidden lg:block">
-                <Markdown
-                  components={{
-                    h1: ({ children }) => (
-                      <h1 className="font-sans text-sm text-tuatara-600 group-hover:text-tuatara-950 duration-200">
-                        {children}
-                      </h1>
-                    ),
-                    h2: ({ children }) => (
-                      <h2 className="font-sans text-sm text-tuatara-600 group-hover:text-tuatara-950 duration-200">
-                        {children}
-                      </h2>
-                    ),
-                    h3: ({ children }) => (
-                      <h3 className="font-sans text-sm text-tuatara-600 group-hover:text-tuatara-950 duration-200">
-                        {children}
-                      </h3>
-                    ),
-                    h4: ({ children }) => (
-                      <h4 className="font-sans text-sm text-tuatara-600 group-hover:text-tuatara-950 duration-200">
-                        {children}
-                      </h4>
-                    ),
-                    h5: ({ children }) => (
-                      <h5 className="font-sans text-sm text-tuatara-600 group-hover:text-tuatara-950 duration-200">
-                        {children}
-                      </h5>
-                    ),
-                    h6: ({ children }) => (
-                      <h6 className="font-sans text-sm text-tuatara-600 group-hover:text-tuatara-950 duration-200">
-                        {children}
-                      </h6>
-                    ),
-                    p: ({ children }) => (
-                      <p className="font-sans text-sm text-tuatara-600 group-hover:text-tuatara-950 duration-200">
-                        {children}
-                      </p>
-                    ),
-                    img: ({ src, alt }) => null,
-                  }}
-                >
+                <div className="font-sans text-sm text-tuatara-600 group-hover:text-tuatara-950 duration-200">
                   {tldr}
-                </Markdown>
+                </div>
               </div>
             </div>
             <span

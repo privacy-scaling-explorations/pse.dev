@@ -1,6 +1,38 @@
 import { QueryClient, usePrefetchQuery, useQuery } from "@tanstack/react-query"
 import { ProjectInterface, ProjectCategory } from "@/lib/types"
-import type { Article } from "@/lib/markdownContentFetch"
+
+export interface Article {
+  id: string
+  title: string
+  image: string
+  tldr?: string
+  content: string
+  date: string
+  authors: string[]
+  canonical?: string
+  tags?: string[]
+  projects?: string[]
+  [key: string]: any
+}
+
+export interface MarkdownContent {
+  id: string
+  title: string
+  image?: string
+  tldr?: string
+  content: string
+  date: string
+  authors?: string[]
+  signature?: string
+  category?: string
+  projectStatus?: string
+  publicKey?: string
+  hash?: string
+  canonical?: string
+  tags?: string[]
+  projects?: string[]
+  [key: string]: any // Allow for additional properties
+}
 
 export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
 export type ProjectFilter =
@@ -9,6 +41,7 @@ export type ProjectFilter =
   | "themes"
   | "fundingSource"
 export type FiltersProps = Record<ProjectFilter, string[]>
+
 interface UseGetBlogArticlesParams {
   tag?: string
   limit?: number
@@ -33,7 +66,7 @@ interface UseGetProjectsParams {
   ids?: string[] | null | undefined
 }
 
-// Client-side hook for blog articles
+// Client-side hook for blog articles using server-side rendering approach
 export const useGetBlogArticles = ({
   tag = "",
   limit = 1000,
@@ -50,85 +83,41 @@ export const useGetBlogArticles = ({
       },
     ],
     queryFn: async (): Promise<Article[]> => {
-      try {
-        // Only run on server-side
-        if (typeof window !== "undefined") {
-          console.warn(
-            "getArticles cannot run on client-side, returning empty array"
-          )
-          return []
-        }
-
-        console.log("Fetching articles with params:", { tag, limit, project })
-
-        const { getArticles } = await import("@/lib/markdownContentFetch")
-        const articles = await getArticles({
-          tag: tag || undefined,
-          limit,
-          project: project || undefined,
-        })
-
-        console.log("Articles fetched:", articles.length)
-        return articles
-      } catch (error) {
-        console.error("Error fetching articles:", error)
-        throw error
-      }
+      // This hook should only be used with prefetched data
+      // Return empty array as fallback for client-side usage
+      console.warn(
+        "useGetBlogArticles: No prefetched data available, returning empty array"
+      )
+      return []
     },
     staleTime: (revalidate || 3600) * 1000,
-    retry: 3,
-    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+    retry: 1, // Reduce retries since this is expected to fail on client-side
+    retryDelay: 1000,
     refetchOnWindowFocus: false,
-    refetchOnReconnect: true,
+    refetchOnReconnect: false,
   })
 }
 
-// Server-side prefetch function for blog articles
-export const prefetchBlogArticles = async (
-  queryClient: any,
-  { tag, limit, project, revalidate = 3600 }: UseGetBlogArticlesParams = {}
-) => {
-  return await queryClient.prefetchQuery({
-    queryKey: [
-      "articles",
-      {
-        tag,
-        limit,
-        project,
-      },
-    ],
-    queryFn: async (): Promise<Article[]> => {
-      try {
-        // Only run on server-side
-        if (typeof window !== "undefined") {
-          console.warn(
-            "getArticles cannot run on client-side, returning empty array"
-          )
-          return []
-        }
-
-        console.log("Prefetching articles with params:", {
-          tag,
-          limit,
-          project,
-        })
-
-        const { getArticles } = await import("@/lib/markdownContentFetch")
-        const articles = await getArticles({
-          tag: tag || undefined,
-          limit,
-          project: project || undefined,
-        })
-
-        console.log("Articles prefetched:", articles.length)
-        return articles
-      } catch (error) {
-        console.error("Error prefetching articles:", error)
-        throw error
-      }
-    },
-    staleTime: (revalidate || 3600) * 1000,
+// Hook specifically for project-related articles (replacing useGetProjectRelatedArticles)
+export const useGetProjectRelatedArticles = ({
+  projectId,
+}: {
+  projectId: string
+}) => {
+  const {
+    data: articles = [],
+    isLoading: loading,
+    error,
+  } = useGetBlogArticles({
+    project: projectId,
+    limit: undefined,
   })
+
+  return {
+    articles,
+    loading,
+    error,
+  }
 }
 
 // Client-side hook for projects with enhanced filtering

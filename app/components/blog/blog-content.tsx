@@ -4,7 +4,7 @@ import { Markdown } from "../ui/markdown"
 import { BlogArticleRelatedProjects } from "./blog-article-related-projects"
 import { ArticleListCard } from "./article-list-card"
 import Image from "next/image"
-import { MarkdownContent } from "@/lib/markdownContentFetch"
+import { MarkdownContent } from "@/hooks/useFetchContent"
 
 interface BlogContentProps {
   post: MarkdownContent

@@ -1,4 +1,4 @@
-import { Article } from "@/lib/markdownContentFetch"
+import { Article } from "@/hooks/useFetchContent"
 import { cn } from "@/lib/utils"
 import { cva } from "class-variance-authority"
 import Image from "next/image"

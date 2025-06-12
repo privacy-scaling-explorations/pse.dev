@@ -1,7 +1,8 @@
 "use client"
 
-import { useGetProjects } from "@/hooks/useFetchContent"
+import { useQuery } from "@tanstack/react-query"
 import ProjectCard from "../project/project-card"
+import { ProjectInterface } from "@/lib/types"
 
 interface BlogArticleRelatedProjectsProps {
   projectsIds: string[]
@@ -10,8 +11,29 @@ interface BlogArticleRelatedProjectsProps {
 export const BlogArticleRelatedProjects = ({
   projectsIds = [],
 }: BlogArticleRelatedProjectsProps) => {
-  const { data: projects = [], error } = useGetProjects({
-    ids: projectsIds,
+  const { data: projects = [], error } = useQuery({
+    queryKey: ["projects", { ids: projectsIds }],
+    queryFn: async (): Promise<ProjectInterface[]> => {
+      try {
+        const params = new URLSearchParams()
+        if (projectsIds.length > 0) {
+          params.append("ids", projectsIds.join(","))
+        }
+
+        const response = await fetch(`/api/projects?${params.toString()}`)
+        if (!response.ok) {
+          throw new Error(`Failed to fetch projects: ${response.status}`)
+        }
+
+        const data = await response.json()
+        return data.projects || []
+      } catch (error) {
+        console.error("Error fetching projects:", error)
+        return []
+      }
+    },
+    enabled: projectsIds.length > 0,
+    staleTime: 5 * 60 * 1000, // 5 minutes
   })
 
   if (error || projects.length === 0) return null

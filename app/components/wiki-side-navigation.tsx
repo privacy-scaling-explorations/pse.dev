@@ -6,7 +6,7 @@ import { ProjectExtraLinkType } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
 import { Icons } from "./icons"
-import { useGetProjectRelatedArticles } from "@/hooks/useGetProjectRelatedArticles"
+import { useGetProjectRelatedArticles } from "@/hooks/useFetchContent"
 import { LABELS } from "@/app/labels"
 
 interface Section {

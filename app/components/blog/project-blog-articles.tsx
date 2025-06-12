@@ -2,9 +2,9 @@
 
 import { ProjectInterface } from "@/lib/types"
 import { AppContent } from "../ui/app-content"
-import { Article } from "@/lib/markdownContentFetch"
+import { Article } from "@/hooks/useFetchContent"
 import { ArticleListCard } from "./article-list-card"
-import { useGetProjectRelatedArticles } from "@/hooks/useGetProjectRelatedArticles"
+import { useGetProjectRelatedArticles } from "@/hooks/useFetchContent"
 
 export const ProjectBlogArticles = ({
   project,
