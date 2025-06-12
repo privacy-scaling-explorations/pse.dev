@@ -63,7 +63,7 @@ export default function BlogArticle({ params }: any) {
 
   const isNewsletter =
     post?.title?.toLowerCase().includes("newsletter") ||
-    post?.tags?.includes("newsletter") ||
+    post?.tags?.some((tag) => tag.name.toLowerCase().includes("newsletter")) ||
     post?.tldr?.toLowerCase()?.includes("newsletter")
 
   return (
@@ -142,12 +142,12 @@ export default function BlogArticle({ params }: any) {
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {post?.tags?.map((tag) => (
-                    <Link key={tag} href={`/blog?tag=${tag}`}>
+                    <Link key={tag.id} href={`/blog/tags/${tag.id}`}>
                       <Button
                         size="xs"
                         variant={imageAsCover ? "secondary" : "default"}
                       >
-                        {tag}
+                        {tag.name}
                       </Button>
                     </Link>
                   ))}

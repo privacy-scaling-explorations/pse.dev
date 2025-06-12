@@ -1,0 +1,101 @@
+import { LABELS } from "@/app/labels"
+import { ArticleListCard } from "@/components/blog/article-list-card"
+import { AppContent } from "@/components/ui/app-content"
+import { Label } from "@/components/ui/label"
+import { getArticles, Article, getArticleTags } from "@/lib/blog"
+import { interpolate } from "@/lib/utils"
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query"
+import { Suspense } from "react"
+import { BlogLoadingSkeleton } from "../../page"
+import Link from "next/link"
+import { Icons } from "@/components/icons"
+import { Metadata } from "next"
+
+interface BlogTagPageProps {
+  params: { tag: string }
+}
+
+export async function generateMetadata({
+  params,
+}: BlogTagPageProps): Promise<Metadata> {
+  const { tag } = params
+
+  return {
+    title: interpolate(LABELS.BLOG_TAGS_PAGE.TAG_TITLE, { tag }),
+    description: LABELS.BLOG_TAGS_PAGE.SUBTITLE,
+  }
+}
+
+export const generateStaticParams = async () => {
+  const tags = await getArticleTags()
+  return tags.map((tag) => ({ tag }))
+}
+
+const BlogTagPage = async ({ params }: BlogTagPageProps) => {
+  const { tag } = params
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery({
+    queryKey: ["get-articles-by-tag", tag],
+    queryFn: async () => {
+      try {
+        const articles = getArticles({ tag })
+        return articles
+      } catch (error) {
+        console.error("Error fetching articles:", error)
+        return []
+      }
+    },
+  })
+
+  const articles = queryClient.getQueryData([
+    "get-articles-by-tag",
+    tag,
+  ]) as Article[]
+
+  return (
+    <div className="flex flex-col">
+      <div className="w-full bg-page-header-gradient">
+        <AppContent className="flex flex-col gap-4 py-10 w-full">
+          <Link
+            className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950 mr-auto"
+            href="/blog"
+          >
+            <Icons.arrowLeft />
+            <span className="font-sans text-base">
+              {LABELS.BLOG_TAGS_PAGE.BACK_TO_ARTICLES}
+            </span>
+          </Link>
+          <Label.PageTitle
+            label={interpolate(LABELS.BLOG_TAGS_PAGE.TAG_TITLE, {
+              tag: tag,
+            })}
+          />
+        </AppContent>
+      </div>
+
+      <AppContent className="flex flex-col gap-10 lg:gap-16 pb-10 lg:py-10 lg:max-w-[978px]">
+        <Suspense fallback={<BlogLoadingSkeleton />}>
+          <HydrationBoundary state={dehydrate(queryClient)}>
+            <div className="flex flex-col gap-5 lg:gap-14">
+              {articles?.map((article: Article) => (
+                <ArticleListCard key={article.id} article={article} />
+              ))}
+              {articles?.length === 0 && (
+                <p className="text-center text-gray-500 py-10">
+                  No articles found for tag &quot;{tag}&quot;
+                </p>
+              )}
+            </div>
+          </HydrationBoundary>
+        </Suspense>
+      </AppContent>
+    </div>
+  )
+}
+
+export default BlogTagPage
