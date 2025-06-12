@@ -56,7 +56,7 @@ export async function generateRssFeed(lang: string = "en") {
 
   try {
     // Get all articles
-    const articlesDirectory = path.join(process.cwd(), "articles")
+    const articlesDirectory = path.join(process.cwd(), "content/articles")
     const articleFiles = fs.readdirSync(articlesDirectory)
 
     const articles = articleFiles
@@ -89,7 +89,7 @@ export async function generateRssFeed(lang: string = "en") {
     // Add articles to feed
     articles.forEach((article) => {
       try {
-        const url = `${SITE_URL}/articles/${article.slug}`
+        const url = `${SITE_URL}/blog/${article.slug}`
         const pubDate = formatDate(article.frontmatter.date)
 
         feed.addItem({

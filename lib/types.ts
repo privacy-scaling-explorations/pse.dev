@@ -145,3 +145,42 @@ export interface ProjectInterface {
     secondary?: string
   }
 }
+
+export interface MarkdownContent {
+  id: string
+  title: string
+  image?: string
+  tldr?: string
+  content: string
+  date: string
+  authors?: string[]
+  signature?: string
+  category?: string
+  projectStatus?: string
+  publicKey?: string
+  hash?: string
+  canonical?: string
+  tags?: string[]
+  projects?: string[]
+  [key: string]: any // Allow for additional properties
+}
+
+export interface Article {
+  id: string
+  title: string
+  image: string
+  tldr?: string
+  content: string
+  date: string
+  authors: string[]
+  canonical?: string
+  tags?: string[]
+  projects?: string[]
+  [key: string]: any
+}
+
+export interface FetchMarkdownOptions {
+  limit?: number
+  tag?: string
+  project?: string
+}

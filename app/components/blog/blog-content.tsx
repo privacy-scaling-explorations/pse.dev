@@ -4,11 +4,11 @@ import { Markdown } from "../ui/markdown"
 import { BlogArticleRelatedProjects } from "./blog-article-related-projects"
 import { ArticleListCard } from "./article-list-card"
 import Image from "next/image"
-import { MarkdownContent } from "@/hooks/useFetchContent"
+import { Article } from "@/lib/types"
 
 interface BlogContentProps {
-  post: MarkdownContent
-  articles?: MarkdownContent[]
+  post: Article
+  articles?: Article[]
   isNewsletter?: boolean
 }
 
@@ -58,9 +58,7 @@ export function BlogContent({
   const nextArticle =
     articleIndex < articles.length - 1 ? articles[articleIndex + 1] : null
 
-  const moreArticles = [prevArticle, nextArticle].filter(
-    Boolean
-  ) as MarkdownContent[]
+  const moreArticles = [prevArticle, nextArticle].filter(Boolean) as Article[]
 
   const projectsIds = post?.projects?.map((project) => project) ?? []
 
@@ -89,7 +87,7 @@ export function BlogContent({
               </Link>
             </div>
             <div className="flex flex-col gap-10">
-              {moreArticles.map((article: MarkdownContent) => {
+              {moreArticles.map((article: Article) => {
                 return (
                   <ArticleListCard
                     key={article.id}

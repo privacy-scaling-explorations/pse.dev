@@ -4,7 +4,7 @@ import { ArticleListCard } from "./article-list-card"
 import { cn, getBackgroundImage } from "@/lib/utils"
 import Link from "next/link"
 import { cva } from "class-variance-authority"
-import { Article } from "@/hooks/useFetchContent"
+import { Article } from "@/lib/types"
 
 const ArticleTitle = cva(
   "text-white font-display hover:text-anakiwa-400 transition-colors group-hover:text-anakiwa-400",

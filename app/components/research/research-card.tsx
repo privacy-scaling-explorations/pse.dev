@@ -3,7 +3,7 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { VariantProps, cva } from "class-variance-authority"
 
-import { MarkdownContent } from "@/hooks/useFetchContent"
+import { MarkdownContent } from "@/lib/types"
 import {
   ProjectInterface,
   ProjectLinkWebsite,
@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils"
 
 import { ProjectLink } from "../mappings/project-link"
 import Link from "next/link"
+import { Button } from "../ui/button"
 
 interface ProjectCardProps
   extends React.HTMLAttributes<HTMLDivElement>,

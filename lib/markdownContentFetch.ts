@@ -1,4 +1,9 @@
-import { ProjectInterface } from "./types"
+import {
+  Article,
+  FetchMarkdownOptions,
+  MarkdownContent,
+  ProjectInterface,
+} from "./types"
 
 // Production-ready dynamic imports for server-side only
 async function getServerModules() {
@@ -21,56 +26,6 @@ async function getServerModules() {
     console.error("Failed to load server modules:", error)
     return null
   }
-}
-
-// Base interface for all markdown content
-export interface MarkdownContent {
-  id: string
-  title: string
-  image?: string
-  tldr?: string
-  content: string
-  date: string
-  authors?: string[]
-  signature?: string
-  category?: string
-  projectStatus?: string
-  publicKey?: string
-  hash?: string
-  canonical?: string
-  tags?: string[]
-  projects?: string[]
-  [key: string]: any // Allow for additional properties
-}
-
-// Article-specific interface based on _article-template.md
-export interface Article {
-  id: string
-  title: string
-  image: string
-  tldr?: string
-  content: string
-  date: string
-  authors: string[]
-  canonical?: string
-  tags?: string[]
-  projects?: string[]
-  [key: string]: any
-}
-
-// Project-specific interfaces based on _project-template.md
-export interface ProjectTags {
-  keywords?: string[]
-  themes?: string[]
-  types?: string[]
-  builtWith?: string[]
-  fundingSource?: string[]
-}
-
-export interface FetchMarkdownOptions {
-  limit?: number
-  tag?: string
-  project?: string
 }
 
 // Simplified function to get markdown files from any folder

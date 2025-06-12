@@ -32,7 +32,7 @@ export const QueryClientProviderLayout = ({
   children: React.ReactNode
 }) => {
   const queryClient = getQueryClient()
-  const withQueryDevtools = true
+  const withQueryDevtools = false
 
   return (
     <QueryClientProvider client={queryClient}>

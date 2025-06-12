@@ -6,7 +6,6 @@ import { ProjectExtraLinkType } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
 import { Icons } from "./icons"
-import { useGetProjectRelatedArticles } from "@/hooks/useFetchContent"
 import { LABELS } from "@/app/labels"
 
 interface Section {
@@ -15,11 +14,11 @@ interface Section {
   id: string
 }
 
-interface WikiSideNavigationProps {
-  className?: string
-  lang?: string
-  content?: string
-  project?: any
+interface SideNavigationItemProps {
+  text: string
+  id: string
+  activeSection: string | null
+  onClick: () => void
 }
 
 const SideNavigationItem = ({
@@ -27,139 +26,129 @@ const SideNavigationItem = ({
   id,
   activeSection,
   onClick,
-}: {
-  text: string
-  id: string
-  activeSection: string | null
-  onClick: () => void
-}) => {
-  return (
-    <li
-      key={id}
-      className={cn(
-        "flex min-h-8 items-center border-l-2 border-l-anakiwa-200 px-2 duration-200 cursor-pointer w-full pb-2",
-        {
-          "border-l-anakiwa-500 text-anakiwa-500 font-medium":
-            activeSection === id,
-        }
-      )}
-    >
-      <button onClick={onClick} className="text-left">
-        {text}
-      </button>
-    </li>
-  )
+}: SideNavigationItemProps) => (
+  <button
+    onClick={onClick}
+    className={cn(
+      "text-sm text-left duration-200 hover:text-anakiwa-500",
+      activeSection === id ? "text-orange" : "text-tuatara-600"
+    )}
+  >
+    {text}
+  </button>
+)
+
+interface WikiSideNavigationProps {
+  project: any
+  content: string
+  className?: string
+  hasRelatedArticles?: boolean
 }
 
 export const WikiSideNavigation = ({
-  className,
-  lang = "en",
-  content = "",
   project,
+  content,
+  className,
+  hasRelatedArticles = false,
 }: WikiSideNavigationProps) => {
   const [sections, setSections] = useState<Section[]>([])
   const [activeSection, setActiveSection] = useState<string | null>(null)
   const observerRef = useRef<IntersectionObserver | null>(null)
 
-  const { articles, loading } = useGetProjectRelatedArticles({
-    projectId: project.id,
-  })
-
   useEffect(() => {
-    if (!content) return
-    const sectionsRegex = /^(#{1,3})\s(.+)/gm
-    const extractedSections: Section[] = []
-    let match
+    if (typeof window !== "undefined" && content) {
+      // Parse headings from markdown content
+      const tempDiv = document.createElement("div")
+      tempDiv.innerHTML = content.replace(
+        /^(#{1,6})\s+(.+)$/gm,
+        (match, hashes, title) => {
+          const level = hashes.length
+          const id = title
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, "")
+            .replace(/\s+/g, "-")
+            .trim()
+          return `<h${level} id="${id}">${title}</h${level}>`
+        }
+      )
 
-    while ((match = sectionsRegex.exec(content)) !== null) {
-      const text = match[2]
-      if (!extractedSections.some((section) => section.text === text)) {
-        extractedSections.push({
-          level: match[1].length,
-          text,
-          id: text.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-        })
-      }
-    }
+      const headings = tempDiv.querySelectorAll("h1, h2, h3, h4, h5, h6")
+      const parsedSections = Array.from(headings).map((heading) => ({
+        level: parseInt(heading.tagName.charAt(1)),
+        text: heading.textContent || "",
+        id:
+          heading.id ||
+          heading.textContent?.toLowerCase().replace(/\s+/g, "-") ||
+          "",
+      }))
 
-    setSections(extractedSections)
-    if (extractedSections.length > 0) {
-      setActiveSection(extractedSections[0].id)
+      setSections(parsedSections)
     }
   }, [content])
 
-  // Set up intersection observer
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "-20% 0px -80% 0px",
-      threshold: 0,
-    }
+    if (sections.length > 0) {
+      // Create intersection observer
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(entry.target.id)
+            }
+          })
+        },
+        {
+          rootMargin: "-20% 0px -60% 0px",
+        }
+      )
 
-    observerRef.current = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.getAttribute("data-section-id"))
+      // Observe all sections
+      sections.forEach((section) => {
+        const element = document.getElementById(section.id)
+        if (element && observerRef.current) {
+          observerRef.current.observe(element)
         }
       })
-    }, observerOptions)
 
-    sections.forEach((section) => {
-      const element = document.querySelector(
-        `[data-section-id="${section.id}"]`
-      )
-      if (element) observerRef.current?.observe(element)
-    })
+      // Also observe additional sections
+      const additionalSections = [
+        "youtube-videos",
+        "team-members",
+        "related-articles",
+        "edit-this-page",
+      ]
 
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect()
+      additionalSections.forEach((sectionId) => {
+        const element =
+          document.getElementById(sectionId) ||
+          document.querySelector(`[data-section-id="${sectionId}"]`)
+        if (element && observerRef.current) {
+          observerRef.current.observe(element)
+        }
+      })
+
+      return () => {
+        if (observerRef.current) {
+          observerRef.current.disconnect()
+        }
       }
     }
-  }, [sections, loading])
+  }, [sections])
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(`[data-section-id="${sectionId}"]`)
+    const element =
+      document.getElementById(sectionId) ||
+      document.querySelector(`[data-section-id="${sectionId}"]`)
     if (element) {
-      const offset = 80 // Adjust this value based on your header height
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.scrollY - offset
-
-      window.scrollTo({
-        top: offsetPosition,
+      element.scrollIntoView({
         behavior: "smooth",
+        block: "start",
       })
-      setActiveSection(sectionId)
     }
-  }
-
-  const ExtraLinkLabelMapping: Record<
-    ProjectExtraLinkType,
-    {
-      label: string
-      icon?: any
-    }
-  > = {
-    buildWith: {
-      label: LABELS.COMMON.BUILD_WITH_THIS_TOOL,
-      icon: <Icons.hammer />,
-    },
-    play: {
-      label: LABELS.COMMON.TRY_IT_OUT,
-      icon: <Icons.hand />,
-    },
-    research: {
-      label: LABELS.COMMON.DEEP_DIVE_RESEARCH,
-      icon: <Icons.readme />,
-    },
-    learn: {
-      label: LABELS.COMMON.LEARN_MORE,
-    },
   }
 
   const { extraLinks = {}, team = [], youtubeLinks = [] } = project
 
-  const hasRelatedArticles = articles.length > 0 && !loading
   const hasTeam = Array.isArray(team) && team.length > 0
   const hasYoutubeVideos =
     Array.isArray(youtubeLinks) && youtubeLinks.length > 0
@@ -167,54 +156,39 @@ export const WikiSideNavigation = ({
   if (sections.length === 0 || content.length === 0) return null
 
   return (
-    <div className="sticky overflow-hidden top-20">
-      <aside className={cn("flex flex-col", className)}>
-        <h6 className="text-lg font-bold font-display text-tuatara-700">
+    <div className={cn("flex flex-col gap-8 sticky top-20", className)}>
+      <div className="flex flex-col gap-4">
+        <span className="text-base font-bold text-tuatara-950">
           {LABELS.COMMON.CONTENTS}
-        </h6>
-        <ul className="pt-4 font-sans text-black text-normal">
-          {sections.map((section, index) => (
+        </span>
+        <div className="flex flex-col gap-3">
+          {sections.map((section) => (
             <SideNavigationItem
-              key={index}
+              key={section.id}
+              onClick={() => scrollToSection(section.id)}
               activeSection={activeSection}
               text={section.text}
               id={section.id}
-              onClick={() => scrollToSection(section.id)}
             />
           ))}
-          {Object.entries(ExtraLinkLabelMapping).map(([key]) => {
-            const links = extraLinks[key as ProjectExtraLinkType] ?? []
-            // @ts-expect-error - ExtraLinkLabelMapping is not typed
-            const { label } = ExtraLinkLabelMapping?.[key as any] ?? {}
-            if (!links.length) return null // no links hide the section
-            return (
-              <SideNavigationItem
-                key={key}
-                onClick={() => scrollToSection(key)}
-                activeSection={activeSection}
-                text={label}
-                id={key}
-              />
-            )
-          })}
 
           {hasYoutubeVideos && (
             <SideNavigationItem
               key="youtube-videos"
               onClick={() => scrollToSection("youtube-videos")}
               activeSection={activeSection}
-              text={LABELS.COMMON.PROJECT_VIDEOS}
+              text="Videos"
               id="youtube-videos"
             />
           )}
 
           {hasTeam && (
             <SideNavigationItem
-              key="team"
-              onClick={() => scrollToSection("team")}
+              key="team-members"
+              onClick={() => scrollToSection("team-members")}
               activeSection={activeSection}
-              text={LABELS.COMMON.PROJECT_TEAM}
-              id="team"
+              text="Team"
+              id="team-members"
             />
           )}
 
@@ -227,15 +201,16 @@ export const WikiSideNavigation = ({
               id="related-articles"
             />
           )}
+
           <SideNavigationItem
             key="edit"
             onClick={() => scrollToSection("edit-this-page")}
             activeSection={activeSection}
-            text="Edit this page"
+            text={LABELS.COMMON.EDIT_THIS_PAGE}
             id="edit-this-page"
           />
-        </ul>
-      </aside>
+        </div>
+      </div>
     </div>
   )
 }

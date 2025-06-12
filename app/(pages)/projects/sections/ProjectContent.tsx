@@ -5,8 +5,12 @@ import { useRouter } from "next/navigation"
 import React from "react"
 
 import { siteConfig } from "@/site-config"
-import { useGetProject } from "@/hooks/useFetchContent"
-import { ProjectCategory, ProjectInterface, ProjectStatus } from "@/lib/types"
+import {
+  ProjectCategory,
+  ProjectInterface,
+  ProjectStatus,
+  Article,
+} from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { AppContent } from "@/components/ui/app-content"
 import { Markdown, createMarkdownElement } from "@/components/ui/markdown"
@@ -23,19 +27,43 @@ import { ProjectTeamMembers } from "@/components/project/project-team"
 import { LABELS } from "@/app/labels"
 import { DiscoverMoreProjects } from "@/app/components/project/discover-more-projects"
 
-export const ProjectContent = ({ id }: { id: string }) => {
+export const ProjectContent = ({
+  id,
+  project: serverProject,
+  relatedArticles = [],
+}: {
+  id: string
+  project?: ProjectInterface
+  relatedArticles?: Article[]
+}) => {
   const router = useRouter()
-  const { data: projectData, isLoading, error } = useGetProject(id)
+
+  // Use server-provided project data if available, otherwise fetch client-side as fallback
+  const [clientProject, setClientProject] =
+    React.useState<ProjectInterface | null>(serverProject || null)
 
   // For client-side, we'll use useState and useEffect to fetch additional data if needed
   const [markdownContent, setMarkdownContent] =
     React.useState<ProjectInterface | null>(null)
 
   React.useEffect(() => {
-    if (error && !isLoading) {
-      router.push("/404")
+    // Only fetch if we don't have server data
+    if (!serverProject && id) {
+      fetch(`/api/projects/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success && data.project) {
+            setClientProject(data.project)
+          } else {
+            router.push("/404")
+          }
+        })
+        .catch((err) => {
+          console.error("Failed to fetch project:", err)
+          router.push("/404")
+        })
     }
-  }, [error, isLoading, router])
+  }, [serverProject, id, router])
 
   React.useEffect(() => {
     // Fetch additional markdown content if needed via API
@@ -53,8 +81,8 @@ export const ProjectContent = ({ id }: { id: string }) => {
     }
   }, [id])
 
-  // Use project data from React Query but supplement with markdown content if available
-  const project = projectData
+  // Use project data - prefer server data, fallback to client data
+  const project = serverProject || clientProject
   const content = project?.content?.["en"] || undefined
 
   // If markdown content exists, prefer it for the description
@@ -66,7 +94,8 @@ export const ProjectContent = ({ id }: { id: string }) => {
       }
     : content
 
-  if (isLoading) {
+  // Loading state only if no server data and no client data yet
+  if (!serverProject && !clientProject) {
     return (
       <section className="bg-project-page-gradient">
         <div className="flex flex-col">
@@ -118,6 +147,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
                   className="hidden lg:block"
                   project={project}
                   content={enhancedContent?.description as string}
+                  hasRelatedArticles={relatedArticles.length > 0}
                 />
               )}
 
@@ -298,7 +328,10 @@ export const ProjectContent = ({ id }: { id: string }) => {
                     <ProjectExtraLinks project={project} />
                   </div>
 
-                  <ProjectBlogArticles project={project} />
+                  <ProjectBlogArticles
+                    project={project}
+                    articles={relatedArticles}
+                  />
                 </div>
               </div>
               {!isResearchProject && (

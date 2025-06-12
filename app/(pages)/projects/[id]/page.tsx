@@ -3,7 +3,7 @@ import { Metadata } from "next"
 import { ProjectInterface } from "@/lib/types"
 
 import { ProjectContent } from "../sections/ProjectContent"
-import { getProjectById } from "@/lib/markdownContentFetch"
+import { getProjectById, getArticles } from "@/lib/markdownContentFetch"
 import { notFound } from "next/navigation"
 
 type PageProps = {
@@ -59,14 +59,28 @@ export async function generateMetadata({
   }
 }
 
-export default function ProjectDetailPage({ params }: PageProps) {
-  // For server-side rendering, we don't need to prefetch since the client component
-  // will handle data fetching through React Query and API routes
+export default async function ProjectDetailPage({ params }: PageProps) {
   const projectId = params?.id
 
   if (!projectId) {
     notFound()
   }
 
-  return <ProjectContent id={projectId} />
+  // Fetch project and related articles server-side
+  const [project, relatedArticles] = await Promise.all([
+    getProjectById(projectId),
+    getArticles({ project: projectId }),
+  ])
+
+  if (!project) {
+    notFound()
+  }
+
+  return (
+    <ProjectContent
+      id={projectId}
+      project={project}
+      relatedArticles={relatedArticles}
+    />
+  )
 }
