@@ -50,21 +50,52 @@ export async function getMarkdownFiles(
   const { fs, path, matter, jsYaml } = modules
   const { limit = 1000, tag, project } = options ?? {}
 
-  // Simple path resolution (works on homepage)
-  const contentDirectory = path.resolve(process.cwd(), folderName)
+  // Enhanced path resolution for different environments
+  let contentDirectory = path.resolve(process.cwd(), folderName)
+
+  // Try alternative path resolution for Vercel deployment
+  if (!fs.existsSync(contentDirectory)) {
+    console.log(`First path attempt failed: ${contentDirectory}`)
+
+    // Try relative to the Next.js app directory
+    const altPath1 = path.join(process.cwd(), "..", folderName)
+    const altPath2 = path.join(__dirname, "..", "..", folderName)
+    const altPath3 = path.join(process.cwd(), "app", "..", folderName)
+
+    const possiblePaths = [altPath1, altPath2, altPath3, contentDirectory]
+
+    for (const testPath of possiblePaths) {
+      if (fs.existsSync(testPath)) {
+        contentDirectory = testPath
+        console.log(`✅ Found content directory at: ${contentDirectory}`)
+        break
+      }
+    }
+  }
 
   try {
     // Check if the directory exists
     if (!fs.existsSync(contentDirectory)) {
       console.error(`❌ Directory not found: ${contentDirectory}`)
       console.error(`Current working directory: ${process.cwd()}`)
+      console.error(`__dirname: ${__dirname}`)
 
       // List contents of current directory for debugging
       try {
         const cwdContents = fs.readdirSync(process.cwd())
         console.error(`Contents of ${process.cwd()}:`, cwdContents.slice(0, 10))
+
+        // Also check parent directory
+        const parentDir = path.dirname(process.cwd())
+        if (fs.existsSync(parentDir)) {
+          const parentContents = fs.readdirSync(parentDir)
+          console.error(
+            `Contents of parent ${parentDir}:`,
+            parentContents.slice(0, 10)
+          )
+        }
       } catch (e) {
-        console.error(`Cannot read current directory: ${e}`)
+        console.error(`Cannot read directories: ${e}`)
       }
 
       return []
