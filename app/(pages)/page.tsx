@@ -7,9 +7,7 @@ import { HomepageBanner } from "@/components/sections/HomepageBanner"
 import { Suspense } from "react"
 import { getArticles } from "@/lib/markdownContentFetch"
 
-async function BlogSection() {
-  const articles = await getArticles({ limit: 4 })
-
+function BlogSection({ articles }: { articles: any[] }) {
   return (
     <Suspense
       fallback={
@@ -23,13 +21,15 @@ async function BlogSection() {
   )
 }
 
-export default function IndexPage() {
+export default async function IndexPage() {
+  const articles = await getArticles({ limit: 4 })
+
   return (
     <section className="flex flex-col">
       <Divider.Section>
         <HomepageHeader />
 
-        <BlogSection />
+        <BlogSection articles={articles} />
 
         <HomepageVideoFeed />
 
