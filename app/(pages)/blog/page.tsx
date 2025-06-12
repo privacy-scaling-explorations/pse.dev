@@ -10,6 +10,7 @@ import {
 } from "@tanstack/react-query"
 import ArticlesList from "@/components/blog/ArticlesList"
 import { Skeleton } from "@/components/skeleton"
+import { getArticles } from "@/lib/blog"
 
 export const dynamic = "force-dynamic"
 
@@ -67,19 +68,8 @@ const BlogPage = async ({ searchParams }: BlogPageProps) => {
     queryKey: ["articles", tag],
     queryFn: async () => {
       try {
-        const params = new URLSearchParams()
-        if (tag) params.append("tag", tag)
-
-        const response = await fetch(`/api/articles?${params.toString()}`, {
-          next: { revalidate },
-        })
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch articles: ${response.status}`)
-        }
-
-        const data = await response.json()
-        return data.articles || []
+        const articles = getArticles({ tag })
+        return articles
       } catch (error) {
         console.error("Error fetching articles:", error)
         return []

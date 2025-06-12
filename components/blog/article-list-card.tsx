@@ -55,6 +55,11 @@ export const ArticleListCard = ({
               <div className="hidden lg:block">
                 <Markdown
                   components={{
+                    a: ({ children }) => (
+                      <span className="font-sans text-sm text-tuatara-600 group-hover:text-tuatara-950 duration-200">
+                        {children}
+                      </span>
+                    ),
                     h1: ({ children }) => (
                       <h1 className="font-sans text-sm text-tuatara-600 group-hover:text-tuatara-950 duration-200">
                         {children}
