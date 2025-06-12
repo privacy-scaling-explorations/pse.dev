@@ -2,7 +2,7 @@ import { LABELS } from "@/app/labels"
 import { ArticleListCard } from "@/components/blog/article-list-card"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
-import { getArticles, Article } from "@/lib/blog"
+import { getArticles, Article, getArticleTags } from "@/lib/blog"
 import { interpolate } from "@/lib/utils"
 import {
   HydrationBoundary,
@@ -19,9 +19,20 @@ interface BlogTagPageProps {
   params: { tag: string }
 }
 
-export const metadata: Metadata = {
-  title: LABELS.BLOG_TAGS_PAGE.TITLE,
-  description: LABELS.BLOG_TAGS_PAGE.SUBTITLE,
+export async function generateMetadata({
+  params,
+}: BlogTagPageProps): Promise<Metadata> {
+  const { tag } = params
+
+  return {
+    title: interpolate(LABELS.BLOG_TAGS_PAGE.TAG_TITLE, { tag }),
+    description: LABELS.BLOG_TAGS_PAGE.SUBTITLE,
+  }
+}
+
+export const generateStaticParams = async () => {
+  const tags = await getArticleTags()
+  return tags.map((tag) => ({ tag }))
 }
 
 const BlogTagPage = async ({ params }: BlogTagPageProps) => {
