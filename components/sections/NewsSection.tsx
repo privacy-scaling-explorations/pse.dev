@@ -6,16 +6,10 @@ import Link from "next/link"
 import { siteConfig } from "@/config/site"
 import { AnnounceInterface } from "@/lib/types"
 import { convertDirtyStringToHtml } from "@/lib/utils"
-import { useTranslation } from "@/app/i18n/client"
-import { LocaleTypes } from "@/app/i18n/settings"
-
+import { LABELS } from "@/app/labels"
 import { Icons } from "../icons"
 import { AppContent } from "../ui/app-content"
 import { Parser as HtmlToReactParser } from "html-to-react"
-
-interface NewsSectionProps {
-  lang: LocaleTypes
-}
 
 const ContentPlaceholder = () => (
   <div className="flex flex-col gap-2">
@@ -28,9 +22,7 @@ const ContentPlaceholder = () => (
   </div>
 )
 
-export const NewsSection = ({ lang }: NewsSectionProps) => {
-  const { t } = useTranslation(lang, "news-section")
-
+export const NewsSection = () => {
   const [newsItems, setNewsItems] = useState<AnnounceInterface[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -66,7 +58,7 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
     <div className="bg-white py-16">
       <div className="flex flex-col gap-10 ">
         <h3 className="text-base font-bold font-sans text-center uppercase tracking-[3.36px]">
-          {t("recentUpdates")}
+          {LABELS.NEWS_SECTION.RECENT_UPDATES}
         </h3>
         <AppContent className="mx-auto flex max-w-[978px] flex-col gap-4">
           <div className="flex gap-6 flex-col border border-tuatara-950 bg-anakiwa-100 p-6 rounded-[8px] ">
@@ -74,7 +66,7 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
               {!loading ? (
                 news?.timestamp && (
                   <span className="text-anakiwa-600 text-lg font-bold font-display">
-                    {new Intl.DateTimeFormat(lang, {
+                    {new Intl.DateTimeFormat("en-US", {
                       month: "long",
                       day: "numeric",
                       year: "numeric",
@@ -94,9 +86,10 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
               >
                 <Icons.twitter size={24} className="text-anakiwa-500" />
                 <span className="flex text-anakiwa-900 underline font-medium leading-[24px]">
-                  {t("repostOnSocial", {
-                    socialName: "X",
-                  })}
+                  {LABELS.NEWS_SECTION.REPOST_ON_SOCIAL.replace(
+                    "{{socialName}}",
+                    "Twitter"
+                  )}
                 </span>
               </Link>
             </div>
@@ -112,7 +105,7 @@ export const NewsSection = ({ lang }: NewsSectionProps) => {
             passHref
           >
             <Icons.discord className="text-anakiwa-400" />
-            <span>{t("seeAllUpdates")}</span>
+            <span>{LABELS.NEWS_SECTION.SEE_ALL_UPDATES}</span>
             <Icons.externalUrl className="text-tuatara-950" />
           </Link>
         </AppContent>

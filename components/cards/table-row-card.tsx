@@ -1,6 +1,4 @@
-import { t } from "i18next"
 import { Card } from "./card"
-import Link from "next/link"
 import { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 interface TableRowCardProps {

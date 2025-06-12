@@ -5,7 +5,6 @@ import { Article } from "@/lib/blog"
 import { ArticleListCard } from "./article-list-card"
 import { cn, getBackgroundImage } from "@/lib/utils"
 import Link from "next/link"
-import { useTranslation } from "react-i18next"
 import { cva } from "class-variance-authority"
 
 const ArticleTitle = cva(
@@ -42,8 +41,6 @@ const ArticleInEvidenceCard = ({
   contentClassName?: string
   showDate?: boolean
 }) => {
-  const { t } = useTranslation("blog-page")
-
   const hideTldr = variant === "compact"
 
   const formatDate = (dateString: string) => {
@@ -161,13 +158,11 @@ async function fetchArticles(tag?: string) {
 }
 
 interface ArticlesListProps {
-  lang: string
   tag?: string
   fallback?: React.ReactNode
 }
 
 const ArticlesList: React.FC<ArticlesListProps> = ({
-  lang,
   tag,
   fallback = null,
 }: ArticlesListProps) => {
@@ -226,9 +221,7 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
       )}
       <div className="flex flex-col gap-5 lg:gap-14">
         {otherArticles.map((article: Article) => {
-          return (
-            <ArticleListCard key={article.id} lang={lang} article={article} />
-          )
+          return <ArticleListCard key={article.id} article={article} />
         })}
       </div>
     </div>

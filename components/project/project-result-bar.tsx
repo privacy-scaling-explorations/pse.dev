@@ -7,16 +7,15 @@ import {
   useProjectFiltersState,
 } from "@/state/useProjectFiltersState"
 
-import { LangProps } from "@/types/common"
-import { useTranslation } from "@/app/i18n/client"
+import { LABELS } from "@/app/labels"
+import { interpolate } from "@/lib/utils"
 
 import { CategoryTag } from "../ui/categoryTag"
 import { Dropdown } from "../ui/dropdown"
 
 const labelClass = "h-5 text-xs text-base md:h-6 text-slate-900/70 md:text-sm"
 
-export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
-  const { t } = useTranslation(lang, "common")
+export const ProjectResultBar = () => {
   const { activeFilters, toggleFilter, projects, sortProjectBy, sortBy } =
     useProjectFiltersState((state) => state)
 
@@ -24,22 +23,36 @@ export const ProjectResultBar = ({ lang }: LangProps["params"]) => {
     ([, values]) => values?.length > 0
   )
 
-  const resultLabel = t(
-    haveActiveFilters ? "showingProjectsWith" : "showingProjects",
-    {
-      count: projects?.length,
-    }
-  )
+  const resultLabel = haveActiveFilters
+    ? interpolate(LABELS.COMMON.SHOWING_PROJECTS_WITH, {
+        count: projects?.length,
+      })
+    : interpolate(LABELS.COMMON.SHOWING_PROJECTS, { count: projects?.length })
 
   const projectSortItems: { label: string; value: ProjectSortBy }[] = [
-    { label: t("filterOptions.random"), value: "random" },
-    { label: t("filterOptions.asc"), value: "asc" },
-    { label: t("filterOptions.desc"), value: "desc" },
-    // { label: t("filterOptions.relevance"), value: "relevance" },
+    { label: LABELS.COMMON.FILTER_OPTIONS.RANDOM, value: "random" },
+    { label: LABELS.COMMON.FILTER_OPTIONS.ASC, value: "asc" },
+    { label: LABELS.COMMON.FILTER_OPTIONS.DESC, value: "desc" },
+    // { label: LABELS.COMMON.FILTER_OPTIONS.RELEVANCE, value: "relevance" },
   ]
 
-  const activeSortOption = t("sortBy", {
-    option: t(`filterOptions.${sortBy}`),
+  const getSortOptionLabel = (sortBy: string) => {
+    switch (sortBy) {
+      case "random":
+        return LABELS.COMMON.FILTER_OPTIONS.RANDOM
+      case "asc":
+        return LABELS.COMMON.FILTER_OPTIONS.ASC
+      case "desc":
+        return LABELS.COMMON.FILTER_OPTIONS.DESC
+      case "relevance":
+        return LABELS.COMMON.FILTER_OPTIONS.RELEVANCE
+      default:
+        return LABELS.COMMON.FILTER_OPTIONS.RANDOM
+    }
+  }
+
+  const activeSortOption = interpolate(LABELS.COMMON.SORT_BY, {
+    option: getSortOptionLabel(sortBy),
   })
 
   return (

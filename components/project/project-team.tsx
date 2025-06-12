@@ -2,18 +2,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { ProjectTeamMember, ProjectLinkWebsite } from "@/lib/types"
 import { Icons } from "../icons"
-import { useTranslation } from "@/app/i18n/client"
-import { LocaleTypes } from "@/app/i18n/settings"
+import { LABELS } from "@/app/labels"
 import { ProjectLinkIconMap } from "../mappings/project-links"
 
 interface ProjectTeamMembersProps {
   team: ProjectTeamMember[]
-  lang: LocaleTypes
 }
 
-export const ProjectTeamMembers = ({ team, lang }: ProjectTeamMembersProps) => {
-  const { t } = useTranslation(lang, "common")
-
+export const ProjectTeamMembers = ({ team }: ProjectTeamMembersProps) => {
   if (!team || team.length === 0) {
     return null
   }
@@ -21,7 +17,7 @@ export const ProjectTeamMembers = ({ team, lang }: ProjectTeamMembersProps) => {
   return (
     <div className="w-full" id="team" data-section-id="team">
       <h2 className="text-[22px] font-bold text-tuatara-700 mb-6">
-        {t("projectTeam") || "Project Team"}
+        {LABELS.COMMON.PROJECT_TEAM}
       </h2>
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">

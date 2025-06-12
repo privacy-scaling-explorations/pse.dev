@@ -11,7 +11,6 @@ import {
   ProjectStatusLabelMapping,
 } from "@/lib/types"
 import { cn } from "@/lib/utils"
-import { LocaleTypes } from "@/app/i18n/settings"
 
 import { ProjectLink } from "../mappings/project-link"
 import Link from "next/link"
@@ -62,14 +61,13 @@ export default function ProjectCard({
   showBanner = false,
   border = false,
   className,
-  lang,
-}: ProjectCardProps & { lang: LocaleTypes }) {
+}: ProjectCardProps) {
   const router = useRouter()
 
   const { id, image, links, name, imageAlt, projectStatus, cardTags } =
     project ?? {}
 
-  const { content: projectContent } = getProjectById(id, lang)
+  const { content: projectContent } = getProjectById(id)
 
   return (
     <div

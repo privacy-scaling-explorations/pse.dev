@@ -1,15 +1,14 @@
 "use client"
 
-import React, { useCallback, useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import NoResultIcon from "@/public/icons/no-result.svg"
 import { useProjectFiltersState } from "@/state/useProjectFiltersState"
 import { cva } from "class-variance-authority"
 
-import { LangProps } from "@/types/common"
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import { ProjectStatus } from "@/lib/types"
 import { cn } from "@/lib/utils"
-import { useTranslation } from "@/app/i18n/client"
+import { LABELS } from "@/app/labels"
 
 import ResearchCard from "./research-card"
 import Link from "next/link"
@@ -17,19 +16,17 @@ const sectionTitleClass = cva(
   "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-['']"
 )
 
-const NoResults = ({ lang }: LangProps["params"]) => {
-  const { t } = useTranslation(lang, "common")
-
+const NoResults = () => {
   return (
     <div className="flex flex-col gap-2 pt-24 pb-40 text-center">
       <div className="mx-auto">
         <Image className="h-9 w-9" src={NoResultIcon} alt="no result icon" />
       </div>
       <span className="text-2xl font-bold font-display text-tuatara-950">
-        {t("noResults")}
+        {LABELS.COMMON.NO_RESULTS}
       </span>
       <span className="text-lg font-normal text-tuatara-950">
-        {t("noResultsDescription")}
+        {LABELS.COMMON.NO_RESULTS_DESCRIPTION}
       </span>
     </div>
   )
@@ -37,8 +34,7 @@ const NoResults = ({ lang }: LangProps["params"]) => {
 
 const ProjectStatusOrderList = ["active", "maintained", "inactive"]
 
-export const ResearchList = ({ lang }: LangProps["params"]) => {
-  const { t } = useTranslation(lang, "research-page")
+export const ResearchList = () => {
   const [isMounted, setIsMounted] = useState(false)
 
   const { researchs, searchQuery, queryString } = useProjectFiltersState(
@@ -76,7 +72,7 @@ export const ResearchList = ({ lang }: LangProps["params"]) => {
     )
   }
 
-  if (noItems) return <NoResults lang={lang} />
+  if (noItems) return <NoResults />
 
   const activeResearchs = researchs.filter(
     (research) => research.projectStatus === ProjectStatus.ACTIVE
@@ -95,7 +91,9 @@ export const ResearchList = ({ lang }: LangProps["params"]) => {
         <div className={cn("flex w-full flex-col gap-10")}>
           {!hasActiveFilters && (
             <div className="flex flex-col gap-6 overflow-hidden">
-              <h3 className={cn(sectionTitleClass())}>{t("activeResearch")}</h3>
+              <h3 className={cn(sectionTitleClass())}>
+                {LABELS.RESEARCH_PAGE.ACTIVE_RESEARCH}
+              </h3>
             </div>
           )}
           <div className="grid grid-cols-1 gap-4 md:gap-x-6 md:gap-y-10 lg:grid-cols-3">
@@ -104,7 +102,6 @@ export const ResearchList = ({ lang }: LangProps["params"]) => {
                 <ResearchCard
                   key={project?.id}
                   project={project}
-                  lang={lang}
                   className="h-[180px]"
                   showBanner={false}
                   showLinks={false}
@@ -118,7 +115,9 @@ export const ResearchList = ({ lang }: LangProps["params"]) => {
         </div>
         <div className={cn("flex w-full flex-col gap-10 pt-10")}>
           <div className="flex flex-col gap-6 overflow-hidden">
-            <h3 className={cn(sectionTitleClass())}>{t("pastResearch")}</h3>
+            <h3 className={cn(sectionTitleClass())}>
+              {LABELS.RESEARCH_PAGE.PAST_RESEARCH}
+            </h3>
           </div>
           <div className="flex flex-col gap-5">
             {pastResearchs.map((project) => {

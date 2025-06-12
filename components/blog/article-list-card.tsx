@@ -5,15 +5,13 @@ import { Article } from "@/lib/blog"
 import { getBackgroundImage } from "@/lib/utils"
 
 export const ArticleListCard = ({
-  lang,
   article,
   lineClamp = false,
 }: {
-  lang: string
   article: Article
   lineClamp?: boolean
 }) => {
-  const url = `/${lang}/blog/${article.id}`
+  const url = `/blog/${article.id}`
 
   const formattedDate = new Date(article.date).toLocaleDateString("en-US", {
     month: "long",

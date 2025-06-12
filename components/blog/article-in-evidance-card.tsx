@@ -5,7 +5,7 @@ import { Button } from "../ui/button"
 import { Article } from "@/lib/blog"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
-import { useTranslation } from "react-i18next"
+import { LABELS } from "@/app/labels"
 
 interface ArticleInEvidenceCardProps {
   article: Article
@@ -48,8 +48,6 @@ export const ArticleInEvidenceCard = async ({
   contentClassName = "",
   showDate = true,
 }: ArticleInEvidenceCardProps) => {
-  const { t } = useTranslation("blog-page")
-
   const hideTldr = variant === "compact"
 
   const formatDate = (dateString: string) => {
@@ -126,7 +124,9 @@ export const ArticleInEvidenceCard = async ({
             <Link href={`/blog/${article.id}`} className="ml-auto mt-4">
               <Button className="uppercase ml-auto" variant="secondary">
                 <div className="flex items-center gap-2">
-                  <span className="!text-center">{t("readMore")}</span>
+                  <span className="!text-center">
+                    {LABELS.BLOG_PAGE.READ_MORE}
+                  </span>
                   <Icons.arrowRight className="w-4 h-4" />
                 </div>
               </Button>

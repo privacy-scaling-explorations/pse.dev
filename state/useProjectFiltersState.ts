@@ -1,11 +1,10 @@
 import { projects } from "@/data/projects"
 import Fuse from "fuse.js"
-import i18next from "i18next"
 import { create } from "zustand"
 
 import { ProjectCategory, ProjectInterface } from "@/lib/types"
 import { uniq } from "@/lib/utils"
-import { LocaleTypes, fallbackLng } from "@/app/i18n/settings"
+import { LABELS } from "@/app/labels"
 
 export type ProjectSortBy = "random" | "asc" | "desc" | "relevance"
 export type ProjectFilter =
@@ -29,16 +28,11 @@ export const SortByFnMapping: Record<
   relevance: (a, b) => b?.score - a?.score, // sort from most relevant to least relevant
 }
 
-export const FilterLabelMapping = (
-  lang?: LocaleTypes
-): Record<ProjectFilter, string> => {
-  const t = i18next.getFixedT(lang ?? fallbackLng, "common")
-  return {
-    keywords: t("filterLabels.keywords"),
-    builtWith: t("filterLabels.builtWith"),
-    themes: t("filterLabels.themes"),
-    fundingSource: t("filterLabels.fundingSource"),
-  }
+export const FilterLabelMapping: Record<ProjectFilter, string> = {
+  keywords: LABELS.COMMON.FILTER_LABELS.KEYWORDS,
+  builtWith: LABELS.COMMON.FILTER_LABELS.BUILT_WITH,
+  themes: LABELS.COMMON.FILTER_LABELS.THEMES,
+  fundingSource: LABELS.COMMON.FILTER_LABELS.FUNDING_SOURCE,
 }
 
 export const FilterTypeMapping: Partial<

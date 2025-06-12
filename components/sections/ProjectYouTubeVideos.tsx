@@ -1,10 +1,10 @@
 "use client"
 
-import { useTranslation } from "@/app/i18n/client"
 import Image from "next/image"
 import Link from "next/link"
 import { Icons } from "../icons"
 import { useEffect, useState } from "react"
+import { LABELS } from "@/app/labels"
 
 interface VideoCardProps {
   videoId: string
@@ -70,12 +70,9 @@ const VideoCard = ({ videoId }: VideoCardProps) => {
 
 export const ProjectYouTubeVideos = ({
   youtubeLinks,
-  lang,
 }: {
   youtubeLinks: string[]
-  lang: string
 }) => {
-  const { t } = useTranslation(lang, "common")
   const [videoIds, setVideoIds] = useState<string[]>([])
 
   const extractVideoId = (url: string): string => {
@@ -113,7 +110,7 @@ export const ProjectYouTubeVideos = ({
     >
       <div className="flex flex-col gap-6">
         <h2 className="text-[22px] font-bold text-tuatara-700">
-          {t("projectVideos") || "Project Videos"}
+          {LABELS.COMMON.YOUTUBE_VIDEOS}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

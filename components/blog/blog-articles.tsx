@@ -3,7 +3,6 @@ import Link from "next/link"
 import { BlogArticleCard } from "./blog-article-card"
 
 interface BlogArticlesProps {
-  lang: string
   tag?: string
 }
 
@@ -14,13 +13,7 @@ async function fetchArticles(tag?: string) {
   })
 }
 
-function ArticlesGrid({
-  articles,
-  lang,
-}: {
-  articles: Article[]
-  lang: string
-}) {
+function ArticlesGrid({ articles }: { articles: Article[] }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {articles.length === 0 && (
@@ -30,7 +23,7 @@ function ArticlesGrid({
       )}
       {articles.map(
         ({ id, title, image, tldr = "", date, authors, content }: Article) => {
-          const url = `/${lang}/blog/${id}`
+          const url = `/blog/${id}`
           return (
             <div key={id} className="flex h-full">
               <Link
@@ -55,7 +48,7 @@ function ArticlesGrid({
   )
 }
 
-export async function BlogArticles({ lang, tag }: BlogArticlesProps) {
+export async function BlogArticles({ tag }: BlogArticlesProps) {
   const articles = await fetchArticles(tag)
-  return <ArticlesGrid articles={articles} lang={lang} />
+  return <ArticlesGrid articles={articles} />
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { useTranslation } from "@/app/i18n/client"
+import { LABELS } from "@/app/labels"
 import { Icons } from "../icons"
 import { PageHeader } from "../page-header"
 import { Button } from "../ui/button"
@@ -10,10 +10,7 @@ import PSELogo from "@/public/icons/archstar.webp"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
-export const HomepageHeader = ({ lang }: { lang: any }) => {
-  const { t } = useTranslation(lang, "homepage")
-  const { t: common } = useTranslation(lang, "common")
-
+export const HomepageHeader = () => {
   return (
     <PageHeader
       title={
@@ -22,10 +19,10 @@ export const HomepageHeader = ({ lang }: { lang: any }) => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, cubicBezier: "easeOut" }}
         >
-          <Label.PageTitle size="large" label={t("headerTitle")} />
+          <Label.PageTitle size="large" label={LABELS.HOMEPAGE.HEADER_TITLE} />
         </motion.h1>
       }
-      subtitle={t("headerSubtitle")}
+      subtitle={LABELS.HOMEPAGE.HEADER_SUBTITLE}
       image={
         <div className="m-auto flex h-[320px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[380px]">
           <Image
@@ -44,7 +41,7 @@ export const HomepageHeader = ({ lang }: { lang: any }) => {
             <Button className="w-full sm:w-auto">
               <div className="flex items-center gap-1">
                 <span className="text-base font-medium uppercase">
-                  {common("research")}
+                  {LABELS.COMMON.RESEARCH}
                 </span>
                 <Icons.arrowRight
                   fill="white"
@@ -57,7 +54,7 @@ export const HomepageHeader = ({ lang }: { lang: any }) => {
             <Button className="w-full sm:w-auto">
               <div className="flex items-center gap-1">
                 <span className="text-base font-medium uppercase">
-                  {common("developmentProjects")}
+                  {LABELS.COMMON.DEVELOPMENT_PROJECTS}
                 </span>
                 <Icons.arrowRight
                   fill="white"

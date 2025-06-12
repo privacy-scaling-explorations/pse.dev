@@ -1,20 +1,17 @@
 "use client"
 
 import { Banner } from "../banner"
-import { useTranslation } from "@/app/i18n/client"
+import { LABELS } from "@/app/labels"
 import { Icons } from "../icons"
 import { siteConfig } from "@/config/site"
 import Link from "next/link"
 import { Button } from "../ui/button"
 
-export const HomepageBanner = ({ lang }: { lang: any }) => {
-  const { t } = useTranslation(lang, "homepage")
-  const { t: common } = useTranslation(lang, "common")
-
+export const HomepageBanner = () => {
   return (
     <Banner
-      title={common("connectWithUs")}
-      subtitle={common("connectWithUsDescription")}
+      title={LABELS.COMMON.CONNECT_WITH_US}
+      subtitle={LABELS.COMMON.CONNECT_WITH_US_DESCRIPTION}
     >
       <Link
         href={siteConfig.links.discord}
@@ -26,7 +23,9 @@ export const HomepageBanner = ({ lang }: { lang: any }) => {
         <Button>
           <div className="flex items-center gap-2">
             <Icons.discord fill="white" className="h-4" />
-            <span className="text-[14px] uppercase">{t("joinOurDiscord")}</span>
+            <span className="text-[14px] uppercase">
+              {LABELS.HOMEPAGE.JOIN_OUR_DISCORD}
+            </span>
             <Icons.externalUrl fill="white" className="h-5" />
           </div>
         </Button>

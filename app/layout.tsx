@@ -2,7 +2,6 @@ import "@/styles/globals.css"
 import { Metadata, Viewport } from "next"
 
 import { siteConfig } from "@/config/site"
-import { languages } from "./i18n/settings"
 import { QueryClientProviderLayout } from "@/components/layouts/QueryProviderLayout"
 
 import { DM_Sans, Inter, Space_Grotesk } from "next/font/google"
@@ -38,10 +37,6 @@ const sans = DM_Sans({
 })
 
 const fonts = [inter, display, sans]
-
-export async function generateStaticParams() {
-  return languages.map((language) => ({ language }))
-}
 
 export const metadata: Metadata = {
   title: {
