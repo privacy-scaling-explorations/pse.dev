@@ -73,7 +73,7 @@ export default function BlogArticle({ params }: any) {
           className={cn(
             "absolute inset-0 bg-cover",
             imageAsCover
-              ? "bg-cover after:content-[''] after:absolute after:inset-0 after:bg-black after:opacity-50 bg-center"
+              ? "bg-cover after:content-[''] after:absolute after:inset-0 after:bg-black after:opacity-60 bg-center"
               : "bg-cover-gradient"
           )}
           style={{
