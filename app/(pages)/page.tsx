@@ -5,8 +5,11 @@ import { BlogRecentArticles } from "@/components/blog/blog-recent-articles"
 import { HomepageHeader } from "@/components/sections/HomepageHeader"
 import { HomepageBanner } from "@/components/sections/HomepageBanner"
 import { Suspense } from "react"
+import { getArticles } from "@/lib/markdownContentFetch"
 
-function BlogSection() {
+async function BlogSection() {
+  const articles = await getArticles({ limit: 4 })
+
   return (
     <Suspense
       fallback={
@@ -15,7 +18,7 @@ function BlogSection() {
         </div>
       }
     >
-      <BlogRecentArticles />
+      <BlogRecentArticles articles={articles} />
     </Suspense>
   )
 }
