@@ -1,18 +1,19 @@
 import { LABELS } from "@/app/labels"
-import ArticlesList from "@/components/blog/ArticlesList"
 import { Icons } from "@/components/icons"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
 import { getArticleTags } from "@/lib/blog"
-import {
-  HydrationBoundary,
-  QueryClient,
-  dehydrate,
-} from "@tanstack/react-query"
+import { HydrationBoundary, QueryClient } from "@tanstack/react-query"
 import Link from "next/link"
 import { Suspense } from "react"
+import { Metadata } from "next"
 
-export const BlogTagsPage = async () => {
+export const metadata: Metadata = {
+  title: LABELS.BLOG_TAGS_PAGE.TITLE,
+  description: LABELS.BLOG_TAGS_PAGE.SUBTITLE,
+}
+
+const BlogTagsPage = async () => {
   const queryClient = new QueryClient()
 
   await queryClient.prefetchQuery({

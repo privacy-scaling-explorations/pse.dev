@@ -17,8 +17,8 @@ export const dynamic = "force-dynamic"
 export const revalidate = 60 // Revalidate every 60 seconds
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "",
+  title: LABELS.BLOG_PAGE.TITLE,
+  description: LABELS.BLOG_PAGE.SUBTITLE,
 }
 
 interface BlogPageProps {

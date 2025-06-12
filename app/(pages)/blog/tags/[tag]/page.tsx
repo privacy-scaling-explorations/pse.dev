@@ -13,12 +13,18 @@ import { Suspense } from "react"
 import { BlogLoadingSkeleton } from "../../page"
 import Link from "next/link"
 import { Icons } from "@/components/icons"
+import { Metadata } from "next"
 
 interface BlogTagPageProps {
   params: { tag: string }
 }
 
-export const BlogTagPage = async ({ params }: BlogTagPageProps) => {
+export const metadata: Metadata = {
+  title: LABELS.BLOG_TAGS_PAGE.TITLE,
+  description: LABELS.BLOG_TAGS_PAGE.SUBTITLE,
+}
+
+const BlogTagPage = async ({ params }: BlogTagPageProps) => {
   const { tag } = params
   const queryClient = new QueryClient()
 
