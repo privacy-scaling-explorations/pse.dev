@@ -2,7 +2,7 @@ import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
 import { Metadata } from "next"
 import { Suspense } from "react"
-import ArticlesList from "@/components/blog/ArticlesList"
+import ArticlesList from "@/app/components/blog/articles-list"
 import { Skeleton } from "@/components/skeleton"
 import { LABELS } from "@/app/labels"
 import { getArticles } from "@/lib/markdownContentFetch"
@@ -78,11 +78,7 @@ const BlogPage = async ({ searchParams }: BlogPageProps) => {
 
       <AppContent className="flex flex-col gap-10 lg:gap-16 pb-10 lg:py-10 lg:max-w-[978px]">
         <Suspense fallback={<LoadingSkeleton />}>
-          <ArticlesList
-            articles={articles}
-            tag={tag}
-            fallback={<LoadingSkeleton />}
-          />
+          <ArticlesList articles={articles} tag={tag} />
         </Suspense>
       </AppContent>
     </div>

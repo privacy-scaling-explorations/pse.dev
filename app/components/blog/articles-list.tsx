@@ -138,16 +138,11 @@ const ArticleInEvidenceCard = ({
 interface ArticlesListProps {
   articles: Article[]
   tag?: string
-  fallback?: React.ReactNode
 }
 
-export default function ArticlesList({
-  articles,
-  tag,
-  fallback = null,
-}: ArticlesListProps) {
+export default function ArticlesList({ articles, tag }: ArticlesListProps) {
   if (articles.length === 0) {
-    return <>{fallback}</>
+    return null
   }
 
   const lastArticle = articles[0]
