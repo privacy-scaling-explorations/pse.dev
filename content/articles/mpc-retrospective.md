@@ -1,5 +1,5 @@
 ---
-authors: ["Kevin Chia","Jern Kun","Kazumune Masaki"] # Add your name or multiple authors in an array
+authors: ["Kevin Chia", "Jern Kun", "Kazumune Masaki"] # Add your name or multiple authors in an array
 title: "MPCStats Retrospective: Lessons from a Privacy-Preserving Stats Platform" # The title of your article
 image: "/articles/mpcstats-retrospective/cover.png" # Image used as cover,  Keep in mind the image size, where possible use .webp format, possibly images less then 200/300kb
 tldr: "A retrospective on the MPCStats project—exploring our goals, technical challenges, demo at Devcon 2024, and the decision to sunset the platform."
@@ -20,13 +20,12 @@ We got valuable feedback after the demo, and we recognized that identifying impa
 
 ![mpcstats-demo](/articles/mpcstats-retrospective/mpcstats-demo.png)
 
-
 ### What was achieved
 
 - Successfully delivered an [interactive demo at Devcon 2024](https://www.youtube.com/watch?v=wCp7Zsjou7w), where participants submitted their ETH balance from Binance and queried aggregated statistics like the Gini coefficient, mean, median, and max.
-    - Computations were performed using MPC, with data authenticity verified by [TLSNotary](https://tlsnotary.org/) and execution delegated to three servers for smoother UX.
-    - The system completed most computations within 1 minute and was secure against up to 1 out of 3 malicious parties. Full details are available in our [demo report](https://www.notion.so/3055bb69afd24d60bf8ee8d4fa5f774c?pvs=21).
-    - The same demo was also presented at **Taipei Blockchain Week**, with a total of 19 participants across both events.
+  - Computations were performed using MPC, with data authenticity verified by [TLSNotary](https://tlsnotary.org/) and execution delegated to three servers for smoother UX.
+  - The system completed most computations within 1 minute and was secure against up to 1 out of 3 malicious parties. Full details are available in our [demo report](https://www.notion.so/3055bb69afd24d60bf8ee8d4fa5f774c?pvs=21).
+  - The same demo was also presented at **Taipei Blockchain Week**, with a total of 19 participants across both events.
 - Developed a reusable [infrastructure for MPC demos](https://github.com/MPCStats/mpc-demo-infra), allowing other teams to adapt for different data sources and statistical functions, using the statistics library we built with [MP-SPDZ](https://github.com/data61/MP-SPDZ).
 - Built an earlier [ZK-based version of the statistics library](https://github.com/MPCStats/zk-stats-lib) using [EZKL](https://github.com/zkonduit/ezkl), enabling single-party computations and helping explore privacy-preserving techniques beyond MPC.
 

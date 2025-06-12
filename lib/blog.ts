@@ -19,25 +19,28 @@ export interface Article {
   projects?: string[]
 }
 
-const articlesDirectory = path.join(process.cwd(), "articles")
+const articlesDirectory = path.join(process.cwd(), "content/articles")
+const projectsDirectory = path.join(process.cwd(), "content/projects")
 
-// Get all articles from /articles
-export function getArticles(options?: {
-  limit?: number
-  tag?: string
-  project?: string
-}) {
-  const { limit = 1000, tag, project } = options ?? {}
-  // Get file names under /articles
-  const fileNames = fs.readdirSync(articlesDirectory)
-  const allArticlesData = fileNames.map((fileName: string) => {
+// Generic function to read and process markdown content from any directory
+export function getMarkdownContent<T = any>(options: {
+  directory: string
+  excludeFiles?: string[]
+  processContent?: (data: any, content: string, id: string) => T
+}): T[] {
+  const { directory, excludeFiles = ["readme"], processContent } = options
+
+  const fileNames = fs.readdirSync(directory)
+  const allContentData = fileNames.map((fileName: string) => {
     const id = fileName.replace(/\.md$/, "")
-    if (id.toLowerCase() === "readme") {
+    if (
+      excludeFiles.some((exclude) => id.toLowerCase() === exclude.toLowerCase())
+    ) {
       return null
     }
 
     // Read markdown file as string
-    const fullPath = path.join(articlesDirectory, fileName)
+    const fullPath = path.join(directory, fileName)
     const fileContents = fs.readFileSync(fullPath, "utf8")
 
     try {
@@ -60,17 +63,53 @@ export function getArticles(options?: {
         },
       })
 
+      // Use custom processor if provided
+      if (processContent) {
+        return processContent(matterResult.data, matterResult.content, id)
+      }
+
+      // Default processing - return raw data with content
+      return {
+        id,
+        ...matterResult.data,
+        content: matterResult.content,
+      }
+    } catch (error) {
+      console.error(`Error processing ${fileName}:`, error)
+      // Return minimal content data if there's an error
+      return {
+        id,
+        title: `Error processing ${id}`,
+        content: "This content could not be processed due to an error.",
+        date: new Date().toISOString().split("T")[0],
+      }
+    }
+  })
+
+  return allContentData.filter(Boolean) as T[]
+}
+
+// Get all articles from /articles
+export function getArticles(options?: {
+  limit?: number
+  tag?: string
+  project?: string
+}) {
+  const { limit = 1000, tag, project } = options ?? {}
+
+  const allArticles = getMarkdownContent<Article>({
+    directory: articlesDirectory,
+    excludeFiles: ["readme", "_article-template"],
+    processContent: (data, content, id) => {
       // Ensure tags are always an array, combining 'tags' and 'tag'
       const tags = [
-        ...(Array.isArray(matterResult.data?.tags)
-          ? matterResult.data.tags
-          : []),
-        ...(matterResult.data?.tag ? [matterResult.data.tag] : []),
+        ...(Array.isArray(data?.tags) ? data.tags : []),
+        ...(data?.tag ? [data.tag] : []),
       ]
 
       return {
         id,
-        ...matterResult.data,
+        ...data,
         tags: tags.map((tag) => ({
           id: tag
             .toLowerCase()
@@ -78,22 +117,12 @@ export function getArticles(options?: {
             .replace(/[^a-z0-9-]/g, ""),
           name: tag,
         })),
-        content: matterResult.content,
+        content,
       }
-    } catch (error) {
-      console.error(`Error processing ${fileName}:`, error)
-      // Return minimal article data if there's an error
-      return {
-        id,
-        title: `Error processing ${id}`,
-        content: "This article could not be processed due to an error.",
-        date: new Date().toISOString().split("T")[0],
-        tags: [],
-      }
-    }
+    },
   })
 
-  let filteredArticles = allArticlesData.filter(Boolean) as Article[]
+  let filteredArticles = allArticles
 
   // Filter by tag if provided
   if (tag) {

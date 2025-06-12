@@ -21,7 +21,7 @@ tags:
 projects: ["unirep", "semaphore"]
 ---
 
-*Originally published on Aug 26, 2021*
+_Originally published on Aug 26, 2021_
 
 ![](https://miro.medium.com/max/1106/0*nr6Aia8myVXSIZ2R)
 
