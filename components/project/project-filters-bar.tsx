@@ -81,15 +81,8 @@ export default function ProjectFiltersBar() {
   const [searchQuery, setSearchQuery] = useState("")
   const [filterCount, setFilterCount] = useState(0)
 
-  const {
-    filters,
-    toggleFilter,
-    queryString,
-    activeFilters,
-    onFilterProject,
-    currentCategory,
-    setCurrentCategory,
-  } = useProjectFiltersState((state) => state)
+  const { filters, toggleFilter, queryString, activeFilters, onFilterProject } =
+    useProjectFiltersState((state) => state)
 
   useEffect(() => {
     if (!queryString) return
@@ -256,38 +249,6 @@ export default function ProjectFiltersBar() {
         </div>
       </Modal>
       <div className="flex flex-col gap-4">
-        <nav className="container px-4 mx-auto">
-          <ul className="flex space-x-6">
-            <div
-              className={cn(
-                "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
-                currentCategory == null
-                  ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
-                  : ""
-              )}
-              onClick={() => setCurrentCategory(null)}
-            >
-              All
-            </div>
-            {ProjectCategories.map((key) => {
-              if (key === ProjectCategory.RESEARCH) return null // Research category has now it's own page
-              return (
-                <div
-                  key={key}
-                  className={cn(
-                    "relative block px-2 py-1 text-sm font-medium uppercase transition-colors cursor-pointer hover:text-primary",
-                    currentCategory === key
-                      ? "text-sky-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-sky-400"
-                      : ""
-                  )}
-                  onClick={() => setCurrentCategory(key as ProjectCategory)}
-                >
-                  {key}
-                </div>
-              )
-            })}
-          </ul>
-        </nav>
         <div className="flex flex-col gap-6">
           <div className="grid items-center justify-between grid-cols-1 gap-3 md:grid-cols-5 md:gap-12">
             <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">

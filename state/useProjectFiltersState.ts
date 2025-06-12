@@ -51,7 +51,6 @@ interface ProjectStateProps {
   activeFilters: Partial<FiltersProps>
   queryString: string
   searchQuery: string
-  currentCategory: ProjectCategory | null
 }
 
 interface SearchMatchByParamsProps {
@@ -72,7 +71,6 @@ interface ProjectActionsProps {
   onFilterProject: (searchPattern: string) => void
   onSelectTheme: (theme: string, searchPattern?: string) => void
   sortProjectBy: (sortBy: ProjectSortBy) => void
-  setCurrentCategory: (section: ProjectCategory | null) => void
 }
 
 const createURLQueryString = (params: Partial<FiltersProps>): string => {
@@ -236,7 +234,6 @@ const sortProjectByFn = ({
 export const useProjectFiltersState = create<
   ProjectStateProps & ProjectActionsProps
 >()((set) => ({
-  currentCategory: null,
   sortBy: DEFAULT_PROJECT_SORT_BY,
   projects: sortProjectByFn({
     projects,
@@ -348,18 +345,6 @@ export const useProjectFiltersState = create<
           projects: state.projects,
           sortBy,
         }),
-      }
-    })
-  },
-  setCurrentCategory(category: ProjectCategory | null) {
-    set((state: any) => {
-      return {
-        ...state,
-        projects: projects.filter((project) => {
-          if (category == null) return true // return all projects
-          return project?.category === category
-        }),
-        currentCategory: category,
       }
     })
   },
