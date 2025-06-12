@@ -4,7 +4,7 @@ import { ArticleListCard } from "./article-list-card"
 import { cn, getBackgroundImage } from "@/lib/utils"
 import Link from "next/link"
 import { cva } from "class-variance-authority"
-import { useGetBlogArticles, Article } from "@/hooks/useFetchContent"
+import { Article } from "@/hooks/useFetchContent"
 
 const ArticleTitle = cva(
   "text-white font-display hover:text-anakiwa-400 transition-colors group-hover:text-anakiwa-400",
@@ -136,28 +136,17 @@ const ArticleInEvidenceCard = ({
 }
 
 interface ArticlesListProps {
+  articles: Article[]
   tag?: string
   fallback?: React.ReactNode
 }
 
 export default function ArticlesList({
+  articles,
   tag,
   fallback = null,
 }: ArticlesListProps) {
-  const {
-    data: articles = [],
-    isLoading,
-    error,
-  } = useGetBlogArticles({
-    tag,
-    limit: undefined,
-  })
-
-  if (isLoading) {
-    return <>{fallback}</>
-  }
-
-  if (error || articles.length === 0) {
+  if (articles.length === 0) {
     return <>{fallback}</>
   }
 

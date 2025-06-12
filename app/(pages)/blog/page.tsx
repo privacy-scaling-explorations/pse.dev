@@ -5,6 +5,7 @@ import { Suspense } from "react"
 import ArticlesList from "@/components/blog/ArticlesList"
 import { Skeleton } from "@/components/skeleton"
 import { LABELS } from "@/app/labels"
+import { getArticles } from "@/lib/markdownContentFetch"
 
 export const dynamic = "force-dynamic"
 
@@ -56,6 +57,12 @@ const LoadingSkeleton = () => {
 const BlogPage = async ({ searchParams }: BlogPageProps) => {
   const tag = searchParams?.tag as string | undefined
 
+  // Fetch articles data on the server side
+  const articles = await getArticles({
+    tag,
+    limit: undefined,
+  })
+
   return (
     <div className="flex flex-col">
       <div className="w-full bg-page-header-gradient">
@@ -74,7 +81,11 @@ const BlogPage = async ({ searchParams }: BlogPageProps) => {
 
       <AppContent className="flex flex-col gap-10 lg:gap-16 pb-10 lg:py-10 lg:max-w-[978px]">
         <Suspense fallback={<LoadingSkeleton />}>
-          <ArticlesList tag={tag} fallback={<LoadingSkeleton />} />
+          <ArticlesList
+            articles={articles}
+            tag={tag}
+            fallback={<LoadingSkeleton />}
+          />
         </Suspense>
       </AppContent>
     </div>
