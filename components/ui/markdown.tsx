@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useCallback } from "react"
 import ReactMarkdown, { Components } from "react-markdown"
 import remarkGfm from "remark-gfm"
 import katex from "katex"
@@ -23,7 +23,23 @@ import "prismjs/components/prism-python"
 import "prismjs/components/prism-rust"
 import "prismjs/components/prism-solidity"
 
-// Extend the Components type to include our custom component
+const SCROLL_OFFSET = 150
+
+const scrollToElementWithOffset = (target: HTMLElement) => {
+  const rect = target.getBoundingClientRect()
+  const targetPosition = rect.top + window.pageYOffset - SCROLL_OFFSET
+
+  // Set margin before scrolling
+  target.style.scrollMarginTop = `${SCROLL_OFFSET}px`
+
+  requestAnimationFrame(() => {
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    })
+  })
+}
+
 interface CustomComponents extends Components {
   "table-row-card": React.ComponentType<{
     node: any
@@ -32,6 +48,18 @@ interface CustomComponents extends Components {
   accordion: React.ComponentType<{
     node: any
     children: string
+  }>
+  "footnote-ref": React.ComponentType<{
+    identifier: string
+    label: string
+  }>
+  "footnote-definition": React.ComponentType<{
+    identifier: string
+    label: string
+    children: React.ReactNode
+  }>
+  footnotes: React.ComponentType<{
+    children: React.ReactNode
   }>
 }
 
@@ -74,7 +102,6 @@ const TableRow = (props: any) => {
 }
 
 const TableHead = (props: any) => {
-  // Skip rendering the thead completely if there are no children
   if (!props.children || props.children.length === 0) {
     return null
   }
@@ -87,7 +114,6 @@ const TableHead = (props: any) => {
       if (thChildren.length === 0) return true
 
       return thChildren.every((thChild: any) => {
-        // Check if the th child is empty or contains only whitespace
         if (!thChild) return true
         if (typeof thChild === "string") return thChild.trim() === ""
         if (!thChild.props || !thChild.props.children) return true
@@ -114,7 +140,6 @@ const TableBody = (props: any) => {
   return <tbody>{props.children}</tbody>
 }
 
-// Custom plugin to handle /n as newline
 const remarkCustomNewlines = () => {
   return (tree: any) => {
     const visit = (node: any) => {
@@ -268,54 +293,82 @@ const extractMathBlocks = (content: string) => {
   return mathBlocks
 }
 
+// Helper to check if text contains unescaped math delimiters
+const containsMath = (text: string): boolean => {
+  if (text.match(/\[.*?\]\(.*?\)/)) {
+    return false
+  }
+
+  if (!text.includes("$")) return false
+
+  if (text.match(/\$\d+/)) return false
+
+  const blockMathRegex = /\$\$([\s\S]*?)\$\$/g
+  const inlineMathRegex = /(?<![\\])\$((?:[^$\\]|\\$|\\[^$])+?)\$/g
+
+  return blockMathRegex.test(text) || inlineMathRegex.test(text)
+}
+
 const MathText = ({ text }: { text: string }) => {
   const parts: React.ReactNode[] = []
   let lastIndex = 0
 
-  if (/^\$(.*?)\$$/m.test(text.trim())) {
-    const mathContent = text.trim().slice(1, -1)
-    return <KaTeXInline math={mathContent} />
-  }
-
   try {
-    // Regular expression to match dollar signs that aren't escaped with a backslash
-    const inlineMathRegex = /(?<![\\])\$((?:[^$\\]|\\$|\\[^$])+?)\$/g
+    // First handle block math ($$...$$)
+    const blockMathRegex = /\$\$([\s\S]*?)\$\$/g
     let match: RegExpExecArray | null
 
-    while ((match = inlineMathRegex.exec(text)) !== null) {
+    while ((match = blockMathRegex.exec(text))) {
       if (match.index > lastIndex) {
         parts.push(text.slice(lastIndex, match.index))
       }
 
       const mathContent = match[1].trim()
       parts.push(
-        <KaTeXInline key={`inline-math-${match.index}`} math={mathContent} />
+        <KaTeXBlock key={`block-math-${match.index}`} math={mathContent} />
       )
 
       lastIndex = match.index + match[0].length
     }
 
-    if (lastIndex < text.length) {
-      parts.push(text.slice(lastIndex))
-    }
+    // Then handle remaining text for inline math ($...$)
+    const remainingText = text.slice(lastIndex)
+    if (remainingText) {
+      const inlineParts: React.ReactNode[] = []
+      let inlineLastIndex = 0
+      const inlineMathRegex = /(?<![\\$])\$(?![$])([^$]+)\$/g
+      let inlineMatch: RegExpExecArray | null
 
-    if (parts.length === 0 && text.includes("$")) {
-      return <>{text}</>
+      while ((inlineMatch = inlineMathRegex.exec(remainingText))) {
+        if (inlineMatch.index > inlineLastIndex) {
+          inlineParts.push(
+            remainingText.slice(inlineLastIndex, inlineMatch.index)
+          )
+        }
+
+        const mathContent = inlineMatch[1].trim()
+        inlineParts.push(
+          <KaTeXInline
+            key={`inline-math-${inlineMatch.index}`}
+            math={mathContent}
+          />
+        )
+
+        inlineLastIndex = inlineMatch.index + inlineMatch[0].length
+      }
+
+      if (inlineLastIndex < remainingText.length) {
+        inlineParts.push(remainingText.slice(inlineLastIndex))
+      }
+
+      parts.push(...inlineParts)
     }
 
     return <>{parts}</>
   } catch (error) {
-    console.error("Error processing inline math:", error)
+    console.error("Error processing text with math:", error)
     return <>{text}</>
   }
-}
-
-// Helper to check if text contains unescaped math delimiters
-const containsMath = (text: string): boolean => {
-  if (!text.includes("$")) return false
-
-  const inlineMathRegex = /(?<![\\])\$((?:[^$\\]|\\$|\\[^$])+?)\$/g
-  return inlineMathRegex.test(text)
 }
 
 const rehypeProcessBrTags = () => {
@@ -393,41 +446,34 @@ const CodeBlock = ({
   )
 }
 
-// Styling for HTML attributes for markdown component
 const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
-  a: ({ href, children, ...props }) => {
-    // Check if it's an in-page link (starts with #)
-    const isInPageLink = href?.startsWith("#")
+  a: ({ href, children }) => {
+    if (href?.startsWith("#")) {
+      return (
+        <a
+          href={href}
+          data-anchor="with-scroll-margin"
+          onClick={(e) => {
+            e.preventDefault()
+            const targetId = href.slice(1)
+            const target = document.getElementById(targetId)
+            if (target) {
+              scrollToElementWithOffset(target)
+            }
+          }}
+          className="text-anakiwa-500 hover:text-orange duration-200"
+        >
+          {children}
+        </a>
+      )
+    }
 
     return (
       <a
-        className={`${darkMode ? "text-anakiwa-300" : "text-anakiwa-500"} hover:text-orange duration-200`}
         href={href}
-        target={isInPageLink ? undefined : "_blank"}
-        rel={isInPageLink ? undefined : "noopener noreferrer"}
-        onClick={
-          isInPageLink
-            ? (e: React.MouseEvent<HTMLAnchorElement>) => {
-                e.preventDefault()
-                const sectionId = href?.substring(1) // Remove the # from the href
-                const element = document.querySelector(
-                  `[data-section-id="${sectionId}"]`
-                )
-                if (element) {
-                  const offset = 80 // Adjust this value based on your header height
-                  const elementPosition = element.getBoundingClientRect().top
-                  const offsetPosition =
-                    elementPosition + window.scrollY - offset
-
-                  window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth",
-                  })
-                }
-              }
-            : undefined
-        }
-        {...props}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-anakiwa-500 hover:text-orange duration-200"
       >
         {children}
       </a>
@@ -478,38 +524,53 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
       </code>
     )
   },
-  p: ({ node, children, ...props }) => {
-    const text = React.Children.toArray(children)
+  p: ({ node, children }: { node: any; children: React.ReactNode }) => {
+    const childArray = React.Children.toArray(children)
+    const isOnlyLink =
+      childArray.length === 1 &&
+      React.isValidElement(childArray[0]) &&
+      childArray[0].type === "a"
+
+    if (isOnlyLink) {
+      return <>{children}</>
+    }
+
+    // For other paragraphs, continue with normal processing
+    const text = childArray
       .map((child) => {
         if (typeof child === "string") return child
-        // @ts-expect-error - children props vary
-        if (child?.props?.children) return child.props.children
+        if (React.isValidElement(child) && child.props?.children) {
+          return child.props.children
+        }
         return ""
       })
       .join("")
 
     let isMathOnly = false
-
-    if (text.trim().startsWith("$") && text.trim().endsWith("$")) {
-      const innerContent = text.trim().slice(1, -1)
-      if (!innerContent.includes("$")) {
+    if (text.trim().startsWith("$$") && text.trim().endsWith("$$")) {
+      const innerContent = text.trim().slice(2, -2)
+      if (!innerContent.includes("$$")) {
         isMathOnly = true
       }
     }
 
-    if (text.includes("$")) {
-      return createMarkdownElement("p", {
-        className: `${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal ${isMathOnly ? "math-only" : ""}`,
-        children: <MathText text={text} />,
-        ...props,
-      })
+    if (containsMath(text)) {
+      return (
+        <p
+          className={`${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal ${isMathOnly ? "math-only" : ""}`}
+        >
+          <MathText text={text} />
+        </p>
+      )
     }
 
-    return createMarkdownElement("p", {
-      className: `${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal`,
-      children,
-      ...props,
-    })
+    return (
+      <p
+        className={`${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal`}
+      >
+        {children}
+      </p>
+    )
   },
   // Handle math in list items
   li: ({ node, children, ...props }) => {
@@ -684,6 +745,82 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
       className: "w-auto w-auto mx-auto rounded-lg object-cover",
       ...props,
     }),
+  "footnote-ref": ({ identifier, label }) => {
+    const handleClick = useCallback(
+      (e: React.MouseEvent) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        const target = document.getElementById(`fn-${identifier}`)
+        if (target) {
+          scrollToElementWithOffset(target)
+        }
+      },
+      [identifier]
+    )
+
+    React.useEffect(() => {
+      console.log("Footnote ref mounted:", identifier)
+    }, [identifier])
+
+    return (
+      <sup>
+        <button
+          type="button"
+          id={`fnref-${identifier}`}
+          className="text-anakiwa-500 hover:text-orange duration-200"
+          onClick={handleClick}
+        >
+          [{label}]
+        </button>
+      </sup>
+    )
+  },
+  "footnote-definition": ({ identifier, label, children }) => {
+    const handleBackClick = useCallback(
+      (e: React.MouseEvent) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        const target = document.getElementById(`fnref-${identifier}`)
+        if (target) {
+          scrollToElementWithOffset(target)
+        }
+      },
+      [identifier]
+    )
+
+    React.useEffect(() => {
+      console.log("Footnote definition mounted:", identifier)
+    }, [identifier])
+
+    return (
+      <div
+        id={`fn-${identifier}`}
+        className="flex gap-2 text-sm text-tuatara-700 mb-2"
+      >
+        <div className="flex-none">[{label}]</div>
+        <div className="flex-1">
+          {children}
+          <button
+            type="button"
+            className="text-anakiwa-500 hover:text-orange duration-200 ml-1"
+            onClick={handleBackClick}
+          >
+            ↩
+          </button>
+        </div>
+      </div>
+    )
+  },
+  footnotes: ({ children }) => {
+    return (
+      <div className="mt-8 pt-8 border-t border-tuatara-200">
+        <h2 className="text-xl font-bold mb-4">Footnotes</h2>
+        {children}
+      </div>
+    )
+  },
 })
 
 interface MarkdownProps {
