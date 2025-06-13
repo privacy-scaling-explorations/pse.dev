@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils"
 import { LABELS } from "@/app/labels"
 
 import ProjectCard from "./project-card"
+import { useProjects } from "@/app/providers/ProjectsProvider"
 
 const sectionTitleClass = cva(
   "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-['']"
@@ -47,9 +48,7 @@ export const ProjectList = () => {
   const [isManualScroll, setIsManualScroll] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  const { projects, searchQuery, queryString } = useProjectFiltersState(
-    (state) => state
-  )
+  const { projects } = useProjects()
 
   const noItems = projects?.length === 0
 
@@ -94,8 +93,6 @@ export const ProjectList = () => {
     }
   }, [])
 
-  const hasActiveFilters = searchQuery !== "" || queryString !== ""
-
   // loading state skeleton
   if (!isMounted) {
     return (
@@ -129,23 +126,6 @@ export const ProjectList = () => {
     {} as Record<ProjectStatus, ProjectInterface[]>
   )
 
-  // show all projects without sections if there are active filters
-  if (hasActiveFilters) {
-    return (
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
-        {projects.map((project) => (
-          <ProjectCard
-            key={project?.id}
-            project={project}
-            showBanner
-            showLinks
-            border
-          />
-        ))}
-      </div>
-    )
-  }
-
   return (
     <div className="relative grid items-start justify-between grid-cols-1">
       <div className="flex flex-col">
@@ -165,16 +145,8 @@ export const ProjectList = () => {
               className="flex justify-between gap-10"
             >
               <div className={cn("flex w-full flex-col gap-10 pt-10")}>
-                {!hasActiveFilters && (
-                  <div className="flex flex-col gap-6 overflow-hidden">
-                    <h3 className={cn(sectionTitleClass())}>{status}</h3>
-                    <span className="font-sans text-base italic text-tuatara-950">
-                      {description}
-                    </span>
-                  </div>
-                )}
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
-                  {projects.map((project) => (
+                  {projects.map((project: any) => (
                     <ProjectCard
                       key={project?.id}
                       project={project}

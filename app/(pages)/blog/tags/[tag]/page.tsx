@@ -2,7 +2,7 @@ import { LABELS } from "@/app/labels"
 import { ArticleListCard } from "@/components/blog/article-list-card"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
-import { getArticles, Article, getArticleTags } from "@/lib/blog"
+import { getArticles, Article, getArticleTags } from "@/lib/content"
 import { interpolate } from "@/lib/utils"
 import {
   HydrationBoundary,

@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -23,7 +23,7 @@ import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
 import { ProjectYouTubeVideos } from "@/components/sections/ProjectYouTubeVideos"
 
 export const ProjectContent = ({ id }: { id: string }) => {
-  const router = useRouter()
+  // const router = useRouter()
   const { project, content } = getProjectById(id) ?? {}
 
   const hasSocialLinks = Object.keys(project?.links ?? {}).length > 0
@@ -42,7 +42,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
   const isResearchProject = project?.category === ProjectCategory.RESEARCH
 
   if (!project?.id) {
-    router.push("/404")
+    // router.push("/404")
   }
 
   if (!project?.id) {

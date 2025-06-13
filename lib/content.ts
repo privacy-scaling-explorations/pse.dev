@@ -3,6 +3,13 @@ import path from "path"
 import matter from "gray-matter"
 import jsYaml from "js-yaml"
 
+export interface Project {
+  id: string
+  title: string
+  description: string
+  [key: string]: any
+}
+
 export interface Article {
   id: string
   title: string
@@ -89,7 +96,6 @@ export function getMarkdownContent<T = any>(options: {
   return allContentData.filter(Boolean) as T[]
 }
 
-// Get all articles from /articles
 export function getArticles(options?: {
   limit?: number
   tag?: string
@@ -99,7 +105,7 @@ export function getArticles(options?: {
 
   const allArticles = getMarkdownContent<Article>({
     directory: articlesDirectory,
-    excludeFiles: ["readme", "_article-template"],
+    excludeFiles: ["readme", "_readme", "_article-template"],
     processContent: (data, content, id) => {
       // Ensure tags are always an array, combining 'tags' and 'tag'
       const tags = [
@@ -152,6 +158,35 @@ export function getArticles(options?: {
     .filter((article) => article.id !== "_article-template")
 }
 
+export function getProjects(options?: {
+  tag?: string
+  limit?: number
+  status?: string
+}) {
+  const { tag, limit, status } = options ?? {}
+  let allProjects = getMarkdownContent<Project>({
+    directory: projectsDirectory,
+    excludeFiles: ["readme", "_readme", "_project-template"],
+  })
+
+  // Filter by tag if provided
+  if (tag) {
+    allProjects = allProjects.filter((project) => project.tags?.includes(tag))
+  }
+
+  // Filter by status if provided
+  if (status) {
+    allProjects = allProjects.filter((project) => project.status === status)
+  }
+
+  // Apply limit if provided
+  if (limit && limit > 0) {
+    allProjects = allProjects.slice(0, limit)
+  }
+
+  return allProjects
+}
+
 export const getArticleTags = () => {
   const articles = getArticles()
   const allTags =
@@ -175,13 +210,10 @@ export const getArticleTagsWithIds = () => {
 }
 
 export function getArticleById(slug?: string) {
-  // Note: This might need adjustment if you expect getArticleById to also have tags
-  // Currently relies on the base getArticles() which fetches all tags
-  const articles = getArticles() // Fetch all articles to find the one by ID
-
+  const articles = getArticles()
   return articles.find((article) => article.id === slug)
 }
 
-const lib = { getArticles, getArticleById }
+const lib = { getArticles, getArticleById, getProjects }
 
 export default lib

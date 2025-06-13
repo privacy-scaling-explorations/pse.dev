@@ -11,11 +11,11 @@ Enhancing Ethereum through cryptographic research and collective experimentation
 
 ### Add/Edit article
 
-- For updating/adding a new article [you can follow this guide](https://github.com/privacy-scaling-explorations/pse.dev/blob/main/articles/README.md)
+- For updating/adding a new article [you can follow this guide](content/articles/README.md)
 
 ### Add/Edit project list
 
-- For updating/adding project detail [you can follow this guide](https://github.com/privacy-scaling-explorations/pse.dev/blob/main/data/projects/README.md)
+- For updating/adding project detail [you can follow this guide](content/projects/_README.md)
 
 ## PR Review process
 

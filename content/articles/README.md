@@ -4,7 +4,7 @@ This document explains how to add new articles to into pse.dev blog section.
 
 ## Step 1: Create the Article File
 
-1. Duplicate the `_article-template.md` file in the `articles` directory
+1. Duplicate the `_article-template.md` file in the `content/articles` directory
 2. Rename it to match your article's title using kebab-case (e.g., `my-new-article.md`)
 
 ## Step 2: Fill in the Article Information
@@ -20,7 +20,7 @@ tldr: "A brief summary of your article" #Short summary
 date: "YYYY-MM-DD" # Publication date in ISO format
 canonical: "mirror.xyz/my-new-article" # (Optional) The original source URL, this tells search engines the primary version of the content
 tags: ["tag1", "tag2"] # (Optional) Add relevant tags as an array of strings to categorize the article
-projects: ["project-1"]
+projects: ["project-1"] # (Optional) Link to related projects by their id
 ---
 ```
 

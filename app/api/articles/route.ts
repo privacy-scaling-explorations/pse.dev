@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { getArticles } from "@/lib/blog"
+import { getArticles } from "@/lib/content"
 
 // Cache control
 export const revalidate = 60 // Revalidate cache after 60 seconds

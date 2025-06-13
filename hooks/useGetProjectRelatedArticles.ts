@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Article } from "@/lib/blog"
+import { Article } from "@/lib/content"
 
 interface UseGetProjectRelatedArticlesProps {
   projectId: string

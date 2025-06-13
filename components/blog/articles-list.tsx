@@ -1,7 +1,7 @@
 "use client"
 
 import { useQuery } from "@tanstack/react-query"
-import { Article } from "@/lib/blog"
+import { Article } from "@/lib/content"
 import { ArticleListCard } from "./article-list-card"
 import { cn, getBackgroundImage } from "@/lib/utils"
 import Link from "next/link"
@@ -161,7 +161,7 @@ interface ArticlesListProps {
   tag?: string
 }
 
-const ArticlesList: React.FC<ArticlesListProps> = ({
+export const ArticlesList: React.FC<ArticlesListProps> = ({
   tag,
 }: ArticlesListProps) => {
   const {
@@ -186,21 +186,23 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
   }
 
   const lastArticle = articles[0]
-  const featuredArticles = !tag ? articles.slice(1, 5) : []
-  const otherArticles = !tag ? articles.slice(5) : articles
+  const featuredArticles = !tag ? articles.slice(1, 3) : []
+  const otherArticles = !tag ? articles.slice(3) : articles
 
   const hasTag = tag !== undefined
 
   return (
     <div className="flex flex-col gap-10 lg:gap-16">
       {!hasTag && (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch">
-          <ArticleInEvidenceCard
-            article={lastArticle}
-            size="sm"
-            className="h-full"
-            asLink
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-stretch">
+          <div className="lg:col-span-2 h-full">
+            <ArticleInEvidenceCard
+              article={lastArticle}
+              size="sm"
+              className="h-full "
+              asLink
+            />
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 lg:col-span-2 h-full">
             {featuredArticles?.map((article: Article) => {
               return (
@@ -225,5 +227,3 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
     </div>
   )
 }
-
-export default ArticlesList

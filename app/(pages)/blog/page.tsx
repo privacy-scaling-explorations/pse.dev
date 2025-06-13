@@ -8,9 +8,9 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query"
-import ArticlesList from "@/components/blog/ArticlesList"
 import { Skeleton } from "@/components/skeleton"
-import { getArticles } from "@/lib/blog"
+import { getArticles } from "@/lib/content"
+import { ArticlesList } from "@/components/blog/articles-list"
 
 export const dynamic = "force-dynamic"
 
