@@ -2,11 +2,11 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { events } from "@/data/events/devcon-7"
 import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
+import { events } from "@/content/events/devcon-7"
 
 const tableSection = cva("lg:grid lg:grid-cols-[200px_1fr_160px_20px] lg:gap-8")
 const tableSectionTitle = cva(
