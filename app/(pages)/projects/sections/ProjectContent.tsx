@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -22,6 +22,44 @@ import { ProjectTeamMembers } from "@/components/project/project-team"
 import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
 import { ProjectYouTubeVideos } from "@/components/sections/ProjectYouTubeVideos"
 
+const markdownComponents = {
+  h1: ({ ...props }) =>
+    createMarkdownElement("h1", {
+      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      ...props,
+    }),
+  h2: ({ ...props }) =>
+    createMarkdownElement("h2", {
+      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      ...props,
+    }),
+  h3: ({ ...props }) =>
+    createMarkdownElement("h3", {
+      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      ...props,
+    }),
+  h4: ({ ...props }) =>
+    createMarkdownElement("h4", {
+      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      ...props,
+    }),
+  h5: ({ ...props }) =>
+    createMarkdownElement("h5", {
+      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      ...props,
+    }),
+  h6: ({ ...props }) =>
+    createMarkdownElement("h6", {
+      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      ...props,
+    }),
+  p: ({ ...props }) =>
+    createMarkdownElement("p", {
+      className: "py-2 leading-[150%] text-base text-slate-600",
+      ...props,
+    }),
+}
+
 export const ProjectContent = ({ id }: { id: string }) => {
   // const router = useRouter()
   const { project, content } = getProjectById(id) ?? {}
@@ -40,10 +78,6 @@ export const ProjectContent = ({ id }: { id: string }) => {
     ProjectStatusMessageMap?.[project?.projectStatus as ProjectStatus]
 
   const isResearchProject = project?.category === ProjectCategory.RESEARCH
-
-  if (!project?.id) {
-    // router.push("/404")
-  }
 
   if (!project?.id) {
     return null
@@ -88,52 +122,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
                           {project?.name}
                         </h1>
                         {content?.tldr && (
-                          <Markdown
-                            components={{
-                              h1: ({ ...props }) =>
-                                createMarkdownElement("h1", {
-                                  className:
-                                    "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                  ...props,
-                                }),
-                              h2: ({ ...props }) =>
-                                createMarkdownElement("h2", {
-                                  className:
-                                    "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                  ...props,
-                                }),
-                              h3: ({ ...props }) =>
-                                createMarkdownElement("h3", {
-                                  className:
-                                    "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                  ...props,
-                                }),
-                              h4: ({ ...props }) =>
-                                createMarkdownElement("h4", {
-                                  className:
-                                    "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                  ...props,
-                                }),
-                              h5: ({ ...props }) =>
-                                createMarkdownElement("h5", {
-                                  className:
-                                    "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                  ...props,
-                                }),
-                              h6: ({ ...props }) =>
-                                createMarkdownElement("h6", {
-                                  className:
-                                    "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                  ...props,
-                                }),
-                              p: ({ ...props }) =>
-                                createMarkdownElement("p", {
-                                  className:
-                                    "py-2 leading-[150%] text-base text-slate-600",
-                                  ...props,
-                                }),
-                            }}
-                          >
+                          <Markdown components={markdownComponents}>
                             {content?.tldr}
                           </Markdown>
                         )}
@@ -177,52 +166,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
                     )}
                     <div className="flex flex-col w-full text-base font-normal leading-relaxed">
                       {content?.description && (
-                        <Markdown
-                          components={{
-                            h1: ({ ...props }) =>
-                              createMarkdownElement("h1", {
-                                className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                ...props,
-                              }),
-                            h2: ({ ...props }) =>
-                              createMarkdownElement("h2", {
-                                className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                ...props,
-                              }),
-                            h3: ({ ...props }) =>
-                              createMarkdownElement("h3", {
-                                className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                ...props,
-                              }),
-                            h4: ({ ...props }) =>
-                              createMarkdownElement("h4", {
-                                className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                ...props,
-                              }),
-                            h5: ({ ...props }) =>
-                              createMarkdownElement("h5", {
-                                className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                ...props,
-                              }),
-                            h6: ({ ...props }) =>
-                              createMarkdownElement("h6", {
-                                className:
-                                  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
-                                ...props,
-                              }),
-                            p: ({ ...props }) =>
-                              createMarkdownElement("p", {
-                                className:
-                                  "text-tuatara-700 font-sans text-base font-normal peer mt-4 first:mt-0",
-                                ...props,
-                              }),
-                          }}
-                        >
+                        <Markdown components={markdownComponents}>
                           {content?.description}
                         </Markdown>
                       )}
