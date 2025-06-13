@@ -1,4 +1,4 @@
-import { Article, getArticles } from "@/lib/blog"
+import { Article, getArticles } from "@/lib/content"
 import Link from "next/link"
 import { AppContent } from "../ui/app-content"
 import { Markdown } from "../ui/markdown"

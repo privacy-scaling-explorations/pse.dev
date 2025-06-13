@@ -1,4 +1,4 @@
-import { Article, getArticles } from "@/lib/blog"
+import { Article, getArticles } from "@/lib/content"
 import Link from "next/link"
 import { BlogArticleCard } from "./blog-article-card"
 

@@ -1,4 +1,4 @@
-import { Article } from "@/lib/blog"
+import { Article } from "@/lib/content"
 import { cn } from "@/lib/utils"
 import { cva } from "class-variance-authority"
 import Image from "next/image"

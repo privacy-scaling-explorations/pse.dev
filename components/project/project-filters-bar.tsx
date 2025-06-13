@@ -3,16 +3,8 @@
 import React, { ChangeEvent, ReactNode, useEffect, useState } from "react"
 import Image from "next/image"
 import { useRouter, useSearchParams } from "next/navigation"
-import { projects } from "@/data/projects"
 import FiltersIcon from "@/public/icons/filters.svg"
-import {
-  FilterLabelMapping,
-  FilterTypeMapping,
-  ProjectFilter,
-  useProjectFiltersState,
-} from "@/state/useProjectFiltersState"
 import { useDebounce } from "react-use"
-
 import { IThemeStatus, IThemesButton } from "@/types/common"
 import {
   ProjectCategories,
@@ -24,7 +16,11 @@ import {
 } from "@/lib/types"
 import { cn, queryStringToObject } from "@/lib/utils"
 import { LABELS } from "@/app/labels"
-
+import {
+  useProjects,
+  ProjectFilter,
+  FilterLabelMapping,
+} from "@/app/providers/ProjectsProvider"
 import { Icons } from "../icons"
 import Badge from "../ui/badge"
 import { Button } from "../ui/button"
@@ -32,6 +28,14 @@ import { CategoryTag } from "../ui/categoryTag"
 import { Checkbox } from "../ui/checkbox"
 import { Input } from "../ui/input"
 import { Modal } from "../ui/modal"
+
+// Define the mapping for filter types
+const FilterTypeMapping: Record<ProjectFilter, "checkbox" | "button"> = {
+  keywords: "checkbox",
+  builtWith: "checkbox",
+  themes: "button",
+  fundingSource: "checkbox",
+}
 
 interface FilterWrapperProps {
   label: string
@@ -42,7 +46,9 @@ interface FilterWrapperProps {
 const FilterWrapper = ({ label, children, className }: FilterWrapperProps) => {
   return (
     <div className={cn("flex flex-col gap-4 py-6", className)}>
-      <span className="text-xl font-bold">{label}</span>
+      <span className="text-sm font-medium text-tuatara-950 md:text-base">
+        {label}
+      </span>
       {children}
     </div>
   )
@@ -81,8 +87,14 @@ export default function ProjectFiltersBar() {
   const [searchQuery, setSearchQuery] = useState("")
   const [filterCount, setFilterCount] = useState(0)
 
-  const { filters, toggleFilter, queryString, activeFilters, onFilterProject } =
-    useProjectFiltersState((state) => state)
+  const {
+    filters,
+    toggleFilter,
+    queryString,
+    activeFilters,
+    onFilterProject,
+    setFilterFromQueryString,
+  } = useProjects()
 
   useEffect(() => {
     if (!queryString) return
@@ -91,10 +103,8 @@ export default function ProjectFiltersBar() {
 
   useEffect(() => {
     // set active filters from url
-    useProjectFiltersState.setState({
-      activeFilters: queryStringToObject(searchParams),
-    })
-  }, [searchParams])
+    setFilterFromQueryString(queryStringToObject(searchParams))
+  }, [searchParams, setFilterFromQueryString])
 
   useEffect(() => {
     const count = Object.values(activeFilters).reduce((acc, curr) => {
@@ -104,11 +114,7 @@ export default function ProjectFiltersBar() {
   }, [activeFilters])
 
   const clearAllFilters = () => {
-    useProjectFiltersState.setState({
-      activeFilters: {},
-      queryString: "",
-      projects,
-    })
+    setFilterFromQueryString({})
     setSearchQuery("") // clear input
     router.push("/projects")
   }
@@ -255,9 +261,7 @@ export default function ProjectFiltersBar() {
               <Input
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   setSearchQuery(e?.target?.value)
-                  useProjectFiltersState.setState({
-                    searchQuery: e?.target?.value,
-                  })
+                  onFilterProject(e?.target?.value)
                 }}
                 value={searchQuery}
                 placeholder={LABELS.COMMON.SEARCH_PROJECT_PLACEHOLDER}

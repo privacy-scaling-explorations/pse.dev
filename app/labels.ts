@@ -343,4 +343,75 @@ export const LABELS = {
         "We are mapping the emerging zero knowledge ecosystem through collective experimentation. We collaborate, share what we learn, and welcome contributions from around the world.",
     },
   },
+  CORE_PROGRAM_FAQ: [
+    {
+      QUESTION: "Who can apply?",
+      ANSWER:
+        "The Core Program is open to university students based in Japan, South Korea, Taiwan, Costa Rica, Ecuador and Argentina with a basic understanding of programming. If you're currently enrolled in a mathematics or computer science program, you're likely an excellent fit.",
+    },
+    {
+      QUESTION: "What is the structure of the program?",
+      ANSWER:
+        "We use a hybrid learning model with the majority of learning happening online and weekly in-person meetings for discussions and problem-solving. The program consists of three stages: 1) self-driven exploration & guidance, 2) hands-on circuit writing, and 3) open-source project contribution.",
+    },
+    {
+      QUESTION: "How much time will I need to commit?",
+      ANSWER:
+        "We're looking for dedicated students who can commit 40 hours a week from mid-July to September. You will be required to attend in-person meetups once a week and make presentations.",
+    },
+    {
+      QUESTION: "Can I participate remotely?",
+      ANSWER:
+        "Unfortunately no, the weekly in-person sessions are required for in-depth discussions and collaborative problem-solving.",
+    },
+    {
+      QUESTION: "What will I gain from this program?",
+      ANSWER:
+        "Upon completing the program, you'll have comprehensive knowledge about programmable cryptography, a bolstered GitHub portfolio, and opportunities to apply for grants for further research and contributions.",
+    },
+    {
+      QUESTION: "What if I have more questions?",
+      ANSWER:
+        "For any further questions or additional information, you can join our <a class='underline' target='_blank' href='https://t.me/+ebGauHbpDE0yZGIx'>Telegram group</a>!",
+    },
+  ],
+  ACCELERATION_PROGRAM_FAQ: [
+    {
+      QUESTION: "Who can apply?",
+      ANSWER:
+        "The Acceleration program is open to alumni of our entry level programs (e.g. Launch Program, ZK Playground) and other applicants at beginner to intermediate levels with programmable cryptography.",
+    },
+    {
+      QUESTION: "What platform does the program use?",
+      ANSWER:
+        "We will primarily utilize a Github repository for managing documents and staging of the grant proposals, grantees, and their progress. Stakeholders involved can utilize Github issues and pull requests to comment and collaborate.",
+    },
+    {
+      QUESTION: "How does the grant funding work?",
+      ANSWER: [
+        "While the core funding this program comes through PSE via the Ethereum Ecosystem Support Program (ESP), some bounties are supported by specific teams.",
+        "Selected grantees will receive a small amount of funding after the completion of the first milestone. Following milestones will be awarded larger amounts.",
+      ],
+    },
+    {
+      QUESTION: "How many proposals are accepted per open task?",
+      ANSWER:
+        "Generally one proposal will be accepted. However, it is possible for applicants to form a team and work collaboratively.",
+    },
+    {
+      QUESTION: "How long will I have to tackle the open tasks?",
+      ANSWER:
+        "Though our rounds are run in three month periods, the duration of your grant may be shorter or longer depending on task details.",
+    },
+    {
+      QUESTION: "Can I propose an open task?",
+      ANSWER:
+        "If you have an interesting idea, you can submit it as an self proposed open task. Just to make sure you clearly credit to the original idea and clearly state if that idea is also funded by someone else.",
+    },
+    {
+      QUESTION: "What if I have more questions?",
+      ANSWER:
+        "For any further questions or additional information, you can join our Telegram group!",
+    },
+  ],
 }

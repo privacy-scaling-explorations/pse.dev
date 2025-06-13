@@ -3,8 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { accelerationProgramFaq } from "@/data/programs/accelerationProgramFaq"
-import { coreProgramFaq } from "@/data/programs/coreProgramFaq"
 import { ReactNode } from "react-markdown/lib/ast-to-react"
 import { twMerge } from "tailwind-merge"
 
@@ -299,8 +297,8 @@ export const ProgramPageContent = () => {
                         id="faq"
                         className="!border-anakiwa-300"
                         size="xs"
-                        items={coreProgramFaq.map(
-                          ({ question: label, answer }, index) => {
+                        items={LABELS.CORE_PROGRAM_FAQ.map(
+                          ({ QUESTION: label, ANSWER: answer }, index) => {
                             return {
                               label,
                               value: index.toString(),
@@ -441,14 +439,18 @@ export const ProgramPageContent = () => {
                     <Accordion
                       className="!border-anakiwa-300"
                       size="xs"
-                      items={accelerationProgramFaq.map(
-                        ({ question: label, answer }, index) => {
+                      items={LABELS.ACCELERATION_PROGRAM_FAQ.map(
+                        ({ QUESTION: label, ANSWER: answer }, index) => {
                           return {
                             label,
                             value: index.toString(),
                             children: (
                               <span className="flex flex-col gap-3 text-base text-tuatara-950">
-                                {answer}
+                                {typeof answer === "string"
+                                  ? answer
+                                  : answer.map((item, index) => {
+                                      return <span key={index}>{item}</span>
+                                    })}
                               </span>
                             ),
                           }

@@ -62,10 +62,15 @@ module.exports = {
           700: "#4A4C54",
           950: "#242528",
         },
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        active: {
+          selection: "var(--active-selection)",
+        },
+
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "var(--primary)",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {

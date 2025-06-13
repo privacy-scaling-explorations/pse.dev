@@ -1,9 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-import { booths } from "@/data/events/devcon-7"
 
 import { AppContent } from "@/components/ui/app-content"
 import { Icons } from "@/components/icons"
+import { booths } from "@/content/events/devcon-7"
 
 export const Devcon7Booths = () => {
   return (

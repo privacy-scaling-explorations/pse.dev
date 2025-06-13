@@ -2,7 +2,7 @@
 
 import { Icons } from "../icons"
 import { Button } from "../ui/button"
-import { Article } from "@/lib/blog"
+import { Article } from "@/lib/content"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { LABELS } from "@/app/labels"

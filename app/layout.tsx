@@ -1,8 +1,13 @@
 import "@/styles/globals.css"
+import Script from "next/script"
 import { Metadata, Viewport } from "next"
 
+import { GlobalProviderLayout } from "@/components/layouts/GlobalProviderLayout"
+import { SiteFooter } from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
+import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { siteConfig } from "@/config/site"
-import { QueryClientProviderLayout } from "@/components/layouts/QueryProviderLayout"
+import { cn } from "@/lib/utils"
 
 import { DM_Sans, Inter, Space_Grotesk } from "next/font/google"
 
@@ -37,6 +42,13 @@ const sans = DM_Sans({
 })
 
 const fonts = [inter, display, sans]
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+}
 
 export const metadata: Metadata = {
   title: {
@@ -99,25 +111,46 @@ export const metadata: Metadata = {
   },
 }
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-}
-
 interface RootLayoutProps {
   children: React.ReactNode
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <QueryClientProviderLayout>
-      <html lang="en" className={fonts.map((font) => font.className).join(" ")}>
-        <body className="min-h-screen bg-background antialiased">
-          {children}
-        </body>
-      </html>
-    </QueryClientProviderLayout>
+    <html
+      lang="en"
+      className={cn(inter.variable, display.variable, sans.variable)}
+      suppressHydrationWarning
+    >
+      <Script id="matomo-tracking" strategy="afterInteractive">
+        {`
+          var _paq = window._paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="https://psedev.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/psedev.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        `}
+      </Script>
+      <head />
+      <body
+        suppressHydrationWarning
+        className="min-h-screen bg-background antialiased"
+      >
+        <GlobalProviderLayout>
+          <div className="relative flex min-h-screen flex-col">
+            <SiteHeader />
+            <div className="flex-1">{children}</div>
+            <SiteFooter />
+          </div>
+          <TailwindIndicator />
+        </GlobalProviderLayout>
+      </body>
+    </html>
   )
 }

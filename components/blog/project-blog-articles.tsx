@@ -2,7 +2,7 @@
 
 import { ProjectInterface } from "@/lib/types"
 import { AppContent } from "../ui/app-content"
-import { Article } from "@/lib/blog"
+import { Article } from "@/lib/content"
 import { ArticleListCard } from "./article-list-card"
 import { useGetProjectRelatedArticles } from "@/hooks/useGetProjectRelatedArticles"
 

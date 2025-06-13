@@ -139,6 +139,7 @@ export interface ProjectInterface {
   projectStatus: ProjectStatus
   tags?: ProjectTags
   extraLinks?: ActionLinkType
+  tldr?: string
   cardTags?: {
     primary?: string
     secondary?: string

@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import NoResultIcon from "@/public/icons/no-result.svg"
-import { useProjectFiltersState } from "@/state/useProjectFiltersState"
 import { cva } from "class-variance-authority"
 
 import {
@@ -18,6 +17,7 @@ import { cn } from "@/lib/utils"
 import { LABELS } from "@/app/labels"
 
 import ProjectCard from "./project-card"
+import { useProjects } from "@/app/providers/ProjectsProvider"
 
 const sectionTitleClass = cva(
   "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-['']"
@@ -47,9 +47,14 @@ export const ProjectList = () => {
   const [isManualScroll, setIsManualScroll] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  const { projects, searchQuery, queryString } = useProjectFiltersState(
-    (state) => state
-  )
+  const { projects, searchQuery, activeFilters } = useProjects()
+  const hasSearchParams =
+    searchQuery?.length > 0 ||
+    Object.values({
+      keywords: activeFilters?.keywords ?? [],
+      builtWith: activeFilters?.builtWith ?? [],
+      themes: activeFilters?.themes ?? [],
+    }).some((arr) => arr.length > 0)
 
   const noItems = projects?.length === 0
 
@@ -94,8 +99,6 @@ export const ProjectList = () => {
     }
   }, [])
 
-  const hasActiveFilters = searchQuery !== "" || queryString !== ""
-
   // loading state skeleton
   if (!isMounted) {
     return (
@@ -129,11 +132,10 @@ export const ProjectList = () => {
     {} as Record<ProjectStatus, ProjectInterface[]>
   )
 
-  // show all projects without sections if there are active filters
-  if (hasActiveFilters) {
+  if (hasSearchParams) {
     return (
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
-        {projects.map((project) => (
+        {projects?.map((project: any) => (
           <ProjectCard
             key={project?.id}
             project={project}
@@ -165,7 +167,7 @@ export const ProjectList = () => {
               className="flex justify-between gap-10"
             >
               <div className={cn("flex w-full flex-col gap-10 pt-10")}>
-                {!hasActiveFilters && (
+                {!hasSearchParams && (
                   <div className="flex flex-col gap-6 overflow-hidden">
                     <h3 className={cn(sectionTitleClass())}>{status}</h3>
                     <span className="font-sans text-base italic text-tuatara-950">
@@ -174,7 +176,7 @@ export const ProjectList = () => {
                   </div>
                 )}
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
-                  {projects.map((project) => (
+                  {projects.map((project: any) => (
                     <ProjectCard
                       key={project?.id}
                       project={project}

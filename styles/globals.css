@@ -4,8 +4,19 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --background: #FFFFFF;
+    --foreground: #0F172A;
+
+    --active-selection: #50C3E0;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+
+    --text-primary: #242528;
+    --text-secondary: #808590;
+
+    /* TODO: */
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -19,8 +30,7 @@
     --card: 0 0% 100%;
     --card-foreground: 222.2 47.4% 11.2%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -38,8 +48,21 @@
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    --background: #000000;
+    --foreground: #FFFFFF;
+
+    --active-selection: #E1523A;
+
+    --text-primary: #242528;
+    --text-secondary: #808590;
+
+
+
+
+    /* TODO: */
+
+    --primary: #E1523A;
+    --primary-foreground: #FFF;
 
     --muted: 223 47% 11%;
     --muted-foreground: 215.4 16.3% 56.9%;

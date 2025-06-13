@@ -1,6 +1,6 @@
 import { LABELS } from "@/app/labels"
 import { AppContent } from "../ui/app-content"
-import { getArticles, Article } from "@/lib/blog"
+import { getArticles, Article } from "@/lib/content"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
