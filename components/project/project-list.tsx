@@ -47,7 +47,14 @@ export const ProjectList = () => {
   const [isManualScroll, setIsManualScroll] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  const { projects } = useProjects()
+  const { projects, searchQuery, activeFilters } = useProjects()
+  const hasSearchParams =
+    searchQuery?.length > 0 ||
+    Object.values({
+      keywords: activeFilters?.keywords ?? [],
+      builtWith: activeFilters?.builtWith ?? [],
+      themes: activeFilters?.themes ?? [],
+    }).some((arr) => arr.length > 0)
 
   const noItems = projects?.length === 0
 
@@ -124,6 +131,22 @@ export const ProjectList = () => {
     },
     {} as Record<ProjectStatus, ProjectInterface[]>
   )
+
+  if (hasSearchParams) {
+    return (
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
+        {projects?.map((project: any) => (
+          <ProjectCard
+            key={project?.id}
+            project={project}
+            showBanner
+            showLinks
+            border
+          />
+        ))}
+      </div>
+    )
+  }
 
   return (
     <div className="relative grid items-start justify-between grid-cols-1">

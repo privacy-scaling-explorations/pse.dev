@@ -68,31 +68,29 @@ export const ProjectResultBar = () => {
       </div>
       {haveActiveFilters && (
         <div className="inline-flex flex-wrap gap-1 md:gap-4">
-          {Object.entries(activeFilters).map(([key, filters], index) => {
-            return (
-              <>
-                {filters?.map((filter) => {
-                  if (filter?.length === 0) return null
-
-                  return (
-                    <CategoryTag
-                      closable
-                      variant="gray"
-                      onClose={() =>
-                        toggleFilter({
-                          tag: key as ProjectFilter,
-                          value: filter,
-                        })
-                      }
-                      key={`${index}-${filter}`}
-                    >
-                      {filter}
-                    </CategoryTag>
-                  )
-                })}
-              </>
+          {Object.entries(activeFilters)
+            .flatMap(([key, filters]) =>
+              (filters ?? []).map((filter) => ({
+                key,
+                filter,
+              }))
             )
-          })}
+            .filter(({ filter }) => filter?.length > 0)
+            .map(({ key, filter }, index) => (
+              <CategoryTag
+                key={`${key}-${filter}-${index}`}
+                closable
+                variant="gray"
+                onClose={() =>
+                  toggleFilter({
+                    tag: key as ProjectFilter,
+                    value: filter,
+                  })
+                }
+              >
+                {filter}
+              </CategoryTag>
+            ))}
         </div>
       )}
     </div>

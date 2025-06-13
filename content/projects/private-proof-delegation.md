@@ -37,7 +37,7 @@ Ultimately, the project seeks to identify viable building blocks for a future wh
 - **Stage:** MVP Development
 - **Status:** Active
 - **Team Lead:** Takamichi Tsutsumi
-- **Team Members:** Wanseob Lim, Shouki Tsuda
+- **Team Members:** Shouki Tsuda
 - **Collaborators:** Keewoo
 
 ## Technical Approach
@@ -52,7 +52,7 @@ The team maintains a strong focus on publishing intermediate findings to guide t
 
 ## Milestones
 
-- **Milestone 1:** TEE-based proving benchmark & write-up (in progress, due June 2025)
+- **Milestone 1:** TEE-based proving benchmark & write-up ([completed](https://pse.dev/en/blog/tee-based-ppd))
 - **Milestone 2:** Literature review and design space mapping for FHE-based delegated proving
 - **Milestone 3 (planned):** Experimental implementation of FHE-friendly proving system (Q3–Q4 2025)
 
@@ -66,7 +66,7 @@ Private Delegated Proving has potential to reshape the user experience and archi
 
 ## Publications
 
-No publications yet, but the team plans to share regular updates and design notes via blog posts, research forums, and talks (e.g. Devconnect).
+- TEE-based proving benchmark & write-up ([completed](https://pse.dev/en/blog/tee-based-ppd))
 
 ## Resources
 
