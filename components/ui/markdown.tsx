@@ -22,7 +22,23 @@ import "prismjs/components/prism-yaml"
 import "prismjs/components/prism-python"
 import "prismjs/components/prism-rust"
 import "prismjs/components/prism-solidity"
-import { scrollToElementWithOffset } from "@/lib/utils"
+
+const SCROLL_OFFSET = 150
+
+const scrollToElementWithOffset = (target: HTMLElement) => {
+  const rect = target.getBoundingClientRect()
+  const targetPosition = rect.top + window.pageYOffset - SCROLL_OFFSET
+
+  // Set margin before scrolling
+  target.style.scrollMarginTop = `${SCROLL_OFFSET}px`
+
+  requestAnimationFrame(() => {
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    })
+  })
+}
 
 interface CustomComponents extends Components {
   "table-row-card": React.ComponentType<{
@@ -508,7 +524,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
       </code>
     )
   },
-  p: ({ node, children }) => {
+  p: ({ node, children }: { node: any; children: React.ReactNode }) => {
     const childArray = React.Children.toArray(children)
     const isOnlyLink =
       childArray.length === 1 &&
@@ -516,7 +532,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
       childArray[0].type === "a"
 
     if (isOnlyLink) {
-      return children
+      return <>{children}</>
     }
 
     // For other paragraphs, continue with normal processing
@@ -539,16 +555,22 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     }
 
     if (containsMath(text)) {
-      return createMarkdownElement("p", {
-        className: `${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal ${isMathOnly ? "math-only" : ""}`,
-        children: <MathText text={text} />,
-      })
+      return (
+        <p
+          className={`${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal ${isMathOnly ? "math-only" : ""}`}
+        >
+          <MathText text={text} />
+        </p>
+      )
     }
 
-    return createMarkdownElement("p", {
-      className: `${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal`,
-      children,
-    })
+    return (
+      <p
+        className={`${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal`}
+      >
+        {children}
+      </p>
+    )
   },
   // Handle math in list items
   li: ({ node, children, ...props }) => {
