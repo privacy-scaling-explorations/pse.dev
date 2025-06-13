@@ -15,7 +15,7 @@ Enhancing Ethereum through cryptographic research and collective experimentation
 
 ### Add/Edit project list
 
-- For updating/adding project detail [you can follow this guide](content/projects/_README.md)
+- For updating/adding project detail [you can follow this guide](content/projects/README.md)
 
 ## PR Review process
 

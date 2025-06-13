@@ -26,7 +26,7 @@ tldr: "Brief project summary" # Short description of the project
 # ========================================
 # OPTIONAL PROPERTIES - Remove if not needed
 # ========================================
-category: "research" # Project category: "research" | "applications" | "devtools"
+category: "research" # Project category: "research" | "devtools" | "application"
 license: "MIT" # Project license
 tags: # Project tags
   keywords: ["tag1", "tag2", "tag3"] # Relevant keywords
@@ -67,7 +67,7 @@ Your project content goes here using **Markdown** formatting.
 
 **Optional Properties:**
 
-- `category`: Project type ("research", "applications", "devtools")
+- `category`: Project type ("research", "devtools", "application")
 - `license`: Project license (e.g., "MIT", "Apache-2.0")
 - `hasWiki`: Boolean for wiki page template
 - `youtubeLinks`: Array of YouTube video URLs
@@ -83,6 +83,12 @@ That's it! Your new project will now be visible in the projects list.
 - `active`: Currently being developed
 - `inactive`: Not actively maintained
 - `maintained`: Stable, receiving updates as needed
+
+## Project Categories
+
+- `research`: Research-focused projects
+- `devtools`: Developer tools and utilities
+- `application`: Application projects
 
 ## Project Sections
 
