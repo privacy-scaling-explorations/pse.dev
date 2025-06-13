@@ -69,7 +69,7 @@ The zero-knowledge proof schemes listed in the table below meet all the requirem
 
 ## Target Circuit
 
-In our setting, the issuer signs a SHA-256 hash of an SD-JWT containing the credential attributes. A typical SD-JWT in this application is about 2 kB in size, so we benchmarked SHA-256 circuits that hash 2 kB of input data.
+In our setting, the issuer signs a SHA-256 hash of an SD-JWT containing the credential attributes. A typical SD-JWT in this application is about 2 kB in size, so we benchmarked SHA-256 circuits that hash 2 kB of input data.
 
 ## Benchmark Results
 
