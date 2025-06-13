@@ -75,3 +75,18 @@ export function interpolate(
     return param !== undefined ? String(param) : `{{${key}}}`
   })
 }
+
+export const scrollToElementWithOffset = (target: HTMLElement) => {
+  const SCROLL_OFFSET = 150
+  const rect = target.getBoundingClientRect()
+  const targetPosition = rect.top + window.pageYOffset - SCROLL_OFFSET
+
+  target.style.scrollMarginTop = `${SCROLL_OFFSET}px`
+
+  requestAnimationFrame(() => {
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    })
+  })
+}
