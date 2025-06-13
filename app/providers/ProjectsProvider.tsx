@@ -55,6 +55,7 @@ interface ProjectsContextType {
   queryString: string
   searchQuery: string
   sortBy: ProjectSortBy
+  getProjectById: (id: string | number) => { project: ProjectInterface }
   toggleFilter: (params: {
     tag: ProjectFilter
     value: string
@@ -265,6 +266,24 @@ export function ProjectsProvider({ children, tag }: ProjectsProviderProps) {
     queryFn: () => fetchProjects(tag),
   })
 
+  const getProjectById = useCallback(
+    (id: string | number) => {
+      const project: ProjectInterface =
+        fetchedProjects.filter(
+          (project: ProjectInterface) =>
+            String(project.id?.toLowerCase()) === id.toString().toLowerCase()
+        )[0] ?? {}
+
+      const content = project?.content
+
+      return {
+        project,
+        content,
+      }
+    },
+    [fetchedProjects]
+  )
+
   const filters = useMemo(
     () => getProjectFilters(fetchedProjects),
     [fetchedProjects]
@@ -380,6 +399,7 @@ export function ProjectsProvider({ children, tag }: ProjectsProviderProps) {
       queryString,
       searchQuery,
       sortBy,
+      getProjectById,
       toggleFilter,
       setFilterFromQueryString,
       onFilterProject,
@@ -398,6 +418,7 @@ export function ProjectsProvider({ children, tag }: ProjectsProviderProps) {
       queryString,
       searchQuery,
       sortBy,
+      getProjectById,
       toggleFilter,
       setFilterFromQueryString,
       onFilterProject,

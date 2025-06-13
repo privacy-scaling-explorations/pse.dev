@@ -3,7 +3,6 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { VariantProps, cva } from "class-variance-authority"
 
-import { getProjectById } from "@/lib/projectsUtils"
 import {
   ProjectInterface,
   ProjectLinkWebsite,
@@ -64,10 +63,8 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const router = useRouter()
 
-  const { id, image, links, name, imageAlt, projectStatus, cardTags } =
+  const { id, image, links, name, imageAlt, projectStatus, cardTags, tldr } =
     project ?? {}
-
-  const { content: projectContent } = getProjectById(id)
 
   return (
     <div
@@ -104,11 +101,9 @@ export default function ProjectCard({
               {name}
             </h1>
           </Link>
-          {projectContent?.tldr && (
+          {(tldr ?? "")?.length > 0 && (
             <div className="flex flex-col h-24 gap-4">
-              <p className="text-slate-900/80 line-clamp-4">
-                {projectContent?.tldr}
-              </p>
+              <p className="text-slate-900/80 line-clamp-4">{tldr}</p>
             </div>
           )}
         </div>
