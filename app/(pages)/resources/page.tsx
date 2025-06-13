@@ -14,7 +14,7 @@ import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 
-import ResourcesContent from "@/content/resources/resources.md"
+import ResourcesContent from "@/content/resources.md"
 
 interface ResourceItemProps {
   label: string
