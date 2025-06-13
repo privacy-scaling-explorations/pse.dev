@@ -175,10 +175,17 @@ const sortProjectByFn = ({
     ...(projects as ProjectInterfaceScore[]),
   ]
     .sort(SortByFnMapping[sortBy])
-    .filter((project) => !ignoreCategories.includes(project.category as any))
+    .filter(
+      (project) =>
+        !ignoreCategories
+          ?.map((category) => category?.toLowerCase())
+          .includes(project.category?.toLowerCase() as any)
+    )
 
   if (category) {
-    return sortedProjectList.filter((project) => project.category === category)
+    return sortedProjectList.filter(
+      (project) => project.category?.toLowerCase() === category?.toLowerCase()
+    )
   }
 
   return sortedProjectList.map((project: any) => ({
