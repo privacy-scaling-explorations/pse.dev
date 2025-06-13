@@ -27,7 +27,7 @@ export interface Article {
   publicKey?: string
   hash?: string
   canonical?: string
-  tags: ArticleTag[]
+  tags?: ArticleTag[]
   projects?: string[]
 }
 
@@ -220,9 +220,9 @@ export const getArticleTags = () => {
 
 export const getArticleTagsWithIds = () => {
   const tags = getArticleTags()
-  return tags.map((tag) => ({
+  return tags.map((tag: any) => ({
     id: tag
-      .toLowerCase()
+      ?.toLowerCase()
       .replace(/\s+/g, "-")
       .replace(/[^a-z0-9-]/g, ""),
     name: tag,
