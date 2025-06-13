@@ -79,21 +79,7 @@ const BlogPage = async ({ searchParams }: BlogPageProps) => {
 
   return (
     <div className="flex flex-col">
-      <div className="w-full bg-page-header-gradient">
-        <AppContent className="flex flex-col gap-4 py-10 w-full">
-          <Label.PageTitle label={LABELS.BLOG_PAGE.TITLE} />
-          {tag && (
-            <h2 className="text-xl font-semibold text-tuatara-800">
-              {`Filtered by tag: "${tag}"`}
-            </h2>
-          )}
-          <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
-            {LABELS.BLOG_PAGE.SUBTITLE}
-          </h6>
-        </AppContent>
-      </div>
-
-      <AppContent className="flex flex-col gap-10 lg:gap-16 pb-10 lg:py-10 lg:max-w-[978px]">
+      <AppContent className="flex flex-col gap-10 py-10 lg:gap-16 lg:py-16 lg:max-w-[978px]">
         <Suspense fallback={<BlogLoadingSkeleton />}>
           <HydrationBoundary state={dehydrate(queryClient)}>
             <ArticlesList tag={tag} />
