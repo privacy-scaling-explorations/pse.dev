@@ -80,8 +80,8 @@ const BlogTagPage = async ({ params }: BlogTagPageProps) => {
 
   return (
     <div className="flex flex-col">
-      <div className="w-full bg-page-header-gradient">
-        <AppContent className="flex flex-col gap-4 py-10 w-full">
+      <AppContent className="flex flex-col gap-10 pb-10 lg:py-10 lg:max-w-[978px]">
+        <div className="flex flex-col gap-4 py-10 w-full">
           <Link
             className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950 mr-auto"
             href="/blog"
@@ -91,15 +91,12 @@ const BlogTagPage = async ({ params }: BlogTagPageProps) => {
               {LABELS.BLOG_TAGS_PAGE.BACK_TO_ARTICLES}
             </span>
           </Link>
-          <Label.PageTitle
+          <Label.Section
             label={interpolate(LABELS.BLOG_TAGS_PAGE.TAG_TITLE, {
               tag: tagInfo?.name ?? tag,
             })}
           />
-        </AppContent>
-      </div>
-
-      <AppContent className="flex flex-col gap-10 lg:gap-16 pb-10 lg:py-10 lg:max-w-[978px]">
+        </div>
         <Suspense fallback={<BlogLoadingSkeleton />}>
           <HydrationBoundary state={dehydrate(queryClient)}>
             <div className="flex flex-col gap-5 lg:gap-14">
