@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { Markdown } from "../ui/markdown"
-import { Article } from "@/lib/blog"
+import { Article } from "@/lib/content"
 import { getBackgroundImage } from "@/lib/utils"
 
 export const ArticleListCard = ({
