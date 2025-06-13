@@ -2,7 +2,7 @@ import { LABELS } from "@/app/labels"
 import { Icons } from "@/components/icons"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
-import { getArticleTags } from "@/lib/content"
+import { getArticleTags, ArticleTag } from "@/lib/content"
 import { HydrationBoundary, QueryClient } from "@tanstack/react-query"
 import Link from "next/link"
 import { Suspense } from "react"
@@ -20,16 +20,16 @@ const BlogTagsPage = async () => {
     queryKey: ["get-articles-tags"],
     queryFn: async () => {
       try {
-        const articles = getArticleTags()
-        return articles
+        const tags = getArticleTags()
+        return tags
       } catch (error) {
-        console.error("Error fetching articles:", error)
+        console.error("Error fetching article tags:", error)
         return []
       }
     },
   })
 
-  const tags = queryClient.getQueryData(["get-articles-tags"]) as string[]
+  const tags = queryClient.getQueryData(["get-articles-tags"]) as ArticleTag[]
 
   return (
     <div className="flex flex-col pb-10v">
@@ -53,11 +53,11 @@ const BlogTagsPage = async () => {
           <HydrationBoundary>
             {tags?.map((tag) => (
               <Link
-                href={`/blog/tags/${tag}`}
-                key={tag}
+                href={`/blog/tags/${tag.id}`}
+                key={tag.id}
                 className="text-neutral-950 border-b-[2px] border-b-anakiwa-500 text-sm font-medium w-fit hover:text-anakiwa-500 duration-200"
               >
-                {tag}
+                {tag.name}
               </Link>
             ))}
           </HydrationBoundary>

@@ -16,7 +16,6 @@ interface GlobalContextType {
   setIsDarkMode: (value: boolean) => void
 }
 
-const DARK_MODE_KEY = "pse-dark-mode"
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined)
 
 const queryClient = new QueryClient({
@@ -29,41 +28,23 @@ const queryClient = new QueryClient({
 })
 
 export function GlobalProvider({ children }: { children: ReactNode }) {
-  // Initialize dark mode from local storage or system preference
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check local storage first
-    const storedPreference = localStorage.getItem(DARK_MODE_KEY)
-    if (storedPreference !== null) {
-      return storedPreference === "true"
-    }
-    // Fall back to system preference
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-  })
+  const [isDarkMode, setIsDarkMode] = useState(false)
 
-  // Listen for system preference changes
+  // Initialize dark mode from system preference
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+    setIsDarkMode(mediaQuery.matches)
+
     const handleChange = (e: MediaQueryListEvent) => {
-      // Only update if user hasn't explicitly set a preference
-      if (localStorage.getItem("pse,") === null) {
-        setIsDarkMode(e.matches)
-      }
+      setIsDarkMode(e.matches)
     }
 
-    // Add event listener
     mediaQuery.addEventListener("change", handleChange)
-
-    // Cleanup
     return () => mediaQuery.removeEventListener("change", handleChange)
   }, [])
 
-  // Save preference to localStorage when it changes
-  useEffect(() => {
-    localStorage.setItem(DARK_MODE_KEY, isDarkMode.toString())
-  }, [isDarkMode])
-
   const value = {
-    isDarkMode: true,
+    isDarkMode,
     setIsDarkMode,
   }
 

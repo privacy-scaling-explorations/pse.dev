@@ -1,17 +1,18 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useMemo } from "react"
 import Image from "next/image"
 import NoResultIcon from "@/public/icons/no-result.svg"
-import { useProjectFiltersState } from "@/state/useProjectFiltersState"
 import { cva } from "class-variance-authority"
 
-import { ProjectStatus } from "@/lib/types"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { LABELS } from "@/app/labels"
+import { useProjects } from "@/app/providers/ProjectsProvider"
 
 import ResearchCard from "./research-card"
 import Link from "next/link"
+
 const sectionTitleClass = cva(
   "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-['']"
 )
@@ -37,17 +38,28 @@ const ProjectStatusOrderList = ["active", "maintained", "inactive"]
 export const ResearchList = () => {
   const [isMounted, setIsMounted] = useState(false)
 
-  const { researchs, searchQuery, queryString } = useProjectFiltersState(
-    (state) => state
-  )
+  const { researchs, searchQuery, queryString } = useProjects()
 
   const noItems = researchs?.length === 0
+  const hasActiveFilters = searchQuery !== "" || queryString !== ""
 
   useEffect(() => {
     setIsMounted(true)
   }, [])
 
-  const hasActiveFilters = searchQuery !== "" || queryString !== ""
+  const { activeResearchs, pastResearchs } = useMemo(() => {
+    const active = researchs.filter(
+      (research: ProjectInterface) =>
+        research.projectStatus === ProjectStatus.ACTIVE
+    )
+
+    const past = researchs.filter(
+      (research: ProjectInterface) =>
+        research.projectStatus !== ProjectStatus.ACTIVE
+    )
+
+    return { activeResearchs: active, pastResearchs: past }
+  }, [researchs])
 
   if (!isMounted) {
     return (
@@ -74,14 +86,6 @@ export const ResearchList = () => {
 
   if (noItems) return <NoResults />
 
-  const activeResearchs = researchs.filter(
-    (research) => research.projectStatus === ProjectStatus.ACTIVE
-  )
-
-  const pastResearchs = researchs.filter(
-    (research) => research.projectStatus !== ProjectStatus.ACTIVE
-  )
-
   return (
     <div className="relative grid items-start justify-between grid-cols-1">
       <div
@@ -97,20 +101,18 @@ export const ResearchList = () => {
             </div>
           )}
           <div className="grid grid-cols-1 gap-4 md:gap-x-6 md:gap-y-10 lg:grid-cols-3">
-            {activeResearchs.map((project) => {
-              return (
-                <ResearchCard
-                  key={project?.id}
-                  project={project}
-                  className="h-[180px]"
-                  showBanner={false}
-                  showLinks={false}
-                  showCardTags={false}
-                  showStatus={false}
-                  border
-                />
-              )
-            })}
+            {activeResearchs.map((project: ProjectInterface) => (
+              <ResearchCard
+                key={project?.id}
+                project={project}
+                className="h-[180px]"
+                showBanner={false}
+                showLinks={false}
+                showCardTags={false}
+                showStatus={false}
+                border
+              />
+            ))}
           </div>
         </div>
         <div className={cn("flex w-full flex-col gap-10 pt-10")}>
@@ -120,17 +122,15 @@ export const ResearchList = () => {
             </h3>
           </div>
           <div className="flex flex-col gap-5">
-            {pastResearchs.map((project) => {
-              return (
-                <Link
-                  href={`/projects/${project?.id}`}
-                  key={project?.id}
-                  className="text-neutral-950 border-b-[2px] border-b-anakiwa-500 text-sm font-medium w-fit hover:text-anakiwa-500 duration-200"
-                >
-                  {project.name}
-                </Link>
-              )
-            })}
+            {pastResearchs.map((project: ProjectInterface) => (
+              <Link
+                href={`/projects/${project?.id}`}
+                key={project?.id}
+                className="text-neutral-950 border-b-[2px] border-b-anakiwa-500 text-sm font-medium w-fit hover:text-anakiwa-500 duration-200"
+              >
+                {project.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

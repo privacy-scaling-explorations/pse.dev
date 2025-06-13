@@ -10,6 +10,11 @@ export interface Project {
   [key: string]: any
 }
 
+export interface ArticleTag {
+  id: string
+  name: string
+}
+
 export interface Article {
   id: string
   title: string
@@ -22,7 +27,7 @@ export interface Article {
   publicKey?: string
   hash?: string
   canonical?: string
-  tags?: { id: string; name: string }[]
+  tags: ArticleTag[]
   projects?: string[]
 }
 
@@ -107,22 +112,32 @@ export function getArticles(options?: {
     directory: articlesDirectory,
     excludeFiles: ["readme", "_readme", "_article-template"],
     processContent: (data, content, id) => {
-      // Ensure tags are always an array, combining 'tags' and 'tag'
-      const tags = [
+      // Normalize tags from both 'tags' and 'tag' fields
+      const rawTags = [
         ...(Array.isArray(data?.tags) ? data.tags : []),
         ...(data?.tag ? [data.tag] : []),
       ]
 
+      // Process and normalize tags
+      const normalizedTags = rawTags
+        .map((tag) => {
+          if (typeof tag !== "string") return null
+          const name = tag.trim()
+          if (!name) return null
+          return {
+            id: name
+              .toLowerCase()
+              .replace(/\s+/g, "-")
+              .replace(/[^a-z0-9-]/g, ""),
+            name,
+          }
+        })
+        .filter((tag): tag is ArticleTag => tag !== null)
+
       return {
         id,
         ...data,
-        tags: tags.map((tag) => ({
-          id: tag
-            .toLowerCase()
-            .replace(/\s+/g, "-")
-            .replace(/[^a-z0-9-]/g, ""),
-          name: tag,
-        })),
+        tags: normalizedTags,
         content,
       }
     },
@@ -132,8 +147,9 @@ export function getArticles(options?: {
 
   // Filter by tag if provided
   if (tag) {
+    const tagId = tag.toLowerCase()
     filteredArticles = filteredArticles.filter((article) =>
-      article.tags?.some((t) => t.id === tag)
+      article.tags?.some((t) => t.id === tagId)
     )
   }
 
@@ -189,13 +205,17 @@ export function getProjects(options?: {
 
 export const getArticleTags = () => {
   const articles = getArticles()
-  const allTags =
-    articles
-      .map((article) => article.tags?.map((t) => t.name))
-      .flat()
-      .filter(Boolean) ?? []
+  const allTags = articles.reduce<ArticleTag[]>((acc, article) => {
+    article.tags?.forEach((tag) => {
+      if (!acc.some((t) => t.id === tag.id)) {
+        acc.push(tag)
+      }
+    })
+    return acc
+  }, [])
 
-  return Array.from(new Set(allTags)) as string[]
+  // Sort tags alphabetically by name
+  return allTags.sort((a, b) => a.name.localeCompare(b.name))
 }
 
 export const getArticleTagsWithIds = () => {

@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import NoResultIcon from "@/public/icons/no-result.svg"
-import { useProjectFiltersState } from "@/state/useProjectFiltersState"
 import { cva } from "class-variance-authority"
 
 import {

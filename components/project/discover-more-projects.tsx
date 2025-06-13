@@ -1,8 +1,8 @@
 "use client"
 
+import { useMemo } from "react"
 import Link from "next/link"
-import { projects } from "@/data/projects"
-import { filterProjects } from "@/state/useProjectFiltersState"
+import { useProjects } from "@/app/providers/ProjectsProvider"
 
 import { ProjectInterface } from "@/lib/types"
 import { shuffleArray } from "@/lib/utils"
@@ -13,25 +13,28 @@ import ProjectCard from "./project-card"
 import { ProjectProps } from "@/app/(pages)/projects/[id]/page"
 
 export default function DiscoverMoreProjects({ project }: ProjectProps) {
-  const getSuggestedProjects = () => {
-    const projectList = projects.filter((p) => p.id !== project.id)
+  const { projects: allProjects, onFilterProject } = useProjects()
 
-    const suggestedProject = filterProjects({
-      searchPattern: "",
-      activeFilters: project?.tags,
-      findAnyMatch: true,
-      projects: projectList,
+  const suggestedProject = useMemo(() => {
+    const projectList = allProjects.filter(
+      (p: ProjectInterface) => p.id !== project.id
+    )
+
+    // Filter projects by tags
+    onFilterProject("")
+    const suggestedProjects = projectList.filter((p) => {
+      const projectThemes = project.tags?.themes ?? []
+      const pThemes = p.tags?.themes ?? []
+      return projectThemes.some((tag) => pThemes.includes(tag))
     })
 
     // No match return random projects
-    if (suggestedProject?.length < 2) {
+    if (suggestedProjects?.length < 2) {
       return shuffleArray(projectList).slice(0, 2)
     }
 
-    return suggestedProject.slice(0, 2)
-  }
-
-  const suggestedProject = getSuggestedProjects()
+    return suggestedProjects.slice(0, 2)
+  }, [allProjects, project.id, project.tags?.themes, onFilterProject])
 
   return (
     <div className="w-full bg-cover-gradient">
@@ -40,8 +43,8 @@ export default function DiscoverMoreProjects({ project }: ProjectProps) {
           {LABELS.COMMON.DISCOVER_MORE}
         </h2>
         <div className="grid flex-col grid-cols-1 gap-5 md:grid-cols-2 md:flex-row">
-          {suggestedProject?.map((project: ProjectInterface, index: number) => (
-            <ProjectCard key={index} border project={project} />
+          {suggestedProject?.map((project: ProjectInterface) => (
+            <ProjectCard key={project.id} border project={project} />
           ))}
         </div>
         <Link

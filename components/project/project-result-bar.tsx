@@ -1,11 +1,10 @@
 "use client"
 
 import {
-  DEFAULT_PROJECT_SORT_BY,
   ProjectFilter,
   ProjectSortBy,
-  useProjectFiltersState,
-} from "@/state/useProjectFiltersState"
+  useProjects,
+} from "@/app/providers/ProjectsProvider"
 
 import { LABELS } from "@/app/labels"
 import { interpolate } from "@/lib/utils"
@@ -17,7 +16,7 @@ const labelClass = "h-5 text-xs text-base md:h-6 text-slate-900/70 md:text-sm"
 
 export const ProjectResultBar = () => {
   const { activeFilters, toggleFilter, projects, sortProjectBy, sortBy } =
-    useProjectFiltersState((state) => state)
+    useProjects()
 
   const haveActiveFilters = Object.entries(activeFilters).some(
     ([, values]) => values?.length > 0
@@ -61,7 +60,7 @@ export const ProjectResultBar = () => {
         <span className={labelClass}>{resultLabel}</span>
         <Dropdown
           label={activeSortOption}
-          defaultItem={DEFAULT_PROJECT_SORT_BY}
+          defaultItem="asc"
           items={projectSortItems}
           onChange={(sortBy) => sortProjectBy(sortBy as ProjectSortBy)}
           disabled={!projects?.length}

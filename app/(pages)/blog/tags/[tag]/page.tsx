@@ -2,7 +2,7 @@ import { LABELS } from "@/app/labels"
 import { ArticleListCard } from "@/components/blog/article-list-card"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
-import { getArticles, Article, getArticleTags } from "@/lib/content"
+import { getArticles, Article, getArticleTags, ArticleTag } from "@/lib/content"
 import { interpolate } from "@/lib/utils"
 import {
   HydrationBoundary,
@@ -23,21 +23,42 @@ export async function generateMetadata({
   params,
 }: BlogTagPageProps): Promise<Metadata> {
   const { tag } = params
+  const tags = await getArticleTags()
+  const tagInfo = tags.find((t) => t.id === tag)
 
   return {
-    title: interpolate(LABELS.BLOG_TAGS_PAGE.TAG_TITLE, { tag }),
+    title: interpolate(LABELS.BLOG_TAGS_PAGE.TAG_TITLE, {
+      tag: tagInfo?.name ?? tag,
+    }),
     description: LABELS.BLOG_TAGS_PAGE.SUBTITLE,
   }
 }
 
 export const generateStaticParams = async () => {
   const tags = await getArticleTags()
-  return tags.map((tag) => ({ tag }))
+  return tags.map((tag) => ({ tag: tag.id }))
 }
 
 const BlogTagPage = async ({ params }: BlogTagPageProps) => {
   const { tag } = params
   const queryClient = new QueryClient()
+
+  // First get all tags to find the display name
+  await queryClient.prefetchQuery({
+    queryKey: ["get-articles-tags"],
+    queryFn: async () => {
+      try {
+        const tags = getArticleTags()
+        return tags
+      } catch (error) {
+        console.error("Error fetching article tags:", error)
+        return []
+      }
+    },
+  })
+
+  const tags = queryClient.getQueryData(["get-articles-tags"]) as ArticleTag[]
+  const tagInfo = tags.find((t) => t.id === tag)
 
   await queryClient.prefetchQuery({
     queryKey: ["get-articles-by-tag", tag],
@@ -72,7 +93,7 @@ const BlogTagPage = async ({ params }: BlogTagPageProps) => {
           </Link>
           <Label.PageTitle
             label={interpolate(LABELS.BLOG_TAGS_PAGE.TAG_TITLE, {
-              tag: tag,
+              tag: tagInfo?.name ?? tag,
             })}
           />
         </AppContent>
@@ -87,7 +108,7 @@ const BlogTagPage = async ({ params }: BlogTagPageProps) => {
               ))}
               {articles?.length === 0 && (
                 <p className="text-center text-gray-500 py-10">
-                  No articles found for tag &quot;{tag}&quot;
+                  No articles found for tag &quot;{tagInfo?.name ?? tag}&quot;
                 </p>
               )}
             </div>

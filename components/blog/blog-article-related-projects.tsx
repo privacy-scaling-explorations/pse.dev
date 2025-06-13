@@ -1,6 +1,7 @@
 "use client"
 
-import { useProjectFiltersState } from "@/state/useProjectFiltersState"
+import { useMemo } from "react"
+import { useProjects } from "@/app/providers/ProjectsProvider"
 import ProjectCard from "../project/project-card"
 
 interface BlogArticleRelatedProjectsProps {
@@ -10,12 +11,13 @@ interface BlogArticleRelatedProjectsProps {
 export const BlogArticleRelatedProjects = ({
   projectsIds,
 }: BlogArticleRelatedProjectsProps) => {
-  const { projects: allProjects, researchs: allResearchs } =
-    useProjectFiltersState((state) => state)
+  const { projects: allProjects, researchs: allResearchs } = useProjects()
 
-  const projects = [...allProjects, ...allResearchs].filter((project) =>
-    projectsIds.includes(project.id)
-  )
+  const projects = useMemo(() => {
+    return [...allProjects, ...allResearchs].filter((project) =>
+      projectsIds.includes(project.id)
+    )
+  }, [allProjects, allResearchs, projectsIds])
 
   if (projects.length === 0) return null
 
