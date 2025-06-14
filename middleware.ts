@@ -7,6 +7,10 @@ const LANGUAGE_CODES = ["en", "it", "de", "es", "fr", "ja", "ko"]
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  if (LANGUAGE_CODES.includes(pathname.slice(1))) {
+    return NextResponse.redirect(new URL("/", request.url))
+  }
+
   const languageCode = LANGUAGE_CODES.find((code) =>
     pathname.startsWith(`/${code}/`)
   )
@@ -27,13 +31,9 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    // Match exact language codes (e.g., /en, /fr)
+    ...LANGUAGE_CODES.map((code) => `/${code}`),
     // Match all paths that start with any of the language codes
-    "/en/:path*",
-    "/it/:path*",
-    "/de/:path*",
-    "/es/:path*",
-    "/fr/:path*",
-    "/ja/:path*",
-    "/ko/:path*",
+    ...LANGUAGE_CODES.map((code) => `/${code}/:path*`),
   ],
 }
