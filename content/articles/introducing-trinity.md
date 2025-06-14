@@ -189,7 +189,7 @@ socket?.send(
 
 ### Evaluate the circuit
 
-Now Alice can receive the garbeld data from the Bob and evaluate the circuit. Note that the process is assymetric, and only Alice evaluate the circuit on here side and can send back the result to Bob.
+Now Alice can receive the garbeld data from the Bob and evaluate the circuit. Note that the process is asymmetric, and only Alice evaluate the circuit on here side and can send back the result to Bob.
 
 ```ts
 // Receiving serialized Garbled data
