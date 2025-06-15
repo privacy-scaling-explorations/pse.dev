@@ -72,7 +72,7 @@ As an example, if the tree is a group of people, you can prove you're a member w
 
 [Semaphore](https://docs.semaphore.pse.dev/) leverages this, enabling you to cast a **signal**, which can be a vote or a message, as a provable group member while preserving your anonymity. [World ID](https://world.org/world-id) uses Semaphore to allow you to anonymously and securely verify that you are a [real and unique human](https://world.org/blog/developers/the-worldcoin-protocol).
 
-Group members are stored in a [Lean Incremental Merkle Tree](https://github.com/privacy-scaling-explorations/zk-kit/tree/main/papers/leanimt). It's a Poseidon-based append-only binary tree, with 32-byte nodes and leaves.
+Group members are stored in a [Lean Incremental Merkle Tree](https://github.com/privacy-scaling-explorations/zk-kit/tree/main/papers/leanimt) (LeanIMT). It's a Poseidon-based append-only binary tree, with 32-byte nodes and leaves.
 
 World ID already has ~12M members, and the tree is too large for users to store and update locally. They currently rely on an [indexing service](https://whitepaper.world.org/#verification-process) that retrieves the inclusion proof on behalf of the user.
 
@@ -82,7 +82,7 @@ So, in order to [scale Semaphore](https://hackmd.io/@brech1/scale-semaphore) whi
 
 ### Proposed Solution
 
-Users can fetch the tree `root` and `size` without disclosing any information. The Lean IMT has a deterministic structure based on its `size`, so we can compute the indices involved in the Merkle proof for a given leaf (see the [implementation](https://github.com/privacy-scaling-explorations/zk-kit.rust/blob/main/crates/lean-imt/src/stateless.rs)).
+Users can fetch the tree `root` and `size` without disclosing any information. The LeanIMT has a deterministic structure based on its `size`, so we can compute the indices involved in the Merkle proof for a given leaf (see the [implementation](https://github.com/privacy-scaling-explorations/zk-kit.rust/blob/main/crates/lean-imt/src/stateless.rs)).
 
 With the calculated indices, users can then use PIR to fetch them and generate the Merkle proofs locally.
 
@@ -104,9 +104,9 @@ This metadata allows the RPC endpoint to profile and potentially deanonymize use
 
 PIR can enable private state reads for balance lookups and contract state reads. For instance, wallets could fetch Ether or token balances and NFTs anonymously. A great working example of this is [sprl.it](https://sprl.it/) for ENS resolution.
 
-> ⚠️ Keep in mind that this wouldn't be possible in many cases where the contracts are already too big (jump to the benchmarks for specifics), or if we don't want to disclose which contracts we're interested in.
+> ⚠️ Keep in mind that contract state reads wouldn't be possible in many cases where the contracts are already too big (jump to the benchmarks for specifics), or if we don't want to disclose which contracts we're interested in.
 
-Unlike Semaphore's Lean IMT, Merkle-Patricia Tries lack a deterministic structure based on known parameters, complicating data index computation. There are at least two ways around this:
+Unlike Semaphore's LeanIMT, Merkle-Patricia Tries lack a deterministic structure based on known parameters, complicating data index computation. There are at least two ways around this:
 
 - **Key-Based PIR**: Schemes like [Chalamet PIR](https://eprint.iacr.org/2024/092.pdf) query by address, treating the trie as a key-value database, which is also [Ethereum's case](https://geth.ethereum.org/docs/fundamentals/databases), avoiding index computation but increasing encoding and usage costs.
 
@@ -160,7 +160,7 @@ These are the steps involved in a Respire private information retrieval:
 
 ## Performance Evaluation
 
-A [benchmarking codebase](https://github.com/brech1/tree-pir) was created for the performance evaluation, with the main goal being to test Respire with Lean IMTs.
+A [benchmarking codebase](https://github.com/brech1/tree-pir) was created for the performance evaluation, with the main goal being to test Respire with LeanIMTs.
 
 The trees are generated with the `semaphore-rs` group module, and then flattened. Results of $2^n$ member groups (or leaves) mean dealing with a $2^{n+1} - 1$ element database.
 
@@ -178,7 +178,7 @@ All measurements are on a single thread. A much cheaper instance type could be u
 Each section has the result for both single and multiple element (or batch) benchmarks:
 
 - **Single Element Request**: Executes a request for a single 32-byte record.
-- **Batch Request**: Executes a request of `n-1` elements for a database of size $2^n$. This is tied to Lean IMTs being binary trees, so we need `n` siblings and the root to construct the merkle proofs.
+- **Batch Request**: Executes a request of $n-1$ elements for a database of size $2^n$. This is tied to LeanIMTs being binary trees, so we need $n$ siblings and the root to construct the merkle proofs.
 
 **Database Size** is expressed in amount of elements. To keep in mind:
 
@@ -342,7 +342,7 @@ One of the most immediate reasons for taking this direction is security, [data l
 
 Privacy is essential for Ethereum and PIR offers a path for private reads in and around it, hiding not just who you are but what you look up. But still, practical deployments face some frictions.
 
-Re-encoding large trees for every change is too expensive, so the data may be stale, depending on the cadence of periodic snapshots. Deterministic trees such as Lean IMT let clients compute indices on their own, but arbitrary tries still need either key-based PIR or a simple 2PC for index lookup, both of which add overhead.
+Re-encoding large trees for every change is too expensive, so the data may be stale, depending on the cadence of periodic snapshots. Deterministic trees such as LeanIMT let clients compute indices on their own, but arbitrary tries still need either key-based PIR or a simple 2PC for index lookup, both of which add overhead.
 
 The computation burden is concentrated on the servers, so RPC providers or dedicated operators must be incentivized through fees or other rewards. Wallets and dApps need accessible WASM libraries to integrate PIR. Until that is available, users can use alternatives such as rotating RPC endpoints, using mixnets, or TEE-based relayers.
 
@@ -364,4 +364,5 @@ If we're going towards a fully private Ethereum, a possible roadmap for data acc
 - [Semaphore Documentation](https://docs.semaphore.pse.dev/)
 - [TEE based private proof delegation](https://pse.dev/en/blog/tee-based-ppd)
 - [TreePIR: Sublinear-Time and Polylog-Bandwidth Private Information Retrieval from DDH](https://eprint.iacr.org/2023/204)
+- [(WIP) A validation on Valid-Only Partial Statelessness](https://hackmd.io/_wVNey49QTmbd0Nm9lrU8A)
 - [Worldcoin - A New Identity and Financial Network](https://whitepaper.world.org/)
