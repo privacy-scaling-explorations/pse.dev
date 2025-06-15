@@ -16,10 +16,10 @@ export default async function AboutPage() {
 
   return (
     <div className="flex flex-col">
-      <div className="w-full bg-page-header-gradient">
+      <div className="w-full bg-page-header-gradient dark:bg-transparent-gradient">
         <AppContent className="flex flex-col gap-4 py-10 w-full max-w-[978px] mx-auto">
           <Label.PageTitle label={LABELS.ABOUT_PAGE.TITLE} />
-          <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
+          <h6 className="font-sans text-base font-normal text-primary md:text-[18px] md:leading-[27px] md:max-w-[700px]">
             {LABELS.ABOUT_PAGE.DESCRIPTION}
           </h6>
           <Link
@@ -42,7 +42,7 @@ export default async function AboutPage() {
           </Link>
         </AppContent>
       </div>
-      <Divider.Section className="bg-white">
+      <Divider.Section className="bg-background">
         <div className="flex justify-center">
           <AppContent className="container flex w-full max-w-[978px] flex-col gap-8 py-10 md:py-16">
             <Label.Section

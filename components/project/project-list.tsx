@@ -20,7 +20,18 @@ import ProjectCard from "./project-card"
 import { useProjects } from "@/app/providers/ProjectsProvider"
 
 const sectionTitleClass = cva(
-  "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-['']"
+  "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 dark:text-anakiwa-400 dark:text-white",
+  {
+    variants: {
+      variant: {
+        default:
+          "after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-['']",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
 )
 
 const NoResults = () => {
@@ -29,10 +40,10 @@ const NoResults = () => {
       <div className="mx-auto">
         <Image className="h-9 w-9" src={NoResultIcon} alt="no result icon" />
       </div>
-      <span className="text-2xl font-bold font-display text-tuatara-950">
+      <span className="text-2xl font-bold font-display text-primary">
         {LABELS.COMMON.NO_RESULTS}
       </span>
-      <span className="text-lg font-normal text-tuatara-950">
+      <span className="text-lg font-normal text-primary">
         {LABELS.COMMON.NO_RESULTS_DESCRIPTION}
       </span>
     </div>
@@ -170,7 +181,7 @@ export const ProjectList = () => {
                 {!hasSearchParams && (
                   <div className="flex flex-col gap-6 overflow-hidden">
                     <h3 className={cn(sectionTitleClass())}>{status}</h3>
-                    <span className="font-sans text-base italic text-tuatara-950">
+                    <span className="font-sans text-base italic text-primary">
                       {description}
                     </span>
                   </div>
@@ -194,7 +205,7 @@ export const ProjectList = () => {
 
       <div id="sidebar" className="sticky hidden p-8 top-20 bg-white/30">
         <div className="flex flex-col gap-4">
-          <h6 className="text-lg font-bold font-display text-tuatara-700">
+          <h6 className="text-lg font-bold font-display text-secondary">
             {LABELS.RESOURCES_PAGE.ON_THIS_PAGE}
           </h6>
           <ul className="font-sans text-black text-normal">

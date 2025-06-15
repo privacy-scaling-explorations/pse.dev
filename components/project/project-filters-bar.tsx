@@ -1,14 +1,10 @@
 "use client"
 
 import React, { ChangeEvent, ReactNode, useEffect, useState } from "react"
-import Image from "next/image"
 import { useRouter, useSearchParams } from "next/navigation"
-import FiltersIcon from "@/public/icons/filters.svg"
 import { useDebounce } from "react-use"
 import { IThemeStatus, IThemesButton } from "@/types/common"
 import {
-  ProjectCategories,
-  ProjectCategory,
   ProjectSectionLabelMapping,
   ProjectSections,
   ProjectStatus,
@@ -46,7 +42,7 @@ interface FilterWrapperProps {
 const FilterWrapper = ({ label, children, className }: FilterWrapperProps) => {
   return (
     <div className={cn("flex flex-col gap-4 py-6", className)}>
-      <span className="text-sm font-medium text-tuatara-950 md:text-base">
+      <span className="text-sm font-medium text-primary md:text-base">
         {label}
       </span>
       {children}
@@ -276,7 +272,7 @@ export default function ProjectFiltersBar() {
                     })}
                   >
                     <div className="flex items-center gap-2">
-                      <Image src={FiltersIcon} alt="filter icon" />
+                      <Icons.Filter className="text-anakiwa-950 dark:text-anakiwa-400" />
                       <span className="hidden md:block">
                         {LABELS.COMMON.FILTERS}
                       </span>
@@ -286,9 +282,9 @@ export default function ProjectFiltersBar() {
                 <button
                   disabled={!hasActiveFilters}
                   onClick={clearAllFilters}
-                  className="hidden bg-transparent cursor-pointer opacity-85 text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block"
+                  className="hidden bg-transparent cursor-pointer opacity-85 text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block dark:text-anakiwa-400 dark:hover:text-anakiwa-400 underline"
                 >
-                  <div className="flex items-center gap-2 border-b-2 border-black">
+                  <div className="flex items-center gap-2 border-b-2 border-black dark:border-anakiwa-800">
                     <span className="text-sm font-medium">
                       {LABELS.COMMON.CLEAR_ALL}
                     </span>

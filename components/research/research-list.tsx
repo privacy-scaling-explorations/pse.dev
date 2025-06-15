@@ -14,7 +14,7 @@ import ResearchCard from "./research-card"
 import Link from "next/link"
 
 const sectionTitleClass = cva(
-  "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-['']"
+  "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-[''] dark:text-white"
 )
 
 const NoResults = () => {
@@ -23,10 +23,10 @@ const NoResults = () => {
       <div className="mx-auto">
         <Image className="h-9 w-9" src={NoResultIcon} alt="no result icon" />
       </div>
-      <span className="text-2xl font-bold font-display text-tuatara-950">
+      <span className="text-2xl font-bold font-display text-primary">
         {LABELS.COMMON.NO_RESULTS}
       </span>
-      <span className="text-lg font-normal text-tuatara-950">
+      <span className="text-lg font-normal text-primary">
         {LABELS.COMMON.NO_RESULTS_DESCRIPTION}
       </span>
     </div>
@@ -126,7 +126,7 @@ export const ResearchList = () => {
               <Link
                 href={`/projects/${project?.id}`}
                 key={project?.id}
-                className="text-neutral-950 border-b-[2px] border-b-anakiwa-500 text-sm font-medium w-fit hover:text-anakiwa-500 duration-200"
+                className="text-neutral-950 border-b-[2px] border-b-anakiwa-500 text-sm font-medium w-fit hover:text-anakiwa-500 duration-200 dark:text-white"
               >
                 {project.name}
               </Link>

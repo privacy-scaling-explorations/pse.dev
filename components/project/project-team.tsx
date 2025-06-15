@@ -16,7 +16,7 @@ export const ProjectTeamMembers = ({ team }: ProjectTeamMembersProps) => {
 
   return (
     <div className="w-full" id="team" data-section-id="team">
-      <h2 className="text-[22px] font-bold text-tuatara-700 mb-6">
+      <h2 className="text-[22px] font-bold text-secondary mb-6">
         {LABELS.COMMON.PROJECT_TEAM}
       </h2>
 
@@ -24,7 +24,7 @@ export const ProjectTeamMembers = ({ team }: ProjectTeamMembersProps) => {
         {team.map((member, index) => (
           <div
             key={`${member.name}-${index}`}
-            className="flex flex-col gap-2 p-4 border border-black/10 rounded-md bg-white"
+            className="flex flex-col gap-2 p-4 border border-black/10 rounded-md bg-transparent dark:border-anakiwa-800"
           >
             <div className="flex items-center gap-4">
               {member.image ? (
@@ -54,7 +54,7 @@ export const ProjectTeamMembers = ({ team }: ProjectTeamMembersProps) => {
             {member.email && (
               <a
                 href={`mailto:${member.email}`}
-                className="font-sans text-sm text-tuatara-600 hover:text-orange transition-colors mt-1 flex items-center gap-1.5"
+                className="font-sans text-sm text-tuatara-600 hover:text-orange transition-colors mt-1 flex items-center gap-1.5 dark:text-white"
               >
                 <Icons.email className="h-4 w-4" />
                 <span>{member.email}</span>

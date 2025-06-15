@@ -4,7 +4,7 @@ import { cva } from "class-variance-authority"
 import Image from "next/image"
 
 export const blogArticleCardTagCardVariants = cva(
-  "text-xs font-sans text-tuatara-950 rounded-[3px] py-[2px] px-[6px] w-fit shrink-[0]",
+  "text-xs font-sans text-primary rounded-[3px] py-[2px] px-[6px] w-fit shrink-[0] dark:text-black",
   {
     variants: {
       variant: {

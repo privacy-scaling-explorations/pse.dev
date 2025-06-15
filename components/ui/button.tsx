@@ -6,18 +6,18 @@ import { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "font-sans inline-flex items-center justify-center duration-200 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background w-fit",
+  "font-sans inline-flex items-center justify-center duration-200 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background w-fit",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-tuatara-950 text-white hover:bg-tuatara-950/90",
         orange: "bg-orangeDark text-white hover:bg-orangeDark/80",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
           "border border-input hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "bg-anakiwa-400 text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "underline-offset-4 hover:underline text-primary",
         black: "bg-tuatara-950 text-white hover:bg-black",
@@ -27,12 +27,23 @@ const buttonVariants = cva(
           "bg-[#F6F7F7] hover:bg-[#E9ECEF] text-gray-500 border border-gray-200 rounded-md",
       },
       size: {
-        default: "h-10 py-2 px-4",
-        xs: "h-8 px-2 rounded-md",
-        sm: "h-9 px-3 rounded-md",
-        lg: "h-11 px-8 rounded-md",
+        default: "h-10 py-2 px-4 text-lg",
+        xs: "h-[18px] px-2 rounded-md text-xs py-[2px]",
+        sm: "h-9 px-3 rounded-md text-sm",
+        lg: "h-11 px-8 rounded-md text-lg",
       },
     },
+    compoundVariants: [
+      {
+        variant: ["default", "orange", "black", "white", "blue", "search"],
+        className:
+          "dark:bg-transparent dark:border dark:border-anakiwa-400 dark:text-anakiwa-400 dark:hover:bg-anakiwa-400/20 dark:hover:text-anakiwa-400",
+      },
+      {
+        variant: ["secondary"],
+        className: "dark:bg-anakiwa-400 dark:text-black",
+      },
+    ],
     defaultVariants: {
       variant: "default",
       size: "default",

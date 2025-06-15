@@ -140,7 +140,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head />
       <body
         suppressHydrationWarning
-        className="min-h-screen bg-background antialiased"
+        className={cn("min-h-screen bg-background antialiased", {
+          dark: false,
+        })}
       >
         <GlobalProviderLayout>
           <div className="relative flex min-h-screen flex-col">

@@ -37,7 +37,7 @@ export default function DiscoverMoreProjects({ project }: ProjectProps) {
   }, [allProjects, project.id, project.tags?.themes, onFilterProject])
 
   return (
-    <div className="w-full bg-cover-gradient">
+    <div className="w-full bg-cover-gradient dark:bg-transparent-gradient">
       <div className="mx-auto flex w-full max-w-[644px] flex-col items-center justify-center gap-14 px-6 py-12 md:px-0 md:py-16">
         <h2 className="text-3xl font-bold text-center">
           {LABELS.COMMON.DISCOVER_MORE}
@@ -48,7 +48,7 @@ export default function DiscoverMoreProjects({ project }: ProjectProps) {
           ))}
         </div>
         <Link
-          className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950"
+          className="flex items-center gap-2 text-primary/80 hover:text-primary"
           href="/projects"
         >
           <Icons.arrowLeft />

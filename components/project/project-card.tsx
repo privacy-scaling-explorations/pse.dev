@@ -23,7 +23,7 @@ interface ProjectCardProps
 }
 
 const tagCardVariants = cva(
-  "text-xs font-sans text-tuatara-950 rounded-[3px] py-[2px] px-[6px]",
+  "text-xs font-sans text-white rounded-[3px] py-[2px] px-[6px] dark:text-black",
   {
     variants: {
       variant: {
@@ -42,7 +42,7 @@ const projectCardVariants = cva(
         false: "min-h-[200px]",
       },
       border: {
-        true: "border border-slate-900/20",
+        true: "border border-slate-900/20 dark:border-anakiwa-800",
       },
     },
   }
@@ -94,16 +94,18 @@ export default function ProjectCard({
           )}
         </div>
       )}
-      <div className="flex flex-col justify-between h-full gap-8 p-4 bg-white rounded-b-lg">
+      <div className="flex flex-col justify-between h-full gap-8 p-4 bg-white rounded-b-lg dark:bg-black">
         <div className="flex flex-col justify-start gap-2">
           <Link href={`/projects/${id}`}>
-            <h1 className="text-2xl font-bold leading-7 text-black duration-200 cursor-pointer hover:text-anakiwa-500">
+            <h1 className="text-2xl font-bold leading-7 text-primary duration-200 cursor-pointer hover:text-anakiwa-500">
               {name}
             </h1>
           </Link>
           {(tldr ?? "")?.length > 0 && (
             <div className="flex flex-col h-24 gap-4">
-              <p className="text-slate-900/80 line-clamp-4">{tldr}</p>
+              <p className="text-slate-900/80 line-clamp-4 dark:text-tuatara-200">
+                {tldr}
+              </p>
             </div>
           )}
         </div>
@@ -124,7 +126,7 @@ export default function ProjectCard({
             )}
 
             <div
-              className="px-[6px] py-[2px] text-xs font-normal leading-none flex items-center justify-center rounded-[3px]"
+              className="px-[6px] py-[2px] text-xs font-normal leading-none flex items-center justify-center rounded-[3px] text-white dark:text-black"
               style={{
                 backgroundColor: ProjectStatusColorMapping[projectStatus],
               }}

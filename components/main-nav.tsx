@@ -1,15 +1,14 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import PSELogo from "@/public/logos/header-logo.svg"
 
 import { NavItem } from "@/types/nav"
 import { cn } from "@/lib/utils"
 import { SearchButton } from "@/components/search/search-button"
 import { SearchModal } from "@/components/search/search-modal"
+import { Icons } from "./icons"
 
 export interface MainNavProps {
   items: NavItem[]
@@ -23,7 +22,7 @@ export function MainNav({ items }: MainNavProps) {
     <div className="flex flex-1 items-center justify-between gap-6 md:gap-10">
       <div className="flex items-center gap-6 md:gap-10">
         <Link href="/" className="flex items-center space-x-2">
-          <Image src={PSELogo} alt="PSE Logo" width={32} height={32} />
+          <Icons.Logo className="text-black dark:text-anakiwa-400" size={32} />
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {items.map((item, index) => {

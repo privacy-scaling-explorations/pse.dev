@@ -51,16 +51,16 @@ const VideoCardSkeleton = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
       <div className="flex flex-col gap-1">
-        <div className="bg-slate-200 aspect-video w-full animate-pulse"></div>
-        <div className="bg-slate-200 h-3 w-full animate-pulse"></div>
+        <div className="bg-skeleton aspect-video w-full animate-pulse"></div>
+        <div className="bg-skeleton h-3 w-full animate-pulse"></div>
       </div>
       <div className="flex flex-col gap-1">
-        <div className="bg-slate-200 aspect-video w-full animate-pulse"></div>
-        <div className="bg-slate-200 h-3 w-full animate-pulse"></div>
+        <div className="bg-skeleton aspect-video w-full animate-pulse"></div>
+        <div className="bg-skeleton h-3 w-full animate-pulse"></div>
       </div>
       <div className="flex flex-col gap-1">
-        <div className="bg-slate-200 aspect-video w-full animate-pulse"></div>
-        <div className="bg-slate-200 h-3 w-full animate-pulse"></div>
+        <div className="bg-skeleton aspect-video w-full animate-pulse"></div>
+        <div className="bg-skeleton h-3 w-full animate-pulse"></div>
       </div>
     </div>
   )
@@ -70,14 +70,14 @@ export const HomepageVideoFeed = () => {
   const { data: videos = [], isLoading, isError } = useYoutube()
 
   return (
-    <section className="mx-auto px-6 lg:px-8 py-10 lg:py-16 bg-tuatara-950">
+    <section className="mx-auto px-6 lg:px-8 py-10 lg:py-16 bg-tuatara-950 dark:bg-black">
       <AppContent className="flex flex-col gap-8 lg:max-w-[1200px] w-full">
         <div className="col-span-1 lg:col-span-4">
-          <h2 className="text-base text-center font-sans font-bold text-white">
+          <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
             {LABELS.HOMEPAGE.VIDEOS}
           </h2>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-8 lg:divide-x divide-[#626262]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_280px] gap-10 lg:gap-8 lg:divide-x divide-[#626262]">
           <div className="lg:col-span-3">
             {isLoading ? (
               <VideoCardSkeleton />
@@ -109,7 +109,7 @@ export const HomepageVideoFeed = () => {
               >
                 <Button className="w-full" variant="orange">
                   <div className="flex items-center gap-1">
-                    <span className="text-base font-medium uppercase">
+                    <span className="font-medium uppercase">
                       {LABELS.HOMEPAGE.VISIT_OUR_CHANNEL}
                     </span>
                     <ArrowRight className="h-5 w-5 duration-200 ease-in-out group-hover:translate-x-2" />

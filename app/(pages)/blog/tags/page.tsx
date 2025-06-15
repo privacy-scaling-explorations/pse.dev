@@ -36,7 +36,7 @@ const BlogTagsPage = async () => {
       <AppContent className="flex flex-col gap-6 py-10 lg:max-w-[978px]">
         <div className="flex flex-col gap-4 py-10 w-full">
           <Link
-            className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950 mr-auto"
+            className="flex items-center gap-2 text-primary/80 hover:text-primary mr-auto"
             href="/blog"
           >
             <Icons.arrowLeft />

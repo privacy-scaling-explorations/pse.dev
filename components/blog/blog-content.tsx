@@ -70,7 +70,7 @@ export function BlogContent({ post, isNewsletter = false }: BlogContentProps) {
         {moreArticles?.length > 0 && (
           <div className="flex flex-col gap-8">
             <div className="flex items-center justify-between">
-              <span className="text-tuatara-950 text-lg font-semibold leading-6">
+              <span className="text-primary text-lg font-semibold leading-6">
                 More articles
               </span>
               <Link

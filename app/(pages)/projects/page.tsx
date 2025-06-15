@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 export default async function ProjectsPage() {
   return (
     <div className="flex flex-col">
-      <div className="w-full bg-page-header-gradient">
+      <div className="w-full bg-page-header-gradient dark:bg-transparent-gradient">
         <AppContent className="flex flex-col gap-4 py-10 w-full">
           <Label.PageTitle label={LABELS.PROJECTS_PAGE.TITLE} />
-          <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
+          <h6 className="font-sans text-base font-normal text-primary md:text-[18px] md:leading-[27px] md:max-w-[700px]">
             {LABELS.PROJECTS_PAGE.SUBTITLE}
           </h6>
         </AppContent>

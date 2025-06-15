@@ -32,7 +32,7 @@ const EventCard = ({ event = {}, speakers = [], location = "" }: any) => {
       )}
     >
       <div className="flex flex-col gap-1 order-3 lg:order-1">
-        <span className="text-sm text-tuatara-950 font-bold font-sans leading-5">
+        <span className="text-sm text-primary font-bold font-sans leading-5">
           {event?.date}
         </span>
         <div className="grid grid-cols-[1fr_16px] lg:grid-cols-1">
@@ -70,7 +70,7 @@ const EventCard = ({ event = {}, speakers = [], location = "" }: any) => {
           <Link
             href={event?.url ?? "#"}
             target="_blank"
-            className="text-[22px] inline-flex leading-[24px] text-tuatara-950 underline font-display hover:text-anakiwa-500 font-bold duration-200"
+            className="text-[22px] inline-flex leading-[24px] text-primary underline font-display hover:text-anakiwa-500 font-bold duration-200"
           >
             {event?.title}
           </Link>
@@ -105,7 +105,7 @@ const EventCard = ({ event = {}, speakers = [], location = "" }: any) => {
             "lg:transition-none lg:overflow-visible"
           )}
         >
-          <span className="text-base leading-6 text-tuatara-950 font-sans font-normal">
+          <span className="text-base leading-6 text-primary font-sans font-normal">
             {event?.description}
           </span>
           <div className="pt-2 flex lg:!hidden">

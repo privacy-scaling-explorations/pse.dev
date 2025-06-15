@@ -20,41 +20,46 @@ import { ProjectTeamMembers } from "@/components/project/project-team"
 import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
 import { ProjectYouTubeVideos } from "@/components/sections/ProjectYouTubeVideos"
 import { useProjects } from "@/app/providers/ProjectsProvider"
+import { Button } from "@/components/ui/button"
+
+const markdownContentClassName =
+  "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4 dark:text-tuatara-100"
 
 const markdownComponents = {
   h1: ({ ...props }) =>
     createMarkdownElement("h1", {
-      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      className: markdownContentClassName,
       ...props,
     }),
   h2: ({ ...props }) =>
     createMarkdownElement("h2", {
-      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      className: markdownContentClassName,
       ...props,
     }),
   h3: ({ ...props }) =>
     createMarkdownElement("h3", {
-      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      className: markdownContentClassName,
       ...props,
     }),
   h4: ({ ...props }) =>
     createMarkdownElement("h4", {
-      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      className: markdownContentClassName,
       ...props,
     }),
   h5: ({ ...props }) =>
     createMarkdownElement("h5", {
-      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      className: markdownContentClassName,
       ...props,
     }),
   h6: ({ ...props }) =>
     createMarkdownElement("h6", {
-      className: "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4",
+      className: markdownContentClassName,
       ...props,
     }),
   p: ({ ...props }) =>
     createMarkdownElement("p", {
-      className: "py-2 leading-[150%] text-base text-slate-600",
+      className:
+        "py-2 leading-[150%] text-base text-slate-600 dark:text-tuatara-100",
       ...props,
     }),
 }
@@ -81,10 +86,8 @@ export const ProjectContent = ({ id }: { id: string }) => {
     return null
   }
 
-  console.log(" rest", project)
-
   return (
-    <section className="bg-project-page-gradient">
+    <section className="bg-project-page-gradient dark:bg-transparent-gradient">
       <div className="flex flex-col">
         <Divider.Section className="flex flex-col items-center">
           <AppContent className="flex flex-col gap-12 py-16">
@@ -109,7 +112,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
                   <div className="flex flex-col">
                     <div className="flex flex-col gap-6 text-left">
                       <Link
-                        className="flex items-center gap-2 text-tuatara-950/80 hover:text-tuatara-950 mr-auto"
+                        className="flex items-center gap-2 text-primary/80 hover:text-primary mr-auto"
                         href="/projects"
                       >
                         <Icons.arrowLeft />
@@ -142,7 +145,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
                               >
                                 <div className="flex items-center gap-2">
                                   {ProjectLinkIconMap?.[key]}
-                                  <p className="capitalize duration-200 text-slate-600 group-hover:text-orange">
+                                  <p className="capitalize duration-200 text-slate-600 group-hover:text-orange dark:text-white dark:group-hover:text-orange">
                                     {key}
                                   </p>
                                 </div>
@@ -203,10 +206,10 @@ export const ProjectContent = ({ id }: { id: string }) => {
                   target="_blank"
                   rel="noreferrer"
                   passHref
-                  className="inline-flex items-center self-start gap-2 px-4 py-2 duration-200 bg-white border-2 rounded-md group border-tuatara-950 hover:bg-tuatara-950 hover:text-white"
+                  className="inline-flex items-center self-start gap-2 px-4 py-2 duration-200 bg-white border-2 rounded-md group border-tuatara-950 hover:bg-tuatara-950 hover:text-white dark:bg-black dark:border-anakiwa-800 dark:border dark:hover:bg-anakiwa-400"
                 >
                   <Icons.edit />
-                  <span className="text-sm duration-200 text-tuatara-950 group-hover:text-white">
+                  <span className="text-sm duration-200 text-primary group-hover:text-white">
                     {LABELS.COMMON.EDIT_THIS_PAGE}
                   </span>
                 </Link>

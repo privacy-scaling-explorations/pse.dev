@@ -13,12 +13,12 @@ import { Parser as HtmlToReactParser } from "html-to-react"
 
 const ContentPlaceholder = () => (
   <div className="flex flex-col gap-2">
-    <div className="bg-slate-200 h-5 w-full"></div>
-    <div className="bg-slate-200 h-5 w-1/3"></div>
-    <div className="bg-slate-200 h-5 w-2/3"></div>
-    <div className="bg-slate-200 h-5 w-2/3"></div>
-    <div className="bg-slate-200 h-5 w-full"></div>
-    <div className="bg-slate-200 h-5 w-1/3"></div>
+    <div className="bg-skeleton h-5 w-full"></div>
+    <div className="bg-skeleton h-5 w-1/3"></div>
+    <div className="bg-skeleton h-5 w-2/3"></div>
+    <div className="bg-skeleton h-5 w-2/3"></div>
+    <div className="bg-skeleton h-5 w-full"></div>
+    <div className="bg-skeleton h-5 w-1/3"></div>
   </div>
 )
 
@@ -74,7 +74,7 @@ export const NewsSection = () => {
                   </span>
                 )
               ) : (
-                <div className="bg-slate-200 h-5 w-1/3"></div>
+                <div className="bg-skeleton h-5 w-1/3"></div>
               )}
               <Link
                 type="button"
@@ -93,7 +93,7 @@ export const NewsSection = () => {
                 </span>
               </Link>
             </div>
-            <span className="break-words text-base md:text-xl text-tuatara-950 font-sans font-normal leading-[30px] [&>a]:text-anakiwa-600 [&>a]:font-medium">
+            <span className="break-words text-base md:text-xl text-primary font-sans font-normal leading-[30px] [&>a]:text-anakiwa-600 [&>a]:font-medium">
               {!loading ? announcementContent : <ContentPlaceholder />}
             </span>
           </div>
@@ -106,7 +106,7 @@ export const NewsSection = () => {
           >
             <Icons.discord className="text-anakiwa-400" />
             <span>{LABELS.NEWS_SECTION.SEE_ALL_UPDATES}</span>
-            <Icons.externalUrl className="text-tuatara-950" />
+            <Icons.externalUrl className="text-primary" />
           </Link>
         </AppContent>
       </div>
