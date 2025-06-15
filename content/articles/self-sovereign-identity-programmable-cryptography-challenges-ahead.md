@@ -54,7 +54,7 @@ The use of digital signatures is prevalent across digital identities, but the us
 - [Crypto Forum Research Group (CFRG) of the IETF](https://datatracker.ietf.org/rg/cfrg/documents/)
 - [zkProof.org](http://zkproof.org/)
 
-It is worth mentioning that Verfiable Credential and Verfiable Presentation are [agnostic to proof types](https://www.w3.org/TR/vc-data-model-2.0/#proofs-signatures) and can be secured using both digital signatures and zero-knowledge proofs
+It is worth mentioning that Verifiable Credential and Verifiable Presentation are [agnostic to proof types](https://www.w3.org/TR/vc-data-model-2.0/#proofs-signatures) and can be secured using both digital signatures and zero-knowledge proofs
 
 ![Verifiable Credential Proof Example](/articles/self-sovereign-identity-programmable-cryptography-challenges-ahead/KeEf5rlvIwkRNSMphJKoD.webp)
 
