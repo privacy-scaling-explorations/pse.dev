@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils"
 import { SearchButton } from "@/components/search/search-button"
 import { SearchModal } from "@/components/search/search-modal"
 import { Icons } from "./icons"
+import { SunMedium as SunIcon, Moon as MoonIcon } from "lucide-react"
+import { useGlobalProvider } from "@/app/providers/GlobalProvider"
 
 export interface MainNavProps {
   items: NavItem[]
@@ -17,6 +19,7 @@ export interface MainNavProps {
 export function MainNav({ items }: MainNavProps) {
   const router = usePathname()
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false)
+  const { isDarkMode, setIsDarkMode } = useGlobalProvider()
 
   return (
     <div className="flex flex-1 items-center justify-between gap-6 md:gap-10">
@@ -63,10 +66,16 @@ export function MainNav({ items }: MainNavProps) {
         </nav>
       </div>
 
-      <div className="flex items-center mr-5">
-        <div className="w-60">
+      <div className="flex items-center mr-5 gap-4 lg:gap-10">
+        <div className="w-60 mx-auto lg:mx-0 lg:ml-auto">
           <SearchButton onClick={() => setIsSearchModalOpen(true)} />
         </div>
+        <button
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          className="text-black dark:text-anakiwa-400 ml-auto hidden lg:inline-block"
+        >
+          {isDarkMode ? <SunIcon size={20} /> : <MoonIcon size={20} />}
+        </button>
       </div>
 
       <SearchModal open={isSearchModalOpen} setOpen={setIsSearchModalOpen} />

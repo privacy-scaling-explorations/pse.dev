@@ -27,25 +27,47 @@ const queryClient = new QueryClient({
   },
 })
 
+const PSE_DARK_MODE_KEY = "pse-dark-mode"
+
 export function GlobalProvider({ children }: { children: ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isInitialized, setIsInitialized] = useState(false)
 
-  // Initialize dark mode from system preference
+  // Initialize dark mode from localStorage or system preference
   useEffect(() => {
+    const storedPreference = localStorage.getItem(PSE_DARK_MODE_KEY)
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
-    setIsDarkMode(mediaQuery.matches)
+
+    if (storedPreference !== null) {
+      setIsDarkMode(storedPreference === "true")
+    } else {
+      setIsDarkMode(mediaQuery.matches)
+    }
+
+    setIsInitialized(true)
 
     const handleChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches)
+      if (localStorage.getItem(PSE_DARK_MODE_KEY) === null) {
+        setIsDarkMode(e.matches)
+      }
     }
 
     mediaQuery.addEventListener("change", handleChange)
     return () => mediaQuery.removeEventListener("change", handleChange)
   }, [])
 
+  const handleSetIsDarkMode = (value: boolean) => {
+    setIsDarkMode(value)
+    localStorage.setItem(PSE_DARK_MODE_KEY, String(value))
+  }
+
   const value = {
     isDarkMode,
-    setIsDarkMode,
+    setIsDarkMode: handleSetIsDarkMode,
+  }
+
+  if (!isInitialized) {
+    return null
   }
 
   return (

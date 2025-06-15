@@ -56,6 +56,22 @@ export const Icons = {
       />
     </svg>
   ),
+  Burgher: (props: LucideProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        id="Vector"
+        d="M18 18V20H6V18H18ZM21 11V13H3V11H21ZM18 4V6H6V4H18Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
   eventLocation: (props: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
