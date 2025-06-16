@@ -295,16 +295,22 @@ const extractMathBlocks = (content: string) => {
 
 // Helper to check if text contains unescaped math delimiters
 const containsMath = (text: string): boolean => {
+  // Skip markdown links
   if (text.match(/\[.*?\]\(.*?\)/)) {
     return false
   }
 
   if (!text.includes("$")) return false
 
-  if (text.match(/\$\d+/)) return false
+  // Check for currency pattern first
+  const currencyPattern = /\$\s*\d+(?:,\d{3})*(?:\.\d{2})?(?!\^|\{|\}|\d)/g
+  if (text.match(currencyPattern) && !text.match(/\$.*[\^_{}].*\$/)) {
+    return false
+  }
 
   const blockMathRegex = /\$\$([\s\S]*?)\$\$/g
-  const inlineMathRegex = /(?<![\\])\$((?:[^$\\]|\\$|\\[^$])+?)\$/g
+  const inlineMathRegex =
+    /(?<![\\$])\$(?![\s\d,]*\d(?:\.\d{2})?(?!\^|\{|\}|\d))((?:[^$\\]|\\$|\\[^$])+?)\$/g
 
   return blockMathRegex.test(text) || inlineMathRegex.test(text)
 }
