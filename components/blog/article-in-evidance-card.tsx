@@ -40,7 +40,7 @@ const AsLinkWrapper = ({
   )
 }
 
-export const ArticleInEvidenceCard = async ({
+export const ArticleInEvidenceCard = ({
   article,
   showReadMore = false,
   size = "lg",
