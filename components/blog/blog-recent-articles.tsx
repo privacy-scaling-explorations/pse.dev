@@ -143,7 +143,7 @@ export async function BlogRecentArticles() {
     <div className="py-10 lg:py-16">
       <AppContent>
         <div className="flex flex-col gap-10">
-          <h3 className="text-base font-bold font-sans text-center uppercase tracking-[3.36px]">
+          <h3 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
             {LABELS.BLOG_PAGE.RECENT_ARTICLES}
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
@@ -164,7 +164,7 @@ export async function BlogRecentArticles() {
                   href={`/blog/${article.id}`}
                   className={cn("group border-b pb-4")}
                 >
-                  <h4 className="text-xl font-medium text-tuatara-950 duration-200 group-hover:text-anakiwa-500 transition-colors">
+                  <h4 className="text-xl font-medium text-primary duration-200 group-hover:text-anakiwa-500 transition-colors">
                     {article.title}
                   </h4>
                   {article.authors && (

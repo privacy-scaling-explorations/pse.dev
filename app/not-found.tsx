@@ -41,7 +41,7 @@ export default function NotFound() {
                   />
                 </div>
                 <div className="flex flex-col gap-5">
-                  <span className="font-display text-2xl font-bold text-tuatara-950 md:text-6xl">
+                  <span className="font-display text-2xl font-bold text-primary md:text-6xl">
                     {LABELS.COMMON.ERROR["404"].TITLE}
                   </span>
                   <span className="font-sans text-base font-normal md:text-lg">

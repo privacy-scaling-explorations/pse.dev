@@ -18,7 +18,7 @@ const Checkbox = ({ label, name, checked, ...props }: CheckboxProps) => {
       <CheckboxComponent.Root
         {...props}
         checked={checked}
-        className="flex h-[14px] w-[14px] cursor-pointer items-center justify-center rounded-[1.5px] border-2 border-solid border-tuatara-200 bg-white duration-100 ease-in aria-checked:border-black aria-checked:bg-black"
+        className="flex h-[14px] w-[14px] cursor-pointer items-center justify-center rounded-[1.5px] border-2 border-solid border-tuatara-200 bg-primary duration-100 ease-in aria-checked:border-black aria-checked:bg-black dark:border-anakiwa-800"
         id={name}
       >
         <CheckboxComponent.Indicator className="text-white">

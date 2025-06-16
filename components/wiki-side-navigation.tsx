@@ -167,10 +167,10 @@ export const WikiSideNavigation = ({
   return (
     <div className="sticky overflow-hidden top-20">
       <aside className={cn("flex flex-col", className)}>
-        <h6 className="text-lg font-bold font-display text-tuatara-700">
+        <h6 className="text-lg font-bold font-display text-secondary">
           {LABELS.COMMON.CONTENTS}
         </h6>
-        <ul className="pt-4 font-sans text-black text-normal">
+        <ul className="pt-4 font-sans text-primary text-normal">
           {sections.map((section, index) => (
             <SideNavigationItem
               key={index}

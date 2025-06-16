@@ -23,7 +23,7 @@ export const HomepageBanner = () => {
         <Button>
           <div className="flex items-center gap-2">
             <Icons.discord fill="white" className="h-4" />
-            <span className="text-[14px] uppercase">
+            <span className="uppercase">
               {LABELS.HOMEPAGE.JOIN_OUR_DISCORD}
             </span>
             <Icons.externalUrl fill="white" className="h-5" />

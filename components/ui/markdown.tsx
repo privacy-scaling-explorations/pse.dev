@@ -90,7 +90,7 @@ export const createMarkdownElement = (
 const Table = (props: any) => {
   return (
     <div className="w-full overflow-x-auto border rounded-lg border-tuatara-300">
-      <table className="min-w-full" data-component="table">
+      <table className="min-w-full !bg-background" data-component="table">
         {props.children}
       </table>
     </div>
@@ -481,32 +481,32 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
   },
   h1: ({ ...props }) =>
     createMarkdownElement("h1", {
-      className: "text-neutral-800 text-4xl md:text-5xl font-bold",
+      className: "text-primary text-4xl md:text-5xl font-bold",
       ...props,
     }),
   h2: ({ ...props }) =>
     createMarkdownElement("h2", {
-      className: "text-neutral-800 text-4xl",
+      className: "text-primary text-4xl",
       ...props,
     }),
   h3: ({ ...props }) =>
     createMarkdownElement("h3", {
-      className: "text-neutral-800 text-3xl",
+      className: "text-primary text-3xl",
       ...props,
     }),
   h4: ({ ...props }) =>
     createMarkdownElement("h4", {
-      className: "text-neutral-800 text-xl",
+      className: "text-primary text-xl",
       ...props,
     }),
   h5: ({ ...props }) =>
     createMarkdownElement("h5", {
-      className: "text-neutral-800 text-lg font-bold",
+      className: "text-primary text-lg font-bold",
       ...props,
     }),
   h6: ({ ...props }) =>
     createMarkdownElement("h6", {
-      className: "text-neutral-800 text-md font-bold",
+      className: "text-primary text-md font-bold",
       ...props,
     }),
   code: ({ node, inline, className, children, ...props }) => {
@@ -557,7 +557,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     if (containsMath(text)) {
       return (
         <p
-          className={`${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal ${isMathOnly ? "math-only" : ""}`}
+          className={`${darkMode ? "text-white" : "text-secondary"} font-sans text-base font-normal ${isMathOnly ? "math-only" : ""}`}
         >
           <MathText text={text} />
         </p>
@@ -566,7 +566,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
 
     return (
       <p
-        className={`${darkMode ? "text-white" : "text-tuatara-700"} font-sans text-base font-normal`}
+        className={`${darkMode ? "text-white" : "text-secondary"} font-sans text-base font-normal`}
       >
         {children}
       </p>
@@ -586,7 +586,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     if (containsMath(text)) {
       return (
         <li
-          className="text-tuatara-700 font-sans text-base font-normal"
+          className="text-secondary font-sans text-base font-normal"
           {...props}
         >
           <MathText text={text} />
@@ -595,10 +595,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     }
 
     return (
-      <li
-        className="text-tuatara-700 font-sans text-base font-normal"
-        {...props}
-      >
+      <li className="text-secondary font-sans text-base font-normal" {...props}>
         {children}
       </li>
     )
@@ -606,13 +603,13 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
   ul: ({ ordered, ...props }) =>
     createMarkdownElement(ordered ? "ol" : "ul", {
       className:
-        "ml-6 list-disc text-tuatara-700 font-sans text-base font-normal",
+        "ml-6 list-disc text-secondary font-sans text-base font-normal",
       ...props,
     }),
   ol: ({ ordered, ...props }) =>
     createMarkdownElement(ordered ? "ol" : "ul", {
       className:
-        "list-decimal text-tuatara-700 font-sans text-base font-normal mt-3",
+        "list-decimal text-secondary font-sans text-base font-normal mt-3",
       ...props,
     }),
   table: Table,
@@ -797,7 +794,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     return (
       <div
         id={`fn-${identifier}`}
-        className="flex gap-2 text-sm text-tuatara-700 mb-2"
+        className="flex gap-2 text-sm text-secondary mb-2"
       >
         <div className="flex-none">[{label}]</div>
         <div className="flex-1">

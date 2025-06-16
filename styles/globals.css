@@ -7,6 +7,17 @@
     --background: #FFFFFF;
     --foreground: #0F172A;
 
+    --text-primary: #242528;
+    --text-secondary: #166F8E;
+
+    --gradient-research-card: linear-gradient(84deg, #FFF -1.95%, #EAFAFF 59.98%, #FFF 100.64%);
+    --skeleton-background: #f3f4f6;
+
+
+    /* TODO: */
+
+
+
     --active-selection: #50C3E0;
 
     --primary: 222.2 47.4% 11.2%;
@@ -15,8 +26,6 @@
 
     --text-primary: #242528;
     --text-secondary: #808590;
-
-    /* TODO: */
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -51,15 +60,19 @@
     --background: #000000;
     --foreground: #FFFFFF;
 
-    --active-selection: #E1523A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #FFFFFF;
 
-    --text-primary: #242528;
-    --text-secondary: #808590;
+    --gradient-research-card: linear-gradient(179deg, #29ACCE -202.54%, rgba(0, 0, 0, 0.00) 192.47%);
+    --skeleton-background: #175e75;
+
+    
 
 
 
 
     /* TODO: */
+    --active-selection: #E1523A;
 
     --primary: #E1523A;
     --primary-foreground: #FFF;
@@ -155,7 +168,7 @@
   }
 
   table[data-component='table'] tbody > tr > td {
-    @apply px-4 py-1 text-sm font-medium text-left text-tuatara-700;
+    @apply px-4 py-1 text-sm font-medium text-left text-secondary;
   }
 
   /* Ensure line breaks in table cells work properly */

@@ -26,10 +26,11 @@ module.exports = {
           "radial-gradient(325.52% 79.63% at 100% -0.02%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(205.45% 61.89% at 2.34% 99.98%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)",
         "project-page-gradient":
           "linear-gradient(180deg, #C2E8F5 -17.44%, #FFF 17.72%)",
-        "research-card-gradient":
-          "linear-gradient(84deg, #FFF -1.95%, #EAFAFF 59.98%, #FFF 100.64%)",
+        "research-card-gradient": "var(--gradient-research-card)",
         "page-header-gradient":
           "linear-gradient(180deg, #C2E8F5 -17.44%, #FFF 62.5%)",
+        "transparent-gradient":
+          "linear-gradient(180deg, #000000 0%, #000000 100%)",
       },
       colors: {
         corduroy: "#4A5754",
@@ -50,6 +51,7 @@ module.exports = {
           600: "#1A8BAF",
           700: "#166F8E",
           900: "#184F62",
+          800: "#175E75",
           950: "#103241",
         },
         tuatara: {
@@ -62,19 +64,21 @@ module.exports = {
           700: "#4A4C54",
           950: "#242528",
         },
+        skeleton: {
+          DEFAULT: "var(--skeleton-background)",
+        },
 
         background: "var(--background)",
         foreground: "var(--foreground)",
         active: {
           selection: "var(--active-selection)",
         },
-
         primary: {
-          DEFAULT: "var(--primary)",
+          DEFAULT: "var(--text-primary)",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "var(--text-secondary)",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {

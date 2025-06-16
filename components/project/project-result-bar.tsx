@@ -12,7 +12,8 @@ import { interpolate } from "@/lib/utils"
 import { CategoryTag } from "../ui/categoryTag"
 import { Dropdown } from "../ui/dropdown"
 
-const labelClass = "h-5 text-xs text-base md:h-6 text-slate-900/70 md:text-sm"
+const labelClass =
+  "h-5 text-xs text-base md:h-6 text-slate-900/70 md:text-sm dark:text-white"
 
 export const ProjectResultBar = () => {
   const { activeFilters, toggleFilter, projects, sortProjectBy, sortBy } =

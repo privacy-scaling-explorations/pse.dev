@@ -32,11 +32,11 @@ const WikiDetail = ({ label, value }: WikiDetailProps) => {
 
   return (
     <div className="grid grid-cols-1 gap-2 md:grid-cols-[90px_1fr] md:items-start md:gap-5">
-      <div className="break-all font-sans text-xs font-bold leading-[14px] text-black">
+      <div className="break-all font-sans text-xs font-bold leading-[14px] text-primary">
         {label}
       </div>
       {typeof value === "string" ? (
-        <span className="font-sans text-xs font-normal leading-[18px] text-black">
+        <span className="font-sans text-xs font-normal leading-[18px] text-primary">
           {value}
         </span>
       ) : (
@@ -71,7 +71,7 @@ export const WikiCard = ({ project, className = "" }: WikiCardProps) => {
   return (
     <div className={cn("flex flex-col gap-6", className)}>
       <div className="mx-auto flex max-w-[290px] flex-col gap-6">
-        <Card className="bg-white" padding="none">
+        <Card className="bg-background" padding="none">
           <div className="relative flex h-[140px] items-center justify-center overflow-hidden rounded-t-lg">
             <Image
               src={`/project-banners/${
@@ -147,7 +147,7 @@ export const WikiCard = ({ project, className = "" }: WikiCardProps) => {
                 </span>
               )}
             </div>
-            <div className="flex items-center justify-center py-4 bg-white">
+            <div className="flex items-center justify-center py-4 bg-background">
               <span className="text-xs font-normal text-black">
                 {LABELS.COMMON.PREV_BRAND_IMAGE}
               </span>

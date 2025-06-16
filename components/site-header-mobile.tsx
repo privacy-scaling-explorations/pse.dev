@@ -4,7 +4,6 @@ import { useState } from "react"
 import NextImage from "next/image"
 import NextLink from "next/link"
 import CloseVector from "@/public/icons/close-fill.svg"
-import HeaderVector from "@/public/icons/menu-burger.svg"
 
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
@@ -17,22 +16,25 @@ import {
   Twitter,
 } from "@/components/svgs/social-medias"
 import { LABELS } from "@/app/labels"
+import { Icons } from "./icons"
+import { SunMedium as SunIcon, Moon as MoonIcon } from "lucide-react"
+import { useGlobalProvider } from "@/app/providers/GlobalProvider"
 
 export const SiteHeaderMobile = () => {
   const [header, setHeader] = useState(false)
+  const { isDarkMode, setIsDarkMode } = useGlobalProvider()
 
   const { MAIN_NAV } = useAppSettings()
 
   return (
     <div className="flex items-center md:hidden">
-      <NextImage
-        src={HeaderVector}
-        alt="logo"
-        className="cursor-pointer"
-        onClick={() => setHeader(true)}
-        width={24}
-        height={24}
-      />
+      <button type="button" onClick={() => setHeader(true)}>
+        <Icons.Burgher
+          size={24}
+          className="text-[#171C1B] dark:text-anakiwa-400"
+        />
+      </button>
+
       {header && (
         <div
           className="z-5 fixed inset-0 flex justify-end bg-black opacity-50"
@@ -67,7 +69,14 @@ export const SiteHeaderMobile = () => {
                 </NextLink>
               )
             })}
+            <button
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className="text-black dark:text-anakiwa-400 ml-auto mt-10"
+            >
+              {isDarkMode ? <SunIcon size={20} /> : <MoonIcon size={20} />}
+            </button>
           </div>
+
           <div className="flex h-full w-full flex-col items-center justify-end gap-5 py-[40px] text-sm">
             <div className="flex gap-5">
               <NextLink
@@ -100,6 +109,7 @@ export const SiteHeaderMobile = () => {
                 <Mirror color="white" />{" "}
               </NextLink>
             </div>
+
             <div className="flex gap-5 text-white">
               <h1>{LABELS.COMMON.FOOTER.PRIVACY_POLICY}</h1>
               <h1>{LABELS.COMMON.FOOTER.TERMS_OF_USE}</h1>

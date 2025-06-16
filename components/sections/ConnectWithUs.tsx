@@ -11,7 +11,7 @@ import { Button } from "../ui/button"
 
 const ConnectWithUs = () => {
   return (
-    <div className="bg-white py-14 md:pb-32 md:pt-16">
+    <div className="py-14 md:pb-32 md:pt-16">
       <div className="flex flex-col gap-10">
         <h3 className="text-center font-sans text-base font-bold uppercase tracking-[3.36px]">
           {interpolate(LABELS.COMMON.OUR_YEAR_PROGRAM, {

@@ -23,7 +23,7 @@ export const BlogArticleRelatedProjects = ({
 
   return (
     <div className="flex flex-col gap-8">
-      <h3 className="text-tuatara-950 text-lg font-semibold leading-6">
+      <h3 className="text-primary text-lg font-semibold leading-6">
         Related projects
       </h3>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-3">

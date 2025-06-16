@@ -33,10 +33,10 @@ export const Devcon7Booths = () => {
                   <span className="text-anakiwa-500 text-xs font-sans leading-5 tracking-[2.5px] uppercase font-bold">
                     BOOTH
                   </span>
-                  <span className="text-[22px] leading-[24px] text-tuatara-950 font-display font-bold">
+                  <span className="text-[22px] leading-[24px] text-primary font-display font-bold">
                     {booth?.title}
                   </span>
-                  <span className="text-xs text-tuatara-950 font-sans font-normal">
+                  <span className="text-xs text-primary font-sans font-normal">
                     {booth?.description}
                     {booth?.learMore && (
                       <Link

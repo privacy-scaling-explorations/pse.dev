@@ -83,7 +83,7 @@ export default function BlogArticle({ params }: any) {
                 : undefined,
           }}
         />
-        <div className="flex items-start justify-center z-0 bg-cover border-tuatara-300 border-b w-full">
+        <div className="flex items-start justify-center z-0 bg-cover border-tuatara-300 border-b w-full dark:border-anakiwa-800">
           <AppContent className="flex flex-col gap-8 py-10 max-w-[978px]">
             <Label.PageTitle
               label={post?.title}
@@ -135,7 +135,7 @@ export default function BlogArticle({ params }: any) {
                 <span
                   className={cn(
                     "text-sm italic",
-                    imageAsCover ? "text-white" : "text-tuatara-950"
+                    imageAsCover ? "text-white" : "text-primary"
                   )}
                 >
                   Tags:

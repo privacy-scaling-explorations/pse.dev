@@ -59,7 +59,7 @@ export default function ProjectExtraLinks({ project }: ProjectExtraLinksProps) {
     return (
       <div className="flex flex-col gap-2" data-section-id={id}>
         <div className="flex items-center gap-2">
-          <p className="text-[22px] font-bold text-tuatara-700">{label}</p>
+          <p className="text-[22px] font-bold text-secondary">{label}</p>
         </div>
         <div className="flex flex-col items-start gap-2">
           {links.map((link: ActionLinkTypeLink, index) => {
@@ -70,7 +70,7 @@ export default function ProjectExtraLinks({ project }: ProjectExtraLinksProps) {
                 key={index}
                 href={url}
                 target="_blank"
-                className="flex items-center gap-1 overflow-hidden font-sans font-normal duration-200 ease-in-out border-b cursor-pointer border-anakiwa-400 text-tuatara-950 hover:border-orange"
+                className="flex items-center gap-1 overflow-hidden font-sans font-normal duration-200 ease-in-out border-b cursor-pointer border-anakiwa-400 text-primary hover:border-orange"
               >
                 {label}
                 <Icons.externalUrl />

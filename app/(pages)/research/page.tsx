@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 const ResearchPage = async () => {
   return (
     <div className="flex flex-col gap-10 lg:gap-32 pb-[128px] ">
-      <div className="w-full bg-page-header-gradient">
+      <div className="w-full bg-page-header-gradient dark:bg-transparent-gradient">
         <AppContent className="flex flex-col gap-4 py-10 w-full">
           <Label.PageTitle label={LABELS.RESEARCH_PAGE.TITLE} />
-          <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
+          <h6 className="font-sans text-base font-normal text-primary md:text-[18px] md:leading-[27px] md:max-w-[700px]">
             {LABELS.RESEARCH_PAGE.SUBTITLE}
           </h6>
         </AppContent>

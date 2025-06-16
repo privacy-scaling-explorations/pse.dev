@@ -6,6 +6,7 @@ import { GlobalProviderLayout } from "@/components/layouts/GlobalProviderLayout"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
+import { ThemeProvider } from "./components/layouts/ThemeProvider"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
@@ -138,17 +139,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
         `}
       </Script>
       <head />
-      <body
-        suppressHydrationWarning
-        className="min-h-screen bg-background antialiased"
-      >
+      <body suppressHydrationWarning>
         <GlobalProviderLayout>
-          <div className="relative flex min-h-screen flex-col">
-            <SiteHeader />
-            <div className="flex-1">{children}</div>
-            <SiteFooter />
-          </div>
-          <TailwindIndicator />
+          <ThemeProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <SiteHeader />
+              <div className="flex-1">{children}</div>
+              <SiteFooter />
+            </div>
+            <TailwindIndicator />
+          </ThemeProvider>
         </GlobalProviderLayout>
       </body>
     </html>

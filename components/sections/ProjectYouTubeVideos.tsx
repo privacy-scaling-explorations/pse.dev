@@ -38,7 +38,7 @@ const VideoCard = ({ videoId }: VideoCardProps) => {
       rel="noopener noreferrer"
       className="group flex flex-col gap-4"
     >
-      <div className="relative overflow-hidden aspect-video rounded-sm">
+      <div className="relative overflow-hidden aspect-video rounded-sm dark:border-anakiwa-800">
         <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
         <Image
           src={thumbnailUrl}
@@ -59,7 +59,7 @@ const VideoCard = ({ videoId }: VideoCardProps) => {
       </div>
       <h3 className="font-sans text-sm font-normal line-clamp-3 text-tuatara-800 group-hover:text-tuatara-600 transition-colors">
         {isLoading ? (
-          <div className="h-5 w-full bg-slate-200 animate-pulse rounded-sm"></div>
+          <div className="h-5 w-full bg-skeleton animate-pulse rounded-sm"></div>
         ) : (
           title || "YouTube Video"
         )}
@@ -109,7 +109,7 @@ export const ProjectYouTubeVideos = ({
       data-section-id="youtube-videos"
     >
       <div className="flex flex-col gap-6">
-        <h2 className="text-[22px] font-bold text-tuatara-700">
+        <h2 className="text-[22px] font-bold text-secondary">
           {LABELS.COMMON.YOUTUBE_VIDEOS}
         </h2>
 

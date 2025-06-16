@@ -16,7 +16,7 @@ interface LineSkeletonProps {
   className?: string
 }
 
-const CardSkeleton = cva("bg-slate-200 animate-pulse", {
+const CardSkeleton = cva("bg-skeleton animate-pulse", {
   variants: {
     size: {
       sm: "w-full h-40",
@@ -31,7 +31,7 @@ const CardSkeleton = cva("bg-slate-200 animate-pulse", {
   },
 })
 
-const CircleSkeleton = cva("bg-slate-200 animate-pulse rounded-full", {
+const CircleSkeleton = cva("bg-skeleton animate-pulse rounded-full", {
   variants: {
     size: {
       sm: "w-10 h-10",
@@ -40,7 +40,7 @@ const CircleSkeleton = cva("bg-slate-200 animate-pulse rounded-full", {
   },
 })
 
-const LineSkeleton = cva("bg-slate-200 animate-pulse", {
+const LineSkeleton = cva("bg-skeleton animate-pulse", {
   variants: {
     size: {
       sm: "w-full h-4",

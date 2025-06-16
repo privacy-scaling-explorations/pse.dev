@@ -25,7 +25,7 @@ interface TagGroup {
 const TagsWrapper = ({ label, children }: TagsProps) => {
   return (
     <div className="flex flex-col items-start gap-2">
-      <h3 className="text-[22px] font-bold text-tuatara-700">{label}</h3>
+      <h3 className="text-[22px] font-bold text-secondary">{label}</h3>
       {children}
     </div>
   )

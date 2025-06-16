@@ -52,18 +52,20 @@ const ResourceItem = ({
       className="group pb-3 duration-500 group-hover:transition self-start"
     >
       <div className="flex items-center gap-1">
-        <div className="flex space-x-3">
-          <div className="h-6 w-6 text-anakiwa-500 opacity-50 transition group-hover:text-tuatara-950 group-hover:opacity-100">
+        <div className="flex space-x-3 items-center">
+          <div className="h-6 w-6 text-anakiwa-500 opacity-50 transition group-hover:text-primary group-hover:opacity-100">
             <Icon />
           </div>
-          <span className="text-lg font-medium duration-200 group-hover:text-orange">
+          <span className="text-lg font-medium duration-200 group-hover:text-orange leading-none">
             {label}
           </span>
         </div>
-        <Icons.externalUrl className="text-tuatara-950 transition duration-200 group-hover:text-orange" />
+        <Icons.externalUrl className="text-primary transition duration-200 group-hover:text-orange" />
       </div>
       <div className="p-[2px]"></div>
-      <p className="text-sm text-tuatara-500 ">{description}</p>
+      <p className="text-sm text-tuatara-500 dark:text-anakiwa-50">
+        {description}
+      </p>
     </Link>
   )
 }
@@ -76,7 +78,7 @@ const ResourceCard = ({ id, title, children }: ResourceCardProps) => {
       className="mx-auto flex max-w-[644px] flex-col rounded-lg"
     >
       <Label.Section label={title} className="pb-8 text-center" />
-      <div className="mb-4 grid gap-6 rounded-lg border border-tuatara-300 bg-anakiwa-100 px-10 py-8">
+      <div className="mb-4 grid gap-6 rounded-lg border border-tuatara-300 bg-anakiwa-100 px-10 py-8 dark:border-anakiwa-800 dark:bg-black dark:text-white">
         {children}
       </div>
     </div>
@@ -134,10 +136,10 @@ const ResourceNav = () => {
   return (
     <div className="flex flex-col gap-6 p-8">
       <div className="flex flex-col gap-4">
-        <h6 className="font-display text-lg font-bold text-tuatara-700">
+        <h6 className="font-display text-lg font-bold text-secondary dark:text-white">
           {LABELS.RESOURCES_PAGE.ON_THIS_PAGE}
         </h6>
-        <ul className="text-normal font-sans text-black">
+        <ul className="text-normal font-sans text-primary">
           {Object.entries(ID_LABELS_MAPPING).map(([id, label]) => {
             const active = id === activeId
             return (
@@ -167,10 +169,10 @@ const ResourceNav = () => {
 export default function ResourcePage() {
   return (
     <div className="flex flex-col">
-      <div className="w-full bg-page-header-gradient">
+      <div className="w-full bg-page-header-gradient dark:bg-transparent-gradient">
         <AppContent className="flex flex-col gap-4 py-10 w-full">
           <Label.PageTitle label={LABELS.RESOURCES_PAGE.TITLE} />
-          <h6 className="font-sans text-base font-normal text-tuatara-950 md:text-[18px] md:leading-[27px] md:max-w-[700px]">
+          <h6 className="font-sans text-base font-normal text-primary md:text-[18px] md:leading-[27px] md:max-w-[700px]">
             {LABELS.RESOURCES_PAGE.SUBTITLE}
           </h6>
           <Link
@@ -191,7 +193,7 @@ export default function ResourcePage() {
           </Link>
         </AppContent>
       </div>
-      <Divider.Section className="bg-white">
+      <Divider.Section className="bg-background">
         <div className="flex justify-center">
           <AppContent className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[3fr_1fr] md:pb-20 lg:grid-cols-[4fr_1fr]">
             <div className="flex flex-col gap-6">
@@ -217,7 +219,7 @@ export default function ResourcePage() {
         </div>
         <Banner
           title={
-            <h3 className="py-2 font-display text-[18px] font-bold text-tuatara-950 md:text-3xl">
+            <h3 className="py-2 font-display text-[18px] font-bold text-primary md:text-3xl">
               {LABELS.RESOURCES_PAGE.ADD_RESOURCE_QUESTION}
             </h3>
           }

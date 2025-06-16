@@ -28,7 +28,7 @@ type ProgramDetailProps = {
 
 const SectionTitle = ({ label }: { label: string }) => {
   return (
-    <span className="text-center font-display text-[32px] font-bold text-tuatara-950">
+    <span className="text-center font-display text-[32px] font-bold text-primary">
       {label}
     </span>
   )
@@ -44,7 +44,7 @@ const AccordionLabel = ({
   return (
     <span
       className={twMerge(
-        "mx-auto text-center text-base font-bold uppercase tracking-[3.36px] text-tuatara-950",
+        "mx-auto text-center text-base font-bold uppercase tracking-[3.36px] text-primary",
         className
       )}
     >
@@ -62,13 +62,13 @@ const ProgramDetail = ({
 }: ProgramDetailProps) => {
   return (
     <div className="flex flex-col gap-4 text-center">
-      <span className="font-display text-lg font-bold leading-none text-black">
+      <span className="font-display text-lg font-bold leading-none text-primary">
         {region} <br />
         {title}
       </span>
 
       {deadline && (
-        <span className="font-sans text-xs font-normal italic text-tuatara-500">
+        <span className="font-sans text-xs font-normal italic text-tuatara-500 dark:text-whit">
           Application Deadline: {deadline}
         </span>
       )}
@@ -76,14 +76,16 @@ const ProgramDetail = ({
       {location && (
         <div className="mx-auto flex items-center gap-2">
           <Icons.location />
-          <span className="font-sans text-xs font-normal text-black">
+          <span className="font-sans text-xs font-normal text-primary">
             {location}
           </span>
         </div>
       )}
       <div className="mx-auto flex items-center gap-2">
         <Icons.calendar />
-        <span className="font-sans text-xs font-normal text-black">{date}</span>
+        <span className="font-sans text-xs font-normal text-primary">
+          {date}
+        </span>
       </div>
     </div>
   )
@@ -154,7 +156,7 @@ export const ProgramPageContent = () => {
 
   return (
     <Divider.Section className="flex flex-col">
-      <div className="bg-second-gradient">
+      <div className="bg-second-gradient dark:bg-transparent-gradient">
         <PageHeader
           title={LABELS.PROGRAMS_PAGE.TITLE}
           subtitle={LABELS.PROGRAMS_PAGE.DESCRIPTION}
@@ -173,13 +175,13 @@ export const ProgramPageContent = () => {
         <div className="sticky right-0 top-0 z-10 mx-auto flex w-full max-w-screen-3xl">
           <div
             id="sidebar"
-            className="relative ml-auto hidden bg-white p-2 lg:block"
+            className="relative ml-auto hidden bg-background p-2 lg:block"
           >
             <div className="absolute right-0 mt-[80px] flex flex-col gap-4 lg:w-[220px] xl:w-[320px] xl:px-8">
-              <h6 className="font-display text-lg font-bold text-tuatara-700">
+              <h6 className="font-display text-lg font-bold text-secondary">
                 {LABELS.COMMON.ON_THIS_PAGE}
               </h6>
-              <ul className="text-normal font-sans text-black">
+              <ul className="text-normal font-sans text-primary">
                 {ProgramSections.map((id: string) => {
                   const label = getSectionTitle(id)
 
@@ -262,7 +264,7 @@ export const ProgramPageContent = () => {
                       return (
                         <span
                           key={index}
-                          className="font-sans text-base text-tuatara-950"
+                          className="font-sans text-base text-primary"
                         >
                           {description}
                         </span>
@@ -304,7 +306,7 @@ export const ProgramPageContent = () => {
                               value: index.toString(),
                               children: (
                                 <span
-                                  className="font-sans text-sm font-normal text-black"
+                                  className="font-sans text-sm font-normal text-primary"
                                   dangerouslySetInnerHTML={{
                                     __html: answer?.toString() ?? "",
                                   }}
@@ -362,7 +364,7 @@ export const ProgramPageContent = () => {
                   return (
                     <span
                       key={index}
-                      className="font-sans text-base text-tuatara-950"
+                      className="font-sans text-base text-primary"
                     >
                       {description}
                     </span>
@@ -376,7 +378,7 @@ export const ProgramPageContent = () => {
                     <div className="flex flex-col gap-8 pb-10 md:pb-16">
                       <div id="howToApply" className="flex flex-col gap-8">
                         <div>
-                          <span className="text-base font-medium text-tuatara-950">
+                          <span className="text-base font-medium text-primary">
                             {LABELS.PROGRAMS_PAGE.HOW_TO_APPLY.OPEN_TASKS.TITLE}
                           </span>
                           <ul className="list-decimal">
@@ -388,7 +390,7 @@ export const ProgramPageContent = () => {
                                     className="ml-8 list-item items-center"
                                   >
                                     <div
-                                      className="text-tuatara-950"
+                                      className="text-primary"
                                       dangerouslySetInnerHTML={{
                                         __html: task,
                                       }}
@@ -400,7 +402,7 @@ export const ProgramPageContent = () => {
                           </ul>
                         </div>
                         <div>
-                          <span className="text-base font-medium text-tuatara-950">
+                          <span className="text-base font-medium text-primary">
                             {
                               LABELS.PROGRAMS_PAGE.HOW_TO_APPLY.SUBMIT_IDEA
                                 .TITLE
@@ -426,7 +428,7 @@ export const ProgramPageContent = () => {
                             )}
                           </ul>
                         </div>
-                        <span className="text-base text-tuatara-950">
+                        <span className="text-base text-primary">
                           {LABELS.PROGRAMS_PAGE.HOW_TO_APPLY.DESCRIPTION}
                         </span>
                       </div>
@@ -445,7 +447,7 @@ export const ProgramPageContent = () => {
                             label,
                             value: index.toString(),
                             children: (
-                              <span className="flex flex-col gap-3 text-base text-tuatara-950">
+                              <span className="flex flex-col gap-3 text-base text-primary">
                                 {typeof answer === "string"
                                   ? answer
                                   : answer.map((item, index) => {

@@ -27,7 +27,7 @@ interface ProjectCardProps
 }
 
 const tagCardVariants = cva(
-  "text-xs font-sans text-tuatara-950 rounded-[3px] py-[2px] px-[6px]",
+  "text-xs font-sans text-primary rounded-[3px] py-[2px] px-[6px]",
   {
     variants: {
       variant: {
@@ -90,12 +90,7 @@ export default function ProjectCard({
       )}
     >
       {showBanner && (
-        <div
-          className="relative flex flex-col border-b border-black/10 cursor-pointer"
-          onClick={() => {
-            router.push(`/projects/${id?.toLowerCase()}`)
-          }}
-        >
+        <div className="relative flex flex-col border-b border-black/10 cursor-pointer">
           <Image
             src={`/project-banners/${image ? image : "fallback.webp"}`}
             alt={`${name} banner`}
@@ -112,21 +107,23 @@ export default function ProjectCard({
       )}
       <div
         className={cn(
-          "flex flex-col justify-between h-full gap-8 p-[30px] bg-white rounded-b-lg hover:bg-research-card-gradient duration-300",
+          "flex flex-col justify-between h-full rounded-lg overflow-hidden gap-8 p-[30px] hover:bg-research-card-gradient duration-300 dark:border dark:border-anakiwa-800",
           contentClassName,
           {
-            "bg-white": !showBanner,
+            "bg-white dark:bg-black": !showBanner,
             "bg-transparent": showBanner,
           }
         )}
       >
         <div className="flex flex-col justify-start gap-2">
-          <h1 className="text-2xl font-bold leading-7 duration-200 cursor-pointer text-anakiwa-700 line-clamp-2">
+          <h1 className="text-2xl font-bold leading-7 duration-200 cursor-pointer text-anakiwa-700 line-clamp-2 dark:text-white">
             {name}
           </h1>
           {(tldr ?? "")?.length > 0 && (
             <div className="flex flex-col h-24 gap-4">
-              <p className="text-slate-900/80 line-clamp-3">{tldr}</p>
+              <p className="text-slate-900/80 line-clamp-3 dark:text-anakiwa-100">
+                {tldr}
+              </p>
             </div>
           )}
         </div>

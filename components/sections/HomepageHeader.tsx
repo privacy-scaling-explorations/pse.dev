@@ -37,7 +37,7 @@ export const HomepageHeader = () => {
       }
       actions={
         <div className="flex flex-col gap-4 lg:flex-row lg:gap-10">
-          <Link href={"/research"} className="flex items-center gap-2 group">
+          <Link href="/research" className="flex items-center gap-2 group">
             <Button className="w-full sm:w-auto">
               <div className="flex items-center gap-1">
                 <span className="text-base font-medium uppercase">
@@ -50,7 +50,7 @@ export const HomepageHeader = () => {
               </div>
             </Button>
           </Link>
-          <Link href={"/projects"} className="flex items-center gap-2 group">
+          <Link href="/projects" className="flex items-center gap-2 group">
             <Button className="w-full sm:w-auto">
               <div className="flex items-center gap-1">
                 <span className="text-base font-medium uppercase">
