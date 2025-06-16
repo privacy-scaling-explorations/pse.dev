@@ -10,6 +10,9 @@ import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import { LABELS } from "@/app/labels"
 import { Search as SearchIcon } from "lucide-react"
+import { useState } from "react"
+import { useDebounce } from "react-use"
+import { useRouter } from "next/navigation"
 
 const ArticleTitle = cva(
   "text-white font-display hover:text-anakiwa-400 transition-colors group-hover:text-anakiwa-400",
@@ -53,6 +56,9 @@ interface ArticlesListProps {
 export const ArticlesList: React.FC<ArticlesListProps> = ({
   tag,
 }: ArticlesListProps) => {
+  const router = useRouter()
+  const [searchQuery, setSearchQuery] = useState("")
+
   const {
     data: articles = [],
     isLoading,
@@ -74,15 +80,31 @@ export const ArticlesList: React.FC<ArticlesListProps> = ({
     )
   }
 
+  const hasSearchParams = (searchQuery ?? "")?.length > 0
+
   const lastArticle = articles[0]
   const featuredArticles = !tag ? articles.slice(1, 3) : []
-  const otherArticles = !tag ? articles.slice(3) : articles
+  const otherArticles =
+    !tag && !hasSearchParams ? articles.slice(3, 6) : articles
 
   const hasTag = tag !== undefined
 
+  const onSearchArticles = (query: string) => {
+    router.push(`/blog?query=${query}`)
+  }
+
+  useDebounce(
+    () => {
+      if (searchQuery === "") return null
+      onSearchArticles(searchQuery)
+    },
+    1000, // debounce timeout in ms when user is typing
+    [searchQuery]
+  )
+
   return (
     <div className="flex flex-col gap-10 lg:gap-16">
-      {!hasTag && (
+      {!hasTag && !hasSearchParams && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10 items-stretch">
           <div className="lg:col-span-2 h-full">
             <ArticleInEvidenceCard
@@ -115,8 +137,11 @@ export const ArticlesList: React.FC<ArticlesListProps> = ({
             className="max-w-[500px] mx-auto w-full"
             placeholder={LABELS.BLOG_PAGE.SEARCH_PLACEHOLDER}
             icon={SearchIcon}
+            onChange={(e) => {
+              setSearchQuery(e?.target?.value ?? "")
+            }}
             onIconClick={() => {
-              console.log("ss")
+              onSearchArticles(searchQuery)
             }}
           />
           <div className="flex flex-col gap-5 lg:gap-14 ">
@@ -125,8 +150,10 @@ export const ArticlesList: React.FC<ArticlesListProps> = ({
             })}
           </div>
         </div>
-        <Link href="/blog/all">
-          <Button className="mx-auto">{LABELS.COMMON.MORE_POSTS}</Button>
+        <Link href="/blog?query=all" className="mx-auto">
+          <Button className="mx-auto uppercase">
+            {LABELS.COMMON.MORE_POSTS}
+          </Button>
         </Link>
       </div>
     </div>
