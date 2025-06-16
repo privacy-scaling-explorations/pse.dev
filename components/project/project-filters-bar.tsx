@@ -282,7 +282,7 @@ export default function ProjectFiltersBar() {
                 <button
                   disabled={!hasActiveFilters}
                   onClick={clearAllFilters}
-                  className="hidden bg-transparent cursor-pointer opacity-85 text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block dark:text-anakiwa-400 dark:hover:text-anakiwa-400 underline"
+                  className="hidden bg-transparent cursor-pointer opacity-85 text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block dark:text-anakiwa-400 dark:hover:text-anakiwa-400"
                 >
                   <div className="flex items-center gap-2 border-b-2 border-black dark:border-anakiwa-800">
                     <span className="text-sm font-medium">

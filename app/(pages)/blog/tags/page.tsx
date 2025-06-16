@@ -53,7 +53,7 @@ const BlogTagsPage = async () => {
                 <Link
                   href={`/blog/tags/${tag.id}`}
                   key={tag.id}
-                  className="text-neutral-950 border-b-[2px] border-b-anakiwa-500 text-sm font-medium w-fit hover:text-anakiwa-500 duration-200"
+                  className="text-primary border-b-[2px] border-b-anakiwa-500 text-sm font-medium w-fit hover:text-anakiwa-500 duration-200"
                 >
                   {tag.name}
                 </Link>
