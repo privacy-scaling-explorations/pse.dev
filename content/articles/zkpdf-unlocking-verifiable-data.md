@@ -14,7 +14,7 @@ tags:
     "zkid",
     "digilocker pdfs",
   ]
-projects: ["zkid"]
+projects: ["zk-id", "anon-aadhaar", "openpassport", "zk-email"]
 ---
 
 **TL;DR**
