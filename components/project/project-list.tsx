@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import NoResultIcon from "@/public/icons/no-result.svg"
-import { cva } from "class-variance-authority"
 
 import {
   ProjectInterface,
@@ -18,21 +17,7 @@ import { LABELS } from "@/app/labels"
 
 import ProjectCard from "./project-card"
 import { useProjects } from "@/app/providers/ProjectsProvider"
-
-const sectionTitleClass = cva(
-  "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 dark:text-anakiwa-400 dark:text-white",
-  {
-    variants: {
-      variant: {
-        default:
-          "after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-['']",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-)
+import { SectionWrapper } from "@/app/components/wrappers/SectionWrapper"
 
 const NoResults = () => {
   return (
@@ -178,14 +163,11 @@ export const ProjectList = () => {
               className="flex justify-between gap-10"
             >
               <div className={cn("flex w-full flex-col gap-10 pt-10")}>
-                {!hasSearchParams && (
-                  <div className="flex flex-col gap-6 overflow-hidden">
-                    <h3 className={cn(sectionTitleClass())}>{status}</h3>
-                    <span className="font-sans text-base italic text-primary">
-                      {description}
-                    </span>
-                  </div>
-                )}
+                <SectionWrapper
+                  title={status}
+                  description={description}
+                  visible={!hasSearchParams}
+                />
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
                   {projects.map((project: any) => (
                     <ProjectCard

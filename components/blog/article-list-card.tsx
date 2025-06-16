@@ -56,9 +56,11 @@ export const ArticleListCard = ({
               <span className="text-xs font-display lg:text-[22px] font-bold text-primary group-hover:text-anakiwa-500 group-hover:underline duration-200 lg:leading-6">
                 {article.title}
               </span>
-              <span className="lg:uppercase text-tuatara-400 lg:text-xs text-[10px] leading-none font-sans dark:text-tuatara-300">
-                {article.authors?.map((author) => author).join(", ")}
-              </span>
+              {(article?.authors ?? [])?.length > 0 && (
+                <span className="text-tuatara-400 lg:text-xs text-[10px] leading-none font-sans dark:text-tuatara-300">
+                  {article.authors?.map((author) => author).join(", ")}
+                </span>
+              )}
               <div className="hidden lg:block">
                 <Markdown
                   components={{

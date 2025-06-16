@@ -47,6 +47,7 @@ export const LABELS = {
     RECENT_ARTICLES: "Recent articles",
     SEE_MORE: "See more",
     READ_MORE: "Read more",
+    SEARCH_PLACEHOLDER: "Search PSE's blog",
   },
   BLOG_TAGS_PAGE: {
     TITLE: "Blog tags",
@@ -168,6 +169,7 @@ export const LABELS = {
     ERROR_LOADING_VIDEOS: "Error loading videos",
     PROJECT_TEAM: "Team",
     YOUTUBE_VIDEOS: "YouTube Videos",
+    MORE_POSTS: "More posts",
   },
   HOMEPAGE: {
     HEADER_TITLE: "Privacy + Scaling Explorations",
