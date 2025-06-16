@@ -120,7 +120,7 @@ For our needs, we implemented a novel\* variant of so-called Dual Execution, whi
 
 The jist of it is this: During the TLS session one party, the Prover, acts as the Garbler while also committing to their inputs prior to learning the output of the circuit. Later, these commitments are used to prove the Prover acted honestly (or at least leakage was statistically bounded), and aborting otherwise.
 
-Some key take aways of this approach:
+Some key take away of this approach:
 
 - Garbled circuits on their own are secure against a malicious evaluator. The Verifier, acting as the evaluator, can not cheat or otherwise corrupt the output without detection. This ensures the privacy and integrity of the data to the Prover during the TLS session.
 - In the final phase of DEAP the Verifier opens all their inputs to the Prover. This allows the Prover to check the Verifier has behaved honestly and ensures _no leakage_ of the private data, contrary to the leakage inherent in the equality check of standard Dual Execution.

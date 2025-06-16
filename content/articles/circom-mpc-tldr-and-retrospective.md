@@ -78,7 +78,7 @@ In what follows, we present work that enables the use of Circom as a front-end l
 
 ![](/articles/circom-mpc-tldr-and-retrospective/Pu6FYJqTnT4r478Ydn_u0.webp)
 
-_[Detailed explanation of Progammable-MPC with Circom-MPC.](https://docs.google.com/presentation/d/1dPvNyrBWyqyX2oTGcnM52ldpISGrhwEhIZXJPwYWE6I/edit#slide=id.g2818c557dad_0_261)_
+_[Detailed explanation of Programmable-MPC with Circom-MPC.](https://docs.google.com/presentation/d/1dPvNyrBWyqyX2oTGcnM52ldpISGrhwEhIZXJPwYWE6I/edit#slide=id.g2818c557dad_0_261)_
 
 The Circom-MPC project aims to allow a developer to write a Circom program (a Circom circuit) and run it using an MPC backend.
 
