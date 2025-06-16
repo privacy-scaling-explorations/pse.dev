@@ -1,7 +1,7 @@
 ---
 id: "zk-email"
-name: "zk-email"
-image: "zk-email.jpeg"
+name: "ZK Email"
+image: "zk-email.png"
 section: "collaboration"
 projectStatus: "active"
 category: "application"
