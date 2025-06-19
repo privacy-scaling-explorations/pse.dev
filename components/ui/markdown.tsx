@@ -563,7 +563,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     if (containsMath(text)) {
       return (
         <p
-          className={`${darkMode ? "text-white" : "text-secondary"} font-sans text-base font-normal ${isMathOnly ? "math-only" : ""}`}
+          className={`${darkMode ? "text-white" : "text-secondary"} font-sans text-lg font-normal ${isMathOnly ? "math-only" : ""}`}
         >
           <MathText text={text} />
         </p>
@@ -572,7 +572,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
 
     return (
       <p
-        className={`${darkMode ? "text-white" : "text-secondary"} font-sans text-base font-normal`}
+        className={`${darkMode ? "text-white" : "text-secondary"} font-sans text-lg font-normal`}
       >
         {children}
       </p>
@@ -591,31 +591,27 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
 
     if (containsMath(text)) {
       return (
-        <li
-          className="text-secondary font-sans text-base font-normal"
-          {...props}
-        >
+        <li className="text-secondary font-sans text-lg font-normal" {...props}>
           <MathText text={text} />
         </li>
       )
     }
 
     return (
-      <li className="text-secondary font-sans text-base font-normal" {...props}>
+      <li className="text-secondary font-sans text-lg font-normal" {...props}>
         {children}
       </li>
     )
   },
   ul: ({ ordered, ...props }) =>
     createMarkdownElement(ordered ? "ol" : "ul", {
-      className:
-        "ml-6 list-disc text-secondary font-sans text-base font-normal",
+      className: "ml-6 list-disc text-secondary font-sans text-lg font-normal",
       ...props,
     }),
   ol: ({ ordered, ...props }) =>
     createMarkdownElement(ordered ? "ol" : "ul", {
       className:
-        "list-decimal text-secondary font-sans text-base font-normal mt-3",
+        "list-decimal text-secondary font-sans text-lg font-normal mt-3",
       ...props,
     }),
   table: Table,

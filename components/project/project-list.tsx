@@ -166,7 +166,7 @@ export const ProjectList = () => {
                 <SectionWrapper
                   title={status}
                   description={description}
-                  visible={!hasSearchParams}
+                  showHeader={!hasSearchParams}
                 />
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 md:gap-y-10 lg:grid-cols-4">
                   {projects.map((project: any) => (

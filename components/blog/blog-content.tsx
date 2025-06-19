@@ -75,7 +75,7 @@ export function BlogContent({ post, isNewsletter = false }: BlogContentProps) {
               </span>
               <Link
                 href="/blog"
-                className="text-black font-bold text-base leading-6 hover:underline hover:text-anakiwa-500"
+                className="text-black font-bold text-lg leading-6 hover:underline hover:text-anakiwa-500"
               >
                 View all
               </Link>

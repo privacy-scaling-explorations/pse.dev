@@ -28,7 +28,6 @@ export const SiteHeaderMobile = () => {
 
   return (
     <div className="flex items-center md:hidden">
-      text-black dark:text-anakiwa-400
       <button type="button" onClick={() => setHeader(true)}>
         <Icons.Burgher
           size={24}

@@ -109,7 +109,7 @@ function Hit({
               })
 
               return (
-                <span className="text-secondary font-sans text-base font-normal">
+                <span className="text-secondary font-sans text-lg font-normal">
                   {textContent}
                 </span>
               )

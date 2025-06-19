@@ -70,7 +70,7 @@ export const WikiCard = ({ project, className = "" }: WikiCardProps) => {
 
   return (
     <div className={cn("flex flex-col gap-6", className)}>
-      <div className="mx-auto flex max-w-[290px] flex-col gap-6">
+      <div className="mx-auto flex max-w-[290px] flex-col gap-6 w-full">
         <Card className="bg-background" padding="none">
           <div className="relative flex h-[140px] items-center justify-center overflow-hidden rounded-t-lg">
             <Image
