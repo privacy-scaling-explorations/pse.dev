@@ -73,7 +73,7 @@ export const HomepageVideoFeed = () => {
     <section className="mx-auto px-6 lg:px-8 py-10 lg:py-16 bg-tuatara-950 dark:bg-black">
       <AppContent className="flex flex-col gap-8 lg:max-w-[1200px] w-full">
         <div className="col-span-1 lg:col-span-4">
-          <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
+          <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-white text-center">
             {LABELS.HOMEPAGE.VIDEOS}
           </h2>
         </div>
