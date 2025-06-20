@@ -34,7 +34,6 @@ export const SiteHeaderMobile = () => {
           className="text-[#171C1B] dark:text-anakiwa-400"
         />
       </button>
-
       {header && (
         <div
           className="z-5 fixed inset-0 flex justify-end bg-black opacity-50"
@@ -71,9 +70,19 @@ export const SiteHeaderMobile = () => {
             })}
             <button
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className="text-black dark:text-anakiwa-400 ml-auto mt-10"
+              className=" ml-auto mt-10"
             >
-              {isDarkMode ? <SunIcon size={20} /> : <MoonIcon size={20} />}
+              {isDarkMode ? (
+                <SunIcon
+                  className="text-white dark:text-anakiwa-400"
+                  size={20}
+                />
+              ) : (
+                <MoonIcon
+                  className="text-white dark:text-anakiwa-400"
+                  size={20}
+                />
+              )}
             </button>
           </div>
 

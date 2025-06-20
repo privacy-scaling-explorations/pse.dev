@@ -126,7 +126,7 @@ export default function ProjectCard({
             )}
 
             <div
-              className="px-[6px] py-[2px] text-xs font-normal leading-none flex items-center justify-center rounded-[3px] text-white dark:text-black"
+              className="px-[6px] py-[2px] text-xs font-normal leading-none flex items-center justify-center rounded-[3px] text-black dark:text-black"
               style={{
                 backgroundColor: ProjectStatusColorMapping[projectStatus],
               }}

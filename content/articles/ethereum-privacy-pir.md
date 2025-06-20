@@ -8,8 +8,6 @@ tags: ["ethereum", "privacy", "pir"]
 projects: ["semaphore", "scaling-semaphore-pir"]
 ---
 
-# Ethereum Privacy: Private Information Retrieval
-
 _Thanks to [Cperezz](https://github.com/cperezz), [Vivian](https://github.com/vplasencia) and [Oskar](https://github.com/oskarth) for feedback and review._
 
 Ethereum presents several [privacy challenges](https://hackmd.io/@pcaversaccio/ethereum-privacy-the-road-to-self-sovereignty#Status-Quo). One of them is that read operations can expose user data and behavior patterns, potentially leading to [deanonymization](https://en.wikipedia.org/wiki/Data_re-identification). In this scenario, users are safe only if they run their own node or host the data locally. Otherwise, all requests go through third parties, such as relayers, providers, and [wallets that process IP addresses](https://consensys.io/privacy-notice).

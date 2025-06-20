@@ -3,19 +3,17 @@
 import React, { useEffect, useState, useMemo } from "react"
 import Image from "next/image"
 import NoResultIcon from "@/public/icons/no-result.svg"
-import { cva } from "class-variance-authority"
 
 import { ProjectInterface, ProjectStatus } from "@/lib/types"
-import { cn } from "@/lib/utils"
 import { LABELS } from "@/app/labels"
 import { useProjects } from "@/app/providers/ProjectsProvider"
 
 import ResearchCard from "./research-card"
 import Link from "next/link"
-
-const sectionTitleClass = cva(
-  "relative font-sans text-base font-bold uppercase tracking-[3.36px] text-anakiwa-950 after:ml-8 after:absolute after:top-1/2 after:h-[1px] after:w-full after:translate-y-1/2 after:bg-anakiwa-300 after:content-[''] dark:text-white"
-)
+import {
+  SectionWrapper,
+  SectionWrapperTitle,
+} from "@/app/components/wrappers/SectionWrapper"
 
 const NoResults = () => {
   return (
@@ -38,10 +36,9 @@ const ProjectStatusOrderList = ["active", "maintained", "inactive"]
 export const ResearchList = () => {
   const [isMounted, setIsMounted] = useState(false)
 
-  const { researchs, searchQuery, queryString } = useProjects()
+  const { researchs } = useProjects()
 
   const noItems = researchs?.length === 0
-  const hasActiveFilters = searchQuery !== "" || queryString !== ""
 
   useEffect(() => {
     setIsMounted(true)
@@ -65,14 +62,11 @@ export const ResearchList = () => {
     return (
       <div className="flex flex-col gap-10">
         <div className="flex flex-col gap-6 overflow-hidden">
-          <div
-            className={cn(
-              "after:left-[100px] lg:after:left-[200px]",
-              sectionTitleClass()
-            )}
+          <SectionWrapperTitle
+            className={"after:left-[100px] lg:after:left-[200px]"}
           >
             <div className="h-3 lg:h-4 w-[120px] lg:w-[220px] bg-gray-200 animate-pulse rounded-lg"></div>
-          </div>
+          </SectionWrapperTitle>
         </div>
         <div className="grid items-start justify-between w-full grid-cols-1 gap-2 md:grid-cols-3 md:gap-6 ">
           <div className="min-h-[200px] border border-gray-200 bg-gray-200 animate-pulse rounded-lg overflow-hidden"></div>
@@ -92,14 +86,7 @@ export const ResearchList = () => {
         data-section="active-researchs"
         className="flex flex-col justify-between gap-10"
       >
-        <div className={cn("flex w-full flex-col gap-10")}>
-          {!hasActiveFilters && (
-            <div className="flex flex-col gap-6 overflow-hidden">
-              <h3 className={cn(sectionTitleClass())}>
-                {LABELS.RESEARCH_PAGE.ACTIVE_RESEARCH}
-              </h3>
-            </div>
-          )}
+        <SectionWrapper title={LABELS.RESEARCH_PAGE.ACTIVE_RESEARCH}>
           <div className="grid grid-cols-1 gap-4 md:gap-x-6 md:gap-y-10 lg:grid-cols-3">
             {activeResearchs.map((project: ProjectInterface) => (
               <ResearchCard
@@ -114,13 +101,12 @@ export const ResearchList = () => {
               />
             ))}
           </div>
-        </div>
-        <div className={cn("flex w-full flex-col gap-10 pt-10")}>
-          <div className="flex flex-col gap-6 overflow-hidden">
-            <h3 className={cn(sectionTitleClass())}>
-              {LABELS.RESEARCH_PAGE.PAST_RESEARCH}
-            </h3>
-          </div>
+        </SectionWrapper>
+
+        <SectionWrapper
+          title={LABELS.RESEARCH_PAGE.PAST_RESEARCH}
+          className="pt-10"
+        >
           <div className="flex flex-col gap-5">
             {pastResearchs.map((project: ProjectInterface) => (
               <Link
@@ -132,7 +118,7 @@ export const ResearchList = () => {
               </Link>
             ))}
           </div>
-        </div>
+        </SectionWrapper>
       </div>
     </div>
   )

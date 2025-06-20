@@ -162,7 +162,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
                     {projectStatusMessage?.length > 0 && (
                       <span className="relative pl-6 text-tuatara-500">
                         <div className="border-l-[4px] border-l-orangeDark absolute left-0 top-0 bottom-0"></div>
-                        <span className="text-tuatara-500">
+                        <span className="text-tuatara-500 dark:text-white">
                           {projectStatusMessage}
                         </span>
                       </span>
