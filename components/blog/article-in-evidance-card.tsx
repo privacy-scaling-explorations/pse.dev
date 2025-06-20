@@ -95,7 +95,7 @@ export const ArticleInEvidenceCard = ({
             className={cn(
               "font-display hover:text-anakiwa-400 group-hover:text-anakiwa-400 transition-colors",
               backgroundCover
-                ? "text-white dark:text-black"
+                ? "text-white dark:text-white"
                 : "text-black dark:text-white group-hover:underline",
               {
                 "text-[20px] font-semibold lg:font-bold lg:text-lg line-clamp-2 mt-auto":

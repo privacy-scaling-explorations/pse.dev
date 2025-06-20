@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Privacy & Scaling Explorations",
+  name: "PSE",
   description:
     "Enhancing Ethereum through cryptographic research and collective experimentation.",
   url: "https://pse.dev",

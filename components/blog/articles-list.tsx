@@ -1,7 +1,7 @@
 "use client"
 
 import { useQuery } from "@tanstack/react-query"
-import { Article } from "@/lib/content"
+import { Article, ArticleTag } from "@/lib/content"
 import { ArticleListCard } from "./article-list-card"
 import Link from "next/link"
 import { cva } from "class-variance-authority"
@@ -12,7 +12,7 @@ import { LABELS } from "@/app/labels"
 import { Search as SearchIcon } from "lucide-react"
 import { useState } from "react"
 import { useDebounce } from "react-use"
-import { useRouter } from "next/navigation"
+import { useParams, useRouter, useSearchParams } from "next/navigation"
 
 const ArticleTitle = cva(
   "text-white font-display hover:text-anakiwa-400 transition-colors group-hover:text-anakiwa-400",
@@ -57,7 +57,10 @@ export const ArticlesList: React.FC<ArticlesListProps> = ({
   tag,
 }: ArticlesListProps) => {
   const router = useRouter()
-  const [searchQuery, setSearchQuery] = useState("")
+
+  const params = useSearchParams()
+  const query = params.get("query")
+  const [searchQuery, setSearchQuery] = useState(query ?? "")
 
   const {
     data: articles = [],
@@ -80,16 +83,32 @@ export const ArticlesList: React.FC<ArticlesListProps> = ({
     )
   }
 
-  const hasSearchParams = (searchQuery ?? "")?.length > 0
+  const hasSearchParams =
+    (searchQuery ?? "")?.length > 0 && searchQuery !== "all"
 
   const lastArticle = articles[0]
   const featuredArticles = !tag ? articles.slice(1, 3) : []
-  const otherArticles =
-    !tag && !hasSearchParams ? articles.slice(3, 6) : articles
+  let otherArticles = !tag && !hasSearchParams ? articles.slice(3, 6) : []
+
+  if (searchQuery === "all") {
+    otherArticles = articles
+  } else if (searchQuery?.length > 0) {
+    otherArticles = articles.filter((article: Article) => {
+      const title = article.title.toLowerCase()
+      const content = article.content.toLowerCase()
+      const tags =
+        article.tags?.map((tag: ArticleTag) => tag.name.toLowerCase()) ?? []
+      return (
+        title.includes(searchQuery.toLowerCase()) ||
+        tags.some((tag: string) => tag.includes(searchQuery.toLowerCase()))
+      )
+    })
+  }
 
   const hasTag = tag !== undefined
 
   const onSearchArticles = (query: string) => {
+    setSearchQuery(query)
     router.push(`/blog?query=${query}`)
   }
 
@@ -98,23 +117,36 @@ export const ArticlesList: React.FC<ArticlesListProps> = ({
       if (searchQuery === "") return null
       onSearchArticles(searchQuery)
     },
-    1000, // debounce timeout in ms when user is typing
+    500, // debounce timeout in ms when user is typing
     [searchQuery]
   )
 
   return (
     <div className="flex flex-col gap-10 lg:gap-16">
-      {!hasTag && !hasSearchParams && (
+      {!hasTag && !hasSearchParams && searchQuery !== "all" && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10 items-stretch">
-          <div className="lg:col-span-2 h-full">
+          <div className="lg:col-span-2 h-full flex flex-col gap-4">
             <ArticleInEvidenceCard
               article={lastArticle}
               size="sm"
               className="h-full "
               asLink
             />
+            <>
+              {featuredArticles?.map((article: Article) => {
+                return (
+                  <ArticleInEvidenceCard
+                    key={article.id}
+                    article={article}
+                    size="sm"
+                    className="h-full lg:hidden"
+                    asLink
+                  />
+                )
+              })}
+            </>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10 lg:col-span-2 h-full">
+          <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10 lg:col-span-2 h-full">
             {featuredArticles?.map((article: Article) => {
               return (
                 <ArticleInEvidenceCard
@@ -138,23 +170,30 @@ export const ArticlesList: React.FC<ArticlesListProps> = ({
             placeholder={LABELS.BLOG_PAGE.SEARCH_PLACEHOLDER}
             icon={SearchIcon}
             onChange={(e) => {
-              setSearchQuery(e?.target?.value ?? "")
+              onSearchArticles(e?.target?.value ?? "")
             }}
             onIconClick={() => {
               onSearchArticles(searchQuery)
             }}
           />
           <div className="flex flex-col gap-5 lg:gap-14 ">
-            {otherArticles.map((article: Article) => {
-              return <ArticleListCard key={article.id} article={article} />
-            })}
+            {otherArticles
+              .filter((article: Article) => article.id !== lastArticle.id)
+              .map((article: Article) => {
+                return <ArticleListCard key={article.id} article={article} />
+              })}
           </div>
         </div>
-        <Link href="/blog?query=all" className="mx-auto">
-          <Button className="mx-auto uppercase">
+        {searchQuery?.length === 0 && (
+          <Button
+            className="mx-auto uppercase"
+            onClick={() => {
+              onSearchArticles("all")
+            }}
+          >
             {LABELS.COMMON.MORE_POSTS}
           </Button>
-        </Link>
+        )}
       </div>
     </div>
   )
