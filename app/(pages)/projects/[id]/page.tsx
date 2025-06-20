@@ -2,6 +2,7 @@ import { Metadata } from "next"
 
 import { ProjectInterface } from "@/lib/types"
 import { ProjectContent } from "../sections/ProjectContent"
+import { getProjects, Project } from "@/lib/content"
 
 type PageProps = {
   params: { id: string }
@@ -12,18 +13,22 @@ export interface ProjectProps {
   project: ProjectInterface
 }
 
-/*
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const response = await fetch("/api/projects")
-  const projects = await response.json()
-  
+  const projects = await getProjects()
   const project = projects.find(
-    (p: ProjectInterface) => 
+    (p: Project) =>
       String(p.id?.toLowerCase()) === params.id.toString().toLowerCase()
   )
-  
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+      description: "The requested project could not be found",
+    }
+  }
+
   const content = project?.content
   const imageUrl =
     (project?.image ?? "")?.length > 0
@@ -43,7 +48,7 @@ export async function generateMetadata({
       ],
     },
   }
-}*/
+}
 
 export default async function ProjectDetailPage({ params }: PageProps) {
   return <ProjectContent id={params?.id?.toLowerCase()} />

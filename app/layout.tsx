@@ -54,8 +54,9 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    template: "%s | PSE",
   },
+  metadataBase: new URL("https://pse.dev"),
   description: siteConfig.description,
   keywords: [
     "Privacy & Scaling Explorations",
