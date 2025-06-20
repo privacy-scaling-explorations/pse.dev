@@ -10,6 +10,12 @@ import { Divider } from "@/components/divider"
 import { Icons } from "@/components/icons"
 import { LABELS } from "@/app/labels"
 import { interpolate } from "@/lib/utils"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "About the Privacy & Scaling Explorations community",
+}
 
 export default async function AboutPage() {
   const principles = LABELS.ABOUT_PAGE.PRINCIPLES
