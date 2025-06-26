@@ -12,6 +12,6 @@ projects: ["project-1"] # (Optional) Link to related projects by their id
 test
 
 
-demo.png
+/articles/articles-name-folder/cover.webp
 
-zk.png
+/articles/articles-name-folder/cover.webp
