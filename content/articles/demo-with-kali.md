@@ -10,3 +10,8 @@ projects: ["project-1"] # (Optional) Link to related projects by their id
 ---
 
 test
+
+
+demo.png
+
+zk.png
