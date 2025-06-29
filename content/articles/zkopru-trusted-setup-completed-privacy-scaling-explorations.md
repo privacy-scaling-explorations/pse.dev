@@ -25,7 +25,7 @@ Originally published on Apr 21, 2021:
 
 ## **Overview**
 
-The public participation part of our ceremony is now complete! It ran for 22 days in total and had 5146 successful contributions to all circuits combined. We encourage you to head to [this](https://storage.googleapis.com/zkopru-mpc-files/index.html) website to find your contribution files and instructions on how to verify them.
+The public participation part of our ceremony is now complete! It ran for 22 days in total and had 5146 successful contributions to all circuits combined. We encourage you to head to [this](https://mpc.zkopru.network/) website to find your contribution files and instructions on how to verify them.
 
 ## **Statistics**
 
