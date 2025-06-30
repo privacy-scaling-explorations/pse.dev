@@ -111,6 +111,9 @@ export const metadata: Metadata = {
       ],
     },
   },
+  icons: {
+    icon: "/favicon.svg",
+  },
 }
 
 interface RootLayoutProps {

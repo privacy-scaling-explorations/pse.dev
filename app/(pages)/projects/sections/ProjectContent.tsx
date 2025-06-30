@@ -69,7 +69,6 @@ export const ProjectContent = ({ id }: { id: string }) => {
   const { project } = getProjectById(id) ?? {}
 
   const hasSocialLinks = Object.keys(project?.links ?? {}).length > 0
-  const editPageURL = siteConfig?.editProjectPage(project?.id as string)
 
   const ProjectStatusMessageMap: Record<ProjectStatus, string> = {
     [ProjectStatus.ACTIVE]: "",
@@ -87,7 +86,22 @@ export const ProjectContent = ({ id }: { id: string }) => {
   }
 
   return (
-    <section className="bg-project-page-gradient dark:bg-transparent-gradient">
+    <section className="bg-project-page-gradient dark:bg-transparent-gradient relative">
+      <Link
+        href={siteConfig.editProjectPage(project.id)}
+        target="_blank"
+        className="fixed bottom-5 left-5 lg:bottom-5 lg:left-10 z-10"
+      >
+        <Button className="w-full md:w-auto" size="sm">
+          <div className="flex items-center gap-1">
+            <Icons.gitHub size={18} />
+            <span className="pl-2 text-left text-sm font-medium uppercase">
+              {LABELS.COMMON.EDIT_THIS_PAGE}
+            </span>
+            <Icons.externalUrl size={22} />
+          </div>
+        </Button>
+      </Link>
       <div className="flex flex-col">
         <Divider.Section className="flex flex-col items-center">
           <AppContent className="flex flex-col gap-12 py-16">
@@ -200,20 +214,6 @@ export const ProjectContent = ({ id }: { id: string }) => {
               {!isResearchProject && (
                 <WikiCard className="lg:sticky lg:top-20" project={project} />
               )}
-              <div data-section-id="edit-this-page" className="lg:col-start-2">
-                <Link
-                  href={editPageURL}
-                  target="_blank"
-                  rel="noreferrer"
-                  passHref
-                  className="inline-flex items-center self-start gap-2 px-4 py-2 duration-200 bg-white border-2 rounded-md group border-tuatara-950 hover:bg-tuatara-950 hover:text-white dark:bg-black dark:border-anakiwa-800 dark:border dark:hover:bg-anakiwa-400"
-                >
-                  <Icons.edit />
-                  <span className="text-sm duration-200 text-primary group-hover:text-white">
-                    {LABELS.COMMON.EDIT_THIS_PAGE}
-                  </span>
-                </Link>
-              </div>
             </div>
           </AppContent>
 

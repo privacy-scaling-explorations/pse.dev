@@ -27,7 +27,9 @@ export const siteConfig = {
       "https://docs.google.com/forms/d/e/1FAIpQLSendzYY0z_z7fZ37g3jmydvzS9I7OWKbY2JrqAnyNqeaBHvMQ/viewform",
   },
   addGithubResource:
-    "https://github.com/privacy-scaling-explorations/website-v2/blob/main/app/%5Blang%5D/content/resources.md",
+    "https://github.com/privacy-scaling-explorations/website-v2/blob/main/content/resources.md",
   editProjectPage: (id: string) =>
-    `https://github.com/privacy-scaling-explorations/pse.dev/blob/main/data/projects/${id}.ts`,
+    `https://github.com/privacy-scaling-explorations/website-v2/blob/main/content/projects/${id}.md`,
+  editBlogPage: (slug: string) =>
+    `https://github.com/privacy-scaling-explorations/website-v2/blob/main/content/articles/${slug}.md`,
 }
