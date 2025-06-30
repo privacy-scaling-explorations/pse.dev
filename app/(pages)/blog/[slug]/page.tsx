@@ -1,9 +1,12 @@
+import { LABELS } from "@/app/labels"
 import { blogArticleCardTagCardVariants } from "@/components/blog/blog-article-card"
 import { BlogContent } from "@/components/blog/blog-content"
+import { Icons } from "@/components/icons"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Markdown } from "@/components/ui/markdown"
+import { siteConfig } from "@/config/site"
 import { getArticles, getArticleById } from "@/lib/content"
 import { cn, getBackgroundImage } from "@/lib/utils"
 import { Metadata } from "next"
@@ -67,7 +70,22 @@ export default function BlogArticle({ params }: any) {
     post?.tldr?.toLowerCase()?.includes("newsletter")
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative">
+      <Link
+        href={siteConfig.editBlogPage(slug)}
+        target="_blank"
+        className="fixed lg:bottom-10 lg:left-10 z-10"
+      >
+        <Button className="w-full md:w-auto" size="sm">
+          <div className="flex items-center gap-1">
+            <Icons.gitHub size={18} />
+            <span className="pl-2 text-left text-sm font-medium uppercase">
+              {LABELS.COMMON.EDIT_THIS_PAGE}
+            </span>
+            <Icons.externalUrl size={22} />
+          </div>
+        </Button>
+      </Link>
       <div className="flex items-start justify-center z-0 relative">
         <div
           className={cn(

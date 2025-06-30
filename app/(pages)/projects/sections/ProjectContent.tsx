@@ -87,7 +87,22 @@ export const ProjectContent = ({ id }: { id: string }) => {
   }
 
   return (
-    <section className="bg-project-page-gradient dark:bg-transparent-gradient">
+    <section className="bg-project-page-gradient dark:bg-transparent-gradient relative">
+      <Link
+        href={siteConfig.editProjectPage(project.id)}
+        target="_blank"
+        className="fixed lg:bottom-10 lg:left-10 z-10"
+      >
+        <Button className="w-full md:w-auto" size="sm">
+          <div className="flex items-center gap-1">
+            <Icons.gitHub size={18} />
+            <span className="pl-2 text-left text-sm font-medium uppercase">
+              {LABELS.COMMON.EDIT_THIS_PAGE}
+            </span>
+            <Icons.externalUrl size={22} />
+          </div>
+        </Button>
+      </Link>
       <div className="flex flex-col">
         <Divider.Section className="flex flex-col items-center">
           <AppContent className="flex flex-col gap-12 py-16">
