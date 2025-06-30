@@ -3,7 +3,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { Article, ArticleTag } from "@/lib/content"
 import { ArticleListCard } from "./article-list-card"
-import Link from "next/link"
 import { cva } from "class-variance-authority"
 import { ArticleInEvidenceCard } from "./article-in-evidance-card"
 import { Input } from "../ui/input"
@@ -11,8 +10,8 @@ import { Button } from "../ui/button"
 import { LABELS } from "@/app/labels"
 import { Search as SearchIcon } from "lucide-react"
 import { useState } from "react"
-import { useDebounce } from "react-use"
-import { useParams, useRouter, useSearchParams } from "next/navigation"
+import { useDebounce, useMedia } from "react-use"
+import { useRouter, useSearchParams } from "next/navigation"
 
 const ArticleTitle = cva(
   "text-white font-display hover:text-anakiwa-400 transition-colors group-hover:text-anakiwa-400",
@@ -121,6 +120,8 @@ export const ArticlesList: React.FC<ArticlesListProps> = ({
     [searchQuery]
   )
 
+  const isMobile = useMedia("(max-width: 768px)")
+
   return (
     <div className="flex flex-col gap-10 lg:gap-16">
       {!hasTag && !hasSearchParams && searchQuery !== "all" && (
@@ -132,35 +133,39 @@ export const ArticlesList: React.FC<ArticlesListProps> = ({
               className="h-full "
               asLink
             />
-            <>
+            {isMobile && (
+              <>
+                {featuredArticles?.map((article: Article) => {
+                  return (
+                    <ArticleInEvidenceCard
+                      key={article.id}
+                      article={article}
+                      size="sm"
+                      className="h-full"
+                      asLink
+                    />
+                  )
+                })}
+              </>
+            )}
+          </div>
+          {!isMobile && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10 lg:col-span-2 h-full">
               {featuredArticles?.map((article: Article) => {
                 return (
                   <ArticleInEvidenceCard
                     key={article.id}
                     article={article}
+                    variant="compact"
                     size="sm"
-                    className="h-full lg:hidden"
+                    className="h-full"
+                    backgroundCover={false}
                     asLink
                   />
                 )
               })}
-            </>
-          </div>
-          <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10 lg:col-span-2 h-full">
-            {featuredArticles?.map((article: Article) => {
-              return (
-                <ArticleInEvidenceCard
-                  key={article.id}
-                  article={article}
-                  variant="compact"
-                  size="sm"
-                  className="h-full"
-                  backgroundCover={false}
-                  asLink
-                />
-              )
-            })}
-          </div>
+            </div>
+          )}
         </div>
       )}
       <div className="flex flex-col gap-10 lg:gap-16 lg:px-12">
