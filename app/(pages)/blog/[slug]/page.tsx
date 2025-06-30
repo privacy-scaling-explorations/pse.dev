@@ -74,7 +74,7 @@ export default function BlogArticle({ params }: any) {
       <Link
         href={siteConfig.editBlogPage(slug)}
         target="_blank"
-        className="fixed lg:bottom-10 lg:left-10 z-10"
+        className="fixed bottom-5 left-5 lg:bottom-5 lg:left-10 z-10"
       >
         <Button className="w-full md:w-auto" size="sm">
           <div className="flex items-center gap-1">
