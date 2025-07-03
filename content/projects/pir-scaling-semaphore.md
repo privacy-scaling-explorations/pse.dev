@@ -3,7 +3,7 @@ id: "scaling-semaphore-pir"
 name: "Scaling Semaphore – PIR Merkle-Path Retrieval"
 image: ""
 section: "pse"
-projectStatus: "active"
+projectStatus: "inactive"
 category: "research"
 tldr: "Private Information Retrieval lets Semaphore users fetch their Merkle path from a server without revealing which identity they own, enabling truly private proofs for groups with millions of members."
 tags:
@@ -54,12 +54,9 @@ Traditional PIR protocols were too heavy for on-chain use. Recent schemes—e.g.
 3. Server responds with encrypted buckets; client decrypts to obtain hashes/leaves.
 4. Client generates the standard Semaphore ZK proof locally; nothing is leaked to the server.
 
-#### Current Status (Apr 2025)
+#### Current Status
 
-- ✅ ZK-Kit LeanIMT Rust implementation
-- 🔄 PIR proof-of-concept fetching 32-byte records from a 2²⁰-element DB
-- 🔜 Benchmarks
-- 🔜 Post & L&S session
+The project has been completed see [here](https://pse.dev/blog/ethereum-privacy-pir) for more information.
 
 #### Use-cases Enabled
 
