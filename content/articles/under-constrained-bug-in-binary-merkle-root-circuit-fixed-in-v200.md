@@ -18,6 +18,8 @@ We sincerely thank the two primary researchers from OtterSec who discovered the 
 
 PSE has worked with OtterSec to identify projects vulnerable and reached out to them.
 
+We would also like to thank the [zkSecurity](https://www.zksecurity.xyz/) team, who reached out on June 25 to report the same bug and contributed to identifying and contacting potentially affected projects.
+
 After discussions with OtterSec and projects using this circuit to determine the most secure and robust way to address the issue, a fix was pushed, reviewed, and a new version of `BinaryMerkleRoot` was released on June 30 🎉: [v2.0.0](https://github.com/privacy-scaling-explorations/zk-kit.circom/releases/tag/binary-merkle-root.circom-v2.0.0)
 
 ## Technical details
