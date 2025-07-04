@@ -741,7 +741,8 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
   },
   img: ({ ...props }) =>
     createMarkdownElement("img", {
-      className: "w-auto w-auto mx-auto rounded-lg object-cover",
+      className:
+        "w-auto w-auto mx-auto rounded-lg object-cover dark:bg-white dark:p-3",
       ...props,
     }),
   "footnote-ref": ({ identifier, label }) => {
