@@ -45,7 +45,8 @@ Our Client-Side Proving team [published benchmarks](https://pse.dev/blog/efficie
 
 ### [Verifiable OPRF (vOPRF)](https://pse.dev/en/projects/voprf)
 
-A [new fork](https://github.com/privacy-scaling-explorations/stealthnote) of [Stealthnote](https://stealthnote.xyz/) is underway. StealthNote is an app that allows people in an organization to anonymously broadcast messages using zero-knowledge proofs.
+A [new fork](https://github.com/privacy-scaling-explorations/stealthnote) of [Stealthnote](https://stealthnote.xyz/) is underway to integrate [vOPRF](https://pse.dev/en/projects/voprf), enhancing anonymous message broadcasts with improved privacy.
+
 
 ### [Post-Quantum Cryptography](https://pse.dev/en/projects/post-quantum-cryptography)
 
