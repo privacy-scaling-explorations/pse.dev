@@ -3,7 +3,7 @@ authors: ["PSE Comms Team"]
 title: "PSE June 2025 newsletter"
 image: "/articles/pse-june-2025/cover.webp"
 tldr: "Check out what PSE teams have been focused on in June 2025!"
-date: "2025-06-13"
+date: "2025-07-08"
 tags:
   [
     "newsletter",
@@ -41,12 +41,11 @@ Here’s a round-up of what PSE teams have been up to in June!
 
 ### [Client-Side Proving](https://pse.dev/en/projects/client-side-proving)
 
-Our Client-Side Proving team [published benchmarks](https://pse.dev/blog/efficient-client-side-proving-for-zkid) for post-quantum zk-SHA256 circuits, helping assess feasibility for mobile and other tighter bandwidth setups. In our next phase, we will extend our benchmarks beyond zkID and explore client-side proving for Ethereum.
+The Client-Side Proving team [published benchmarks](https://pse.dev/blog/efficient-client-side-proving-for-zkid) for post-quantum zk-SHA256 circuits, helping assess feasibility for mobile and other tighter bandwidth setups. In the next phase, we will extend our benchmarks beyond zkID and explore client-side proving for Ethereum.
 
 ### [Verifiable OPRF (vOPRF)](https://pse.dev/en/projects/voprf)
 
-A [new fork](https://github.com/privacy-scaling-explorations/stealthnote) of [Stealthnote](https://stealthnote.xyz/) is underway to integrate [vOPRF](https://pse.dev/en/projects/voprf), enhancing anonymous message broadcasts with improved privacy.
-
+A [new fork](https://github.com/privacy-scaling-explorations/stealthnote) is underway to bring vOPRF to [Stealthnote](https://stealthnote.xyz/) is underway to integrate [vOPRF](https://pse.dev/en/projects/voprf), enhancing anonymous message broadcasts with improved privacy.
 
 ### [Post-Quantum Cryptography](https://pse.dev/en/projects/post-quantum-cryptography)
 
@@ -80,7 +79,7 @@ This month has been focused on opening zk-kit into being a more community-owned 
 
 ### [MPC Framework](https://pse.dev/en/projects/mpc-framework)
 
-We released a [cross-browser 5PC demo](https://youtu.be/3fwUf1wn_3o?si=NsKh_HAul7VggKF-) and a [major update to Summon](https://pse.dev/en/blog/summon-major-update). Current work includes SHA256 support, performance tuning, and integrating with MPZ and Polytune. The team is also bringing the framework to new audiences via talks at Rust Sydney, ZuBerlin, EthCC, and SydJS.
+We released a [cross-browser 5PC demo](https://youtu.be/3fwUf1wn_3o?si=NsKh_HAul7VggKF-) and a [major update to Summon](https://pse.dev/en/blog/summon-major-update). Our current work includes SHA256 support, performance tuning, and integrating with MPZ and Polytune. The team is also bringing the framework to new audiences via talks at Rust Sydney, ZuBerlin, EthCC, and SydJS.
 
 ### [Mopro](https://pse.dev/en/projects/mopro)
 
