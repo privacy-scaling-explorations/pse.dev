@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Comms Team"]
 title: "PSE June 2025 newsletter"
-image: "/articles/pse-june-2025/cover.webp"
+image: "/articles/pse-june-2025/cover.png"
 tldr: "Check out what PSE teams have been focused on in June 2025!"
 date: "2025-06-13"
 tags:
@@ -46,7 +46,6 @@ Our Client-Side Proving team [published benchmarks](https://pse.dev/blog/efficie
 ### [Verifiable OPRF (vOPRF)](https://pse.dev/en/projects/voprf)
 
 A [new fork](https://github.com/privacy-scaling-explorations/stealthnote) of [Stealthnote](https://stealthnote.xyz/) is underway to integrate [vOPRF](https://pse.dev/en/projects/voprf), enhancing anonymous message broadcasts with improved privacy.
-
 
 ### [Post-Quantum Cryptography](https://pse.dev/en/projects/post-quantum-cryptography)
 
