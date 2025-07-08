@@ -85,8 +85,6 @@ export function SiteFooter() {
               <Link
                 href={siteConfig.links.articles}
                 className="flex items-center gap-2"
-                target="_blank"
-                rel="noreferrer"
               >
                 <ItemLabel label="Blog" external />
               </Link>
