@@ -563,7 +563,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     if (containsMath(text)) {
       return (
         <p
-          className={`${darkMode ? "text-white" : "text-tuatara-600"} font-sans text-lg font-normal ${isMathOnly ? "math-only" : ""}`}
+          className={`text-tuatara-600 dark:text-tuatara-200 font-sans text-lg font-normal ${isMathOnly ? "math-only" : ""}`}
         >
           <MathText text={text} />
         </p>
@@ -571,9 +571,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     }
 
     return (
-      <p
-        className={`${darkMode ? "text-white" : "text-tuatara-600"} font-sans text-lg font-normal`}
-      >
+      <p className="text-tuatara-600 dark:text-tuatara-200 font-sans text-lg font-normal">
         {children}
       </p>
     )
@@ -592,7 +590,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     if (containsMath(text)) {
       return (
         <li
-          className="text-tuatara-600 font-sans text-lg font-normal"
+          className="text-tuatara-600 font-sans text-lg font-normal dark:text-tuatara-200"
           {...props}
         >
           <MathText text={text} />
@@ -618,7 +616,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
   ol: ({ ordered, ...props }) =>
     createMarkdownElement(ordered ? "ol" : "ul", {
       className:
-        "list-decimal text-tuatara-600 font-sans text-lg font-normal mt-3",
+        "list-decimal text-tuatara-600 font-sans text-lg font-normal mt-3 dark:text-tuatara-200",
       ...props,
     }),
   table: Table,
