@@ -150,7 +150,6 @@ export function SiteFooter() {
                   }
                 />
               </Link>
-
               <Link
                 href="/api/rss"
                 className="flex items-center gap-2"

@@ -8,11 +8,13 @@ export function useAppSettings() {
       href: "/",
       onlyMobile: true,
     },
+    /*
     {
       title: "Devcon 7",
       href: "/devcon-7",
       onlyFooter: true,
     },
+    */
     {
       title: LABELS.COMMON.MENU.PROJECTS,
       href: "/projects",
@@ -32,10 +34,12 @@ export function useAppSettings() {
       title: LABELS.COMMON.MENU.ABOUT,
       href: "/about",
     },
+    /*
     {
       title: LABELS.COMMON.MENU.RESOURCES,
       href: "/resources",
     },
+    */
     {
       title: LABELS.COMMON.MENU.BLOG,
       href: "/blog",
