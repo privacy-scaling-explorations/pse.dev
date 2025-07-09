@@ -64,6 +64,7 @@ export function SiteFooter() {
             </span>
           </div>
           <div className="order-2 grid grid-cols-1 justify-between gap-10 uppercase lg:grid-cols-5 lg:gap-0">
+            <div>{/* spacer */}</div>
             <LinksWrapper>
               {MAIN_NAV.map(
                 (
@@ -80,22 +81,6 @@ export function SiteFooter() {
                     </Link>
                   )
               )}
-            </LinksWrapper>
-            <LinksWrapper>
-              <Link
-                href={siteConfig.links.articles}
-                className="flex items-center gap-2"
-              >
-                <ItemLabel label="Blog" external />
-              </Link>
-              <Link
-                href={siteConfig.links.jobs}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2"
-              >
-                <ItemLabel label={LABELS.COMMON.MENU.JOBS} external />
-              </Link>
             </LinksWrapper>
             <LinksWrapper>
               <Link
@@ -187,6 +172,12 @@ export function SiteFooter() {
                 rel="noreferrer"
               >
                 <ItemLabel label={LABELS.COMMON.FOOTER.TERMS_OF_USE} />
+              </Link>
+              <Link
+                href={siteConfig.links.articles}
+                className="flex items-center gap-2"
+              >
+                <ItemLabel label="Blog" external />
               </Link>
             </LinksWrapper>
           </div>
