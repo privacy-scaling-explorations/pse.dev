@@ -55,7 +55,7 @@ export function SiteFooter() {
             <Image
               width={140}
               height={140}
-              src="/logos/pse-logo-circle-white.svg"
+              src="/logos/pse-badge-blue.svg"
               alt="logo PSE"
               className="h-36 w-36"
             />
