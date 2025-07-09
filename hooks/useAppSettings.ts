@@ -21,11 +21,13 @@ export function useAppSettings() {
       title: LABELS.COMMON.MENU.RESEARCH,
       href: "/research",
     },
+    /*
     {
       title: LABELS.COMMON.MENU.PROGRAMS,
       href: "/programs",
       onlyFooter: true,
     },
+    */
     {
       title: LABELS.COMMON.MENU.ABOUT,
       href: "/about",

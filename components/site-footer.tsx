@@ -96,25 +96,6 @@ export function SiteFooter() {
               >
                 <ItemLabel label={LABELS.COMMON.MENU.JOBS} external />
               </Link>
-              <Link
-                href={siteConfig.links.report}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2"
-              >
-                <ItemLabel label={LABELS.COMMON.MENU.REPORT} external />
-              </Link>
-              <Link
-                href={siteConfig.links.firstGoodIssue}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2"
-              >
-                <ItemLabel
-                  label={LABELS.COMMON.MENU.FIRST_GOOD_ISSUE}
-                  external
-                />
-              </Link>
             </LinksWrapper>
             <LinksWrapper>
               <Link
