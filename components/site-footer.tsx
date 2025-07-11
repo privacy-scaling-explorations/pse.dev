@@ -174,10 +174,12 @@ export function SiteFooter() {
                 <ItemLabel label={LABELS.COMMON.FOOTER.TERMS_OF_USE} />
               </Link>
               <Link
-                href={siteConfig.links.articles}
+                href={siteConfig.links.jobs}
+                target="_blank"
+                rel="noreferrer"
                 className="flex items-center gap-2"
               >
-                <ItemLabel label="Blog" external />
+                <ItemLabel label="Jobs" external />
               </Link>
             </LinksWrapper>
           </div>
