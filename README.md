@@ -65,3 +65,5 @@ Start the app
 - Tailwind CSS
 - Icons from [Lucide](https://lucide.dev)
 - Tailwind CSS class sorting, merging and linting.
+
+- 
