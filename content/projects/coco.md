@@ -5,7 +5,7 @@ image: "coco.svg"
 section: "archived"
 projectStatus: "inactive"
 category: "application"
-tldr: "Integrating Nova into the EVM involves wrapping Liam Eagen's theoretical ECIP argument in Halo 2"
+tldr: "Coco lets groups curate topic feeds by wagering WETH on what content their peers will value, rewarding accurate predictions and filtering out noise."
 tags:
   keywords: ["prediction market", "scaling"]
 extraLinks:
