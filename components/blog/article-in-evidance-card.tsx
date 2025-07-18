@@ -82,7 +82,7 @@ export const ArticleInEvidenceCard = ({
             className={cn(
               "text-white text-xs font-sans font-bold tracking-[2.5px] text-left uppercase",
               backgroundCover
-                ? "text-white dark:text-black"
+                ? "text-white dark:text-white"
                 : "text-black dark:text-white"
             )}
           >
