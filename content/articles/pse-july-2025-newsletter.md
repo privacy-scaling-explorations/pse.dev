@@ -18,10 +18,6 @@ If you’re interested in the context of future direction of any of these projec
 
 We completed benchmarking transparent post-quantum ZKP systems for zkID and published [the results here](https://www.notion.so/July-Newsletter-22ad57e8dd7e80f2a113ef0b51d0e63e?pvs=21). Next, we’re extending these benchmarks to circuits beyond zkID and other popular ZKP systems.
 
-### [Collusion Resistant vOPRF](https://pse.dev/en/projects/voprf)
-
-—
-
 ### [Post-Quantum Cryptography](https://pse.dev/en/projects/post-quantum-cryptography)
 
 After reviewing existing FHE schemes, we decided to begin by addressing verifiable FHE (vFHE) in the context of FHEW-like schemes. The team is exploring these more with a focus on extending the Lazer/LaBRADOR API and addressing its current limitations, while also experimenting with Lattirust. Collaboration with OpenFHE and FairMath is ongoing.
