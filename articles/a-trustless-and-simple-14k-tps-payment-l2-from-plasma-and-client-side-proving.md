@@ -3,7 +3,7 @@ authors: ["Pierre"]
 title: "A trustless and simple 14k+ TPS payment L2 from Plasma and client-side proving"
 image: "/articles/a-trustless-and-simple-14k-tps-payment-l2-from-plasma-and-client-side-proving/cover.webp"
 tldr: ""
-date: "2025-18-07"
+date: "2025-07-18"
 tags:
   [
     "intmax",
