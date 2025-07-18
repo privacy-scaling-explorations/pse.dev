@@ -22,6 +22,7 @@ import "prismjs/components/prism-yaml"
 import "prismjs/components/prism-python"
 import "prismjs/components/prism-rust"
 import "prismjs/components/prism-solidity"
+import { Icons } from "../icons"
 
 const SCROLL_OFFSET = 150
 
@@ -452,6 +453,85 @@ const CodeBlock = ({
   )
 }
 
+const HeadingLink = ({
+  level,
+  children,
+}: {
+  level: number
+  children: React.ReactNode
+}) => {
+  const [copied, setCopied] = React.useState(false)
+  const [showLink, setShowLink] = React.useState(false)
+
+  const id = React.useMemo(() => {
+    if (typeof children === "string") {
+      return generateSectionId(children)
+    }
+    const text = React.Children.toArray(children)
+      .map((child) => {
+        if (typeof child === "string") return child
+        if (
+          React.isValidElement(child) &&
+          typeof child.props?.children === "string"
+        ) {
+          return child.props.children
+        }
+        return ""
+      })
+      .join("")
+    return generateSectionId(text)
+  }, [children])
+
+  const copyToClipboard = React.useCallback(() => {
+    const url = new URL(window.location.href)
+    url.hash = id
+    navigator.clipboard.writeText(url.toString())
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }, [id])
+
+  const headingClasses = React.useMemo(() => {
+    switch (level) {
+      case 1:
+        return "text-4xl md:text-5xl font-bold"
+      case 2:
+        return "text-4xl"
+      case 3:
+        return "text-3xl"
+      case 4:
+        return "text-xl"
+      case 5:
+        return "text-lg font-bold"
+      default:
+        return "text-md font-bold"
+    }
+  }, [level])
+
+  const Component = React.createElement(
+    `h${level}` as keyof JSX.IntrinsicElements,
+    {
+      id,
+      className: `group relative flex items-center gap-2 text-primary ${headingClasses}`,
+      onMouseEnter: () => setShowLink(true),
+      onMouseLeave: () => setShowLink(false),
+    },
+    <>
+      {children}
+      <button
+        onClick={copyToClipboard}
+        className={`ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${
+          copied ? "text-green-500" : "text-tuatara-400 hover:text-tuatara-600"
+        }`}
+        aria-label="Copy link to section"
+      >
+        {copied ? <Icons.copied /> : <Icons.copy />}
+      </button>
+    </>
+  )
+
+  return Component
+}
+
 const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
   a: ({ href, children }) => {
     if (href?.startsWith("#")) {
@@ -485,36 +565,12 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
       </a>
     )
   },
-  h1: ({ ...props }) =>
-    createMarkdownElement("h1", {
-      className: "text-primary text-4xl md:text-5xl font-bold",
-      ...props,
-    }),
-  h2: ({ ...props }) =>
-    createMarkdownElement("h2", {
-      className: "text-primary text-4xl",
-      ...props,
-    }),
-  h3: ({ ...props }) =>
-    createMarkdownElement("h3", {
-      className: "text-primary text-3xl",
-      ...props,
-    }),
-  h4: ({ ...props }) =>
-    createMarkdownElement("h4", {
-      className: "text-primary text-xl",
-      ...props,
-    }),
-  h5: ({ ...props }) =>
-    createMarkdownElement("h5", {
-      className: "text-primary text-lg font-bold",
-      ...props,
-    }),
-  h6: ({ ...props }) =>
-    createMarkdownElement("h6", {
-      className: "text-primary text-md font-bold",
-      ...props,
-    }),
+  h1: ({ children }) => <HeadingLink level={1}>{children}</HeadingLink>,
+  h2: ({ children }) => <HeadingLink level={2}>{children}</HeadingLink>,
+  h3: ({ children }) => <HeadingLink level={3}>{children}</HeadingLink>,
+  h4: ({ children }) => <HeadingLink level={4}>{children}</HeadingLink>,
+  h5: ({ children }) => <HeadingLink level={5}>{children}</HeadingLink>,
+  h6: ({ children }) => <HeadingLink level={6}>{children}</HeadingLink>,
   code: ({ node, inline, className, children, ...props }) => {
     const match = /language-(\w+)/.exec(className || "")
     return !inline ? (
@@ -840,6 +896,21 @@ export const Markdown = ({
   darkMode = false,
 }: MarkdownProps) => {
   const [content, setContent] = React.useState<React.ReactNode[]>([])
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      const hash = window.location.hash
+      if (hash) {
+        const id = hash.slice(1) // Remove the # from the hash
+        const element = document.getElementById(id)
+        if (element) {
+          scrollToElementWithOffset(element)
+        }
+      }
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [content])
 
   React.useEffect(() => {
     if (!children) {

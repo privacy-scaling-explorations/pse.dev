@@ -12,6 +12,7 @@ import { cn, getBackgroundImage } from "@/lib/utils"
 import { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { BlogHeader } from "../sections/BlogHeader"
 
 export const dynamic = "force-dynamic"
 
@@ -101,79 +102,7 @@ export default function BlogArticle({ params }: any) {
                 : undefined,
           }}
         />
-        <div className="flex items-start justify-center z-0 bg-cover border-tuatara-300 border-b w-full dark:border-anakiwa-800">
-          <AppContent className="flex flex-col gap-8 py-10 max-w-[978px]">
-            <Label.PageTitle
-              label={post?.title}
-              className={cn(imageAsCover && "text-white")}
-            />
-            {post?.date || post?.tldr ? (
-              <div className="flex flex-col gap-2">
-                {post?.date && (
-                  <div
-                    className={blogArticleCardTagCardVariants({
-                      variant: "secondary",
-                    })}
-                  >
-                    {new Date(post?.date).toLocaleDateString("en-US", {
-                      month: "long",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
-                  </div>
-                )}
-                {post?.canonical && (
-                  <div
-                    className={cn(
-                      "text-sm italic  mt-1",
-                      imageAsCover ? "text-white" : "text-gray-500"
-                    )}
-                  >
-                    This post was originally posted in{" "}
-                    <a
-                      href={post.canonical}
-                      target="_blank"
-                      rel="noopener noreferrer canonical"
-                      className={cn(
-                        "text-primary hover:underline",
-                        imageAsCover ? "text-white" : "text-gray-500"
-                      )}
-                    >
-                      {new URL(post.canonical).hostname.replace(/^www\./, "")}
-                    </a>
-                  </div>
-                )}
-                {post?.tldr && (
-                  <Markdown darkMode={imageAsCover}>{post?.tldr}</Markdown>
-                )}
-              </div>
-            ) : null}
-            {(post?.tags ?? [])?.length > 0 && (
-              <div className="flex flex-col gap-2">
-                <span
-                  className={cn(
-                    "text-sm italic",
-                    imageAsCover ? "text-white" : "text-primary"
-                  )}
-                >
-                  Tags:
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {post?.tags?.map((tag) => (
-                    <Link key={tag.id} href={`/blog/tags/${tag.id}`}>
-                      <Button
-                        size="xs"
-                        variant={imageAsCover ? "secondary" : "default"}
-                      >
-                        {tag.name}
-                      </Button>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </AppContent>
-        </div>
+        <BlogHeader post={post} imageAsCover={imageAsCover} />
       </div>
       <div className="pt-10 md:pt-16 pb-32">
         <BlogContent post={post} isNewsletter={isNewsletter} />
