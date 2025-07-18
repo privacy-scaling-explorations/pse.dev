@@ -646,7 +646,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     if (containsMath(text)) {
       return (
         <li
-          className="text-tuatara-600 font-sans text-lg font-normal dark:text-tuatara-200"
+          className="text-tuatara-600 font-sans text-lg font-normal dark:text-white"
           {...props}
         >
           <MathText text={text} />
@@ -656,7 +656,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
 
     return (
       <li
-        className="text-tuatara-600  font-sans text-lg font-normal"
+        className="text-tuatara-600  font-sans text-lg font-normal dark:text-white"
         {...props}
       >
         {children}
