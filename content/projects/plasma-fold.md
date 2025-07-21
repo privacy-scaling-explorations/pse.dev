@@ -43,20 +43,19 @@ Most L2s today struggle to scale without relying on increasingly expensive data 
 ## Status
 
 - **Stage:** Research and Prototyping
-- **Current Focus:** Implementing and benchmarking core circuits
+- **Current Focus:** Investigating a privacy-preserving PlasmaFold
 - **Target Output:** A technical paper and reference implementation
 - **Team Lead:** Pierre Daix-Moreux
 - **Collaborators:** Chengru
 
 ## Timeline & Milestones
 
-- **Q2 2025:** Initial circuit design and benchmarks against Plonky2
-- **Q2–Q3 2025:** Drafting formal paper; collaborative review with Intmax
-- **Q3 2025:** Reference implementation using Sonobe's Nova-based tooling
-- **Beyond:** Explore multi-asset support, privacy enhancements, and programmability
+- **Q4 2025:** Reference implementation for a privacy preserving implementatio
+- **Beyond:** Explore multi-asset support and programmability
 
 ## Learn More
-
+- [PlasmaFold eprint](https://eprint.iacr.org/2025/1300)
+- [PlasmaFold implementation](https://github.com/dmpierre/plasma-fold)
 - [Technical Write-Up on Intmax2](https://www.pierredm.xyz/posts/intmax)
 - [GitHub – Sonobe](https://github.com/privacy-scaling-explorations/sonobe)
 
