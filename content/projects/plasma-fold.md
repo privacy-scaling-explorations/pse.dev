@@ -50,7 +50,7 @@ Most L2s today struggle to scale without relying on increasingly expensive data 
 
 ## Timeline & Milestones
 
-- **Q4 2025:** Reference implementation for a privacy preserving implementatio
+- **Q4 2025:** Reference implementation for a privacy preserving implementation
 - **Beyond:** Explore multi-asset support and programmability
 
 ## Learn More
