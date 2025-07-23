@@ -31,7 +31,7 @@ team:
 
 #### Project Overview
 
-The project tackles the privacy bottleneck that appears when Semaphore groups grow to millions of members. In large groups, a user must obtain their Merkle-path (all sibling hashes from leaf to root) from a remote database before they can create a zero-knowledge membership proof. Asking for that path naïvely reveals **which identity** they own.
+The project tackles the privacy bottleneck that appears when Semaphore groups grow to millions of members. In large groups, a user must obtain their Merkle-path (all sibling hashes from leaf to root) from a remote database before they can create a zero-knowledge membership proof. Asking for that path natively reveals **which identity** they own.
 
 This project solves the problem by letting users **query the server with Private Information Retrieval (PIR)**. PIR lets a client fetch database records without the server learning which records were requested, preserving full anonymity at Internet scale.
 
