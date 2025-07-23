@@ -43,15 +43,9 @@ Most L2s today struggle to scale without relying on increasingly expensive data 
 ## Status
 
 - **Stage:** Research and Prototyping
-- **Current Focus:** Investigating a privacy-preserving PlasmaFold
 - **Target Output:** A technical paper and reference implementation
 - **Team Lead:** Pierre Daix-Moreux
 - **Collaborators:** Chengru
-
-## Timeline & Milestones
-
-- **Q4 2025:** Reference implementation for a privacy preserving implementation
-- **Beyond:** Explore multi-asset support and programmability
 
 ## Learn More
 - [PlasmaFold eprint](https://eprint.iacr.org/2025/1300)
