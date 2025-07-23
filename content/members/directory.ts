@@ -362,7 +362,7 @@ export const members: Member[] = [
         handle: "ed255",
         avatar: "https://github.com/ed255.png",
       },
-      email: "edu@pse.dev",
+      email: "edu@ethereum.org",
     },
   },
   {
