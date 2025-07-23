@@ -4,13 +4,30 @@ title: "PSE July 2025 Newsletter"
 image: "/articles/pse-july-2025/cover.png"
 tldr: "A roundup of research and development updates from PSE teams in July 2025, covering client-side proving, post-quantum cryptography, zkID, TLSNotary, MPC, MACI, and more."
 date: "2025-07-16"
-tags: ["zk", "cryptography", "ethereum", "privacy", "scaling", "folding","voprf"]
-projects: ["client-side-proving", "post-quantum-cryptography", "zk-id", "tlsn", "mopro", "maci", "mpc-framework", "semaphore", "zk-kit", "pod2", "voprf", "private-proof-delegation", "plasma-fold", "machina-io"]
+tags:
+  ["zk", "cryptography", "ethereum", "privacy", "scaling", "folding", "voprf"]
+projects:
+  [
+    "client-side-proving",
+    "post-quantum-cryptography",
+    "zk-id",
+    "tlsn",
+    "mopro",
+    "maci",
+    "mpc-framework",
+    "semaphore",
+    "zk-kit",
+    "pod2",
+    "voprf",
+    "private-proof-delegation",
+    "plasma-fold",
+    "machina-io",
+  ]
 ---
 
 Here’s a round-up of what PSE teams have been up to this last month!
 
-If you’re interested in the context of future direction of any of these projects, pop into [our Discord](https://pse.dev/discord) and chat with our teams. 
+If you’re interested in the context of future direction of any of these projects, pop into [our Discord](https://pse.dev/discord) and chat with our teams.
 
 ## 🧪 Research Highlights
 
@@ -70,9 +87,13 @@ We’ve completed an initial, feature-complete implementation of POD2. This incl
 
 ### [zkID Standards](https://pse.dev/projects/zk-id)
 
-On the engagement and inforamtion side, we updated the [zkID website](https://www.notion.so/July-Newsletter-22ad57e8dd7e80f2a113ef0b51d0e63e?pvs=21) and created new design assets ([Brand Kit](https://www.notion.so/Brand-Kit-1fcd57e8dd7e80ce962ecd0533966e35?pvs=21)). We documented key challenges ([zkID open problems](https://www.notion.so/zkID-open-problems-1f3d57e8dd7e80668e81e4588cb0964c?pvs=21)) and set up [the new public GitHub repo](https://github.com/privacy-scaling-explorations/zkID). On standards, we published the PCS IETF draft ([link](https://datatracker.ietf.org/doc/draft-zkproof-polycommit/)), gathered feedback on the PIOP draft ([here](https://hackmd.io/@janabel/SyAv8S9lgx)), and collaborated with the W3C Data Integrity WG. Research progressed on zkPDF and the zkID wallet unit proof-of-concept, while Anon Aadhaar efforts stabilized mobile stacks and developed prover circuits.
+On the ZKP standards front, we recently published the [[PCS IETF draft](https://datatracker.ietf.org/doc/draft-zkproof-polycommit/)](https://datatracker.ietf.org/doc/draft-zkproof-polycommit/) and began collecting feedback on the [[PIOP draft](https://hackmd.io/@janabel/SyAv8S9lgx)](https://hackmd.io/@janabel/SyAv8S9lgx). We’re also continuing our collaboration with the W3C Data Integrity Working Group.
 
-For outreach, we presented at GDC25, dappcon, ZuBerlin, and zkSummit ([video](https://www.youtube.com/watch?v=LyvqyeSAvL0)), published blog posts on zkPDF and client-side proving, and engaged with organizations like MODA, PWC, EUDI, IETF, Google, and blockchain DID groups. Upcoming plans include finalizing the zkID action plan, completing the research paper, delivering the second PoC iteration, starting research on post-quantum schemes, and collaborating with dyne.org on a community Longfellow version.
+In June, we shipped [[zkPDF](https://pse.dev/blog/zkpdf-unlocking-verifiable-data)](https://pse.dev/blog/zkpdf-unlocking-verifiable-data), enabling verifiable and selective disclosure on PDFs. We're also nearing completion of the second iteration of the zkID ZKP Wallet Unit, now using Spartan and Hyrax backends.
+
+On the education and outreach side, we presented at GDC25, Dappcon, ZuBerlin, and zkSummit ([[watch the talk](https://www.youtube.com/watch?v=LyvqyeSAvL0)](https://www.youtube.com/watch?v=LyvqyeSAvL0)). We also published blog posts covering zkPDF and client-side zkID benchmark results.
+
+Looking ahead, we’re focused on finalizing the ZKP Wallet Unit research paper, delivering the second iteration, and exploring post-quantum (PQ) schemes.
 
 ### [Semaphore](https://pse.dev/en/projects/semaphore)
 
