@@ -2,7 +2,7 @@ import { members } from "@/content/members/directory"
 
 export default function ProfilesPage() {
   return (
-    <div className="flex flex-col gap-4 max-w-[800px] mx-auto p-10">
+    <div className="grid grid-cols-2 gap-4 max-w-[800px] mx-auto p-10 w-full">
       {members.map((member) => {
         const avatar =
           member.contacts.github?.avatar ||
@@ -11,16 +11,19 @@ export default function ProfilesPage() {
           member.contacts.email ||
           undefined
         return (
-          <div className="flex items-center gap-2">
+          <div className="grid grid-cols-[80px_1fr] items-center gap-4">
             <div
-              className="h-10 w-10 rounded-full bg-gray-200"
+              className="h-20 w-20 rounded-full bg-gray-200 border border-gray-200"
               style={{
                 backgroundImage: `url(${avatar})`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundPosition: "center centers",
               }}
             ></div>
-            <span>{member.name}</span>
+            <div className="flex flex-col gap-1">
+              <span>{member.name}</span>
+              <small>{member.contacts.email}</small>
+            </div>
           </div>
         )
       })}

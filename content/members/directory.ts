@@ -26,6 +26,142 @@ interface Member {
 
 export const members: Member[] = [
   {
+    name: "Vivian Jeng",
+    contacts: {
+      telegram: {
+        handle: "@vivianjeng",
+        avatar: undefined,
+      },
+      github: {
+        handle: "vivianjeng",
+        avatar: "https://github.com/vivianjeng.png",
+      },
+      discord: {
+        handle: "vivi432",
+        avatar: undefined,
+      },
+      twitter: {
+        handle: "@vivi4322",
+        avatar: "https://unavatar.io/twitter/vivi4322",
+      },
+      signal: "+886978175180",
+      email: "vivian.jeng@ethereum.org",
+    },
+  },
+  {
+    name: "Kat (bigkat)",
+    contacts: {
+      discord: {
+        handle: "bigkat#2208",
+        avatar: undefined,
+      },
+      telegram: {
+        handle: "@sizeablekat",
+        avatar: undefined,
+      },
+      email: "kat@pse.dev",
+    },
+  },
+  {
+    name: "Hildebrandt, Thore",
+    contacts: {
+      telegram: {
+        handle: "@zk_th",
+        avatar: undefined,
+      },
+      signal: "0210 293 4698",
+      email: "thore.hildebrandt@ethereum.org",
+      github: {
+        handle: "ethorhil",
+        avatar: "https://github.com/ethorhil.png",
+      },
+      discord: {
+        handle: "thore hildebrandt#7399",
+        avatar: undefined,
+      },
+    },
+  },
+  {
+    name: "Mari",
+    contacts: {
+      telegram: {
+        handle: "@maripoveda93",
+        avatar: undefined,
+      },
+      discord: {
+        handle: "maripoveda",
+        avatar: undefined,
+      },
+      twitter: {
+        handle: "@maripovedaeth",
+        avatar: "https://unavatar.io/twitter/maripovedaeth",
+      },
+      github: {
+        handle: "maripoveda",
+        avatar: "https://github.com/maripoveda.png",
+      },
+      email: "mari.poveda@ethereum.org",
+    },
+  },
+  {
+    name: "Mitsu",
+    contacts: {
+      email: "mitsu@ethereum.org",
+      discord: {
+        handle: "Mitsu#4993",
+        avatar: undefined,
+      },
+      telegram: {
+        handle: "@mitsu1124",
+        avatar: undefined,
+      },
+      twitter: {
+        handle: "@mitsuu0925",
+        avatar: "https://unavatar.io/twitter/mitsuu0925",
+      },
+      github: {
+        handle: "mitsu1124",
+        avatar: "https://github.com/mitsu1124.png",
+      },
+    },
+  },
+  {
+    name: "Nicole",
+    contacts: {
+      discord: {
+        handle: "nicoleyeh",
+        avatar: undefined,
+      },
+      email: "nicole.yeh@ethereum.org",
+      telegram: {
+        handle: "@NicoleYeh",
+        avatar: undefined,
+      },
+      twitter: {
+        handle: "@cc03668",
+        avatar: "https://unavatar.io/twitter/cc03668",
+      },
+    },
+  },
+  {
+    name: "Winderica",
+    contacts: {
+      email: "winderica@ethereum.org",
+      github: {
+        handle: "winderica",
+        avatar: "https://github.com/winderica.png",
+      },
+      telegram: {
+        handle: "@winderica",
+        avatar: undefined,
+      },
+      discord: {
+        handle: "w1nd3r1c4",
+        avatar: undefined,
+      },
+    },
+  },
+  {
     name: "Adria Bienvenido",
     contacts: {
       twitter: {
@@ -58,7 +194,11 @@ export const members: Member[] = [
         handle: "ctrlc03#9544",
         avatar: undefined,
       },
-      email: "ctrlc03@pse.dev",
+      twitter: {
+        handle: "@ctrlc03",
+        avatar: "https://unavatar.io/twitter/ctrlc03",
+      },
+      email: "ctrlc03@ethereum.org",
     },
   },
   {
@@ -80,7 +220,7 @@ export const members: Member[] = [
         handle: "alexkuzmin",
         avatar: undefined,
       },
-      email: "alex.kuzmin@pse.dev",
+      email: "alexk@ethereum.org",
     },
   },
   {
@@ -94,11 +234,15 @@ export const members: Member[] = [
         handle: "0xalizk",
         avatar: undefined,
       },
+      twitter: {
+        handle: "@0xalizk",
+        avatar: "https://unavatar.io/twitter/0xalizk",
+      },
       github: {
         handle: "0xalizk",
         avatar: "https://github.com/0xalizk.png",
       },
-      email: "ali@pse.dev",
+      email: "alizk@ethereum.org",
     },
   },
   {
@@ -134,7 +278,8 @@ export const members: Member[] = [
         handle: "aguzmant103",
         avatar: "https://github.com/aguzmant103.png",
       },
-      email: "andy@pse.dev",
+      email: "andy@ethereum.org",
+      signal: "@andyguzmaneth.11",
     },
   },
   {
@@ -148,7 +293,7 @@ export const members: Member[] = [
         handle: "errmac#5333",
         avatar: undefined,
       },
-      email: "anton@pse.dev",
+      email: "anton.valov@ethereum.org",
     },
   },
   {
@@ -166,21 +311,30 @@ export const members: Member[] = [
         handle: "brech1",
         avatar: "https://github.com/brech1.png",
       },
-      email: "aacero@pse.dev",
+      twitter: {
+        handle: "@brechy_",
+        avatar: "https://unavatar.io/twitter/brechy_",
+      },
+      email: "brechy@ethereum.org",
     },
   },
   {
     name: "Dan",
     contacts: {
-      github: {
-        handle: "dan_tlsn",
-        avatar: "https://github.com/dan_tlsn.png",
+      twitter: {
+        handle: "@dan_tlsn",
+        avatar: "https://unavatar.io/twitter/dan_tlsn",
       },
       discord: {
         handle: "dan_tlsn",
         avatar: undefined,
       },
-      email: "dan@pse.dev",
+      telegram: {
+        handle: "@ds63j",
+        avatar: undefined,
+      },
+      email: "dan.smidt@ethereum.dev",
+      signal: "ds4t.86",
     },
   },
   {
@@ -222,7 +376,11 @@ export const members: Member[] = [
         handle: "enrico.eth#8998",
         avatar: undefined,
       },
-      email: "enrico@pse.dev",
+      twitter: {
+        handle: "@backaes",
+        avatar: "https://unavatar.io/twitter/backaes",
+      },
+      email: "enrico.bottazzi@etheruem.org",
     },
   },
   {
@@ -232,11 +390,15 @@ export const members: Member[] = [
         handle: "@fedeebasta1",
         avatar: undefined,
       },
+      github: {
+        handle: "fedefede8",
+        avatar: "https://github.com/fedefede8.png",
+      },
       discord: {
         handle: "fedeebasta",
         avatar: undefined,
       },
-      email: "fede@pse.dev",
+      email: "fede@ethereum.org",
     },
   },
   {
@@ -254,7 +416,7 @@ export const members: Member[] = [
         handle: "thore hildebrandt#7399",
         avatar: undefined,
       },
-      email: "guangyi@pse.dev",
+      email: "guangyi.yee@ethereum.org",
     },
   },
   {
@@ -286,7 +448,11 @@ export const members: Member[] = [
         handle: "Hendrik#6812",
         avatar: undefined,
       },
-      email: "hendrik@pse.dev",
+      twitter: {
+        handle: "@heeckhau",
+        avatar: "https://unavatar.io/twitter/heeckhau",
+      },
+      email: "hendrik@ethereum.org",
     },
   },
   {
@@ -304,7 +470,11 @@ export const members: Member[] = [
         handle: "johnguilding",
         avatar: undefined,
       },
-      email: "john@pse.dev",
+      twitter: {
+        handle: "@john_guilding",
+        avatar: "https://unavatar.io/twitter/john_guilding",
+      },
+      email: "john.guilding@ethereum.org",
     },
   },
   {
@@ -322,7 +492,7 @@ export const members: Member[] = [
         handle: "kalidou.dev",
         avatar: undefined,
       },
-      email: "kalidou@pse.dev",
+      email: "kalidou.diagne@ethereum.org",
     },
   },
   {
@@ -336,6 +506,10 @@ export const members: Member[] = [
         handle: "keewoolee",
         avatar: undefined,
       },
+      github: {
+        handle: "keewoolee",
+        avatar: "https://github.com/keewoolee.png",
+      },
       email: "keewoole@gmail.com",
     },
   },
@@ -345,6 +519,10 @@ export const members: Member[] = [
       telegram: {
         handle: "@kichong",
         avatar: undefined,
+      },
+      github: {
+        handle: "kichong",
+        avatar: "https://github.com/kichong.png",
       },
       discord: {
         handle: "kichong",
@@ -372,20 +550,6 @@ export const members: Member[] = [
     },
   },
   {
-    name: "Mari",
-    contacts: {
-      telegram: {
-        handle: "@maripoveda93",
-        avatar: undefined,
-      },
-      discord: {
-        handle: "maripoveda",
-        avatar: undefined,
-      },
-      email: "mari@pse.dev",
-    },
-  },
-  {
     name: "Marios",
     contacts: {
       telegram: {
@@ -396,7 +560,11 @@ export const members: Member[] = [
         handle: "m_aronis#7493",
         avatar: undefined,
       },
-      email: "marios@pse.dev",
+      github: {
+        handle: "AronisAt79",
+        avatar: "https://github.com/mariosaronis.png",
+      },
+      email: "marios.aronis@ethereum.org",
     },
   },
   {
@@ -406,7 +574,7 @@ export const members: Member[] = [
         handle: "miha-stopar",
         avatar: "https://github.com/miha-stopar.png",
       },
-      email: "miha.stopar@pse.dev",
+      email: "miha.stopar@ethereum.org",
     },
   },
   {
@@ -420,7 +588,15 @@ export const members: Member[] = [
         handle: "Mitsu#4993",
         avatar: undefined,
       },
-      email: "mitsu@pse.dev",
+      telegram: {
+        handle: "@mitsu1124",
+        avatar: undefined,
+      },
+      twitter: {
+        handle: "@mitsuu0925",
+        avatar: "https://unavatar.io/twitter/mitsuu0925",
+      },
+      email: "mitsu@ethereum.org",
     },
   },
   {
@@ -434,7 +610,11 @@ export const members: Member[] = [
         handle: "@moven0831",
         avatar: undefined,
       },
-      email: "moventsai@pse.dev",
+      github: {
+        handle: "moven0831",
+        avatar: "https://github.com/moven0831.png",
+      },
+      email: "moven.tsai@ethereum.org",
     },
   },
   {
@@ -456,7 +636,7 @@ export const members: Member[] = [
         handle: "namnc",
         avatar: "https://github.com/namnc.png",
       },
-      email: "namncc@pse.dev",
+      email: "namn@ethereum.org",
     },
   },
   {
@@ -470,7 +650,11 @@ export const members: Member[] = [
         handle: "ntampakas#0247",
         avatar: undefined,
       },
-      email: "nick@pse.dev",
+      github: {
+        handle: "ntampakas",
+        avatar: "https://github.com/ntampakas.png",
+      },
+      email: "nick@ethereum.org",
     },
   },
   {
@@ -480,11 +664,15 @@ export const members: Member[] = [
         handle: "nicoserranop",
         avatar: "https://github.com/nicoserranop.png",
       },
-      email: "nicoserranop@pse.dev",
+      twitter: {
+        handle: "@NicoSerranoP",
+        avatar: "https://unavatar.io/twitter/NicoSerranoP",
+      },
+      email: "nicolas.serrano@ethereum.org",
     },
   },
   {
-    name: "Nicole Yeh",
+    name: "Nicole",
     contacts: {
       telegram: {
         handle: "@NicoleYeh",
@@ -494,7 +682,11 @@ export const members: Member[] = [
         handle: "nicoleyeh",
         avatar: undefined,
       },
-      email: "nicole.yeh@pse.dev",
+      twitter: {
+        handle: "@cc03668",
+        avatar: "https://unavatar.io/twitter/cc03668",
+      },
+      email: "nicole.yeh@ethereum.org",
     },
   },
   {
@@ -571,7 +763,7 @@ export const members: Member[] = [
         avatar: "https://github.com/samajammin.png",
       },
       signal: "@sbr.78",
-      email: "sam@pse.dev",
+      email: "sam.richards@ethereum.org",
     },
   },
   {
@@ -607,7 +799,7 @@ export const members: Member[] = [
         handle: "SoraSuegami",
         avatar: "https://github.com/SoraSuegami.png",
       },
-      email: "sorasuegami@pse.dev",
+      email: "sorasue@ethereum.org",
     },
   },
   {
@@ -625,7 +817,7 @@ export const members: Member[] = [
         handle: "tkmct",
         avatar: "https://github.com/tkmct.png",
       },
-      email: "tkmct@pse.dev",
+      email: "1220t.takamichi@gmail.com",
     },
   },
   {
@@ -661,7 +853,7 @@ export const members: Member[] = [
         handle: "th4s",
         avatar: "https://github.com/th4s.png",
       },
-      email: "thomas@pse.dev",
+      email: "th4s@ethereum.org",
     },
   },
   {
@@ -675,7 +867,7 @@ export const members: Member[] = [
         handle: "tsukino#0518",
         avatar: undefined,
       },
-      email: "tsukino@pse.dev",
+      email: "tsukino@ethereum.org",
     },
   },
   {
@@ -690,10 +882,10 @@ export const members: Member[] = [
         avatar: undefined,
       },
       github: {
-        handle: "vikasrushi",
-        avatar: "https://github.com/vikasrushi.png",
+        handle: "0xVikasRushi",
+        avatar: "https://github.com/0xVikasRushi.png",
       },
-      email: "vikas@pse.dev",
+      email: "vikas.rushi@ethereum.org",
     },
   },
   {
@@ -711,7 +903,7 @@ export const members: Member[] = [
         handle: "vplasencia",
         avatar: "https://github.com/vplasencia.png",
       },
-      email: "vivianpc@pse.dev",
+      email: "vivianpc@ethereum.org",
     },
   },
   {
@@ -729,7 +921,7 @@ export const members: Member[] = [
         handle: "winderica",
         avatar: "https://github.com/winderica.png",
       },
-      email: "winderica@pse.dev",
+      email: "winderica@ethereum.org",
     },
   },
   {
@@ -747,7 +939,7 @@ export const members: Member[] = [
         handle: "sinaxyz#3158",
         avatar: undefined,
       },
-      email: "yanis@pse.dev",
+      email: "yanis.meziane@ethereum.org",
     },
   },
   {
@@ -787,7 +979,7 @@ export const members: Member[] = [
         handle: "0x_zoey",
         avatar: undefined,
       },
-      email: "zoey@pse.dev",
+      email: "zoey@ethereum.org",
     },
   },
 ]
