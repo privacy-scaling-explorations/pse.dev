@@ -12,20 +12,20 @@ tags:
   types: ["Legos/dev tools"]
   builtWith: ["Circom", "JavaScript", "Solidity", "Noir", "Rust"]
 links:
-  website: "https://zkkit.pse.dev"
-  github: "https://github.com/privacy-scaling-explorations/zk-kit"
+  website: "https://zkkit.org"
+  github: "https://github.com/zk-kit"
 extraLinks:
   buildWith:
     - label: "ZK-Kit JavaScript"
-      url: "https://github.com/privacy-scaling-explorations/zk-kit"
+      url: "https://github.com/zk-kit/zk-kit"
     - label: "ZK-Kit Solidity"
-      url: "https://github.com/privacy-scaling-explorations/zk-kit.solidity"
+      url: "https://github.com/zk-kit/zk-kit.solidity"
     - label: "ZK-Kit Circom"
-      url: "https://github.com/privacy-scaling-explorations/zk-kit.circom"
+      url: "https://github.com/zk-kit/zk-kit.circom"
     - label: "ZK-Kit Rust"
-      url: "https://github.com/privacy-scaling-explorations/zk-kit.rust"
+      url: "https://github.com/zk-kit/zk-kit.rust"
     - label: "ZK-Kit Noir"
-      url: "https://github.com/privacy-scaling-explorations/zk-kit.noir"
+      url: "https://github.com/zk-kit/zk-kit.noir"
 ---
 
 ### Overview
