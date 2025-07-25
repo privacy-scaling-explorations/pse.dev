@@ -82,15 +82,15 @@ Note that not all available implementations we tested include the zero-knowledge
 We ran the benchmarks on an Apple M2 Air laptop (8-core M2 CPU, 24 GB RAM). The Binius circuit performs 33 SHA-256 compressions instead of full hashing; therefore, an actual full implementation would incur additional overhead. We benchmarked the Polyhedra Expander circuit with a 1 kB input due to a prover bug that prevented it from running with a 2 kB input.
 
 | Circuit (GitHub link)                                                                                                                       | Proving Time | Verification Time    | Proof Size | Preprocessing Size                                 | Preprocessing RAM | Prover RAM                | Is ZK? |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- | ---------- | -------------------------------------------------- | ----------------- | ------------------------- | ------ |
-| [Binius (no-lookup)](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/binius)                                      | 1.8545 s     | 244.48 ms            | 475.6 KB   | 321.8 KB                                           | ~10.44 MB         | ~26.94 MB                 | No     |
-| [Binius (lookup)](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/binius)                                         | 11.025 s     | 572.73 ms            | 1.8 MB     | 716.86 KB                                          | ~5.02 MB          | ~66.14 MB                 | No     |
-| [Plonky2 (no-lookup)](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/plonky2)                                    | 20.138 s     | 5.3135 ms            | 175.6 KB   | 2.28 GB (prover-only data) + 1.06 KB (common data) | ~2.74 GB          | ~2.40 GB                  | Yes    |
-| [Plonky3 (SP1 w/precompile)](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/plonky3-sp1)                         | 12.596 s     | 184.11 ms            | 1.72 MB    | 156.34 MB (proving key) + 90.76 KB (ELF)           | ~1 GB             | ~5 GB                     | No     |
-| [Plonky3 (powdr, no precompile)](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/plonky3-powdr)                   | 20.741 s     | 256.11 ms            | 1.93 MB    | 3.1 GB (proving key) + 321 MB (constants)          | ~3.87 GB          | ~0.32 GB                  | No     |
-| [STWO (Cairo)](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/stwo)                                              | 21.1 s       | N/A (verifier error) | 39.5 MB    | 12.6 MB (trace) + 3.4 Mb (memory)                  | ~600 MB           | ~10GB                     | No     |
-| [Ligero (Ligetron, _uses WebGPU_)](https://platform.ligetron.com/marketplace/project?id=78180426-2a09-4c36-ac68-52f1ab4ffbe6&version=1.0)   | 12.06 s      | 9.16 s               | 10.29 MB   | 33KB (prover data)                                 | N/A               | ~500 MB VRAM + ~30 MB RAM | Yes    |
-| [Polyhedra Expander (Orion + GF2), 1kB input](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/polyhedra-expander) | 70 s         | 26 s                 | 30.75 MB   | 6 GB (circuit)                                     | N/A               | 15.55 GB                  | No     |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- | ---------- | -------------------------------------------------- | ----------------- | ------------------------- | --- |
+| [Binius (no-lookup)](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/binius)                                  | 1.8545 s     | 244.48 ms            | 475.6 KB   | 321.8 KB                                           | ~10.44 MB         | ~26.94 MB                 | No    |
+| [Binius (lookup)](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/binius)                                     | 11.025 s     | 572.73 ms            | 1.8 MB     | 716.86 KB                                          | ~5.02 MB          | ~66.14 MB                 | No   |
+| [Plonky2 (no-lookup)](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/plonky2)                                    | 20.138 s     | 5.3135 ms            | 175.6 KB   | 2.28 GB (prover-only data) + 1.06 KB (common data) | ~2.74 GB          | ~2.40 GB                  | Yes   |
+| [Plonky3 (SP1 w/precompile)](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/plonky3-sp1)                         | 12.596 s     | 184.11 ms            | 1.72 MB    | 156.34 MB (proving key) + 90.76 KB (ELF)           | ~1 GB             | ~5 GB                     | No   |
+| [Plonky3 (powdr, no precompile)](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/plonky3-powdr)                   | 20.741 s     | 256.11 ms            | 1.93 MB    | 3.1 GB (proving key) + 321 MB (constants)          | ~3.87 GB          | ~0.32 GB                  | No   |
+| [STWO (Cairo)](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/stwo)                                              | 21.1 s       | N/A (verifier error) | 39.5 MB    | 12.6 MB (trace) + 3.4 Mb (memory)                  | ~600 MB           | ~10GB                     | No  |
+| [Ligero (Ligetron, _uses WebGPU_)](https://platform.ligetron.com/marketplace/project?id=78180426-2a09-4c36-ac68-52f1ab4ffbe6&version=1.0)   | 12.06 s      | 9.16 s               | 10.29 MB   | 33KB (prover data)                                 | N/A               | ~500 MB VRAM + ~30 MB RAM | Yes   |
+| [Polyhedra Expander (Orion + GF2), 1kB input](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/polyhedra-expander) | 70 s         | 26 s                 | 30.75 MB   | 6 GB (circuit)                                     | N/A               | 15.55 GB                  | No  |
 
 ### Mobile Benchmarks
 
@@ -102,12 +102,12 @@ We used the following devices for mobile benchmarks:
 The results are in the table below.
 | Circuit | Platform | Proving Time | Peak RAM |
 | ------- | ------------- | ----------------------- | -------- |
-| [Binius (no-lookup)](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/mobile/binius/android) | Pixel 6 | 5.1023 s | 45 MB |
-| [Binius (no-lookup)](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/mobile/binius/ios) | iPhone 13 Pro | 5.0124 s | 22 MB |
+| [Binius (no-lookup)](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/mobile/binius/android) | Pixel 6 | 5.1023 s | 45 MB |
+| [Binius (no-lookup)](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/mobile/binius/ios) | iPhone 13 Pro | 5.0124 s | 22 MB |
 | [Ligero](https://platform.ligetron.com/marketplace/project?id=78180426-2a09-4c36-ac68-52f1ab4ffbe6&version=1.0) | Pixel 6 | 93.59 s | N/A |
 | [Ligero](https://platform.ligetron.com/marketplace/project?id=78180426-2a09-4c36-ac68-52f1ab4ffbe6&version=1.0) | iPhone 13 Pro | 29.77 s | N/A |
-| [Plonky2](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/mobile/plonky2/android) | Pixel 6 | Crashed (out of memory) | - |
-| [Plonky2](https://github.com/privacy-scaling-explorations/zkid-benchmarks/tree/main/mobile/plonky2/ios) | iPhone 13 Pro | Crashed (out of memory) | - |
+| [Plonky2](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/mobile/plonky2/android) | Pixel 6 | Crashed (out of memory) | - |
+| [Plonky2](https://github.com/privacy-scaling-explorations/csp-benchmarks/tree/zkid-benchmarks/mobile/plonky2/ios) | iPhone 13 Pro | Crashed (out of memory) | - |
 
 ## Conclusion
 
