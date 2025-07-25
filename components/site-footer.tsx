@@ -55,7 +55,7 @@ export function SiteFooter() {
             <Image
               width={140}
               height={140}
-              src="/logos/pse-logo-circle-white.svg"
+              src="/logos/pse-badge-blue.svg"
               alt="logo PSE"
               className="h-36 w-36"
             />
@@ -64,6 +64,7 @@ export function SiteFooter() {
             </span>
           </div>
           <div className="order-2 grid grid-cols-1 justify-between gap-10 uppercase lg:grid-cols-5 lg:gap-0">
+            <div>{/* spacer */}</div>
             <LinksWrapper>
               {MAIN_NAV.map(
                 (
@@ -80,43 +81,6 @@ export function SiteFooter() {
                     </Link>
                   )
               )}
-            </LinksWrapper>
-            <LinksWrapper>
-              <Link
-                href={siteConfig.links.articles}
-                className="flex items-center gap-2"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ItemLabel label="Blog" external />
-              </Link>
-              <Link
-                href={siteConfig.links.jobs}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2"
-              >
-                <ItemLabel label={LABELS.COMMON.MENU.JOBS} external />
-              </Link>
-              <Link
-                href={siteConfig.links.report}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2"
-              >
-                <ItemLabel label={LABELS.COMMON.MENU.REPORT} external />
-              </Link>
-              <Link
-                href={siteConfig.links.firstGoodIssue}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2"
-              >
-                <ItemLabel
-                  label={LABELS.COMMON.MENU.FIRST_GOOD_ISSUE}
-                  external
-                />
-              </Link>
             </LinksWrapper>
             <LinksWrapper>
               <Link
@@ -171,7 +135,6 @@ export function SiteFooter() {
                   }
                 />
               </Link>
-
               <Link
                 href="/api/rss"
                 className="flex items-center gap-2"
@@ -209,6 +172,14 @@ export function SiteFooter() {
                 rel="noreferrer"
               >
                 <ItemLabel label={LABELS.COMMON.FOOTER.TERMS_OF_USE} />
+              </Link>
+              <Link
+                href={siteConfig.links.jobs}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2"
+              >
+                <ItemLabel label="Jobs" external />
               </Link>
             </LinksWrapper>
           </div>

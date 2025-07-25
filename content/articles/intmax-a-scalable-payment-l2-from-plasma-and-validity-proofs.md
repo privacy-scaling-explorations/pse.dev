@@ -16,7 +16,7 @@ tags:
     "plonky2",
     "data availability",
   ]
-projects: ["intmax"]
+projects: ["plasma-fold"]
 ---
 
 [Intmax](https://www.intmax.io/) has been pioneering L2 transaction-only constructions based on [client-side validation](https://eprint.iacr.org/2025/068.pdf) (CSV), where transaction validation relies on cryptographic proofs rather than blockchain consensus rules. Data is intermittently posted on a dedicated blockchain, primarily for deposits, withdrawals, and account checkpoints.

@@ -4,14 +4,8 @@ import { LABELS } from "@/app/labels"
 export function useAppSettings() {
   const MAIN_NAV: MainNavProps["items"] = [
     {
-      title: LABELS.COMMON.MENU.HOME,
-      href: "/",
-      onlyMobile: true,
-    },
-    {
-      title: "Devcon 7",
-      href: "/devcon-7",
-      onlyFooter: true,
+      title: LABELS.COMMON.MENU.ABOUT,
+      href: "/about",
     },
     {
       title: LABELS.COMMON.MENU.PROJECTS,
@@ -22,23 +16,36 @@ export function useAppSettings() {
       href: "/research",
     },
     {
+      title: LABELS.COMMON.MENU.BLOG,
+      href: "/blog",
+    },
+    /*
+    {
+      title: LABELS.COMMON.MENU.HOME,
+      href: "/",
+      onlyMobile: true,
+    },
+   
+    {
+      title: "Devcon 7",
+      href: "/devcon-7",
+      onlyFooter: true,
+    },
+    */
+    /*
+    {
       title: LABELS.COMMON.MENU.PROGRAMS,
       href: "/programs",
       onlyFooter: true,
     },
-    {
-      title: LABELS.COMMON.MENU.ABOUT,
-      href: "/about",
-    },
+    */
+
+    /*
     {
       title: LABELS.COMMON.MENU.RESOURCES,
       href: "/resources",
     },
-    {
-      title: LABELS.COMMON.MENU.BLOG,
-      href: "/blog",
-      onlyHeader: true,
-    },
+    */
   ]
 
   return {

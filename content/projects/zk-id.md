@@ -23,8 +23,6 @@ links:
 
 zkID is a strategic initiative of the Ethereum Foundation, in collaboration with Privacy and Scaling Explorations (PSE), focused on advancing the use of Zero Knowledge Proofs (ZKPs) in digital identity systems. We contribute to PSE by leading research, coordination, education, and development efforts that enable privacy-preserving, interoperable, and standards-aligned identity infrastructure.
 
-Our team works and distributes grants across the identity ecosystem to draft technical standards, maintain open-source resources, and prototype infrastructure that aligns with evolving regulatory frameworks. By stewarding collaboration between researchers, developers, governments, and institutions, zkID bridges foundational cryptographic research with real-world deployment and impact.
-
 ### Vision
 
 Our vision is a future where digital identity infrastructure is **privacy-preserving.** We are working to ensure that **privacy is** built into global digital identity systems _by default_. As governments make foundational decisions on how identity is issued, verified, and protected, we see an opportunity for EF and PSE to:
@@ -62,7 +60,7 @@ Standards like the IETF and EUDI framework are **global signaling mechanisms.** 
 
 2. **Research, Prototype, Subtraction**
 
-We [research](https://www.notion.so/Evaluation-Framework-for-SSI-Solutions-8eceb793a5b442cb8da65acc3c337d5c?pvs=21) and build standards-compliant, [**minimal and modular PoCs**](https://github.com/adria0/seediq-playground) like the [ZKP Wallet Unit](https://www.notion.so/External-zkID-ZKP-Wallet-Unit-Proposal-1bad57e8dd7e80c98d73fc7e7666375d?pvs=21). This is done in collaboration with governments, to ensure practical real-world ZKP integration pathways.
+We [research](https://www.notion.so/Evaluation-Framework-for-SSI-Solutions-8eceb793a5b442cb8da65acc3c337d5c?pvs=21) and build standards-compliant, [**minimal and modular PoCs**](https://github.com/adria0/seediq-playground) like the [ZKP Wallet Unit](https://www.notion.so/External-zkID-ZKP-Wallet-Unit-Proposal-1bad57e8dd7e80c98d73fc7e7666375d?pvs=21) and libaries like [zkPDF](https://pse.dev/blog/zkpdf-unlocking-verifiable-data). This is done in collaboration with governments, to ensure practical real-world ZKP integration pathways.
 
 By delivering vendor-neutral, open-source PoCs, zkID aims to provide tangible working proof in production-ready environments.
 
@@ -75,24 +73,6 @@ We publish research, [articles](https://mirror.xyz/privacy-scaling-explorations.
 In parallel, we aim to advise institutions on selecting the right Layer 2 infrastructure, prioritizing solutions with strong decentralization roadmaps for identity-specific use cases.
 
 zkID serves as a neutral translator and strategic steward, helping institutions grasp the practical applications of ZKPs and guiding their integration into public goods.
-
-### Mission
-
-Our mission is to establish zero-knowledge proofs as the foundational technology for privacy-preserving identity verification systems worldwide.
-
-### Current Focus Areas
-
-1. **Standards Development**: Leading the creation of technical standards for ZK-based identity systems
-2. **Open Source Infrastructure**: Building and maintaining tools and libraries for ZK identity implementation
-3. **Research & Development**: Advancing the state-of-the-art in privacy-preserving identity technologies
-4. **Ecosystem Coordination**: Facilitating collaboration between stakeholders across the identity ecosystem
-
-### Key Initiatives
-
-- **W3C Standards Participation**: Active involvement in World Wide Web Consortium standards development
-- **Government Outreach**: Engaging with policy makers and regulatory bodies
-- **Academic Partnerships**: Collaborating with universities and research institutions
-- **Industry Collaboration**: Working with technology companies and identity providers
 
 ### Impact
 
