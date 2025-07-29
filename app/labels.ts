@@ -120,7 +120,7 @@ export const LABELS = {
     SHOWING_PROJECTS_WITH: "Showing {{count}} projects with:",
     CONNECT_WITH_US: "Connect with us",
     CONNECT_WITH_US_DESCRIPTION:
-      "We welcome contributions from around the world! Join our discord to try out apps, build with our tools, contribute to projects, or check out job openings and grant opportunities.",
+      "Join our community on Discord to try out new apps, build with our tools, share feedback, and contribute to projects!",
     OUR_YEAR_PROGRAM: "Our {{year}} programs",
     ON_THIS_PAGE: "On this page",
     HOW_TO_APPLY: "How to apply",
