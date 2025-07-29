@@ -25,6 +25,8 @@ const buttonVariants = cva(
         blue: "bg-anakiwa-950 text-white",
         search:
           "bg-[#F6F7F7] hover:bg-[#E9ECEF] text-gray-500 border border-gray-200 rounded-md",
+        transparent:
+          "bg-transparent text-white border text-anakiwa-400 border-anakiwa-400 border",
       },
       size: {
         default: "h-10 py-2 px-4 text-lg",
@@ -35,7 +37,15 @@ const buttonVariants = cva(
     },
     compoundVariants: [
       {
-        variant: ["default", "orange", "black", "white", "blue", "search"],
+        variant: [
+          "default",
+          "orange",
+          "black",
+          "white",
+          "blue",
+          "search",
+          "transparent",
+        ],
         className:
           "dark:bg-transparent dark:border dark:border-anakiwa-400 dark:text-anakiwa-400 dark:hover:bg-anakiwa-400/20 dark:hover:text-anakiwa-400",
       },

@@ -19,33 +19,6 @@ export function useAppSettings() {
       title: LABELS.COMMON.MENU.BLOG,
       href: "/blog",
     },
-    /*
-    {
-      title: LABELS.COMMON.MENU.HOME,
-      href: "/",
-      onlyMobile: true,
-    },
-   
-    {
-      title: "Devcon 7",
-      href: "/devcon-7",
-      onlyFooter: true,
-    },
-    */
-    /*
-    {
-      title: LABELS.COMMON.MENU.PROGRAMS,
-      href: "/programs",
-      onlyFooter: true,
-    },
-    */
-
-    /*
-    {
-      title: LABELS.COMMON.MENU.RESOURCES,
-      href: "/resources",
-    },
-    */
   ]
 
   return {
