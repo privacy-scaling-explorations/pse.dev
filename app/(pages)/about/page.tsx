@@ -3,6 +3,8 @@ import Link from "next/link"
 import { AppContent } from "@/components/ui/app-content"
 
 import { Metadata } from "next"
+import { HomepageBanner } from "@/components/sections/HomepageBanner"
+import { Divider } from "@/components/divider"
 
 export const metadata: Metadata = {
   title: "About",
@@ -29,7 +31,7 @@ export default async function AboutPage() {
   ]
 
   return (
-    <div className="flex flex-col">
+    <Divider.Section>
       <div className="w-full bg-page-header-gradient dark:bg-transparent-gradient">
         <AppContent className="flex flex-col gap-16 py-16 w-full max-w-[978px] mx-auto">
           <div className="flex flex-col gap-10">
@@ -111,6 +113,7 @@ export default async function AboutPage() {
           </div>
         </AppContent>
       </div>
-    </div>
+      <HomepageBanner />
+    </Divider.Section>
   )
 }
