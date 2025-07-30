@@ -1,44 +1,12 @@
 export const LABELS = {
   ABOUT_PAGE: {
-    TITLE: "About our team",
     DESCRIPTION:
       "PSE is an Ethereum Foundation supported research and development lab dedicated to testing use cases for cryptographic primitives. We build open source infrastructure and tools, host workshops and summer programs, and collaborate with people bringing cryptography to life.",
-    OUR_PRINCIPLES_TITLE: "Our Principles",
     BANNER: {
       TITLE: "Connect with us",
       SUBTITLE:
         "Join our discord to learn more about our research, connect with our community, and keep posted about jobs and grant opportunities!",
     },
-    PRINCIPLES: [
-      {
-        TITLE: "01. Cryptography for people",
-        DESCRIPTION: [
-          "Cryptography is everywhere: every time you connect to a secure site, log in with a password or unlock your phone, you're seeing cryptography in action. With 'programmable' cryptography (like zero knowledge proofs, multi-party computation or homomorphic encryption) we can make verifiable claims about secret information without revealing the information itself.",
-          " This can be applied to identity management, collusion resistance, anonymous communication and so much more. We're building a library of dev tools, research papers, and prototypes that are open source and free for everyone to use. We hope our resources inspire people to innovate the technologies that their communities need.",
-        ],
-      },
-      {
-        TITLE: "02. Prioritizing privacy",
-        DESCRIPTION: [
-          "We believe that privacy is a fundamental right. We want to be part of building an internet that divests from invasive data practices, and instead gives people real choices about who has access to their personal information.",
-          " Permission should be purpose specific, revocable, informed and uncoerced. We make tools that help people to securely authenticate themselves, make confidential transactions on the blockchain, and respect and preserve user privacy.",
-        ],
-      },
-      {
-        TITLE: "03. Scaling for communities",
-        DESCRIPTION: [
-          "Zero knowledge proofs can verify computations quickly and cheaply, helping decentralized systems like Ethereum become more efficient. We research, design and share scaling solutions that anyone can use to contribute to a stronger and more practical digital public infrastructure.",
-          " We also grow our community by supporting the next generation of builders. We host immersive  programs for students and lecture series that are open to everyone interested in building with cryptography.",
-        ],
-      },
-      {
-        TITLE: "04. Collective exploration",
-        DESCRIPTION: [
-          "We are cultivating a diverse and multidisciplinary team to explore the emerging zero knowledge ecosystem. PSE is made up of programmers, engineers, and mathematicians working alongside creatives and community organizers to collaboratively discover the potential of programmable cryptography.",
-          "We experiment in the open and welcome contributions, integrations, forks, or feedback on all of our projects.",
-        ],
-      },
-    ],
   },
   BLOG_PAGE: {
     TITLE: "Blog",
@@ -152,7 +120,7 @@ export const LABELS = {
     SHOWING_PROJECTS_WITH: "Showing {{count}} projects with:",
     CONNECT_WITH_US: "Connect with us",
     CONNECT_WITH_US_DESCRIPTION:
-      "We welcome contributions from around the world! Join our discord to try out apps, build with our tools, contribute to projects, or check out job openings and grant opportunities.",
+      "Join our community on Discord to try out new apps, build with our tools, share feedback, and contribute to projects!",
     OUR_YEAR_PROGRAM: "Our {{year}} programs",
     ON_THIS_PAGE: "On this page",
     HOW_TO_APPLY: "How to apply",
@@ -172,9 +140,12 @@ export const LABELS = {
     MORE_POSTS: "More posts",
   },
   HOMEPAGE: {
-    HEADER_TITLE: "Privacy + Scaling Explorations",
+    MISSION:
+      "Ethereum is the foundation of a freer digital world, but it will not reach its full potential without privacy. We’re building cryptographic tools, co-creating standards, and coordinating throughout the ecosystem to make privacy practical for Ethereum.",
+    MISSION_BUTTON: "LEARN MORE ABOUT US",
+    HEADER_TITLE: "Privacy Stewards of Ethereum",
     HEADER_SUBTITLE:
-      "PSE is a research and development lab with a mission of making cryptography useful for human collaboration. We build open source tooling with things like zero-knowledge proofs, multiparty computation, homomorphic encryption, Ethereum, and more.",
+      "PSE is a applied research lab delivering privacy to the Ethereum ecosystem",
     WHO_WE_ARE: "Who we are",
     WHO_WE_ARE_DESCRIPTION:
       "PSE is a research lab building free tools that expand the world of cryptography.",
@@ -329,20 +300,17 @@ export const LABELS = {
     WHAT_WE_DO: "What we do",
     WHAT_WE_DO_DESCRIPTION:
       "PSE is a multidisciplinary team creating open source privacy and scaling tools for the next generation's internet.",
-    PRIVACY: {
-      TITLE: "Privacy",
+    BUILD: {
+      TITLE: "Build",
       DESCRIPTION:
-        "We believe privacy is a social good that should be accessible to everyone. That's why we're creating open source tools that help people choose what, how, when, and where they share.",
+        "We develop open source tools for things like data provenance, private identity, voting, and more to make privacy a core feature of Ethereum's application layer.",
+      ACTION: "See our projects",
     },
-    SCALING: {
-      TITLE: "Scaling",
+    RESEARCH: {
+      TITLE: "Research",
       DESCRIPTION:
-        "Our infrastructure helps communities grow by making Ethereum more efficient and accessible. From account abstraction and reducing transaction costs, to rollups and zkEVM, we are building towards an interoperable future.",
-    },
-    EXPLORATIONS: {
-      TITLE: "Explorations",
-      DESCRIPTION:
-        "We are mapping the emerging zero knowledge ecosystem through collective experimentation. We collaborate, share what we learn, and welcome contributions from around the world.",
+        "We benchmark primitives, systematize knowledge, and explore new ideas with the potential to transform the capabilities and impact of programmable cryptography.",
+      ACTION: "See our research",
     },
   },
   CORE_PROGRAM_FAQ: [

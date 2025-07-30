@@ -1,16 +1,10 @@
 import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
-import { Accordion } from "@/components/ui/accordion"
 import { AppContent } from "@/components/ui/app-content"
-import { Button } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
-import { Banner } from "@/components/banner"
-import { Divider } from "@/components/divider"
-import { Icons } from "@/components/icons"
-import { LABELS } from "@/app/labels"
-import { interpolate } from "@/lib/utils"
+
 import { Metadata } from "next"
+import { HomepageBanner } from "@/components/sections/HomepageBanner"
+import { Divider } from "@/components/divider"
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,89 +12,134 @@ export const metadata: Metadata = {
 }
 
 export default async function AboutPage() {
-  const principles = LABELS.ABOUT_PAGE.PRINCIPLES
+  const OurWorkItems = [
+    {
+      label: "Incubation",
+      description:
+        "We research and build open source public goods like protocols, primitives, and products.",
+    },
+    {
+      label: "Education",
+      description:
+        "We create resources to help Ethereum devs and users make informed choices about privacy.",
+    },
+    {
+      label: "Coordination",
+      description:
+        "We push for better privacy standards by aligning efforts across the ecosystem and guiding policy conversations.",
+    },
+  ]
 
   return (
-    <div className="flex flex-col">
+    <Divider.Section>
       <div className="w-full bg-page-header-gradient dark:bg-transparent-gradient">
-        <AppContent className="flex flex-col gap-4 py-10 w-full max-w-[978px] mx-auto">
-          <Label.PageTitle label={LABELS.ABOUT_PAGE.TITLE} />
-          <h6 className="font-sans text-base font-normal text-primary md:text-[18px] md:leading-[27px] md:max-w-[700px]">
-            {LABELS.ABOUT_PAGE.DESCRIPTION}
-          </h6>
-          <Link
-            href={siteConfig.links.discord}
-            target="_blank"
-            rel="noreferrer"
-            className="self-start"
-            passHref
-          >
-            <Button>
-              <div className="flex items-center gap-2">
-                <span className="text-[14px] uppercase">
-                  {interpolate(LABELS.COMMON.CONNECT_WITH_US_ON_PLATFORM, {
-                    platform: "Discord",
-                  })}
-                </span>
-                <Icons.arrowRight fill="white" className="h-5" />
-              </div>
-            </Button>
-          </Link>
+        <AppContent className="flex flex-col gap-16 py-16 w-full max-w-[978px] mx-auto">
+          <div className="flex flex-col gap-10">
+            <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
+              Our Mission
+            </h2>
+            <span className="text-xl font-sans dark:text-tuatara-200 text-black lg:max-w-[730px] mx-auto">
+              As Privacy Stewards of Ethereum (PSE), our mission is to deliver
+              privacy to the{" "}
+              <Link
+                href="https://ethereum.org/en/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-black dark:text-white hover:text-orange duration-200 underline"
+              >
+                Ethereum ecosystem
+              </Link>
+              . We envision a future where privacy on Ethereum is the norm
+              rather than the exception.
+              <br /> <br />
+              Building{" "}
+              <Link
+                href="https://www.activism.net/cypherpunk/manifesto.html"
+                target="_blank"
+                rel="noreferrer"
+                className="text-black dark:text-white hover:text-orange duration-200 underline"
+              >
+                “an open society in the electronic age”
+              </Link>{" "}
+              {
+                "requires privacy that is usable, scalable, and secure. We are a team of applied cryptographers, mathematicians, developers, designers, and coordinators working to embed programmable cryptography into Ethereum's application layer and make privacy accessible to individuals, developers, and institutions."
+              }{" "}
+              <br /> <br />
+              Privacy is a cornerstone of freedom, safety, and is an{" "}
+              <Link
+                href="https://vitalik.eth.limo/general/2025/04/14/privacy.html"
+                target="_blank"
+                rel="noreferrer"
+                className="text-black dark:text-white hover:text-orange duration-200 underline"
+              >
+                important guarantor for decentralization.
+              </Link>{" "}
+              We're building a future where digital infrastructure respects
+              privacy by default, and permissions are purpose-specific,
+              informed, uncoerced, and revocable.
+              <br /> <br />
+              Programmable cryptography unlocks transformative capabilities for
+              digital commerce, identity, governance, and other systems of
+              coordination. But the road to privacy isn't only technical. It
+              requires shifts in user behavior, developer priorities, regulatory
+              frameworks, and cultural norms. This is a collective challenge and
+              we{" "}
+              <Link
+                href="https://discord.com/invite/sF5CT5rzrR"
+                target="_blank"
+                rel="noreferrer"
+                className="text-black dark:text-white hover:text-orange duration-200 underline"
+              >
+                invite you
+              </Link>{" "}
+              to help us shape a more free digital future.
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-10">
+            <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
+              Our Work
+            </h2>
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 max-auto">
+              {OurWorkItems?.map((item, index) => (
+                <div className="flex flex-col gap-6 w-full lg:max-w-[300px]">
+                  <article className="flex flex-col gap-2" key={index}>
+                    <h6 className="font-sans text-xl font-medium text-black dark:text-white">
+                      {item.label}
+                    </h6>
+                    <p className="font-sans text-base font-normal text-black dark:text-white">
+                      {item.description}
+                    </p>
+                  </article>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-10">
+            <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
+              Our History
+            </h2>
+            <span className="text-xl font-sans dark:text-tuatara-200 text-black lg:max-w-[730px] mx-auto">
+              We began in 2018 as Applied ZKP, a team supported by the{" "}
+              <Link
+                href="https://ethereum.foundation/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-black dark:text-white hover:text-orange duration-200 underline"
+              >
+                Ethereum Foundation
+              </Link>{" "}
+              to push zero-knowledge proofs from theory to practice. In 2021, we
+              became Privacy & Scaling Explorations (PSE), expanding our scope
+              to programmable cryptography and tools across the stack. In 2025,
+              we refined our mission as Privacy Stewards for Ethereum, shifting
+              our focus toward concrete ecosystem impact.
+            </span>
+          </div>
         </AppContent>
       </div>
-      <Divider.Section className="bg-background">
-        <div className="flex justify-center">
-          <AppContent className="container flex w-full max-w-[978px] flex-col gap-8 py-10 md:py-16">
-            <Label.Section
-              className="text-center"
-              label={LABELS.ABOUT_PAGE.OUR_PRINCIPLES_TITLE}
-            />
-            <Accordion
-              type="multiple"
-              items={[
-                ...principles.map((principle: any, index: number) => {
-                  return {
-                    label: principle.TITLE,
-                    value: index.toString(),
-                    children: (
-                      <span className="flex flex-col gap-6 break-words pb-12 font-sans text-lg font-normal leading-[150%]">
-                        {principle.DESCRIPTION.map(
-                          (description: string, index: number) => {
-                            return <p key={index}>{description}</p>
-                          }
-                        )}
-                      </span>
-                    ),
-                  }
-                }),
-              ]}
-            />
-          </AppContent>
-        </div>
-
-        <Banner
-          title={LABELS.ABOUT_PAGE.BANNER.TITLE}
-          subtitle={LABELS.ABOUT_PAGE.BANNER.SUBTITLE}
-        >
-          <Link
-            href={siteConfig.links.discord}
-            target="_blank"
-            rel="noreferrer"
-            className="w-fit mx-auto"
-            passHref
-          >
-            <Button>
-              <div className="flex items-center gap-2">
-                <Icons.discord fill="white" className="h-4" />
-                <span className="text-[14px] uppercase">
-                  {LABELS.COMMON.JOIN_OUR_DISCORD}
-                </span>
-                <Icons.externalUrl fill="white" className="h-5" />
-              </div>
-            </Button>
-          </Link>
-        </Banner>
-      </Divider.Section>
-    </div>
+      <HomepageBanner />
+    </Divider.Section>
   )
 }

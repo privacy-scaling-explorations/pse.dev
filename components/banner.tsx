@@ -22,7 +22,7 @@ const Banner = ({ title, subtitle, children }: BannerProps) => {
               title
             )}
             {subtitle && (
-              <span className="md:max-w-[600px] font-normal font-sans text-xl text-primary dark:text-white">
+              <span className="md:max-w-[600px] font-normal font-sans text-base text-primary dark:text-white">
                 {subtitle}
               </span>
             )}
