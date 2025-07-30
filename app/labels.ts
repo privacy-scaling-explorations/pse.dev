@@ -141,7 +141,7 @@ export const LABELS = {
   },
   HOMEPAGE: {
     MISSION:
-      "We believe Ethereum is the foundation of a freer digital world, but we will not reach its full potential without privacy. We’re building cryptographic tools, co-creating standards, and coordinating throughout the ecosystem to make privacy practical for Ethereum.",
+      "Ethereum is the foundation of a freer digital world, but it will not reach its full potential without privacy. We’re building cryptographic tools, co-creating standards, and coordinating throughout the ecosystem to make privacy practical for Ethereum.",
     MISSION_BUTTON: "LEARN MORE ABOUT US",
     HEADER_TITLE: "Privacy Stewards of Ethereum",
     HEADER_SUBTITLE:
