@@ -41,6 +41,28 @@ const scrollToElementWithOffset = (target: HTMLElement) => {
   })
 }
 
+// Helper function to convert double dollar math blocks to a custom markdown syntax
+const preprocessMathBlocks = (content: string): string => {
+  // Replace $$...$$ with a custom markdown syntax that won't interfere with footnotes
+  return content.replace(/\$\$([\s\S]*?)\$\$/g, (match, mathContent) => {
+    const encodedMath = Buffer.from(mathContent.trim()).toString("base64")
+    return `\n\n<math-block data-math="${encodedMath}"></math-block>\n\n`
+  })
+}
+
+// Custom component for math blocks
+const MathBlockComponent = ({ "data-math": dataMath, ...props }: any) => {
+  const mathContent = React.useMemo(() => {
+    try {
+      return Buffer.from(dataMath, "base64").toString("utf8")
+    } catch {
+      return ""
+    }
+  }, [dataMath])
+
+  return <KaTeXBlock math={mathContent} />
+}
+
 interface CustomComponents extends Components {
   "table-row-card": React.ComponentType<{
     node: any
@@ -919,54 +941,28 @@ export const Markdown = ({
     }
 
     try {
-      const blockMathRegex = /\$\$([\s\S]*?)\$\$/g
-      const blockParts = children.split(blockMathRegex)
-
+      // Preprocess the content to convert $$ blocks to custom components
+      const processedContent = preprocessMathBlocks(children)
+      
       const mathComponents = {
         ...REACT_MARKDOWN_CONFIG(darkMode),
+        "math-block": MathBlockComponent,
         ...components,
       }
 
       const rehypePlugins = [rehypeRaw as any, rehypeProcessBrTags as any]
 
-      if (blockParts.length === 1) {
-        setContent([
-          <ReactMarkdown
-            key="markdown"
-            skipHtml={false}
-            rehypePlugins={rehypePlugins}
-            components={mathComponents}
-            remarkPlugins={[remarkGfm, remarkCustomNewlines]}
-          >
-            {children}
-          </ReactMarkdown>,
-        ])
-        return
-      }
-
-      const parts: React.ReactNode[] = []
-
-      blockParts.forEach((part, index) => {
-        if (index % 2 === 0) {
-          if (part.trim()) {
-            parts.push(
-              <ReactMarkdown
-                key={`text-${index}`}
-                skipHtml={false}
-                rehypePlugins={rehypePlugins}
-                components={mathComponents}
-                remarkPlugins={[remarkGfm, remarkCustomNewlines]}
-              >
-                {part}
-              </ReactMarkdown>
-            )
-          }
-        } else {
-          parts.push(<KaTeXBlock key={`block-math-${index}`} math={part} />)
-        }
-      })
-
-      setContent(parts)
+      setContent([
+        <ReactMarkdown
+          key="markdown"
+          skipHtml={false}
+          rehypePlugins={rehypePlugins}
+          components={mathComponents}
+          remarkPlugins={[remarkGfm, remarkCustomNewlines]}
+        >
+          {processedContent}
+        </ReactMarkdown>,
+      ])
     } catch (error) {
       console.error("Error processing markdown with math:", error)
       setContent([
