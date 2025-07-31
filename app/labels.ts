@@ -146,13 +146,7 @@ export const LABELS = {
     MISSION_BUTTON: "LEARN MORE ABOUT US",
     HEADER_TITLE: "Privacy Stewards of Ethereum",
     HEADER_SUBTITLE:
-      "PSE is a research lab delivering privacy to the Ethereum ecosystem",
-    WHO_WE_ARE: "Who we are",
-    WHO_WE_ARE_DESCRIPTION:
-      "PSE is a research lab building free tools that expand the world of cryptography.",
-    HOW_TO_PLUG_IN: "How to plug in",
-    HOW_TO_PLUG_IN_DESCRIPTION:
-      "Try out our apps, build with our tools, contribute to projects, or check out our job openings. We welcome contributions from around the world!",
+      "PSE is a research and development lab delivering privacy to the Ethereum ecosystem",
     JOIN_OUR_DISCORD: "Join our community",
     RECENT_UPDATES: "Recent updates",
     CONNECT_WITH_US: {
