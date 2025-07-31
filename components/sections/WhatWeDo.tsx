@@ -38,7 +38,7 @@ export const WhatWeDo = () => {
       <AppContent className="mx-auto lg:max-w-[845px] w-full">
         <section className="flex flex-col gap-10">
           <h6 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center text-white">
-            {LABELS.WHAT_WE_DO_SECTION.WHAT_WE_DO}
+            What we do
           </h6>
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 max-auto">
             {content.map((item, index) => (
