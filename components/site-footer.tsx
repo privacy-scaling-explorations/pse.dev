@@ -1,8 +1,5 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
-
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
@@ -11,6 +8,7 @@ import { LABELS } from "@/app/labels"
 
 import { Icons } from "./icons"
 import { AppContent } from "./ui/app-content"
+import { AppLink } from "./app-link"
 
 const ItemLabel = ({
   label,
@@ -24,9 +22,9 @@ const ItemLabel = ({
   return (
     <div className="group flex items-center gap-2">
       {external && (
-        <Icons.externalUrl className="w-5 duration-200 group-hover:text-orange" />
+        <Icons.externalUrl className="text-white w-5 duration-200 group-hover:text-orange" />
       )}
-      {icon && <div className="group-hover:text-orange">{icon}</div>}
+      {icon && <div className="text-white group-hover:text-orange">{icon}</div>}
       <span className="mt-[0.9px] font-sans text-sm font-normal uppercase leading-[21px] text-white duration-200 group-hover:text-orange md:block">
         {label}
       </span>
@@ -58,44 +56,37 @@ export function SiteFooter() {
                 indexKey
               ) =>
                 !onlyHeader && (
-                  <Link
-                    key={indexKey}
-                    href={href}
-                    target={external ? "_blank" : undefined}
-                  >
+                  <AppLink key={indexKey} href={href} external={external}>
                     <ItemLabel label={title} />
-                  </Link>
+                  </AppLink>
                 )
             )}
           </LinksWrapper>
           <LinksWrapper>
-            <Link
+            <AppLink
               href={siteConfig.links.discord}
               className="flex items-start gap-2"
-              target="_blank"
-              rel="noreferrer"
+              external
             >
               <ItemLabel
                 label="Discord"
                 icon={<Icons.discord className="w-4" />}
               />
-            </Link>
-            <Link
+            </AppLink>
+            <AppLink
               href={siteConfig.links.github}
               className="flex items-start gap-2"
-              target="_blank"
-              rel="noreferrer"
+              external
             >
               <ItemLabel
                 label="Github"
                 icon={<Icons.gitHub className="w-4" />}
               />
-            </Link>
-            <Link
+            </AppLink>
+            <AppLink
               href={siteConfig.links.twitter}
               className="flex items-center gap-2"
-              target="_blank"
-              rel="noreferrer"
+              external
             >
               <ItemLabel
                 label="Twitter"
@@ -105,12 +96,11 @@ export function SiteFooter() {
                   </div>
                 }
               />
-            </Link>
-            <Link
+            </AppLink>
+            <AppLink
               href={siteConfig.links.youtube}
               className="flex items-center gap-2"
-              target="_blank"
-              rel="noreferrer"
+              external
             >
               <ItemLabel
                 label="Youtube"
@@ -120,12 +110,11 @@ export function SiteFooter() {
                   </div>
                 }
               />
-            </Link>
-            <Link
+            </AppLink>
+            <AppLink
               href="/api/rss"
               className="flex items-center gap-2"
-              target="_blank"
-              rel="noreferrer"
+              external
             >
               <ItemLabel
                 label="RSS"
@@ -135,38 +124,25 @@ export function SiteFooter() {
                   </div>
                 }
               />
-            </Link>
-            <Link
+            </AppLink>
+            <AppLink
               href={siteConfig.links.jobs}
-              target="_blank"
-              rel="noreferrer"
+              external
               className="flex items-center gap-2"
             >
               <ItemLabel label="Jobs" external />
-            </Link>
+            </AppLink>
           </LinksWrapper>
           <LinksWrapper>
-            <Link
-              href={siteConfig.links.discord}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <AppLink href={siteConfig.links.discord} external>
               <ItemLabel label="Feedback" />
-            </Link>
-            <Link
-              href={siteConfig.links.privacyPolicy}
-              target="_blank"
-              rel="noreferrer"
-            >
+            </AppLink>
+            <AppLink href={siteConfig.links.privacyPolicy} external>
               <ItemLabel label={LABELS.COMMON.FOOTER.PRIVACY_POLICY} />
-            </Link>
-            <Link
-              href={siteConfig.links.termOfUse}
-              target="_blank"
-              rel="noreferrer"
-            >
+            </AppLink>
+            <AppLink href={siteConfig.links.termOfUse} external>
               <ItemLabel label={LABELS.COMMON.FOOTER.TERMS_OF_USE} />
-            </Link>
+            </AppLink>
           </LinksWrapper>
         </AppContent>
       </div>

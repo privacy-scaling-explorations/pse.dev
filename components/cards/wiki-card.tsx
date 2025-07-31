@@ -49,9 +49,10 @@ const WikiDetail = ({ label, value }: WikiDetailProps) => {
 const WikiLink = ({ href, external, children }: WikiLinkProps) => {
   return (
     <AppLink
-      className="duration-200 text-anakiwa-500 hover:text-anakiwa-700"
+      className="duration-200 "
       href={href}
       external={external}
+      withExternalIcon
     >
       <span className="text-xs leading-[14px]">{children}</span>
     </AppLink>

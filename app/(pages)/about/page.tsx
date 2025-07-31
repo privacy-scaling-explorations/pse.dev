@@ -1,10 +1,9 @@
-import Link from "next/link"
-
 import { AppContent } from "@/components/ui/app-content"
 
 import { Metadata } from "next"
 import { HomepageBanner } from "@/components/sections/HomepageBanner"
 import { Divider } from "@/components/divider"
+import { AppLink } from "@/components/app-link"
 
 export const metadata: Metadata = {
   title: "About",
@@ -41,57 +40,43 @@ export default async function AboutPage() {
             <span className="text-xl font-sans dark:text-tuatara-200 text-black lg:max-w-[730px] mx-auto">
               As Privacy Stewards of Ethereum (PSE), our mission is to deliver
               privacy to the{" "}
-              <Link
-                href="https://ethereum.org/en/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white hover:text-orange duration-200 underline"
-              >
+              <AppLink href="https://ethereum.org/en/" external>
                 Ethereum ecosystem
-              </Link>
+              </AppLink>
               . We envision a future where privacy on Ethereum is the norm
               rather than the exception.
               <br /> <br />
               Building{" "}
-              <Link
+              <AppLink
                 href="https://www.activism.net/cypherpunk/manifesto.html"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white hover:text-orange duration-200 underline"
+                external
               >
                 “an open society in the electronic age”
-              </Link>{" "}
+              </AppLink>{" "}
               {
                 "requires privacy that is usable, scalable, and secure. We are a team of applied cryptographers, mathematicians, developers, designers, and coordinators working to embed programmable cryptography into Ethereum's application layer and make privacy accessible to individuals, developers, and institutions."
               }{" "}
               <br /> <br />
               Privacy is a cornerstone of freedom, safety, and is an{" "}
-              <Link
+              <AppLink
                 href="https://vitalik.eth.limo/general/2025/04/14/privacy.html"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white hover:text-orange duration-200 underline"
+                external
               >
                 important guarantor for decentralization.
-              </Link>{" "}
-              We're building a future where digital infrastructure respects
+              </AppLink>{" "}
+              {`We're building a future where digital infrastructure respects
               privacy by default, and permissions are purpose-specific,
-              informed, uncoerced, and revocable.
+              informed, uncoerced, and revocable.`}
               <br /> <br />
-              Programmable cryptography unlocks transformative capabilities for
+              {`Programmable cryptography unlocks transformative capabilities for
               digital commerce, identity, governance, and other systems of
               coordination. But the road to privacy isn't only technical. It
               requires shifts in user behavior, developer priorities, regulatory
               frameworks, and cultural norms. This is a collective challenge and
-              we{" "}
-              <Link
-                href="https://discord.com/invite/sF5CT5rzrR"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white hover:text-orange duration-200 underline"
-              >
+              we`}{" "}
+              <AppLink href="https://discord.com/invite/sF5CT5rzrR" external>
                 invite you
-              </Link>{" "}
+              </AppLink>{" "}
               to help us shape a more free digital future.
             </span>
           </div>
@@ -122,14 +107,9 @@ export default async function AboutPage() {
             </h2>
             <span className="text-xl font-sans dark:text-tuatara-200 text-black lg:max-w-[730px] mx-auto">
               We began in 2018 as Applied ZKP, a team supported by the{" "}
-              <Link
-                href="https://ethereum.foundation/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white hover:text-orange duration-200 underline"
-              >
+              <AppLink href="https://ethereum.foundation/" external>
                 Ethereum Foundation
-              </Link>{" "}
+              </AppLink>{" "}
               to push zero-knowledge proofs from theory to practice. In 2021, we
               became Privacy & Scaling Explorations (PSE), expanding our scope
               to programmable cryptography and tools across the stack. In 2025,

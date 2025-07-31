@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { siteConfig } from "@/config/site"
 import { ProjectCategory, ProjectStatus } from "@/lib/types"
 
@@ -21,6 +20,7 @@ import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
 import { ProjectYouTubeVideos } from "@/components/sections/ProjectYouTubeVideos"
 import { useProjects } from "@/app/providers/ProjectsProvider"
 import { Button } from "@/components/ui/button"
+import { AppLink } from "@/components/app-link"
 
 const markdownContentClassName =
   "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4 dark:text-tuatara-100"
@@ -87,9 +87,9 @@ export const ProjectContent = ({ id }: { id: string }) => {
 
   return (
     <section className="bg-project-page-gradient dark:bg-transparent-gradient relative">
-      <Link
+      <AppLink
         href={siteConfig.editProjectPage(project.id)}
-        target="_blank"
+        external
         className="fixed bottom-5 left-5 lg:bottom-5 lg:left-10 z-10"
       >
         <Button className="w-full md:w-auto" size="sm">
@@ -101,7 +101,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
             <Icons.externalUrl size={22} />
           </div>
         </Button>
-      </Link>
+      </AppLink>
       <div className="flex flex-col">
         <Divider.Section className="flex flex-col items-center">
           <AppContent className="flex flex-col gap-12 py-16">
@@ -125,15 +125,12 @@ export const ProjectContent = ({ id }: { id: string }) => {
                 <div className="w-full ">
                   <div className="flex flex-col">
                     <div className="flex flex-col gap-6 text-left">
-                      <Link
-                        className="flex items-center gap-2 text-primary/80 hover:text-primary mr-auto"
-                        href="/projects"
-                      >
+                      <AppLink href="/projects">
                         <Icons.arrowLeft />
                         <span className="font-sans text-base">
                           {LABELS.COMMON.PROJECT_LIBRARY}
                         </span>
-                      </Link>
+                      </AppLink>
                       <div className="flex flex-col gap-2">
                         <h1 className="py-2 text-3xl font-bold leading-[110%] md:text-5xl">
                           {project?.name}
@@ -150,11 +147,10 @@ export const ProjectContent = ({ id }: { id: string }) => {
                         {Object?.entries(project.links ?? {})?.map(
                           ([key, value]) => {
                             return (
-                              <Link
+                              <AppLink
                                 key={key}
                                 href={value ?? ""}
-                                target="_blank"
-                                rel="noreferrer"
+                                external
                                 className="group"
                               >
                                 <div className="flex items-center gap-2">
@@ -163,7 +159,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
                                     {key}
                                   </p>
                                 </div>
-                              </Link>
+                              </AppLink>
                             )
                           }
                         )}

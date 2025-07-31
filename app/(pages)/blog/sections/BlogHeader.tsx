@@ -1,12 +1,12 @@
 "use client"
 
+import { AppLink } from "@/components/app-link"
 import { blogArticleCardTagCardVariants } from "@/components/blog/blog-article-card"
 import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Markdown } from "@/components/ui/markdown"
 import { cn } from "@/lib/utils"
-import Link from "next/link"
 
 interface BlogHeaderProps {
   post: any
@@ -55,17 +55,16 @@ export const BlogHeader = ({ post, imageAsCover }: BlogHeaderProps) => {
                 )}
               >
                 This post was originally posted in{" "}
-                <a
+                <AppLink
                   href={post.canonical}
-                  target="_blank"
-                  rel="noopener noreferrer canonical"
+                  external
                   className={cn(
                     "text-primary hover:underline",
-                    imageAsCover ? "text-white" : "text-gray-500"
+                    imageAsCover ? "!text-white" : "!text-gray-500"
                   )}
                 >
                   {new URL(post.canonical).hostname.replace(/^www\./, "")}
-                </a>
+                </AppLink>
               </div>
             )}
             {post?.tldr && (
@@ -96,14 +95,19 @@ export const BlogHeader = ({ post, imageAsCover }: BlogHeaderProps) => {
             </span>
             <div className="flex flex-wrap gap-2">
               {post?.tags?.map((tag: any) => (
-                <Link key={tag.id} href={`/blog/tags/${tag.id}`}>
+                <AppLink
+                  key={tag.id}
+                  href={`/blog/tags/${tag.id}`}
+                  variant="button"
+                  className="w-fit"
+                >
                   <Button
                     size="xs"
                     variant={imageAsCover ? "secondary" : "default"}
                   >
                     {tag.name}
                   </Button>
-                </Link>
+                </AppLink>
               ))}
             </div>
           </div>

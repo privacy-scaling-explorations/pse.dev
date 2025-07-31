@@ -1,6 +1,6 @@
 import { Article, getArticles } from "@/lib/content"
-import Link from "next/link"
 import { BlogArticleCard } from "./blog-article-card"
+import { AppLink } from "../app-link"
 
 interface BlogArticlesProps {
   tag?: string
@@ -26,10 +26,9 @@ function ArticlesGrid({ articles }: { articles: Article[] }) {
           const url = `/blog/${id}`
           return (
             <div key={id} className="flex h-full">
-              <Link
+              <AppLink
                 className="flex-1 w-full hover:opacity-90 transition-opacity duration-300 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-900/10"
                 href={url}
-                rel="noreferrer"
               >
                 <BlogArticleCard
                   id={id}
@@ -39,7 +38,7 @@ function ArticlesGrid({ articles }: { articles: Article[] }) {
                   authors={authors}
                   content={content}
                 />
-              </Link>
+              </AppLink>
             </div>
           )
         }

@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { AnnounceInterface } from "@/lib/types"
@@ -10,6 +9,7 @@ import { LABELS } from "@/app/labels"
 import { Icons } from "../icons"
 import { AppContent } from "../ui/app-content"
 import { Parser as HtmlToReactParser } from "html-to-react"
+import { AppLink } from "../app-link"
 
 const ContentPlaceholder = () => (
   <div className="flex flex-col gap-2">
@@ -76,12 +76,12 @@ export const NewsSection = () => {
               ) : (
                 <div className="bg-skeleton h-5 w-1/3"></div>
               )}
-              <Link
+              <AppLink
                 type="button"
                 className="flex items-center gap-1 outline-none disabled:opacity-50"
                 href={twitterShareUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                external
+                variant="button"
                 passHref
               >
                 <Icons.twitter size={24} className="text-anakiwa-500" />
@@ -90,23 +90,23 @@ export const NewsSection = () => {
                     socialName: "Twitter",
                   })}
                 </span>
-              </Link>
+              </AppLink>
             </div>
             <span className="break-words text-base md:text-xl text-primary font-sans font-normal leading-[30px] [&>a]:text-anakiwa-600 [&>a]:font-medium">
               {!loading ? announcementContent : <ContentPlaceholder />}
             </span>
           </div>
-          <Link
+          <AppLink
             href={siteConfig?.links?.discordAnnouncementChannel}
             className="mx-auto flex items-center gap-1"
-            target="_blank"
-            rel="noopener noreferrer"
+            external
+            variant="button"
             passHref
           >
             <Icons.discord className="text-anakiwa-400" />
             <span>{LABELS.NEWS_SECTION.SEE_ALL_UPDATES}</span>
             <Icons.externalUrl className="text-primary" />
-          </Link>
+          </AppLink>
         </AppContent>
       </div>
     </div>

@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import NextImage from "next/image"
-import NextLink from "next/link"
 import CloseVector from "@/public/icons/close-fill.svg"
 
 import { NavItem } from "@/types/nav"
@@ -19,6 +18,7 @@ import { LABELS } from "@/app/labels"
 import { Icons } from "./icons"
 import { SunMedium as SunIcon, Moon as MoonIcon } from "lucide-react"
 import { useGlobalProvider } from "@/app/providers/GlobalProvider"
+import { AppLink } from "./app-link"
 
 export const SiteHeaderMobile = () => {
   const [header, setHeader] = useState(false)
@@ -57,7 +57,7 @@ export const SiteHeaderMobile = () => {
               if (item.onlyFooter) return null
 
               return (
-                <NextLink
+                <AppLink
                   key={index}
                   href={item.href}
                   onClick={() => setHeader(false)}
@@ -65,7 +65,7 @@ export const SiteHeaderMobile = () => {
                   className="border-b-2 border-white p-4 uppercase"
                 >
                   {item.title}
-                </NextLink>
+                </AppLink>
               )
             })}
             <button
@@ -88,35 +88,19 @@ export const SiteHeaderMobile = () => {
 
           <div className="flex h-full w-full flex-col items-center justify-end gap-5 py-[40px] text-sm">
             <div className="flex gap-5">
-              <NextLink
-                href={siteConfig.links.twitter}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <AppLink href={siteConfig.links.twitter} external>
                 <Twitter color="white" />{" "}
-              </NextLink>
+              </AppLink>
 
-              <NextLink
-                href={siteConfig.links.discord}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <AppLink href={siteConfig.links.discord} external>
                 <Discord color="white" />{" "}
-              </NextLink>
-              <NextLink
-                href={siteConfig.links.github}
-                target="_blank"
-                rel="noreferrer"
-              >
+              </AppLink>
+              <AppLink href={siteConfig.links.github} external>
                 <Github color="white" />{" "}
-              </NextLink>
-              <NextLink
-                href={siteConfig.links.articles}
-                target="_blank"
-                rel="noreferrer"
-              >
+              </AppLink>
+              <AppLink href={siteConfig.links.articles} external>
                 <Mirror color="white" />{" "}
-              </NextLink>
+              </AppLink>
             </div>
 
             <div className="flex gap-5 text-white">

@@ -23,6 +23,7 @@ import "prismjs/components/prism-python"
 import "prismjs/components/prism-rust"
 import "prismjs/components/prism-solidity"
 import { Icons } from "../icons"
+import { AppLink } from "../app-link"
 
 const SCROLL_OFFSET = 150
 
@@ -555,12 +556,13 @@ const HeadingLink = ({
 }
 
 const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
-  a: ({ href, children }) => {
+  a: ({ href, children, ...props }) => {
     if (href?.startsWith("#")) {
       return (
-        <a
+        <AppLink
           href={href}
           data-anchor="with-scroll-margin"
+          {...props}
           onClick={(e) => {
             e.preventDefault()
             const targetId = href.slice(1)
@@ -569,22 +571,16 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
               scrollToElementWithOffset(target)
             }
           }}
-          className="text-anakiwa-500 hover:text-orange duration-200"
         >
           {children}
-        </a>
+        </AppLink>
       )
     }
 
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-anakiwa-500 hover:text-orange duration-200"
-      >
+      <AppLink href={href ?? ""} external {...props}>
         {children}
-      </a>
+      </AppLink>
     )
   },
   h1: ({ children }) => <HeadingLink level={1}>{children}</HeadingLink>,
@@ -943,7 +939,7 @@ export const Markdown = ({
     try {
       // Preprocess the content to convert $$ blocks to custom components
       const processedContent = preprocessMathBlocks(children)
-      
+
       const mathComponents = {
         ...REACT_MARKDOWN_CONFIG(darkMode),
         "math-block": MathBlockComponent,

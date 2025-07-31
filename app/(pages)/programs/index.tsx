@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { ReactNode } from "react-markdown/lib/ast-to-react"
 import { twMerge } from "tailwind-merge"
 
@@ -17,6 +16,7 @@ import { Icons } from "@/components/icons"
 import { PageHeader } from "@/components/page-header"
 import { TableRowCard } from "@/components/cards/table-row-card"
 import { LABELS } from "@/app/labels"
+import { AppLink } from "@/components/app-link"
 
 type ProgramDetailProps = {
   region?: string
@@ -232,14 +232,18 @@ export const ProgramPageContent = () => {
                         location="Buenos Aires - Cuenca - San Jose"
                         date="Jul. 22, 2024 - Sep. 15, 2024"
                       />
-                      <Link href={siteConfig.links.coreProgram} target="_blank">
+                      <AppLink
+                        href={siteConfig.links.coreProgram}
+                        external
+                        variant="button"
+                      >
                         <Button className="w-full uppercase">
                           <div className="flex items-center gap-3">
                             <span>{LABELS.PROGRAMS_PAGE.COMMON.APPLY_NOW}</span>
                             <Icons.arrowRight size={20} />
                           </div>
                         </Button>
-                      </Link>
+                      </AppLink>
                     </Card>
                     <Card className="flex flex-col gap-10">
                       <ProgramDetail
@@ -249,14 +253,18 @@ export const ProgramPageContent = () => {
                         location="Seoul - Taipei - Tokyo"
                         date="Jul. 29, 2024 - Sep. 22, 2024"
                       />
-                      <Link href={siteConfig.links.coreProgram} target="_blank">
+                      <AppLink
+                        href={siteConfig.links.coreProgram}
+                        external
+                        variant="button"
+                      >
                         <Button className="w-full uppercase">
                           <div className="flex items-center gap-3">
                             <span>{LABELS.PROGRAMS_PAGE.COMMON.APPLY_NOW}</span>
                             <Icons.arrowRight size={20} />
                           </div>
                         </Button>
-                      </Link>
+                      </AppLink>
                     </Card>
                   </div>
                   <div className="flex flex-col gap-2 pt-8">
@@ -345,9 +353,10 @@ export const ProgramPageContent = () => {
                     date="June 1, 2024 - August 31, 2024"
                   />
                   <div className="mx-auto">
-                    <Link
+                    <AppLink
                       href={siteConfig.links.accelerationProgram}
-                      target="_blank"
+                      external
+                      variant="button"
                     >
                       <Button className="uppercase">
                         <div className="flex items-center gap-3">
@@ -355,7 +364,7 @@ export const ProgramPageContent = () => {
                           <Icons.arrowRight size={20} />
                         </div>
                       </Button>
-                    </Link>
+                    </AppLink>
                   </div>
                 </Card>
               </div>
@@ -470,12 +479,7 @@ export const ProgramPageContent = () => {
         title={LABELS.COMMON.LEARN_MORE}
         subtitle={LABELS.COMMON.LEARN_MORE_DISCORD}
       >
-        <Link
-          href={siteConfig.links.discord}
-          target="_blank"
-          rel="noreferrer"
-          passHref
-        >
+        <AppLink href={siteConfig.links.discord} external passHref>
           <Button>
             <div className="flex items-center gap-2">
               <Icons.discord fill="white" className="h-4" />
@@ -485,7 +489,7 @@ export const ProgramPageContent = () => {
               <Icons.externalUrl fill="white" className="h-5" />
             </div>
           </Button>
-        </Link>
+        </AppLink>
       </Banner>
     </Divider.Section>
   )

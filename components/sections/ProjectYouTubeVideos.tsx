@@ -1,10 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import { Icons } from "../icons"
 import { useEffect, useState } from "react"
 import { LABELS } from "@/app/labels"
+import { AppLink } from "../app-link"
 
 interface VideoCardProps {
   videoId: string
@@ -32,11 +32,11 @@ const VideoCard = ({ videoId }: VideoCardProps) => {
   }, [videoId])
 
   return (
-    <Link
+    <AppLink
       href={`https://www.youtube.com/watch?v=${videoId}`}
-      target="_blank"
-      rel="noopener noreferrer"
+      external
       className="group flex flex-col gap-4"
+      variant="button"
     >
       <div className="relative overflow-hidden aspect-video rounded-sm dark:border-anakiwa-800">
         <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
@@ -64,7 +64,7 @@ const VideoCard = ({ videoId }: VideoCardProps) => {
           title || "YouTube Video"
         )}
       </h3>
-    </Link>
+    </AppLink>
   )
 }
 
