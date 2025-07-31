@@ -41,7 +41,7 @@ export const HomepageHeader = () => {
             <Button className="w-full sm:w-auto">
               <div className="flex items-center gap-1">
                 <span className="text-base font-medium uppercase">
-                  {LABELS.COMMON.RESEARCH}
+                  {LABELS.COMMON.APPLIED_RESEARCH}
                 </span>
                 <Icons.arrowRight
                   fill="white"
