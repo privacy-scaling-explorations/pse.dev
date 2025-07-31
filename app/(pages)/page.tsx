@@ -1,5 +1,3 @@
-import { Divider } from "@/components/divider"
-import { NewsSection } from "@/components/sections/NewsSection"
 import { WhatWeDo } from "@/components/sections/WhatWeDo"
 import { HomepageVideoFeed } from "@/components/sections/HomepageVideoFeed"
 

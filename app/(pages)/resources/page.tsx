@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label"
 import ResourcesContent from "@/content/resources.md"
 import { Metadata } from "next"
 import { ResourceNav } from "@/components/resources/ResourceNav"
+import { AppLink } from "@/components/app-link"
 
 export const metadata: Metadata = {
   title: "Resources",
@@ -98,10 +99,10 @@ export default function ResourcePage() {
           <h6 className="font-sans text-base font-normal text-primary md:text-[18px] md:leading-[27px] md:max-w-[700px]">
             {LABELS.RESOURCES_PAGE.SUBTITLE}
           </h6>
-          <Link
+          <AppLink
             href={siteConfig.addGithubResource}
-            target="_blank"
-            rel="noreferrer"
+            variant="button"
+            external
             passHref
           >
             <Button className="w-full md:w-auto" size="lg">
@@ -113,7 +114,7 @@ export default function ResourcePage() {
                 <Icons.externalUrl size={22} />
               </div>
             </Button>
-          </Link>
+          </AppLink>
         </AppContent>
       </div>
       <Divider.Section className="bg-background">
@@ -148,12 +149,11 @@ export default function ResourcePage() {
           }
         >
           <div className="pb-6"></div>
-          <Link
+          <AppLink
             href={siteConfig.links.discord}
             className="w-fit mx-auto"
-            target="_blank"
-            rel="noreferrer"
-            passHref
+            external
+            variant="button"
           >
             <Button>
               <div className="flex items-center gap-1">
@@ -166,7 +166,7 @@ export default function ResourcePage() {
                 <Icons.externalUrl size={20} />
               </div>
             </Button>
-          </Link>
+          </AppLink>
         </Banner>
       </Divider.Section>
     </div>

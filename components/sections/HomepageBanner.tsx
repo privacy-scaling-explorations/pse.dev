@@ -4,8 +4,8 @@ import { Banner } from "../banner"
 import { LABELS } from "@/app/labels"
 import { Icons } from "../icons"
 import { siteConfig } from "@/config/site"
-import Link from "next/link"
 import { Button } from "../ui/button"
+import { AppLink } from "../app-link"
 
 export const HomepageBanner = () => {
   return (
@@ -13,10 +13,10 @@ export const HomepageBanner = () => {
       title={LABELS.COMMON.CONNECT_WITH_US}
       subtitle={LABELS.COMMON.CONNECT_WITH_US_DESCRIPTION}
     >
-      <Link
+      <AppLink
         href={siteConfig.links.discord}
-        target="_blank"
-        rel="noreferrer"
+        external
+        variant="button"
         passHref
         className="mx-auto"
       >
@@ -29,7 +29,7 @@ export const HomepageBanner = () => {
             <Icons.externalUrl fill="white" className="h-5" />
           </div>
         </Button>
-      </Link>
+      </AppLink>
     </Banner>
   )
 }

@@ -1,9 +1,9 @@
 import Image from "next/image"
-import Link from "next/link"
 import { ProjectTeamMember, ProjectLinkWebsite } from "@/lib/types"
 import { Icons } from "../icons"
 import { LABELS } from "@/app/labels"
 import { ProjectLinkIconMap } from "../mappings/project-links"
+import { AppLink } from "../app-link"
 
 interface ProjectTeamMembersProps {
   team: ProjectTeamMember[]
@@ -64,16 +64,16 @@ export const ProjectTeamMembers = ({ team }: ProjectTeamMembersProps) => {
             {member.links && Object.keys(member.links).length > 0 && (
               <div className="flex flex-wrap gap-1">
                 {Object.entries(member.links).map(([key, value]) => (
-                  <Link
+                  <AppLink
                     key={key}
                     href={value ?? ""}
-                    target="_blank"
-                    rel="noreferrer"
+                    external
+                    variant="button"
                     className="group flex items-center gap-1.5 text-sm text-tuatara-600 hover:text-orange transition-colors"
                   >
                     {ProjectLinkIconMap?.[key as ProjectLinkWebsite]}
                     <span className="capitalize">{key}</span>
-                  </Link>
+                  </AppLink>
                 ))}
               </div>
             )}

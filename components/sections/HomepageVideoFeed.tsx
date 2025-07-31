@@ -8,6 +8,7 @@ import { Button } from "../ui/button"
 import { AppContent } from "../ui/app-content"
 import { Icons } from "../icons"
 import { useYoutube } from "@/hooks/useYoutube"
+import { AppLink } from "../app-link"
 
 interface Video {
   id: string
@@ -101,10 +102,10 @@ export const HomepageVideoFeed = () => {
               <span className="text-base text-white">
                 {LABELS.HOMEPAGE.CHECK_OUT_OUR_YOUTUBE}
               </span>
-              <Link
+              <AppLink
                 href="https://www.youtube.com/@privacyscalingexplorations-1"
-                target="_blank"
-                rel="noopener noreferrer"
+                external
+                variant="button"
                 className="group inline-flex"
               >
                 <Button className="w-full" variant="orange">
@@ -115,7 +116,7 @@ export const HomepageVideoFeed = () => {
                     <ArrowRight className="h-5 w-5 duration-200 ease-in-out group-hover:translate-x-2" />
                   </div>
                 </Button>
-              </Link>
+              </AppLink>
             </div>
           </div>
         </div>
