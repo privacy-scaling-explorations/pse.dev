@@ -111,6 +111,7 @@ export const LABELS = {
       "Sorry, we couldn't find any results for your search. Please try again with different keywords.",
     EXPLORE_PROJECT_LIBRARY: "Explore Project Library",
     DEVELOPMENT_PROJECTS: "Development Projects",
+    APPLIED_RESEARCH: "Applied Research",
     RESEARCH: "Research",
     CLEAR_ALL: "Clear all",
     SHOW_PROJECTS: "Show projects",
@@ -145,7 +146,7 @@ export const LABELS = {
     MISSION_BUTTON: "LEARN MORE ABOUT US",
     HEADER_TITLE: "Privacy Stewards of Ethereum",
     HEADER_SUBTITLE:
-      "PSE is a applied research lab delivering privacy to the Ethereum ecosystem",
+      "PSE is a research lab delivering privacy to the Ethereum ecosystem",
     WHO_WE_ARE: "Who we are",
     WHO_WE_ARE_DESCRIPTION:
       "PSE is a research lab building free tools that expand the world of cryptography.",
