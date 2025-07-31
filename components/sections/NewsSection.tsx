@@ -5,7 +5,7 @@ import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { AnnounceInterface } from "@/lib/types"
-import { convertDirtyStringToHtml } from "@/lib/utils"
+import { convertDirtyStringToHtml, interpolate } from "@/lib/utils"
 import { LABELS } from "@/app/labels"
 import { Icons } from "../icons"
 import { AppContent } from "../ui/app-content"
@@ -86,10 +86,9 @@ export const NewsSection = () => {
               >
                 <Icons.twitter size={24} className="text-anakiwa-500" />
                 <span className="flex text-anakiwa-900 underline font-medium leading-[24px]">
-                  {LABELS.NEWS_SECTION.REPOST_ON_SOCIAL.replace(
-                    "{{socialName}}",
-                    "Twitter"
-                  )}
+                  {interpolate(LABELS.NEWS_SECTION.REPOST_ON_SOCIAL, {
+                    socialName: "Twitter",
+                  })}
                 </span>
               </Link>
             </div>

@@ -1,13 +1,4 @@
 export const LABELS = {
-  ABOUT_PAGE: {
-    DESCRIPTION:
-      "PSE is an Ethereum Foundation supported research and development lab dedicated to testing use cases for cryptographic primitives. We build open source infrastructure and tools, host workshops and summer programs, and collaborate with people bringing cryptography to life.",
-    BANNER: {
-      TITLE: "Connect with us",
-      SUBTITLE:
-        "Join our discord to learn more about our research, connect with our community, and keep posted about jobs and grant opportunities!",
-    },
-  },
   BLOG_PAGE: {
     TITLE: "Blog",
     SUBTITLE:
@@ -25,25 +16,11 @@ export const LABELS = {
     BACK_TO_ARTICLES: "Back to articles",
   },
   COMMON: {
-    SITE_TITLE: "Privacy & Scaling Explorations",
-    SITE_DESCRIPTION:
-      "Enhancing Ethereum through cryptographic research and collective experimentation.",
-    ACTIVE_RESEARCH: "Active Research",
-    PAST_RESEARCH: "Past Research",
     MENU: {
-      HOME: "Home",
-      PROJECT_LIBRARY: "Project Library",
       PROJECTS: "Projects",
       RESEARCH: "Research",
       ABOUT: "About",
-      RESOURCES: "Resources",
-      JOBS: "Jobs",
       BLOG: "Blog",
-      ACTIVITY: "Activity",
-      REPORT: "Technical Reports",
-      FIRST_GOOD_ISSUE: "Good First Issue",
-      PROGRAMS: "Programs",
-      OPEN_ISSUES: "Open Issues",
     },
     FOOTER: {
       DESCRIPTION:
@@ -65,7 +42,6 @@ export const LABELS = {
       FUNDING_SOURCE: "Funding source",
       FUNDING: "Funding",
       LICENSE: "License",
-      PROJECT_TYPE: "Project type",
     },
     ERROR: {
       404: {
@@ -78,12 +54,8 @@ export const LABELS = {
       BUILD: "Build",
       PLAY: "Play",
       RESEARCH: "Research",
-      GRANTEE: "Grant",
-      COLLABORATE: "Collaboration",
-      FULLY_PSE: "Fully PSE",
     },
     STATUS: {
-      ARCHIVED: "Inactive",
       ACTIVE: "Active",
       INACTIVE: "Inactive",
     },
@@ -100,7 +72,6 @@ export const LABELS = {
     BUILD_WITH: "Build with",
     DEEP_DIVE_RESEARCH: "Dive deeper into the research",
     SEARCH_PROJECT_PLACEHOLDER: "Search project title or keyword",
-    CLOSE: "Close",
     LAST_UPDATED_AT: "Last updated {{date}}",
     PROJECT_LIBRARY: "Project Library",
     BACK_TO_PROJECT_LIBRARY: "Back to project library",
@@ -109,14 +80,11 @@ export const LABELS = {
     NO_RESULTS: "No results found.",
     NO_RESULTS_DESCRIPTION:
       "Sorry, we couldn't find any results for your search. Please try again with different keywords.",
-    EXPLORE_PROJECT_LIBRARY: "Explore Project Library",
     DEVELOPMENT_PROJECTS: "Development Projects",
     APPLIED_RESEARCH: "Applied Research",
-    RESEARCH: "Research",
     CLEAR_ALL: "Clear all",
     SHOW_PROJECTS: "Show projects",
     FILTERS: "Filters",
-    WHAT_DO_YOU_WANT_DO_TODAY: "What do you want to do today?",
     SHOWING_PROJECTS: "Showing {{count}} projects",
     SHOWING_PROJECTS_WITH: "Showing {{count}} projects with:",
     CONNECT_WITH_US: "Connect with us",
@@ -125,17 +93,12 @@ export const LABELS = {
     OUR_YEAR_PROGRAM: "Our {{year}} programs",
     ON_THIS_PAGE: "On this page",
     HOW_TO_APPLY: "How to apply",
-    CHOOSE_PROGRAM: "Choose your program",
     CONNECT_WITH_US_ON_PLATFORM: "Connect with us on {{platform}}",
     ADD_RESOURCE: "Add a resource",
-    NOT_CURRENTLY_ACTIVE: "Not Currently Active",
-    INACTIVE: "Inactive",
     JOIN_OUR_DISCORD: "Join our discord",
     PREV_BRAND_IMAGE: "Previous branding",
     EDIT_THIS_PAGE: "Edit this page",
     CONTENTS: "Contents",
-    PROJECT_VIDEOS: "Project Videos",
-    ERROR_LOADING_VIDEOS: "Error loading videos",
     PROJECT_TEAM: "Team",
     YOUTUBE_VIDEOS: "YouTube Videos",
     MORE_POSTS: "More posts",
@@ -148,7 +111,6 @@ export const LABELS = {
     HEADER_SUBTITLE:
       "PSE is a research and development lab delivering privacy to the Ethereum ecosystem",
     JOIN_OUR_DISCORD: "Join our community",
-    RECENT_UPDATES: "Recent updates",
     CONNECT_WITH_US: {
       TITLE: "Join our programs",
       DESCRIPTION:
@@ -161,12 +123,6 @@ export const LABELS = {
       "Check out our YouTube to learn the latest in advanced cryptography.",
   },
   NEWS_SECTION: {
-    LEARN_AND_SHARE: "Learn & Share",
-    EVENT: "Event",
-    BLOG_POST: "Blog Post",
-    WATCH: "Watch",
-    READ: "Read",
-    ATTEND: "Attend",
     RECENT_UPDATES: "Recent Updates",
     SEE_ALL_UPDATES: "See more announcements on Discord",
     REPOST_ON_SOCIAL: "Repost on {{socialName}}",
@@ -176,9 +132,7 @@ export const LABELS = {
     DESCRIPTION:
       "PSE offers free educational programs to help you dive deep into Zero Knowledge Proofs, Fully Homomorphic Encryption, Multi-Party Computation and the latest in programmable cryptography. Whether you're looking to learn the basics or start making open-source contributions, we have resources for your learning journey!",
     COMMON: {
-      FAQ: "FAQ",
       CURRICULUM: "Curriculum",
-      HOW_TO_APPLY: "How to apply",
       APPLY_NOW: "Apply now",
       LEARN_MORE_ON_GITHUB: "Learn more on Github",
       WEEK: "Week {{week}}",
@@ -281,8 +235,6 @@ export const LABELS = {
     SUBTITLE:
       "This list was compiled by our community. Submit an issue on our Github page to add a resource to this list.",
     ON_THIS_PAGE: "On this page",
-    EDIT_RESOURCES: "Edit resources",
-    ADD_SOURCE: "Add a source",
     ADD_RESOURCE_QUESTION: "Didn't find what you are looking for?",
     NAV: {
       GET_INVOLVED: "Get involved",
@@ -292,9 +244,6 @@ export const LABELS = {
     },
   },
   WHAT_WE_DO_SECTION: {
-    WHAT_WE_DO: "What we do",
-    WHAT_WE_DO_DESCRIPTION:
-      "PSE is a multidisciplinary team creating open source privacy and scaling tools for the next generation's internet.",
     BUILD: {
       TITLE: "Build",
       DESCRIPTION:
