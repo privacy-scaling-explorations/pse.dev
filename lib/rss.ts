@@ -56,7 +56,7 @@ export async function generateRssFeed() {
 
   try {
     // Get all articles
-    const articlesDirectory = path.join(process.cwd(), "articles")
+    const articlesDirectory = path.join(process.cwd(), "content/articles")
     const articleFiles = fs.readdirSync(articlesDirectory)
 
     const articles = articleFiles
