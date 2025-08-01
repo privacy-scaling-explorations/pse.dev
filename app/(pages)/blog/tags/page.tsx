@@ -21,7 +21,7 @@ const BlogTagsPage = async () => {
     queryFn: async () => {
       try {
         const tags = getArticleTags()
-        return tags
+        return tags ?? []
       } catch (error) {
         console.error("Error fetching article tags:", error)
         return []
@@ -29,7 +29,8 @@ const BlogTagsPage = async () => {
     },
   })
 
-  const tags = queryClient.getQueryData(["get-articles-tags"]) as ArticleTag[]
+  const tags =
+    (queryClient.getQueryData(["get-articles-tags"]) as ArticleTag[]) ?? []
 
   return (
     <div className="flex flex-col pb-10">
@@ -46,21 +47,23 @@ const BlogTagsPage = async () => {
           </Link>
           <Label.PageTitle label={LABELS.BLOG_TAGS_PAGE.TITLE} />
         </div>
-        <div className="grid grid-cols-3 gap-2 lg:gap-10">
-          <Suspense fallback={null}>
-            <HydrationBoundary>
-              {tags?.map((tag) => (
-                <Link
-                  href={`/blog/tags/${tag.id}`}
-                  key={tag.id}
-                  className="text-primary border-b-[2px] border-b-anakiwa-500 text-sm font-medium w-fit hover:text-anakiwa-500 duration-200"
-                >
-                  {tag.name}
-                </Link>
-              ))}
-            </HydrationBoundary>
-          </Suspense>
-        </div>
+        {tags.length > 0 && (
+          <div className="grid grid-cols-3 gap-2 lg:gap-10">
+            <Suspense fallback={null}>
+              <HydrationBoundary>
+                {tags?.map((tag) => (
+                  <Link
+                    href={`/blog/tags/${tag.id}`}
+                    key={tag.id}
+                    className="text-primary border-b-[2px] border-b-anakiwa-500 text-sm font-medium w-fit hover:text-anakiwa-500 duration-200"
+                  >
+                    {tag.name}
+                  </Link>
+                ))}
+              </HydrationBoundary>
+            </Suspense>
+          </div>
+        )}
       </AppContent>
     </div>
   )
