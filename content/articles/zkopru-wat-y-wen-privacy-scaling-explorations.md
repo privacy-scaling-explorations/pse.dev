@@ -25,7 +25,7 @@ Originally published on Aug 10, 2021:
 
 ## Intro
 
-The Privacy and Scaling Explorations Team works to bridge the gap between cutting-edge research in Zero-Knowledge Proofs (ZKP), and application development on Ethereum.
+The Privacy Stewards of Ethereums Team works to bridge the gap between cutting-edge research in Zero-Knowledge Proofs (ZKP), and application development on Ethereum.
 
 One of our recent focus areas has been [zkopru](https://zkopru.network/) (zero knowledge optimistic rollup), a new protocol for gas-efficient private transactions. We completed a [trusted setup](https://medium.com/privacy-scaling-explorations/zkopru-trusted-setup-completed-92e614ba44ef) in April and since then have been heads down working on bringing it to completion. We are in the final stages of completing the web wallet and stress testing the system. A second audit is also on its way. With this post we want to give a high level overview of Zkopru's features and what will be happening in the upcoming weeks as Zkopru moves to public testnet and mainnet.
 
