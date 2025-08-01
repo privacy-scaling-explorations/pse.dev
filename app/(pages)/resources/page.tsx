@@ -18,7 +18,7 @@ import { AppLink } from "@/components/app-link"
 
 export const metadata: Metadata = {
   title: "Resources",
-  description: "Resources for the Privacy & Scaling Explorations community",
+  description: "Resources for the Privacy Stewards of Ethereum community",
 }
 
 interface ResourceItemProps {

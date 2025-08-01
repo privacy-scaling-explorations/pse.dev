@@ -24,7 +24,7 @@ export const LABELS = {
     },
     FOOTER: {
       DESCRIPTION:
-        "Privacy + Scaling Explorations is a multidisciplinary team supported by the Ethereum Foundation.",
+        "Privacy Stewards of Ethereum is a multidisciplinary team supported by the Ethereum Foundation.",
       PRIVACY_POLICY: "Privacy Policy",
       TERMS_OF_USE: "Terms of use",
     },

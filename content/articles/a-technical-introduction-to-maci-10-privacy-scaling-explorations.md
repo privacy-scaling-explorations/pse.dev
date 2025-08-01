@@ -1,6 +1,6 @@
 ---
 authors: ["PSE Team"]
-title: "A Technical Introduction to MACI 1.0 - Privacy & Scaling Explorations"
+title: "A Technical Introduction to MACI 1.0 - Privacy Stewards of Ethereum"
 image: null
 tldr: ""
 date: "2022-08-29"

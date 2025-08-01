@@ -1,6 +1,6 @@
 ---
 authors: ["PSE Team"]
-title: "ZKOPRU on Testnet - Privacy & Scaling Explorations"
+title: "ZKOPRU on Testnet - Privacy Stewards of Ethereum"
 image: null
 tldr: "Exciting news! ZKOPRU is now live on the Görli testnet. We show you how to use it."
 date: "2022-08-26"

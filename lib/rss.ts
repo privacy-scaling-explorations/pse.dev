@@ -35,7 +35,7 @@ function formatDate(dateString: string | undefined): Date {
 
 export async function generateRssFeed() {
   const feed = new Feed({
-    title: "Privacy + Scaling Explorations",
+    title: "Privacy Stewards of Ethereum",
     description:
       "PSE is a research and development lab with a mission of making cryptography useful for human collaboration. We build open source tooling with things like zero-knowledge proofs, multiparty computation, homomorphic encryption, Ethereum, and more.",
     id: SITE_URL,
@@ -43,7 +43,7 @@ export async function generateRssFeed() {
     language: "en",
     image: `${SITE_URL}/favicon.ico`,
     favicon: `${SITE_URL}/favicon.ico`,
-    copyright: `All rights reserved ${new Date().getFullYear()}, Privacy & Scaling Explorations`,
+    copyright: `All rights reserved ${new Date().getFullYear()}, Privacy Stewards of Ethereum`,
     updated: new Date(),
     feedLinks: {
       rss2: `${SITE_URL}/api/rss`,

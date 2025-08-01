@@ -50,7 +50,7 @@ The TLSNotary protocol presents a compelling alternative to other solutions for 
 
 For more introductory information, see our [website](https://tlsnotary.org/) which also includes some example use-cases and a link to our (work-in-progress) documentation.
 
-TLSNotary is a project under the [Privacy & Scaling Explorations (PSE)](https://pse.dev/) team at the Ethereum Foundation. PSE is a multi-disciplinary team exploring how programmable cryptography can be applied to enhance privacy and scale trust-minimized systems.
+TLSNotary is a project under the [Privacy Stewards of Ethereum (PSE)](https://pse.dev/) team at the Ethereum Foundation. PSE is a multi-disciplinary team exploring how programmable cryptography can be applied to enhance privacy and scale trust-minimized systems.
 
 ### General-purpose Verifier: Notary
 

@@ -1,6 +1,6 @@
 ---
 authors: ["PSE Team"]
-title: "Meet COCO! - Privacy & Scaling Explorations"
+title: "Meet COCO! - Privacy Stewards of Ethereum"
 image: null
 tldr: "Originally published on Jan 27, 2022"
 date: "2022-08-29"

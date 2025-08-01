@@ -92,7 +92,7 @@ That's it! Your new project will now be visible in the projects list.
 
 ## Project Sections
 
-- `pse`: Privacy & Scaling Explorations projects
+- `pse`: Privacy Stewards of Ethereum projects
 - `grant`: Grant-funded projects
 - `collaboration`: Collaborative projects
 - `archived`: Archived/historical projects

@@ -7,7 +7,7 @@ import { AppLink } from "@/components/app-link"
 
 export const metadata: Metadata = {
   title: "About",
-  description: "About the Privacy & Scaling Explorations community",
+  description: "About the Privacy Stewards of Ethereum community",
 }
 
 export default async function AboutPage() {
