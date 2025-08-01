@@ -3,7 +3,11 @@ import { Icons } from "@/components/icons"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
 import { getArticleTags, ArticleTag } from "@/lib/content"
-import { HydrationBoundary, QueryClient } from "@tanstack/react-query"
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query"
 import Link from "next/link"
 import { Suspense } from "react"
 import { Metadata } from "next"
@@ -47,10 +51,10 @@ const BlogTagsPage = async () => {
           </Link>
           <Label.PageTitle label={LABELS.BLOG_TAGS_PAGE.TITLE} />
         </div>
-        {tags.length > 0 && (
+        {tags?.length > 0 && (
           <div className="grid grid-cols-3 gap-2 lg:gap-10">
             <Suspense fallback={null}>
-              <HydrationBoundary>
+              <HydrationBoundary state={dehydrate(queryClient)}>
                 {tags?.map((tag) => (
                   <Link
                     href={`/blog/tags/${tag.id}`}
