@@ -89,7 +89,7 @@ export async function generateRssFeed() {
     // Add articles to feed
     articles.forEach((article) => {
       try {
-        const url = `${SITE_URL}/articles/${article.slug}`
+        const url = `${SITE_URL}/blog/${article.slug}`
         const pubDate = formatDate(article.frontmatter.date)
 
         feed.addItem({
