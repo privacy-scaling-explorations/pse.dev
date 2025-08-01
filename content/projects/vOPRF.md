@@ -47,7 +47,7 @@ Key elements include:
 ## Milestones
 
 - **February 2025:** Full protocol spec and ethresearch post published
-  - See [ethresearch pos](https://ethresear.ch/t/web2-nullifiers-using-voprf/21762)t and full description of protocol [on Github](https://github.com/privacy-scaling-explorations/vOPRF-ID) and [this presentation](https://x.com/PrivacyScaling/status/1903084082529010174)
+  - See [ethresearch pos](https://ethresear.ch/t/web2-nullifiers-using-voprf/21762)t and full description of protocol [on Github](https://github.com/privacy-scaling-explorations/vOPRF-ID) and [this presentation](https://x.com/PrivacyEthereum/status/1903084082529010174)
 - **March 2025:** Initial implementation (vOPRF + zk circuits) completed see https://github.com/privacy-scaling-explorations/vOPRF-ID
 - **May 2025:** Launch of PoC—fork of Stealthnote enabling pseudonymous posting via Web2-derived nullifiers
 - **July 2025 (planned):** Production-ready OPRF server with key rotation and node monitoring

@@ -21,7 +21,7 @@ links:
 
 ### Overview
 
-zkID is a strategic initiative of the Ethereum Foundation, in collaboration with Privacy and Scaling Explorations (PSE), focused on advancing the use of Zero Knowledge Proofs (ZKPs) in digital identity systems. We contribute to PSE by leading research, coordination, education, and development efforts that enable privacy-preserving, interoperable, and standards-aligned identity infrastructure.
+zkID is a strategic initiative of the Ethereum Foundation, in collaboration with Privacy Stewards of Ethereums (PSE), focused on advancing the use of Zero Knowledge Proofs (ZKPs) in digital identity systems. We contribute to PSE by leading research, coordination, education, and development efforts that enable privacy-preserving, interoperable, and standards-aligned identity infrastructure.
 
 ### Vision
 

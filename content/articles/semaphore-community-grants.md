@@ -20,7 +20,7 @@ tags:
   ]
 ---
 
-**The [Privacy and Scaling Explorations Team](https://appliedzkp.org/) is sponsoring a dedicated round of grants for applications that integrate the [Semaphore](https://semaphore.appliedzkp.org/) anonymous signaling protocol. Semaphore provides zero-knowledge primitives that enable developers to build powerful privacy preserving applications. With this grant round, we’re encouraging builders to try out these tools in real-world applications that matter to your communities.**
+**The [Privacy Stewards of Ethereums Team](https://appliedzkp.org/) is sponsoring a dedicated round of grants for applications that integrate the [Semaphore](https://semaphore.appliedzkp.org/) anonymous signaling protocol. Semaphore provides zero-knowledge primitives that enable developers to build powerful privacy preserving applications. With this grant round, we’re encouraging builders to try out these tools in real-world applications that matter to your communities.**
 
 ## Privacy matters
 

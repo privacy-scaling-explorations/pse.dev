@@ -183,7 +183,7 @@ Our next step is to tackle the following security and efficiency challenges.
 
 ## What's next?
 
-Machina ("mah-kin-ah") iO, a project within [Privacy and Scaling Explorations (PSE)](https://pse.dev), aims to move iO from theory to practice. Alongside our research and engineering efforts, we’ll be publishing a series of posts explaining the core ideas, the vision behind the technology, and the lessons we’ve learned through implementation. If you’re interested in following our journey, we invite you to [subscribe](https://machina-io.com/subscribe.html).
+Machina ("mah-kin-ah") iO, a project within [Privacy Stewards of Ethereums (PSE)](https://pse.dev), aims to move iO from theory to practice. Alongside our research and engineering efforts, we’ll be publishing a series of posts explaining the core ideas, the vision behind the technology, and the lessons we’ve learned through implementation. If you’re interested in following our journey, we invite you to [subscribe](https://machina-io.com/subscribe.html).
 
 ## Acknowledgments
 

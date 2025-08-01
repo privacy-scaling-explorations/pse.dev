@@ -18,7 +18,7 @@ export const events = [
     event: {
       title: "What's next for PSE",
       description:
-        "2024 has brought a lot of changes to the Privacy + Scaling Explorations team. Hear from our new team learn about the past, present and future of PSE.",
+        "2024 has brought a lot of changes to the Privacy Stewards of Ethereum team. Hear from our new team learn about the past, present and future of PSE.",
       url: "https://congress.web3privacy.info/",
       date: "Monday, Nov 11",
       time: "TBA",

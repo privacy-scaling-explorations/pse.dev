@@ -146,4 +146,4 @@ The Trusted Setups project has made significant contributions to the Ethereum ec
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-_PSE is an Ethereum Foundation team building free resources_ for people expanding the world of programmable cryptography. _Learn more at [pse.dev](https://pse.dev/), join our [Discord](https://discord.gg/yujxyBdCfM), or [follow us on X](https://x.com/PrivacyScaling)._
+_PSE is an Ethereum Foundation team building free resources_ for people expanding the world of programmable cryptography. _Learn more at [pse.dev](https://pse.dev/), join our [Discord](https://discord.gg/yujxyBdCfM), or [follow us on X](https://x.com/PrivacyEthereum)._

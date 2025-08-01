@@ -6,7 +6,7 @@ export const siteConfig = {
     "Enhancing Ethereum through cryptographic research and collective experimentation.",
   url: "https://pse.dev",
   links: {
-    twitter: "https://twitter.com/privacyscaling",
+    twitter: "https://x.com/PrivacyEthereum",
     github: "https://github.com/privacy-scaling-explorations",
     docs: "https://ui.shadcn.com",
     discord: "https://discord.com/invite/sF5CT5rzrR",
