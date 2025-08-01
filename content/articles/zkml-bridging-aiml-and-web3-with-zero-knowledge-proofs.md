@@ -23,7 +23,7 @@ projects: ["zkml"]
 
 ## Introduction
 
-I am thrilled to share that my project on ZKML has successfully been completed with the invaluable support from the Ecosystem Support Program of [Privacy & Scaling Explorations](https://appliedzkp.org/) (Ethereum Foundation). This platform bridges the AI/ML and Web3 worlds, providing a privacy-preserving solution with immense potential to revolutionize both industries.
+I am thrilled to share that my project on ZKML has successfully been completed with the invaluable support from the Ecosystem Support Program of [Privacy Stewards of Ethereum](https://appliedzkp.org/) (Ethereum Foundation). This platform bridges the AI/ML and Web3 worlds, providing a privacy-preserving solution with immense potential to revolutionize both industries.
 
 This is a POC of an end-to-end platform for machine learning developers to seamlessly convert their TensorFlow Keras models into ZK-compatible versions. This all-in-one solution consists of three core components:
 

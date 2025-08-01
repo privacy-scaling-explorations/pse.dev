@@ -1,4 +1,4 @@
-# Privacy & Scaling Explorations
+# Privacy Stewards of Ethereum
 
 Enhancing Ethereum through cryptographic research and collective experimentation.
 

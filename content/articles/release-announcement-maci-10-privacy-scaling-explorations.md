@@ -1,6 +1,6 @@
 ---
 authors: ["PSE Team"]
-title: "Release Announcement: MACI 1.0 - Privacy & Scaling Explorations"
+title: "Release Announcement: MACI 1.0 - Privacy Stewards of Ethereum"
 image: null
 tldr: ""
 date: "2022-08-29"
@@ -25,7 +25,7 @@ projects: ["maci"]
 
 Originally published on Oct 12, 2021:
 
-The Privacy & Scaling Explorations team is proud to release version 1.0 of Minimal Anti-Collusion Infrastructure (MACI). MACI enables collusion resistance for decentralised applications, particularly voting and quadratic funding systems. This release is a major upgrade to the project and provides better developer experience and gas savings for users.
+The Privacy Stewards of Ethereum team is proud to release version 1.0 of Minimal Anti-Collusion Infrastructure (MACI). MACI enables collusion resistance for decentralised applications, particularly voting and quadratic funding systems. This release is a major upgrade to the project and provides better developer experience and gas savings for users.
 
 The code is in the `v1` branch of the `appliedzkp/maci`repository and will be merged soon.
 

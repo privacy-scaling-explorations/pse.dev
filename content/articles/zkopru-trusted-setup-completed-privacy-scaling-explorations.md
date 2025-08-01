@@ -1,6 +1,6 @@
 ---
 authors: ["PSE Team"]
-title: "Zkopru Trusted Setup Completed - Privacy & Scaling Explorations"
+title: "Zkopru Trusted Setup Completed - Privacy Stewards of Ethereum"
 image: null
 tldr: "The public participation part of our ceremony has finished, we provide verification details, stats and announce a random beacon"
 date: "2022-08-26"

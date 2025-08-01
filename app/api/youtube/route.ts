@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 
-const CHANNEL_ID = "UCh7qkafm95-kRiLMVPlbIcQ" // Privacy & Scaling Explorations channel ID
+const CHANNEL_ID = "UCh7qkafm95-kRiLMVPlbIcQ" // Privacy Stewards of Ethereum channel ID
 const MAX_VIDEOS = 6
 
 export const revalidate = 3600
@@ -83,7 +83,7 @@ function parseVideosFromXml(xmlData: string) {
         description,
         thumbnailUrl,
         publishedAt,
-        channelTitle: "Privacy & Scaling Explorations",
+        channelTitle: "Privacy Stewards of Ethereum",
         url: `https://www.youtube.com/watch?v=${videoId}`,
       })
     } catch (error) {

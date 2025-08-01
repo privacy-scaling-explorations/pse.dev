@@ -61,7 +61,7 @@ https://vitalik.ca/general/2022/08/04/zkevm.html
 
 ## Consensus-level compatibility
 
-The [zkEVM Community Edition](https://github.com/privacy-scaling-explorations/zkevm-circuits) is a collaborative effort focused on creating a zkEVM capable of verifying Ethereum's current execution layer. The goal is to be ["fully and uncompromisingly Ethereum-equivalent."](https://vitalik.ca/general/2022/08/04/zkevm.html) The project is being stewarded by [Privacy & Scaling Explorations (PSE)](https://appliedzkp.org/), a team within the [Ethereum Foundation](https://ethereum.foundation/) specializing in applied zero-knowledge cryptography.
+The [zkEVM Community Edition](https://github.com/privacy-scaling-explorations/zkevm-circuits) is a collaborative effort focused on creating a zkEVM capable of verifying Ethereum's current execution layer. The goal is to be ["fully and uncompromisingly Ethereum-equivalent."](https://vitalik.ca/general/2022/08/04/zkevm.html) The project is being stewarded by [Privacy Stewards of Ethereum (PSE)](https://appliedzkp.org/), a team within the [Ethereum Foundation](https://ethereum.foundation/) specializing in applied zero-knowledge cryptography.
 
 The work toward completing the zkEVM Community Edition will result in two scalability solutions:
 

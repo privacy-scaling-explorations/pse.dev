@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://pse.dev"),
   description: siteConfig.description,
   keywords: [
-    "Privacy & Scaling Explorations",
+    "Privacy Stewards of Ethereum",
     "Zero Knowledge Proofs",
     "ZK Proofs",
     "Cryptography",
@@ -87,11 +87,11 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "Privacy + Scaling Explorations",
+      name: "Privacy Stewards of Ethereum",
       url: "https://pse.dev",
     },
   ],
-  creator: "Privacy + Scaling Explorations",
+  creator: "Privacy Stewards of Ethereum",
   openGraph: {
     images: [
       {
@@ -106,7 +106,7 @@ export const metadata: Metadata = {
       "application/rss+xml": [
         {
           url: "/api/rss",
-          title: "RSS Feed for Privacy & Scaling Explorations",
+          title: "RSS Feed for Privacy Stewards of Ethereum",
         },
       ],
     },

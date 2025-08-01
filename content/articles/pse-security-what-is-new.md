@@ -26,7 +26,7 @@ This post was authored by **Kyle Charbonnet**, team lead of PSE Security.
 
 ## What is the PSE Security Team?
 
-The Privacy & Scaling Explorations (PSE) team at the Ethereum Foundation has a dedicated security division focused on finding bugs and strengthening security in Ethereum’s L2 and zero-knowledge ecosystems. Bugs in these areas can have critical consequences, so proactive security is essential, especially in such fast-evolving domains.
+The Privacy Stewards of Ethereum (PSE) team at the Ethereum Foundation has a dedicated security division focused on finding bugs and strengthening security in Ethereum’s L2 and zero-knowledge ecosystems. Bugs in these areas can have critical consequences, so proactive security is essential, especially in such fast-evolving domains.
 
 ---
 
@@ -114,7 +114,7 @@ Both the **ZK Bug Tracker** and **Bridge Bug Tracker** are open to community con
 
 ### Stay Updated
 
-Subscribe to [Privacy & Scaling Explorations](https://pse.dev) to get the latest on research, tooling, and security efforts.
+Subscribe to [Privacy Stewards of Ethereum](https://pse.dev) to get the latest on research, tooling, and security efforts.
 
 Mint this entry as an NFT to add it to your collection.
 

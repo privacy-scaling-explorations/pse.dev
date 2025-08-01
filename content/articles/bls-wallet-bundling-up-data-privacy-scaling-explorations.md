@@ -1,6 +1,6 @@
 ---
 authors: ["PSE Team"]
-title: "BLS Wallet: Bundling up data - Privacy & Scaling Explorations"
+title: "BLS Wallet: Bundling up data - Privacy Stewards of Ethereum"
 image: null
 tldr: "BLS Wallet is an end-to-end system allowing wallets, dapps, and L2 nodes to easily plug the moon math magic of BLS signatures directly into their code."
 date: "2022-08-26"
