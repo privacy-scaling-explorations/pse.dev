@@ -3,7 +3,7 @@ export const LABELS = {
     TITLE: "Blog",
     SUBTITLE:
       "Read our latest articles and stay updated on the latest news in the world of cryptography.",
-    RECENT_ARTICLES: "Recent articles",
+    RECENT_ARTICLES: "Recent posts",
     SEE_MORE: "See more",
     READ_MORE: "Read more",
     SEARCH_PLACEHOLDER: "Search PSE's blog",
@@ -104,13 +104,14 @@ export const LABELS = {
     MORE_POSTS: "More posts",
   },
   HOMEPAGE: {
-    MISSION:
+    MISSION_TITLE: "Our Mission",
+    MISSION_DESCRIPTION:
       "Ethereum is the foundation of a freer digital world, but it will not reach its full potential without privacy. We’re building cryptographic tools, co-creating standards, and coordinating throughout the ecosystem to make privacy practical for Ethereum.",
     MISSION_BUTTON: "LEARN MORE ABOUT US",
     HEADER_TITLE: "Privacy Stewards of Ethereum",
     HEADER_SUBTITLE:
-      "PSE is a research and development lab delivering privacy to the Ethereum ecosystem",
-    JOIN_OUR_DISCORD: "Join our community",
+      "PSE is a research lab delivering privacy to the Ethereum ecosystem.",
+    JOIN_OUR_DISCORD: "Join our Discord",
     CONNECT_WITH_US: {
       TITLE: "Join our programs",
       DESCRIPTION:
@@ -245,13 +246,13 @@ export const LABELS = {
   },
   WHAT_WE_DO_SECTION: {
     BUILD: {
-      TITLE: "Build",
+      TITLE: "Building open source tools",
       DESCRIPTION:
         "We develop open source tools for things like data provenance, private identity, voting, and more to make privacy a core feature of Ethereum's application layer.",
       ACTION: "See our projects",
     },
     RESEARCH: {
-      TITLE: "Research",
+      TITLE: "Researching new applications",
       DESCRIPTION:
         "We benchmark primitives, systematize knowledge, and explore new ideas with the potential to transform the capabilities and impact of programmable cryptography.",
       ACTION: "See our research",

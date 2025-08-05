@@ -47,7 +47,7 @@ export function SiteFooter() {
 
   return (
     <footer className="flex flex-col">
-      <div className="bg-tuatara-950 text-white py-8 text-left text-[14px] dark:bg-black dark:border-t dark:border-anakiwa-800">
+      <div className="bg-tuatara-950 text-white py-8 text-left text-[14px] dark:bg-black">
         <AppContent className="flex gap-10 py-2 lg:gap-24 justify-center">
           <LinksWrapper>
             {MAIN_NAV.map(

@@ -1,4 +1,4 @@
-import { WhatWeDo } from "@/components/sections/WhatWeDo"
+import { OurWork } from "@/components/sections/OurWork"
 import { HomepageVideoFeed } from "@/components/sections/HomepageVideoFeed"
 
 import { BlogRecentArticles } from "@/components/blog/blog-recent-articles"
@@ -30,13 +30,16 @@ export default function IndexPage() {
     <section className="flex flex-col w-full">
       <HomepageHeader />
 
-      <div className="flex flex-col justify-center bg-anakiwa-975 py-16">
-        <div className="lg:max-w-[730px] flex flex-col mx-auto gap-10 justify-center items-center">
-          <span className="text-white font-sans text-base lg:text-xl text-center">
-            {LABELS.HOMEPAGE.MISSION}
+      <div className="flex flex-col justify-center bg-white dark:bg-black py-20">
+        <div className="lg:max-w-[890px] flex flex-col mx-auto gap-10 justify-center items-center">
+          <span className="dark:text-anakita font-sans text-base text-center text-tuatara-950 font-bold uppercase tracking-[3.36px]">
+            {LABELS.HOMEPAGE.MISSION_TITLE}
+          </span>
+          <span className="dark:text-tuatara-100 font-sans text-base lg:text-xl text-center text-tuatara-950 font-medium">
+            {LABELS.HOMEPAGE.MISSION_DESCRIPTION}
           </span>
           <Link href="/about">
-            <Button variant="transparent">
+            <Button>
               <div className="flex items-center gap-1">
                 <span className="text-base font-medium uppercase">
                   {LABELS.HOMEPAGE.MISSION_BUTTON}
@@ -51,11 +54,11 @@ export default function IndexPage() {
         </div>
       </div>
 
+      <OurWork />
+
       <BlogSection />
 
       <HomepageVideoFeed />
-
-      <WhatWeDo />
 
       <HomepageBanner />
     </section>

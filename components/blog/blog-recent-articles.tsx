@@ -140,10 +140,10 @@ export async function BlogRecentArticles() {
   const otherArticles = articles.slice(1)
 
   return (
-    <div className="py-10 lg:py-16">
+    <div className="py-10 lg:py-20">
       <AppContent>
         <div className="flex flex-col gap-10">
-          <h3 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
+          <h3 className="font-sans text-base font-bold uppercase tracking-[3.36px] text-tuatara-950 text-center dark:text-anakiwa-400">
             {LABELS.BLOG_PAGE.RECENT_ARTICLES}
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
