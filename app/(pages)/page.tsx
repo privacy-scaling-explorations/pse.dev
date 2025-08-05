@@ -32,7 +32,7 @@ export default function IndexPage() {
 
       <div className="flex flex-col justify-center bg-white dark:bg-black py-20">
         <div className="lg:max-w-[890px] flex flex-col mx-auto gap-10 justify-center items-center">
-          <span className="dark:text-anakita font-sans text-base text-center text-tuatara-950 font-bold uppercase tracking-[3.36px]">
+          <span className="dark:text-anakita font-sans text-base text-center text-tuatara-950 dark:text-anakiwa-400 font-bold uppercase tracking-[3.36px]">
             {LABELS.HOMEPAGE.MISSION_TITLE}
           </span>
           <span className="dark:text-tuatara-100 font-sans text-base lg:text-xl text-center text-tuatara-950 font-medium">
