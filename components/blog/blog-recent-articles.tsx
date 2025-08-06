@@ -109,13 +109,20 @@ const ArticleInEvidenceCard = ({
             {article.authors?.join(", ")}
           </span>
           {article.tldr && !hideTldr && (
-            <span
-              className={
-                "text-sm font-sans text-white font-normal line-clamp-2 lg:line-clamp-5 mt-auto hidden lg:block"
-              }
-            >
-              {article.tldr}
-            </span>
+            <div className="mt-auto hidden lg:block w-full">
+              <p
+                className="text-sm font-sans text-white font-normal line-clamp-2 lg:line-clamp-3"
+                style={{
+                  display: "-webkit-box",
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                  wordBreak: "break-word",
+                  whiteSpace: "pre-wrap",
+                }}
+              >
+                {article.tldr}
+              </p>
+            </div>
           )}
           {showReadMore && (
             <Link href={`/blog/${article.id}`} className="ml-auto mt-4">
