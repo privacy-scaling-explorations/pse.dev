@@ -41,7 +41,7 @@ const VideoCard = ({ video }: { video: Video }) => {
           <Icons.play />
         </div>
       </div>
-      <h3 className="font-sans text-sm font-normal line-clamp-3 text-white group-hover:text-tuatara-400 transition-colors">
+      <h3 className="font-sans text-sm font-normal line-clamp-3 text-tuatara-950 dark:text-tuatara-100 group-hover:text-tuatara-400 transition-colors">
         {video.title}
       </h3>
     </Link>

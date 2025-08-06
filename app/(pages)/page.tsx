@@ -2,7 +2,7 @@ import { OurWork } from "@/components/sections/OurWork"
 import { HomepageVideoFeed } from "@/components/sections/HomepageVideoFeed"
 
 import { BlogRecentArticles } from "@/components/blog/blog-recent-articles"
-import { HomepageHeader } from "@/components/sections/HomepageHeader"
+import { ParallaxHero } from "@/components/sections/ParallaxHero"
 import { HomepageBanner } from "@/components/sections/HomepageBanner"
 import { Suspense } from "react"
 import { Button } from "@/components/ui/button"
@@ -19,7 +19,6 @@ function BlogSection() {
         </div>
       }
     >
-      {/* @ts-expect-error - This is a valid server component pattern */}
       <BlogRecentArticles />
     </Suspense>
   )
@@ -28,7 +27,7 @@ function BlogSection() {
 export default function IndexPage() {
   return (
     <section className="flex flex-col w-full">
-      <HomepageHeader />
+      <ParallaxHero />
 
       <div className="flex flex-col justify-center bg-white dark:bg-black py-20">
         <div className="lg:max-w-[890px] flex flex-col mx-auto gap-10 justify-center items-center">

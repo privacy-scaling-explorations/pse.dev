@@ -4,7 +4,7 @@ export const LABELS = {
     SUBTITLE:
       "Read our latest articles and stay updated on the latest news in the world of cryptography.",
     RECENT_ARTICLES: "Recent posts",
-    SEE_MORE: "See more",
+    SEE_MORE: "More posts",
     READ_MORE: "Read more",
     SEARCH_PLACEHOLDER: "Search PSE's blog",
   },
@@ -118,7 +118,7 @@ export const LABELS = {
         "Want to explore the world of programmable cryptography and learn how to make contributions to open-source projects? Join our free programs to start your journey!",
     },
     VIDEOS: "VIDEOS",
-    VISIT_OUR_CHANNEL: "VISIT OUR CHANNEL",
+    VISIT_OUR_CHANNEL: "More videos",
     ERROR_LOADING_VIDEOS: "Error loading videos",
     CHECK_OUT_OUR_YOUTUBE:
       "Check out our YouTube to learn the latest in advanced cryptography.",

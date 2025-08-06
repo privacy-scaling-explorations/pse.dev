@@ -168,7 +168,7 @@ export async function BlogRecentArticles() {
                     {article.title}
                   </h4>
                   {article.authors && (
-                    <span className="text-sm font-sans text-tuatara-400 uppercase">
+                    <span className="text-xs font-sans text-tuatara-400">
                       {article.authors?.join(", ")}
                     </span>
                   )}
