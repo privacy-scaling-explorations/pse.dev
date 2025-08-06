@@ -34,7 +34,7 @@ export default function IndexPage() {
           <span className="dark:text-anakita font-sans text-base text-center text-tuatara-950 dark:text-anakiwa-400 font-bold uppercase tracking-[3.36px]">
             {LABELS.HOMEPAGE.MISSION_TITLE}
           </span>
-          <span className="dark:text-tuatara-100 font-sans text-base lg:text-xl text-center text-tuatara-950 font-medium">
+          <span className="dark:text-tuatara-100 font-sans text-base lg:text-xl text-center text-tuatara-500 font-medium">
             {LABELS.HOMEPAGE.MISSION_DESCRIPTION}
           </span>
           <Link href="/about">
