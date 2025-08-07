@@ -110,7 +110,7 @@ export const LABELS = {
     MISSION_BUTTON: "LEARN MORE ABOUT US",
     HEADER_TITLE: "Privacy Stewards of Ethereum",
     HEADER_SUBTITLE:
-      "PSE is a research lab delivering privacy to the Ethereum ecosystem.",
+      "PSE is a research and development lab delivering privacy to the Ethereum ecosystem.",
     JOIN_OUR_DISCORD: "Join our Discord",
     CONNECT_WITH_US: {
       TITLE: "Join our programs",
