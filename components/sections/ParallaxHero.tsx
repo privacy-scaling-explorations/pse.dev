@@ -24,7 +24,7 @@ export const ParallaxHero = () => {
       style={{ isolation: "isolate" }}
     >
       <motion.div
-        className="absolute inset-0 w-full h-[120%] -z-10 bg-[url('/hero/hero-white.jpg')] dark:bg-[url('/hero/hero-dark.jpg')] bg-cover bg-[0_-150px]"
+        className="absolute inset-0 w-full h-[120%] -z-10 bg-[url('/hero/hero.jpg')] dark:bg-[url('/hero/hero-dark-mode.jpg')] bg-cover bg-[0_-150px]"
         style={{
           y: backgroundY,
         }}
