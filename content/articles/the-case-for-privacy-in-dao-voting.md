@@ -8,7 +8,6 @@ tags: ["privacy", "governance", "DAOs", "MACI", "zkSNARKs"]
 projects: ["MACI"]
 ---
 
-# The case for privacy in DAO voting
 
 # Transparent by default
 
