@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server"
 import algoliasearch from "algoliasearch"
+import { NextRequest, NextResponse } from "next/server"
 
 const appId =
   process.env.ALGOLIA_APP_ID || process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || ""
@@ -24,7 +24,7 @@ const searchClient = appId && apiKey ? algoliasearch(appId, apiKey) : null
 
 function transformQuery(query: string) {
   if (query.toLowerCase().includes("intmax")) {
-    return query.replace(/intmax/i, '"intmax"')
+    return query.replace(/intmax/i, "\"intmax\"")
   }
   return query
 }

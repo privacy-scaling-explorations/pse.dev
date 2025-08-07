@@ -67,7 +67,7 @@ export const WikiCard = ({ project, className = "" }: WikiCardProps) => {
   const projectFunding = ProjectSectionLabelMapping[project?.section]
   const { label: projectStatus } = statusItem?.[project?.projectStatus] ?? {}
   const builtWithKeys: string[] = project?.tags?.builtWith ?? []
-  const previousBrandImage = project?.previousBrandImage
+  const previousBrandImage = project?.previousBrandImage ?? ""
 
   return (
     <div className={cn("flex flex-col gap-6", className)}>
@@ -86,7 +86,7 @@ export const WikiCard = ({ project, className = "" }: WikiCardProps) => {
               quality={85}
             />
             {!project?.image && (
-              <span className="absolute w-full px-5 text-3xl font-bold text-center text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
+              <span className="absolute w-full px-5 text-xl font-bold text-center text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
                 {project?.imageAlt || project?.name}
               </span>
             )}
@@ -130,7 +130,7 @@ export const WikiCard = ({ project, className = "" }: WikiCardProps) => {
             )}
           </div>
         </Card>
-        {previousBrandImage && (
+        {(previousBrandImage ?? "")?.length > 0 && (
           <Card padding="none">
             <div className="relative flex max-h-[140px] items-center justify-center overflow-hidden rounded-t-lg ">
               <Image
@@ -143,7 +143,7 @@ export const WikiCard = ({ project, className = "" }: WikiCardProps) => {
                 quality={85}
               />
               {!project?.image && (
-                <span className="absolute w-full px-5 text-3xl font-bold text-center text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
+                <span className="absolute w-full px-5 text-xl font-bold text-center text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
                   {project?.imageAlt || project?.name}
                 </span>
               )}
