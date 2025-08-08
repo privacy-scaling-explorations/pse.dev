@@ -109,13 +109,20 @@ const ArticleInEvidenceCard = ({
             {article.authors?.join(", ")}
           </span>
           {article.tldr && !hideTldr && (
-            <span
-              className={
-                "text-sm font-sans text-white font-normal line-clamp-2 lg:line-clamp-5 mt-auto hidden lg:block"
-              }
-            >
-              {article.tldr}
-            </span>
+            <div className="mt-auto hidden lg:block w-full">
+              <p
+                className="text-sm font-sans text-white font-normal line-clamp-2 lg:line-clamp-3"
+                style={{
+                  display: "-webkit-box",
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                  wordBreak: "break-word",
+                  whiteSpace: "pre-wrap",
+                }}
+              >
+                {article.tldr}
+              </p>
+            </div>
           )}
           {showReadMore && (
             <Link href={`/blog/${article.id}`} className="ml-auto mt-4">
@@ -140,10 +147,10 @@ export async function BlogRecentArticles() {
   const otherArticles = articles.slice(1)
 
   return (
-    <div className="py-10 lg:py-16">
+    <div className="py-10 lg:py-20">
       <AppContent>
         <div className="flex flex-col gap-10">
-          <h3 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
+          <h3 className="font-sans text-base font-bold uppercase tracking-[3.36px] text-tuatara-950 text-center dark:text-anakiwa-400">
             {LABELS.BLOG_PAGE.RECENT_ARTICLES}
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
@@ -168,7 +175,7 @@ export async function BlogRecentArticles() {
                     {article.title}
                   </h4>
                   {article.authors && (
-                    <span className="text-sm font-sans text-tuatara-400 uppercase">
+                    <span className="text-xs font-sans text-tuatara-400">
                       {article.authors?.join(", ")}
                     </span>
                   )}

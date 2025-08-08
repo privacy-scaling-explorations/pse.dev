@@ -115,7 +115,7 @@
   }
   html {
     @apply font-sans;
-    text-rendering: geometricPrecision;
+    text-rendering: geometricPrecision !important;
   }
   body {
     @apply font-sans bg-background text-foreground;

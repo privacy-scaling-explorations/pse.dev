@@ -53,8 +53,8 @@ export function MainNav({ items }: MainNavProps) {
                   {
                     "cursor-not-allowed": item.disabled,
                     "border-transparent": item.href !== router,
-                    "!border-orange": item.href === router || isActive,
-                    "text-sm font-medium duration-200 ease-in-out hover:border-orange":
+                    "!border-anakiwa-400": item.href === router || isActive,
+                    "text-sm font-medium duration-200 ease-in-out hover:border-anakiwa-400":
                       true,
                   }
                 )}
