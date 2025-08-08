@@ -1,14 +1,13 @@
-import { WhatWeDo } from "@/components/sections/WhatWeDo"
-import { HomepageVideoFeed } from "@/components/sections/HomepageVideoFeed"
-
-import { BlogRecentArticles } from "@/components/blog/blog-recent-articles"
-import { HomepageHeader } from "@/components/sections/HomepageHeader"
-import { HomepageBanner } from "@/components/sections/HomepageBanner"
-import { Suspense } from "react"
-import { Button } from "@/components/ui/button"
 import { LABELS } from "../labels"
+import { BlogRecentArticles } from "@/components/blog/blog-recent-articles"
 import { Icons } from "@/components/icons"
+import { HomepageBanner } from "@/components/sections/HomepageBanner"
+import { HomepageHeader } from "@/components/sections/HomepageHeader"
+import { HomepageVideoFeed } from "@/components/sections/HomepageVideoFeed"
+import { WhatWeDo } from "@/components/sections/WhatWeDo"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { Suspense } from "react"
 
 function BlogSection() {
   return (
@@ -19,7 +18,6 @@ function BlogSection() {
         </div>
       }
     >
-      {/* @ts-expect-error - This is a valid server component pattern */}
       <BlogRecentArticles />
     </Suspense>
   )

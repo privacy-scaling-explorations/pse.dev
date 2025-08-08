@@ -6,7 +6,6 @@ section: "pse"
 projectStatus: "active"
 category: "devtools"
 tldr: "A zero-knowledge protocol for anonymous interactions."
-previousBrandImage: "semaphorePrevious.jpg"
 license: "MIT"
 tags:
   keywords:
