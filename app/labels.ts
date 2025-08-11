@@ -220,14 +220,12 @@ export const LABELS = {
     },
   },
   PROJECTS_PAGE: {
-    TITLE: "Explore our Project Library",
-    SUBTITLE:
-      "Everything PSE works on is public and open source. All of our projects, whether research or development, are resources you can learn from and build with.",
+    TITLE: "Explore Our Projects",
   },
   RESEARCH_PAGE: {
-    TITLE: "Research",
+    TITLE: "Explore Our Research",
     SUBTITLE:
-      "Our research model is exploratory, iterative, and full-stack. We work on areas that are often overlooked by academia or industry — foundational concepts that need clarity, implementation gaps that have stalled progress, and risky ideas with uncertain but transformative potential. Sometimes our research unlocks a new breakthrough that leads to prototypes, and sometimes we just clarify assumptions and fill in theoretical gaps. We believe meaningful progress comes from applying research to real-world needs. Our work is open source, and we maintain a feedback loop so that challenges from the field can help shape our focus. We aim to support the broader ecosystem by systematizing knowledge, benchmarking new primitives, and offering credible guidance to advance the world of cryptography.",
+      "Our research model is open source, iterative, and driven by real-world use cases.",
     ACTIVE_RESEARCH: "Active Research",
     PAST_RESEARCH: "Past Research",
   },

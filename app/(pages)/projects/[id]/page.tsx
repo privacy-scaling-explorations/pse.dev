@@ -33,7 +33,7 @@ export async function generateMetadata({
   const imageUrl =
     (project?.image ?? "")?.length > 0
       ? `/project-banners/${project?.image}`
-      : "/og-image.png"
+      : "/share-image.png"
 
   return {
     title: project?.name,

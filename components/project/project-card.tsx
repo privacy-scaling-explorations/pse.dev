@@ -103,7 +103,7 @@ export default function ProjectCard({
           </Link>
           {(tldr ?? "")?.length > 0 && (
             <div className="flex flex-col h-24 gap-4">
-              <p className="text-slate-900/80 line-clamp-4 dark:text-tuatara-200">
+              <p className=" text-tuatara-500 text-base line-clamp-4 dark:text-tuatara-200">
                 {tldr}
               </p>
             </div>

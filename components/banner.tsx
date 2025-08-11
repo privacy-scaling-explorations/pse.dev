@@ -22,14 +22,14 @@ const Banner = ({ title, subtitle, children, className }: BannerProps) => {
         <AppContent className="flex flex-col gap-8">
           <div className="flex flex-col items-center text-center">
             {typeof title === "string" ? (
-              <h6 className="py-4 font-sans text-base font-bold uppercase tracking-[4px] text-tuatara-950 dark:text-anakiwa-400">
+              <h6 className="py-4 font-sans text-base font-bold uppercase tracking-[4px] text-tuatara-950 dark:text-tuatara-100">
                 {title}
               </h6>
             ) : (
               title
             )}
             {subtitle && (
-              <span className="md:max-w-[600px] font-normal font-sans text-base text-tuatara-950 dark:text-tuatara-100">
+              <span className="md:max-w-[600px] text-base lg:text-xl font-normal font-sans text-tuatara-950 dark:text-tuatara-100">
                 {subtitle}
               </span>
             )}

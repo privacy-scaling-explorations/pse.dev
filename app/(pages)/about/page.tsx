@@ -2,9 +2,7 @@ import { AppContent } from "@/components/ui/app-content"
 
 import { Metadata } from "next"
 import { HomepageBanner } from "@/components/sections/HomepageBanner"
-import { Divider } from "@/components/divider"
 import { AppLink } from "@/components/app-link"
-
 export const metadata: Metadata = {
   title: "About",
   description: "About the Privacy Stewards of Ethereum community",
@@ -30,96 +28,121 @@ export default async function AboutPage() {
   ]
 
   return (
-    <Divider.Section>
-      <div className="w-full bg-page-header-gradient dark:bg-transparent-gradient">
-        <AppContent className="flex flex-col gap-16 py-16 w-full max-w-[978px] mx-auto">
-          <div className="flex flex-col gap-10">
-            <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
-              Our Mission
-            </h2>
-            <span className="text-xl font-sans dark:text-tuatara-200 text-black lg:max-w-[730px] mx-auto">
-              As Privacy Stewards of Ethereum (PSE), our mission is to deliver
-              privacy to the{" "}
-              <AppLink href="https://ethereum.org/en/" external>
-                Ethereum ecosystem
-              </AppLink>
-              . We envision a future where privacy on Ethereum is the norm
-              rather than the exception.
-              <br /> <br />
-              Building{" "}
-              <AppLink
-                href="https://www.activism.net/cypherpunk/manifesto.html"
-                external
-              >
-                “an open society in the electronic age”
-              </AppLink>{" "}
-              {
-                "requires privacy that is usable, scalable, and secure. We are a team of applied cryptographers, mathematicians, developers, designers, and coordinators working to embed programmable cryptography into Ethereum's application layer and make privacy accessible to individuals, developers, and institutions."
-              }{" "}
-              <br /> <br />
-              Privacy is a cornerstone of freedom, safety, and is an{" "}
-              <AppLink
-                href="https://vitalik.eth.limo/general/2025/04/14/privacy.html"
-                external
-              >
-                important guarantor for decentralization.
-              </AppLink>{" "}
-              {`We're building a future where digital infrastructure respects
+    <>
+      <div className="w-full bg-white dark:bg-transparent-gradient">
+        <div className="flex flex-col gap-16 py-16">
+          <AppContent className=" w-full max-w-[800px] mx-auto">
+            <div className="flex flex-col gap-10">
+              <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
+                Our Mission
+              </h2>
+              <span className="text-xl font-sans dark:text-tuatara-200 text-tuatara-500 mx-auto">
+                As Privacy Stewards of Ethereum (PSE), our mission is to deliver
+                privacy to the{" "}
+                <AppLink
+                  href="https://ethereum.org/en/"
+                  external
+                  variant="blue"
+                >
+                  Ethereum ecosystem
+                </AppLink>
+                . We envision a future where privacy on Ethereum is the norm
+                rather than the exception.
+                <br /> <br />
+                Building{" "}
+                <AppLink
+                  href="https://www.activism.net/cypherpunk/manifesto.html"
+                  external
+                  variant="blue"
+                >
+                  “an open society in the electronic age”
+                </AppLink>{" "}
+                {
+                  "requires privacy that is usable, scalable, and secure. We are a team of applied cryptographers, mathematicians, developers, designers, and coordinators working to embed programmable cryptography into Ethereum's application layer and make privacy accessible to individuals, developers, and institutions."
+                }{" "}
+                <br /> <br />
+                Privacy is a cornerstone of freedom, safety, and is an{" "}
+                <AppLink
+                  href="https://vitalik.eth.limo/general/2025/04/14/privacy.html"
+                  external
+                  variant="blue"
+                >
+                  important guarantor for decentralization.
+                </AppLink>{" "}
+                {`We're building a future where digital infrastructure respects
               privacy by default, and permissions are purpose-specific,
               informed, uncoerced, and revocable.`}
-              <br /> <br />
-              {`Programmable cryptography unlocks transformative capabilities for
+                <br /> <br />
+                {`Programmable cryptography unlocks transformative capabilities for
               digital commerce, identity, governance, and other systems of
               coordination. But the road to privacy isn't only technical. It
               requires shifts in user behavior, developer priorities, regulatory
               frameworks, and cultural norms. This is a collective challenge and
               we`}{" "}
-              <AppLink href="https://discord.com/invite/sF5CT5rzrR" external>
-                invite you
-              </AppLink>{" "}
-              to help us shape a more free digital future.
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-10">
-            <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
-              Our Work
-            </h2>
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 max-auto">
-              {OurWorkItems?.map((item, index) => (
-                <div className="flex flex-col gap-6 w-full lg:max-w-[300px]">
-                  <article className="flex flex-col gap-2" key={index}>
-                    <h6 className="font-sans text-xl font-medium text-black dark:text-white">
-                      {item.label}
-                    </h6>
-                    <p className="font-sans text-base font-normal text-black dark:text-white">
-                      {item.description}
-                    </p>
-                  </article>
-                </div>
-              ))}
+                <AppLink
+                  href="https://discord.com/invite/sF5CT5rzrR"
+                  external
+                  variant="blue"
+                >
+                  invite you
+                </AppLink>{" "}
+                to help us shape a more free digital future.
+              </span>
             </div>
+          </AppContent>
+
+          <div className="bg-cover-gradient dark:bg-anakiwa-975 dark:bg-none py-16 ">
+            <AppContent className=" w-full max-w-[800px] mx-auto">
+              <div className="flex flex-col gap-10">
+                <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
+                  Our Work
+                </h2>
+                <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 max-auto">
+                  {OurWorkItems?.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col gap-6 w-full lg:max-w-[400px] p-5 rounded-[10px] bg-white border border-anakiwa-300 dark:border-anakiwa-400  dark:bg-anakiwa-975"
+                    >
+                      <article className="flex flex-col gap-2">
+                        <h6 className="font-sans text-xl font-medium text-tuatara-950 dark:text-anakiwa-400">
+                          {item.label}
+                        </h6>
+                        <p className="font-sans text-base font-normal text-tuatara-500 dark:text-tuatara-100">
+                          {item.description}
+                        </p>
+                      </article>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AppContent>
           </div>
 
-          <div className="flex flex-col gap-10">
-            <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
-              Our History
-            </h2>
-            <span className="text-xl font-sans dark:text-tuatara-200 text-black lg:max-w-[730px] mx-auto">
-              We began in 2018 as Applied ZKP, a team supported by the{" "}
-              <AppLink href="https://ethereum.foundation/" external>
-                Ethereum Foundation
-              </AppLink>{" "}
-              to push zero-knowledge proofs from theory to practice. In 2021, we
-              became Privacy & Scaling Explorations (PSE), expanding our scope
-              to programmable cryptography and tools across the stack. In 2025,
-              we refined our mission as Privacy Stewards for Ethereum, shifting
-              our focus toward concrete ecosystem impact.
-            </span>
-          </div>
-        </AppContent>
+          <AppContent className=" w-full max-w-[800px] mx-auto">
+            <div className="flex flex-col gap-10">
+              <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
+                Our History
+              </h2>
+              <span className="text-xl font-sans dark:text-tuatara-200 text-tuatara-500 mx-auto">
+                We began in 2018 as Applied ZKP, a team supported by the{" "}
+                <AppLink
+                  href="https://ethereum.foundation/"
+                  external
+                  variant="blue"
+                >
+                  Ethereum Foundation
+                </AppLink>{" "}
+                to push zero-knowledge proofs from theory to practice. In 2021,
+                we became Privacy & Scaling Explorations (PSE), expanding our
+                scope to programmable cryptography and tools across the stack.
+                In 2025, we refined our mission as Privacy Stewards for
+                Ethereum, shifting our focus toward concrete ecosystem impact.
+              </span>
+            </div>
+          </AppContent>
+        </div>
       </div>
       <HomepageBanner />
-    </Divider.Section>
+    </>
   )
 }

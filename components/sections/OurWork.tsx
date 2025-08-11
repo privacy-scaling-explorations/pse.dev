@@ -36,7 +36,7 @@ export const OurWork = () => {
     <div className="flex flex-col justify-center bg-cover-gradient dark:bg-anakiwa-975 dark:bg-none py-16">
       <AppContent className="mx-auto lg:max-w-[845px] w-full">
         <section className="flex flex-col gap-10">
-          <h6 className="font-sans text-base font-bold uppercase tracking-[3.36px] text-primary text-center text-tuatara-950 dark:text-anakiwa-400">
+          <h6 className="font-sans text-base font-bold uppercase tracking-[3.36px] text-primary text-center text-tuatara-950 dark:text-tuatara-100">
             Our Work
           </h6>
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 max-auto">

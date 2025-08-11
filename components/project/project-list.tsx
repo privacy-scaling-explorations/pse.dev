@@ -162,7 +162,7 @@ export const ProjectList = () => {
               data-section={status}
               className="flex justify-between gap-10"
             >
-              <div className={cn("flex w-full flex-col gap-10 pt-10")}>
+              <div className={cn("flex w-full flex-col gap-10")}>
                 <SectionWrapper
                   title={status}
                   description={description}
