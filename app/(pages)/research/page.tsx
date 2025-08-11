@@ -1,9 +1,10 @@
-import { Metadata } from "next"
 import { LABELS } from "@/app/labels"
-import { AppContent } from "@/components/ui/app-content"
-import { ResearchList } from "@/components/research/research-list"
-import { Button } from "@/components/ui/button"
+import { AppLink } from "@/components/app-link"
 import { Icons } from "@/components/icons"
+import { ResearchList } from "@/components/research/research-list"
+import { AppContent } from "@/components/ui/app-content"
+import { Button } from "@/components/ui/button"
+import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Research",
@@ -23,13 +24,15 @@ const ResearchPage = async () => {
             <span className="text-base lg:text-xl dark:text-tuatara-200 text-tuatara-950 font-sans">
               {LABELS.RESEARCH_PAGE.SUBTITLE}
             </span>
-            <Button
-              icon={Icons.arrowRight}
-              iconPosition="right"
-              className="uppercase"
-            >
-              {LABELS.COMMON.LEARN_MORE}
-            </Button>
+            <AppLink variant="button" href="/about">
+              <Button
+                icon={Icons.arrowRight}
+                iconPosition="right"
+                className="uppercase"
+              >
+                {LABELS.COMMON.LEARN_MORE}
+              </Button>
+            </AppLink>
           </div>
         </div>
       </AppContent>

@@ -1,15 +1,15 @@
-import { AppContent } from "@/components/ui/app-content"
-
-import { Metadata } from "next"
-import { HomepageBanner } from "@/components/sections/HomepageBanner"
 import { AppLink } from "@/components/app-link"
+import { HomepageBanner } from "@/components/sections/HomepageBanner"
+import { AppContent } from "@/components/ui/app-content"
+import { Metadata } from "next"
+
 export const metadata: Metadata = {
   title: "About",
   description: "About the Privacy Stewards of Ethereum community",
 }
 
 export default async function AboutPage() {
-  const OurWorkItems = [
+  const WhatWeDoItems = [
     {
       label: "Incubation",
       description:
@@ -31,74 +31,87 @@ export default async function AboutPage() {
     <>
       <div className="w-full bg-white dark:bg-transparent-gradient">
         <div className="flex flex-col gap-16 py-16">
-          <AppContent className=" w-full max-w-[800px] mx-auto">
-            <div className="flex flex-col gap-10">
-              <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
-                Our Mission
-              </h2>
-              <span className="text-xl font-sans dark:text-tuatara-200 text-tuatara-500 mx-auto">
-                As Privacy Stewards of Ethereum (PSE), our mission is to deliver
-                privacy to the{" "}
-                <AppLink
-                  href="https://ethereum.org/en/"
-                  external
-                  variant="blue"
-                >
-                  Ethereum ecosystem
-                </AppLink>
-                . We envision a future where privacy on Ethereum is the norm
-                rather than the exception.
-                <br /> <br />
-                Building{" "}
-                <AppLink
-                  href="https://www.activism.net/cypherpunk/manifesto.html"
-                  external
-                  variant="blue"
-                >
-                  “an open society in the electronic age”
-                </AppLink>{" "}
-                {
-                  "requires privacy that is usable, scalable, and secure. We are a team of applied cryptographers, mathematicians, developers, designers, and coordinators working to embed programmable cryptography into Ethereum's application layer and make privacy accessible to individuals, developers, and institutions."
-                }{" "}
-                <br /> <br />
-                Privacy is a cornerstone of freedom, safety, and is an{" "}
-                <AppLink
-                  href="https://vitalik.eth.limo/general/2025/04/14/privacy.html"
-                  external
-                  variant="blue"
-                >
-                  important guarantor for decentralization.
-                </AppLink>{" "}
-                {`We're building a future where digital infrastructure respects
-              privacy by default, and permissions are purpose-specific,
-              informed, uncoerced, and revocable.`}
-                <br /> <br />
-                {`Programmable cryptography unlocks transformative capabilities for
-              digital commerce, identity, governance, and other systems of
-              coordination. But the road to privacy isn't only technical. It
-              requires shifts in user behavior, developer priorities, regulatory
-              frameworks, and cultural norms. This is a collective challenge and
-              we`}{" "}
-                <AppLink
-                  href="https://discord.com/invite/sF5CT5rzrR"
-                  external
-                  variant="blue"
-                >
-                  invite you
-                </AppLink>{" "}
-                to help us shape a more free digital future.
-              </span>
+          <AppContent className=" w-full !max-w-[860px] mx-auto">
+            <div className="flex flex-col gap-16">
+              <div className="flex flex-col gap-10">
+                <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
+                  Our Mission
+                </h2>
+                <span className="text-base lg:text-xl font-sans dark:text-tuatara-200 text-tuatara-500 mx-auto">
+                  As Privacy Stewards of Ethereum (PSE), our mission is to
+                  deliver privacy to the Ethereum ecosystem. <br />
+                  <br />
+                  Ethereum is becoming core infrastructure for digital identity,
+                  commerce, and collaboration. But building{" "}
+                  <AppLink
+                    external
+                    variant="blue"
+                    href="https://www.activism.net/cypherpunk/manifesto.html"
+                  >
+                    an open society in the electronic age
+                  </AppLink>{" "}
+                  requires privacy that is usable, scalable, and secure.
+                  <br />
+                  <br />
+                  Privacy is a cornerstone of freedom and an{" "}
+                  <AppLink
+                    href="https://vitalik.eth.limo/general/2025/04/14/privacy.html"
+                    external
+                    variant="blue"
+                    className="w-fit inline-flex"
+                  >
+                    important guarantor for decentralization.
+                  </AppLink>{" "}
+                  It gives people the ability to organize, express, and transact
+                  freely. We envision a future where digital infrastructure
+                  respects privacy by default, and permissions are
+                  purpose-specific, informed, uncoerced, and revocable.
+                  <br /> <br />
+                  {`Programmable cryptography unlocks transformative capabilities
+                for digital voting, identity, transactions, and other key
+                systems of coordination. But the road to privacy isn't only
+                technical—it demands cultural, social, and institutional change.
+                This is a collective challenge that we are committed to
+                catalyzing.`}
+                </span>
+              </div>
+              <div className="flex flex-col gap-10">
+                <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
+                  How we Work
+                </h2>
+                <span className="text-base lg:text-xl font-sans dark:text-tuatara-200 text-tuatara-500 mx-auto">
+                  {`We are a team of cryptographers, mathematicians, developers,
+                  designers, and coordinators working to make privacy accessible
+                  by embedding programmable cryptography into Ethereum's
+                  application layer. `}
+                  <br />
+                  <br />
+                  Our work is exploratory and full stack. We focus on areas that
+                  are overlooked by academia or industry like foundational
+                  concepts that need clarity, implementation gaps that have
+                  stalled progress, and risky ideas with uncertain but
+                  transformative <br />
+                  <br />
+                  We believe meaningful progress comes from applying research to
+                  real-world needs. Our work is open source, and we maintain a
+                  feedback loop so that challenges from the field can help shape
+                  our focus. We aim to support the ecosystem by benchmarking new
+                  primitives, systematizing knowledge, and offering credible
+                  guidances for building a more private and resilient future for
+                  Ethereum.
+                </span>
+              </div>
             </div>
           </AppContent>
 
           <div className="bg-cover-gradient dark:bg-anakiwa-975 dark:bg-none py-16 ">
-            <AppContent className=" w-full max-w-[800px] mx-auto">
+            <AppContent className=" w-full !max-w-[860px] mx-auto">
               <div className="flex flex-col gap-10">
                 <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
-                  Our Work
+                  What we do
                 </h2>
                 <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 max-auto">
-                  {OurWorkItems?.map((item, index) => (
+                  {WhatWeDoItems?.map((item, index) => (
                     <div
                       key={index}
                       className="flex flex-col gap-6 w-full lg:max-w-[400px] p-5 rounded-[10px] bg-white border border-anakiwa-300 dark:border-anakiwa-400  dark:bg-anakiwa-975"
@@ -118,25 +131,19 @@ export default async function AboutPage() {
             </AppContent>
           </div>
 
-          <AppContent className=" w-full max-w-[800px] mx-auto">
+          <AppContent className="w-full !max-w-[860px] mx-auto">
             <div className="flex flex-col gap-10">
               <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
                 Our History
               </h2>
               <span className="text-xl font-sans dark:text-tuatara-200 text-tuatara-500 mx-auto">
-                We began in 2018 as Applied ZKP, a team supported by the{" "}
-                <AppLink
-                  href="https://ethereum.foundation/"
-                  external
-                  variant="blue"
-                >
-                  Ethereum Foundation
-                </AppLink>{" "}
-                to push zero-knowledge proofs from theory to practice. In 2021,
-                we became Privacy & Scaling Explorations (PSE), expanding our
-                scope to programmable cryptography and tools across the stack.
-                In 2025, we refined our mission as Privacy Stewards for
-                Ethereum, shifting our focus toward concrete ecosystem impact.
+                We began in 2018 as Applied ZKP, a team supported by the
+                Ethereum Foundation to push zero-knowledge proofs from theory to
+                practice. In 2021, we became Privacy & Scaling Explorations
+                (PSE), expanding our scope to programmable cryptography and
+                tools across the stack. In 2025, we refined our mission as
+                Privacy Stewards for Ethereum, shifting our focus toward
+                ecosystem impact.
               </span>
             </div>
           </AppContent>
