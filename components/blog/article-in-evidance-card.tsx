@@ -2,10 +2,11 @@
 
 import { Icons } from "../icons"
 import { Button } from "../ui/button"
+import { LABELS } from "@/app/labels"
 import { Article } from "@/lib/content"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 import Link from "next/link"
-import { LABELS } from "@/app/labels"
 
 interface ArticleInEvidenceCardProps {
   article: Article
@@ -169,7 +170,7 @@ export const ArticleInEvidenceCard = ({
     >
       <div
         className={cn(
-          "relative flex flex-col gap-5 w-full items-center after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-20 group-hover:after:opacity-80 transition-opacity duration-300 after:z-[0]",
+          "relative flex flex-col gap-5 w-full items-center overflow-hidden after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-20 group-hover:after:opacity-80 transition-opacity duration-300 after:z-[0]",
           {
             "aspect-video": !className?.includes("h-full"),
             "min-h-[148px]": !backgroundCover,
@@ -177,12 +178,15 @@ export const ArticleInEvidenceCard = ({
           },
           className
         )}
-        style={{
-          backgroundImage: `url(${article.image ?? "/fallback.webp"})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center centers",
-        }}
       >
+        <Image
+          src={article.image ?? "/fallback.webp"}
+          alt={article.title}
+          fill
+          className="object-cover -z-10"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={false}
+        />
         {backgroundCover && (
           <ArticleContent backgroundCover={backgroundCover} />
         )}

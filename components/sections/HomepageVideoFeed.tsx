@@ -1,14 +1,14 @@
 "use client"
 
+import { AppLink } from "../app-link"
+import { Icons } from "../icons"
+import { AppContent } from "../ui/app-content"
+import { Button } from "../ui/button"
 import { LABELS } from "@/app/labels"
+import { useYoutube } from "@/hooks/useYoutube"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "../ui/button"
-import { AppContent } from "../ui/app-content"
-import { Icons } from "../icons"
-import { useYoutube } from "@/hooks/useYoutube"
-import { AppLink } from "../app-link"
 
 interface Video {
   id: string
@@ -41,9 +41,9 @@ const VideoCard = ({ video }: { video: Video }) => {
           <Icons.play />
         </div>
       </div>
-      <h3 className="font-sans text-sm font-normal line-clamp-3 text-white group-hover:text-tuatara-400 transition-colors">
+      <h4 className="font-sans text-sm font-normal line-clamp-3 text-white group-hover:text-tuatara-400 transition-colors">
         {video.title}
-      </h3>
+      </h4>
     </Link>
   )
 }
@@ -74,9 +74,9 @@ export const HomepageVideoFeed = () => {
     <section className="mx-auto px-6 lg:px-8 py-10 lg:py-16 bg-tuatara-950 dark:bg-black w-full">
       <AppContent className="flex flex-col gap-8 lg:max-w-[1200px] w-full">
         <div className="col-span-1 lg:col-span-4">
-          <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-white text-center">
+          <h3 className="font-sans text-base font-bold uppercase tracking-[4px] text-white text-center">
             {LABELS.HOMEPAGE.VIDEOS}
-          </h2>
+          </h3>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_280px] gap-10 lg:gap-8 lg:divide-x divide-[#626262]">
           <div className="lg:col-span-3">

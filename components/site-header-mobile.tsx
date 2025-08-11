@@ -1,24 +1,23 @@
 "use client"
 
-import { useState } from "react"
-import NextImage from "next/image"
-import CloseVector from "@/public/icons/close-fill.svg"
-
-import { NavItem } from "@/types/nav"
-import { siteConfig } from "@/config/site"
-import { interpolate } from "@/lib/utils"
-import { useAppSettings } from "@/hooks/useAppSettings"
+import { AppLink } from "./app-link"
+import { Icons } from "./icons"
+import { LABELS } from "@/app/labels"
+import { useGlobalProvider } from "@/app/providers/GlobalProvider"
 import {
   Discord,
   Github,
   Mirror,
   Twitter,
 } from "@/components/svgs/social-medias"
-import { LABELS } from "@/app/labels"
-import { Icons } from "./icons"
+import { siteConfig } from "@/config/site"
+import { useAppSettings } from "@/hooks/useAppSettings"
+import { interpolate } from "@/lib/utils"
+import CloseVector from "@/public/icons/close-fill.svg"
+import { NavItem } from "@/types/nav"
 import { SunMedium as SunIcon, Moon as MoonIcon } from "lucide-react"
-import { useGlobalProvider } from "@/app/providers/GlobalProvider"
-import { AppLink } from "./app-link"
+import NextImage from "next/image"
+import { useState } from "react"
 
 export const SiteHeaderMobile = () => {
   const [header, setHeader] = useState(false)
@@ -28,7 +27,12 @@ export const SiteHeaderMobile = () => {
 
   return (
     <div className="flex items-center md:hidden">
-      <button type="button" onClick={() => setHeader(true)}>
+      <button
+        type="button"
+        onClick={() => setHeader(true)}
+        aria-label="Open navigation menu"
+        aria-expanded={header}
+      >
         <Icons.Burgher
           size={24}
           className="text-[#171C1B] dark:text-anakiwa-400"
@@ -36,21 +40,20 @@ export const SiteHeaderMobile = () => {
       </button>
       {header && (
         <div
-          className="z-5 fixed inset-0 flex justify-end bg-black opacity-50"
+          className="z-40 fixed inset-0 flex justify-end bg-black opacity-50"
           onClick={() => setHeader(false)}
         ></div>
       )}
       {header && (
-        <div className="fixed inset-y-0 right-0 z-10 flex w-[257px] flex-col bg-black text-white">
+        <div className="fixed inset-y-0 right-0 z-50 flex w-[257px] flex-col bg-black text-white">
           <div className="flex justify-end p-[37px]">
-            <NextImage
-              src={CloseVector}
-              alt="closeVector"
-              className="cursor-pointer"
+            <button
               onClick={() => setHeader(false)}
-              width={24}
-              height={24}
-            />
+              aria-label="Close navigation menu"
+              className="cursor-pointer"
+            >
+              <NextImage src={CloseVector} alt="" width={24} height={24} />
+            </button>
           </div>
           <div className="flex w-full flex-col px-[16px] text-base font-medium">
             {MAIN_NAV.map((item: NavItem, index) => {
@@ -70,7 +73,10 @@ export const SiteHeaderMobile = () => {
             })}
             <button
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className=" ml-auto mt-10"
+              className="ml-auto mt-10"
+              aria-label={
+                isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+              }
             >
               {isDarkMode ? (
                 <SunIcon
@@ -104,14 +110,14 @@ export const SiteHeaderMobile = () => {
             </div>
 
             <div className="flex gap-5 text-white">
-              <h1>{LABELS.COMMON.FOOTER.PRIVACY_POLICY}</h1>
-              <h1>{LABELS.COMMON.FOOTER.TERMS_OF_USE}</h1>
+              <span>{LABELS.COMMON.FOOTER.PRIVACY_POLICY}</span>
+              <span>{LABELS.COMMON.FOOTER.TERMS_OF_USE}</span>
             </div>
-            <h1 className="text-center text-gray-400">
+            <p className="text-center text-gray-400">
               {interpolate(LABELS.COMMON.LAST_UPDATED_AT, {
                 date: "January 16, 2024",
               })}
-            </h1>
+            </p>
           </div>
         </div>
       )}

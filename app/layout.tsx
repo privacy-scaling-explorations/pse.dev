@@ -1,17 +1,16 @@
 import "@/globals.css"
-import Script from "next/script"
-import { Metadata, Viewport } from "next"
-
+import { ThemeProvider } from "./components/layouts/ThemeProvider"
 import { GlobalProviderLayout } from "@/components/layouts/GlobalProviderLayout"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { ThemeProvider } from "./components/layouts/ThemeProvider"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-
+import { Metadata, Viewport } from "next"
 import { DM_Sans, Inter, Space_Grotesk } from "next/font/google"
+import Script from "next/script"
 
+// Optimized font loading with combined weights
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -41,8 +40,6 @@ const sans = DM_Sans({
   fallback: ["system-ui", "sans-serif"],
   adjustFontFallback: true,
 })
-
-const fonts = [inter, display, sans]
 
 export const viewport: Viewport = {
   themeColor: [
@@ -127,7 +124,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={cn(inter.variable, display.variable, sans.variable)}
       suppressHydrationWarning
     >
-      <Script id="matomo-tracking" strategy="afterInteractive">
+      <Script id="matomo-tracking" strategy="lazyOnload">
         {`
           var _paq = window._paq = window._paq || [];
           /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -142,7 +139,38 @@ export default function RootLayout({ children }: RootLayoutProps) {
           })();
         `}
       </Script>
-      <head />
+      <head>
+        {/* Font preloading for critical fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
+        {/* External service preconnects */}
+        <link rel="preconnect" href="https://cdn.matomo.cloud" />
+        <link rel="dns-prefetch" href="https://psedev.matomo.cloud" />
+
+        {/* YouTube preconnects for video content */}
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://img.youtube.com" />
+        <link rel="preconnect" href="https://i.ytimg.com" />
+
+        {/* Static asset preloading */}
+        <link rel="prefetch" href="/favicon.svg" />
+
+        {/* Critical resource preloading */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+        {/* External service optimization */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* Algolia search preconnect for faster search */}
+        <link rel="preconnect" href="https://latency-dsn.algolia.net" />
+        <link rel="dns-prefetch" href="https://search.algolia.com" />
+      </head>
       <body suppressHydrationWarning>
         <GlobalProviderLayout>
           <ThemeProvider>
