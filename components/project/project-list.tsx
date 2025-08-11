@@ -146,7 +146,7 @@ export const ProjectList = () => {
 
   return (
     <div className="relative grid items-start justify-between grid-cols-1">
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-10">
         {ProjectStatusOrderList.map((status, index) => {
           const projects = projectsGroupByStatus[status as ProjectStatus] ?? []
           const description =
