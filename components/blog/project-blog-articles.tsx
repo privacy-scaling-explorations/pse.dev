@@ -1,10 +1,10 @@
 "use client"
 
-import { ProjectInterface } from "@/lib/types"
 import { AppContent } from "../ui/app-content"
-import { Article } from "@/lib/content"
 import { ArticleListCard } from "./article-list-card"
 import { useGetProjectRelatedArticles } from "@/hooks/useGetProjectRelatedArticles"
+import { Article } from "@/lib/content"
+import { ProjectInterface } from "@/lib/types"
 
 export const ProjectBlogArticles = ({
   project,
@@ -13,6 +13,8 @@ export const ProjectBlogArticles = ({
 }) => {
   const { articles, loading } = useGetProjectRelatedArticles({
     projectId: project.id,
+    excludeIds: ["newsletter"],
+    partialIdMatch: true,
   })
 
   if (loading) {
@@ -53,6 +55,8 @@ export const ProjectBlogArticles = ({
     return null
   }
 
+  console.log(articles)
+
   return (
     <div
       id="related-articles"
@@ -61,7 +65,7 @@ export const ProjectBlogArticles = ({
     >
       <div className="flex flex-col gap-10">
         <h3 className="text-[22px] font-bold text-secondary">
-          Related articles
+          Related articles sss
         </h3>
         <div className="grid grid-cols-1 gap-4 lg:gap-8">
           {articles.length === 0 && (

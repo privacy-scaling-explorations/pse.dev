@@ -65,3 +65,32 @@ Start the app
 - Tailwind CSS
 - Icons from [Lucide](https://lucide.dev)
 - Tailwind CSS class sorting, merging and linting.
+
+## Testing
+
+Quick commands:
+
+```bash
+# Run all tests (CI mode)
+yarn test:run
+
+# Watch mode (dev)
+yarn test:watch
+
+# UI runner
+yarn test:ui
+
+# Coverage report
+yarn test:coverage
+
+# Validate setup (sanity checks)
+yarn test:validation
+```
+
+Notes:
+
+- Tests live in `tests/` with utilities in `tests/test-utils.tsx`.
+- Mocks are under `tests/mocks/` (Next components, browser APIs, external libs).
+- Use the custom render from `@/tests/test-utils` to get providers.
+- Path alias `@/` points to project root.
+- jsdom environment is preconfigured.
