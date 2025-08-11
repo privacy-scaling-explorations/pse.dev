@@ -1,13 +1,13 @@
 "use client"
 
-import { LABELS } from "@/app/labels"
 import { Icons } from "../icons"
 import { PageHeader } from "../page-header"
 import { Button } from "../ui/button"
 import { Label } from "../ui/label"
-import Image from "next/image"
+import { LABELS } from "@/app/labels"
 import PSELogo from "@/public/icons/archstar.webp"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
 
 export const HomepageHeader = () => {
@@ -27,7 +27,7 @@ export const HomepageHeader = () => {
         <div className="m-auto flex h-[320px] w-full max-w-[280px] items-center justify-center md:m-0 md:h-full md:w-full lg:max-w-[380px]">
           <Image
             src={PSELogo}
-            alt="pselogo"
+            alt="Privacy & Scaling Explorations"
             className="object-cover"
             priority
             quality={90}

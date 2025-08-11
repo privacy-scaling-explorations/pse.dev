@@ -94,17 +94,33 @@ export const SiteHeaderMobile = () => {
 
           <div className="flex h-full w-full flex-col items-center justify-end gap-5 py-[40px] text-sm">
             <div className="flex gap-5">
-              <AppLink href={siteConfig.links.twitter} external>
+              <AppLink
+                href={siteConfig.links.twitter}
+                external
+                aria-label="Follow us on Twitter/X"
+              >
                 <Twitter color="white" />{" "}
               </AppLink>
 
-              <AppLink href={siteConfig.links.discord} external>
+              <AppLink
+                href={siteConfig.links.discord}
+                external
+                aria-label="Join our Discord community"
+              >
                 <Discord color="white" />{" "}
               </AppLink>
-              <AppLink href={siteConfig.links.github} external>
+              <AppLink
+                href={siteConfig.links.github}
+                external
+                aria-label="View our code on GitHub"
+              >
                 <Github color="white" />{" "}
               </AppLink>
-              <AppLink href={siteConfig.links.articles} external>
+              <AppLink
+                href={siteConfig.links.articles}
+                external
+                aria-label="Read our articles on Mirror"
+              >
                 <Mirror color="white" />{" "}
               </AppLink>
             </div>

@@ -147,7 +147,11 @@ export const ArticleInEvidenceCard = ({
           </div>
         )}
         {showReadMore && (
-          <Link href={`/blog/${article.id}`} className="ml-auto mt-4">
+          <Link
+            href={`/blog/${article.id}`}
+            className="ml-auto mt-4"
+            aria-label={`Read more about ${article.title}`}
+          >
             <Button className="uppercase ml-auto" variant="secondary">
               <div className="flex items-center gap-2">
                 <span className="!text-center">

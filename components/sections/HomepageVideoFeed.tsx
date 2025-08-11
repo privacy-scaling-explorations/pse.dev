@@ -20,7 +20,13 @@ interface Video {
   url?: string
 }
 
-const VideoCard = ({ video }: { video: Video }) => {
+const VideoCard = ({
+  video,
+  isPriority = false,
+}: {
+  video: Video
+  isPriority?: boolean
+}) => {
   return (
     <Link
       href={video.url || `https://www.youtube.com/watch?v=${video.id}`}
@@ -36,6 +42,8 @@ const VideoCard = ({ video }: { video: Video }) => {
           fill
           style={{ objectFit: "cover" }}
           className="transition-transform duration-300 scale-105 group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={isPriority}
         />
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <Icons.play />
@@ -74,9 +82,9 @@ export const HomepageVideoFeed = () => {
     <section className="mx-auto px-6 lg:px-8 py-10 lg:py-16 bg-tuatara-950 dark:bg-black w-full">
       <AppContent className="flex flex-col gap-8 lg:max-w-[1200px] w-full">
         <div className="col-span-1 lg:col-span-4">
-          <h3 className="font-sans text-base font-bold uppercase tracking-[4px] text-white text-center">
+          <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-white text-center">
             {LABELS.HOMEPAGE.VIDEOS}
-          </h3>
+          </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_280px] gap-10 lg:gap-8 lg:divide-x divide-[#626262]">
           <div className="lg:col-span-3">
@@ -91,8 +99,12 @@ export const HomepageVideoFeed = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {videos.slice(0, 3).map((video: Video) => (
-                  <VideoCard key={video.id} video={video} />
+                {videos.slice(0, 3).map((video: Video, index: number) => (
+                  <VideoCard
+                    key={video.id}
+                    video={video}
+                    isPriority={index === 0}
+                  />
                 ))}
               </div>
             )}

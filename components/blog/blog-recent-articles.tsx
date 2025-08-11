@@ -76,7 +76,7 @@ const ArticleInEvidenceCard = ({
           fill
           className="object-cover -z-[1] absolute inset-0"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority={false}
+          priority={variant === "xl"}
         />
         <div
           className={cn(
@@ -124,7 +124,11 @@ const ArticleInEvidenceCard = ({
             </span>
           )}
           {showReadMore && (
-            <Link href={`/blog/${article.id}`} className="ml-auto mt-4">
+            <Link
+              href={`/blog/${article.id}`}
+              className="ml-auto mt-4"
+              aria-label={`Read more about ${article.title}`}
+            >
               <Button className="uppercase ml-auto" variant="secondary">
                 <div className="flex items-center gap-2">
                   <span className="!text-center">Read More</span>
@@ -149,9 +153,9 @@ export async function BlogRecentArticles() {
     <div className="py-10 lg:py-16">
       <AppContent>
         <div className="flex flex-col gap-10">
-          <h3 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
+          <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
             {LABELS.BLOG_PAGE.RECENT_ARTICLES}
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
             <div className="inset-0 relative lg:col-span-3">
               <ArticleInEvidenceCard
