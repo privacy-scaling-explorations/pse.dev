@@ -31,7 +31,9 @@
     "**/*.d.ts",
     ".next/types/**/*.ts",
     "middleware.ts",
-    "common/discord.js"
+    "common/discord.js",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
   ],
-  "exclude": ["node_modules", "tests/**"]
+  "exclude": ["node_modules"]
 }

@@ -17,13 +17,12 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
     "clean": "rm -rf .next/ out/",
     "dev:discordbot": "nodemon --watch ./common/discord",
-    "test": "NODE_ENV=test node --experimental-vm-modules node_modules/vitest/vitest.mjs run --config ./vitest.config.mjs",
-    "test:watch": "NODE_ENV=test node --experimental-vm-modules node_modules/vitest/vitest.mjs --watch --config ./vitest.config.mjs",
-    "test:ui": "NODE_ENV=test node --experimental-vm-modules node_modules/vitest/vitest.mjs --ui --config ./vitest.config.mjs",
-    "test:run": "NODE_ENV=test node --experimental-vm-modules node_modules/vitest/vitest.mjs run --config ./vitest.config.mjs",
-    "test:coverage": "NODE_ENV=test node --experimental-vm-modules node_modules/vitest/vitest.mjs run --coverage --config ./vitest.config.mjs",
-    "test:validation": "NODE_ENV=test node --experimental-vm-modules node_modules/vitest/vitest.mjs run tests/validation.test.tsx --config ./vitest.config.mjs",
-    "test:ci": "NODE_ENV=test node --experimental-vm-modules node_modules/vitest/vitest.mjs run --config ./vitest.config.mjs --reporter=verbose --no-coverage"
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:validation": "vitest run tests/validation.test.tsx",
+    "test:ci": "vitest run --reporter=verbose --no-coverage"
   },
   "dependencies": {
     "@discordjs/rest": "2.0.0",
@@ -112,7 +111,7 @@
     "**/*.{js,ts,tsx}": [
       "prettier --write",
       "eslint --fix",
-      "node --experimental-vm-modules node_modules/vitest/vitest.mjs run --passWithNoTests --config ./vitest.config.mjs"
+      "vitest run --passWithNoTests"
     ],
     "**/*.{json,md,yml}": [
       "prettier --write"

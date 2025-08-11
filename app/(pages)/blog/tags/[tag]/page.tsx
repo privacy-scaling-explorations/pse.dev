@@ -1,5 +1,7 @@
 import { LABELS } from "@/app/labels"
 import { ArticleListCard } from "@/components/blog/article-list-card"
+import { Icons } from "@/components/icons"
+import { Skeleton } from "@/components/skeleton"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
 import { getArticles, Article, getArticleTags, ArticleTag } from "@/lib/content"
@@ -9,11 +11,9 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query"
-import { Suspense } from "react"
-import { BlogLoadingSkeleton } from "../../page"
-import Link from "next/link"
-import { Icons } from "@/components/icons"
 import { Metadata } from "next"
+import Link from "next/link"
+import { Suspense } from "react"
 
 interface BlogTagPageProps {
   params: { tag: string }
@@ -37,6 +37,40 @@ export async function generateMetadata({
 export const generateStaticParams = async () => {
   const tags = await getArticleTags()
   return tags.map((tag) => ({ tag: tag.id }))
+}
+
+const BlogLoadingSkeleton = () => {
+  return (
+    <>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch">
+        <Skeleton.Card className="h-full" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 lg:col-span-2 h-full">
+          <Skeleton.Card size="md" className="max-h-[200px]" />
+          <Skeleton.Card size="md" className="max-h-[200px]" />
+          <Skeleton.Card size="md" className="max-h-[200px]" />
+          <Skeleton.Card size="md" className="max-h-[200px]" />
+        </div>
+      </div>
+      <div className="flex flex-col gap-5 lg:gap-14">
+        <div className="grid grid-cols-[80px_1fr] lg:grid-cols-[120px_1fr] items-center gap-4 lg:gap-10">
+          <Skeleton.Circle size="full" />
+          <div className="flex flex-col gap-2">
+            <Skeleton.Line size="lg" />
+            <Skeleton.Line size="md" />
+            <Skeleton.Line size="xs" />
+          </div>
+        </div>
+        <div className="grid grid-cols-[80px_1fr] lg:grid-cols-[120px_1fr] items-center gap-4 lg:gap-10">
+          <Skeleton.Circle size="full" />
+          <div className="flex flex-col gap-2">
+            <Skeleton.Line size="lg" />
+            <Skeleton.Line size="md" />
+            <Skeleton.Line size="xs" />
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
 
 const BlogTagPage = async ({ params }: BlogTagPageProps) => {
