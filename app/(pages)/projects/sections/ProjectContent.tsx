@@ -59,7 +59,7 @@ const markdownComponents = {
   p: ({ ...props }) =>
     createMarkdownElement("p", {
       className:
-        "py-2 leading-[150%] text-base text-slate-600 dark:text-tuatara-100",
+        "py-2 leading-[150%] text-base lg:text-xl text-tuatara-500 dark:text-tuatara-100",
       ...props,
     }),
 }
