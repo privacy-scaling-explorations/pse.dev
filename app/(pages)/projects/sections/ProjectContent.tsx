@@ -1,27 +1,26 @@
 "use client"
 
-import { notFound } from "next/navigation"
-import { siteConfig } from "@/config/site"
-import { ProjectCategory, ProjectStatus } from "@/lib/types"
-
-import { cn } from "@/lib/utils"
 import { LABELS } from "@/app/labels"
-import { AppContent } from "@/components/ui/app-content"
-import { Markdown, createMarkdownElement } from "@/components/ui/markdown"
+import { useProjects } from "@/app/providers/ProjectsProvider"
+import { AppLink } from "@/components/app-link"
+import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
+import { WikiCard } from "@/components/cards/wiki-card"
 import { Divider } from "@/components/divider"
 import { Icons } from "@/components/icons"
+import { ProjectLinkIconMap } from "@/components/mappings/project-links"
 import DiscoverMoreProjects from "@/components/project/discover-more-projects"
 import { ProjectTags } from "@/components/project/project-detail-tags"
 import ProjectExtraLinks from "@/components/project/project-extra-links"
-import { ProjectLinkIconMap } from "@/components/mappings/project-links"
-import { WikiSideNavigation } from "@/components/wiki-side-navigation"
-import { WikiCard } from "@/components/cards/wiki-card"
 import { ProjectTeamMembers } from "@/components/project/project-team"
-import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
 import { ProjectYouTubeVideos } from "@/components/sections/ProjectYouTubeVideos"
-import { useProjects } from "@/app/providers/ProjectsProvider"
+import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
-import { AppLink } from "@/components/app-link"
+import { Markdown, createMarkdownElement } from "@/components/ui/markdown"
+import { WikiSideNavigation } from "@/components/wiki-side-navigation"
+import { siteConfig } from "@/config/site"
+import { ProjectCategory, ProjectStatus } from "@/lib/types"
+import { cn } from "@/lib/utils"
+import { notFound } from "next/navigation"
 
 const markdownContentClassName =
   "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4 dark:text-tuatara-100"
@@ -60,7 +59,7 @@ const markdownComponents = {
   p: ({ ...props }) =>
     createMarkdownElement("p", {
       className:
-        "py-2 leading-[150%] text-base text-slate-600 dark:text-tuatara-100",
+        "py-2 leading-[150%] text-base lg:text-xl text-tuatara-500 dark:text-tuatara-100",
       ...props,
     }),
 }

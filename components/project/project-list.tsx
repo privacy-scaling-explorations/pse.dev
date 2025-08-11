@@ -146,7 +146,7 @@ export const ProjectList = () => {
 
   return (
     <div className="relative grid items-start justify-between grid-cols-1">
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-10">
         {ProjectStatusOrderList.map((status, index) => {
           const projects = projectsGroupByStatus[status as ProjectStatus] ?? []
           const description =
@@ -162,7 +162,7 @@ export const ProjectList = () => {
               data-section={status}
               className="flex justify-between gap-10"
             >
-              <div className={cn("flex w-full flex-col gap-10 pt-10")}>
+              <div className={cn("flex w-full flex-col gap-10")}>
                 <SectionWrapper
                   title={status}
                   description={description}

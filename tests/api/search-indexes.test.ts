@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from "vitest"
 import { GET } from "@/app/api/search/indexes/route"
+import { describe, it, expect, vi } from "vitest"
 
 describe("/api/search/indexes", () => {
   describe("GET /api/search/indexes", () => {

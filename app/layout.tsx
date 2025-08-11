@@ -1,16 +1,14 @@
 import "@/globals.css"
-import Script from "next/script"
-import { Metadata, Viewport } from "next"
-
+import { ThemeProvider } from "./components/layouts/ThemeProvider"
 import { GlobalProviderLayout } from "@/components/layouts/GlobalProviderLayout"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { ThemeProvider } from "./components/layouts/ThemeProvider"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-
+import { Metadata, Viewport } from "next"
 import { DM_Sans, Inter, Space_Grotesk } from "next/font/google"
+import Script from "next/script"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -95,7 +93,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "/og-image.png",
+        url: "/share-image.png",
         width: 1200,
         height: 630,
       },

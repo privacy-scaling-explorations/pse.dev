@@ -1,24 +1,23 @@
 "use client"
 
-import { useState } from "react"
-import NextImage from "next/image"
-import CloseVector from "@/public/icons/close-fill.svg"
-
-import { NavItem } from "@/types/nav"
-import { siteConfig } from "@/config/site"
-import { interpolate } from "@/lib/utils"
-import { useAppSettings } from "@/hooks/useAppSettings"
+import { AppLink } from "./app-link"
+import { Icons } from "./icons"
+import { LABELS } from "@/app/labels"
+import { useGlobalProvider } from "@/app/providers/GlobalProvider"
 import {
   Discord,
   Github,
   Mirror,
   Twitter,
 } from "@/components/svgs/social-medias"
-import { LABELS } from "@/app/labels"
-import { Icons } from "./icons"
+import { siteConfig } from "@/config/site"
+import { useAppSettings } from "@/hooks/useAppSettings"
+import { interpolate } from "@/lib/utils"
+import CloseVector from "@/public/icons/close-fill.svg"
+import { NavItem } from "@/types/nav"
 import { SunMedium as SunIcon, Moon as MoonIcon } from "lucide-react"
-import { useGlobalProvider } from "@/app/providers/GlobalProvider"
-import { AppLink } from "./app-link"
+import NextImage from "next/image"
+import { useState } from "react"
 
 export const SiteHeaderMobile = () => {
   const [header, setHeader] = useState(false)
@@ -63,6 +62,7 @@ export const SiteHeaderMobile = () => {
                   onClick={() => setHeader(false)}
                   target={item?.external ? "_blank" : undefined}
                   className="border-b-2 border-white p-4 uppercase"
+                  variant="nav"
                 >
                   {item.title}
                 </AppLink>

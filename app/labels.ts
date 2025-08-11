@@ -3,8 +3,8 @@ export const LABELS = {
     TITLE: "Blog",
     SUBTITLE:
       "Read our latest articles and stay updated on the latest news in the world of cryptography.",
-    RECENT_ARTICLES: "Recent articles",
-    SEE_MORE: "See more",
+    RECENT_ARTICLES: "Recent posts",
+    SEE_MORE: "More posts",
     READ_MORE: "Read more",
     SEARCH_PLACEHOLDER: "Search PSE's blog",
   },
@@ -104,20 +104,21 @@ export const LABELS = {
     MORE_POSTS: "More posts",
   },
   HOMEPAGE: {
-    MISSION:
-      "Ethereum is the foundation of a freer digital world, but it will not reach its full potential without privacy. We’re building cryptographic tools, co-creating standards, and coordinating throughout the ecosystem to make privacy practical for Ethereum.",
+    MISSION_TITLE: "Our Mission",
+    MISSION_DESCRIPTION:
+      "Ethereum is the foundation of a freer digital world, but it will not reach its full potential without privacy. We're building cryptographic tools, co-creating standards, and coordinating throughout the ecosystem to make privacy practical for Ethereum.",
     MISSION_BUTTON: "LEARN MORE ABOUT US",
     HEADER_TITLE: "Privacy Stewards of Ethereum",
     HEADER_SUBTITLE:
-      "PSE is a research and development lab delivering privacy to the Ethereum ecosystem",
-    JOIN_OUR_DISCORD: "Join our community",
+      "PSE is a research and development lab delivering privacy to the Ethereum ecosystem.",
+    JOIN_OUR_DISCORD: "Join our Discord",
     CONNECT_WITH_US: {
       TITLE: "Join our programs",
       DESCRIPTION:
         "Want to explore the world of programmable cryptography and learn how to make contributions to open-source projects? Join our free programs to start your journey!",
     },
     VIDEOS: "VIDEOS",
-    VISIT_OUR_CHANNEL: "VISIT OUR CHANNEL",
+    VISIT_OUR_CHANNEL: "More videos",
     ERROR_LOADING_VIDEOS: "Error loading videos",
     CHECK_OUT_OUR_YOUTUBE:
       "Check out our YouTube to learn the latest in advanced cryptography.",
@@ -219,14 +220,12 @@ export const LABELS = {
     },
   },
   PROJECTS_PAGE: {
-    TITLE: "Explore our Project Library",
-    SUBTITLE:
-      "Everything PSE works on is public and open source. All of our projects, whether research or development, are resources you can learn from and build with.",
+    TITLE: "Explore Our Projects",
   },
   RESEARCH_PAGE: {
-    TITLE: "Research",
+    TITLE: "Explore Our Research",
     SUBTITLE:
-      "Our research model is exploratory, iterative, and full-stack. We work on areas that are often overlooked by academia or industry — foundational concepts that need clarity, implementation gaps that have stalled progress, and risky ideas with uncertain but transformative potential. Sometimes our research unlocks a new breakthrough that leads to prototypes, and sometimes we just clarify assumptions and fill in theoretical gaps. We believe meaningful progress comes from applying research to real-world needs. Our work is open source, and we maintain a feedback loop so that challenges from the field can help shape our focus. We aim to support the broader ecosystem by systematizing knowledge, benchmarking new primitives, and offering credible guidance to advance the world of cryptography.",
+      "Our research model is open source, iterative, and driven by real-world use cases.",
     ACTIVE_RESEARCH: "Active Research",
     PAST_RESEARCH: "Past Research",
   },
@@ -245,13 +244,13 @@ export const LABELS = {
   },
   WHAT_WE_DO_SECTION: {
     BUILD: {
-      TITLE: "Build",
+      TITLE: "Building open source tools",
       DESCRIPTION:
         "We develop open source tools for things like data provenance, private identity, voting, and more to make privacy a core feature of Ethereum's application layer.",
       ACTION: "See our projects",
     },
     RESEARCH: {
-      TITLE: "Research",
+      TITLE: "Researching new applications",
       DESCRIPTION:
         "We benchmark primitives, systematize knowledge, and explore new ideas with the potential to transform the capabilities and impact of programmable cryptography.",
       ACTION: "See our research",

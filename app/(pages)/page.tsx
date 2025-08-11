@@ -2,9 +2,10 @@ import { LABELS } from "../labels"
 import { BlogRecentArticles } from "@/components/blog/blog-recent-articles"
 import { Icons } from "@/components/icons"
 import { HomepageBanner } from "@/components/sections/HomepageBanner"
-import { HomepageHeader } from "@/components/sections/HomepageHeader"
 import { HomepageVideoFeed } from "@/components/sections/HomepageVideoFeed"
-import { WhatWeDo } from "@/components/sections/WhatWeDo"
+import { OurWork } from "@/components/sections/OurWork"
+import { ParallaxHero } from "@/components/sections/ParallaxHero"
+import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Suspense } from "react"
@@ -26,15 +27,18 @@ function BlogSection() {
 export default function IndexPage() {
   return (
     <section className="flex flex-col w-full">
-      <HomepageHeader />
+      <ParallaxHero />
 
-      <div className="flex flex-col justify-center bg-anakiwa-975 py-16">
-        <div className="lg:max-w-[730px] flex flex-col mx-auto gap-10 justify-center items-center">
-          <span className="text-white font-sans text-base lg:text-xl text-center">
-            {LABELS.HOMEPAGE.MISSION}
+      <div className="flex flex-col justify-center bg-white dark:bg-black py-16 lg:py-20">
+        <AppContent className="lg:max-w-[890px] flex flex-col mx-auto gap-10 justify-center items-center">
+          <span className="font-sans text-base text-center text-tuatara-950 dark:text-tuatara-100 font-bold uppercase tracking-[3.36px]">
+            {LABELS.HOMEPAGE.MISSION_TITLE}
+          </span>
+          <span className="dark:text-tuatara-100 font-sans text-base lg:text-xl text-center text-tuatara-500 font-medium">
+            {LABELS.HOMEPAGE.MISSION_DESCRIPTION}
           </span>
           <Link href="/about">
-            <Button variant="transparent">
+            <Button>
               <div className="flex items-center gap-1">
                 <span className="text-base font-medium uppercase">
                   {LABELS.HOMEPAGE.MISSION_BUTTON}
@@ -46,14 +50,14 @@ export default function IndexPage() {
               </div>
             </Button>
           </Link>
-        </div>
+        </AppContent>
       </div>
+
+      <OurWork />
 
       <BlogSection />
 
       <HomepageVideoFeed />
-
-      <WhatWeDo />
 
       <HomepageBanner />
     </section>

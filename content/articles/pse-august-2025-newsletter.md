@@ -69,6 +69,7 @@ We built and implemented a public lookup evaluation technique on BGG+ encodings.
 ## ⚙️ Development Highlights
 
 ### [Verifiable OPRF (vOPRF)](https://pse.dev/en/projects/voprf)
+
 We built the circuits necessary for the client-side proving part, and created the initial skeleton for client-server workflow. This demonstrates the concepts and gives us benchmarks of the performance. Next we will harden the protocol to [optionally] handle multiple servers that together compute the nullifier, and apply the protocol to specific use cases.
 
 ### [TLSNotary](https://pse.dev/en/projects/tlsn)
@@ -108,14 +109,9 @@ We have started working on the on-chain verification of pods.
 ### [zkID](https://pse.dev/en/projects/zk-id)
 
 We continue the work on the zkp Wallet Unit. We completed the circuits over the P256 base field, including the first right-field circom implementation of ECDSA verification over P256. We are making progress towards compiling this for a Spartan + Hyrax backend over the T256 curve tower, and modifying the proof system to use re-randomisable commitments. This will yield a largely preprocessed and efficient prover.
-    
-Other significant strides across several key initiatives include:    
-    - Completing the 1st draft of the zkID roadmap, outlining our upcoming milestones and long-term vision.
-    - Completing research into OFAC compliance considerations for zk-KYC.
-    - Launched early outreach for zkID Day at Devconnect — [express interest here](https://docs.google.com/forms/d/1fQyL-2PaXx0d5-ieiJkwI5Ypl1p5VAbBA2i0AIrSlH8/edit).
-    - Collected valuable community feedback on zkPDF to guide future improvements.
-    - Integrating the Spartan Hydrax Backend.
-    - We’ve launched early outreach for zkID Day at Devconnect — [express interest here](https://docs.google.com/forms/d/1fQyL-2PaXx0d5-ieiJkwI5Ypl1p5VAbBA2i0AIrSlH8/edit).
+
+Other significant strides across several key initiatives include:  
+ - Completing the 1st draft of the zkID roadmap, outlining our upcoming milestones and long-term vision. - Completing research into OFAC compliance considerations for zk-KYC. - Launched early outreach for zkID Day at Devconnect — [express interest here](https://docs.google.com/forms/d/1fQyL-2PaXx0d5-ieiJkwI5Ypl1p5VAbBA2i0AIrSlH8/edit). - Collected valuable community feedback on zkPDF to guide future improvements. - Integrating the Spartan Hydrax Backend. - We’ve launched early outreach for zkID Day at Devconnect — [express interest here](https://docs.google.com/forms/d/1fQyL-2PaXx0d5-ieiJkwI5Ypl1p5VAbBA2i0AIrSlH8/edit).
 
 ### [Semaphore](https://pse.dev/en/projects/semaphore)
 

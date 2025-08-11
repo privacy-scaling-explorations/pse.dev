@@ -22,10 +22,12 @@ const ItemLabel = ({
   return (
     <div className="group flex items-center gap-2">
       {external && (
-        <Icons.externalUrl className="text-white w-5 duration-200 group-hover:text-orange" />
+        <Icons.externalUrl className="text-white w-5 duration-200 group-hover:text-anakiwa-400" />
       )}
-      {icon && <div className="text-white group-hover:text-orange">{icon}</div>}
-      <span className="mt-[0.9px] font-sans text-sm font-normal uppercase leading-[21px] text-white duration-200 group-hover:text-orange md:block">
+      {icon && (
+        <div className="text-white group-hover:text-anakiwa-400">{icon}</div>
+      )}
+      <span className="mt-[0.9px] font-sans text-sm font-normal uppercase leading-[21px] text-white duration-200 group-hover:text-anakiwa-400 md:block">
         {label}
       </span>
     </div>
@@ -47,7 +49,7 @@ export function SiteFooter() {
 
   return (
     <footer className="flex flex-col">
-      <div className="bg-tuatara-950 text-white py-8 text-left text-[14px] dark:bg-black dark:border-t dark:border-anakiwa-800">
+      <div className="bg-tuatara-950 text-white py-8 text-left text-[14px] dark:bg-black">
         <AppContent className="flex gap-10 py-2 lg:gap-24 justify-center">
           <LinksWrapper>
             {MAIN_NAV.map(
@@ -56,7 +58,12 @@ export function SiteFooter() {
                 indexKey
               ) =>
                 !onlyHeader && (
-                  <AppLink key={indexKey} href={href} external={external}>
+                  <AppLink
+                    key={indexKey}
+                    href={href}
+                    external={external}
+                    variant="button"
+                  >
                     <ItemLabel label={title} />
                   </AppLink>
                 )
@@ -66,6 +73,7 @@ export function SiteFooter() {
             <AppLink
               href={siteConfig.links.discord}
               className="flex items-start gap-2"
+              variant="button"
               external
             >
               <ItemLabel
@@ -76,6 +84,7 @@ export function SiteFooter() {
             <AppLink
               href={siteConfig.links.github}
               className="flex items-start gap-2"
+              variant="button"
               external
             >
               <ItemLabel
@@ -86,6 +95,7 @@ export function SiteFooter() {
             <AppLink
               href={siteConfig.links.twitter}
               className="flex items-center gap-2"
+              variant="button"
               external
             >
               <ItemLabel
@@ -100,6 +110,7 @@ export function SiteFooter() {
             <AppLink
               href={siteConfig.links.youtube}
               className="flex items-center gap-2"
+              variant="button"
               external
             >
               <ItemLabel
@@ -114,6 +125,7 @@ export function SiteFooter() {
             <AppLink
               href="/api/rss"
               className="flex items-center gap-2"
+              variant="button"
               external
             >
               <ItemLabel
@@ -127,6 +139,7 @@ export function SiteFooter() {
             </AppLink>
             <AppLink
               href={siteConfig.links.jobs}
+              variant="button"
               external
               className="flex items-center gap-2"
             >
@@ -134,13 +147,21 @@ export function SiteFooter() {
             </AppLink>
           </LinksWrapper>
           <LinksWrapper>
-            <AppLink href={siteConfig.links.discord} external>
+            <AppLink href={siteConfig.links.discord} external variant="button">
               <ItemLabel label="Feedback" />
             </AppLink>
-            <AppLink href={siteConfig.links.privacyPolicy} external>
+            <AppLink
+              href={siteConfig.links.privacyPolicy}
+              external
+              variant="button"
+            >
               <ItemLabel label={LABELS.COMMON.FOOTER.PRIVACY_POLICY} />
             </AppLink>
-            <AppLink href={siteConfig.links.termOfUse} external>
+            <AppLink
+              href={siteConfig.links.termOfUse}
+              external
+              variant="button"
+            >
               <ItemLabel label={LABELS.COMMON.FOOTER.TERMS_OF_USE} />
             </AppLink>
           </LinksWrapper>
