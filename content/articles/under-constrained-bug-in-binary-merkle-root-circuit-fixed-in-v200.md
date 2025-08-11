@@ -14,7 +14,7 @@ projects: ["zk-kit", "semaphore", "maci"]
 
 On May 28th, the [OtterSec team](https://osec.io/) contacted the ZK-Kit team to report an under-constrained bug in the [BinaryMerkleRoot](https://github.com/privacy-scaling-explorations/zk-kit.circom/blob/binary-merkle-root.circom-v1.0.0/packages/binary-merkle-root/src/binary-merkle-root.circom) circuit.
 
-We sincerely thank the two primary researchers from OtterSec who discovered the bug and provided code examples demonstrating it: Quasar and Tuyết. 
+We sincerely thank the two primary researchers from OtterSec who discovered the bug and provided code examples demonstrating it: Quasar and Tuyết.
 
 PSE has worked with OtterSec to identify projects vulnerable and reached out to them.
 
@@ -27,6 +27,7 @@ After discussions with OtterSec and projects using this circuit to determine the
 When using the [MultiMux1](https://github.com/iden3/circomlib/blob/master/circuits/mux1.circom#L21) circuit, it's essential to ensure that the selector is 0 or 1. The `BinaryMerkleRoot` circuit was missing the constraints to enforce this.
 
 These constraints might not be necessary in projects that:
+
 - Validate binary values in a separate circuit (outside this one), or
 - Use a circuit like [Num2Bits](https://github.com/iden3/circomlib/blob/master/circuits/bitify.circom#L25), which ensures outputs are 0 or 1.
 
@@ -37,11 +38,12 @@ This issue makes it possible to generate a valid zero-knowledge proof with a lea
 ### Solution
 
 Changes to `BinaryMerkleRoot`:
+
 1. Replaced `indices[MAX_DEPTH]` with `index`:
-Instead of passing an array of indices representing the Merkle path, the circuit now takes a single decimal `index`, whose binary representation defines the path.
+   Instead of passing an array of indices representing the Merkle path, the circuit now takes a single decimal `index`, whose binary representation defines the path.
 2. Added before the `for` loop:
-`signal indices[MAX_DEPTH] <== Num2Bits(MAX_DEPTH)(index);`
-This line converts the decimal `index` into its binary representation.
+   `signal indices[MAX_DEPTH] <== Num2Bits(MAX_DEPTH)(index);`
+   This line converts the decimal `index` into its binary representation.
 
 See the full update in this [pull request](https://github.com/privacy-scaling-explorations/zk-kit.circom/pull/25).
 
@@ -50,10 +52,10 @@ If you need the circuit without the new constraints, please continue using versi
 With this bug fix, the Semaphore V4 circuit is being updated to use the latest version of `BinaryMerkleRoot`. A new trusted setup ceremony will be conducted, and all related Semaphore packages and contracts will be updated accordingly.
 
 ## Reproducing the Bug
-    
+
 Install [SageMath](https://www.sagemath.org/), version [10.5](https://github.com/3-manifolds/Sage_macOS/releases/tag/v2.5.0) was used for the code below, which generates test values to reproduce the bug.
 
-Given a commitment and its Merkle siblings, it's possible to take a different commitment and find a new set of siblings and indices that produce the same root. 
+Given a commitment and its Merkle siblings, it's possible to take a different commitment and find a new set of siblings and indices that produce the same root.
 
 ```py
 # normal pair from exploit
@@ -81,7 +83,7 @@ print("S:", v[S])
 ## Impact on ZK-Kit BinaryMerkleRoot circuit
 
 The following code can be tested on [zkrepl](https://zkrepl.dev/).
-    
+
 Examples will be provided for proof lengths 1 and 2, but the same approach applies to proofs of greater length as well.
 
 ### Proof Length 1
@@ -93,8 +95,8 @@ Examples will be provided for proof lengths 1 and 2, but the same approach appli
 3. Set `N` to the commitment you want to test. For this example, use `8501798477768465939972755925731717646123222073408967613007180932472889698337`.
 4. You will get two values: `sel` (used in `evilmerkleProofIndices`) and `S` (used in `evilmerkleProofSiblings`).
 
-![Sage Math ZK-Kit Proof Length 1](/articles/under-constrained-bug-in-binary-merkle-root-circuit-fixed-in-v200/sage-math-zk-kit-proof-length-1.png)
-    
+![Sage Math ZK-Kit Proof Length 1](/articles/under-constrained-bug-in-binary-merkle-root-circuit-fixed-in-v200/sage-math-zk-kit-proof-length-1.webp)
+
 #### Circom Code
 
 ```circom
@@ -107,7 +109,7 @@ include "circomlib/circuits/comparators.circom";
 // Copy/paste BinaryMerkleRoot circuit from https://github.com/privacy-scaling-explorations/zk-kit.circom/blob/binary-merkle-root.circom-v1.0.0/packages/binary-merkle-root/src/binary-merkle-root.circom
 
 template Poc () {
-    
+
 //          Root: 11531730952042319043316244572610162829336743623472270581141123607628087976577
 //            /                                                                            \
 // 5407869850562333726769604095330004527418297248703115046359956082084347839061   18699903263915756199535533399390350858126023699350081471896734858638858200219
@@ -143,9 +145,9 @@ template Poc () {
 component main = Poc();
 
 /* INPUT = {
-   
+
 } */
-``` 
+```
 
 #### Result
 
@@ -155,7 +157,7 @@ Identical roots:
 root 11531730952042319043316244572610162829336743623472270581141123607628087976577
 evilroot 11531730952042319043316244572610162829336743623472270581141123607628087976577
 ```
-    
+
 ### Proof Length 2
 
 #### Steps
@@ -167,7 +169,7 @@ evilroot 11531730952042319043316244572610162829336743623472270581141123607628087
 5. For N, compute the Poseidon hash of `evilIdentityCommitment` and the sibling value you provided for `evilMerkleProofSiblings[0]`.
 6. The program will then generate two new values, these correspond to `evilMerkleProofIndices[1]` and `evilMerkleProofSiblings[1]`.
 
-![Sage Math ZK-Kit Proof Length 2](/articles/under-constrained-bug-in-binary-merkle-root-circuit-fixed-in-v200/sage-math-zk-kit-proof-length-2.png)
+![Sage Math ZK-Kit Proof Length 2](/articles/under-constrained-bug-in-binary-merkle-root-circuit-fixed-in-v200/sage-math-zk-kit-proof-length-2.webp)
 
 #### Circom Code
 
@@ -219,7 +221,7 @@ template Poc () {
 component main = Poc();
 
 /* INPUT = {
-   
+
 } */
 ```
 
@@ -229,9 +231,9 @@ Identical roots:
 
 ```
 root 3330844108758711782672220159612173083623710937399719017074673646455206473965
-evilroot 3330844108758711782672220159612173083623710937399719017074673646455206473965 
+evilroot 3330844108758711782672220159612173083623710937399719017074673646455206473965
 ```
-    
+
 ## Impact on Semaphore
 
 The following code can be tested on [zkrepl](https://zkrepl.dev/).
@@ -239,15 +241,15 @@ The following code can be tested on [zkrepl](https://zkrepl.dev/).
 #### Steps
 
 1. Create a Semaphore identity and assign its `secretScalar` to `secret`.
-2. Assign `merkleProofLength`, `merkleProofIndices` and `merkleProofSiblings`, according to the tree. 
-4. Assign the `secretScalar` of the identity you want to test to `evilsecret`. The identity for the example is a deterministic Semaphore identity with private key: `"123456"`.
-5. Assign the value `18699903263915756199535533399390350858126023699350081471896734858638858200219` to `target0`.
-6. Assign the value: `15684639248941018939207157301644512532843622097494605257727533950250892147976` to `target1`.
-7. Set `N` to the commitment of the Semaphore identity with secret scalar `evilsecret`, in this case `6064632857532276925033625901604953426426313622216578376924090482554191077680`.
-8. You will get two values: `sel` (used in `evilmerkleProofIndices`) and `S` (used in `evilmerkleProofSiblings`).
-9. Use any values you prefer for `message`, `scope`, `evilmessage` and `evilscope`.
+2. Assign `merkleProofLength`, `merkleProofIndices` and `merkleProofSiblings`, according to the tree.
+3. Assign the `secretScalar` of the identity you want to test to `evilsecret`. The identity for the example is a deterministic Semaphore identity with private key: `"123456"`.
+4. Assign the value `18699903263915756199535533399390350858126023699350081471896734858638858200219` to `target0`.
+5. Assign the value: `15684639248941018939207157301644512532843622097494605257727533950250892147976` to `target1`.
+6. Set `N` to the commitment of the Semaphore identity with secret scalar `evilsecret`, in this case `6064632857532276925033625901604953426426313622216578376924090482554191077680`.
+7. You will get two values: `sel` (used in `evilmerkleProofIndices`) and `S` (used in `evilmerkleProofSiblings`).
+8. Use any values you prefer for `message`, `scope`, `evilmessage` and `evilscope`.
 
-![Sage Math Semaphore](/articles/under-constrained-bug-in-binary-merkle-root-circuit-fixed-in-v200/sage-math-semaphore.png)
+![Sage Math Semaphore](/articles/under-constrained-bug-in-binary-merkle-root-circuit-fixed-in-v200/sage-math-semaphore.webp)
 
 #### Circom Code
 
@@ -260,7 +262,7 @@ include "circomlib/circuits/comparators.circom";
 include "circomlib/circuits/babyjub.circom";
 
 // Copy/paste BinaryMerkleRoot circuit from https://github.com/privacy-scaling-explorations/zk-kit.circom/blob/binary-merkle-root.circom-v1.0.0/packages/binary-merkle-root/src/binary-merkle-root.circom
-    
+
 // Copy/paste Semaphore circuit from https://github.com/semaphore-protocol/semaphore/blob/v4.11.1/packages/circuits/src/semaphore.circom
 
 template Poc () {
@@ -308,10 +310,10 @@ template Poc () {
 component main = Poc();
 
 /* INPUT = {
-   
+
 } */
 ```
-    
+
 #### Result
 
 Identical roots:

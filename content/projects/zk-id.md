@@ -1,7 +1,7 @@
 ---
 id: "zk-id"
 name: "zkID"
-image: "zk-id.png"
+image: "zk-id.webp"
 section: "pse"
 projectStatus: "active"
 category: "devtools"

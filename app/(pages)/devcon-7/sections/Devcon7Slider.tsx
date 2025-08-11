@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react"
 import Slider from "react-slick"
-
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Image from "next/image"
@@ -59,12 +58,12 @@ export const Devcon7Slider = () => {
   }
 
   const images = [
-    "/images/devcon-7/devcon-7-overview-1.jpg",
-    "/images/devcon-7/devcon-7-overview-2.jpg",
-    "/images/devcon-7/devcon-7-overview-3.jpg",
-    "/images/devcon-7/devcon-7-overview-4.jpg",
-    "/images/devcon-7/devcon-7-overview-5.jpg",
-    "/images/devcon-7/devcon-7-overview-6.jpg",
+    "/images/devcon-7/devcon-7-overview-1.webp",
+    "/images/devcon-7/devcon-7-overview-2.webp",
+    "/images/devcon-7/devcon-7-overview-3.webp",
+    "/images/devcon-7/devcon-7-overview-4.webp",
+    "/images/devcon-7/devcon-7-overview-5.webp",
+    "/images/devcon-7/devcon-7-overview-6.webp",
   ]
 
   return (

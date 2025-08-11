@@ -1,7 +1,7 @@
 ---
 id: "mopro"
 name: "Mopro"
-image: "mopro.png"
+image: "mopro.webp"
 section: "pse"
 projectStatus: "active"
 category: "devtools"

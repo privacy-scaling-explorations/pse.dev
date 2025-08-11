@@ -1,7 +1,7 @@
 ---
 id: "pse-security"
 name: "PSE Security"
-image: "pse-security.png"
+image: "pse-security.webp"
 section: "pse"
 projectStatus: "inactive"
 category: "research"
