@@ -1,11 +1,12 @@
 "use client"
 
-import { LABELS } from "@/app/labels"
 import { Icons } from "../icons"
+import { AppContent } from "../ui/app-content"
 import { Button } from "../ui/button"
+import { LABELS } from "@/app/labels"
+import { cn } from "@/lib/utils"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
-import { AppContent } from "../ui/app-content"
 import { useRef } from "react"
 
 export const ParallaxHero = () => {
@@ -24,14 +25,18 @@ export const ParallaxHero = () => {
       style={{ isolation: "isolate" }}
     >
       <motion.div
-        className="absolute inset-0 w-full h-[120%] -z-10 bg-[url('/hero/hero.jpg')] dark:bg-[url('/hero/hero-dark-mode.jpg')] bg-cover bg-[0_-150px]"
+        className={cn(
+          "absolute inset-0 w-full h-[120%]-z-10 bg-cover bg-[0_-100px] lg:bg-[0_-150px]",
+          "bg-[url('/hero/hero-mobile.jpg')] dark:bg-[url('/hero/hero-dark-mode-mobile.jpg')]", // mobile image
+          "lg:bg-[url('/hero/hero.jpg')] lg:dark:bg-[url('/hero/hero-dark-mode.jpg')]" // desktop image
+        )}
         style={{
           y: backgroundY,
         }}
       />
 
       <motion.div
-        className="relative z-10 flex items-center justify-center h-full py-20 lg:py-[130px]"
+        className="relative z-10 flex items-center justify-center h-full py-10 lg:py-[130px]"
         style={{
           y: useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]),
         }}

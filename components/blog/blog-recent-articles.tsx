@@ -1,10 +1,10 @@
-import { LABELS } from "@/app/labels"
-import { AppContent } from "../ui/app-content"
-import { getArticles, Article } from "@/lib/content"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { Button } from "../ui/button"
 import { Icons } from "../icons"
+import { AppContent } from "../ui/app-content"
+import { Button } from "../ui/button"
+import { LABELS } from "@/app/labels"
+import { getArticles, Article } from "@/lib/content"
+import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 const ArticleInEvidenceCard = ({
   article,
@@ -60,7 +60,7 @@ const ArticleInEvidenceCard = ({
     <AsLinkWrapper href={`/blog/${article.id}`} asLink={asLink}>
       <div
         className={cn(
-          "min-h-[177px] lg:min-h-[190px] relative flex flex-col gap-5 w-full items-center after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-20 group-hover:after:opacity-80 transition-opacity duration-300 after:z-[0]",
+          "min-h-[177px] lg:min-h-[190px] relative w-full items-center after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-50 group-hover:after:opacity-80 transition-opacity duration-300 after:z-[0]",
           {
             "aspect-video": !className?.includes("h-full"),
           },
@@ -73,65 +73,68 @@ const ArticleInEvidenceCard = ({
         }}
       >
         <div
-          className={cn(
-            "duration-200 flex flex-col gap-[10px] text-left relative z-[1] w-full h-full",
-            {
-              "px-5 lg:px-16 py-6 lg:py-16 ": size === "lg",
-              "px-6 py-4 lg:p-8": size === "sm",
-              "px-6 lg:p-16": size === "xl",
-            },
-            contentClassName
-          )}
+          className={cn("flex flex-col gap-[10px] h-full justify-center", {
+            "px-5 lg:px-16 py-6 lg:py-16 ": size === "lg",
+            "px-6 py-4 lg:p-8": size === "sm",
+            "px-6 lg:p-16": size === "xl",
+          })}
         >
-          {article.date && showDate && (
-            <span className="text-white text-xs font-sans font-bold tracking-[2.5px] text-left uppercase">
-              {formatDate(article.date)}
-            </span>
-          )}
-          <Link
-            href={`/blog/${article.id}`}
+          <div
             className={cn(
-              " text-white font-display hover:text-anakiwa-400 transition-colors",
-              {
-                "text-[20px] font-semibold lg:font-bold lg:text-lg line-clamp-2 mt-auto":
-                  variant === "compact",
-                "text-[20px] font-semibold lg:font-bold line-clamp-3 mt-auto":
-                  variant === "default",
-                "text-[20px] font-bold lg:!text-[40px] lg:!leading-[44px] mt-auto":
-                  variant === "xl",
-              },
-              titleClassName
+              "duration-200 flex flex-col gap-[10px] text-left relative z-[1] w-full",
+              contentClassName
             )}
           >
-            {article.title}
-          </Link>
-          <span className="text-sm text-white/80 uppercase font-inter">
-            {article.authors?.join(", ")}
-          </span>
-          {article.tldr && !hideTldr && (
-            <div className="mt-auto hidden lg:block w-full">
-              <p
-                className="text-sm font-sans text-white font-normal line-clamp-2 lg:line-clamp-3"
-                style={{
-                  display: "-webkit-box",
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                  wordBreak: "break-word",
-                  whiteSpace: "pre-wrap",
-                }}
-              >
-                {article.tldr}
-              </p>
-            </div>
-          )}
+            {article.date && showDate && (
+              <span className="text-white text-xs font-sans font-bold tracking-[2.5px] text-left uppercase">
+                {formatDate(article.date)}
+              </span>
+            )}
+            <Link
+              href={`/blog/${article.id}`}
+              className={cn(
+                " text-white font-display hover:text-anakiwa-400 transition-colors",
+                {
+                  "text-[20px] font-semibold lg:font-bold lg:text-lg line-clamp-2":
+                    variant === "compact",
+                  "text-[20px] font-semibold lg:font-bold line-clamp-3":
+                    variant === "default",
+                  "text-[20px] font-bold lg:!text-[40px] lg:!leading-[44px]":
+                    variant === "xl",
+                },
+                titleClassName
+              )}
+            >
+              {article.title}
+            </Link>
+            <span className="text-sm text-white/80 uppercase font-inter">
+              {article.authors?.join(", ")}
+            </span>
+            {article.tldr && !hideTldr && (
+              <div className="mt-auto hidden lg:block w-full">
+                <p
+                  className="text-sm font-sans text-white font-normal line-clamp-2 lg:line-clamp-3"
+                  style={{
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    wordBreak: "break-word",
+                    whiteSpace: "pre-wrap",
+                  }}
+                >
+                  {article.tldr}
+                </p>
+              </div>
+            )}
+          </div>
           {showReadMore && (
-            <Link href={`/blog/${article.id}`} className="ml-auto mt-4">
-              <Button className="uppercase ml-auto" variant="secondary">
-                <div className="flex items-center gap-2">
-                  <span className="!text-center">Read More</span>
-                  <Icons.arrowRight className="w-4 h-4" />
-                </div>
-              </Button>
+            <Link href={`/blog/${article.id}`} className="ml-auto z-[1]">
+              <div className="flex items-center gap-2 group">
+                <span className="!text-center text-white uppercase group-hover:text-anakiwa-400 duration-200">
+                  Read More
+                </span>
+                <Icons.arrowRight className="w-4 h-4 text-white group-hover:text-anakiwa-400 group-hover:ml-1 duration-200" />
+              </div>
             </Link>
           )}
         </div>
@@ -147,7 +150,7 @@ export async function BlogRecentArticles() {
   const otherArticles = articles.slice(1)
 
   return (
-    <div className="py-10 lg:py-20">
+    <div className="py-16 lg:py-20">
       <AppContent>
         <div className="flex flex-col gap-10">
           <h3 className="font-sans text-base font-bold uppercase tracking-[3.36px] text-tuatara-950 text-center dark:text-anakiwa-400">
@@ -181,7 +184,7 @@ export async function BlogRecentArticles() {
                   )}
                 </Link>
               ))}
-              <Link href="/blog" className="mt-auto">
+              <Link href="/blog" className="mt-auto lg:mx-0 mx-auto">
                 <Button className="uppercase">
                   <div className="flex items-center gap-2">
                     <span>{LABELS.BLOG_PAGE.SEE_MORE}</span>

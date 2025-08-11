@@ -21,7 +21,7 @@ const ResearchPage = async () => {
             {LABELS.RESEARCH_PAGE.TITLE}
           </h1>
           <div className="lg:!w-4/5 w-full flex lg:flex-row flex-col items-center gap-3 lg:gap-10 mx-auto justify-center">
-            <span className="text-base lg:text-xl dark:text-tuatara-200 text-tuatara-950 font-sans">
+            <span className="text-base lg:text-xl dark:text-tuatara-200 text-tuatara-950 font-sans text-center">
               {LABELS.RESEARCH_PAGE.SUBTITLE}
             </span>
             <AppLink variant="button" href="/about">

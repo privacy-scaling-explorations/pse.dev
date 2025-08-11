@@ -5,6 +5,7 @@ import { HomepageBanner } from "@/components/sections/HomepageBanner"
 import { HomepageVideoFeed } from "@/components/sections/HomepageVideoFeed"
 import { OurWork } from "@/components/sections/OurWork"
 import { ParallaxHero } from "@/components/sections/ParallaxHero"
+import { AppContent } from "@/components/ui/app-content"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Suspense } from "react"
@@ -28,8 +29,8 @@ export default function IndexPage() {
     <section className="flex flex-col w-full">
       <ParallaxHero />
 
-      <div className="flex flex-col justify-center bg-white dark:bg-black py-20">
-        <div className="lg:max-w-[890px] flex flex-col mx-auto gap-10 justify-center items-center">
+      <div className="flex flex-col justify-center bg-white dark:bg-black py-16 lg:py-20">
+        <AppContent className="lg:max-w-[890px] flex flex-col mx-auto gap-10 justify-center items-center">
           <span className="font-sans text-base text-center text-tuatara-950 dark:text-tuatara-100 font-bold uppercase tracking-[3.36px]">
             {LABELS.HOMEPAGE.MISSION_TITLE}
           </span>
@@ -49,7 +50,7 @@ export default function IndexPage() {
               </div>
             </Button>
           </Link>
-        </div>
+        </AppContent>
       </div>
 
       <OurWork />

@@ -136,7 +136,7 @@ export default async function AboutPage() {
               <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
                 Our History
               </h2>
-              <span className="text-xl font-sans dark:text-tuatara-200 text-tuatara-500 mx-auto">
+              <span className="text-base lg:text-xl font-sans dark:text-tuatara-200 text-tuatara-500 mx-auto">
                 We began in 2018 as Applied ZKP, a team supported by the
                 Ethereum Foundation to push zero-knowledge proofs from theory to
                 practice. In 2021, we became Privacy & Scaling Explorations

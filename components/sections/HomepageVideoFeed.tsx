@@ -1,14 +1,14 @@
 "use client"
 
+import { AppLink } from "../app-link"
+import { Icons } from "../icons"
+import { AppContent } from "../ui/app-content"
+import { Button } from "../ui/button"
 import { LABELS } from "@/app/labels"
+import { useYoutube } from "@/hooks/useYoutube"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "../ui/button"
-import { AppContent } from "../ui/app-content"
-import { Icons } from "../icons"
-import { useYoutube } from "@/hooks/useYoutube"
-import { AppLink } from "../app-link"
 
 interface Video {
   id: string
@@ -71,7 +71,7 @@ export const HomepageVideoFeed = () => {
   const { data: videos = [], isLoading, isError } = useYoutube()
 
   return (
-    <section className="mx-auto px-6 lg:px-8 py-10 lg:pt-0 lg:pb-20 bg-white dark:bg-black w-full">
+    <section className="mx-auto py-10 lg:pt-0 lg:pb-20 bg-white dark:bg-black w-full">
       <AppContent className="flex flex-col gap-8 lg:max-w-[1200px] w-full">
         <div className="col-span-1 lg:col-span-4">
           <h2 className="font-sans text-base font-bold uppercase tracking-[3.36px] text-tuatara-950 text-center dark:text-tuatara-100">
@@ -106,9 +106,9 @@ export const HomepageVideoFeed = () => {
                 href="https://www.youtube.com/@privacyscalingexplorations-1"
                 external
                 variant="button"
-                className="group inline-flex"
+                className="group mx-auto lg:mx-0 lg:inline-flex"
               >
-                <Button className="w-full" variant="orange">
+                <Button className="w-fit mx-auto lg:w-full" variant="orange">
                   <div className="flex items-center gap-1">
                     <span className="font-medium uppercase">
                       {LABELS.HOMEPAGE.VISIT_OUR_CHANNEL}
