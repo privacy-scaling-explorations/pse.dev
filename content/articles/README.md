@@ -32,7 +32,7 @@ Write your article content using Markdown formatting:
   ```javascript
   // Your code here
   ```
-- For images, use the Markdown image syntax: `![Alt text](/articles/your-article-name/image-name.png)`
+- For images, use the Markdown image syntax: `![Alt text](/articles/your-article-name/image-name.webp)`
 - For LaTeX math formulas:
   - Use single dollar signs for inline math: `$E=mc^2$` will render as $E=mc^2$
   - Use double dollar signs for block math:

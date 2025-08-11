@@ -1,7 +1,7 @@
 ---
 id: "openpassport"
 name: "OpenPassport"
-image: "openpassport.jpg"
+image: "openpassport.webp"
 section: "grant"
 projectStatus: "active"
 category: "application"

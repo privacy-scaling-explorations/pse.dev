@@ -1,23 +1,30 @@
-import { ReactNode } from "react"
-
 import { AppContent } from "./ui/app-content"
+import { ReactNode } from "react"
 
 type BannerProps = {
   title: ReactNode
   subtitle?: string
   children?: ReactNode
+  headingLevel?: "h2" | "h3" | "h4"
 }
 
-const Banner = ({ title, subtitle, children }: BannerProps) => {
+const Banner = ({
+  title,
+  subtitle,
+  children,
+  headingLevel = "h2",
+}: BannerProps) => {
+  const HeadingTag = headingLevel
+
   return (
     <section className="relative bg-background text-center">
       <div className="py-16">
         <AppContent className="flex flex-col gap-6">
           <div className="flex flex-col items-center text-center">
             {typeof title === "string" ? (
-              <h6 className="py-4 font-sans text-base font-bold uppercase tracking-[4px] text-primary dark:text-white">
+              <HeadingTag className="py-4 font-sans text-base font-bold uppercase tracking-[4px] text-primary dark:text-white">
                 {title}
-              </h6>
+              </HeadingTag>
             ) : (
               title
             )}

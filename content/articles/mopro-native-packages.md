@@ -41,15 +41,15 @@ Here's how zkEmail performs on Apple M3 chips:
     <table>
     <tr>
         <td align="center">
-        <a href="/articles/mopro-native-packages/zkemail-flutter-app-ios.png" target="_blank" rel="noopener noreferrer">
-            <img src="/articles/mopro-native-packages/zkemail-flutter-app-ios.png" alt="iOS zkEmail App Example" width="300"/>
+        <a href="/articles/mopro-native-packages/zkemail-flutter-app-ios.webp" target="_blank" rel="noopener noreferrer">
+            <img src="/articles/mopro-native-packages/zkemail-flutter-app-ios.webp" alt="iOS zkEmail App Example" width="300"/>
         </a>
         <br />
         <sub><b>iOS</b></sub>
         </td>
         <td align="center">
-        <a href="/articles/mopro-native-packages/zkemail-flutter-app-android.png" target="_blank" rel="noopener noreferrer">
-            <img src="/articles/mopro-native-packages/zkemail-flutter-app-android.png" alt="Android zkEmail App Example" width="300"/>
+        <a href="/articles/mopro-native-packages/zkemail-flutter-app-android.webp" target="_blank" rel="noopener noreferrer">
+            <img src="/articles/mopro-native-packages/zkemail-flutter-app-android.webp" alt="Android zkEmail App Example" width="300"/>
         </a>
         <br />
         <sub><b>Android</b></sub>

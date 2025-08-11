@@ -47,11 +47,11 @@ For the zero-knowledge proof of $x_1$ such that $g^{x_1} = h_1$, the [Schnorr pr
 - The prover sends $z_1 = y_1 + x_1 d$ to the verifier.
 - The verifier checks whether $g^{z_1} = t_1 h_1^d$.
 
-![](/articles/lattice-based-proof-systems/image-1.png)
+![](/articles/lattice-based-proof-systems/image-1.webp)
 
 Now, the protocol can be easily extended to prove the knowledge of $x_2$ such that $g^{x_2} = h_2$. In this case, the prover would also send $t_2 = g^{y_2}$ in the first step and $z_2 = y_2 + x_1 d$ in the third one. The verifier would then check whether $g^{z_2} = t_2 h_2^d$.
 
-![](/articles/lattice-based-proof-systems/image-2.png)
+![](/articles/lattice-based-proof-systems/image-2.webp)
 
 Note that checking the additional property $x_1 = u \cdot x_2$ is straightforward:
 
@@ -97,7 +97,7 @@ $$||x_1|| \leq B$$
 
 Would the following protocol work?
 
-![](/articles/lattice-based-proof-systems/image-3.png)
+![](/articles/lattice-based-proof-systems/image-3.webp)
 
 The last step of the protocol would be verifier checking whether $A z_1 = A y_1 + d A x_1 = t_1 + d h_1$.
 
@@ -165,7 +165,7 @@ $f \cdot \begin{pmatrix} \mathbf{c}_1 \\ \mathbf{c}_2 \end{pmatrix} = \begin{pma
 
 #### Proof of opening
 
-![](/articles/lattice-based-proof-systems/image-4.png)
+![](/articles/lattice-based-proof-systems/image-4.webp)
 
 Note that the opening for this commitment schemes is not simply $\mathbf{r}$ and $\mathbf{x}$; it also includes a polynomial $f \in \bar{C}.$ This is due to the issue with the extractor described above.
 

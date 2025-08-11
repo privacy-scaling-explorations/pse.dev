@@ -1,10 +1,11 @@
-import { LABELS } from "@/app/labels"
-import { AppContent } from "../ui/app-content"
-import { getArticles, Article } from "@/lib/content"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { Button } from "../ui/button"
 import { Icons } from "../icons"
+import { AppContent } from "../ui/app-content"
+import { Button } from "../ui/button"
+import { LABELS } from "@/app/labels"
+import { getArticles, Article } from "@/lib/content"
+import { cn } from "@/lib/utils"
+import Image from "next/image"
+import Link from "next/link"
 
 const ArticleInEvidenceCard = ({
   article,
@@ -56,25 +57,30 @@ const ArticleInEvidenceCard = ({
     )
   }
 
+  console.log("article", article.image)
+
   return (
     <AsLinkWrapper href={`/blog/${article.id}`} asLink={asLink}>
       <div
         className={cn(
-          "min-h-[177px] lg:min-h-[190px] relative flex flex-col gap-5 w-full items-center after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-20 group-hover:after:opacity-80 transition-opacity duration-300 after:z-[0]",
+          "min-h-[177px] lg:min-h-[190px] rounded-[6px] relative flex flex-col gap-5 w-full items-center overflow-hidden after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-50 group-hover:after:opacity-80 transition-opacity duration-300 after:z-[1]",
           {
             "aspect-video": !className?.includes("h-full"),
           },
           className
         )}
-        style={{
-          backgroundImage: `url(${article.image ?? "/fallback.webp"})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center centers",
-        }}
       >
+        <Image
+          src={article.image ?? "/fallback.webp"}
+          alt={article.title}
+          fill
+          className="object-cover -z-[1] absolute inset-0"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={variant === "xl"}
+        />
         <div
           className={cn(
-            "duration-200 flex flex-col gap-[10px] text-left relative z-[1] w-full h-full",
+            "duration-200 flex flex-col gap-[10px] text-left relative z-[2] w-full h-full",
             {
               "px-5 lg:px-16 py-6 lg:py-16 ": size === "lg",
               "px-6 py-4 lg:p-8": size === "sm",
@@ -118,7 +124,11 @@ const ArticleInEvidenceCard = ({
             </span>
           )}
           {showReadMore && (
-            <Link href={`/blog/${article.id}`} className="ml-auto mt-4">
+            <Link
+              href={`/blog/${article.id}`}
+              className="ml-auto mt-4"
+              aria-label={`Read more about ${article.title}`}
+            >
               <Button className="uppercase ml-auto" variant="secondary">
                 <div className="flex items-center gap-2">
                   <span className="!text-center">Read More</span>
@@ -143,9 +153,9 @@ export async function BlogRecentArticles() {
     <div className="py-10 lg:py-16">
       <AppContent>
         <div className="flex flex-col gap-10">
-          <h3 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
+          <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
             {LABELS.BLOG_PAGE.RECENT_ARTICLES}
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
             <div className="inset-0 relative lg:col-span-3">
               <ArticleInEvidenceCard

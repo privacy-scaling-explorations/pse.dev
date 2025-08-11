@@ -1,25 +1,27 @@
 "use client"
 
-import React, { useEffect, useState, useMemo } from "react"
-import Image from "next/image"
-import NoResultIcon from "@/public/icons/no-result.svg"
-
-import { ProjectInterface, ProjectStatus } from "@/lib/types"
-import { LABELS } from "@/app/labels"
-import { useProjects } from "@/app/providers/ProjectsProvider"
-
 import ResearchCard from "./research-card"
-import Link from "next/link"
 import {
   SectionWrapper,
   SectionWrapperTitle,
 } from "@/app/components/wrappers/SectionWrapper"
+import { LABELS } from "@/app/labels"
+import { useProjects } from "@/app/providers/ProjectsProvider"
+import { ProjectInterface, ProjectStatus } from "@/lib/types"
+import NoResultIcon from "@/public/icons/no-result.svg"
+import Image from "next/image"
+import Link from "next/link"
+import React, { useEffect, useState, useMemo } from "react"
 
 const NoResults = () => {
   return (
     <div className="flex flex-col gap-2 pt-24 pb-40 text-center">
       <div className="mx-auto">
-        <Image className="h-9 w-9" src={NoResultIcon} alt="no result icon" />
+        <Image
+          className="h-9 w-9"
+          src={NoResultIcon}
+          alt="No research projects found"
+        />
       </div>
       <span className="text-2xl font-bold font-display text-primary">
         {LABELS.COMMON.NO_RESULTS}

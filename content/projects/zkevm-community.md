@@ -1,7 +1,7 @@
 ---
 id: "zkevm-community"
 name: "zkEVM Community Edition"
-image: "zkevm.jpg"
+image: "zkevm.webp"
 section: "pse"
 projectStatus: "inactive"
 category: "devtools"
@@ -15,7 +15,7 @@ links:
   github: "https://github.com/privacy-scaling-explorations/zkevm-circuits"
 ---
 
-The zkEVM Community Edition was an early attempt to show that Ethereum’s execution layer could be verified using zero-knowledge proofs.  The ambitious pursuit of a [“Type 1” or  "fully and uncompromisingly Ethereum-equivalent"](https://vitalik.eth.limo/general/2022/08/04/zkevm.html) zkEVM helped set off a race among peers and collaborators in the ecosystem, to snarkify Ethereum.
+The zkEVM Community Edition was an early attempt to show that Ethereum’s execution layer could be verified using zero-knowledge proofs. The ambitious pursuit of a [“Type 1” or  "fully and uncompromisingly Ethereum-equivalent"](https://vitalik.eth.limo/general/2022/08/04/zkevm.html) zkEVM helped set off a race among peers and collaborators in the ecosystem, to snarkify Ethereum.
 
 The project began as a collaboration between PSE, Scroll, and Taiko around 2021, a time when large scale ZK applications were not possible and ZK developers had very limited options. Groth16 was the only production-ready zkSNARK proof system but required per-circuit trusted setups, and the rigidity of R1CS meant constraint blowup. However, a viable path toward full validation of Ethereum blocks seemed to open up with the Zcash instantiation of PLONK called Halo2. With Halo2, universal trusted setups, more flexible constraint systems, and reduced constraint counts became feasible, providing a leap in tooling for general compute in ZK.
 

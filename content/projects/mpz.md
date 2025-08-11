@@ -1,7 +1,7 @@
 ---
 id: "mpz"
 name: "mpz"
-image: "mpz-cover.png"
+image: "mpz-cover.webp"
 section: "pse"
 projectStatus: "active"
 category: "devtools"

@@ -1,7 +1,7 @@
 ---
 id: "mpc-stats"
 name: "MPCStats"
-image: "mpc-stats.png"
+image: "mpc-stats.webp"
 section: "pse"
 projectStatus: "inactive"
 category: "applications"

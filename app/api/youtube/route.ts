@@ -11,7 +11,14 @@ export async function GET() {
 
     const videos = await getVideosFromRSS()
 
-    return NextResponse.json({ videos })
+    return NextResponse.json(
+      { videos },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=7200",
+        },
+      }
+    )
   } catch (error) {
     console.error("Error fetching videos:", error)
     return NextResponse.json({ videos: [] })

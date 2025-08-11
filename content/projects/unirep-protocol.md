@@ -7,7 +7,7 @@ projectStatus: "inactive"
 category: "application"
 tldr: "A Zero-Knowledge Protocol built to handle anonymous user data."
 license: "MIT"
-previousBrandImage: "unirep-previousBrand.png"
+previousBrandImage: "unirep-previousBrand.webp"
 tags:
   keywords: ["Anonymity/privacy", "Social", "Identity", "Reputation"]
   themes: ["build", "play"]

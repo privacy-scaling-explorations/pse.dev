@@ -1,7 +1,7 @@
 ---
 authors: ["Yanis Meziane"]
 title: "Introducing Trinity"
-image: "/articles/introducing-trinity/trinity.png"
+image: "/articles/introducing-trinity/trinity.webp"
 tldr: "Two-Party Computation for the ZK Era"
 date: "2025-04-28"
 tags:
@@ -89,9 +89,9 @@ export default function main(a: number, b: number) {
 In the next snippet, we're going to initialise the trinity library and parse our circuit, so it can be consumed by both the garbler and the evaluator.
 
 ```ts
-import * as summon from "summon-ts"
 import getCircuitFiles from "./getCircuitFiles"
 import { initTrinity, parseCircuit } from "@trinity-2pc/core"
+import * as summon from "summon-ts"
 
 export default async function generateProtocol() {
   await summon.init()

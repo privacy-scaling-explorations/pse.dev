@@ -1,7 +1,7 @@
 ---
 id: "maci-platform"
 name: "MACI Platform"
-image: "maci-platform.png"
+image: "maci-platform.webp"
 section: "pse"
 projectStatus: "inactive"
 category: "application"

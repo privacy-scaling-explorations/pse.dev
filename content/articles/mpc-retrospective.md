@@ -1,7 +1,7 @@
 ---
 authors: ["Kevin Chia", "Jern Kun", "Kazumune Masaki"] # Add your name or multiple authors in an array
 title: "MPCStats Retrospective: Lessons from a Privacy-Preserving Stats Platform" # The title of your article
-image: "/articles/mpcstats-retrospective/cover.png" # Image used as cover,  Keep in mind the image size, where possible use .webp format, possibly images less then 200/300kb
+image: "/articles/mpcstats-retrospective/cover.webp" # Image used as cover,  Keep in mind the image size, where possible use .webp format, possibly images less then 200/300kb
 tldr: "A retrospective on the MPCStats project—exploring our goals, technical challenges, demo at Devcon 2024, and the decision to sunset the platform."
 date: "2025-05-23"
 tags: ["MPC", "privacy", "data analysis", "Devcon", "TLSNotary"]
@@ -18,7 +18,7 @@ Rather than building the full-fledged platform we originally planned, we decided
 
 We got valuable feedback after the demo, and we recognized that identifying impactful, real-world use cases would be key to making our work meaningful. We began planning user interviews to validate promising application ideas and to implement them based on the findings.
 
-![mpcstats-demo](/articles/mpcstats-retrospective/mpcstats-demo.png)
+![mpcstats-demo](/articles/mpcstats-retrospective/mpcstats-demo.webp)
 
 ### What was achieved
 

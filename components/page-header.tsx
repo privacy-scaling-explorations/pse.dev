@@ -1,7 +1,6 @@
-import { ReactNode } from "react"
-
 import { AppContent } from "./ui/app-content"
 import { Label } from "./ui/label"
+import { ReactNode } from "react"
 
 type PageHeaderProps = {
   title: ReactNode
@@ -31,9 +30,9 @@ const PageHeader = ({
             <div className="flex flex-col gap-4 md:gap-8">
               <Label.PageTitle label={title} size={size} />
               {subtitle && (
-                <h6 className="font-sans text-base font-normal text-primary md:text-[18px] md:leading-[27px] dark:text-tuatara-100">
+                <p className="font-sans text-base font-normal text-primary md:text-[18px] md:leading-[27px] dark:text-tuatara-100">
                   {subtitle}
-                </h6>
+                </p>
               )}
             </div>
             {actions}

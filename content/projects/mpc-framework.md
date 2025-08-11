@@ -1,7 +1,7 @@
 ---
 id: "mpc-framework"
 name: "MPC Framework"
-image: "mpc-framework.png"
+image: "mpc-framework.webp"
 section: "pse"
 projectStatus: "active"
 category: "devtools"
@@ -18,12 +18,12 @@ links:
   telegram: "https://t.me/+FKnOHTkvmX02ODVl"
 team:
   - name: "Andrew Morris"
-    image: "/avatars/andrew.png"
+    image: "/avatars/andrew.webp"
     links:
       github: "https://github.com/voltrevo"
       twitter: "https://x.com/voltrevo"
   - name: "Yanis Meziane"
-    image: "/avatars/yanis.png"
+    image: "/avatars/yanis.webp"
     links:
       github: "https://github.com/Meyanis95"
       twitter: "https://x.com/yanis_mezn"

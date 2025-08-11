@@ -1,7 +1,7 @@
 ---
 id: "p0tion"
 name: "p0tion"
-image: "p0tion.png"
+image: "p0tion.webp"
 section: "archived"
 projectStatus: "maintained"
 category: "devtools"

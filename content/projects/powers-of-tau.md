@@ -1,7 +1,7 @@
 ---
 id: "powers-of-tau"
 name: "Perpetual Powers of Tau"
-image: "powers-of-tau.png"
+image: "powers-of-tau.webp"
 section: "archived"
 projectStatus: "maintained"
 category: "devtools"

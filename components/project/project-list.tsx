@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useCallback, useEffect, useRef, useState } from "react"
-import Image from "next/image"
-import NoResultIcon from "@/public/icons/no-result.svg"
-
+import ProjectCard from "./project-card"
+import { SectionWrapper } from "@/app/components/wrappers/SectionWrapper"
+import { LABELS } from "@/app/labels"
+import { useProjects } from "@/app/providers/ProjectsProvider"
 import {
   ProjectInterface,
   ProjectSection,
@@ -13,17 +13,15 @@ import {
   ProjectStatusDescriptionMapping,
 } from "@/lib/types"
 import { cn } from "@/lib/utils"
-import { LABELS } from "@/app/labels"
-
-import ProjectCard from "./project-card"
-import { useProjects } from "@/app/providers/ProjectsProvider"
-import { SectionWrapper } from "@/app/components/wrappers/SectionWrapper"
+import NoResultIcon from "@/public/icons/no-result.svg"
+import Image from "next/image"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 
 const NoResults = () => {
   return (
     <div className="flex flex-col gap-2 pt-24 pb-40 text-center">
       <div className="mx-auto">
-        <Image className="h-9 w-9" src={NoResultIcon} alt="no result icon" />
+        <Image className="h-9 w-9" src={NoResultIcon} alt="No projects found" />
       </div>
       <span className="text-2xl font-bold font-display text-primary">
         {LABELS.COMMON.NO_RESULTS}
@@ -117,16 +115,13 @@ export const ProjectList = () => {
 
   if (noItems) return <NoResults />
 
-  const projectsGroupByStatus = projects.reduce(
-    (acc, project) => {
-      acc[project.projectStatus] = [
-        ...(acc[project.projectStatus] || []),
-        project,
-      ]
-      return acc
-    },
-    {} as Record<ProjectStatus, ProjectInterface[]>
-  )
+  const projectsGroupByStatus = projects.reduce((acc, project) => {
+    acc[project.projectStatus] = [
+      ...(acc[project.projectStatus] || []),
+      project,
+    ]
+    return acc
+  }, {} as Record<ProjectStatus, ProjectInterface[]>)
 
   if (hasSearchParams) {
     return (

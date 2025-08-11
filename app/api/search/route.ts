@@ -1,6 +1,9 @@
 import algoliasearch from "algoliasearch"
 import { NextRequest, NextResponse } from "next/server"
 
+// Cache search results for better performance
+export const revalidate = 900 // Revalidate cache after 15 minutes
+
 const appId =
   process.env.ALGOLIA_APP_ID || process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || ""
 const apiKey =
@@ -61,11 +64,19 @@ export async function GET(request: NextRequest) {
       const index = searchClient.initIndex(indexName)
       const response = await index.search(transformedQuery, { hitsPerPage })
 
-      return NextResponse.json({
-        hits: response.hits,
-        status: "success",
-        availableIndexes: allIndexes,
-      })
+      return NextResponse.json(
+        {
+          hits: response.hits,
+          status: "success",
+          availableIndexes: allIndexes,
+        },
+        {
+          headers: {
+            "Cache-Control":
+              "public, s-maxage=900, stale-while-revalidate=1800",
+          },
+        }
+      )
     }
 
     // Otherwise search across all configured indexes
@@ -88,11 +99,18 @@ export async function GET(request: NextRequest) {
       (result) => result.hits && result.hits.length > 0
     )
 
-    return NextResponse.json({
-      results: nonEmptyResults,
-      status: "success",
-      availableIndexes: allIndexes,
-    })
+    return NextResponse.json(
+      {
+        results: nonEmptyResults,
+        status: "success",
+        availableIndexes: allIndexes,
+      },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=900, stale-while-revalidate=1800",
+        },
+      }
+    )
   } catch (error: any) {
     console.error("Global search error:", error)
     return NextResponse.json(

@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Comms Team"]
 title: "PSE July 2025 Newsletter"
-image: "/articles/pse-july-2025/cover.png"
+image: "/articles/pse-july-2025/cover.webp"
 tldr: "A roundup of research and development updates from PSE teams in July 2025, covering client-side proving, post-quantum cryptography, zkID, TLSNotary, MPC, MACI, and more."
 date: "2025-07-16"
 tags:
