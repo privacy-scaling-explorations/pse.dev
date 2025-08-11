@@ -1,6 +1,6 @@
 "use client"
 
-import "@/styles/globals.css"
+import "@/globals.css"
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"

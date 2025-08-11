@@ -1,5 +1,6 @@
 "use client"
 
+import { notFound } from "next/navigation"
 import { siteConfig } from "@/config/site"
 import { ProjectCategory, ProjectStatus } from "@/lib/types"
 
@@ -82,7 +83,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
   const isResearchProject = project?.category === ProjectCategory.RESEARCH
 
   if (!project?.id) {
-    return null
+    notFound()
   }
 
   return (
@@ -91,6 +92,7 @@ export const ProjectContent = ({ id }: { id: string }) => {
         href={siteConfig.editProjectPage(project.id)}
         external
         className="fixed bottom-5 left-5 lg:bottom-5 lg:left-10 z-10"
+        variant="button"
       >
         <Button className="w-full md:w-auto" size="sm">
           <div className="flex items-center gap-1">

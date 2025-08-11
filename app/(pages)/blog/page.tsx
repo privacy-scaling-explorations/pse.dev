@@ -1,16 +1,16 @@
 import { LABELS } from "@/app/labels"
+import { ArticlesList } from "@/components/blog/articles-list"
+import { Skeleton } from "@/components/skeleton"
 import { AppContent } from "@/components/ui/app-content"
 import { Label } from "@/components/ui/label"
-import { Metadata } from "next"
-import { Suspense } from "react"
+import { getArticles } from "@/lib/content"
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query"
-import { Skeleton } from "@/components/skeleton"
-import { getArticles } from "@/lib/content"
-import { ArticlesList } from "@/components/blog/articles-list"
+import { Metadata } from "next"
+import { Suspense } from "react"
 
 export const dynamic = "force-dynamic"
 
@@ -25,7 +25,7 @@ interface BlogPageProps {
   searchParams?: { [key: string]: string | string[] | undefined }
 }
 
-export const BlogLoadingSkeleton = () => {
+const BlogLoadingSkeleton = () => {
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch">
