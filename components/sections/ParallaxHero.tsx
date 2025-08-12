@@ -21,12 +21,12 @@ export const ParallaxHero = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full overflow-hidden h-[500px] lg:h-[600px]"
+      className="relative w-full overflow-hidden h-[500px] lg:h-[600px] bg-cover bg-no-repeat bg-center"
       style={{ isolation: "isolate" }}
     >
       <motion.div
         className={cn(
-          "absolute inset-0 w-full h-[120%]-z-10 bg-cover bg-[0_-100px] lg:bg-[0_-150px]",
+          "absolute inset-0 w-full h-full -z-10 bg-cover bg-no-repeat bg-center",
           "bg-[url('/hero/hero-mobile.jpg')] dark:bg-[url('/hero/hero-dark-mode-mobile.jpg')]", // mobile image
           "lg:bg-[url('/hero/hero.jpg')] lg:dark:bg-[url('/hero/hero-dark-mode.jpg')]" // desktop image
         )}
