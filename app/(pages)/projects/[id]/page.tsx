@@ -2,6 +2,7 @@ import { ProjectContent } from "../sections/ProjectContent"
 import { getProjects, Project } from "@/lib/content"
 import { ProjectInterface } from "@/lib/types"
 import { Metadata } from "next"
+import { notFound } from "next/navigation"
 
 type PageProps = {
   params: { id: string }
@@ -58,5 +59,15 @@ export async function generateStaticParams() {
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
-  return <ProjectContent id={params?.id?.toLowerCase()} />
+  const projects = await getProjects()
+  const project = projects.find(
+    (p: Project) =>
+      String(p.id?.toLowerCase()) === params.id.toString().toLowerCase()
+  )
+
+  if (!project) {
+    notFound()
+  }
+
+  return <ProjectContent project={project as unknown as ProjectInterface} />
 }
