@@ -1,7 +1,6 @@
 "use client"
 
 import { LABELS } from "@/app/labels"
-import { useProjects } from "@/app/providers/ProjectsProvider"
 import { AppLink } from "@/components/app-link"
 import { ProjectBlogArticles } from "@/components/blog/project-blog-articles"
 import { WikiCard } from "@/components/cards/wiki-card"
@@ -18,9 +17,8 @@ import { Button } from "@/components/ui/button"
 import { Markdown, createMarkdownElement } from "@/components/ui/markdown"
 import { WikiSideNavigation } from "@/components/wiki-side-navigation"
 import { siteConfig } from "@/config/site"
-import { ProjectCategory, ProjectStatus } from "@/lib/types"
+import { ProjectCategory, ProjectStatus, ProjectInterface } from "@/lib/types"
 import { cn } from "@/lib/utils"
-import { notFound } from "next/navigation"
 
 const markdownContentClassName =
   "text-neutral-700 text-[22px] leading-6 font-bold pt-10 pb-4 dark:text-tuatara-100"
@@ -64,10 +62,7 @@ const markdownComponents = {
     }),
 }
 
-export const ProjectContent = ({ id }: { id: string }) => {
-  const { getProjectById, isLoading } = useProjects()
-  const { project } = getProjectById(id) ?? {}
-
+export const ProjectContent = ({ project }: { project: ProjectInterface }) => {
   const hasSocialLinks = Object.keys(project?.links ?? {}).length > 0
 
   const ProjectStatusMessageMap: Record<ProjectStatus, string> = {
@@ -80,14 +75,6 @@ export const ProjectContent = ({ id }: { id: string }) => {
     ProjectStatusMessageMap?.[project?.projectStatus as ProjectStatus]
 
   const isResearchProject = project?.category === ProjectCategory.RESEARCH
-
-  if (!isLoading && !project?.id) {
-    notFound()
-  }
-
-  if (isLoading) {
-    return null
-  }
 
   return (
     <section className="bg-project-page-gradient dark:bg-transparent-gradient relative">
