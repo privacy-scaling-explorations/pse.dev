@@ -1,8 +1,7 @@
-import { Metadata } from "next"
-
-import { ProjectInterface } from "@/lib/types"
 import { ProjectContent } from "../sections/ProjectContent"
 import { getProjects, Project } from "@/lib/content"
+import { ProjectInterface } from "@/lib/types"
+import { Metadata } from "next"
 
 type PageProps = {
   params: { id: string }
@@ -48,6 +47,14 @@ export async function generateMetadata({
       ],
     },
   }
+}
+
+export async function generateStaticParams() {
+  const projects = await getProjects()
+
+  return projects.map((project) => ({
+    id: project.id,
+  }))
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {

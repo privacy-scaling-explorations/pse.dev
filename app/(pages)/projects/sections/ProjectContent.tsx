@@ -65,7 +65,7 @@ const markdownComponents = {
 }
 
 export const ProjectContent = ({ id }: { id: string }) => {
-  const { getProjectById } = useProjects()
+  const { getProjectById, isLoading } = useProjects()
   const { project } = getProjectById(id) ?? {}
 
   const hasSocialLinks = Object.keys(project?.links ?? {}).length > 0
@@ -81,8 +81,12 @@ export const ProjectContent = ({ id }: { id: string }) => {
 
   const isResearchProject = project?.category === ProjectCategory.RESEARCH
 
-  if (!project?.id) {
+  if (!isLoading && !project?.id) {
     notFound()
+  }
+
+  if (isLoading) {
+    return null
   }
 
   return (
