@@ -90,7 +90,7 @@ export default async function AboutPage() {
                   are overlooked by academia or industry like foundational
                   concepts that need clarity, implementation gaps that have
                   stalled progress, and risky ideas with uncertain but
-                  transformative <br />
+                  transformative potential. <br />
                   <br />
                   We believe meaningful progress comes from applying research to
                   real-world needs. Our work is open source, and we maintain a
