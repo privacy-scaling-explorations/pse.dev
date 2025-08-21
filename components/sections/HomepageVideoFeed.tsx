@@ -103,7 +103,7 @@ export const HomepageVideoFeed = () => {
                 {LABELS.HOMEPAGE.CHECK_OUT_OUR_YOUTUBE}
               </span>
               <AppLink
-                href="https://www.youtube.com/@privacyscalingexplorations-1"
+                href="https://www.youtube.com/@PrivacyEthereum"
                 external
                 variant="button"
                 className="group mx-auto lg:mx-0 lg:inline-flex"
