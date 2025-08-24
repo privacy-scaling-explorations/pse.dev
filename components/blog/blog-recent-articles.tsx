@@ -57,8 +57,6 @@ const ArticleInEvidenceCard = ({
     )
   }
 
-  console.log("article", article.image)
-
   return (
     <AsLinkWrapper href={`/blog/${article.id}`} asLink={asLink}>
       <div
@@ -89,40 +87,54 @@ const ArticleInEvidenceCard = ({
             contentClassName
           )}
         >
-          {article.date && showDate && (
-            <span className="text-white text-xs font-sans font-bold tracking-[2.5px] text-left uppercase">
-              {formatDate(article.date)}
-            </span>
-          )}
-          <Link
-            href={`/blog/${article.id}`}
+          <div
             className={cn(
-              " text-white font-display hover:text-anakiwa-400 transition-colors",
-              {
-                "text-[20px] font-semibold lg:font-bold lg:text-lg line-clamp-2 mt-auto":
-                  variant === "compact",
-                "text-[20px] font-semibold lg:font-bold line-clamp-3 mt-auto":
-                  variant === "default",
-                "text-[20px] font-bold lg:!text-[40px] lg:!leading-[44px] mt-auto":
-                  variant === "xl",
-              },
-              titleClassName
+              "duration-200 flex flex-col gap-[10px] text-left relative z-[1] w-full",
+              contentClassName
             )}
           >
-            {article.title}
-          </Link>
-          <span className="text-sm text-white/80 uppercase font-inter">
-            {article.authors?.join(", ")}
-          </span>
-          {article.tldr && !hideTldr && (
-            <span
-              className={
-                "text-sm font-sans text-white font-normal line-clamp-2 lg:line-clamp-5 mt-auto hidden lg:block"
-              }
+            {article.date && showDate && (
+              <span className="text-white text-xs font-sans font-bold tracking-[2.5px] text-left uppercase">
+                {formatDate(article.date)}
+              </span>
+            )}
+            <Link
+              href={`/blog/${article.id}`}
+              className={cn(
+                " text-white font-display hover:text-anakiwa-400 transition-colors",
+                {
+                  "text-[20px] font-semibold lg:font-bold lg:text-lg line-clamp-2":
+                    variant === "compact",
+                  "text-[20px] font-semibold lg:font-bold line-clamp-3":
+                    variant === "default",
+                  "text-[20px] font-bold lg:!text-[40px] lg:!leading-[44px]":
+                    variant === "xl",
+                },
+                titleClassName
+              )}
             >
-              {article.tldr}
+              {article.title}
+            </Link>
+            <span className="text-sm text-white/80 uppercase font-inter">
+              {article.authors?.join(", ")}
             </span>
-          )}
+            {article.tldr && !hideTldr && (
+              <div className="mt-auto hidden lg:block w-full">
+                <p
+                  className="text-sm font-sans text-white font-normal line-clamp-2 lg:line-clamp-3"
+                  style={{
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    wordBreak: "break-word",
+                    whiteSpace: "pre-wrap",
+                  }}
+                >
+                  {article.tldr}
+                </p>
+              </div>
+            )}
+          </div>
           {showReadMore && (
             <Link
               href={`/blog/${article.id}`}
@@ -150,7 +162,7 @@ export async function BlogRecentArticles() {
   const otherArticles = articles.slice(1)
 
   return (
-    <div className="py-10 lg:py-16">
+    <div className="py-16 lg:py-20">
       <AppContent>
         <div className="flex flex-col gap-10">
           <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
@@ -178,13 +190,13 @@ export async function BlogRecentArticles() {
                     {article.title}
                   </h4>
                   {article.authors && (
-                    <span className="text-sm font-sans text-tuatara-400 uppercase">
+                    <span className="text-xs font-sans text-tuatara-400">
                       {article.authors?.join(", ")}
                     </span>
                   )}
                 </Link>
               ))}
-              <Link href="/blog" className="mt-auto">
+              <Link href="/blog" className="mt-auto lg:mx-0 mx-auto">
                 <Button className="uppercase">
                   <div className="flex items-center gap-2">
                     <span>{LABELS.BLOG_PAGE.SEE_MORE}</span>

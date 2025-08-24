@@ -1,8 +1,4 @@
-import React from "react"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-import { VariantProps, cva } from "class-variance-authority"
-
+import { ProjectLink } from "../mappings/project-link"
 import { useProjects } from "@/app/providers/ProjectsProvider"
 import {
   ProjectInterface,
@@ -11,9 +7,11 @@ import {
   ProjectStatusLabelMapping,
 } from "@/lib/types"
 import { cn } from "@/lib/utils"
-
-import { ProjectLink } from "../mappings/project-link"
+import { VariantProps, cva } from "class-variance-authority"
+import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import React from "react"
 
 interface ProjectCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -121,7 +119,7 @@ export default function ProjectCard({
           </h1>
           {(tldr ?? "")?.length > 0 && (
             <div className="flex flex-col h-24 gap-4">
-              <p className="text-slate-900/80 line-clamp-3 dark:text-anakiwa-100">
+              <p className="text-tuatara-500 text-base lg:text-xl line-clamp-3 dark:text-anakiwa-100">
                 {tldr}
               </p>
             </div>

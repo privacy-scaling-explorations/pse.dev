@@ -1,15 +1,13 @@
 "use client"
 
-import { ReactNode } from "react"
-import Image from "next/image"
-
-import { ProjectInterface, ProjectSectionLabelMapping } from "@/lib/types"
-import { cn, removeProtocol } from "@/lib/utils"
-import { LABELS } from "@/app/labels"
-
 import { AppLink } from "../app-link"
 import { ThemesStatusMapping } from "../project/project-filters-bar"
 import { Card } from "./card"
+import { LABELS } from "@/app/labels"
+import { ProjectInterface, ProjectSectionLabelMapping } from "@/lib/types"
+import { cn, removeProtocol } from "@/lib/utils"
+import Image from "next/image"
+import { ReactNode } from "react"
 
 interface WikiDetailProps {
   label: string

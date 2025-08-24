@@ -52,7 +52,7 @@ export const Icons = {
     >
       <path
         d="M21.1172 0.689941C9.51873 0.689941 0.117188 10.0915 0.117188 21.6899C0.117188 33.2884 9.51873 42.6899 21.1172 42.6899C32.7156 42.6899 42.1172 33.2884 42.1172 21.6899C42.1172 10.0915 32.7156 0.689941 21.1172 0.689941ZM15.3793 30.8233V12.5566L31.1988 21.6899L15.3793 30.8233Z"
-        fill="#E3533A"
+        fill="#A3DFF0"
       />
     </svg>
   ),
@@ -185,8 +185,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width - 1
-            : 18
+          ? props.width - 1
+          : 18
       }
       viewBox="0 0 25 24"
       fill="currentColor"
@@ -222,8 +222,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width - 2
-            : 22
+          ? props.width - 2
+          : 22
       }
       fill="currentColor"
       viewBox="0 0 24 22"
@@ -243,8 +243,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width + 2
-            : 26
+          ? props.width + 2
+          : 26
       }
       fill="currentColor"
       viewBox="0 0 24 26"
@@ -292,8 +292,8 @@ export const Icons = {
         typeof props.size === "number"
           ? props.size
           : typeof props.size === "number"
-            ? props.size + 1
-            : 17
+          ? props.size + 1
+          : 17
       }
       viewBox="0 0 16 17"
       fill="none"
@@ -318,8 +318,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width - 1
-            : 19
+          ? props.width - 1
+          : 19
       }
       viewBox="0 0 20 19"
       fill="none"
@@ -339,8 +339,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width - 1
-            : 19
+          ? props.width - 1
+          : 19
       }
       viewBox="0 0 20 19"
       fill="none"
@@ -360,8 +360,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width + 1
-            : 15
+          ? props.width + 1
+          : 15
       }
       viewBox="0 0 14 15"
       fill="none"

@@ -1,11 +1,10 @@
 "use client"
 
-import React from "react"
-import Link from "next/link"
-
 import { Icons } from "./icons"
-import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
+import { cva } from "class-variance-authority"
+import Link from "next/link"
+import React from "react"
 
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode
@@ -13,7 +12,7 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   to?: string
   external?: boolean
   withExternalIcon?: boolean
-  variant?: "default" | "blue" | "button"
+  variant?: "default" | "blue" | "button" | "nav"
   passHref?: boolean
 }
 
@@ -23,6 +22,7 @@ const linkClass = cva("inline-flex", {
       default:
         "text-black dark:text-white hover:text-orange duration-200 underline",
       blue: "text-anakiwa-500 hover:text-anakiwa-700",
+      nav: "text-tuatara-100 hover:text-anakiwa-400 duration-200",
       button: "flex",
     },
   },

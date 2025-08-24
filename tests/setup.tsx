@@ -1,7 +1,6 @@
 import "@testing-library/jest-dom"
 import "vitest-canvas-mock"
 import React from "react"
-
 // Mock Next.js router
 import { vi, beforeAll, afterAll } from "vitest"
 

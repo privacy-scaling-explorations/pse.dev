@@ -66,6 +66,7 @@ export const SiteHeaderMobile = () => {
                   onClick={() => setHeader(false)}
                   target={item?.external ? "_blank" : undefined}
                   className="border-b-2 border-white p-4 uppercase"
+                  variant="nav"
                 >
                   {item.title}
                 </AppLink>

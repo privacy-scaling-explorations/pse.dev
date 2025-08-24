@@ -1,10 +1,10 @@
 "use client"
 
-import { ProjectInterface } from "@/lib/types"
 import { AppContent } from "../ui/app-content"
-import { Article } from "@/lib/content"
 import { ArticleListCard } from "./article-list-card"
 import { useGetProjectRelatedArticles } from "@/hooks/useGetProjectRelatedArticles"
+import { Article } from "@/lib/content"
+import { ProjectInterface } from "@/lib/types"
 
 export const ProjectBlogArticles = ({
   project,

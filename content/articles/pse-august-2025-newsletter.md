@@ -52,6 +52,7 @@ Welcome to the August edition of the PSE newsletter! Last month we saw steady pr
 ### [Client-Side Proving](https://pse.dev/en/projects/client-side-proving)
 
 In July, we continued steady progress on our client-side proving benchmarks according to our roadmap. We integrated benchmark code for SHA-256 circuits in RIS0 and Jolt zkVMs, as well as World’s ProveKit , building upon previous work initiated for zkID. Additionally, we developed a CI workflow to run these benchmarks in parallel, improving our benchmarking efficiency. As the Ceno zkVM (GKR+WHIR) lacked a complete SHA-256 circuit, we developed one, which will be included in benchmarks once integrated into the Ceno repository. These efforts are crucial preparations for our upcoming Client-Side Proving Quarterly Report, aimed at providing comprehensive benchmark data to inform the broader community.
+
 We have also begun evaluating promising client-side proving systems such as HyperPlonk-WHIR and SuperSpartan-WHIR. Our initial assessments will help determine which of these proving systems offer superior performance for mobile applications, advancing our objective of optimizing client-side proving.
 
 ### [Post-Quantum Cryptography](https://pse.dev/en/projects/post-quantum-cryptography)
@@ -110,8 +111,13 @@ We have started working on the on-chain verification of pods.
 
 We continue the work on the zkp Wallet Unit. We completed the circuits over the P256 base field, including the first right-field circom implementation of ECDSA verification over P256. We are making progress towards compiling this for a Spartan + Hyrax backend over the T256 curve tower, and modifying the proof system to use re-randomisable commitments. This will yield a largely preprocessed and efficient prover.
 
-Other significant strides across several key initiatives include:  
- - Completing the 1st draft of the zkID roadmap, outlining our upcoming milestones and long-term vision. - Completing research into OFAC compliance considerations for zk-KYC. - Launched early outreach for zkID Day at Devconnect — [express interest here](https://docs.google.com/forms/d/1fQyL-2PaXx0d5-ieiJkwI5Ypl1p5VAbBA2i0AIrSlH8/edit). - Collected valuable community feedback on zkPDF to guide future improvements. - Integrating the Spartan Hydrax Backend. - We’ve launched early outreach for zkID Day at Devconnect — [express interest here](https://docs.google.com/forms/d/1fQyL-2PaXx0d5-ieiJkwI5Ypl1p5VAbBA2i0AIrSlH8/edit).
+Other significant strides across several key initiatives include:
+
+- Completing the 1st draft of the zkID roadmap, outlining our upcoming milestones and long-term vision
+- Completing research into OFAC compliance considerations for zk-KYC
+- Launched early outreach for zkID Day at Devconnect - [express interest here](https://docs.google.com/forms/d/1fQyL-2PaXx0d5-ieiJkwI5Ypl1p5VAbBA2i0AIrSlH8/edit)
+- Collected valuable community feedback on zkPDF to guide future improvements
+- Integrating the Spartan Hydrax Backend
 
 ### [Semaphore](https://pse.dev/en/projects/semaphore)
 

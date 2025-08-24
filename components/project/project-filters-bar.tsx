@@ -1,22 +1,5 @@
 "use client"
 
-import React, { ChangeEvent, ReactNode, useEffect, useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
-import { useDebounce } from "react-use"
-import { IThemeStatus, IThemesButton } from "@/types/common"
-import {
-  ProjectSectionLabelMapping,
-  ProjectSections,
-  ProjectStatus,
-  ProjectStatusLabelMapping,
-} from "@/lib/types"
-import { cn, queryStringToObject } from "@/lib/utils"
-import { LABELS } from "@/app/labels"
-import {
-  useProjects,
-  ProjectFilter,
-  FilterLabelMapping,
-} from "@/app/providers/ProjectsProvider"
 import { Icons } from "../icons"
 import Badge from "../ui/badge"
 import { Button } from "../ui/button"
@@ -24,6 +7,23 @@ import { CategoryTag } from "../ui/categoryTag"
 import { Checkbox } from "../ui/checkbox"
 import { Input } from "../ui/input"
 import { Modal } from "../ui/modal"
+import { LABELS } from "@/app/labels"
+import {
+  useProjects,
+  ProjectFilter,
+  FilterLabelMapping,
+} from "@/app/providers/ProjectsProvider"
+import {
+  ProjectSectionLabelMapping,
+  ProjectSections,
+  ProjectStatus,
+  ProjectStatusLabelMapping,
+} from "@/lib/types"
+import { cn, queryStringToObject } from "@/lib/utils"
+import { IThemeStatus, IThemesButton } from "@/types/common"
+import { useRouter, useSearchParams } from "next/navigation"
+import React, { ChangeEvent, ReactNode, useEffect, useState } from "react"
+import { useDebounce } from "react-use"
 
 // Define the mapping for filter types
 const FilterTypeMapping: Record<ProjectFilter, "checkbox" | "button"> = {
@@ -152,7 +152,7 @@ export default function ProjectFiltersBar() {
         open={showModal}
         setOpen={setShowModal}
       >
-        <div className="flex flex-col divide-y divide-tuatara-200">
+        <div className="flex flex-col divide-y divide-tuatara-200 w-full">
           {Object.entries(filters).map(([key, items]) => {
             const filterLabel = FilterLabelMapping?.[key as ProjectFilter] ?? ""
             const type = FilterTypeMapping?.[key as ProjectFilter]
@@ -252,7 +252,7 @@ export default function ProjectFiltersBar() {
       </Modal>
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-6">
-          <div className="grid items-center justify-between grid-cols-1 gap-3 md:grid-cols-5 md:gap-12">
+          <div className="grid items-center justify-between grid-cols-1 gap-3 md:grid-cols-[1fr_122px_55px] md:gap-12">
             <div className="col-span-1 grid grid-cols-[1fr_auto] gap-2 md:col-span-3 md:gap-3">
               <Input
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -273,7 +273,7 @@ export default function ProjectFiltersBar() {
                   >
                     <div className="flex items-center gap-2">
                       <Icons.Filter className="text-anakiwa-950 dark:text-anakiwa-400" />
-                      <span className="hidden md:block">
+                      <span className="hidden md:block text-sm">
                         {LABELS.COMMON.FILTERS}
                       </span>
                     </div>

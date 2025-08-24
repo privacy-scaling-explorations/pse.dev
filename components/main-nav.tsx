@@ -1,16 +1,15 @@
 "use client"
 
+import { Icons } from "./icons"
+import { useGlobalProvider } from "@/app/providers/GlobalProvider"
+import { SearchButton } from "@/components/search/search-button"
+import { SearchModal } from "@/components/search/search-modal"
+import { cn } from "@/lib/utils"
+import { NavItem } from "@/types/nav"
+import { SunMedium as SunIcon, Moon as MoonIcon } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-
-import { NavItem } from "@/types/nav"
-import { cn } from "@/lib/utils"
-import { SearchButton } from "@/components/search/search-button"
-import { SearchModal } from "@/components/search/search-modal"
-import { Icons } from "./icons"
-import { SunMedium as SunIcon, Moon as MoonIcon } from "lucide-react"
-import { useGlobalProvider } from "@/app/providers/GlobalProvider"
 
 export interface MainNavProps {
   items: NavItem[]
@@ -53,8 +52,8 @@ export function MainNav({ items }: MainNavProps) {
                   {
                     "cursor-not-allowed": item.disabled,
                     "border-transparent": item.href !== router,
-                    "!border-orange": item.href === router || isActive,
-                    "text-sm font-medium duration-200 ease-in-out hover:border-orange":
+                    "!border-anakiwa-400": item.href === router || isActive,
+                    "text-sm font-medium duration-200 ease-in-out hover:border-anakiwa-400":
                       true,
                   }
                 )}

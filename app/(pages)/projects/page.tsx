@@ -1,12 +1,11 @@
-import { Suspense } from "react"
-import { Metadata } from "next"
-
-import { AppContent } from "@/components/ui/app-content"
-import { Label } from "@/components/ui/label"
+import { LABELS } from "@/app/labels"
 import ProjectFiltersBar from "@/components/project/project-filters-bar"
 import { ProjectList } from "@/components/project/project-list"
 import { ProjectResultBar } from "@/components/project/project-result-bar"
-import { LABELS } from "@/app/labels"
+import { AppContent } from "@/components/ui/app-content"
+import { Label } from "@/components/ui/label"
+import { Metadata } from "next"
+import { Suspense } from "react"
 
 export const metadata: Metadata = {
   title: "Project Library",
@@ -17,22 +16,24 @@ export const metadata: Metadata = {
 export default async function ProjectsPage() {
   return (
     <div className="flex flex-col">
-      <div className="w-full bg-page-header-gradient dark:bg-transparent-gradient">
-        <AppContent className="flex flex-col gap-4 py-10 w-full">
-          <Label.PageTitle label={LABELS.PROJECTS_PAGE.TITLE} />
-          <h6 className="font-sans text-base font-normal text-primary md:text-[18px] md:leading-[27px] md:max-w-[700px]">
-            {LABELS.PROJECTS_PAGE.SUBTITLE}
-          </h6>
-        </AppContent>
-      </div>
-
-      <AppContent className="flex flex-col gap-10 py-10">
-        <Suspense fallback={<div>Loading...</div>}>
-          <div className="flex flex-col gap-4">
-            <ProjectFiltersBar />
-            <ProjectResultBar />
+      <AppContent className="flex flex-col gap-10 py-10 lg:py-16 w-full">
+        <div className="flex flex-col gap-5">
+          <div className="lg:w-1/2 mx-auto w-full">
+            <div className="flex flex-col gap-10">
+              <h1 className="dark:text-tuatara-100 text-tuatara-950 text-xl lg:text-3xl font-normal font-sans text-center">
+                {LABELS.PROJECTS_PAGE.TITLE}
+              </h1>
+            </div>
           </div>
-        </Suspense>
+          <div className="flex flex-col gap-5">
+            <Suspense fallback={<div>Loading...</div>}>
+              <div className="lg:!w-1/2 mx-auto w-full">
+                <ProjectFiltersBar />
+              </div>
+              <ProjectResultBar />
+            </Suspense>
+          </div>
+        </div>
         <ProjectList />
       </AppContent>
     </div>

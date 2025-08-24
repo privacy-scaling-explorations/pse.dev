@@ -2,11 +2,10 @@
 
 import { Icons } from "../icons"
 import { AppContent } from "../ui/app-content"
-import { Button } from "../ui/button"
 import { LABELS } from "@/app/labels"
 import Link from "next/link"
 
-type WhatWeDoContent = {
+type OurWorkContent = {
   title: string
   description: string
   icon: any
@@ -14,8 +13,8 @@ type WhatWeDoContent = {
   link: string
 }
 
-export const WhatWeDo = () => {
-  const content: WhatWeDoContent[] = [
+export const OurWork = () => {
+  const content: OurWorkContent[] = [
     {
       title: LABELS.WHAT_WE_DO_SECTION.BUILD.TITLE,
       description: LABELS.WHAT_WE_DO_SECTION.BUILD.DESCRIPTION,
@@ -33,7 +32,7 @@ export const WhatWeDo = () => {
   ]
 
   return (
-    <div className="flex flex-col justify-center bg-anakiwa-975 py-16">
+    <div className="flex flex-col justify-center bg-cover-gradient dark:bg-anakiwa-975 dark:bg-none py-16 lg:py-20">
       <AppContent className="mx-auto lg:max-w-[845px] w-full">
         <section className="flex flex-col gap-10">
           <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center text-white">
@@ -50,13 +49,6 @@ export const WhatWeDo = () => {
                     {item.description}
                   </p>
                 </article>
-                {item.action && (
-                  <Link href={item.link}>
-                    <Button variant="transparent" className="uppercase">
-                      {item.action}
-                    </Button>
-                  </Link>
-                )}
               </div>
             ))}
           </div>

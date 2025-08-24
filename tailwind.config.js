@@ -22,6 +22,8 @@ module.exports = {
           "radial-gradient(114.29% 42.52% at 103.66% 58.94%, #D0F8F1 0%, #D1F3FF 18.23%, #ECF8FF 51.28%, #E1FFFA 80.21%, #D0F2FF 93.23%)",
         "cover-gradient":
           "linear-gradient(84deg, #FFF -1.95%, #C2E8F5 59.98%, #FFF 100.64%)",
+        "cover-gradient-dark":
+          "linear-gradient(179deg, #29ACCE -202.54%, rgba(0, 0, 0, 0.00) 192.47%)",
         "classic-gradient":
           "radial-gradient(325.52% 79.63% at 100% -0.02%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(205.45% 61.89% at 2.34% 99.98%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)",
         "project-page-gradient":
@@ -63,6 +65,7 @@ module.exports = {
           500: "#656A75",
           600: "#565964",
           700: "#4A4C54",
+          800: "#414349",
           950: "#242528",
         },
         skeleton: {

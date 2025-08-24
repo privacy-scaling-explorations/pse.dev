@@ -1,14 +1,14 @@
 "use client"
 
+import katex from "katex"
 import React, { useCallback } from "react"
 import ReactMarkdown, { Components } from "react-markdown"
 import remarkGfm from "remark-gfm"
-import katex from "katex"
 import "katex/dist/katex.min.css"
-import rehypeRaw from "rehype-raw"
 import { TableRowCard } from "../cards/table-row-card"
 import { Accordion } from "./accordion"
 import Prism from "prismjs"
+import rehypeRaw from "rehype-raw"
 import "prismjs/themes/prism-tomorrow.css"
 import "prismjs/components/prism-javascript"
 import "prismjs/components/prism-typescript"
@@ -22,8 +22,8 @@ import "prismjs/components/prism-yaml"
 import "prismjs/components/prism-python"
 import "prismjs/components/prism-rust"
 import "prismjs/components/prism-solidity"
-import { Icons } from "../icons"
 import { AppLink } from "../app-link"
+import { Icons } from "../icons"
 
 const SCROLL_OFFSET = 150
 
@@ -637,7 +637,9 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     if (containsMath(text)) {
       return (
         <p
-          className={`text-tuatara-600 dark:text-tuatara-200 font-sans text-lg font-normal ${isMathOnly ? "math-only" : ""}`}
+          className={`text-tuatara-600 dark:text-tuatara-200 font-sans text-lg font-normal ${
+            isMathOnly ? "math-only" : ""
+          }`}
         >
           <MathText text={text} />
         </p>
@@ -664,7 +666,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
     if (containsMath(text)) {
       return (
         <li
-          className="text-tuatara-600 font-sans text-lg font-normal dark:text-white"
+          className="text-tuatara-500 font-sans text-base lg:text-xl font-normal dark:text-tuatara-100"
           {...props}
         >
           <MathText text={text} />
@@ -674,7 +676,7 @@ const REACT_MARKDOWN_CONFIG = (darkMode: boolean): CustomComponents => ({
 
     return (
       <li
-        className="text-tuatara-600  font-sans text-lg font-normal dark:text-white"
+        className="text-tuatara-500 font-sans text-base lg:text-xl font-normal dark:text-tuatara-100"
         {...props}
       >
         {children}

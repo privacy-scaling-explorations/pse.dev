@@ -5,7 +5,7 @@ import { LucideIcon } from "lucide-react"
 import * as React from "react"
 
 const buttonVariants = cva(
-  "font-sans inline-flex items-center justify-center duration-200 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background w-fit",
+  "font-sans inline-flex items-center justify-center gap-2 duration-200 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background w-fit",
   {
     variants: {
       variant: {
@@ -66,6 +66,7 @@ export interface ButtonProps
   asChild?: boolean
   icon?: LucideIcon
   accessibleName?: string
+  iconPosition?: "left" | "right"
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -78,6 +79,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       icon,
       accessibleName,
+      iconPosition = "left",
       ...props
     },
     ref
@@ -119,8 +121,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         aria-label={accessibleNameValue}
         {...props}
       >
-        {Icon && <Icon size={18} />}
+        {Icon && iconPosition === "left" && <Icon size={18} />}
         <span>{children}</span>
+        {Icon && iconPosition === "right" && <Icon size={18} />}
       </Comp>
     )
   }

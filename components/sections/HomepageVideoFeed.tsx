@@ -79,10 +79,10 @@ export const HomepageVideoFeed = () => {
   const { data: videos = [], isLoading, isError } = useYoutube()
 
   return (
-    <section className="mx-auto px-6 lg:px-8 py-10 lg:py-16 bg-tuatara-950 dark:bg-black w-full">
+    <section className="mx-auto py-10 lg:pt-0 lg:pb-20 bg-white dark:bg-black w-full">
       <AppContent className="flex flex-col gap-8 lg:max-w-[1200px] w-full">
         <div className="col-span-1 lg:col-span-4">
-          <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-white text-center">
+          <h2 className="font-sans text-base font-bold uppercase tracking-[3.36px] text-tuatara-950 text-center dark:text-tuatara-100">
             {LABELS.HOMEPAGE.VIDEOS}
           </h2>
         </div>
@@ -111,16 +111,16 @@ export const HomepageVideoFeed = () => {
           </div>
           <div className="lg:col-span-1">
             <div className="lg:p-6 flex flex-col gap-8">
-              <span className="text-base text-white">
+              <span className="text-base text-tuatara-950 dark:text-tuatara-100">
                 {LABELS.HOMEPAGE.CHECK_OUT_OUR_YOUTUBE}
               </span>
               <AppLink
-                href="https://www.youtube.com/@privacyscalingexplorations-1"
+                href="https://www.youtube.com/@PrivacyEthereum"
                 external
                 variant="button"
-                className="group inline-flex"
+                className="group mx-auto lg:mx-0 lg:inline-flex"
               >
-                <Button className="w-full" variant="orange">
+                <Button className="w-fit mx-auto lg:w-full" variant="orange">
                   <div className="flex items-center gap-1">
                     <span className="font-medium uppercase">
                       {LABELS.HOMEPAGE.VISIT_OUR_CHANNEL}

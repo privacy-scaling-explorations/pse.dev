@@ -68,7 +68,7 @@ export const ArticleInEvidenceCard = ({
     return (
       <div
         className={cn(
-          "duration-200 flex flex-col gap-4 text-left relative z-[1] w-full h-full",
+          "duration-200 flex flex-col gap-4 text-left relative z-[1] w-full",
           {
             "px-5 lg:px-16 py-6 lg:py-16 ": size === "lg",
             "px-6 py-4 lg:p-8": size === "sm",
@@ -177,7 +177,7 @@ export const ArticleInEvidenceCard = ({
           "relative flex flex-col gap-5 w-full items-center overflow-hidden after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-20 group-hover:after:opacity-80 transition-opacity duration-300 after:z-[0]",
           {
             "aspect-video": !className?.includes("h-full"),
-            "min-h-[148px]": !backgroundCover,
+            "min-h-[200px] max-h-[200px]": !backgroundCover,
             "min-h-[177px] lg:min-h-[190px]": backgroundCover,
           },
           className

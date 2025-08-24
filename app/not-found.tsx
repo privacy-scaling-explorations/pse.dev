@@ -1,13 +1,12 @@
 "use client"
 
 import "@/globals.css"
-import React from "react"
+import { LABELS } from "./labels"
+import { Button } from "@/components/ui/button"
+import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { Metadata } from "next"
-
-import { Button } from "@/components/ui/button"
-import { LABELS } from "./labels"
+import React from "react"
 
 export const metadata: Metadata = {
   title: "404: Page Not Found",
