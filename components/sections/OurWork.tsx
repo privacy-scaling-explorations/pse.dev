@@ -42,10 +42,10 @@ export const OurWork = () => {
             {content.map((item, index) => (
               <div className="flex flex-col gap-6 w-full lg:max-w-[300px]">
                 <article className="flex flex-col gap-2" key={index}>
-                  <h3 className="font-sans text-xl font-medium text-white">
+                  <h3 className="font-sans text-xl font-medium text-tuatara-950 dark:text-tuatara-100">
                     {item.title}
                   </h3>
-                  <p className="font-sans text-base font-normal text-white">
+                  <p className="font-sans text-base font-normal text-tuatara-950 dark:text-tuatara-100">
                     {item.description}
                   </p>
                 </article>
