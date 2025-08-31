@@ -70,7 +70,7 @@ const ArticleInEvidenceCard = ({
       >
         <Image
           src={article.image ?? "/fallback.webp"}
-          alt={article.title}
+          alt="Article cover image"
           fill
           className="object-cover -z-[1] absolute inset-0"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

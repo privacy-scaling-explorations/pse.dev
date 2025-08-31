@@ -1,10 +1,10 @@
 "use client"
 
-import Image from "next/image"
-import { Icons } from "../icons"
-import { useEffect, useState } from "react"
-import { LABELS } from "@/app/labels"
 import { AppLink } from "../app-link"
+import { Icons } from "../icons"
+import { LABELS } from "@/app/labels"
+import Image from "next/image"
+import { useEffect, useState } from "react"
 
 interface VideoCardProps {
   videoId: string
@@ -42,7 +42,7 @@ const VideoCard = ({ videoId }: VideoCardProps) => {
         <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
         <Image
           src={thumbnailUrl}
-          alt={title || "YouTube video"}
+          alt="Video thumbnail"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{ objectFit: "cover" }}

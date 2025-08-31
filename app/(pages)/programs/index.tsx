@@ -165,7 +165,7 @@ export const ProgramPageContent = () => {
               height={280}
               className="mx-auto h-[256px] w-[290px] lg:ml-auto lg:h-[428px] lg:w-[484px]"
               src="/images/programs.webp"
-              alt="computer image"
+              alt=""
             />
           }
         />
@@ -177,9 +177,9 @@ export const ProgramPageContent = () => {
             className="relative ml-auto hidden bg-background p-2 lg:block"
           >
             <div className="absolute right-0 mt-[80px] flex flex-col gap-4 lg:w-[220px] xl:w-[320px] xl:px-8">
-              <h6 className="font-display text-lg font-bold text-secondary">
+              <h2 className="font-display text-lg font-bold text-secondary">
                 {LABELS.COMMON.ON_THIS_PAGE}
-              </h6>
+              </h2>
               <ul className="text-normal font-sans text-primary">
                 {ProgramSections.map((id: string) => {
                   const label = getSectionTitle(id)

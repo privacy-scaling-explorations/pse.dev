@@ -44,7 +44,7 @@ export const ArticleListCard = ({
             {backgroundImage ? (
               <Image
                 src={backgroundImage}
-                alt={article.title}
+                alt="Article thumbnail"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 80px, 120px"

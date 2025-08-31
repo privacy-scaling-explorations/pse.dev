@@ -38,7 +38,7 @@ const VideoCard = ({
         <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
         <Image
           src={video.thumbnailUrl || ""}
-          alt={video.title}
+          alt="Video thumbnail"
           fill
           style={{ objectFit: "cover" }}
           className="transition-transform duration-300 scale-105 group-hover:scale-110"

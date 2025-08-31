@@ -23,7 +23,11 @@ export function MainNav({ items }: MainNavProps) {
   return (
     <div className="flex flex-1 items-center justify-between gap-6 md:gap-10">
       <div className="flex items-center gap-6 md:gap-10">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link
+          href="/"
+          className="flex items-center space-x-2"
+          aria-label="Go to homepage"
+        >
           <Icons.Logo className="text-black dark:text-anakiwa-400" size={32} />
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
@@ -72,6 +76,9 @@ export function MainNav({ items }: MainNavProps) {
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           className="text-black dark:text-anakiwa-400 ml-auto hidden lg:inline-block"
+          aria-label={
+            isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+          }
         >
           {isDarkMode ? <SunIcon size={20} /> : <MoonIcon size={20} />}
         </button>

@@ -6,6 +6,7 @@ import { Button } from "../ui/button"
 import { LABELS } from "@/app/labels"
 import { cn } from "@/lib/utils"
 import { motion, useScroll, useTransform } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
 import { useRef } from "react"
 
@@ -25,15 +26,51 @@ export const ParallaxHero = () => {
       style={{ isolation: "isolate" }}
     >
       <motion.div
-        className={cn(
-          "absolute inset-0 w-full h-full -z-10 bg-cover bg-no-repeat bg-center",
-          "bg-[url('/hero/hero-mobile.jpg')] dark:bg-[url('/hero/hero-dark-mode-mobile.jpg')]", // mobile image
-          "lg:bg-[url('/hero/hero.jpg')] lg:dark:bg-[url('/hero/hero-dark-mode.jpg')]" // desktop image
-        )}
+        className="absolute inset-0 w-full h-full -z-10"
         style={{
           y: backgroundY,
         }}
-      />
+      >
+        {/* Light mode images */}
+        <Image
+          src="/hero/hero-mobile.jpg"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover lg:hidden dark:hidden"
+          sizes="100vw"
+        />
+        <Image
+          src="/hero/hero.jpg"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover hidden lg:block dark:hidden"
+          sizes="100vw"
+        />
+
+        {/* Dark mode images */}
+        <Image
+          src="/hero/hero-dark-mode-mobile.jpg"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover lg:hidden hidden dark:block"
+          sizes="100vw"
+        />
+        <Image
+          src="/hero/hero-dark-mode.jpg"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover hidden lg:dark:block"
+          sizes="100vw"
+        />
+      </motion.div>
 
       <motion.div
         className="relative z-10 flex items-center justify-center h-full py-10 lg:py-[130px]"

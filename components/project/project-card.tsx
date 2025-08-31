@@ -80,7 +80,7 @@ export default function ProjectCard({
         >
           <Image
             src={`/project-banners/${image ? image : "fallback.webp"}`}
-            alt={`${name} banner`}
+            alt="Project banner image"
             width={1200}
             height={630}
             className="h-[160px] w-full overflow-hidden rounded-t-lg border-none object-cover"
@@ -95,9 +95,9 @@ export default function ProjectCard({
       <div className="flex flex-col justify-between h-full gap-8 p-4 bg-white rounded-b-lg dark:bg-black">
         <div className="flex flex-col justify-start gap-2">
           <Link href={`/projects/${id}`}>
-            <h1 className="text-2xl font-bold leading-7 text-primary duration-200 cursor-pointer hover:text-anakiwa-500">
+            <h3 className="text-2xl font-bold leading-7 text-primary duration-200 cursor-pointer hover:text-anakiwa-500">
               {name}
-            </h1>
+            </h3>
           </Link>
           {(tldr ?? "")?.length > 0 && (
             <div className="flex flex-col h-24 gap-4">

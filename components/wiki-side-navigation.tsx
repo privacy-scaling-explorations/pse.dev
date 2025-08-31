@@ -1,13 +1,11 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-
+import { Icons } from "./icons"
+import { LABELS } from "@/app/labels"
+import { useGetProjectRelatedArticles } from "@/hooks/useGetProjectRelatedArticles"
 import { ProjectExtraLinkType } from "@/lib/types"
 import { cn } from "@/lib/utils"
-
-import { Icons } from "./icons"
-import { useGetProjectRelatedArticles } from "@/hooks/useGetProjectRelatedArticles"
-import { LABELS } from "@/app/labels"
+import { useEffect, useRef, useState } from "react"
 
 interface Section {
   level: number
@@ -43,7 +41,11 @@ const SideNavigationItem = ({
         }
       )}
     >
-      <button onClick={onClick} className="text-left">
+      <button
+        onClick={onClick}
+        className="text-left"
+        aria-label={`Navigate to ${text} section`}
+      >
         {text}
       </button>
     </li>

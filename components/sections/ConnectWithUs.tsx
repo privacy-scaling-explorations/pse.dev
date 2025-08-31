@@ -42,7 +42,7 @@ const ConnectWithUs = () => {
                 height={280}
                 className="mx-auto h-[153px] w-[174px] lg:ml-auto lg:h-[256px] lg:w-[290px]"
                 src="/images/programs.webp"
-                alt="computer image"
+                alt=""
               />
             </div>
           </Card>
