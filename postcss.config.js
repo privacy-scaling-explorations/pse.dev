@@ -3,7 +3,6 @@
 
 module.exports = {
   plugins: {
-    "postcss-import": {},
     tailwindcss: {},
     autoprefixer: {},
     ...(process.env.NODE_ENV === "production" && {
@@ -51,12 +50,5 @@ module.exports = {
         },
       },
     }),
-    "postcss-preset-env": {
-      stage: 1,
-      features: {
-        "nesting-rules": true,
-        "custom-properties": true,
-      },
-    },
   },
 }

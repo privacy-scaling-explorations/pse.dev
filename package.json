@@ -103,8 +103,6 @@
     "husky": "^9.1.7",
     "jsdom": "^26.1.0",
     "lint-staged": "^15.4.3",
-    "postcss-import": "^16.1.1",
-    "postcss-preset-env": "^10.3.1",
     "prettier": "^2.0.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
