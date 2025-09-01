@@ -1,3 +1,4 @@
+import bundleAnalyzer from "@next/bundle-analyzer"
 import nextMdx from "@next/mdx"
 import path from "path"
 import { fileURLToPath } from "url"
@@ -12,41 +13,14 @@ const withMDX = nextMdx({
   },
 })
 
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+})
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx", "md"],
   reactStrictMode: true,
-  webpack: (config, { isServer, dev }) => {
-    if (isServer) {
-      config.externals.push("erlpack")
-    }
-
-    // Optimize for modern browsers - reduce polyfills and transpilation
-    if (!isServer && !dev) {
-      // Reduce bundle size by excluding unnecessary polyfills (Vercel-safe)
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        path: false,
-        crypto: false,
-        stream: false,
-        buffer: false,
-      }
-
-      // Enable optimization for modern browsers (Vercel-compatible)
-      config.optimization = {
-        ...config.optimization,
-        usedExports: true,
-        sideEffects: false,
-        // Modern module concatenation
-        concatenateModules: true,
-        // Optimize for production builds
-        minimize: true,
-      }
-    }
-
-    return config
-  },
   images: {
     remotePatterns: [
       {
@@ -99,6 +73,23 @@ const nextConfig = {
         ],
       },
       {
+        source: "/api/proxy-matomo",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "application/javascript; charset=utf-8",
+          },
+          {
+            key: "Cache-Control", 
+            value: "public, max-age=86400, s-maxage=86400, must-revalidate",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+        ],
+      },
+      {
         source: "/:path*\\.(jpg|jpeg|png|gif|webp|svg|avif)",
         headers: [
           {
@@ -132,6 +123,7 @@ const nextConfig = {
       "@heroicons/react",
       "lucide-react",
       "framer-motion",
+      "react-slick",
     ],
     // Use modern compilation target
     esmExternals: true,
@@ -140,6 +132,52 @@ const nextConfig = {
   },
   // Enable SWC with modern target
   swcMinify: true,
+
+  // Optimize runtime chunk size
+  webpack: (config, { isServer, dev }) => {
+    if (isServer) {
+      config.externals.push("erlpack")
+    }
+
+    // Optimize for modern browsers - reduce polyfills and transpilation
+    if (!isServer && !dev) {
+      // Reduce bundle size by excluding unnecessary polyfills (Vercel-safe)
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        crypto: false,
+        stream: false,
+        buffer: false,
+      }
+
+      // Enable optimization for modern browsers (Vercel-compatible)
+      config.optimization = {
+        ...config.optimization,
+        usedExports: true,
+        sideEffects: false,
+        // Modern module concatenation
+        concatenateModules: true,
+        // Optimize for production builds
+        minimize: true,
+        // Split CSS into smaller chunks
+        splitChunks: {
+          ...config.optimization.splitChunks,
+          cacheGroups: {
+            ...config.optimization.splitChunks?.cacheGroups,
+            styles: {
+              name: "styles",
+              type: "css/extract-css",
+              chunks: "all",
+              enforce: true,
+            },
+          },
+        },
+      }
+    }
+
+    return config
+  },
 }
 
-export default withMDX(nextConfig)
+export default withBundleAnalyzer(withMDX(nextConfig))

@@ -21,8 +21,8 @@ export function MainNav({ items }: MainNavProps) {
   const { isDarkMode, setIsDarkMode } = useGlobalProvider()
 
   return (
-    <div className="flex flex-1 items-center justify-between gap-6 md:gap-10">
-      <div className="flex items-center gap-6 md:gap-10">
+    <div className="flex flex-1 items-center justify-between gap-6 lg:gap-10">
+      <div className="flex items-center gap-6 lg:gap-10">
         <Link
           href="/"
           className="flex items-center space-x-2"
@@ -30,7 +30,7 @@ export function MainNav({ items }: MainNavProps) {
         >
           <Icons.Logo className="text-black dark:text-anakiwa-400" size={32} />
         </Link>
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="nav-responsive flex items-center gap-6">
           {items.map((item, index) => {
             if (item?.onlyFooter) return null
             if (item?.onlyMobile) return null
@@ -75,7 +75,7 @@ export function MainNav({ items }: MainNavProps) {
         </div>
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
-          className="text-black dark:text-anakiwa-400 ml-auto hidden lg:inline-block"
+          className="hidden lg:block text-black dark:text-anakiwa-400 ml-auto"
           aria-label={
             isDarkMode ? "Switch to light mode" : "Switch to dark mode"
           }

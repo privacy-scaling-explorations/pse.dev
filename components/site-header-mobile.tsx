@@ -26,7 +26,7 @@ export const SiteHeaderMobile = () => {
   const { MAIN_NAV } = useAppSettings()
 
   return (
-    <div className="flex items-center md:hidden">
+    <div className="flex items-center lg:hidden">
       <button
         type="button"
         onClick={() => setHeader(true)}

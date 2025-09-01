@@ -68,9 +68,9 @@ export const ArticleInEvidenceCard = ({
     return (
       <div
         className={cn(
-          "duration-200 flex flex-col gap-4 text-left relative z-[1] w-full",
+          "duration-200 flex flex-col gap-4 text-left relative z-[1] w-full justify-center",
           {
-            "px-5 lg:px-16 py-6 lg:py-16 ": size === "lg",
+            "px-5 lg:px-16 py-6 lg:py-16": size === "lg",
             "px-6 py-4 lg:p-8": size === "sm",
             "px-6 lg:p-16": size === "xl",
             "!p-0 lg:!p-0": !backgroundCover,

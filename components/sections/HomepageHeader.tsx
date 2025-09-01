@@ -6,9 +6,14 @@ import { Button } from "../ui/button"
 import { Label } from "../ui/label"
 import { LABELS } from "@/app/labels"
 import PSELogo from "@/public/icons/archstar.webp"
-import { motion } from "framer-motion"
+import dynamic from "next/dynamic"
 import Image from "next/image"
 import Link from "next/link"
+
+const motion = dynamic(
+  () => import("framer-motion").then((mod) => ({ default: mod.motion })),
+  { ssr: false }
+)
 
 export const HomepageHeader = () => {
   return (

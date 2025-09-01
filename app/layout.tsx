@@ -1,3 +1,4 @@
+import { criticalCSS } from "@/lib/critical-css"
 import "@/globals.css"
 import { ThemeProvider } from "./components/layouts/ThemeProvider"
 import { GlobalProviderLayout } from "@/components/layouts/GlobalProviderLayout"
@@ -13,7 +14,7 @@ import Script from "next/script"
 const display = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   preload: true,
   fallback: ["system-ui", "sans-serif"],
@@ -113,7 +114,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={cn(display.variable, sans.variable)}
       suppressHydrationWarning
     >
-      <Script id="matomo-tracking" strategy="lazyOnload">
+      <Script id="matomo-tracking" strategy="afterInteractive">
         {`
           var _paq = window._paq = window._paq || [];
           /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -124,11 +125,35 @@ export default function RootLayout({ children }: RootLayoutProps) {
             _paq.push(['setTrackerUrl', u+'matomo.php']);
             _paq.push(['setSiteId', '1']);
             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='//cdn.matomo.cloud/psedev.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+            g.async=true; 
+            g.defer=true;
+            g.src='/api/proxy-matomo';
+            // Add cache control
+            g.setAttribute('data-cache', 'true');
+            s.parentNode.insertBefore(g,s);
           })();
         `}
       </Script>
       <head>
+        {/* Inline critical CSS for immediate render */}
+        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
+
+        {/* Optimize font loading */}
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQQfTlHfANkX7zqxzMdw.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriCZOIHQ.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+
         {/* Font preloading for critical fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -138,8 +163,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
 
         {/* External service preconnects */}
-        <link rel="preconnect" href="https://cdn.matomo.cloud" />
         <link rel="dns-prefetch" href="https://psedev.matomo.cloud" />
+
+        {/* Preload critical scripts */}
+        <link rel="preload" href="/api/proxy-matomo" as="script" />
 
         {/* YouTube preconnects for video content */}
         <link rel="preconnect" href="https://www.youtube.com" />

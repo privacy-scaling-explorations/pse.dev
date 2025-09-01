@@ -39,9 +39,12 @@ export const OurWork = () => {
             What we do
           </h2>
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 max-auto">
-            {content.map((item, index) => (
-              <div className="flex flex-col gap-6 w-full lg:max-w-[300px]">
-                <article className="flex flex-col gap-2" key={index}>
+            {content.map((item) => (
+              <div
+                key={`${item.link}-${item.title}`}
+                className="flex flex-col gap-6 w-full lg:max-w-[300px]"
+              >
+                <article className="flex flex-col gap-2">
                   <h3 className="font-sans text-xl font-medium text-tuatara-950 dark:text-tuatara-100">
                     {item.title}
                   </h3>
