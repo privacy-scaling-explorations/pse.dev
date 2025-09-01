@@ -1,7 +1,7 @@
 ---
 authors: ["Brechy"]
 title: "Ethereum Privacy: Private Information Retrieval"
-image: "/articles/ethereum-privacy-pir/cover.png"
+image: "/articles/ethereum-privacy-pir/cover.webp"
 tldr: "Private Information Retrieval can enhance Ethereum privacy."
 date: "2025-06-18"
 tags: ["ethereum", "privacy", "pir"]

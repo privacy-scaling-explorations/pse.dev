@@ -34,9 +34,9 @@ export default async function AboutPage() {
           <AppContent className=" w-full !max-w-[860px] mx-auto">
             <div className="flex flex-col gap-16">
               <div className="flex flex-col gap-10">
-                <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
+                <h1 className="font-sans text-base font-bold uppercase tracking-[4px] text-black dark:text-white text-center">
                   Our Mission
-                </h2>
+                </h1>
                 <span className="text-base lg:text-xl font-sans dark:text-tuatara-200 text-tuatara-500 mx-auto">
                   As Privacy Stewards of Ethereum (PSE), our mission is to
                   deliver privacy to the Ethereum ecosystem. <br />

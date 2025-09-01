@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Comms Team"]
 title: "PSE August 2025 newsletter"
-image: "/articles/pse-aug-2025/cover.png"
+image: "/articles/pse-aug-2025/cover.webp"
 tldr: "Check out what PSE teams have been focused last month, July 2025!"
 date: "2025-08-08"
 tags:
@@ -111,12 +111,13 @@ We have started working on the on-chain verification of pods.
 
 We continue the work on the zkp Wallet Unit. We completed the circuits over the P256 base field, including the first right-field circom implementation of ECDSA verification over P256. We are making progress towards compiling this for a Spartan + Hyrax backend over the T256 curve tower, and modifying the proof system to use re-randomisable commitments. This will yield a largely preprocessed and efficient prover.
 
-Other significant strides across several key initiatives include:  
- - Completing the 1st draft of the zkID roadmap, outlining our upcoming milestones and long-term vision
- - Completing research into OFAC compliance considerations for zk-KYC
- - Launched early outreach for zkID Day at Devconnect - [express interest here](https://docs.google.com/forms/d/1fQyL-2PaXx0d5-ieiJkwI5Ypl1p5VAbBA2i0AIrSlH8/edit)
- - Collected valuable community feedback on zkPDF to guide future improvements
- - Integrating the Spartan Hydrax Backend
+Other significant strides across several key initiatives include:
+
+- Completing the 1st draft of the zkID roadmap, outlining our upcoming milestones and long-term vision
+- Completing research into OFAC compliance considerations for zk-KYC
+- Launched early outreach for zkID Day at Devconnect - [express interest here](https://docs.google.com/forms/d/1fQyL-2PaXx0d5-ieiJkwI5Ypl1p5VAbBA2i0AIrSlH8/edit)
+- Collected valuable community feedback on zkPDF to guide future improvements
+- Integrating the Spartan Hydrax Backend
 
 ### [Semaphore](https://pse.dev/en/projects/semaphore)
 

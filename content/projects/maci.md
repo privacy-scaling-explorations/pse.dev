@@ -1,7 +1,7 @@
 ---
 id: "maci"
 name: "MACI"
-image: "maci.png"
+image: "maci.webp"
 section: "pse"
 projectStatus: "active"
 category: "application"

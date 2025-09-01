@@ -1,6 +1,6 @@
 ---
 title: Summon Major Update
-image: "/articles/summon-major-update/cover.jpg"
+image: "/articles/summon-major-update/cover.webp"
 tldr: I’m excited to share the biggest Summon update yet. 🎉
 authors: ["Andrew Morris"]
 date: 2025-05-21
@@ -32,25 +32,25 @@ I’m excited to share the biggest Summon update yet. 🎉
 
 ```js
 export default function main(a: number, b: number) {
-    const plus = a + b;
-    const gt = a > b;
+  const plus = a + b
+  const gt = a > b
 
-    return [plus, gt];
+  return [plus, gt]
 }
 
 // and separately provide mpcSettings:
 const mpcSettings = [
-    {
-        name: 'alice',
-        inputs: ['a'],
-        outputs: ['main[0]', 'main[1]'],
-    },
-    {
-        name: 'bob',
-        inputs: ['b'],
-        outputs: ['main[0]', 'main[1]'],
-    },
-];
+  {
+    name: "alice",
+    inputs: ["a"],
+    outputs: ["main[0]", "main[1]"],
+  },
+  {
+    name: "bob",
+    inputs: ["b"],
+    outputs: ["main[0]", "main[1]"],
+  },
+]
 ```
 
 ### After
@@ -73,15 +73,15 @@ Per-party outputs are also coming, and will fit neatly into this API: `io.output
 
 Type information is available via [`summon.d.ts`](https://github.com/privacy-scaling-explorations/summon/blob/main/summon.d.ts):
 
-![intellisense demo](/articles/summon-major-update/intellisense-light.png)
+![intellisense demo](/articles/summon-major-update/intellisense-light.webp)
 
 ## 2 · Typed Inputs (now with `bool`)
 
 The third argument of `io.input` specifies the type:
 
-![number example](/articles/summon-major-update/number-example-light.png)
+![number example](/articles/summon-major-update/number-example-light.webp)
 
-![bool example](/articles/summon-major-update/bool-example-light.png)
+![bool example](/articles/summon-major-update/bool-example-light.webp)
 
 `bool`s now work properly, so you can pass `true`/`false` instead of `1`/`0`. This is both better devX and removes unnecessary bits.
 
@@ -94,12 +94,12 @@ This also sets us up to support arrays/etc and grow into comprehensive typing à
 Need a single program that adapts to many input sizes/participants? Public inputs let you accept these at **compile time**:
 
 ```js
-const N = io.inputPublic('N', summon.number());
-let votes: boolean[] = [];
+const N = io.inputPublic("N", summon.number())
+let votes: boolean[] = []
 
 for (let i = 0; i < N; i++) {
-    const vote = io.input(`party${i}`, `vote${i}`, summon.bool());
-    votes.push(vote);
+  const vote = io.input(`party${i}`, `vote${i}`, summon.bool())
+  votes.push(vote)
 }
 ```
 

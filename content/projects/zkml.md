@@ -1,7 +1,7 @@
 ---
 id: "zkml"
 name: "ZKML"
-image: "zkml.png"
+image: "zkml.webp"
 section: "pse"
 projectStatus: "inactive"
 category: "research"

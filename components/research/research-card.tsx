@@ -1,8 +1,4 @@
-import React from "react"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-import { VariantProps, cva } from "class-variance-authority"
-
+import { ProjectLink } from "../mappings/project-link"
 import { useProjects } from "@/app/providers/ProjectsProvider"
 import {
   ProjectInterface,
@@ -11,9 +7,11 @@ import {
   ProjectStatusLabelMapping,
 } from "@/lib/types"
 import { cn } from "@/lib/utils"
-
-import { ProjectLink } from "../mappings/project-link"
+import { VariantProps, cva } from "class-variance-authority"
+import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import React from "react"
 
 interface ProjectCardProps
   extends React.HTMLAttributes<HTMLDivElement>,

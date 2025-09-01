@@ -1,22 +1,5 @@
 "use client"
 
-import React, { ChangeEvent, ReactNode, useEffect, useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
-import { useDebounce } from "react-use"
-import { IThemeStatus, IThemesButton } from "@/types/common"
-import {
-  ProjectSectionLabelMapping,
-  ProjectSections,
-  ProjectStatus,
-  ProjectStatusLabelMapping,
-} from "@/lib/types"
-import { cn, queryStringToObject } from "@/lib/utils"
-import { LABELS } from "@/app/labels"
-import {
-  useProjects,
-  ProjectFilter,
-  FilterLabelMapping,
-} from "@/app/providers/ProjectsProvider"
 import { Icons } from "../icons"
 import Badge from "../ui/badge"
 import { Button } from "../ui/button"
@@ -24,6 +7,23 @@ import { CategoryTag } from "../ui/categoryTag"
 import { Checkbox } from "../ui/checkbox"
 import { Input } from "../ui/input"
 import { Modal } from "../ui/modal"
+import { LABELS } from "@/app/labels"
+import {
+  useProjects,
+  ProjectFilter,
+  FilterLabelMapping,
+} from "@/app/providers/ProjectsProvider"
+import {
+  ProjectSectionLabelMapping,
+  ProjectSections,
+  ProjectStatus,
+  ProjectStatusLabelMapping,
+} from "@/lib/types"
+import { cn, queryStringToObject } from "@/lib/utils"
+import { IThemeStatus, IThemesButton } from "@/types/common"
+import { useRouter, useSearchParams } from "next/navigation"
+import React, { ChangeEvent, ReactNode, useEffect, useState } from "react"
+import { useDebounce } from "react-use"
 
 // Define the mapping for filter types
 const FilterTypeMapping: Record<ProjectFilter, "checkbox" | "button"> = {
@@ -273,7 +273,7 @@ export default function ProjectFiltersBar() {
                   >
                     <div className="flex items-center gap-2">
                       <Icons.Filter className="text-anakiwa-950 dark:text-anakiwa-400" />
-                      <span className="hidden md:block text-sm">
+                      <span className="hidden lg:block text-sm">
                         {LABELS.COMMON.FILTERS}
                       </span>
                     </div>
@@ -282,7 +282,7 @@ export default function ProjectFiltersBar() {
                 <button
                   disabled={!hasActiveFilters}
                   onClick={clearAllFilters}
-                  className="hidden bg-transparent cursor-pointer opacity-85 text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 md:block dark:text-anakiwa-400 dark:hover:text-anakiwa-400"
+                  className="hidden lg:block bg-transparent cursor-pointer opacity-85 text-primary hover:opacity-100 disabled:pointer-events-none disabled:opacity-50 dark:text-anakiwa-400 dark:hover:text-anakiwa-400"
                 >
                   <div className="flex items-center gap-2 border-b-2 border-black dark:border-anakiwa-800">
                     <span className="text-sm font-medium">

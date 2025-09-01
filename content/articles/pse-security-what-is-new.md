@@ -64,7 +64,7 @@ This GitHub repo catalogs bugs and vulnerabilities in ZK apps.
 - **Common Vulnerabilities**: Categorized, repeatable bug patterns
 - Helps auditors target known failure points efficiently
 
-![bug tracker](/articles/pse-security-what-is-new/1-bug-tracker.png)
+![bug tracker](/articles/pse-security-what-is-new/1-bug-tracker.webp)
 
 ### 2. BigInt Audit with Veridise
 
@@ -74,7 +74,7 @@ Veridise and PSE collaborated to audit the Circom BigInt library.
 - ZK circuits lend themselves well to formal methods due to their mathematical structure
 - Highlights tradeoffs between traditional code audits and math-based specs
 
-![audit report](/articles/pse-security-what-is-new/audit-report.png)
+![audit report](/articles/pse-security-what-is-new/audit-report.webp)
 
 ### 3. ZK Circuit Static Analysis with Veridise
 
@@ -84,7 +84,7 @@ A collaboration with researchers at UCSB and UT Austin produced the paper _“Pr
 - Works on Circom circuits but is language-agnostic
 - Complements formal verification—fast, automatic, and scalable
 
-![audit report](/articles/pse-security-what-is-new/security-analysis.png)
+![audit report](/articles/pse-security-what-is-new/security-analysis.webp)
 
 ### 4. Bridge Bug Tracker
 
@@ -94,7 +94,7 @@ Created by Yufei Li, this repo documents bridge hacks and security learnings.
 - Tracks vulnerabilities and security best practices
 - Critical as L2s rely heavily on bridging for asset transfer
 
-![audit report](/articles/pse-security-what-is-new/hack-tracker.png)
+![audit report](/articles/pse-security-what-is-new/hack-tracker.webp)
 
 ---
 

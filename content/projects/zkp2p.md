@@ -1,7 +1,7 @@
 ---
 id: "zkp2p"
 name: "ZKP2P"
-image: "zkp2p.png"
+image: "zkp2p.webp"
 section: "grant"
 projectStatus: "active"
 category: "application"

@@ -1,7 +1,7 @@
 ---
 authors: ["PSE Team"]
 title: "Reflecting on MACI Platform: What We Built, Learned, and What’s Next"
-image: "/articles/reflecting-on-maci-platform/reflecting-on-maci-platform.png"
+image: "/articles/reflecting-on-maci-platform/reflecting-on-maci-platform.webp"
 tldr: "After a year of development and experimentation, the MACI Platform project is being sunset. In this retrospective, we share what we built, what we learned, and how the work can continue."
 date: "2025-05-01"
 canonical: ""

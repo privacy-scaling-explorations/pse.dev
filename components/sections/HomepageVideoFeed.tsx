@@ -20,7 +20,13 @@ interface Video {
   url?: string
 }
 
-const VideoCard = ({ video }: { video: Video }) => {
+const VideoCard = ({
+  video,
+  isPriority = false,
+}: {
+  video: Video
+  isPriority?: boolean
+}) => {
   return (
     <Link
       href={video.url || `https://www.youtube.com/watch?v=${video.id}`}
@@ -32,18 +38,20 @@ const VideoCard = ({ video }: { video: Video }) => {
         <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
         <Image
           src={video.thumbnailUrl || ""}
-          alt={video.title}
+          alt="Video thumbnail"
           fill
           style={{ objectFit: "cover" }}
           className="transition-transform duration-300 scale-105 group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={isPriority}
         />
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <Icons.play />
         </div>
       </div>
-      <h3 className="font-sans text-sm font-normal line-clamp-3 text-tuatara-950 dark:text-tuatara-100 group-hover:text-tuatara-400 transition-colors">
+      <h4 className="font-sans text-sm font-normal line-clamp-3 text-white group-hover:text-tuatara-400 transition-colors">
         {video.title}
-      </h3>
+      </h4>
     </Link>
   )
 }
@@ -91,8 +99,12 @@ export const HomepageVideoFeed = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {videos.slice(0, 3).map((video: Video) => (
-                  <VideoCard key={video.id} video={video} />
+                {videos.slice(0, 3).map((video: Video, index: number) => (
+                  <VideoCard
+                    key={video.id}
+                    video={video}
+                    isPriority={index === 0}
+                  />
                 ))}
               </div>
             )}

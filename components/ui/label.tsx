@@ -25,7 +25,7 @@ const MainPageTitle = ({
   size = "small",
 }: LabelProps) => {
   return (
-    <span
+    <h1
       className={cn(
         "text-4xl font-bold break-words font-display text-primary dark:text-white",
         size === "small" ? "lg:text-5xl" : "lg:text-6xl xl:text-7xl",
@@ -33,7 +33,7 @@ const MainPageTitle = ({
       )}
     >
       {label}
-    </span>
+    </h1>
   )
 }
 

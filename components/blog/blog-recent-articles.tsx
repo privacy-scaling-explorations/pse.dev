@@ -4,6 +4,7 @@ import { Button } from "../ui/button"
 import { LABELS } from "@/app/labels"
 import { getArticles, Article } from "@/lib/content"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 import Link from "next/link"
 
 const ArticleInEvidenceCard = ({
@@ -60,24 +61,31 @@ const ArticleInEvidenceCard = ({
     <AsLinkWrapper href={`/blog/${article.id}`} asLink={asLink}>
       <div
         className={cn(
-          "min-h-[177px] lg:min-h-[190px] relative w-full items-center after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-50 group-hover:after:opacity-80 transition-opacity duration-300 after:z-[0]",
+          "min-h-[177px] lg:min-h-[190px] rounded-[6px] relative flex flex-col gap-5 w-full items-center overflow-hidden after:absolute after:inset-0 after:content-[''] after:bg-black after:opacity-50 group-hover:after:opacity-80 transition-opacity duration-300 after:z-[1]",
           {
             "aspect-video": !className?.includes("h-full"),
           },
           className
         )}
-        style={{
-          backgroundImage: `url(${article.image ?? "/fallback.webp"})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center centers",
-        }}
       >
+        <Image
+          src={article.image ?? "/fallback.webp"}
+          alt="Article cover image"
+          fill
+          className="object-cover -z-[0] absolute inset-0"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={variant === "xl"}
+        />
         <div
-          className={cn("flex flex-col gap-[10px] h-full justify-center", {
-            "px-5 lg:px-16 py-6 lg:py-16 ": size === "lg",
-            "px-6 py-4 lg:p-8": size === "sm",
-            "px-6 lg:p-16": size === "xl",
-          })}
+          className={cn(
+            "duration-200 flex flex-col gap-[10px] text-left relative z-[2] w-full h-full",
+            {
+              "px-5 lg:px-16 py-6 lg:py-16 ": size === "lg",
+              "px-6 py-4 lg:p-8": size === "sm",
+              "p-6 lg:p-16": size === "xl",
+            },
+            contentClassName
+          )}
         >
           <div
             className={cn(
@@ -107,7 +115,7 @@ const ArticleInEvidenceCard = ({
             >
               {article.title}
             </Link>
-            <span className="text-sm text-white/80 uppercase font-inter">
+            <span className="text-sm text-white/80 uppercase font-sans">
               {article.authors?.join(", ")}
             </span>
             {article.tldr && !hideTldr && (
@@ -128,13 +136,17 @@ const ArticleInEvidenceCard = ({
             )}
           </div>
           {showReadMore && (
-            <Link href={`/blog/${article.id}`} className="ml-auto z-[1]">
-              <div className="flex items-center gap-2 group">
-                <span className="!text-center text-white uppercase group-hover:text-anakiwa-400 duration-200">
-                  Read More
-                </span>
-                <Icons.arrowRight className="w-4 h-4 text-white group-hover:text-anakiwa-400 group-hover:ml-1 duration-200" />
-              </div>
+            <Link
+              href={`/blog/${article.id}`}
+              className="ml-auto mt-4"
+              aria-label={`Read more about ${article.title}`}
+            >
+              <Button className="uppercase ml-auto" variant="secondary">
+                <div className="flex items-center gap-2">
+                  <span className="!text-center">Read More</span>
+                  <Icons.arrowRight className="w-4 h-4" />
+                </div>
+              </Button>
             </Link>
           )}
         </div>
@@ -153,9 +165,9 @@ export async function BlogRecentArticles() {
     <div className="py-16 lg:py-20">
       <AppContent>
         <div className="flex flex-col gap-10">
-          <h3 className="font-sans text-base font-bold uppercase tracking-[3.36px] text-tuatara-950 text-center dark:text-anakiwa-400">
+          <h2 className="font-sans text-base font-bold uppercase tracking-[4px] text-primary text-center">
             {LABELS.BLOG_PAGE.RECENT_ARTICLES}
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-x-14 lg:max-w-[1200px] mx-auto relative">
             <div className="inset-0 relative lg:col-span-3">
               <ArticleInEvidenceCard

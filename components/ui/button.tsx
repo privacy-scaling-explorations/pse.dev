@@ -1,9 +1,8 @@
-import * as React from "react"
+import { cn } from "@/lib/utils"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { LucideIcon } from "lucide-react"
-
-import { cn } from "@/lib/utils"
+import * as React from "react"
 
 const buttonVariants = cva(
   "font-sans inline-flex items-center justify-center gap-2 duration-200 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background w-fit",
@@ -66,6 +65,7 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
   icon?: LucideIcon
+  accessibleName?: string
   iconPosition?: "left" | "right"
 }
 
@@ -78,6 +78,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       asChild = false,
       children,
       icon,
+      accessibleName,
       iconPosition = "left",
       ...props
     },
@@ -85,10 +86,39 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const Comp = asChild ? Slot : "button"
     const Icon = icon
+
+    // Generate accessible name from children text if not provided
+    const getAccessibleName = () => {
+      if (accessibleName) return accessibleName
+      if (typeof children === "string") return children
+      // If children is complex, try to extract text content
+      if (React.isValidElement(children)) {
+        // For simple elements, try to get text content
+        const textContent = React.Children.toArray(children)
+          .map((child) => {
+            if (typeof child === "string") return child
+            if (
+              React.isValidElement(child) &&
+              typeof child.props.children === "string"
+            ) {
+              return child.props.children
+            }
+            return ""
+          })
+          .join(" ")
+          .trim()
+        return textContent || undefined
+      }
+      return undefined
+    }
+
+    const accessibleNameValue = getAccessibleName()
+
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        aria-label={accessibleNameValue}
         {...props}
       >
         {Icon && iconPosition === "left" && <Icon size={18} />}

@@ -1,22 +1,21 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState } from "react"
-import Image from "next/image"
-import { ReactNode } from "react-markdown/lib/ast-to-react"
-import { twMerge } from "tailwind-merge"
-
-import { siteConfig } from "@/config/site"
-import { cn, interpolate } from "@/lib/utils"
-import { Accordion } from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
+import { LABELS } from "@/app/labels"
+import { AppLink } from "@/components/app-link"
 import { Banner } from "@/components/banner"
 import { Card } from "@/components/cards/card"
+import { TableRowCard } from "@/components/cards/table-row-card"
 import { Divider } from "@/components/divider"
 import { Icons } from "@/components/icons"
 import { PageHeader } from "@/components/page-header"
-import { TableRowCard } from "@/components/cards/table-row-card"
-import { LABELS } from "@/app/labels"
-import { AppLink } from "@/components/app-link"
+import { Accordion } from "@/components/ui/accordion"
+import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/config/site"
+import { cn, interpolate } from "@/lib/utils"
+import Image from "next/image"
+import { useCallback, useEffect, useRef, useState } from "react"
+import { ReactNode } from "react-markdown/lib/ast-to-react"
+import { twMerge } from "tailwind-merge"
 
 type ProgramDetailProps = {
   region?: string
@@ -165,8 +164,8 @@ export const ProgramPageContent = () => {
               width={280}
               height={280}
               className="mx-auto h-[256px] w-[290px] lg:ml-auto lg:h-[428px] lg:w-[484px]"
-              src="/images/programs.png"
-              alt="computer image"
+              src="/images/programs.webp"
+              alt=""
             />
           }
         />
@@ -178,9 +177,9 @@ export const ProgramPageContent = () => {
             className="relative ml-auto hidden bg-background p-2 lg:block"
           >
             <div className="absolute right-0 mt-[80px] flex flex-col gap-4 lg:w-[220px] xl:w-[320px] xl:px-8">
-              <h6 className="font-display text-lg font-bold text-secondary">
+              <h2 className="font-display text-lg font-bold text-secondary">
                 {LABELS.COMMON.ON_THIS_PAGE}
-              </h6>
+              </h2>
               <ul className="text-normal font-sans text-primary">
                 {ProgramSections.map((id: string) => {
                   const label = getSectionTitle(id)

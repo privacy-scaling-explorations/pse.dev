@@ -1,9 +1,11 @@
 "use client"
-import Link from "next/link"
+
+import { Button } from "../ui/button"
 import { Markdown } from "../ui/markdown"
 import { Article } from "@/lib/content"
 import { getBackgroundImage } from "@/lib/utils"
-import { Button } from "../ui/button"
+import Image from "next/image"
+import Link from "next/link"
 
 export const ArticleListCard = ({
   article,
@@ -38,16 +40,18 @@ export const ArticleListCard = ({
         rel="noreferrer"
       >
         <div className="grid grid-cols-[80px_1fr] lg:grid-cols-[120px_1fr] items-center gap-4 lg:gap-10">
-          <div
-            className="size-[80px] lg:size-[120px] rounded-full bg-slate-200"
-            style={{
-              backgroundImage: backgroundImage
-                ? `url(${backgroundImage})`
-                : undefined,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          ></div>
+          <div className="relative size-[80px] lg:size-[120px] rounded-full bg-slate-200 overflow-hidden">
+            {backgroundImage ? (
+              <Image
+                src={backgroundImage}
+                alt="Article thumbnail"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 80px, 120px"
+                priority={false}
+              />
+            ) : null}
+          </div>
           <div className="flex flex-col gap-4 lg:gap-5">
             <span className="text-[10px] font-bold tracking-[2.1px] text-tuatara-400 font-sans uppercase dark:text-tuatara-100">
               {formattedDate}

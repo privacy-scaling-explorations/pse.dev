@@ -1,14 +1,13 @@
 "use client"
 
-import { NavItem } from "@/types/nav"
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { useAppSettings } from "@/hooks/useAppSettings"
-import { LABELS } from "@/app/labels"
-
+import { AppLink } from "./app-link"
 import { Icons } from "./icons"
 import { AppContent } from "./ui/app-content"
-import { AppLink } from "./app-link"
+import { LABELS } from "@/app/labels"
+import { siteConfig } from "@/config/site"
+import { useAppSettings } from "@/hooks/useAppSettings"
+import { cn } from "@/lib/utils"
+import { NavItem } from "@/types/nav"
 
 const ItemLabel = ({
   label,

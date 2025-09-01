@@ -1,12 +1,11 @@
-import { Suspense } from "react"
-import { Metadata } from "next"
-
-import { AppContent } from "@/components/ui/app-content"
-import { Label } from "@/components/ui/label"
+import { LABELS } from "@/app/labels"
 import ProjectFiltersBar from "@/components/project/project-filters-bar"
 import { ProjectList } from "@/components/project/project-list"
 import { ProjectResultBar } from "@/components/project/project-result-bar"
-import { LABELS } from "@/app/labels"
+import { AppContent } from "@/components/ui/app-content"
+import { Label } from "@/components/ui/label"
+import { Metadata } from "next"
+import { Suspense } from "react"
 
 export const metadata: Metadata = {
   title: "Project Library",

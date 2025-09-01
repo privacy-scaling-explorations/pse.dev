@@ -1,7 +1,7 @@
 ---
 id: "zk-email"
 name: "ZK Email"
-image: "zk-email.png"
+image: "zk-email.webp"
 section: "collaboration"
 projectStatus: "active"
 category: "application"

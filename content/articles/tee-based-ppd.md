@@ -1,7 +1,7 @@
 ---
 authors: ["Takamichi Tsutsumi"]
 title: "TEE based private proof delegation"
-image: "/articles/tee-based-ppd/cover.png"
+image: "/articles/tee-based-ppd/cover.webp"
 tldr: "Intro to trusted execution environment based private proof delegation"
 date: "2025-05-20"
 projects: ["private-proof-delegation"]
@@ -19,7 +19,7 @@ We built a TEE-based system for secure zero-knowledge proof delegation using Int
 
 Typically, zk applications let consumer devices such as mobile phones or web browsers generate SNARK proofs. In such cases, the secret inputs from the clients never leave the device; therefore, the privacy of the inputs is protected. However, the complexity of the statements that weak hardware can prove is fairly limited. This means that proving more complex statements requires stronger hardware—something most users do not have access to in their daily lives.
 One approach to address this issue is to **delegate the proof generation** to external servers with powerful hardware. This technique is called proof delegation. By using this technique, clients with weak devices can offload heavy computation to an external server and still obtain proof about their private data.
-![Proof delegation image](/articles/tee-based-ppd/proof-delegation.png)
+![Proof delegation image](/articles/tee-based-ppd/proof-delegation.webp)
 _How naive proof delegation works_
 In naive proof delegation, the client sends their raw inputs directly to the proving server, which then generates the proof. This approach works well for non-sensitive computations (e.g., public blockchain state transitions), but it fails to preserve the zero-knowledge property when the inputs are private. The server learns the data as is, so there is no privacy guarantee.
 
@@ -27,7 +27,7 @@ In naive proof delegation, the client sends their raw inputs directly to the pro
 
 **Private proof delegation** (PPD) enhances this model by ensuring the private input remains hidden from the server. This is achieved by introducing a cryptographic layer between the client and the proving server. Instead of sending raw data, the client encrypts the private input before transmission.
 
-![Private proof delegation image](/articles/tee-based-ppd/private-proof-delegation.png)
+![Private proof delegation image](/articles/tee-based-ppd/private-proof-delegation.webp)
 _Private proof delegation_
 
 The cryptographic techniques that we can possibly use include
@@ -193,7 +193,7 @@ This would completely undermine the remote trust model that TEEs are designed to
 
 TEE-based private proof delegation system involves a few additional components compared to naive PPD system. In this section, we describe how to construct a TEE-based private proof delegation system.
 
-![TEE based PPD architecture](/articles/tee-based-ppd/tee-ppd.png)
+![TEE based PPD architecture](/articles/tee-based-ppd/tee-ppd.webp)
 _Architecture diagram_
 
 In the architecture diagram above, we can see several components, including
@@ -396,9 +396,9 @@ For zkemail, we used proof-of-twitter circuit to measure the number. For this, w
 ## Semaphore benchmarks
 
 1. Benchmark for proof generation inside TEE VM
-   ![Benchmark1](/articles/tee-based-ppd/benchmark1.png)
+   ![Benchmark1](/articles/tee-based-ppd/benchmark1.webp)
 2. Proof generation inside normal VM
-   ![Benchmark2](/articles/tee-based-ppd/benchmark2.png)
+   ![Benchmark2](/articles/tee-based-ppd/benchmark2.webp)
 
 E2E benchmarks
 In our scenario, we measure the E2E performance, including
@@ -557,7 +557,7 @@ TEE-based proving is ready for real deployment — especially in cloud-based pri
 Trusted Execution Environments (TEEs) come in multiple forms, distinguished primarily by the granularity of isolation they provide.
 The two most prominent architectures are process-based TEEs and VM-based TEEs.
 
-![Trust boundary image](/articles/tee-based-ppd/trust-boundary.png)
+![Trust boundary image](/articles/tee-based-ppd/trust-boundary.webp)
 _Trust boundary of different types of TEEs_
 
 #### **Process-Based TEEs**
@@ -624,5 +624,5 @@ Azure Confidential VMs (ECedsv5 series) allow seamless deployment, scaling, and 
 **Remote Attestation Support at VM Level**:
 VM-based TEEs like TDX provide attestation mechanisms that cover the entire VM, enabling strong guarantees about the full execution environment — not just a single process.
 
-![Azure CVM](/articles/tee-based-ppd/cvm-availability.png)
+![Azure CVM](/articles/tee-based-ppd/cvm-availability.webp)
 _Confidential VM availability on Azure_

@@ -3,7 +3,6 @@ import {
   uniq,
   queryStringToObject,
   shuffleArray,
-  convertDirtyStringToHtml,
   getBackgroundImage,
   removeProtocol,
   interpolate,
@@ -82,31 +81,6 @@ describe("utils", () => {
       const original = ["a", "b", "c", "d"]
       const shuffled = shuffleArray([...original])
       expect(new Set(shuffled)).toEqual(new Set(original))
-    })
-  })
-
-  describe("convertDirtyStringToHtml", () => {
-    it("should convert newlines to <br />", () => {
-      expect(convertDirtyStringToHtml("line1\nline2")).toBe("line1<br />line2")
-    })
-
-    it("should convert URLs to anchor tags", () => {
-      const input = "Check https://example.com"
-      const expected =
-        "check <a href=\"https://example.com\">https://example.com</a>"
-      expect(convertDirtyStringToHtml(input)).toBe(expected)
-    })
-
-    it("should convert www URLs to anchor tags", () => {
-      const input = "Visit www.example.com"
-      const expected =
-        "visit <a href=\"http://www.example.com\">www.example.com</a>"
-      expect(convertDirtyStringToHtml(input)).toBe(expected)
-    })
-
-    it("should handle empty input", () => {
-      expect(convertDirtyStringToHtml("")).toBe("")
-      expect(convertDirtyStringToHtml(undefined as unknown as string)).toBe("")
     })
   })
 

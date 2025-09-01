@@ -1,3 +1,4 @@
+import { criticalCSS } from "@/lib/critical-css"
 import "@/globals.css"
 import { ThemeProvider } from "./components/layouts/ThemeProvider"
 import { GlobalProviderLayout } from "@/components/layouts/GlobalProviderLayout"
@@ -7,18 +8,8 @@ import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Metadata, Viewport } from "next"
-import { DM_Sans, Inter, Space_Grotesk } from "next/font/google"
+import { DM_Sans, Space_Grotesk } from "next/font/google"
 import Script from "next/script"
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  preload: true,
-  fallback: ["system-ui", "sans-serif"],
-  adjustFontFallback: true,
-})
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -26,21 +17,15 @@ const display = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
   display: "swap",
   preload: true,
-  fallback: ["system-ui", "sans-serif"],
-  adjustFontFallback: true,
 })
 
 const sans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
   display: "swap",
   preload: true,
-  fallback: ["system-ui", "sans-serif"],
-  adjustFontFallback: true,
 })
-
-const fonts = [inter, display, sans]
 
 export const viewport: Viewport = {
   themeColor: [
@@ -122,7 +107,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={cn(inter.variable, display.variable, sans.variable)}
+      className={cn(display.variable, sans.variable)}
       suppressHydrationWarning
     >
       <Script id="matomo-tracking" strategy="afterInteractive">
@@ -136,11 +121,52 @@ export default function RootLayout({ children }: RootLayoutProps) {
             _paq.push(['setTrackerUrl', u+'matomo.php']);
             _paq.push(['setSiteId', '1']);
             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='//cdn.matomo.cloud/psedev.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+            g.async=true; 
+            g.defer=true;
+            g.src='/api/proxy-matomo';
+            // Add cache control
+            g.setAttribute('data-cache', 'true');
+            s.parentNode.insertBefore(g,s);
           })();
         `}
       </Script>
-      <head />
+      <head>
+        {/* Inline critical CSS for immediate render */}
+        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
+
+        {/* Font preconnections for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
+        {/* External service preconnects */}
+        <link rel="dns-prefetch" href="https://psedev.matomo.cloud" />
+
+        {/* Preload critical scripts */}
+        <link rel="preload" href="/api/proxy-matomo" as="script" />
+
+        {/* YouTube preconnects for video content */}
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://img.youtube.com" />
+        <link rel="preconnect" href="https://i.ytimg.com" />
+
+        {/* Static asset preloading */}
+        <link rel="prefetch" href="/favicon.svg" />
+
+        {/* Critical resource preloading */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+        {/* External service optimization */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* Algolia search preconnect for faster search */}
+        <link rel="preconnect" href="https://latency-dsn.algolia.net" />
+        <link rel="dns-prefetch" href="https://search.algolia.com" />
+      </head>
       <body suppressHydrationWarning>
         <GlobalProviderLayout>
           <ThemeProvider>

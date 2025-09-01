@@ -1,16 +1,15 @@
 "use client"
 
+import { Icons } from "./icons"
+import { useGlobalProvider } from "@/app/providers/GlobalProvider"
+import { SearchButton } from "@/components/search/search-button"
+import { SearchModal } from "@/components/search/search-modal"
+import { cn } from "@/lib/utils"
+import { NavItem } from "@/types/nav"
+import { SunMedium as SunIcon, Moon as MoonIcon } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-
-import { NavItem } from "@/types/nav"
-import { cn } from "@/lib/utils"
-import { SearchButton } from "@/components/search/search-button"
-import { SearchModal } from "@/components/search/search-modal"
-import { Icons } from "./icons"
-import { SunMedium as SunIcon, Moon as MoonIcon } from "lucide-react"
-import { useGlobalProvider } from "@/app/providers/GlobalProvider"
 
 export interface MainNavProps {
   items: NavItem[]
@@ -22,12 +21,16 @@ export function MainNav({ items }: MainNavProps) {
   const { isDarkMode, setIsDarkMode } = useGlobalProvider()
 
   return (
-    <div className="flex flex-1 items-center justify-between gap-6 md:gap-10">
-      <div className="flex items-center gap-6 md:gap-10">
-        <Link href="/" className="flex items-center space-x-2">
+    <div className="flex flex-1 items-center justify-between gap-6 lg:gap-10">
+      <div className="flex items-center gap-6 lg:gap-10">
+        <Link
+          href="/"
+          className="flex items-center space-x-2"
+          aria-label="Go to homepage"
+        >
           <Icons.Logo className="text-black dark:text-anakiwa-400" size={32} />
         </Link>
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="nav-responsive flex items-center gap-6">
           {items.map((item, index) => {
             if (item?.onlyFooter) return null
             if (item?.onlyMobile) return null
@@ -72,7 +75,10 @@ export function MainNav({ items }: MainNavProps) {
         </div>
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
-          className="text-black dark:text-anakiwa-400 ml-auto hidden lg:inline-block"
+          className="hidden lg:block text-black dark:text-anakiwa-400 ml-auto"
+          aria-label={
+            isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+          }
         >
           {isDarkMode ? <SunIcon size={20} /> : <MoonIcon size={20} />}
         </button>

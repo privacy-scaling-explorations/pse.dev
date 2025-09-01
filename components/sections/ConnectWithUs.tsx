@@ -1,13 +1,11 @@
-import Image from "next/image"
-import Link from "next/link"
-
-import { LABELS } from "@/app/labels"
-import { interpolate } from "@/lib/utils"
-
 import { Card } from "../cards/card"
 import { Icons } from "../icons"
 import { AppContent } from "../ui/app-content"
 import { Button } from "../ui/button"
+import { LABELS } from "@/app/labels"
+import { interpolate } from "@/lib/utils"
+import Image from "next/image"
+import Link from "next/link"
 
 const ConnectWithUs = () => {
   return (
@@ -43,8 +41,8 @@ const ConnectWithUs = () => {
                 width={280}
                 height={280}
                 className="mx-auto h-[153px] w-[174px] lg:ml-auto lg:h-[256px] lg:w-[290px]"
-                src="/images/programs.png"
-                alt="computer image"
+                src="/images/programs.webp"
+                alt=""
               />
             </div>
           </Card>

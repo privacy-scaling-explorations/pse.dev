@@ -26,7 +26,9 @@
   },
   "dependencies": {
     "@discordjs/rest": "2.0.0",
-    "@next/mdx": "^13.5.0",
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^14.2.32",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.4",
@@ -47,6 +49,7 @@
     "gray-matter": "^4.0.3",
     "gsap": "^3.12.1",
     "html-to-react": "^1.7.0",
+    "jquery": "^3.7.1",
     "js-yaml": "^4.1.0",
     "lucide-react": "0.105.0-alpha.4",
     "next": "14",
@@ -79,6 +82,7 @@
     "@testing-library/jest-dom": "^6.6.4",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
+    "@types/jquery": "^3",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.19.0",
     "@types/react": "^18.2.7",
@@ -118,5 +122,23 @@
     ]
   },
   "packageManager": "yarn@4.7.0",
-  "engineStrict": true
+  "engineStrict": true,
+  "browserslist": {
+    "production": [
+      ">1%",
+      "last 2 versions",
+      "not dead",
+      "not ie 11",
+      "not op_mini all",
+      "Chrome >= 91",
+      "Firefox >= 90",
+      "Safari >= 15",
+      "Edge >= 91"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

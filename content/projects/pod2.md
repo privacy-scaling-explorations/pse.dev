@@ -1,7 +1,7 @@
 ---
 id: "pod2"
 name: "POD2"
-image: "pod2.png"
+image: "pod2.webp"
 section: "collaboration"
 projectStatus: "active"
 category: "devtools"
@@ -17,7 +17,7 @@ links:
   telegram: "https://t.me/zupass"
 team:
   - name: "Edu"
-    image: "/avatars/edu.jpeg"
+    image: "/avatars/edu.webp"
     links:
       github: "https://github.com/ed255"
 extraLinks:

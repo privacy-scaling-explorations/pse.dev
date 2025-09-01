@@ -127,7 +127,7 @@ extraLinks:
 
 This creates themed link sections on your project detail page:
 
-![Project links](/public/project/example-project-detail.jpg)
+![Project links](/public/project/example-project-detail.webp)
 
 ## Adding YouTube Videos to a Project
 
@@ -142,7 +142,7 @@ youtubeLinks:
 
 The videos will appear as clickable thumbnails with titles on the project page:
 
-![YouTube Videos](/public/project/example-project-video.png)
+![YouTube Videos](/public/project/example-project-video.webp)
 
 ## Adding Team Members to a Project
 
@@ -152,7 +152,7 @@ Add team members to your project using the `team` array in the frontmatter:
 team:
   - name: "John Doe"
     role: "Lead Developer" # Optional
-    image: "/team/john-doe.jpg" # Optional
+    image: "/team/john-doe.webp" # Optional
     email: "john.doe@example.com" # Optional
     links: # Optional
       github: "https://github.com/johndoe"
@@ -163,7 +163,7 @@ team:
 
 Supported link types: `github`, `website`, `discord`, `twitter`, `youtube`, `telegram`
 
-![Project Team Members](/public/project/example-project-team.png)
+![Project Team Members](/public/project/example-project-team.webp)
 
 ## Tags and Themes
 

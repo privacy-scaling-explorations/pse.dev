@@ -1,7 +1,7 @@
 ---
 authors: ["Private Governance Team at PSE"]
 title: "The case for privacy in DAO voting"
-image: "/articles/the-case-for-privacy-in-dao-voting/cover.png"
+image: "/articles/the-case-for-privacy-in-dao-voting/cover.webp"
 tldr: "Private voting prevents corruption, enables more honest participation, and unlocks the full potential of decentralized governance. This post explains why privacy matters, how MACI enables it, and what comes next."
 date: "2025-08-07"
 tags: ["privacy", "governance", "DAOs", "MACI", "zkSNARKs"]
@@ -33,7 +33,7 @@ Privacy-preserving voting infrastructure such as MACI provides a solution to pri
 
 The best introduction for learning how MACI works is [this PSE article](https://maci.pse.dev/blog/maci-1-0-technical-introduction), but if you’re strapped for time, here is a high level summary:
 
-![image.png](/articles/the-case-for-privacy-in-dao-voting/1.png)
+![image.webp](/articles/the-case-for-privacy-in-dao-voting/1.webp)
 
 https://maci.pse.dev/blog/maci-1-0-technical-introduction
 
@@ -43,7 +43,7 @@ MACI relies on zkSNARKs or zero-knowledge proofs (ZKP) that verify a mathematica
 
 In Vitalik’s [post on privacy](https://vitalik.eth.limo/general/2025/04/14/privacy.html), he explains “Programmable cryptography techniques like zero-knowledge proofs are powerful, because **they are like Lego bricks for information flow**.” We intend to make the Lego bricks of zero-knowledge proofs easier to work with for DAOs and Ethereum in general.
 
-![image.png](/articles/the-case-for-privacy-in-dao-voting/2.png)
+![image.webp](/articles/the-case-for-privacy-in-dao-voting/2.webp)
 
 https://maci.pse.dev/docs/introduction
 

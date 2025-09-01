@@ -185,8 +185,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width - 1
-            : 18
+          ? props.width - 1
+          : 18
       }
       viewBox="0 0 25 24"
       fill="currentColor"
@@ -222,8 +222,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width - 2
-            : 22
+          ? props.width - 2
+          : 22
       }
       fill="currentColor"
       viewBox="0 0 24 22"
@@ -243,8 +243,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width + 2
-            : 26
+          ? props.width + 2
+          : 26
       }
       fill="currentColor"
       viewBox="0 0 24 26"
@@ -292,8 +292,8 @@ export const Icons = {
         typeof props.size === "number"
           ? props.size
           : typeof props.size === "number"
-            ? props.size + 1
-            : 17
+          ? props.size + 1
+          : 17
       }
       viewBox="0 0 16 17"
       fill="none"
@@ -318,8 +318,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width - 1
-            : 19
+          ? props.width - 1
+          : 19
       }
       viewBox="0 0 20 19"
       fill="none"
@@ -339,8 +339,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width - 1
-            : 19
+          ? props.width - 1
+          : 19
       }
       viewBox="0 0 20 19"
       fill="none"
@@ -360,8 +360,8 @@ export const Icons = {
         typeof props.height === "number"
           ? props.height
           : typeof props.width === "number"
-            ? props.width + 1
-            : 15
+          ? props.width + 1
+          : 15
       }
       viewBox="0 0 14 15"
       fill="none"

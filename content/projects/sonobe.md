@@ -1,7 +1,7 @@
 ---
 id: "sonobe"
 name: "Sonobe Folding Library"
-image: "sonobe.png"
+image: "sonobe.webp"
 section: "pse"
 projectStatus: "active"
 category: "devtools"

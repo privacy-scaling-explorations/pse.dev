@@ -1,6 +1,7 @@
 /* eslint-disable quotes */
-import { ReadonlyURLSearchParams } from "next/navigation"
+
 import { clsx, type ClassValue } from "clsx"
+import { ReadonlyURLSearchParams } from "next/navigation"
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
@@ -27,22 +28,6 @@ export function queryStringToObject(
 
 export function shuffleArray<T>(array: T[]) {
   return array.sort(() => 0.5 - Math.random())
-}
-
-export function convertDirtyStringToHtml(string: string) {
-  const urlPattern =
-    // eslint-disable-next-line no-useless-escape
-    /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim
-  // eslint-disable-next-line no-useless-escape
-  const pseudoUrlPattern = /(^|[^\/])(www\.[\S]+(\b|$))/gim
-
-  if (!string) return ""
-  return string
-    .replace(/\n/g, "<br />")
-
-    .replace(urlPattern, '<a href="$&">$&</a>')
-    .replace(pseudoUrlPattern, '$1<a href="http://$2">$2</a>')
-    .toLowerCase()
 }
 
 // Get background image or return fallback image
