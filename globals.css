@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimizations for font loading */
+.font-loading {
+  font-display: swap;
+  text-rendering: geometricPrecision !important;
+}
+
+/* Ensure fonts don't block rendering */
+html {
+  font-synthesis: none;
+}
+
 /* Custom responsive navigation */
 .nav-responsive {
   display: none;

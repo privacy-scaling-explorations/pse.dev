@@ -17,8 +17,6 @@ const display = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
   display: "swap",
   preload: true,
-  fallback: ["system-ui", "sans-serif"],
-  adjustFontFallback: true,
 })
 
 const sans = DM_Sans({
@@ -27,8 +25,6 @@ const sans = DM_Sans({
   weight: ["400", "500", "700"],
   display: "swap",
   preload: true,
-  fallback: ["system-ui", "sans-serif"],
-  adjustFontFallback: true,
 })
 
 export const viewport: Viewport = {
@@ -138,23 +134,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {/* Inline critical CSS for immediate render */}
         <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
 
-        {/* Optimize font loading */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQQfTlHfANkX7zqxzMdw.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriCZOIHQ.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-
-        {/* Font preloading for critical fonts */}
+        {/* Font preconnections for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
