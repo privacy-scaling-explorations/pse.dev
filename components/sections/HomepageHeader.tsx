@@ -10,22 +10,22 @@ import dynamic from "next/dynamic"
 import Image from "next/image"
 import Link from "next/link"
 
-const motion = dynamic(
-  () => import("framer-motion").then((mod) => ({ default: mod.motion })),
-  { ssr: false }
+const MotionH1 = dynamic(
+  () => import("framer-motion").then((mod) => mod.motion.h1),
+  { ssr: false, loading: () => <h1 /> }
 )
 
 export const HomepageHeader = () => {
   return (
     <PageHeader
       title={
-        <motion.h1
+        <MotionH1
           initial={{ y: 16, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, cubicBezier: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Label.PageTitle size="large" label={LABELS.HOMEPAGE.HEADER_TITLE} />
-        </motion.h1>
+        </MotionH1>
       }
       subtitle={LABELS.HOMEPAGE.HEADER_SUBTITLE}
       image={
