@@ -1,4 +1,3 @@
-import bundleAnalyzer from "@next/bundle-analyzer"
 import nextMdx from "@next/mdx"
 import path from "path"
 import { fileURLToPath } from "url"
@@ -13,9 +12,6 @@ const withMDX = nextMdx({
   },
 })
 
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -180,4 +176,4 @@ const nextConfig = {
   },
 }
 
-export default withBundleAnalyzer(withMDX(nextConfig))
+export default withMDX(nextConfig)
