@@ -115,7 +115,7 @@ const ArticleInEvidenceCard = ({
             >
               {article.title}
             </Link>
-            <span className="text-sm text-white/80 uppercase font-inter">
+            <span className="text-sm text-white/80 uppercase font-sans">
               {article.authors?.join(", ")}
             </span>
             {article.tldr && !hideTldr && (

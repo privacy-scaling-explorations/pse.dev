@@ -114,7 +114,6 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         display: ["var(--font-display)"],
-        inter: ["var(--font-inter)"],
       },
       keyframes: {
         "accordion-down": {

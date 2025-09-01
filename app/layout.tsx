@@ -7,24 +7,13 @@ import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Metadata, Viewport } from "next"
-import { DM_Sans, Inter, Space_Grotesk } from "next/font/google"
+import { DM_Sans, Space_Grotesk } from "next/font/google"
 import Script from "next/script"
-
-// Optimized font loading with combined weights
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  preload: true,
-  fallback: ["system-ui", "sans-serif"],
-  adjustFontFallback: true,
-})
 
 const display = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   display: "swap",
   preload: true,
   fallback: ["system-ui", "sans-serif"],
@@ -34,7 +23,7 @@ const display = Space_Grotesk({
 const sans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
   display: "swap",
   preload: true,
   fallback: ["system-ui", "sans-serif"],
@@ -121,7 +110,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={cn(inter.variable, display.variable, sans.variable)}
+      className={cn(display.variable, sans.variable)}
       suppressHydrationWarning
     >
       <Script id="matomo-tracking" strategy="lazyOnload">

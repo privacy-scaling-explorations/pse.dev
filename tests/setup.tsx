@@ -53,12 +53,6 @@ vi.mock("next/script", () => ({
 
 // Mock Next.js Font components
 vi.mock("next/font/google", () => ({
-  Inter: () => ({
-    style: {
-      fontFamily: "Inter",
-    },
-    variable: "--font-inter",
-  }),
   Space_Grotesk: () => ({
     style: {
       fontFamily: "Space Grotesk",

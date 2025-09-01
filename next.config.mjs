@@ -1,8 +1,8 @@
-import nextMdx from "@next/mdx";
-import path from "path";
-import { fileURLToPath } from "url";
+import nextMdx from "@next/mdx"
+import path from "path"
+import { fileURLToPath } from "url"
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
@@ -16,14 +16,36 @@ const withMDX = nextMdx({
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx", "md"],
   reactStrictMode: true,
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, dev }) => {
     if (isServer) {
-      config.resolve.alias["zlib-sync"] = path.resolve(__dirname, "lib/dummy-zlib-sync.js");
-      config.externals.push("erlpack");
-    } else {
-      config.externals.push("discord.js", "@discordjs/rest");
+      config.externals.push("erlpack")
     }
-    return config;
+
+    // Optimize for modern browsers - reduce polyfills and transpilation
+    if (!isServer && !dev) {
+      // Reduce bundle size by excluding unnecessary polyfills (Vercel-safe)
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        crypto: false,
+        stream: false,
+        buffer: false,
+      }
+
+      // Enable optimization for modern browsers (Vercel-compatible)
+      config.optimization = {
+        ...config.optimization,
+        usedExports: true,
+        sideEffects: false,
+        // Modern module concatenation
+        concatenateModules: true,
+        // Optimize for production builds
+        minimize: true,
+      }
+    }
+
+    return config
   },
   images: {
     remotePatterns: [
@@ -36,7 +58,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "img.youtube.com",
         pathname: "/**",
-      }
+      },
     ],
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -54,59 +76,69 @@ const nextConfig = {
         headers: [
           {
             key: "X-DNS-Prefetch-Control",
-            value: "on"
-          }
-        ]
+            value: "on",
+          },
+        ],
       },
       {
         source: "/favicon.(ico|svg|png)",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable"
-          }
-        ]
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
       {
         source: "/:path*\\.(css|js|woff|woff2|ttf|otf)",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable"
-          }
-        ]
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
       {
         source: "/:path*\\.(jpg|jpeg|png|gif|webp|svg|avif)",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable"
-          }
-        ]
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
       {
         source: "/articles/:path*",
         headers: [
           {
-            key: "Cache-Control", 
-            value: "public, max-age=31536000, immutable"
-          }
-        ]
-      }
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
     ]
   },
+  // Configure compiler for modern browsers
   compiler: {
     // Remove React DevTools in production
     // eslint-disable-next-line no-undef
     removeConsole: process.env.NODE_ENV === "production",
+    // Enable modern features
+    emotion: false, // Disable if not using emotion
+    styledComponents: false, // Disable if not using styled-components
   },
   experimental: {
-    mdxRs: true,
-    optimizePackageImports: ["@heroicons/react", "lucide-react"],
+    optimizePackageImports: [
+      "@heroicons/react",
+      "lucide-react",
+      "framer-motion",
+    ],
     // Use modern compilation target
     esmExternals: true,
+    // Enable more aggressive optimizations for modern browsers
+    serverComponentsExternalPackages: [],
   },
+  // Enable SWC with modern target
   swcMinify: true,
 }
 

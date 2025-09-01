@@ -1,31 +1,16 @@
 "use client"
 
-import { useQuery } from "@tanstack/react-query"
-import { Article, ArticleTag } from "@/lib/content"
-import { ArticleListCard } from "./article-list-card"
-import { cva } from "class-variance-authority"
-import { ArticleInEvidenceCard } from "./article-in-evidance-card"
-import { Input } from "../ui/input"
 import { Button } from "../ui/button"
+import { Input } from "../ui/input"
+import { ArticleInEvidenceCard } from "./article-in-evidance-card"
+import { ArticleListCard } from "./article-list-card"
 import { LABELS } from "@/app/labels"
+import { Article, ArticleTag } from "@/lib/content"
+import { useQuery } from "@tanstack/react-query"
 import { Search as SearchIcon } from "lucide-react"
+import { useRouter, useSearchParams } from "next/navigation"
 import { useState } from "react"
 import { useDebounce, useMedia } from "react-use"
-import { useRouter, useSearchParams } from "next/navigation"
-
-const ArticleTitle = cva(
-  "text-white font-display hover:text-anakiwa-400 transition-colors group-hover:text-anakiwa-400",
-  {
-    variants: {
-      variant: {
-        compact:
-          "text-[20px] font-semibold lg:font-bold lg:text-lg line-clamp-2 mt-auto",
-        default: "text-[20px] font-semibold lg:font-bold line-clamp-3 mt-auto",
-        xl: "text-[20px] font-bold lg:!text-[40px] lg:!leading-[44px] mt-auto",
-      },
-    },
-  }
-)
 
 async function fetchArticles(tag?: string) {
   try {

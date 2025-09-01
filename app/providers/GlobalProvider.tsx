@@ -1,5 +1,7 @@
 "use client"
 
+import { ProjectsProvider } from "./ProjectsProvider"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import {
   createContext,
   useContext,
@@ -7,8 +9,6 @@ import {
   useState,
   useEffect,
 } from "react"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { ProjectsProvider } from "./ProjectsProvider"
 
 interface GlobalContextType {
   children?: ReactNode
@@ -30,7 +30,19 @@ const queryClient = new QueryClient({
 const PSE_DARK_MODE_KEY = "pse-dark-mode"
 
 export function GlobalProvider({ children }: { children: ReactNode }) {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  // Start with system preference to avoid null return
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Server-side safe default
+    if (typeof window === "undefined") return false
+
+    // Try to get system preference immediately
+    try {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+      return mediaQuery.matches
+    } catch {
+      return false
+    }
+  })
   const [isInitialized, setIsInitialized] = useState(false)
 
   // Initialize dark mode from localStorage or system preference
@@ -64,10 +76,6 @@ export function GlobalProvider({ children }: { children: ReactNode }) {
   const value = {
     isDarkMode,
     setIsDarkMode: handleSetIsDarkMode,
-  }
-
-  if (!isInitialized) {
-    return null
   }
 
   return (
