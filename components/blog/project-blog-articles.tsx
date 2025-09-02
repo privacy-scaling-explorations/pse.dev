@@ -65,7 +65,7 @@ export const ProjectBlogArticles = ({
     >
       <div className="flex flex-col gap-10">
         <h3 className="text-[22px] font-bold text-secondary">
-          Related articles sss
+          Related articles
         </h3>
         <div className="grid grid-cols-1 gap-4 lg:gap-8">
           {articles.length === 0 && (
