@@ -33,7 +33,7 @@ export const ProjectGraduated = () => {
                   <span className="font-sans text-2xl font-bold text-tuatara-950 dark:text-anakiwa-400">
                     {project.name}
                   </span>
-                  <span className="font-sans text-base font-normal text-tuatara-500 dark:text-tuatara-100 line-clamp-3">
+                  <span className="font-sans text-base font-normal text-tuatara-500 dark:text-tuatara-100 line-clamp-2 lg:line-clamp-3">
                     {project.tldr}
                   </span>
                 </div>

@@ -227,7 +227,7 @@ export const Slider = ({
           )}
           style={{
             transform: `translateX(-${translateX}%)`,
-            gap: gap,
+            gap: isMobile ? "0px" : gap,
           }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
