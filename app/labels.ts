@@ -221,6 +221,8 @@ export const LABELS = {
   },
   PROJECTS_PAGE: {
     TITLE: "Explore Our Projects",
+    GRADUATED_PROJECTS:
+      "Explore graduated projects that have spun out into the ecosystem",
   },
   RESEARCH_PAGE: {
     TITLE: "Explore Our Research",
