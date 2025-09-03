@@ -29,7 +29,7 @@ export const ProjectGraduated = () => {
                 rel="noopener noreferrer"
                 className="flex flex-col gap-4 w-full lg:max-w-[400px] p-8 rounded-[10px] bg-white border border-anakiwa-300 dark:border-anakiwa-400  dark:bg-anakiwa-975 hover:bg-anakiwa-100 dark:hover:bg-anakiwa-950 transition-all duration-300 cursor-pointer"
               >
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 h-[140px]">
                   <span className="font-sans text-2xl font-bold text-tuatara-950 dark:text-anakiwa-400">
                     {project.name}
                   </span>
@@ -37,7 +37,7 @@ export const ProjectGraduated = () => {
                     {project.tldr}
                   </span>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-row items-center justify-between mt-auto w-full">
                   <span className="font-sans text-base font-normal text-tuatara-500 dark:text-tuatara-200 underline">
                     {website}
                   </span>

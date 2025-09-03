@@ -46,7 +46,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Critical layout styles */
 .min-h-screen { min-height: 100vh; }
 .flex { display: flex; }
-.flex-col { flex-direction: column; }
 .flex-1 { flex: 1 1 0%; }
 .relative { position: relative; }
 .hidden { display: none; }

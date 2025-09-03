@@ -48,7 +48,7 @@ export const Slider = ({
 
     // Check if device is mobile
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768) // md breakpoint
+      setIsMobile(window.innerWidth < 1024) // lg breakpoint
     }
 
     checkMobile()
