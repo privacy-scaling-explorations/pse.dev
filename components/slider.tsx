@@ -247,7 +247,7 @@ export const Slider = ({
         </div>
       </div>
       {showNavigation && maxSlideIndex > 0 && showControls && (
-        <div className="flex gap-[10px] ml-auto justify-end">
+        <div className="flex gap-[10px] ml-auto justify-end mr-4">
           <Button
             onClick={goToPrev}
             disabled={!infinite && currentSlide === 0}
