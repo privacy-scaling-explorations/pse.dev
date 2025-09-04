@@ -35,7 +35,7 @@ Enhancing Ethereum through cryptographic research and collective experimentation
 Clone the project
 
 ```commandline
-  git clone https://github.com/privacy-scaling-explorations/pse.dev
+  git clone https://github.com/privacy-ethereum/pse.dev
 ```
 
 Go to the project directory

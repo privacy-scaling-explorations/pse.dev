@@ -7,7 +7,7 @@ export const siteConfig = {
   url: "https://pse.dev",
   links: {
     twitter: "https://x.com/PrivacyEthereum",
-    github: "https://github.com/privacy-scaling-explorations",
+    github: "https://github.com/privacy-ethereum",
     docs: "https://ui.shadcn.com",
     discord: "https://discord.com/invite/sF5CT5rzrR",
     articles: "https://pse.dev/blog",
@@ -22,14 +22,14 @@ export const siteConfig = {
     discordAnnouncementChannel:
       "https://discord.com/channels/943612659163602974/969614451089227876",
     accelerationProgram:
-      "https://github.com/privacy-scaling-explorations/acceleration-program",
+      "https://github.com/privacy-ethereum/acceleration-program",
     coreProgram:
       "https://docs.google.com/forms/d/e/1FAIpQLSendzYY0z_z7fZ37g3jmydvzS9I7OWKbY2JrqAnyNqeaBHvMQ/viewform",
   },
   addGithubResource:
-    "https://github.com/privacy-scaling-explorations/website-v2/blob/main/content/resources.md",
+    "https://github.com/privacy-ethereum/website-v2/blob/main/content/resources.md",
   editProjectPage: (id: string) =>
-    `https://github.com/privacy-scaling-explorations/website-v2/blob/main/content/projects/${id}.md`,
+    `https://github.com/privacy-ethereum/website-v2/blob/main/content/projects/${id}.md`,
   editBlogPage: (slug: string) =>
-    `https://github.com/privacy-scaling-explorations/website-v2/blob/main/content/articles/${slug}.md`,
+    `https://github.com/privacy-ethereum/website-v2/blob/main/content/articles/${slug}.md`,
 }
