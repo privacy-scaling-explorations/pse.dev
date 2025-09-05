@@ -14,7 +14,7 @@ export const ProjectGraduated = () => {
       <span className="dark:text-tuatara-100 text-tuatara-950 text-xl lg:text-3xl lg:leading-[45px] font-normal font-sans text-center lg:px-0 px-4">
         {LABELS.PROJECTS_PAGE.GRADUATED_PROJECTS}
       </span>
-      <div className="lg:px-0 px-4">
+      <div className="lg:px-4 px-4">
         <Slider slidesToShow={4.2} gap="24px">
           {graduatedProjects.map((project: ProjectInterface) => {
             const website = project.links?.website
