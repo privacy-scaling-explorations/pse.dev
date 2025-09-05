@@ -155,7 +155,13 @@ export const Slider = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={twMerge("flex flex-col gap-5 relative px-1", className)}>
+      <div
+        className={twMerge(
+          "flex flex-col gap-5 relative overflow-hidden",
+          isMobile ? "" : "px-1",
+          className
+        )}
+      >
         <div
           ref={sliderRef}
           className={twMerge(

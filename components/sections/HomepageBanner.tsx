@@ -31,7 +31,7 @@ export const HomepageBanner = () => {
               external
               className="mx-auto"
             >
-              <Button className="lg:w-full mx-auto">
+              <Button className="lg:w-full mx-auto lg:text-lg !text-xs">
                 <div className="flex items-center gap-2">
                   <Icons.discord fill="white" className="h-4" />
                   <span className="uppercase">
@@ -58,7 +58,7 @@ export const HomepageBanner = () => {
               external
               className="mx-auto"
             >
-              <Button className="lg:w-full mx-auto">
+              <Button className="lg:w-full mx-auto lg:text-lg !text-xs">
                 <div className="flex items-center gap-2">
                   <Icons.discord fill="white" className="h-4" />
                   <span className="uppercase">
